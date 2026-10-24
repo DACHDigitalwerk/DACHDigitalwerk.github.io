@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Firmenkredit-, Annuitäten- &amp; Tilgungsplan-Rechner 2026 | PAngV Effektivzins, Zinsbindung, Sondertilgung &amp; Stresstest (DE / AT / CH)</title>
+  <meta name="description" content="Kostenloser, 100% DSGVO-konformer Kredit- &amp; Annuitätenrechner 2026 für Deutschland (PAngV Effektivzins, § 489 BGB Sonderkündigung), Österreich (GebG § 33 TP 8, HIKrG) und Schweiz (Tragbarkeit 5 % / 33 %). Mit interaktivem Tilgungsplan, Sondertilgungs-Optimierer &amp; DIN-A4 Finanzierungsbericht." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/kredit-annuitaeten-rechner/" />
+  <meta property="og:title" content="DACH Firmenkredit-, Annuitäten- &amp; Tilgungsplan-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Berechne Annuitätendarlehen, PAngV Effektivzins, Restschuld nach Zinsbindung, jährliche Sondertilgungen und Zinsänderungs-Stresstest für Deutschland, Österreich und die Schweiz." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/kredit-annuitaeten-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-page {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        color: black !important;
+        page-break-inside: avoid;
+      }
+      .print-box {
+        border: 1px solid #334155 !important;
+        background: white !important;
+        color: black !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Firmenkredit-, Annuitäten- & Tilgungsplan-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/kredit-annuitaeten-rechner/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "description": "Präzisionsrechner für Firmenkredite, Annuitätendarlehen, Tilgungspläne, PAngV Effektivzins, Zinsbindung, Sondertilgungen und Zinsänderungsrisiken im DACH-Raum (Deutschland BGB § 489, Österreich GebG § 33 TP 8, Schweiz Hypotheken-Tragbarkeit). Inklusive druckfertigem DIN-A4 Finanzierungsbericht.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          <span>💳 SPRINT 20.1 KREDIT-STANDARDS 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">PAngV Effektivzins • § 489 BGB 10-Jahre-Kündigung • GebG § 33 TP 8 • VSB Tragbarkeit</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Übertragung von Finanzdaten)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 PAngV / BGB</span>
+        <span>•</span>
+        <span>🇦🇹 GebG / HIKrG</span>
+        <span>•</span>
+        <span>🇨🇭 KKG / VSB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-emerald-400 ml-2 px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-800">Tool #29</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition flex items-center gap-1.5" title="Tilgungsplan als CSV exportieren">
+          <span>📥 CSV</span>
+        </button>
+        <button onclick="exportJSON()" class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5" title="Berechnung als JSON sichern">
+          <span>💾 Backup</span>
+        </button>
+        <label class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5 cursor-pointer" title="Gespeicherte JSON-Datei laden">
+          <span>📂 Laden</span>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJSON(event)" />
+        </label>
+        <button onclick="switchToTab('bericht'); setTimeout(() => window.print(), 250);" class="text-xs font-semibold bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Bericht</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="no-print pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-3">
+          <span>💳 PAngV, BGB § 489, HIKrG &amp; KKG 2026</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>100% Client-Side &amp; DSGVO-sicher</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          DACH Firmenkredit-, Annuitäten- &amp; Tilgungsplan-Rechner 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+          Ermittle monatliche Raten, den exakten <strong>PAngV-Effektivzins</strong>, Restschulden nach Ablauf der Zinsbindung, Zinsersparnisse durch <strong>Sondertilgungen</strong> und simuliere <strong>Zins-Stresstests (+1 % bis +4 %)</strong> für Deutschland, Österreich (GebG § 33 TP 8) und die Schweiz (Hypotheken-Tragbarkeit).
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="text-xs bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 font-medium shadow-sm">
+          <span>⭐ Enterprise-Support &amp; Finanz-Suite</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB NAVIGATION -->
+    <div class="flex flex-wrap items-center gap-2 mt-6">
+      <button onclick="switchToTab('de')" id="tabBtn-de" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">
+        <span>🇩🇪 Deutschland (Kreditrechner &amp; PAngV)</span>
+      </button>
+      <button onclick="switchToTab('at')" id="tabBtn-at" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (GebG &amp; HIKrG)</span>
+      </button>
+      <button onclick="switchToTab('ch')" id="tabBtn-ch" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (VSB Tragbarkeit)</span>
+      </button>
+      <button onclick="switchToTab('tilgungsplan')" id="tabBtn-tilgungsplan" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📅 Interaktiver Tilgungsplan</span>
+      </button>
+      <button onclick="switchToTab('stresstest')" id="tabBtn-stresstest" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>⚠️ Zins-Stresstest (+1% bis +4%)</span>
+      </button>
+      <button onclick="switchToTab('bericht')" id="tabBtn-bericht" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📄 DIN-A4 Kreditbericht</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 w-full pb-16">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: DEUTSCHLAND / KERNRECHNER (PAngV, BGB § 489, Sondertilgung) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-de" class="tab-content block space-y-6">
+
+      <!-- QUICK PRESETS -->
+      <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 flex flex-wrap items-center gap-2 text-xs">
+        <span class="text-slate-400 font-semibold mr-1">⚡ Schnelle Muster-Szenarien:</span>
+        <button onclick="loadPreset('gewerbe250k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          Gewerbedarlehen (250.000 € • 3,8 % • 10 J.)
+        </button>
+        <button onclick="loadPreset('immo400k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          Immobilienkredit (400.000 € • 3,5 % • 15 J.)
+        </button>
+        <button onclick="loadPreset('sondertilgung5k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-900/40 transition">
+          Investition mit 5.000 € Sondertilgung p.a.
+        </button>
+        <button onclick="loadPreset('bullet300k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-900/40 transition">
+          Endfälliges Darlehen (300.000 € Bullet)
+        </button>
+        <button onclick="loadPreset('tilgungsdarlehen150k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-900/40 transition">
+          Lineares Ratendarlehen (150.000 €)
+        </button>
+      </div>
+
+      <!-- MAIN GRID: INPUTS & OUTPUTS -->
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT COLUMN: INPUT CONTROLS (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- KARTE 1: DARLEHENS-KONDITIONEN -->
+          <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">1</span>
+                <h3 class="font-bold text-white text-base">Darlehensbetrag &amp; Konditionen</h3>
+              </div>
+              <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2.5 py-1 rounded-md">PAngV § 6</span>
+            </div>
+
+            <!-- Darlehensbetrag -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="inp_amount" class="text-xs font-semibold text-slate-300">
+                  Nettodarlehensbetrag (Auszahlungssumme)
+                </label>
+                <span id="txt_amount_display" class="text-xs font-mono text-emerald-400 font-bold">250.000,00 €</span>
+              </div>
+              <div class="relative">
+                <input type="number" id="inp_amount" value="250000" min="5000" max="50000000" step="5000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-base focus:outline-none focus:border-emerald-500 transition" oninput="syncInputs()" />
+                <span class="absolute right-4 top-3 text-slate-500 text-xs font-semibold">EUR</span>
+              </div>
+              <input type="range" id="rng_amount" min="10000" max="1000000" step="5000" value="250000" class="w-full mt-2 accent-emerald-500 cursor-pointer" oninput="document.getElementById('inp_amount').value = this.value; syncInputs();" />
+            </div>
+
+            <!-- Darlehensart -->
+            <div>
+              <label class="text-xs font-semibold text-slate-300 block mb-2">Darlehensart &amp; Tilgungsstruktur</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <button type="button" onclick="setLoanType('annuity')" id="btn_type_annuity" class="p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-emerald-500/20 border-emerald-500 text-white shadow-sm">
+                  <span class="font-bold text-xs">Annuität</span>
+                  <span class="text-[11px] text-slate-300 leading-tight">Konstante Rate, steigende Tilgung</span>
+                </button>
+                <button type="button" onclick="setLoanType('linear')" id="btn_type_linear" class="p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                  <span class="font-bold text-xs">Tilgungsdarlehen</span>
+                  <span class="text-[11px] text-slate-400 leading-tight">Konstante Tilgung, sinkende Raten</span>
+                </button>
+                <button type="button" onclick="setLoanType('bullet')" id="btn_type_bullet" class="p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                  <span class="font-bold text-xs">Endfällig</span>
+                  <span class="text-[11px] text-slate-400 leading-tight">Nur Zinszahlung, 100% am Ende</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Sollzinssatz & Zinsbindung -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="inp_interest_nominal" class="text-xs font-semibold text-slate-300 block mb-1.5">
+                  Gebundener Sollzinssatz p.a.
+                </label>
+                <div class="relative">
+                  <input type="number" id="inp_interest_nominal" value="3.8" min="0.0" max="25.0" step="0.05" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-base focus:outline-none focus:border-emerald-500 transition" oninput="syncInputs()" />
+                  <span class="absolute right-4 top-3 text-slate-500 text-xs font-semibold">% p.a.</span>
+                </div>
+              </div>
+
+              <div>
+                <label for="inp_fixed_years" class="text-xs font-semibold text-slate-300 block mb-1.5">
+                  Zinsbindungsdauer (Festschreibung)
+                </label>
+                <select id="inp_fixed_years" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-medium text-sm focus:outline-none focus:border-emerald-500 transition" onchange="syncInputs()">
+                  <option value="5">5 Jahre Festzins</option>
+                  <option value="10" selected>10 Jahre Festzins (Standard)</option>
+                  <option value="15">15 Jahre Festzins</option>
+                  <option value="20">20 Jahre Festzins</option>
+                  <option value="25">25 Jahre Festzins</option>
+                  <option value="30">30 Jahre (Volltilger-Modell)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Zahlungsintervall & Auszahlungskurs / Disagio -->
+            <div class="grid sm:grid-cols-2 gap-4 pt-1">
+              <div>
+                <label for="inp_interval" class="text-xs font-semibold text-slate-300 block mb-1.5">
+                  Zahlungsintervall der Raten
+                </label>
+                <select id="inp_interval" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-medium text-sm focus:outline-none focus:border-emerald-500 transition" onchange="syncInputs()">
+                  <option value="monthly" selected>Monatlich (12 Raten p.a.)</option>
+                  <option value="quarterly">Vierteljährlich (4 Raten p.a.)</option>
+                  <option value="annual">Jährlich (1 Rate p.a.)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="inp_disbursement_pct" class="text-xs font-semibold text-slate-300 block mb-1.5">
+                  Auszahlungskurs (Disagio)
+                </label>
+                <div class="relative">
+                  <input type="number" id="inp_disbursement_pct" value="100.0" min="80.0" max="100.0" step="0.5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-base focus:outline-none focus:border-emerald-500 transition" oninput="syncInputs()" />
+                  <span class="absolute right-4 top-3 text-slate-500 text-xs font-semibold">%</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- KARTE 2: TILGUNG & SONDERTILGUNG -->
+          <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm">2</span>
+                <h3 class="font-bold text-white text-base">Tilgungsrate &amp; Sondertilgungen</h3>
+              </div>
+              <span class="text-xs font-mono text-teal-400 bg-teal-950/60 border border-teal-800 px-2.5 py-1 rounded-md">Laufzeit &amp; Entschuldung</span>
+            </div>
+
+            <!-- Tilgungsmodus (Prozent vs. Wunsch-Rate) -->
+            <div id="row_repayment_mode">
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="inp_repayment_rate" class="text-xs font-semibold text-slate-300">
+                  Anfängliche Tilgung p.a.
+                </label>
+                <span id="txt_repayment_display" class="text-xs font-mono text-teal-400 font-bold">2,50 % p.a.</span>
+              </div>
+              <div class="relative">
+                <input type="number" id="inp_repayment_rate" value="2.5" min="0.5" max="20.0" step="0.1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-base focus:outline-none focus:border-teal-500 transition" oninput="syncInputs()" />
+                <span class="absolute right-4 top-3 text-slate-500 text-xs font-semibold">% p.a.</span>
+              </div>
+              <input type="range" id="rng_repayment_rate" min="1.0" max="10.0" step="0.1" value="2.5" class="w-full mt-2 accent-teal-500 cursor-pointer" oninput="document.getElementById('inp_repayment_rate').value = this.value; syncInputs();" />
+            </div>
+
+            <!-- Jährliche Sondertilgung -->
+            <div class="border-t border-slate-800/80 pt-4">
+              <div class="flex justify-between items-center mb-1.5">
+                <div>
+                  <label for="inp_special_repayment" class="text-xs font-semibold text-slate-300 block">
+                    Jährliche Sondertilgung (€ / CHF)
+                  </label>
+                  <span class="text-[11px] text-slate-500">Optionale Sonderleistung zum Jahresende</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="setSpecialRepaymentPct(0)" class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 hover:text-white">0 €</button>
+                  <button type="button" onclick="setSpecialRepaymentPct(2)" class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-400 hover:text-white">2% (5.000 €)</button>
+                  <button type="button" onclick="setSpecialRepaymentPct(5)" class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-emerald-400 hover:text-white font-bold">5% (12.500 €)</button>
+                </div>
+              </div>
+              <div class="relative">
+                <input type="number" id="inp_special_repayment" value="0" min="0" max="1000000" step="500" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-white font-mono text-base focus:outline-none focus:border-teal-500 transition" oninput="syncInputs()" />
+                <span class="absolute right-4 top-3 text-slate-500 text-xs font-semibold">EUR / Jahr</span>
+              </div>
+            </div>
+
+            <!-- Darlehensbeginn -->
+            <div class="grid sm:grid-cols-2 gap-4 border-t border-slate-800/80 pt-4">
+              <div>
+                <label for="inp_start_month" class="text-xs font-semibold text-slate-300 block mb-1.5">Startmonat</label>
+                <select id="inp_start_month" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-white text-sm" onchange="syncInputs()">
+                  <option value="1">Januar</option>
+                  <option value="2">Februar</option>
+                  <option value="3">März</option>
+                  <option value="4">April</option>
+                  <option value="5">Mai</option>
+                  <option value="6">Juni</option>
+                  <option value="7">Juli</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">Oktober</option>
+                  <option value="11" selected>November</option>
+                  <option value="12">Dezember</option>
+                </select>
+              </div>
+              <div>
+                <label for="inp_start_year" class="text-xs font-semibold text-slate-300 block mb-1.5">Startjahr</label>
+                <input type="number" id="inp_start_year" value="2026" min="2020" max="2035" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-white font-mono text-sm" oninput="syncInputs()" />
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: RESULTS, KPIS & LEGAL HINTS (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- HAUPT-KPI KARTE: MONATSRATE & EFFEKTIVZINS -->
+          <div class="bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-emerald-500/50 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Ergebnis-Übersicht</span>
+              <span class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full font-bold">PAngV Konform</span>
+            </div>
+
+            <!-- Monatliche Rate / Periode -->
+            <div class="mb-5">
+              <span class="text-xs text-slate-400 block font-medium" id="lbl_rate_period">Regelmäßige Monatsrate</span>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="res_installment" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">1.312,50 €</span>
+                <span class="text-xs text-slate-400 font-mono">/ Monat</span>
+              </div>
+              <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5">
+                <span>Jährliche Belastung:</span>
+                <strong id="res_annual_installment" class="text-slate-200 font-mono font-bold">15.750,00 €</strong>
+              </div>
+            </div>
+
+            <!-- Grid: Effektivzins & Restschuld -->
+            <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-800/80">
+              <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block">Effektiver Jahreszins</span>
+                <span id="res_effective_rate" class="text-lg font-bold text-emerald-400 font-mono">3,87 %</span>
+                <span class="text-[10px] text-slate-500 block">nach PAngV</span>
+              </div>
+              <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block">Restschuld nach Zinsbindung</span>
+                <span id="res_remaining_balance" class="text-lg font-bold text-amber-300 font-mono">174.281,42 €</span>
+                <span id="res_remaining_fixed_years_lbl" class="text-[10px] text-slate-500 block">nach 10 Jahren</span>
+              </div>
+            </div>
+
+            <!-- Grid: Getilgt & Gesamtzinsen in Zinsbindung -->
+            <div class="grid grid-cols-2 gap-3 pt-3">
+              <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block">Getilgt (in Zinsbindung)</span>
+                <span id="res_principal_fixed" class="text-sm font-bold text-slate-200 font-mono">75.718,58 €</span>
+                <span id="res_principal_pct" class="text-[10px] text-emerald-400 block font-semibold">(30,29 % getilgt)</span>
+              </div>
+              <div class="bg-slate-950/80 p-3 rounded-2xl border border-slate-800">
+                <span class="text-[11px] text-slate-400 block">Zinskosten (in Zinsbindung)</span>
+                <span id="res_interest_fixed" class="text-sm font-bold text-rose-300 font-mono">81.781,42 €</span>
+                <span class="text-[10px] text-slate-500 block">an die Bank gezahlt</span>
+              </div>
+            </div>
+
+            <!-- Volltilgung / Laufzeit Prognose -->
+            <div class="mt-4 p-3 rounded-2xl bg-slate-950/90 border border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] text-slate-400 block">Vollständige Entschuldung nach:</span>
+                <span id="res_full_term_years" class="text-base font-extrabold text-white">25 Jahren und 4 Monaten</span>
+              </div>
+              <span class="text-2xl">⏳</span>
+            </div>
+
+          </div>
+
+          <!-- BGB § 489 SONDERKÜNDIGUNGS-HINWEIS -->
+          <div id="box_bgb_489" class="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-4 text-xs text-emerald-200 space-y-2">
+            <div class="flex items-center gap-2 text-emerald-300 font-bold">
+              <span>⚖️</span>
+              <span>Gesetzliches Kündigungsrecht (§ 489 Abs. 1 Nr. 2 BGB):</span>
+            </div>
+            <p class="leading-relaxed text-[11px] text-emerald-200/90">
+              Bei Darlehen mit einer Festzinsbindung von mehr als 10 Jahren haben Sie als Darlehensnehmer das <strong>unabdingbare gesetzliche Recht</strong>, den Vertrag nach Ablauf von 10 Jahren nach dem vollständigen Empfang unter Einhaltung einer Kündigungsfrist von <strong>6 Monaten ganz oder teilweise ohne Vorfälligkeitsentschädigung</strong> zu kündigen!
+            </p>
+          </div>
+
+          <!-- SONDERTILGUNGS-VORTEILSBANNER -->
+          <div id="box_special_benefit" class="bg-teal-950/30 border border-teal-500/40 rounded-2xl p-4 text-xs text-teal-200 space-y-2">
+            <div class="flex items-center justify-between font-bold text-teal-300">
+              <span class="flex items-center gap-2"><span>🚀</span> <span>Sondertilgungs-Vorteil:</span></span>
+              <span id="res_special_interest_saved" class="font-mono text-emerald-400 font-bold">0,00 € Ersparnis</span>
+            </div>
+            <p class="leading-relaxed text-[11px] text-teal-200/90" id="res_special_time_saved">
+              Geben Sie eine jährliche Sondertilgung ein, um Ihre Zinskosten drastisch zu reduzieren und die Kreditlaufzeit um mehrere Jahre zu verkürzen.
+            </p>
+          </div>
+
+          <!-- SCHNELLE NAVIGATION BUTTONS -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="switchToTab('tilgungsplan')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold py-2.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5">
+              <span>📅 Tilgungsplan</span>
+            </button>
+            <button onclick="switchToTab('stresstest')" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-300 font-bold py-2.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5">
+              <span>⚠️ Zins-Stresstest</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: ÖSTERREICH (Gebührengesetz § 33 TP 8, HIKrG & VKrG) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-at" class="tab-content hidden space-y-6">
+
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold mb-2">
+              <span>🇦🇹 Republik Österreich</span>
+              <span>•</span>
+              <span>GebG § 33 TP 8 &amp; HIKrG</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Österreichische Kreditvertragsgebühr &amp; Vorfälligkeitsentschädigung</h2>
+          </div>
+          <span class="text-2xl">🇦🇹</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Linke Spalte: GebG Rechner -->
+          <div class="space-y-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>📜</span>
+              <span>Rechtsgeschäftsgebühr gem. § 33 TP 8 GebG</span>
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              In Österreich unterliegen Kredit- und Darlehensverträge (insb. Firmenkredite und Kontokorrentrahmen) einer staatlichen <strong>Rechtsgeschäftsgebühr in Höhe von 0,8 %</strong> der Kreditsumme.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <label class="flex items-center gap-2.5 cursor-pointer text-xs text-slate-200">
+                <input type="checkbox" id="at_residential_exempt" class="w-4 h-4 rounded text-red-600 focus:ring-red-500 bg-slate-800 border-slate-700" onchange="calculateATModule()" />
+                <span>Befreiung für privaten Wohnbau gem. § 33 TP 8 Abs. 4 GebG</span>
+              </label>
+
+              <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-slate-400">Zugrunde gelegte Kreditsumme:</span>
+                  <span id="at_display_amount" class="font-mono text-white font-bold">250.000,00 €</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-slate-400">Gebührensatz:</span>
+                  <span id="at_display_rate" class="font-mono text-red-400 font-bold">0,80 %</span>
+                </div>
+                <div class="flex justify-between items-center pt-2 border-t border-slate-800 text-sm font-bold">
+                  <span class="text-slate-200">Fällige Gebühr an das Finanzamt:</span>
+                  <span id="at_display_duty" class="font-mono text-red-400 text-base">2.000,00 €</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rechte Spalte: Vorfälligkeitsentschädigung gem. HIKrG / VKrG -->
+          <div class="space-y-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+            <h3 class="text-base font-bold text-white flex items-center gap-2">
+              <span>⚖️</span>
+              <span>HIKrG &amp; VKrG Vorfälligkeitsentschädigung</span>
+            </h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Nach dem Hypothekar- und Immobilienkreditgesetz (HIKrG) sowie dem Verbraucherkreditgesetz (VKrG) ist die Vorfälligkeitsentschädigung bei vorzeitiger Tilgung gesetzlich gedeckelt:
+            </p>
+
+            <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside">
+              <li><strong class="text-slate-200">Maximal 1,0 %</strong> des vorzeitig zurückgezahlten Betrags, wenn zwischen Tilgung und Vertragsende mehr als 1 Jahr liegt.</li>
+              <li><strong class="text-slate-200">Maximal 0,5 %</strong>, wenn der Zeitraum ein Jahr oder weniger beträgt.</li>
+              <li><strong class="text-slate-200">Kostenlose Freigrenze:</strong> Bis zu 10.000 € pro 12-Monats-Zeitraum sind bei Verbraucherkrediten pönalefrei möglich.</li>
+            </ul>
+
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 pt-3">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Max. Pönale bei > 1 Jahr Restlaufzeit:</span>
+                <span id="at_poenale_1" class="font-mono text-amber-300 font-bold">1.742,81 €</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Max. Pönale im letzten Laufzeitjahr:</span>
+                <span id="at_poenale_05" class="font-mono text-emerald-400 font-bold">871,41 €</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: SCHWEIZ (Hypotheken-Tragbarkeitsrechnung KKG & VSB) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-ch" class="tab-content hidden space-y-6">
+
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold mb-2">
+              <span>🇨🇭 Schweizerische Eidgenossenschaft</span>
+              <span>•</span>
+              <span>KKG, VSB &amp; FINMA-Richtlinien</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Schweizer Hypotheken-Tragbarkeitsrechnung</h2>
+          </div>
+          <span class="text-2xl">🇨🇭</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Schweizer Banken prüfen Hypothekaranträge nach strengen Tragbarkeitsregeln: Zur Risikovorsorge wird ein <strong>kalkulatorischer Zinssatz von 5,0 %</strong> (unabhängig vom aktuellen Marktzins) sowie <strong>1,0 % Unterhalts- und Nebenkosten</strong> angesetzt. Die Gesamtbelastung darf <strong>33,33 % (1/3) des Bruttoeinkommens</strong> nicht übersteigen.
+        </p>
+
+        <div class="grid lg:grid-cols-12 gap-6 items-start">
+          <!-- Eingaben Tragbarkeit (6 Cols) -->
+          <div class="lg:col-span-6 space-y-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+            <h3 class="text-sm font-bold text-white">Parameter der Liegenschaft &amp; Einkommen</h3>
+
+            <div>
+              <label for="ch_prop_value" class="text-xs font-semibold text-slate-300 block mb-1">
+                Liegenschaftswert / Verkehrswert (CHF)
+              </label>
+              <input type="number" id="ch_prop_value" value="1200000" min="100000" step="25000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2 text-white font-mono text-sm" oninput="calculateCHModule()" />
+            </div>
+
+            <div>
+              <label for="ch_loan_amount" class="text-xs font-semibold text-slate-300 block mb-1">
+                Gewünschte Gesamthypothek (CHF)
+              </label>
+              <input type="number" id="ch_loan_amount" value="800000" min="50000" step="25000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2 text-white font-mono text-sm" oninput="calculateCHModule()" />
+            </div>
+
+            <div>
+              <label for="ch_gross_income" class="text-xs font-semibold text-slate-300 block mb-1">
+                Jährliches Haushalts-Bruttoeinkommen (CHF)
+              </label>
+              <input type="number" id="ch_gross_income" value="180000" min="30000" step="5000" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-2 text-white font-mono text-sm" oninput="calculateCHModule()" />
+            </div>
+
+            <!-- Belehnungsgrenzen Split Info -->
+            <div class="pt-2 text-xs text-slate-400 space-y-1">
+              <div class="flex justify-between">
+                <span>1. Hypothek (bis 66,67 %):</span>
+                <span id="ch_val_hyp1" class="font-mono text-slate-200">800.000 CHF</span>
+              </div>
+              <div class="flex justify-between">
+                <span>2. Hypothek (über 66,67 % bis max. 80 %):</span>
+                <span id="ch_val_hyp2" class="font-mono text-slate-200">0 CHF (in 15 J. amortisieren)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ergebnisse Tragbarkeit (6 Cols) -->
+          <div class="lg:col-span-6 space-y-4 bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
+            <h3 class="text-sm font-bold text-white">Kalkulatorische Belastung &amp; Tragbarkeitsquote</h3>
+
+            <div id="ch_status_box" class="p-4 rounded-xl border bg-emerald-950/40 border-emerald-500/40 text-emerald-200">
+              <div class="flex items-center gap-2 font-bold text-sm" id="ch_status_title">
+                <span>✅</span> <span>Tragbarkeit erfüllt</span>
+              </div>
+              <p class="text-xs mt-1 leading-relaxed" id="ch_status_desc">
+                Die kalkulatorischen Kosten betragen 28,89 % des Einkommens und liegen damit unter der FINMA-Grenze von 33,33 %.
+              </p>
+            </div>
+
+            <div class="space-y-2 text-xs font-mono">
+              <div class="flex justify-between p-2 rounded-lg bg-slate-950">
+                <span class="text-slate-400">Belehnung (LTV):</span>
+                <span id="ch_res_ltv" class="text-white font-bold">66,67 % (Max: 80,00 %)</span>
+              </div>
+              <div class="flex justify-between p-2 rounded-lg bg-slate-950">
+                <span class="text-slate-400">Kalkulatorischer Zins (5,0 %):</span>
+                <span id="ch_res_interest" class="text-slate-200">40.000 CHF / Jahr</span>
+              </div>
+              <div class="flex justify-between p-2 rounded-lg bg-slate-950">
+                <span class="text-slate-400">Nebenkosten (1,0 % des Werts):</span>
+                <span id="ch_res_maintenance" class="text-slate-200">12.000 CHF / Jahr</span>
+              </div>
+              <div class="flex justify-between p-2 rounded-lg bg-slate-950">
+                <span class="text-slate-400">Jährliche Amortisation (2. Hypothek):</span>
+                <span id="ch_res_amort" class="text-slate-200">0 CHF / Jahr</span>
+              </div>
+              <div class="flex justify-between p-2.5 rounded-lg bg-slate-950 border border-slate-800 font-bold text-sm">
+                <span class="text-slate-200">Kalkulatorische Gesamtkosten:</span>
+                <span id="ch_res_total_cost" class="text-white">52.000 CHF / Jahr</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: INTERAKTIVER TILGUNGSPLAN (JAHR-FÜR-JAHR & MONAT-FÜR-MONAT) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-tilgungsplan" class="tab-content hidden space-y-6">
+
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Vollständiger Tilgungsverlauf</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Detaillierte Entwicklung von Zinsanteil, Tilgungsanteil und Restschuld</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="bg-slate-900 p-1 rounded-xl border border-slate-800 flex items-center text-xs">
+              <button onclick="setScheduleView('yearly')" id="btn_view_yearly" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold transition">
+                Jahresübersicht
+              </button>
+              <button onclick="setScheduleView('monthly')" id="btn_view_monthly" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+                Monatsdetail
+              </button>
+            </div>
+            <button onclick="exportCSV()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 font-semibold transition">
+              📥 CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Table Container -->
+        <div class="overflow-x-auto rounded-2xl border border-slate-800">
+          <table class="w-full text-left text-xs font-mono" id="table_schedule">
+            <thead class="bg-slate-900 text-slate-300 border-b border-slate-800">
+              <tr>
+                <th class="py-3 px-3.5">Periode / Jahr</th>
+                <th class="py-3 px-3.5">Anfangsbestand</th>
+                <th class="py-3 px-3.5">Gesamtrate</th>
+                <th class="py-3 px-3.5 text-rose-300">Zinsanteil</th>
+                <th class="py-3 px-3.5 text-emerald-300">Tilgungsanteil</th>
+                <th class="py-3 px-3.5 text-teal-300">Sondertilgung</th>
+                <th class="py-3 px-3.5 text-amber-300">Restschuld</th>
+              </tr>
+            </thead>
+            <tbody id="tbody_schedule" class="divide-y divide-slate-850 text-slate-300">
+              <!-- Dynamically populated via JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 5: ZINSÄNDERUNGS-STRESSTEST (ANSCHLUSSFINANZIERUNG) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-stresstest" class="tab-content hidden space-y-6">
+
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold mb-2">
+              <span>⚠️ Risikovorsorge nach PAngV &amp; BaFin</span>
+              <span>•</span>
+              <span>Anschlussfinanzierung</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Zinsänderungs-Stresstest für die Anschlussfinanzierung</h2>
+          </div>
+          <span class="text-2xl">📈</span>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Nach Ablauf der vereinbarten Zinsbindung von <span id="stresstest_years_lbl" class="font-bold text-white">10 Jahren</span> verbleibt eine geschätzte Restschuld von <span id="stresstest_balance_lbl" class="font-bold font-mono text-amber-300">174.281,42 €</span>. Folgende Tabelle simuliert, wie sich Ihre Monatsrate und Ihre Gesamtkosten verändern, falls das allgemeine Zinsniveau bis zum Ablauf der Zinsbindung steigt:
+        </p>
+
+        <!-- Stresstest-Tabelle -->
+        <div class="overflow-x-auto rounded-2xl border border-slate-800">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-900 text-slate-300 border-b border-slate-800">
+              <tr>
+                <th class="py-3 px-4">Zinsszenario</th>
+                <th class="py-3 px-4">Neuer Sollzins</th>
+                <th class="py-3 px-4">Neue Monatsrate</th>
+                <th class="py-3 px-4 text-rose-300">Monatliche Mehrbelastung</th>
+                <th class="py-3 px-4 text-rose-400">Zusätzliche Zinskosten (5 Jahre)</th>
+                <th class="py-3 px-4">Risiko-Einstufung</th>
+              </tr>
+            </thead>
+            <tbody id="tbody_stresstest" class="divide-y divide-slate-800 text-slate-300">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
+          <h4 class="font-bold text-white text-sm flex items-center gap-2">
+            <span>🛡️</span>
+            <span>Empfehlungen zur Risikobegrenzung:</span>
+          </h4>
+          <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside">
+            <li><strong>Forward-Darlehen:</strong> Bis zu 36 bis 60 Monate vor Ablauf der Zinsbindung können Sie sich das aktuelle Zinsniveau per Forward-Aufschlag sichern.</li>
+            <li><strong>Tilgungssatzwechsel:</strong> Achten Sie im Kreditvertrag auf vertraglich zugesicherte kostenlose Tilgungssatzwechsel (z.B. von 3% auf 1%), um bei steigenden Zinsen die Ratenhöhe stabil zu halten.</li>
+            <li><strong>Sondertilgungen nutzen:</strong> Jede vorzeitige Sondertilgung reduziert den Restschuldsockel und mindert das Zinserhöhungsrisiko exponentiell.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 6: DRUCKFERTIGER DIN-A4 KREDIT- & FINANZIERUNGSBERICHT -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-bericht" class="tab-content hidden space-y-6">
+
+      <!-- Formular zur Personalisierung (no-print) -->
+      <div class="no-print bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="font-bold text-white text-base flex items-center gap-2">
+            <span>📝</span>
+            <span>Berichtsdaten anpassen (Optional)</span>
+          </h3>
+          <button onclick="window.print()" class="text-xs bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-4 py-2 rounded-xl transition flex items-center gap-1.5 shadow-lg shadow-emerald-500/20">
+            <span>🖨️ DIN-A4 Drucken / PDF speichern</span>
+          </button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="text-slate-400 block mb-1">Darlehensnehmer / Firma:</label>
+            <input type="text" id="report_borrower" value="Musterfirma GmbH &amp; Co. KG" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-medium" oninput="updateReportText()" />
+          </div>
+          <div>
+            <label class="text-slate-400 block mb-1">Kreditinstitut / Bank:</label>
+            <input type="text" id="report_bank" value="Deutsche Bank AG / Sparkasse" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-medium" oninput="updateReportText()" />
+          </div>
+          <div>
+            <label class="text-slate-400 block mb-1">Verwendungszweck / Objekt:</label>
+            <input type="text" id="report_purpose" value="Investitionskredit Maschine / Gewerbeimmobilie" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-medium" oninput="updateReportText()" />
+          </div>
+          <div>
+            <label class="text-slate-400 block mb-1">Darlehens- / Antragsnummer:</label>
+            <input type="text" id="report_loan_id" value="KRED-2026-89412" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono" oninput="updateReportText()" />
+          </div>
+        </div>
+      </div>
+
+      <!-- DER ECHTE DIN-A4 BERICHT (Sowohl Bildschirm-Vorschau als auch @media print) -->
+      <div id="printContainer" class="bg-white text-slate-900 rounded-3xl p-8 sm:p-12 shadow-2xl border border-slate-200 print-page text-xs leading-relaxed max-w-5xl mx-auto">
+
+        <!-- Kopfzeile -->
+        <div class="flex justify-between items-start border-b-2 border-slate-900 pb-6 mb-6">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-6 h-6 rounded bg-slate-900 text-white font-black flex items-center justify-center text-xs">DW</span>
+              <span class="font-extrabold text-lg text-slate-900 tracking-tight">DACH DIGITALWERK</span>
+            </div>
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Standardisierter Finanzierungs- &amp; Tilgungsnachweis 2026</p>
+          </div>
+          <div class="text-right text-[11px] space-y-0.5">
+            <div class="font-bold text-slate-900">Erstellungsdatum: <span id="p_date">24.10.2026</span></div>
+            <div class="text-slate-600">Dokument-ID: <span id="p_loan_id" class="font-mono">KRED-2026-89412</span></div>
+            <div class="text-slate-500 text-[10px]">Rechtsstand: 2026 (PAngV / BGB / GebG)</div>
+          </div>
+        </div>
+
+        <!-- Parteien & Angaben -->
+        <div class="grid grid-cols-2 gap-6 p-4 rounded-xl bg-slate-50 border border-slate-200 mb-6">
+          <div>
+            <span class="text-[10px] font-bold uppercase text-slate-400 block mb-1">Darlehensnehmer:</span>
+            <div id="p_borrower" class="font-bold text-slate-900 text-sm">Musterfirma GmbH &amp; Co. KG</div>
+            <div class="text-slate-600 text-xs mt-0.5">Zweck: <span id="p_purpose">Investitionskredit Maschine</span></div>
+          </div>
+          <div>
+            <span class="text-[10px] font-bold uppercase text-slate-400 block mb-1">Finanzierungspartner / Bank:</span>
+            <div id="p_bank" class="font-bold text-slate-900 text-sm">Deutsche Bank AG / Sparkasse</div>
+            <div class="text-slate-600 text-xs mt-0.5">Darlehensart: <span id="p_loan_type" class="font-medium">Annuitätendarlehen</span></div>
+          </div>
+        </div>
+
+        <!-- 6 KPI Blöcke -->
+        <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Nettodarlehen</span>
+            <span id="p_kpi_amount" class="text-base font-extrabold text-slate-900 font-mono">250.000,00 €</span>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Sollzins / PAngV Effektivzins</span>
+            <span id="p_kpi_rates" class="text-base font-extrabold text-slate-900 font-mono">3,80 % / 3,87 %</span>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Regelmäßige Monatsrate</span>
+            <span id="p_kpi_installment" class="text-base font-extrabold text-emerald-700 font-mono">1.312,50 €</span>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Zinsbindungsdauer</span>
+            <span id="p_kpi_fixed_years" class="text-base font-extrabold text-slate-900 font-mono">10 Jahre</span>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Restschuld nach Zinsbindung</span>
+            <span id="p_kpi_remaining" class="text-base font-extrabold text-amber-700 font-mono">174.281,42 €</span>
+          </div>
+          <div class="p-3 rounded-lg border border-slate-300 bg-white">
+            <span class="text-[10px] uppercase text-slate-500 block">Zinskosten in Zinsbindung</span>
+            <span id="p_kpi_interest" class="text-base font-extrabold text-rose-700 font-mono">81.781,42 €</span>
+          </div>
+        </div>
+
+        <!-- Jahresweiser Tilgungsplan (Druckversion) -->
+        <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-2 border-b border-slate-300 pb-1">
+          Tilgungsverlauf über die Zinsbindungsdauer (Jahresscheiben)
+        </h4>
+        <table class="w-full text-left text-[10px] font-mono mb-6 border border-slate-200">
+          <thead class="bg-slate-100 text-slate-700 border-b border-slate-300">
+            <tr>
+              <th class="py-1.5 px-2">Jahr</th>
+              <th class="py-1.5 px-2">Anfangsbestand</th>
+              <th class="py-1.5 px-2">Ratenzahlung</th>
+              <th class="py-1.5 px-2">Zinsanteil</th>
+              <th class="py-1.5 px-2">Tilgungsanteil</th>
+              <th class="py-1.5 px-2">Sondertilgung</th>
+              <th class="py-1.5 px-2">Restschuld</th>
+            </tr>
+          </thead>
+          <tbody id="p_tbody_schedule" class="divide-y divide-slate-200">
+            <!-- Dynamisch befüllt -->
+          </tbody>
+        </table>
+
+        <!-- Stresstest Übersicht im Ausdruck -->
+        <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-2 border-b border-slate-300 pb-1">
+          Zinsänderungs-Sensitivität bei Anschlussfinanzierung
+        </h4>
+        <table class="w-full text-left text-[10px] font-mono mb-6 border border-slate-200">
+          <thead class="bg-slate-100 text-slate-700 border-b border-slate-300">
+            <tr>
+              <th class="py-1.5 px-2">Szenario</th>
+              <th class="py-1.5 px-2">Anschluss-Sollzins</th>
+              <th class="py-1.5 px-2">Neue Monatsrate</th>
+              <th class="py-1.5 px-2">Mehrbelastung / Monat</th>
+              <th class="py-1.5 px-2">Zusatzaufwand (5 Jahre)</th>
+            </tr>
+          </thead>
+          <tbody id="p_tbody_stresstest" class="divide-y divide-slate-200">
+            <!-- Dynamisch befüllt -->
+          </tbody>
+        </table>
+
+        <!-- Smartlaw Disclaimer Footer -->
+        <div class="border-t border-slate-300 pt-3 text-[9px] text-slate-500 leading-tight">
+          <strong>Rechtlicher Hinweis (BGH Smartlaw Az. I ZR 113/20 &amp; I ZR 226/20):</strong>
+          Dieser automatisiert erstellte Tilgungsplan und Finanzierungsnachweis stellt ein rein technisches Hilfswerkzeug dar und ersetzt keine individuelle Kreditberatung durch ein zugelassenes Kreditinstitut gem. KWG / BWG / KKG oder einen Steuerberater gem. § 5 StBerG. Sämtliche Berechnungen erfolgten zu 100 % lokal im Client-Browser.
+        </div>
+
+        <!-- Unterschriftenzeile -->
+        <div class="grid grid-cols-2 gap-12 pt-8 text-[10px] text-slate-600">
+          <div class="border-t border-slate-400 pt-1">
+            Ort, Datum &amp; Unterschrift Darlehensnehmer
+          </div>
+          <div class="border-t border-slate-400 pt-1">
+            Finanzierungsberater / Bankbestätigung
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- FACHRATGEBER & VERTIEFENDE PRAXISLEITFÄDEN 2026 -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-10 p-6 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Praxis-Ratgeber &amp; Finanzmathematik 2026</span>
+          <h2 class="text-lg sm:text-xl font-extrabold text-white mt-0.5">Vertiefende Leitfäden zu Annuitätendarlehen, Sondertilgung &amp; Anschlussfinanzierung</h2>
+        </div>
+        <a href="../" class="text-xs font-semibold text-slate-400 hover:text-emerald-400 transition">Alle 30 DACH-Tools ansehen →</a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 text-xs">
+        <a href="../annuitaetendarlehen-berechnen-formel-tilgungsplan-excel.html" class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 transition block group">
+          <div class="text-emerald-400 font-bold mb-1 group-hover:underline">📐 Annuitätenformel &amp; Excel RMZ() →</div>
+          <div class="font-bold text-white text-sm mb-1">Annuitätendarlehen berechnen: Formel &amp; Tilgungsplan 2026</div>
+          <p class="text-slate-400 leading-relaxed">Mathematische Herleitung der Annuität, PAngV-Effektivzins mit Disagio sowie Excel-Vorlagen mit RMZ(), ZINSZ() und KAPZ().</p>
+        </a>
+        <a href="../sondertilgung-effekt-zinsersparnis-rechner-2026.html" class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 transition block group">
+          <div class="text-teal-400 font-bold mb-1 group-hover:underline">🚀 Sondertilgung &amp; Zinseszins-Hebel →</div>
+          <div class="font-bold text-white text-sm mb-1">Sondertilgung berechnen: Zinsersparnis &amp; Laufzeitverkürzung</div>
+          <p class="text-slate-400 leading-relaxed">Wie 5 % jährliche Sondertilgung Zehntausende Euro Zinsen spart und wann sich Tilgen gegenüber einem ETF-Sparplan lohnt.</p>
+        </a>
+        <a href="../anschlussfinanzierung-zinsrisiko-stresstest-kredit-vergleich.html" class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/60 transition block group">
+          <div class="text-amber-400 font-bold mb-1 group-hover:underline">⚠️ § 489 BGB &amp; Forward-Darlehen →</div>
+          <div class="font-bold text-white text-sm mb-1">Anschlussfinanzierung &amp; Zins-Stresstest (+1 % bis +4 %)</div>
+          <p class="text-slate-400 leading-relaxed">Restschuldrisiko nach 10 Jahren absichern, Sonderkündigungsrecht nach § 489 Abs. 1 Nr. 2 BGB nutzen und Forward-Aufschläge prüfen.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- BGH SMARTLAW DISCLAIMER & FOOTER -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-8 p-6 rounded-3xl bg-slate-950 border border-slate-800 text-xs text-slate-400 space-y-3">
+      <div class="flex items-center gap-2 text-slate-200 font-bold">
+        <span>⚖️</span>
+        <span>Rechtlicher Hinweis nach BGH Smartlaw-Standard (§ 2 RDG / § 5 StBerG):</span>
+      </div>
+      <p class="leading-relaxed">
+        Dieser Kredit- und Annuitätenrechner stellt eine automatisierte, rein mathematische Modellberechnungshilfe auf Basis der Preisangabenverordnung (PAngV), des Bürgerlichen Gesetzbuches (§ 489 BGB), des österreichischen Gebührengesetzes (§ 33 TP 8 GebG) und des Schweizer Konsumkreditgesetzes (KKG) im Rechtsstand 2026 dar. Er ersetzt keine verbindliche Konditionsfestlegung, Bonitätsprüfung oder Finanzberatung durch Banken oder zugelassene Berater. Alle Berechnungen laufen zu 100 % lokal in Ihrem Browser; es werden keine Finanzierungsdaten übertragen.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-1 text-slate-500 font-mono">
+        <a href="../agb/" class="hover:text-emerald-400 underline">Allgemeine Geschäftsbedingungen (AGB)</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-emerald-400 underline">Haftungsausschluss</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400 underline">Datenschutz &amp; Impressum</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT APPLICATION ENGINE ================= -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    const state = {
+      activeTab: 'de',
+      amount: 250000.0,
+      nominalRate: 3.8, // %
+      fixedYears: 10,
+      repaymentRate: 2.5, // %
+      loanType: 'annuity', // 'annuity' | 'linear' | 'bullet'
+      interval: 'monthly', // 'monthly' | 'quarterly' | 'annual'
+      disbursementPct: 100.0,
+      specialRepayment: 0.0,
+      startMonth: 11,
+      startYear: 2026,
+      scheduleView: 'yearly',
+      report: {
+        borrower: 'Musterfirma GmbH & Co. KG',
+        bank: 'Deutsche Bank AG / Sparkasse',
+        purpose: 'Investitionskredit Maschine / Gewerbeimmobilie',
+        loanId: 'KRED-2026-89412'
+      },
+      at: {
+        residentialExempt: false
+      },
+      ch: {
+        propertyValue: 1200000.0,
+        loanAmount: 800000.0,
+        grossIncome: 180000.0
+      }
+    };
+
+    // --- TAB SWITCHER ---
+    function switchToTab(tabId) {
+      state.activeTab = tabId;
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20', 'font-bold');
+        btn.classList.add('text-slate-400', 'font-semibold');
+      });
+
+      const content = document.getElementById(`tabContent-${tabId}`);
+      if (content) content.classList.remove('hidden');
+
+      const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-400', 'font-semibold');
+        activeBtn.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20', 'font-bold');
+      }
+
+      if (tabId === 'at') calculateATModule();
+      if (tabId === 'ch') calculateCHModule();
+      if (tabId === 'tilgungsplan') renderScheduleTable();
+      if (tabId === 'stresstest') renderStressTestTable();
+      if (tabId === 'bericht') updateReportAll();
+    }
+
+    // --- DARLEHENSART UMSCHALTEN ---
+    function setLoanType(type) {
+      state.loanType = type;
+      ['annuity', 'linear', 'bullet'].forEach(t => {
+        const btn = document.getElementById(`btn_type_${t}`);
+        if (t === type) {
+          btn.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-emerald-500/20 border-emerald-500 text-white shadow-sm';
+        } else {
+          btn.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+        }
+      });
+
+      const repRow = document.getElementById('row_repayment_mode');
+      if (type === 'bullet') {
+        repRow.classList.add('opacity-40', 'pointer-events-none');
+      } else {
+        repRow.classList.remove('opacity-40', 'pointer-events-none');
+      }
+
+      recalculateAll();
+    }
+
+    // --- SONDERTILGUNG SCHNELLBUTTONS ---
+    function setSpecialRepaymentPct(pct) {
+      const val = state.amount * (pct / 100.0);
+      document.getElementById('inp_special_repayment').value = val;
+      state.specialRepayment = val;
+      recalculateAll();
+    }
+
+    function setScheduleView(view) {
+      state.scheduleView = view;
+      const bYear = document.getElementById('btn_view_yearly');
+      const bMonth = document.getElementById('btn_view_monthly');
+      if (view === 'yearly') {
+        bYear.className = 'px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold transition';
+        bMonth.className = 'px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
+      } else {
+        bYear.className = 'px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
+        bMonth.className = 'px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-bold transition';
+      }
+      renderScheduleTable();
+    }
+
+    // --- PRESETS LADEN ---
+    function loadPreset(key) {
+      if (key === 'gewerbe250k') {
+        state.amount = 250000;
+        state.nominalRate = 3.8;
+        state.repaymentRate = 2.5;
+        state.fixedYears = 10;
+        state.specialRepayment = 0;
+        state.loanType = 'annuity';
+        state.interval = 'monthly';
+      } else if (key === 'immo400k') {
+        state.amount = 400000;
+        state.nominalRate = 3.5;
+        state.repaymentRate = 2.0;
+        state.fixedYears = 15;
+        state.specialRepayment = 0;
+        state.loanType = 'annuity';
+        state.interval = 'monthly';
+      } else if (key === 'sondertilgung5k') {
+        state.amount = 200000;
+        state.nominalRate = 3.9;
+        state.repaymentRate = 2.0;
+        state.fixedYears = 10;
+        state.specialRepayment = 5000;
+        state.loanType = 'annuity';
+        state.interval = 'monthly';
+      } else if (key === 'bullet300k') {
+        state.amount = 300000;
+        state.nominalRate = 4.2;
+        state.repaymentRate = 0;
+        state.fixedYears = 5;
+        state.specialRepayment = 0;
+        state.loanType = 'bullet';
+        state.interval = 'quarterly';
+      } else if (key === 'tilgungsdarlehen150k') {
+        state.amount = 150000;
+        state.nominalRate = 3.6;
+        state.repaymentRate = 5.0;
+        state.fixedYears = 10;
+        state.specialRepayment = 0;
+        state.loanType = 'linear';
+        state.interval = 'monthly';
+      }
+
+      // Sync form fields
+      document.getElementById('inp_amount').value = state.amount;
+      document.getElementById('rng_amount').value = Math.min(state.amount, 1000000);
+      document.getElementById('inp_interest_nominal').value = state.nominalRate;
+      document.getElementById('inp_repayment_rate').value = state.repaymentRate;
+      document.getElementById('rng_repayment_rate').value = Math.min(state.repaymentRate, 10.0);
+      document.getElementById('inp_fixed_years').value = state.fixedYears;
+      document.getElementById('inp_special_repayment').value = state.specialRepayment;
+      document.getElementById('inp_interval').value = state.interval;
+
+      setLoanType(state.loanType);
+    }
+
+    // --- SYNCHRONISATION DER FORMULAREINGABEN ---
+    function syncInputs() {
+      state.amount = parseFloat(document.getElementById('inp_amount').value) || 0;
+      state.nominalRate = parseFloat(document.getElementById('inp_interest_nominal').value) || 0;
+      state.repaymentRate = parseFloat(document.getElementById('inp_repayment_rate').value) || 0;
+      state.fixedYears = parseInt(document.getElementById('inp_fixed_years').value) || 10;
+      state.interval = document.getElementById('inp_interval').value;
+      state.disbursementPct = parseFloat(document.getElementById('inp_disbursement_pct').value) || 100.0;
+      state.specialRepayment = parseFloat(document.getElementById('inp_special_repayment').value) || 0;
+      state.startMonth = parseInt(document.getElementById('inp_start_month').value) || 11;
+      state.startYear = parseInt(document.getElementById('inp_start_year').value) || 2026;
+
+      document.getElementById('txt_amount_display').innerText = state.amount.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      document.getElementById('txt_repayment_display').innerText = state.repaymentRate.toFixed(2).replace('.', ',') + ' % p.a.';
+
+      recalculateAll();
+    }
+
+    // --- PAngV EFFEKTIVZINS BERECHNUNG ---
+    function calculateEffectiveRatePAngV(nominalRatePct, m, disbursementPct, fixedYears) {
+      const nom = Math.max(0, nominalRatePct / 100.0);
+      const periods = Math.max(1, m);
+      const disb = Math.max(1, disbursementPct) / 100.0;
+
+      if (disb < 1.0 && fixedYears > 0) {
+        const disagioPerYear = (1.0 - disb) / fixedYears;
+        const adjNom = nom + disagioPerYear;
+        const eff = Math.pow(1.0 + (adjNom / periods), periods) - 1.0;
+        return eff * 100.0;
+      } else {
+        const eff = Math.pow(1.0 + (nom / periods), periods) - 1.0;
+        return eff * 100.0;
+      }
+    }
+
+    // --- BERECHNUNGSKERN ---
+    let calculationResults = null;
+
+    function recalculateAll() {
+      const amount = state.amount;
+      const nominal = state.nominalRate / 100.0;
+      const repayment = state.repaymentRate / 100.0;
+      const fixedYears = state.fixedYears;
+      const specialRep = state.specialRepayment;
+      const m = state.interval === 'monthly' ? 12 : (state.interval === 'quarterly' ? 4 : 1);
+
+      const effRate = calculateEffectiveRatePAngV(state.nominalRate, m, state.disbursementPct, fixedYears);
+
+      // Perioden-Rate
+      let regularInstallment = 0.0;
+      let annualInstallment = 0.0;
+
+      if (state.loanType === 'annuity') {
+        annualInstallment = amount * (nominal + repayment);
+        regularInstallment = annualInstallment / m;
+      } else if (state.loanType === 'linear') {
+        const annualPrincipal = amount * repayment;
+        annualInstallment = annualPrincipal + (amount * nominal);
+        regularInstallment = (annualPrincipal / m) + (amount * (nominal / m));
+      } else { // bullet
+        annualInstallment = amount * nominal;
+        regularInstallment = annualInstallment / m;
+      }
+
+      // Simulation Monat-für-Monat
+      const monthlySchedule = [];
+      const yearlySchedule = [];
+
+      let currentBalance = amount;
+      let totalInterestFull = 0.0;
+      let totalInterestFixed = 0.0;
+      let totalPrincipalFixed = 0.0;
+      let totalSpecialFixed = 0.0;
+      let remainingBalanceFixed = 0.0;
+      let fullAmortMonth = 0;
+      let isCleared = false;
+
+      const maxYears = 50;
+      const totalMaxPeriods = maxYears * m;
+      const periodRateNom = nominal / m;
+
+      let curMonth = state.startMonth;
+      let curYear = state.startYear;
+
+      let yearAccInterest = 0.0;
+      let yearAccPrincipal = 0.0;
+      let yearAccSpecial = 0.0;
+      let yearAccPaid = 0.0;
+      let yearOpening = currentBalance;
+      let currentSimYear = 1;
+
+      for (let p = 1; p <= totalMaxPeriods; p++) {
+        if (currentBalance <= 0.0001) {
+          if (!isCleared) {
+            fullAmortMonth = p - 1;
+            isCleared = true;
+          }
+          break;
+        }
+
+        const periodOpening = currentBalance;
+        let interestPaid = currentBalance * periodRateNom;
+        let principalPaid = 0.0;
+
+        if (state.loanType === 'annuity') {
+          principalPaid = regularInstallment - interestPaid;
+          if (currentBalance - principalPaid < 0.0) {
+            principalPaid = currentBalance;
+          }
+        } else if (state.loanType === 'linear') {
+          const targetPrincipal = (amount * repayment) / m;
+          principalPaid = Math.min(currentBalance, targetPrincipal);
+        } else { // bullet
+          if (p === fixedYears * m) {
+            principalPaid = currentBalance;
+          } else {
+            principalPaid = 0.0;
+          }
+        }
+
+        currentBalance -= principalPaid;
+
+        // Sondertilgung am Jahresende (letzter Monat des Jahreszyklus)
+        let specialPaidThisPeriod = 0.0;
+        if (p % m === 0 && specialRep > 0.0 && state.loanType !== 'bullet' && currentBalance > 0.0) {
+          specialPaidThisPeriod = Math.min(currentBalance, specialRep);
+          currentBalance -= specialPaidThisPeriod;
+        }
+
+        const periodTotalPaid = interestPaid + principalPaid + specialPaidThisPeriod;
+        const periodClosing = Math.max(0.0, currentBalance);
+
+        monthlySchedule.push({
+          period: p,
+          month: curMonth,
+          year: curYear,
+          opening: periodOpening,
+          interest: interestPaid,
+          principal: principalPaid,
+          special: specialPaidThisPeriod,
+          totalPaid: periodTotalPaid,
+          closing: periodClosing
+        });
+
+        totalInterestFull += interestPaid;
+
+        if (Math.ceil(p / m) <= fixedYears) {
+          totalInterestFixed += interestPaid;
+          totalPrincipalFixed += principalPaid;
+          totalSpecialFixed += specialPaidThisPeriod;
+        }
+
+        if (p === fixedYears * m) {
+          remainingBalanceFixed = periodClosing;
+        }
+
+        // Akkumulation für Jahr
+        yearAccInterest += interestPaid;
+        yearAccPrincipal += principalPaid;
+        yearAccSpecial += specialPaidThisPeriod;
+        yearAccPaid += periodTotalPaid;
+
+        if (p % m === 0 || currentBalance <= 0.0001) {
+          yearlySchedule.push({
+            yearIndex: currentSimYear,
+            calYear: curYear,
+            opening: yearOpening,
+            interest: yearAccInterest,
+            principal: yearAccPrincipal,
+            special: yearAccSpecial,
+            totalPaid: yearAccPaid,
+            closing: periodClosing
+          });
+
+          yearOpening = periodClosing;
+          yearAccInterest = 0.0;
+          yearAccPrincipal = 0.0;
+          yearAccSpecial = 0.0;
+          yearAccPaid = 0.0;
+          currentSimYear++;
+        }
+
+        curMonth++;
+        if (curMonth > 12) {
+          curMonth = 1;
+          curYear++;
+        }
+      }
+
+      if (!isCleared) {
+        fullAmortMonth = totalMaxPeriods;
+      }
+
+      if (fixedYears * m > monthlySchedule.length) {
+        remainingBalanceFixed = 0.0;
+      }
+
+      // Vergleichsrechnung OHNE Sondertilgung zur Vorteilsermittlung
+      let interestWithoutSpecial = totalInterestFull;
+      let monthsWithoutSpecial = fullAmortMonth;
+      if (specialRep > 0.0) {
+        let balNoSpec = amount;
+        let intNoSpec = 0.0;
+        let monthsNoSpec = 0;
+        for (let p = 1; p <= totalMaxPeriods; p++) {
+          if (balNoSpec <= 0.0001) { monthsNoSpec = p - 1; break; }
+          const iPaid = balNoSpec * periodRateNom;
+          let pPaid = (state.loanType === 'annuity') ? (regularInstallment - iPaid) : ((amount * repayment) / m);
+          if (balNoSpec - pPaid < 0.0) pPaid = balNoSpec;
+          balNoSpec -= pPaid;
+          intNoSpec += iPaid;
+        }
+        interestWithoutSpecial = intNoSpec;
+        monthsWithoutSpecial = monthsNoSpec;
+      }
+
+      const interestSaved = Math.max(0.0, interestWithoutSpecial - totalInterestFull);
+      const monthsSaved = Math.max(0, monthsWithoutSpecial - fullAmortMonth);
+
+      // Stresstest Szenarien
+      const stressScenarios = [];
+      if (remainingBalanceFixed > 0.0) {
+        const baseRenewalRate = (remainingBalanceFixed * (nominal + repayment)) / m;
+        [1.0, 2.0, 3.0, 4.0].forEach(hike => {
+          const newNom = nominal + (hike / 100.0);
+          const newAnnual = remainingBalanceFixed * (newNom + repayment);
+          const newMonthly = newAnnual / m;
+          const diff = newMonthly - baseRenewalRate;
+          const extra5y = remainingBalanceFixed * (hike / 100.0) * 5.0;
+          stressScenarios.push({
+            hikePct: hike,
+            newNomRate: newNom * 100.0,
+            newInstallment: newMonthly,
+            diffPerMonth: diff,
+            extra5y: extra5y
+          });
+        });
+      }
+
+      calculationResults = {
+        amount,
+        nominalRate: state.nominalRate,
+        effectiveRate: effRate,
+        repaymentRate: state.repaymentRate,
+        fixedYears,
+        interval: state.interval,
+        m,
+        regularInstallment,
+        annualInstallment,
+        remainingBalanceFixed,
+        totalInterestFixed,
+        totalPrincipalFixed,
+        totalSpecialFixed,
+        totalInterestFull,
+        fullAmortMonth,
+        fullAmortYears: fullAmortMonth / 12.0,
+        interestSaved,
+        monthsSaved,
+        monthlySchedule,
+        yearlySchedule,
+        stressScenarios
+      };
+
+      updateUI();
+    }
+
+    // --- UI AKTUALISIERUNG ---
+    function updateUI() {
+      if (!calculationResults) return;
+      const r = calculationResults;
+
+      // Rate Display
+      document.getElementById('res_installment').innerText = r.regularInstallment.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      document.getElementById('lbl_rate_period').innerText = r.interval === 'monthly' ? 'Regelmäßige Monatsrate' : (r.interval === 'quarterly' ? 'Vierteljährliche Rate' : 'Jährliche Annuität');
+      document.getElementById('res_annual_installment').innerText = r.annualInstallment.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+
+      // PAngV Effektivzins & Restschuld
+      document.getElementById('res_effective_rate').innerText = r.effectiveRate.toFixed(2).replace('.', ',') + ' %';
+      document.getElementById('res_remaining_balance').innerText = r.remainingBalanceFixed.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      document.getElementById('res_remaining_fixed_years_lbl').innerText = `nach ${r.fixedYears} Jahren`;
+
+      // Getilgt & Zinsen
+      document.getElementById('res_principal_fixed').innerText = (r.totalPrincipalFixed + r.totalSpecialFixed).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      const pctCleared = r.amount > 0 ? ((r.totalPrincipalFixed + r.totalSpecialFixed) / r.amount * 100.0) : 0;
+      document.getElementById('res_principal_pct').innerText = `(${pctCleared.toFixed(2).replace('.', ',')} % getilgt)`;
+      document.getElementById('res_interest_fixed').innerText = r.totalInterestFixed.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+
+      // Volltilgung
+      const yFull = Math.floor(r.fullAmortMonth / 12);
+      const mFull = r.fullAmortMonth % 12;
+      document.getElementById('res_full_term_years').innerText = `${yFull} Jahren und ${mFull} Monaten`;
+
+      // BGB § 489 Box Visibility
+      const boxBgb = document.getElementById('box_bgb_489');
+      if (r.fixedYears > 10) {
+        boxBgb.classList.remove('hidden');
+      } else {
+        boxBgb.classList.add('hidden');
+      }
+
+      // Sondertilgungs-Box
+      const boxSpecial = document.getElementById('box_special_benefit');
+      if (state.specialRepayment > 0) {
+        document.getElementById('res_special_interest_saved').innerText = r.interestSaved.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € Ersparnis';
+        const ySaved = Math.floor(r.monthsSaved / 12);
+        const mSaved = r.monthsSaved % 12;
+        document.getElementById('res_special_time_saved').innerHTML = `Durch jährliche Sondertilgung sparen Sie <strong class="text-white">${r.interestSaved.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</strong> an Zinskosten und sind <strong class="text-white">${ySaved} Jahre und ${mSaved} Monate früher</strong> komplett schuldenfrei!`;
+      } else {
+        document.getElementById('res_special_interest_saved').innerText = '0,00 € Ersparnis';
+        document.getElementById('res_special_time_saved').innerText = 'Geben Sie eine jährliche Sondertilgung ein, um Ihre Zinskosten drastisch zu reduzieren und die Kreditlaufzeit um mehrere Jahre zu verkürzen.';
+      }
+
+      // Sync active tab modules
+      if (state.activeTab === 'at') calculateATModule();
+      if (state.activeTab === 'ch') calculateCHModule();
+      if (state.activeTab === 'tilgungsplan') renderScheduleTable();
+      if (state.activeTab === 'stresstest') renderStressTestTable();
+      if (state.activeTab === 'bericht') updateReportAll();
+    }
+
+    // --- TAB 2: ÖSTERREICH BERECHNUNGEN ---
+    function calculateATModule() {
+      const isExempt = document.getElementById('at_residential_exempt').checked;
+      state.at.residentialExempt = isExempt;
+
+      const amount = state.amount;
+      const rate = isExempt ? 0.0 : 0.008;
+      const duty = amount * rate;
+
+      document.getElementById('at_display_amount').innerText = amount.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      document.getElementById('at_display_rate').innerText = isExempt ? '0,00 % (Befreit)' : '0,80 %';
+      document.getElementById('at_display_duty').innerText = duty.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+
+      const rem = calculationResults ? calculationResults.remainingBalanceFixed : amount;
+      document.getElementById('at_poenale_1').innerText = (rem * 0.01).toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      document.getElementById('at_poenale_05').innerText = (rem * 0.005).toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+    }
+
+    // --- TAB 3: SCHWEIZ BERECHNUNGEN ---
+    function calculateCHModule() {
+      const val = parseFloat(document.getElementById('ch_prop_value').value) || 1200000;
+      const loan = parseFloat(document.getElementById('ch_loan_amount').value) || 800000;
+      const income = parseFloat(document.getElementById('ch_gross_income').value) || 180000;
+
+      state.ch.propertyValue = val;
+      state.ch.loanAmount = loan;
+      state.ch.grossIncome = income;
+
+      const ltv = val > 0 ? (loan / val * 100.0) : 0.0;
+      const imputedInterest = loan * 0.05;
+      const maintenance = val * 0.01;
+
+      const limit1st = val * (2.0 / 3.0);
+      const secondHyp = Math.max(0.0, loan - limit1st);
+      const amortAnnual = secondHyp > 0 ? (secondHyp / 15.0) : 0.0;
+
+      const totalCost = imputedInterest + maintenance + amortAnnual;
+      const affordabilityPct = income > 0 ? (totalCost / income * 100.0) : 0.0;
+      const isAffordable = affordabilityPct <= 33.333;
+
+      document.getElementById('ch_val_hyp1').innerText = Math.min(loan, limit1st).toLocaleString('de-CH', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + ' CHF';
+      document.getElementById('ch_val_hyp2').innerText = secondHyp > 0 ? `${secondHyp.toLocaleString('de-CH', { minimumFractionDigits: 0 })} CHF (in 15 J. amortisieren)` : '0 CHF (keine 2. Hypothek)';
+
+      document.getElementById('ch_res_ltv').innerText = `${ltv.toFixed(2).replace('.', ',')} % (Max: 80,00 %)`;
+      document.getElementById('ch_res_interest').innerText = imputedInterest.toLocaleString('de-CH', { minimumFractionDigits: 0 }) + ' CHF / Jahr';
+      document.getElementById('ch_res_maintenance').innerText = maintenance.toLocaleString('de-CH', { minimumFractionDigits: 0 }) + ' CHF / Jahr';
+      document.getElementById('ch_res_amort').innerText = amortAnnual.toLocaleString('de-CH', { minimumFractionDigits: 0 }) + ' CHF / Jahr';
+      document.getElementById('ch_res_total_cost').innerText = totalCost.toLocaleString('de-CH', { minimumFractionDigits: 0 }) + ' CHF / Jahr';
+
+      const sBox = document.getElementById('ch_status_box');
+      const sTitle = document.getElementById('ch_status_title');
+      const sDesc = document.getElementById('ch_status_desc');
+
+      if (isAffordable) {
+        sBox.className = 'p-4 rounded-xl border bg-emerald-950/40 border-emerald-500/40 text-emerald-200';
+        sTitle.innerHTML = '<span>✅</span> <span>Tragbarkeit erfüllt</span>';
+        sDesc.innerHTML = `Die kalkulatorischen Kosten betragen <strong class="text-white">${affordabilityPct.toFixed(2).replace('.', ',')} %</strong> des Bruttoeinkommens und liegen damit unter der maximalen Belastungsgrenze von 33,33 %.`;
+      } else {
+        sBox.className = 'p-4 rounded-xl border bg-rose-950/50 border-rose-500/50 text-rose-200';
+        sTitle.innerHTML = '<span>❌</span> <span>Tragbarkeit überschritten</span>';
+        sDesc.innerHTML = `Die kalkulatorischen Gesamtkosten betragen <strong class="text-white">${affordabilityPct.toFixed(2).replace('.', ',')} %</strong> des Bruttoeinkommens. Schweizer Banken verlangen mindestens ein Einkommen von <strong class="text-white">${(totalCost * 3.0).toLocaleString('de-CH', { minimumFractionDigits: 0 })} CHF</strong> zur Bewilligung!`;
+      }
+    }
+
+    // --- TAB 4: TILGUNGSPLAN TABELLE RENDERN ---
+    function renderScheduleTable() {
+      if (!calculationResults) return;
+      const tbody = document.getElementById('tbody_schedule');
+      tbody.innerHTML = '';
+
+      if (state.scheduleView === 'yearly') {
+        calculationResults.yearlySchedule.forEach(row => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-900/60 transition';
+          tr.innerHTML = `
+            <td class="py-2.5 px-3.5 font-bold text-white">Jahr ${row.yearIndex} <span class="text-slate-500 text-[10px]">(${row.calYear})</span></td>
+            <td class="py-2.5 px-3.5">${row.opening.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2.5 px-3.5 font-semibold text-white">${row.totalPaid.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2.5 px-3.5 text-rose-300">${row.interest.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2.5 px-3.5 text-emerald-300 font-semibold">${row.principal.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2.5 px-3.5 text-teal-300">${row.special > 0 ? row.special.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €' : '-'}</td>
+            <td class="py-2.5 px-3.5 font-bold text-amber-300">${row.closing.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } else {
+        calculationResults.monthlySchedule.slice(0, 360).forEach(row => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-slate-900/60 transition';
+          tr.innerHTML = `
+            <td class="py-2 px-3.5 text-slate-300">Monat ${row.period} <span class="text-slate-500 text-[10px]">(${String(row.month).padStart(2, '0')}/${row.year})</span></td>
+            <td class="py-2 px-3.5">${row.opening.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2 px-3.5 font-semibold text-white">${row.totalPaid.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2 px-3.5 text-rose-300">${row.interest.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2 px-3.5 text-emerald-300">${row.principal.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+            <td class="py-2 px-3.5 text-teal-300">${row.special > 0 ? row.special.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €' : '-'}</td>
+            <td class="py-2 px-3.5 font-bold text-amber-300">${row.closing.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    // --- TAB 5: STRESSTEST TABELLE RENDERN ---
+    function renderStressTestTable() {
+      if (!calculationResults) return;
+      const r = calculationResults;
+      const tbody = document.getElementById('tbody_stresstest');
+      tbody.innerHTML = '';
+
+      document.getElementById('stresstest_years_lbl').innerText = `${r.fixedYears} Jahren`;
+      document.getElementById('stresstest_balance_lbl').innerText = r.remainingBalanceFixed.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+
+      // Basis Row (+0 %)
+      const baseMonthly = (r.remainingBalanceFixed * (r.nominalRate / 100.0 + r.repaymentRate / 100.0)) / r.m;
+      const trBase = document.createElement('tr');
+      trBase.className = 'bg-slate-900/40';
+      trBase.innerHTML = `
+        <td class="py-2.5 px-4 font-bold text-white">Status Quo (Keine Änderung)</td>
+        <td class="py-2.5 px-4 font-semibold text-emerald-400">${r.nominalRate.toFixed(2).replace('.', ',')} %</td>
+        <td class="py-2.5 px-4 font-bold text-white">${baseMonthly.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+        <td class="py-2.5 px-4 text-slate-400">0,00 €</td>
+        <td class="py-2.5 px-4 text-slate-400">0,00 €</td>
+        <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold">Optimal</span></td>
+      `;
+      tbody.appendChild(trBase);
+
+      r.stressScenarios.forEach(sc => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-900/60 transition';
+        const badgeColor = sc.hikePct <= 1.0 ? 'bg-amber-500/20 text-amber-300' : 'bg-rose-500/20 text-rose-400';
+        const rating = sc.hikePct <= 1.0 ? 'Moderat' : (sc.hikePct <= 2.0 ? 'Erhöht' : 'Kritisch');
+        tr.innerHTML = `
+          <td class="py-2.5 px-4 font-bold text-slate-200">+${sc.hikePct.toFixed(1).replace('.', ',')} % Zinssprung</td>
+          <td class="py-2.5 px-4 font-semibold text-amber-300">${sc.newNomRate.toFixed(2).replace('.', ',')} %</td>
+          <td class="py-2.5 px-4 font-bold text-white">${sc.newInstallment.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-2.5 px-4 text-rose-300 font-bold">+${sc.diffPerMonth.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-2.5 px-4 text-rose-400 font-bold">+${sc.extra5y.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-2.5 px-4"><span class="px-2 py-0.5 rounded ${badgeColor} text-[10px] font-bold">${rating}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // --- TAB 6: DIN-A4 BERICHT AKTUALISIEREN ---
+    function updateReportText() {
+      state.report.borrower = document.getElementById('report_borrower').value || 'Musterfirma GmbH & Co. KG';
+      state.report.bank = document.getElementById('report_bank').value || 'Deutsche Bank AG / Sparkasse';
+      state.report.purpose = document.getElementById('report_purpose').value || 'Investitionskredit Maschine';
+      state.report.loanId = document.getElementById('report_loan_id').value || 'KRED-2026-89412';
+
+      document.getElementById('p_borrower').innerText = state.report.borrower;
+      document.getElementById('p_bank').innerText = state.report.bank;
+      document.getElementById('p_purpose').innerText = state.report.purpose;
+      document.getElementById('p_loan_id').innerText = state.report.loanId;
+    }
+
+    function updateReportAll() {
+      if (!calculationResults) return;
+      const r = calculationResults;
+      updateReportText();
+
+      const typeLabel = state.loanType === 'annuity' ? 'Annuitätendarlehen (konstante Rate)' : (state.loanType === 'linear' ? 'Tilgungsdarlehen (degressive Rate)' : 'Endfälliges Festdarlehen');
+      document.getElementById('p_loan_type').innerText = typeLabel;
+
+      document.getElementById('p_kpi_amount').innerText = r.amount.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      document.getElementById('p_kpi_rates').innerText = `${r.nominalRate.toFixed(2).replace('.', ',')} % / ${r.effectiveRate.toFixed(2).replace('.', ',')} %`;
+      document.getElementById('p_kpi_installment').innerText = r.regularInstallment.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      document.getElementById('p_kpi_fixed_years').innerText = `${r.fixedYears} Jahre (${r.fixedYears * 12} Monate)`;
+      document.getElementById('p_kpi_remaining').innerText = r.remainingBalanceFixed.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+      document.getElementById('p_kpi_interest').innerText = r.totalInterestFixed.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €';
+
+      // Tabelle im Bericht (nur Zinsbindungsjahre)
+      const pTbody = document.getElementById('p_tbody_schedule');
+      pTbody.innerHTML = '';
+      r.yearlySchedule.slice(0, r.fixedYears).forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-1 px-2 font-bold">${row.yearIndex} (${row.calYear})</td>
+          <td class="py-1 px-2">${row.opening.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2 font-semibold">${row.totalPaid.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2 text-rose-700">${row.interest.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2 text-emerald-700">${row.principal.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2">${row.special > 0 ? row.special.toLocaleString('de-DE', { minimumFractionDigits: 2 }) + ' €' : '-'}</td>
+          <td class="py-1 px-2 font-bold">${row.closing.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+        `;
+        pTbody.appendChild(tr);
+      });
+
+      // Stresstest Tabelle im Bericht
+      const pStress = document.getElementById('p_tbody_stresstest');
+      pStress.innerHTML = '';
+      r.stressScenarios.forEach(sc => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="py-1 px-2 font-bold">+${sc.hikePct.toFixed(1).replace('.', ',')} %</td>
+          <td class="py-1 px-2">${sc.newNomRate.toFixed(2).replace('.', ',')} %</td>
+          <td class="py-1 px-2 font-bold">${sc.newInstallment.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2 text-rose-700">+${sc.diffPerMonth.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+          <td class="py-1 px-2 text-rose-700">+${sc.extra5y.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</td>
+        `;
+        pStress.appendChild(tr);
+      });
+    }
+
+    // --- CSV & JSON EXPORT ---
+    function exportCSV() {
+      if (!calculationResults) return;
+      let csv = "DACH Digitalwerk - Kredit- und Annuitätenrechner 2026\n";
+      csv += "Kennzahl;Wert\n";
+      csv += `Darlehensbetrag;${state.amount.toFixed(2)} EUR\n`;
+      csv += `Sollzinssatz;${state.nominalRate.toFixed(2)} %\n`;
+      csv += `PAngV_Effektivzins;${calculationResults.effectiveRate.toFixed(2)} %\n`;
+      csv += `Anfaengliche_Tilgung;${state.repaymentRate.toFixed(2)} %\n`;
+      csv += `Zinsbindung_Jahre;${state.fixedYears}\n`;
+      csv += `Regulaere_Rate;${calculationResults.regularInstallment.toFixed(2)} EUR\n`;
+      csv += `Restschuld_nach_Zinsbindung;${calculationResults.remainingBalanceFixed.toFixed(2)} EUR\n`;
+      csv += `Gesamte_Zinsen_Zinsbindung;${calculationResults.totalInterestFixed.toFixed(2)} EUR\n`;
+      csv += `Zinsersparnis_durch_Sondertilgung;${calculationResults.interestSaved.toFixed(2)} EUR\n\n`;
+
+      csv += "Jahresweiser Tilgungsplan\n";
+      csv += "Jahr;Kalenderjahr;Anfangsbestand;Gesamtrate;Zinsanteil;Tilgungsanteil;Sondertilgung;Restschuld\n";
+      calculationResults.yearlySchedule.forEach(r => {
+        csv += `${r.yearIndex};${r.calYear};${r.opening.toFixed(2)};${r.totalPaid.toFixed(2)};${r.interest.toFixed(2)};${r.principal.toFixed(2)};${r.special.toFixed(2)};${r.closing.toFixed(2)}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Kredit_Tilgungsplan_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    }
+
+    function exportJSON() {
+      const data = JSON.stringify(state, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Kredit_Backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          Object.assign(state, imported);
+
+          document.getElementById('inp_amount').value = state.amount;
+          document.getElementById('rng_amount').value = Math.min(state.amount, 1000000);
+          document.getElementById('inp_interest_nominal').value = state.nominalRate;
+          document.getElementById('inp_repayment_rate').value = state.repaymentRate;
+          document.getElementById('rng_repayment_rate').value = Math.min(state.repaymentRate, 10.0);
+          document.getElementById('inp_fixed_years').value = state.fixedYears;
+          document.getElementById('inp_special_repayment').value = state.specialRepayment;
+          document.getElementById('inp_interval').value = state.interval;
+
+          setLoanType(state.loanType);
+          alert("Kredit-Berechnung erfolgreich aus Backup geladen!");
+        } catch (err) {
+          alert("Fehler beim Laden der Datei.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // --- DOM READY INIT ---
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      document.getElementById('p_date').innerText = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
+      syncInputs();
+    });
+  </script>
+
+</body>
+</html>

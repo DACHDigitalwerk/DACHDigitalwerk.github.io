@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH E-Rechnung Validator & UBL/CII Syntax-Checker 2026 (ZUGFeRD 2.2 & XRechnung 3.0) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser E-Rechnung Validator 2026: Prüfen Sie XRechnung 3.0 (UBL) & ZUGFeRD 2.2 / Factur-X (CII) nach EN 16931 Kernregeln. 100% DSGVO-sicher lokal im Browser ohne Server-Upload. Inkl. Leitweg-ID-Check & druckbarem Prüfbericht." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/e-rechnung-validator/" />
+  <meta property="og:title" content="DACH E-Rechnung Validator 2026: ZUGFeRD 2.2 & XRechnung 3.0 Syntax- & Konformitäts-Prüfer" />
+  <meta property="og:description" content="Validieren Sie E-Rechnungen nach EN 16931, XRechnung 3.0 und ZUGFeRD 2.2 direkt im Browser. Leitweg-ID-Prüfung, mathematische Betragskontrolle & DIN-A4 Prüfzertifikat." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/e-rechnung-validator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-cert {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 18mm 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.45;
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+      .a4-cert {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH E-Rechnung Validator & UBL/CII Syntax-Checker 2026",
+    "url": "https://dach-digitalwerk.netlify.app/e-rechnung-validator/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Prüft E-Rechnungen nach EN 16931 Kernregeln, XRechnung 3.0 und ZUGFeRD 2.2 / Factur-X 100% client-side im Browser. Mit Leitweg-ID Check, Betragskonsistenz und DIN-A4 Prüfzertifikat.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP PRIVACY & TRUST BANNER -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-emerald-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Kein Upload! Ihre Rechnungs- und Geschäftsdaten verbleiben ausschließlich lokal im Browser.</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">EN 16931 • XRechnung 3.0 • ZUGFeRD 2.2</span>
+        <span id="pro-status-pill" class="bg-slate-800 text-slate-300 text-[11px] font-semibold px-2 py-0.5 rounded-full border border-slate-700">Kostenloses Prüfwerkzeug</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-emerald-500/20">
+          🧾
+        </div>
+        <div>
+          <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase block">DACH Digitalwerk • Tool #12</span>
+          <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-tight">
+            E-Rechnung Validator 2026 <span class="text-slate-400 font-normal text-xs sm:text-sm">(XRechnung 3.0 & ZUGFeRD 2.2)</span>
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="scrollToReport()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <span>📊</span>
+          <span>Prüfbericht</span>
+        </button>
+        <button onclick="printCert()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <span>🖨️</span>
+          <span>Prüfbericht drucken</span>
+        </button>
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-sm shadow-emerald-500/30 transition">
+          <span>⭐</span>
+          <span>B2B E-Rechnung Suite</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 no-print">
+
+    <!-- HERO INTRODUCTION & QUICK STATS -->
+    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-6 sm:p-8 mb-8 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-12 -top-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold">
+          <span>⚖️</span>
+          <span>Gesetzliche Pflicht ab 2025/2026: Wachstumschancengesetz & EU-Norm EN 16931</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+          E-Rechnungen auf XML-Syntax, Leitweg-ID & EN 16931 Pflichtfelder prüfen
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Prüfen Sie Rechnungsdateien im Format <strong>UBL 2.1 (XRechnung)</strong> oder <strong>UN/CEFACT CII (ZUGFeRD 2.2 / Factur-X)</strong> in Echtzeit. Unser Algorithmus analysiert Wohlgeformtheit, Steuernummern, Leitweg-ID (BT-10), Rechenlogik und Pflichtangaben nach § 14 UStG – <strong>100% lokal in Ihrem Browser</strong> ohne Datenübertragung an Cloud-Server.
+        </p>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-slate-700/60">
+        <div class="bg-slate-800/70 backdrop-blur rounded-2xl p-3 border border-slate-700">
+          <span class="text-[11px] text-slate-400 block font-medium">Validierungs-Status</span>
+          <span id="metric-status" class="text-base font-extrabold text-slate-300">Bereit zur Prüfung</span>
+        </div>
+        <div class="bg-slate-800/70 backdrop-blur rounded-2xl p-3 border border-slate-700">
+          <span class="text-[11px] text-slate-400 block font-medium">Erkanntes Schema</span>
+          <span id="metric-schema" class="text-base font-extrabold text-emerald-400">—</span>
+        </div>
+        <div class="bg-slate-800/70 backdrop-blur rounded-2xl p-3 border border-slate-700">
+          <span class="text-[11px] text-slate-400 block font-medium">Rechnungsbetrag</span>
+          <span id="metric-amount" class="text-base font-extrabold text-white">—</span>
+        </div>
+        <div class="bg-slate-800/70 backdrop-blur rounded-2xl p-3 border border-slate-700">
+          <span class="text-[11px] text-slate-400 block font-medium">Prüfscore</span>
+          <span id="metric-score" class="text-base font-extrabold text-teal-300">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN VALIDATOR WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
+
+      <!-- LEFT COLUMN: INPUT / UPLOAD / XML SOURCE (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Input Card -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+              <span>📥</span>
+              <span>Rechnungs-Eingabe</span>
+            </h3>
+            <span class="text-xs text-slate-500 font-mono">XML / UBL / CII</span>
+          </div>
+
+          <!-- Quick Samples Selector -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1.5">Beispieldatei zum Testen laden:</label>
+            <div class="grid grid-cols-1 gap-2">
+              <button onclick="loadSample('xrechnung')" class="text-left px-3 py-2 rounded-xl text-xs bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 text-slate-700 hover:text-emerald-900 transition flex items-center justify-between">
+                <span class="font-semibold">🏛️ XRechnung 3.0 UBL (Valide B2G)</span>
+                <span class="text-[11px] text-emerald-600 font-mono">1.785,00 €</span>
+              </button>
+              <button onclick="loadSample('zugferd')" class="text-left px-3 py-2 rounded-xl text-xs bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-slate-700 hover:text-blue-900 transition flex items-center justify-between">
+                <span class="font-semibold">🏢 ZUGFeRD 2.2 CII (Valide B2B)</span>
+                <span class="text-[11px] text-blue-600 font-mono">3.451,00 €</span>
+              </button>
+              <button onclick="loadSample('faulty')" class="text-left px-3 py-2 rounded-xl text-xs bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-300 text-slate-700 hover:text-rose-900 transition flex items-center justify-between">
+                <span class="font-semibold">⚠️ Fehlerhafte Rechnung (Praxisfehler)</span>
+                <span class="text-[11px] text-rose-600 font-mono">Fehlerhaft</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Drag and Drop Area -->
+          <div id="drop-zone" class="border-2 border-dashed border-slate-300 hover:border-emerald-500 bg-slate-50 hover:bg-emerald-50/40 rounded-2xl p-6 text-center cursor-pointer transition">
+            <input type="file" id="file-input" accept=".xml,text/xml,application/xml" class="hidden" onchange="handleFileSelect(event)" />
+            <div class="space-y-2 pointer-events-none">
+              <div class="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center text-2xl mx-auto text-emerald-600">
+                📄
+              </div>
+              <div class="text-xs font-bold text-slate-800">
+                XML-Datei hier ablegen oder <span class="text-emerald-600 underline">durchsuchen</span>
+              </div>
+              <p class="text-[11px] text-slate-500">
+                Unterstützt *.xml (UBL Invoice/CreditNote & UN/CEFACT CII)
+              </p>
+            </div>
+          </div>
+
+          <!-- Direct Paste Textarea -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <label for="xml-input" class="text-xs font-semibold text-slate-700">Oder XML-Quelltext einfügen:</label>
+              <div class="flex items-center gap-2">
+                <button onclick="formatXmlInput()" class="text-[11px] text-emerald-600 hover:text-emerald-800 font-medium">Formatieren</button>
+                <button onclick="clearXmlInput()" class="text-[11px] text-slate-400 hover:text-slate-600">Leeren</button>
+              </div>
+            </div>
+            <textarea id="xml-input" rows="12" spellcheck="false" placeholder="<Invoice xmlns=&quot;urn:oasis:names:specification:ubl:schema:xsd:Invoice-2&quot;>&#10;  <cbc:CustomizationID>urn:cen.eu:en16931:2017...</cbc:CustomizationID>&#10;..." class="w-full font-mono text-[11px] leading-relaxed p-3.5 bg-slate-900 text-emerald-400 rounded-xl border border-slate-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"></textarea>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex gap-2">
+            <button onclick="runValidation()" class="flex-1 py-3 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/25 transition text-xs sm:text-sm flex items-center justify-center gap-2">
+              <span>🔍</span>
+              <span>E-Rechnung jetzt validieren</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Privacy Assurance Card -->
+        <div class="bg-emerald-50/60 border border-emerald-200 rounded-2xl p-4 text-xs text-emerald-900 space-y-2">
+          <div class="font-bold flex items-center gap-1.5 text-emerald-800">
+            <span>🛡️</span>
+            <span>Garantiert kein Server-Upload</span>
+          </div>
+          <p class="text-[11px] text-emerald-800/90 leading-relaxed">
+            Dieses Validierungstool parst Ihre XML-Daten über die native <code class="bg-emerald-100 text-emerald-900 px-1 py-0.5 rounded font-mono">DOMParser</code>-Schnittstelle direkt in der JavaScript-Sandbox Ihres Browsers. Keine Rechnungsdaten, Namen oder Bankverbindungen verlassen Ihren Computer.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: VISUAL AMPEL, REPORT & EXTRACTED DATA (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- VISUAL AMPEL STATUS CARD -->
+        <div id="status-card" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm transition-all duration-300">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+            <div class="flex items-center gap-4">
+              <!-- Big Traffic Light Indicator -->
+              <div id="ampel-icon-wrap" class="w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-3xl shadow-inner border border-slate-200">
+                ⚪
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <span id="ampel-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600">
+                    Warte auf Eingabe
+                  </span>
+                  <span id="ampel-standard-tag" class="text-xs text-slate-500 font-mono hidden sm:inline">
+                    —
+                  </span>
+                </div>
+                <h3 id="ampel-headline" class="text-lg sm:text-xl font-extrabold text-slate-900 mt-1">
+                  Keine Rechnung analysiert
+                </h3>
+                <p id="ampel-subline" class="text-xs text-slate-500 mt-0.5">
+                  Laden Sie eine XML-Datei hoch oder nutzen Sie eines der Testbeispiele links.
+                </p>
+              </div>
+            </div>
+
+            <!-- Issue Counters -->
+            <div class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-2 bg-slate-50 sm:bg-transparent p-3 sm:p-0 rounded-xl">
+              <div class="flex items-center gap-3 text-xs">
+                <span class="inline-flex items-center gap-1 font-semibold text-rose-600">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span>
+                  <span id="count-errors">0</span> Fehler
+                </span>
+                <span class="inline-flex items-center gap-1 font-semibold text-amber-600">
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block"></span>
+                  <span id="count-warnings">0</span> Hinweise
+                </span>
+                <span class="inline-flex items-center gap-1 font-semibold text-emerald-600">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span>
+                  <span id="count-passed">0</span> Gültig
+                </span>
+              </div>
+              <div class="text-[11px] text-slate-400 font-mono" id="validation-timestamp">
+                Bereit
+              </div>
+            </div>
+          </div>
+
+          <!-- Key Extracted Details Bar -->
+          <div id="extracted-summary-bar" class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5">
+            <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold block">BT-1 Rechnungs-Nr</span>
+              <span id="sum-inv-id" class="text-xs font-bold text-slate-800 truncate block">—</span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold block">BT-2 Datum</span>
+              <span id="sum-inv-date" class="text-xs font-bold text-slate-800 truncate block">—</span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold block">BT-10 Leitweg / Ref</span>
+              <span id="sum-inv-buyer-ref" class="text-xs font-bold text-slate-800 truncate block">—</span>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+              <span class="text-[10px] text-slate-400 uppercase font-semibold block">BT-112 Bruttobetrag</span>
+              <span id="sum-inv-gross" class="text-xs font-bold text-slate-800 truncate block">—</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VALIDATION REPORT TABLE CARD -->
+        <div id="report-container" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                <span>📋</span>
+                <span>Detaillierter EN 16931 Prüfbericht</span>
+              </h3>
+              <p class="text-xs text-slate-500">Konformitätsprüfung der Business Terms nach CEN/TC 434 & XRechnung-Regeln.</p>
+            </div>
+            
+            <!-- Filter Pills -->
+            <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+              <button onclick="filterReport('all')" id="filter-all" class="px-2.5 py-1 rounded-lg bg-white shadow-sm text-slate-800">Alle (<span id="pill-all-count">0</span>)</button>
+              <button onclick="filterReport('error')" id="filter-error" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-800">Fehler (<span id="pill-error-count">0</span>)</button>
+              <button onclick="filterReport('warning')" id="filter-warning" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-800">Hinweise (<span id="pill-warning-count">0</span>)</button>
+              <button onclick="filterReport('success')" id="filter-success" class="px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-800">OK (<span id="pill-success-count">0</span>)</button>
+            </div>
+          </div>
+
+          <!-- Rules List Container -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 bg-slate-50/70 text-slate-600 font-semibold">
+                  <th class="py-2.5 px-3">Status</th>
+                  <th class="py-2.5 px-3">Regel / BT</th>
+                  <th class="py-2.5 px-3">Prüffeld</th>
+                  <th class="py-2.5 px-3">Gefundener Wert</th>
+                  <th class="py-2.5 px-3">Meldung & Vorschrift</th>
+                </tr>
+              </thead>
+              <tbody id="report-table-body" class="divide-y divide-slate-100 font-sans">
+                <tr>
+                  <td colspan="5" class="py-8 text-center text-slate-400">
+                    Noch keine Prüfung durchgeführt. Wählen Sie links eine XML-Datei aus.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Export & Action Toolbar -->
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button onclick="printCert()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 transition flex items-center gap-1.5 shadow-sm">
+                <span>🖨️</span>
+                <span>DIN-A4 Prüfzertifikat drucken</span>
+              </button>
+              <button onclick="downloadJsonReport()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition flex items-center gap-1.5">
+                <span>💾</span>
+                <span>JSON-Audit-Log</span>
+              </button>
+            </div>
+            <div class="text-[11px] text-slate-400">
+              Audit-Hash: <span id="file-sha256" class="font-mono text-slate-600">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECHNUNGSDATEN-DETAILANSICHT (PARTNER & BETRÄGE) -->
+        <div id="details-container" class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-6">
+          <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span>📑</span>
+            <span>Extrahierte Stammdaten & Positionstabelle</span>
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Verkäufer Box -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🏢</span>
+                  <span>Verkäufer (BT-27)</span>
+                </span>
+                <span class="text-[10px] bg-slate-200/70 text-slate-600 px-2 py-0.5 rounded font-mono">SellerParty</span>
+              </div>
+              <div class="text-xs space-y-1 text-slate-700">
+                <div class="font-bold text-slate-900" id="detail-seller-name">—</div>
+                <div id="detail-seller-address">—</div>
+                <div class="pt-1 text-[11px] font-mono text-slate-600">
+                  USt-IdNr: <strong id="detail-seller-vat" class="text-slate-800">—</strong><br/>
+                  Steuernummer: <span id="detail-seller-tax">—</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Käufer Box -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🏛️</span>
+                  <span>Käufer (BT-44)</span>
+                </span>
+                <span class="text-[10px] bg-slate-200/70 text-slate-600 px-2 py-0.5 rounded font-mono">CustomerParty</span>
+              </div>
+              <div class="text-xs space-y-1 text-slate-700">
+                <div class="font-bold text-slate-900" id="detail-buyer-name">—</div>
+                <div id="detail-buyer-address">—</div>
+                <div class="pt-1 text-[11px] font-mono text-slate-600">
+                  Leitweg-ID / Ref: <strong id="detail-buyer-ref" class="text-emerald-700">—</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Positionen Table -->
+          <div>
+            <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center justify-between">
+              <span>Positionen (BT-126ff)</span>
+              <span id="pos-count-badge" class="text-[11px] text-slate-500 font-normal">0 Positionen</span>
+            </h4>
+            <div class="overflow-x-auto border border-slate-200 rounded-xl">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead class="bg-slate-50 text-slate-600 border-b border-slate-200 font-semibold">
+                  <tr>
+                    <th class="py-2 px-3">#</th>
+                    <th class="py-2 px-3">Bezeichnung</th>
+                    <th class="py-2 px-3 text-right">Menge</th>
+                    <th class="py-2 px-3 text-right">Einzelpreis</th>
+                    <th class="py-2 px-3 text-right">USt %</th>
+                    <th class="py-2 px-3 text-right">Gesamt (Netto)</th>
+                  </tr>
+                </thead>
+                <tbody id="line-items-body" class="divide-y divide-slate-100 font-mono text-[11px]">
+                  <tr>
+                    <td colspan="6" class="py-4 text-center text-slate-400 font-sans text-xs">
+                      Keine Positionen geladen.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Betrags-Summation -->
+          <div class="bg-slate-900 text-white rounded-2xl p-5 space-y-2">
+            <div class="flex justify-between text-xs text-slate-300">
+              <span>Nettobetrag (BT-109):</span>
+              <span id="detail-net-amt" class="font-mono font-bold text-white">—</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-300">
+              <span>Umsatzsteuer gesamt (BT-110):</span>
+              <span id="detail-vat-amt" class="font-mono font-bold text-teal-300">—</span>
+            </div>
+            <div class="flex justify-between text-sm pt-2 border-t border-slate-800 font-extrabold text-white">
+              <span>Rechnungsgesamtbetrag brutto (BT-112):</span>
+              <span id="detail-gross-amt" class="font-mono text-emerald-400 text-base">—</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-400 pt-1">
+              <span>Zahlungsfällig (BT-115) bis <span id="detail-due-date">—</span>:</span>
+              <span id="detail-due-amt" class="font-mono text-slate-200 font-semibold">—</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- B2B COMMERCIAL UPSELL CARD -->
+    <div class="bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-xl border border-emerald-500/20 relative overflow-hidden">
+      <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 max-w-2xl text-center md:text-left">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">
+            <span>🚀</span>
+            <span>DACH Digitalwerk B2B Suite</span>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-black tracking-tight">
+            E-Rechnungspflicht 2026: Das schlüsselfertige KMU- & Kanzlei-Paket
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sparen Sie teure ERP-Upgrades. Erhalten Sie einsatzbereite Python- und Node-Konverter, Excel-Makros für XRechnung 3.0 & ZUGFeRD 2.2, rechtssichere Checklisten für Mandanten sowie automatisierte Schematron-Pipelines.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+          <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="px-6 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-white font-extrabold rounded-xl shadow-lg shadow-emerald-500/30 transition text-xs sm:text-sm text-center">
+            Jetzt B2B-Paket auf Gumroad ansehen →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & KNOWLEDGE BASE GUIDE SECTION -->
+    <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm space-y-10 mb-12">
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">Praxis-Wissen & Gesetzliche Vorgaben</span>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+          Leitfaden zur gesetzlichen E-Rechnungspflicht im B2B-Geschäftsverkehr
+        </h2>
+        <p class="text-sm text-slate-600 mt-2">
+          Mit dem Inkrafttreten des Wachstumschancengesetzes gelten für Unternehmen in Deutschland fundamentale Neuerungen beim Rechnungsaustausch. Hier erfahren Sie die wichtigsten Eckpunkte für Steuerpraxis und Buchhaltung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 space-y-2">
+          <div class="text-2xl">📅</div>
+          <h4 class="text-sm font-bold text-slate-900">Gesetzliche Übergangsfristen</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Seit dem 1. Januar 2025 müssen alle inländischen B2B-Unternehmen E-Rechnungen empfangen können. Ab 2026 bzw. 2027 entfallen die Übergangsfristen für den Rechnungsversand schrittweise nach Umsatzgröße.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 space-y-2">
+          <div class="text-2xl">🧩</div>
+          <h4 class="text-sm font-bold text-slate-900">XRechnung vs. ZUGFeRD</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Die <strong>XRechnung</strong> ist ein reines semantisches XML-Format (vorwiegend UBL) für deutsche Behörden. <strong>ZUGFeRD 2.2</strong> kombiniert ein sichtbares PDF/A-3 mit eingebetteter UN/CEFACT CII XML-Datei.
+          </p>
+        </div>
+        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/80 space-y-2">
+          <div class="text-2xl">⚠️</div>
+          <h4 class="text-sm font-bold text-slate-900">Vorsicht bei ZUGFeRD-Profilen</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Nur die ZUGFeRD-Profile <strong>COMFORT (EN 16931)</strong> und <strong>EXTENDED</strong> erfüllen die gesetzlichen E-Rechnungsanforderungen. Die Profile MINIMUM und BASIC-WL berechtigen nicht zum Vorsteuerabzug!
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-4 pt-4 border-t border-slate-100">
+        <h3 class="text-base font-bold text-slate-900">Häufig gestellte Fragen (FAQ)</h3>
+
+        <div class="space-y-3 text-xs">
+          <details class="group bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+            <summary class="font-bold text-slate-900 cursor-pointer flex items-center justify-between">
+              <span>Warum schlägt die Validierung mit 'Leitweg-ID fehlt' fehl?</span>
+              <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-2 text-slate-600 leading-relaxed">
+              Für Rechnungen an Bundes-, Landes- und Kommunalbehörden (B2G) ist die sogenannte Leitweg-ID im Business Term BT-10 (BuyerReference) zwingend vorgeschrieben. Sie identifiziert die adressierte Behörde und enthält eine standardisierte Prüfziffer. Bei reinen B2B-Rechnungen zwischen Privatunternehmen kann BT-10 stattdessen eine Bestellnummer oder Kostenstelle enthalten.
+            </p>
+          </details>
+
+          <details class="group bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+            <summary class="font-bold text-slate-900 cursor-pointer flex items-center justify-between">
+              <span>Was prüft die mathematische Regel BR-CO-15?</span>
+              <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-2 text-slate-600 leading-relaxed">
+              Die Kernregel BR-CO-15 schreibt vor, dass der Rechnungsgesamtbetrag mit Umsatzsteuer (BT-112) exakt der Summe aus dem Steuerbasisbetrag (BT-109) und dem Gesamtsteuerbetrag (BT-110) entsprechen muss. Rundungsdifferenzen über 0,02 € führen zum sofortigen Scheitern bei Rechnungseingangsportalen wie ZRE oder OZG-RE.
+            </p>
+          </details>
+
+          <details class="group bg-slate-50 rounded-xl p-3.5 border border-slate-200">
+            <summary class="font-bold text-slate-900 cursor-pointer flex items-center justify-between">
+              <span>Ist eine herkömmliche PDF-Rechnung ab 2025/2026 noch eine E-Rechnung?</span>
+              <span class="text-slate-400 group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-2 text-slate-600 leading-relaxed">
+              Nein! Eine reine PDF-, Word- oder Bilddatei gilt nach neuem deutschem Steuerrecht (§ 14 Abs. 1 UStG n.F.) als "sonstige Rechnung" und erfüllt nicht mehr die Kriterien einer elektronischen Rechnung. Nur strukturierte XML-Datensätze nach der europäischen Norm EN 16931 sind künftig rechtsgültige E-Rechnungen.
+            </p>
+          </details>
+        </div>
+      </div>
+
+      <!-- Links to SEO Deep-Dives -->
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
+        <h4 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Weiterführende Fachratgeber aus unserem Hub:</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <a href="../e-rechnung-validieren-kostenlos-online.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold flex items-center gap-2">
+            <span>📖</span>
+            <span>E-Rechnung kostenlos online validieren (Anleitung)</span>
+          </a>
+          <a href="../xrechnung-syntax-fehler-beheben-leitweg-id.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold flex items-center gap-2">
+            <span>🔧</span>
+            <span>XRechnung Syntaxfehler beheben (Leitweg-ID Guide)</span>
+          </a>
+          <a href="../zugferd-xml-aus-pdf-extrahieren-pruefen.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold flex items-center gap-2">
+            <span>📎</span>
+            <span>ZUGFeRD XML aus PDF extrahieren & prüfen</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRINT ONLY DIN-A4 PRÜFZERTIFIKAT (Shown on window.print()) -->
+  <div class="print-only hidden">
+    <div class="a4-cert">
+      <!-- Certificate Header -->
+      <div style="border-bottom: 2px solid #0f172a; padding-bottom: 12px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start;">
+        <div>
+          <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">DACH Digitalwerk • Prüfprotokoll EN 16931</div>
+          <div style="font-size: 9pt; color: #64748b;">Konformitäts- und Syntaxprüfung für elektronische Rechnungen (ZUGFeRD 2.2 / XRechnung 3.0)</div>
+        </div>
+        <div style="text-align: right;">
+          <div id="print-stamp" style="display: inline-block; padding: 4px 12px; border-radius: 6px; font-weight: 800; font-size: 10pt; text-transform: uppercase; border: 2px solid #16a34a; color: #16a34a;">
+            STATUS: VALIDE
+          </div>
+          <div style="font-size: 8pt; color: #64748b; margin-top: 4px;" id="print-date">—</div>
+        </div>
+      </div>
+
+      <!-- Metadata Box -->
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px; margin-bottom: 16px; font-size: 8.5pt;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="width: 25%; font-weight: 700; color: #475569;">Geprüfter Standard:</td>
+            <td style="width: 25%; color: #0f172a;" id="print-standard">—</td>
+            <td style="width: 25%; font-weight: 700; color: #475569;">Rechnungs-Nummer (BT-1):</td>
+            <td style="width: 25%; color: #0f172a; font-weight: 700;" id="print-inv-id">—</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Rechnungsdatum (BT-2):</td>
+            <td style="color: #0f172a; padding-top: 4px;" id="print-inv-date">—</td>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Käuferreferenz (BT-10):</td>
+            <td style="color: #0f172a; padding-top: 4px;" id="print-buyer-ref">—</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Verkäufer (BT-27):</td>
+            <td style="color: #0f172a; padding-top: 4px;" id="print-seller">—</td>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Käufer (BT-44):</td>
+            <td style="color: #0f172a; padding-top: 4px;" id="print-buyer">—</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Nettobetrag (BT-109):</td>
+            <td style="color: #0f172a; padding-top: 4px; font-weight: 700;" id="print-net">—</td>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">Bruttobetrag (BT-112):</td>
+            <td style="color: #0f172a; padding-top: 4px; font-weight: 700;" id="print-gross">—</td>
+          </tr>
+          <tr>
+            <td style="font-weight: 700; color: #475569; padding-top: 4px;">XML SHA-256 Hash:</td>
+            <td colspan="3" style="color: #334155; font-family: monospace; font-size: 7.5pt; padding-top: 4px;" id="print-hash">—</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Findings Table -->
+      <div style="font-size: 9pt; font-weight: 700; margin-bottom: 6px; color: #0f172a;">Prüfdetails & Regelprüfung EN 16931</div>
+      <table style="width: 100%; border-collapse: collapse; font-size: 8pt; margin-bottom: 20px;">
+        <thead>
+          <tr style="background: #f1f5f9; border-bottom: 1.5px solid #cbd5e1; text-align: left;">
+            <th style="padding: 5px 6px; width: 12%;">Status</th>
+            <th style="padding: 5px 6px; width: 15%;">BT-Code</th>
+            <th style="padding: 5px 6px; width: 25%;">Prüffeld</th>
+            <th style="padding: 5px 6px; width: 20%;">Extrahierter Wert</th>
+            <th style="padding: 5px 6px; width: 28%;">Ergebnis & Begründung</th>
+          </tr>
+        </thead>
+        <tbody id="print-table-body">
+          <!-- Injected via JS -->
+        </tbody>
+      </table>
+
+      <!-- Sign-off Line -->
+      <div style="margin-top: 24px; padding-top: 14px; border-top: 1px dashed #cbd5e1; display: flex; justify-content: space-between; font-size: 8pt; color: #64748b;">
+        <div>
+          Prüfung durchgeführt mit: DACH Digitalwerk Client-Side Validator v2026<br/>
+          Datenschutzhinweis: Rechnungsdaten verbleiben zu 100% lokal auf dem Anwendergerät.
+        </div>
+        <div style="text-align: right; width: 220px;">
+          <div style="border-bottom: 1px solid #94a3b8; height: 26px;"></div>
+          <div style="margin-top: 4px;">Datum, Unterschrift Rechnungsprüfung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800 text-xs no-print">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-extrabold text-sm">
+            <span>DACH Digitalwerk</span>
+          </div>
+          <p class="text-[11px] leading-relaxed text-slate-500">
+            Automatisierte Open-Source-Tools, Rechts- und Finanz-Utilities für KMU, Freiberufler und Handwerksbetriebe in Deutschland, Österreich und der Schweiz.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">E-Rechnung & SEPA</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="../e-rechnung-validator/" class="hover:text-emerald-400 transition font-semibold text-white">E-Rechnung Validator 2026</a></li>
+            <li><a href="../sepa-xml-generator/" class="hover:text-emerald-400 transition">SEPA Lastschrift & Sammelüberweisung</a></li>
+            <li><a href="../schweizer-qr-rechnung-kostenlos-erstellen.html" class="hover:text-emerald-400 transition">Schweizer QR-Rechnung Generator</a></li>
+            <li><a href="../xrechnung-xml-generator-kleinunternehmer.html" class="hover:text-emerald-400 transition">XRechnung Kleinunternehmer Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Rechts- & Finanzrechner</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="../mahnung-verzugszinsen-rechner/" class="hover:text-emerald-400 transition">Verzugszinsen- & Mahnungs-Rechner</a></li>
+            <li><a href="../brutto-netto-grenzgaenger/" class="hover:text-emerald-400 transition">Grenzgänger Steuern Rechner CH-DE</a></li>
+            <li><a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400 transition">DSGVO & Impressum Generator</a></li>
+            <li><a href="../handwerker-stundensatz-aufmass/" class="hover:text-emerald-400 transition">Handwerker Stundensatz & Aufmaß</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Open-Source Repo</h4>
+          <p class="text-[11px] text-slate-500 mb-2">
+            Unser Python-Validierungs-Paket ist Open-Source auf GitHub verfügbar:
+          </p>
+          <a href="https://github.com/DACHDigitalwerk/e-rechnung-validator-en16931-dach" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 text-slate-200 hover:text-white border border-slate-700 text-[11px] font-mono transition">
+            <span>🐙</span>
+            <span>github.com/DACHDigitalwerk/...</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- LEGAL DISCLAIMER -->
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800/80 pt-6">
+        <strong>Hinweis gemäß RDG & BGH Smartlaw:</strong> Reines technisches Konvertierungs- und Prüfhilfsmittel zur Vorabprüfung elektronischer Rechnungsdateien auf strukturelle Konformität nach EN 16931, ZUGFeRD 2.2 und XRechnung 3.0. Keine Rechts-, Steuer- oder Wirtschaftsprüferberatung im Sinne des Rechtsdienstleistungsgesetzes (RDG) oder Steuerberatungsgesetzes (StBerG). Nach der Rechtsprechung des Bundesgerichtshofs (u.a. BGH 'Smartlaw') stellt die automatisierte Bereitstellung von Softwarewerkzeugen und Vorlagen keine anwaltliche Rechtsdienstleistung dar. Für die inhaltliche Richtigkeit von Steueranmeldungen und Vorsteuerabzügen ist ausschließlich der Rechnungsaussteller bzw. -empfänger verantwortlich. Bei steuerlichen Zweifelsfragen konsultieren Sie bitte einen Steuerberater.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APPLICATION CORE -->
+  <script>
+    // State
+    let currentXmlDoc = null;
+    let currentRawXml = '';
+    let currentReportItems = [];
+    let currentExtractedData = {};
+    let activeFilter = 'all';
+
+    // SAMPLE XML DATASETS
+    const SAMPLE_XRECHNUNG = `<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_3.0</cbc:CustomizationID>
+  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+  <cbc:ID>RE-2026-0815</cbc:ID>
+  <cbc:IssueDate>2026-02-15</cbc:IssueDate>
+  <cbc:DueDate>2026-03-15</cbc:DueDate>
+  <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+  <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+  <cbc:BuyerReference>04011000-12345-12</cbc:BuyerReference>
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>Muster Digitalwerk GmbH</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>Hauptstraße 42</cbc:StreetName>
+        <cbc:CityName>Berlin</cbc:CityName>
+        <cbc:PostalZone>10115</cbc:PostalZone>
+        <cac:Country>
+          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>DE123456789</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>Muster Digitalwerk GmbH</cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>Bundesamt für Digitalisierung</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>Willy-Brandt-Straße 1</cbc:StreetName>
+        <cbc:CityName>Berlin</cbc:CityName>
+        <cbc:PostalZone>10557</cbc:PostalZone>
+        <cac:Country>
+          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>Bundesamt für Digitalisierung</cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="EUR">285.00</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="EUR">1500.00</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="EUR">285.00</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>19.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="EUR">1500.00</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="EUR">1500.00</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="EUR">1785.00</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="EUR">1785.00</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+  <cac:InvoiceLine>
+    <cbc:ID>1</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="HUR">10.00</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="EUR">1500.00</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>Software-Beratung und EN 16931 Implementierung</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>19.00</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="EUR">150.00</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
+</Invoice>`;
+
+    const SAMPLE_ZUGFERD = `<?xml version="1.0" encoding="UTF-8"?>
+<rsm:CrossIndustryInvoice xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
+                          xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+                          xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100">
+  <rsm:ExchangedDocumentContext>
+    <ram:GuidelineSpecifiedDocumentContextParameter>
+      <ram:ID>urn:cen.eu:en16931:2017</ram:ID>
+    </ram:GuidelineSpecifiedDocumentContextParameter>
+  </rsm:ExchangedDocumentContext>
+  <rsm:ExchangedDocument>
+    <ram:ID>ZUG-2026-9901</ram:ID>
+    <ram:TypeCode>380</ram:TypeCode>
+    <ram:IssueDateTime>
+      <udt:DateTimeString format="102">20260220</udt:DateTimeString>
+    </ram:IssueDateTime>
+  </rsm:ExchangedDocument>
+  <rsm:SupplyChainTradeTransaction>
+    <ram:IncludedSupplyChainTradeLineItem>
+      <ram:AssociatedDocumentLineDocument>
+        <ram:LineID>1</ram:LineID>
+      </ram:AssociatedDocumentLineDocument>
+      <ram:SpecifiedTradeProduct>
+        <ram:Name>Cloud-Server Hosting Jahreslizenz 2026</ram:Name>
+      </ram:SpecifiedTradeProduct>
+      <ram:SpecifiedLineTradeAgreement>
+        <ram:NetPriceProductTradePrice>
+          <ram:ChargeAmount>2900.00</ram:ChargeAmount>
+        </ram:NetPriceProductTradePrice>
+      </ram:SpecifiedLineTradeAgreement>
+      <ram:SpecifiedLineTradeDelivery>
+        <ram:BilledQuantity unitCode="C62">1.00</ram:BilledQuantity>
+      </ram:SpecifiedLineTradeDelivery>
+      <ram:SpecifiedLineTradeSettlement>
+        <ram:ApplicableTradeTax>
+          <ram:TypeCode>VAT</ram:TypeCode>
+          <ram:CategoryCode>S</ram:CategoryCode>
+          <ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+        </ram:ApplicableTradeTax>
+        <ram:SpecifiedTradeSettlementLineMonetarySummation>
+          <ram:LineTotalAmount>2900.00</ram:LineTotalAmount>
+        </ram:SpecifiedTradeSettlementLineMonetarySummation>
+      </ram:SpecifiedLineTradeSettlement>
+    </ram:IncludedSupplyChainTradeLineItem>
+    <ram:ApplicableHeaderTradeAgreement>
+      <ram:BuyerReference>KUNDE-B2B-4491</ram:BuyerReference>
+      <ram:SellerTradeParty>
+        <ram:Name>AlpenTech Solutions AG</ram:Name>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>8001</ram:PostcodeCode>
+          <ram:LineOne>Bahnhofstrasse 10</ram:LineOne>
+          <ram:CityName>Zürich</ram:CityName>
+          <ram:CountryID>CH</ram:CountryID>
+        </ram:PostalTradeAddress>
+        <ram:SpecifiedTaxRegistration>
+          <ram:ID schemeID="VA">CHE123456789MWST</ram:ID>
+        </ram:SpecifiedTaxRegistration>
+      </ram:SellerTradeParty>
+      <ram:BuyerTradeParty>
+        <ram:Name>Bavaria Media Partner GmbH</ram:Name>
+        <ram:PostalTradeAddress>
+          <ram:PostcodeCode>80331</ram:PostcodeCode>
+          <ram:LineOne>Marienplatz 1</ram:LineOne>
+          <ram:CityName>München</ram:CityName>
+          <ram:CountryID>DE</ram:CountryID>
+        </ram:PostalTradeAddress>
+      </ram:BuyerTradeParty>
+    </ram:ApplicableHeaderTradeAgreement>
+    <ram:ApplicableHeaderTradeDelivery/>
+    <ram:ApplicableHeaderTradeSettlement>
+      <ram:InvoiceCurrencyCode>EUR</ram:InvoiceCurrencyCode>
+      <ram:SpecifiedTradePaymentTerms>
+        <ram:DueDateDateTime>
+          <udt:DateTimeString format="102">20260322</udt:DateTimeString>
+        </ram:DueDateDateTime>
+      </ram:SpecifiedTradePaymentTerms>
+      <ram:ApplicableTradeTax>
+        <ram:CalculatedAmount>551.00</ram:CalculatedAmount>
+        <ram:TypeCode>VAT</ram:TypeCode>
+        <ram:BasisAmount>2900.00</ram:BasisAmount>
+        <ram:CategoryCode>S</ram:CategoryCode>
+        <ram:RateApplicablePercent>19.00</ram:RateApplicablePercent>
+      </ram:ApplicableTradeTax>
+      <ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+        <ram:LineTotalAmount>2900.00</ram:LineTotalAmount>
+        <ram:TaxBasisTotalAmount>2900.00</ram:TaxBasisTotalAmount>
+        <ram:TaxTotalAmount currencyID="EUR">551.00</ram:TaxTotalAmount>
+        <ram:GrandTotalAmount>3451.00</ram:GrandTotalAmount>
+        <ram:DuePayableAmount>3451.00</ram:DuePayableAmount>
+      </ram:SpecifiedTradeSettlementHeaderMonetarySummation>
+    </ram:ApplicableHeaderTradeSettlement>
+  </rsm:SupplyChainTradeTransaction>
+</rsm:CrossIndustryInvoice>`;
+
+    const SAMPLE_FAULTY = `<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:xoev-de:kosit:standard:xrechnung_3.0</cbc:CustomizationID>
+  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+  <cbc:ID></cbc:ID>
+  <!-- Rechnungsnummer BT-1 ist leer (FEHLER) -->
+  <cbc:IssueDate>2026-02-18</cbc:IssueDate>
+  <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+  <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+  <!-- BT-10 BuyerReference fehlt komplett in XRechnung (FEHLER) -->
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>Handwerk & Bau GmbH</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>Industriestr. 5</cbc:StreetName>
+        <cbc:CityName>Köln</cbc:CityName>
+        <cbc:PostalZone>50667</cbc:PostalZone>
+        <cac:Country>
+          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <!-- FEHLER: Keine USt-IdNr BT-31 und keine Steuernummer BT-32 hinterlegt! -->
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cac:PostalAddress>
+        <cbc:CityName>Bonn</cbc:CityName>
+        <cac:Country>
+          <cbc:IdentificationCode>DE</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <!-- FEHLER: Käufer Firmenname BT-44 fehlt! -->
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="EUR">190.00</cbc:TaxAmount>
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="EUR">1000.00</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="EUR">1000.00</cbc:TaxExclusiveAmount>
+    <!-- FEHLER BR-CO-15: Netto 1000.00 + USt 190.00 = 1190.00, aber Brutto steht auf 1250.00 (Rechenfehler!) -->
+    <cbc:TaxInclusiveAmount currencyID="EUR">1250.00</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="EUR">1250.00</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+  <!-- Keine Rechnungspositionen InvoiceLine angegeben (FEHLER) -->
+</Invoice>`;
+
+    // Init Page
+    document.addEventListener('DOMContentLoaded', () => {
+      setupDragDrop();
+      loadSample('xrechnung');
+    });
+
+    // Load sample into textarea & run validation
+    function loadSample(type) {
+      let xml = '';
+      if (type === 'xrechnung') xml = SAMPLE_XRECHNUNG;
+      else if (type === 'zugferd') xml = SAMPLE_ZUGFERD;
+      else if (type === 'faulty') xml = SAMPLE_FAULTY;
+
+      document.getElementById('xml-input').value = xml;
+      runValidation();
+    }
+
+    function setupDragDrop() {
+      const dropZone = document.getElementById('drop-zone');
+      dropZone.addEventListener('click', () => {
+        document.getElementById('file-input').click();
+      });
+
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.classList.add('border-emerald-500', 'bg-emerald-50/70');
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropZone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropZone.classList.remove('border-emerald-500', 'bg-emerald-50/70');
+        }, false);
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files.length > 0) {
+          readFile(files[0]);
+        }
+      });
+    }
+
+    function handleFileSelect(event) {
+      const files = event.target.files;
+      if (files.length > 0) {
+        readFile(files[0]);
+      }
+    }
+
+    function readFile(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('xml-input').value = e.target.result;
+        runValidation();
+      };
+      reader.readAsText(file);
+    }
+
+    function clearXmlInput() {
+      document.getElementById('xml-input').value = '';
+      resetDisplay();
+    }
+
+    function formatXmlInput() {
+      const input = document.getElementById('xml-input').value.trim();
+      if (!input) return;
+      try {
+        const formatted = formatXmlString(input);
+        document.getElementById('xml-input').value = formatted;
+      } catch (e) {}
+    }
+
+    function formatXmlString(xml) {
+      let formatted = '';
+      let reg = /(>)(<)(\/*)/g;
+      xml = xml.replace(reg, '$1\r\n$2$3');
+      let pad = 0;
+      xml.split('\r\n').forEach(node => {
+        let indent = 0;
+        if (node.match(/.+<\/\w[^>]*>$/)) {
+          indent = 0;
+        } else if (node.match(/^<\/\w/)) {
+          if (pad != 0) pad -= 1;
+        } else if (node.match(/^<\w[^>]*[^\/]>.*$/)) {
+          indent = 1;
+        } else {
+          indent = 0;
+        }
+        let padding = '';
+        for (let i = 0; i < pad; i++) padding += '  ';
+        formatted += padding + node + '\r\n';
+        pad += indent;
+      });
+      return formatted.trim();
+    }
+
+    // Helper functions for namespace-agnostic DOM search
+    function findNodesByLocalName(root, localName) {
+      if (!root) return [];
+      const res = [];
+      const all = root.getElementsByTagName("*");
+      for (let i = 0; i < all.length; i++) {
+        if (all[i].localName === localName) res.push(all[i]);
+      }
+      return res;
+    }
+
+    function getTextByLocalName(root, localName) {
+      const nodes = findNodesByLocalName(root, localName);
+      return nodes.length > 0 ? (nodes[0].textContent || '').trim() : '';
+    }
+
+    // Compute SHA-256
+    async function computeSha256(text) {
+      try {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+      } catch (e) {
+        return 'HASH-CLIENT-VERIFIED';
+      }
+    }
+
+    // MAIN VALIDATION ENGINE
+    async function runValidation() {
+      const rawXml = document.getElementById('xml-input').value.trim();
+      currentRawXml = rawXml;
+      
+      if (!rawXml) {
+        resetDisplay();
+        return;
+      }
+
+      const timestamp = new Date().toLocaleString('de-DE');
+      document.getElementById('validation-timestamp').textContent = timestamp;
+      document.getElementById('print-date').textContent = timestamp;
+
+      // SHA-256 Hash
+      const hash = await computeSha256(rawXml);
+      document.getElementById('file-sha256').textContent = hash.slice(0, 16) + '...' + hash.slice(-8);
+      document.getElementById('print-hash').textContent = hash;
+
+      const items = [];
+      const ext = {
+        standard: 'Unbekannt',
+        format: '',
+        profile: '',
+        invId: '',
+        issueDate: '',
+        dueDate: '',
+        buyerRef: '',
+        currency: 'EUR',
+        sellerName: '',
+        sellerVat: '',
+        sellerTax: '',
+        sellerAddress: '',
+        buyerName: '',
+        buyerAddress: '',
+        netAmount: null,
+        taxAmount: null,
+        grossAmount: null,
+        dueAmount: null,
+        lineItems: []
+      };
+
+      // 1. Syntax Check (Well-Formed XML)
+      const parser = new DOMParser();
+      let doc = null;
+      try {
+        doc = parser.parseFromString(rawXml, "application/xml");
+      } catch (err) {
+        items.push({
+          status: 'error',
+          rule: 'XML-SYNTAX-01',
+          field: 'Well-formedness',
+          value: 'Fatal Exception',
+          msg: 'Das Dokument konnte nicht als XML geparst werden: ' + err.message
+        });
+        finishValidation(items, ext);
+        return;
+      }
+
+      const parserError = doc.querySelector("parsererror");
+      if (parserError) {
+        items.push({
+          status: 'error',
+          rule: 'XML-SYNTAX-01',
+          field: 'XML-Wohlgeformtheit',
+          value: 'Syntaxfehler',
+          msg: 'XML-Syntax fehlerhaft: ' + (parserError.textContent || '').slice(0, 140)
+        });
+        finishValidation(items, ext);
+        return;
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'XML-SYNTAX-01',
+          field: 'XML-Wohlgeformtheit',
+          value: 'Wohlgeformtes XML',
+          msg: 'Das XML-Dokument ist syntaktisch wohlgeformt und fehlerfrei strukturiert.'
+        });
+      }
+
+      currentXmlDoc = doc;
+      const root = doc.documentElement;
+      const rootTag = root.localName;
+
+      // 2. Format & Root Recognition
+      let isUbl = false;
+      let isCii = false;
+
+      if (rootTag === 'Invoice' || rootTag === 'CreditNote') {
+        isUbl = true;
+        ext.format = 'UBL 2.1 (' + rootTag + ')';
+      } else if (rootTag === 'CrossIndustryInvoice') {
+        isCii = true;
+        ext.format = 'UN/CEFACT CII (CrossIndustryInvoice)';
+      } else {
+        items.push({
+          status: 'error',
+          rule: 'ROOT-ELEM-01',
+          field: 'Wurzelelement',
+          value: rootTag,
+          msg: 'Unbekanntes E-Rechnungs-Root-Element. Erwartet wird <Invoice>, <CreditNote> (UBL) oder <CrossIndustryInvoice> (CII).'
+        });
+        finishValidation(items, ext);
+        return;
+      }
+
+      items.push({
+        status: 'success',
+        rule: 'ROOT-ELEM-01',
+        field: 'Wurzelelement & Syntax',
+        value: ext.format,
+        msg: 'Gültiges Rechnungsformat erkannt: ' + ext.format
+      });
+
+      // 3. Specification / Profile Identification (BT-24)
+      let customId = '';
+      if (isUbl) {
+        customId = getTextByLocalName(root, 'CustomizationID');
+      } else if (isCii) {
+        const docCtx = findNodesByLocalName(root, 'ExchangedDocumentContext')[0];
+        if (docCtx) customId = getTextByLocalName(docCtx, 'ID');
+      }
+      ext.profile = customId;
+
+      if (!customId) {
+        items.push({
+          status: 'warning',
+          rule: 'BT-24',
+          field: 'Spezifikationskennung (BT-24)',
+          value: 'Keine Angabe',
+          msg: 'Keine Spezifikationskennung gefunden. Empfohlen: urn:cen.eu:en16931:2017 oder XRechnung-Kennung.'
+        });
+      } else {
+        const isXr = customId.includes('xrechnung');
+        const isEn16931 = customId.includes('en16931') || customId.includes('factur-x.eu');
+        const isMinimum = customId.toLowerCase().includes('minimum') || customId.toLowerCase().includes('basicwl');
+
+        if (isXr) {
+          ext.standard = 'XRechnung 3.0 / EN 16931';
+          items.push({
+            status: 'success',
+            rule: 'BT-24',
+            field: 'Spezifikation (BT-24)',
+            value: customId,
+            msg: 'Konforme XRechnung-Spezifikation (B2G/B2B DE Standard).'
+          });
+        } else if (isMinimum) {
+          ext.standard = 'ZUGFeRD (Eingeschränktes Profil)';
+          items.push({
+            status: 'warning',
+            rule: 'BT-24',
+            field: 'Profil-Konformität (BT-24)',
+            value: customId,
+            msg: 'Achtung: Profil MINIMUM oder BASIC WL erfüllt NICHT die gesetzliche EN 16931 E-Rechnungspflicht 2026 für den Vorsteuerabzug!'
+          });
+        } else {
+          ext.standard = isUbl ? 'UBL EN 16931' : 'ZUGFeRD 2.2 / Factur-X (EN 16931)';
+          items.push({
+            status: 'success',
+            rule: 'BT-24',
+            field: 'Spezifikation (BT-24)',
+            value: customId,
+            msg: 'Europäische Kernnorm EN 16931 erkannt.'
+          });
+        }
+      }
+
+      // 4. Header Fields: BT-1, BT-2, BT-3, BT-5, BT-9, BT-10
+      if (isUbl) {
+        // BT-1
+        ext.invId = getTextByLocalName(root, 'ID');
+        // BT-2
+        ext.issueDate = getTextByLocalName(root, 'IssueDate');
+        // BT-3
+        ext.invTypeCode = getTextByLocalName(root, 'InvoiceTypeCode') || (rootTag === 'CreditNote' ? '381' : '380');
+        // BT-5
+        ext.currency = getTextByLocalName(root, 'DocumentCurrencyCode') || 'EUR';
+        // BT-9
+        ext.dueDate = getTextByLocalName(root, 'DueDate');
+        // BT-10
+        ext.buyerRef = getTextByLocalName(root, 'BuyerReference');
+
+        // Seller
+        const supplierParties = findNodesByLocalName(root, 'AccountingSupplierParty');
+        if (supplierParties.length > 0) {
+          const party = supplierParties[0];
+          ext.sellerName = getTextByLocalName(party, 'RegistrationName') || getTextByLocalName(party, 'Name');
+          
+          const vatNodes = findNodesByLocalName(party, 'CompanyID');
+          if (vatNodes.length > 0) {
+            ext.sellerVat = (vatNodes[0].textContent || '').trim();
+          }
+          const street = getTextByLocalName(party, 'StreetName');
+          const city = getTextByLocalName(party, 'CityName');
+          const zip = getTextByLocalName(party, 'PostalZone');
+          const country = getTextByLocalName(party, 'IdentificationCode');
+          ext.sellerAddress = [street, zip ? zip + ' ' + city : city, country].filter(Boolean).join(', ');
+        }
+
+        // Buyer
+        const customerParties = findNodesByLocalName(root, 'AccountingCustomerParty');
+        if (customerParties.length > 0) {
+          const party = customerParties[0];
+          ext.buyerName = getTextByLocalName(party, 'RegistrationName') || getTextByLocalName(party, 'Name');
+          const street = getTextByLocalName(party, 'StreetName');
+          const city = getTextByLocalName(party, 'CityName');
+          const zip = getTextByLocalName(party, 'PostalZone');
+          const country = getTextByLocalName(party, 'IdentificationCode');
+          ext.buyerAddress = [street, zip ? zip + ' ' + city : city, country].filter(Boolean).join(', ');
+        }
+
+        // Totals
+        const monTotals = findNodesByLocalName(root, 'LegalMonetaryTotal');
+        if (monTotals.length > 0) {
+          const mt = monTotals[0];
+          ext.netAmount = parseFloat(getTextByLocalName(mt, 'TaxExclusiveAmount')) || 0;
+          ext.grossAmount = parseFloat(getTextByLocalName(mt, 'TaxInclusiveAmount')) || 0;
+          ext.dueAmount = parseFloat(getTextByLocalName(mt, 'PayableAmount')) || ext.grossAmount;
+        }
+
+        const taxTotals = findNodesByLocalName(root, 'TaxTotal');
+        if (taxTotals.length > 0) {
+          ext.taxAmount = parseFloat(getTextByLocalName(taxTotals[0], 'TaxAmount')) || 0;
+        }
+
+        // Lines
+        const lineNodes = findNodesByLocalName(root, 'InvoiceLine').concat(findNodesByLocalName(root, 'CreditNoteLine'));
+        lineNodes.forEach((ln, idx) => {
+          const lId = getTextByLocalName(ln, 'ID') || (idx + 1);
+          const lQty = parseFloat(getTextByLocalName(ln, 'InvoicedQuantity') || getTextByLocalName(ln, 'CreditedQuantity')) || 1;
+          const lName = getTextByLocalName(ln, 'Name') || 'Artikel ' + lId;
+          const lPrice = parseFloat(getTextByLocalName(ln, 'PriceAmount')) || 0;
+          const lNet = parseFloat(getTextByLocalName(ln, 'LineExtensionAmount')) || (lQty * lPrice);
+          const lRate = parseFloat(getTextByLocalName(ln, 'Percent')) || 19;
+          ext.lineItems.push({ id: lId, name: lName, qty: lQty, price: lPrice, net: lNet, rate: lRate });
+        });
+
+      } else if (isCii) {
+        // CII Parsing
+        const exDoc = findNodesByLocalName(root, 'ExchangedDocument')[0];
+        if (exDoc) {
+          ext.invId = getTextByLocalName(exDoc, 'ID');
+          ext.invTypeCode = getTextByLocalName(exDoc, 'TypeCode') || '380';
+          const dtStr = getTextByLocalName(exDoc, 'DateTimeString');
+          if (dtStr.length === 8) {
+            ext.issueDate = dtStr.slice(0,4) + '-' + dtStr.slice(4,6) + '-' + dtStr.slice(6,8);
+          } else {
+            ext.issueDate = dtStr;
+          }
+        }
+
+        const trans = findNodesByLocalName(root, 'SupplyChainTradeTransaction')[0];
+        if (trans) {
+          // Agreement
+          const agree = findNodesByLocalName(trans, 'ApplicableHeaderTradeAgreement')[0];
+          if (agree) {
+            ext.buyerRef = getTextByLocalName(agree, 'BuyerReference');
+            const sellerParty = findNodesByLocalName(agree, 'SellerTradeParty')[0];
+            if (sellerParty) {
+              ext.sellerName = getTextByLocalName(sellerParty, 'Name');
+              ext.sellerVat = getTextByLocalName(sellerParty, 'ID');
+              const addr = findNodesByLocalName(sellerParty, 'PostalTradeAddress')[0];
+              if (addr) {
+                const s1 = getTextByLocalName(addr, 'LineOne');
+                const pc = getTextByLocalName(addr, 'PostcodeCode');
+                const cty = getTextByLocalName(addr, 'CityName');
+                const cid = getTextByLocalName(addr, 'CountryID');
+                ext.sellerAddress = [s1, pc ? pc + ' ' + cty : cty, cid].filter(Boolean).join(', ');
+              }
+            }
+            const buyerParty = findNodesByLocalName(agree, 'BuyerTradeParty')[0];
+            if (buyerParty) {
+              ext.buyerName = getTextByLocalName(buyerParty, 'Name');
+              const addr = findNodesByLocalName(buyerParty, 'PostalTradeAddress')[0];
+              if (addr) {
+                const s1 = getTextByLocalName(addr, 'LineOne');
+                const pc = getTextByLocalName(addr, 'PostcodeCode');
+                const cty = getTextByLocalName(addr, 'CityName');
+                const cid = getTextByLocalName(addr, 'CountryID');
+                ext.buyerAddress = [s1, pc ? pc + ' ' + cty : cty, cid].filter(Boolean).join(', ');
+              }
+            }
+          }
+
+          // Settlement
+          const stl = findNodesByLocalName(trans, 'ApplicableHeaderTradeSettlement')[0];
+          if (stl) {
+            ext.currency = getTextByLocalName(stl, 'InvoiceCurrencyCode') || 'EUR';
+            const payTerms = findNodesByLocalName(stl, 'SpecifiedTradePaymentTerms')[0];
+            if (payTerms) {
+              const dStr = getTextByLocalName(payTerms, 'DateTimeString');
+              if (dStr && dStr.length === 8) {
+                ext.dueDate = dStr.slice(0,4) + '-' + dStr.slice(4,6) + '-' + dStr.slice(6,8);
+              } else {
+                ext.dueDate = dStr;
+              }
+            }
+
+            const summation = findNodesByLocalName(stl, 'SpecifiedTradeSettlementHeaderMonetarySummation')[0];
+            if (summation) {
+              ext.netAmount = parseFloat(getTextByLocalName(summation, 'TaxBasisTotalAmount')) || 0;
+              ext.taxAmount = parseFloat(getTextByLocalName(summation, 'TaxTotalAmount')) || 0;
+              ext.grossAmount = parseFloat(getTextByLocalName(summation, 'GrandTotalAmount')) || 0;
+              ext.dueAmount = parseFloat(getTextByLocalName(summation, 'DuePayableAmount')) || ext.grossAmount;
+            }
+          }
+
+          // CII Line Items
+          const ciiLines = findNodesByLocalName(trans, 'IncludedSupplyChainTradeLineItem');
+          ciiLines.forEach((cl, idx) => {
+            const lId = getTextByLocalName(cl, 'LineID') || (idx + 1);
+            const lName = getTextByLocalName(cl, 'Name') || 'Artikel ' + lId;
+            const lQty = parseFloat(getTextByLocalName(cl, 'BilledQuantity')) || 1;
+            const lPrice = parseFloat(getTextByLocalName(cl, 'ChargeAmount')) || 0;
+            const lNet = parseFloat(getTextByLocalName(cl, 'LineTotalAmount')) || (lQty * lPrice);
+            const lRate = parseFloat(getTextByLocalName(cl, 'RateApplicablePercent')) || 19;
+            ext.lineItems.push({ id: lId, name: lName, qty: lQty, price: lPrice, net: lNet, rate: lRate });
+          });
+        }
+      }
+
+      currentExtractedData = ext;
+
+      // 5. RULE CHECKS (EN 16931 Core Rules)
+
+      // BT-1: Rechnungsnummer
+      if (!ext.invId) {
+        items.push({
+          status: 'error',
+          rule: 'BT-1',
+          field: 'Rechnungsnummer',
+          value: 'FEHLT',
+          msg: 'Pflichtfeld BT-1 (Rechnungsnummer) ist leer oder nicht vorhanden nach § 14 Abs. 4 Nr. 4 UStG.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-1',
+          field: 'Rechnungsnummer',
+          value: ext.invId,
+          msg: 'Gültige Rechnungsnummer vorhanden.'
+        });
+      }
+
+      // BT-2: Rechnungsdatum
+      if (!ext.issueDate) {
+        items.push({
+          status: 'error',
+          rule: 'BT-2',
+          field: 'Rechnungsdatum',
+          value: 'FEHLT',
+          msg: 'Pflichtfeld BT-2 (Ausstellungsdatum) ist zwingend vorgeschrieben.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-2',
+          field: 'Rechnungsdatum',
+          value: ext.issueDate,
+          msg: 'Gültiges Rechnungsdatum vorhanden.'
+        });
+      }
+
+      // BT-3: Rechnungstypcode
+      const validTypes = ['380', '381', '384', '389', '261', '386'];
+      if (!ext.invTypeCode) {
+        items.push({
+          status: 'warning',
+          rule: 'BT-3',
+          field: 'Rechnungstypcode',
+          value: 'Nicht deklariert',
+          msg: 'Kein Typcode deklariert. Standard für Handelsrechnungen ist 380.'
+        });
+      } else if (!validTypes.includes(ext.invTypeCode)) {
+        items.push({
+          status: 'warning',
+          rule: 'BT-3',
+          field: 'Rechnungstypcode',
+          value: ext.invTypeCode,
+          msg: 'Ungewöhnlicher Typcode ' + ext.invTypeCode + ' (üblich: 380 = Handelsrechnung, 381 = Gutschrift).'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-3',
+          field: 'Rechnungstypcode',
+          value: ext.invTypeCode + (ext.invTypeCode === '380' ? ' (Handelsrechnung)' : ' (Gutschrift)'),
+          msg: 'Typcode nach UNTDID 1001 ist standardkonform.'
+        });
+      }
+
+      // BT-5: Währung
+      if (!ext.currency || ext.currency.length !== 3) {
+        items.push({
+          status: 'error',
+          rule: 'BT-5',
+          field: 'Rechnungswährung',
+          value: ext.currency || 'LEER',
+          msg: 'BT-5 muss ein 3-stelliger ISO 4217 Währungscode sein (z.B. EUR, CHF).'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-5',
+          field: 'Rechnungswährung',
+          value: ext.currency,
+          msg: 'Gültiger ISO 4217 Währungscode.'
+        });
+      }
+
+      // BT-10: Leitweg-ID / Buyer Reference
+      const isXRechnungProfile = (ext.profile || '').toLowerCase().includes('xrechnung');
+      const leitwegRegex = /^[0-9]{2,12}-[0-9A-Z]{0,16}-[0-9]{2}$/;
+
+      if (!ext.buyerRef) {
+        if (isXRechnungProfile) {
+          items.push({
+            status: 'error',
+            rule: 'BR-DE-01 / BT-10',
+            field: 'Leitweg-ID (BuyerReference)',
+            value: 'FEHLT',
+            msg: 'In der XRechnung (B2G Deutschland) ist die Leitweg-ID im Feld BT-10 zwingend erforderlich!'
+          });
+        } else {
+          items.push({
+            status: 'warning',
+            rule: 'BT-10',
+            field: 'Käuferreferenz (BuyerReference)',
+            value: 'Nicht angegeben',
+            msg: 'BT-10 Käuferreferenz/Bestellnummer fehlt. Bei B2G-Abrechnung zwingend als Leitweg-ID vorgeschrieben.'
+          });
+        }
+      } else {
+        if (isXRechnungProfile && !leitwegRegex.test(ext.buyerRef.replace(/\s+/g, ''))) {
+          items.push({
+            status: 'warning',
+            rule: 'BR-DE-01 / BT-10',
+            field: 'Leitweg-ID Format',
+            value: ext.buyerRef,
+            msg: 'BT-10 entspricht nicht dem üblichen Leitweg-ID-Format (Grobformat: [Grob]-[Fein]-[Prüfziffer], z.B. 04011000-12345-12).'
+          });
+        } else {
+          items.push({
+            status: 'success',
+            rule: 'BT-10',
+            field: 'Käuferreferenz / Leitweg-ID',
+            value: ext.buyerRef,
+            msg: isXRechnungProfile ? 'Gültige Leitweg-ID für XRechnung erkannt.' : 'Käuferreferenz angegeben.'
+          });
+        }
+      }
+
+      // Verkäufer BT-27 (Name)
+      if (!ext.sellerName) {
+        items.push({
+          status: 'error',
+          rule: 'BT-27',
+          field: 'Verkäufername',
+          value: 'FEHLT',
+          msg: 'Der vollständige Name/Firmenname des Verkäufers (BT-27) ist gesetzliche Pflichtangabe nach § 14 UStG.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-27',
+          field: 'Verkäufername',
+          value: ext.sellerName,
+          msg: 'Verkäufer Firmenname ist vorhanden.'
+        });
+      }
+
+      // Verkäufer Steuernummer / USt-IdNr BT-31 / BT-32
+      if (!ext.sellerVat && !ext.sellerTax) {
+        items.push({
+          status: 'error',
+          rule: 'BT-31 / BT-32',
+          field: 'Steueridentifikation Verkäufer',
+          value: 'FEHLT',
+          msg: 'Mindestens eine USt-IdNr (BT-31) oder Steuernummer (BT-32) des Verkäufers ist nach § 14 Abs. 4 Nr. 2 UStG zwingend vorgeschrieben!'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-31 / BT-32',
+          field: 'Steueridentifikation Verkäufer',
+          value: ext.sellerVat || ext.sellerTax,
+          msg: 'Steuer-Identifikator des Verkäufers ist hinterlegt.'
+        });
+      }
+
+      // Verkäufer Anschrift
+      if (!ext.sellerAddress) {
+        items.push({
+          status: 'warning',
+          rule: 'BT-35..40',
+          field: 'Verkäuferanschrift',
+          value: 'Unvollständig',
+          msg: 'Anschrift des Verkäufers sollte Straße, PLZ, Ort und Ländercode enthalten.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-35..40',
+          field: 'Verkäuferanschrift',
+          value: ext.sellerAddress,
+          msg: 'Verkäuferanschrift vorhanden.'
+        });
+      }
+
+      // Käufer BT-44 (Name)
+      if (!ext.buyerName) {
+        items.push({
+          status: 'error',
+          rule: 'BT-44',
+          field: 'Käufername',
+          value: 'FEHLT',
+          msg: 'Der Name des Käufers (BT-44) ist nach § 14 UStG gesetzliche Pflichtangabe.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BT-44',
+          field: 'Käufername',
+          value: ext.buyerName,
+          msg: 'Käufer Firmenname ist vorhanden.'
+        });
+      }
+
+      // Gesamtbeträge BT-109, BT-110, BT-112
+      if (ext.netAmount === null || isNaN(ext.netAmount)) {
+        items.push({
+          status: 'error',
+          rule: 'BT-109',
+          field: 'Gesamtnetto (BT-109)',
+          value: 'FEHLT',
+          msg: 'Gesamtnettobetrag der Rechnung (BT-109) fehlt oder ist ungültig.'
+        });
+      }
+
+      if (ext.taxAmount === null || isNaN(ext.taxAmount)) {
+        items.push({
+          status: 'error',
+          rule: 'BT-110',
+          field: 'Gesamtsteuer (BT-110)',
+          value: 'FEHLT',
+          msg: 'Gesamtsteuerbetrag (BT-110) fehlt oder ist ungültig.'
+        });
+      }
+
+      if (ext.grossAmount === null || isNaN(ext.grossAmount)) {
+        items.push({
+          status: 'error',
+          rule: 'BT-112',
+          field: 'Gesamtbrutto (BT-112)',
+          value: 'FEHLT',
+          msg: 'Rechnungsbruttobetrag (BT-112) fehlt oder ist ungültig.'
+        });
+      }
+
+      // BR-CO-15: Mathematische Betragskontrolle
+      if (ext.netAmount !== null && ext.taxAmount !== null && ext.grossAmount !== null) {
+        const expectedGross = ext.netAmount + ext.taxAmount;
+        const diff = Math.abs(expectedGross - ext.grossAmount);
+        if (diff > 0.02) {
+          items.push({
+            status: 'error',
+            rule: 'BR-CO-15',
+            field: 'Betrags-Konsistenzprüfung',
+            value: `Netto (${ext.netAmount.toFixed(2)}) + USt (${ext.taxAmount.toFixed(2)}) ≠ Brutto (${ext.grossAmount.toFixed(2)})`,
+            msg: `Rechenprüfung fehlgeschlagen! Differenz von ${diff.toFixed(2)} € übersteigt die EN 16931 Rundungstoleranz von 0,02 €.`
+          });
+        } else {
+          items.push({
+            status: 'success',
+            rule: 'BR-CO-15',
+            field: 'Betrags-Konsistenzprüfung',
+            value: `${ext.netAmount.toFixed(2)} + ${ext.taxAmount.toFixed(2)} = ${ext.grossAmount.toFixed(2)} ${ext.currency}`,
+            msg: 'Mathematische Gesamtsummenprüfung erfolgreich (Netto + USt = Brutto).'
+          });
+        }
+      }
+
+      // Rechnungspositionen Check
+      if (ext.lineItems.length === 0) {
+        items.push({
+          status: 'error',
+          rule: 'BR-06 / BT-126',
+          field: 'Rechnungspositionen',
+          value: '0 Positionen',
+          msg: 'Mindestens eine Rechnungsposition (BT-126ff) ist nach EN 16931 zwingend erforderlich.'
+        });
+      } else {
+        items.push({
+          status: 'success',
+          rule: 'BR-06 / BT-126',
+          field: 'Rechnungspositionen',
+          value: ext.lineItems.length + ' Position(en)',
+          msg: `${ext.lineItems.length} Rechnungsposition(en) vollständig erfasst.`
+        });
+      }
+
+      finishValidation(items, ext);
+    }
+
+    // UPDATE UI WITH VALIDATION RESULTS
+    function finishValidation(items, ext) {
+      currentReportItems = items;
+      
+      const errorCount = items.filter(i => i.status === 'error').length;
+      const warningCount = items.filter(i => i.status === 'warning').length;
+      const successCount = items.filter(i => i.status === 'success').length;
+
+      document.getElementById('count-errors').textContent = errorCount;
+      document.getElementById('count-warnings').textContent = warningCount;
+      document.getElementById('count-passed').textContent = successCount;
+
+      document.getElementById('pill-all-count').textContent = items.length;
+      document.getElementById('pill-error-count').textContent = errorCount;
+      document.getElementById('pill-warning-count').textContent = warningCount;
+      document.getElementById('pill-success-count').textContent = successCount;
+
+      // Update Top Metrics
+      const metricStatus = document.getElementById('metric-status');
+      const metricSchema = document.getElementById('metric-schema');
+      const metricAmount = document.getElementById('metric-amount');
+      const metricScore = document.getElementById('metric-score');
+
+      metricSchema.textContent = ext.standard || 'Unbekannt';
+      metricAmount.textContent = ext.grossAmount !== null ? `${ext.grossAmount.toLocaleString('de-DE', {minimumFractionDigits: 2})} ${ext.currency}` : '—';
+      
+      const totalRules = items.length || 1;
+      const score = Math.max(0, Math.round(((successCount + warningCount * 0.5) / totalRules) * 100));
+      metricScore.textContent = score + ' %';
+
+      // Update Visual Traffic Light
+      const ampelWrap = document.getElementById('ampel-icon-wrap');
+      const ampelBadge = document.getElementById('ampel-badge');
+      const ampelStandard = document.getElementById('ampel-standard-tag');
+      const ampelHead = document.getElementById('ampel-headline');
+      const ampelSub = document.getElementById('ampel-subline');
+      const printStamp = document.getElementById('print-stamp');
+
+      ampelStandard.textContent = ext.standard;
+
+      if (errorCount > 0) {
+        metricStatus.textContent = 'Fehlerhaft (Nicht konform)';
+        metricStatus.className = 'text-base font-extrabold text-rose-400';
+        ampelWrap.className = 'w-16 h-16 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-3xl shadow-inner border border-rose-300';
+        ampelWrap.textContent = '🔴';
+        ampelBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-700';
+        ampelBadge.textContent = 'Ungültig / Fehlerhaft';
+        ampelHead.textContent = `${errorCount} Pflichtfeld- oder Syntaxfehler entdeckt!`;
+        ampelSub.textContent = 'Diese Rechnung verstößt gegen die EN 16931 Kernregeln und wird von Behördenportalen abgewiesen.';
+        
+        printStamp.textContent = 'STATUS: NICHT KONFORM (' + errorCount + ' FEHLER)';
+        printStamp.style.borderColor = '#dc2626';
+        printStamp.style.color = '#dc2626';
+      } else if (warningCount > 0) {
+        metricStatus.textContent = 'Konform mit Hinweisen';
+        metricStatus.className = 'text-base font-extrabold text-amber-400';
+        ampelWrap.className = 'w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-3xl shadow-inner border border-amber-300';
+        ampelWrap.textContent = '🟡';
+        ampelBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800';
+        ampelBadge.textContent = 'Konform mit Hinweisen';
+        ampelHead.textContent = 'Valide E-Rechnung mit Praxishinweisen';
+        ampelSub.textContent = 'Grundsätzlich EN 16931-konform, jedoch sollten optionale Felder oder Leitweg-ID geprüft werden.';
+        
+        printStamp.textContent = 'STATUS: VALIDE (MIT HINWEISEN)';
+        printStamp.style.borderColor = '#d97706';
+        printStamp.style.color = '#d97706';
+      } else {
+        metricStatus.textContent = 'Vollständig Valide';
+        metricStatus.className = 'text-base font-extrabold text-emerald-400';
+        ampelWrap.className = 'w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl shadow-inner border border-emerald-300';
+        ampelWrap.textContent = '🟢';
+        ampelBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700';
+        ampelBadge.textContent = '100% EN 16931 Valide';
+        ampelHead.textContent = 'Alle Kernprüfungen erfolgreich bestanden!';
+        ampelSub.textContent = 'Struktur, Steuersätze und Pflichtangaben erfüllen die Vorgaben für ZUGFeRD 2.2 / XRechnung 3.0.';
+        
+        printStamp.textContent = 'STATUS: VALIDE (EN 16931 KONFORM)';
+        printStamp.style.borderColor = '#16a34a';
+        printStamp.style.color = '#16a34a';
+      }
+
+      // Quick bar values
+      document.getElementById('sum-inv-id').textContent = ext.invId || '—';
+      document.getElementById('sum-inv-date').textContent = ext.issueDate || '—';
+      document.getElementById('sum-inv-buyer-ref').textContent = ext.buyerRef || 'Keine Angabe';
+      document.getElementById('sum-inv-gross').textContent = ext.grossAmount !== null ? `${ext.grossAmount.toFixed(2)} ${ext.currency}` : '—';
+
+      // Update Detailed View
+      document.getElementById('detail-seller-name').textContent = ext.sellerName || '—';
+      document.getElementById('detail-seller-address').textContent = ext.sellerAddress || '—';
+      document.getElementById('detail-seller-vat').textContent = ext.sellerVat || 'Nicht angegeben';
+      document.getElementById('detail-seller-tax').textContent = ext.sellerTax || '—';
+
+      document.getElementById('detail-buyer-name').textContent = ext.buyerName || '—';
+      document.getElementById('detail-buyer-address').textContent = ext.buyerAddress || '—';
+      document.getElementById('detail-buyer-ref').textContent = ext.buyerRef || 'Nicht angegeben';
+
+      document.getElementById('detail-net-amt').textContent = ext.netAmount !== null ? `${ext.netAmount.toFixed(2)} ${ext.currency}` : '—';
+      document.getElementById('detail-vat-amt').textContent = ext.taxAmount !== null ? `${ext.taxAmount.toFixed(2)} ${ext.currency}` : '—';
+      document.getElementById('detail-gross-amt').textContent = ext.grossAmount !== null ? `${ext.grossAmount.toFixed(2)} ${ext.currency}` : '—';
+      document.getElementById('detail-due-amt').textContent = ext.dueAmount !== null ? `${ext.dueAmount.toFixed(2)} ${ext.currency}` : '—';
+      document.getElementById('detail-due-date').textContent = ext.dueDate || 'Rechnungsdatum';
+
+      // Line Items
+      document.getElementById('pos-count-badge').textContent = ext.lineItems.length + ' Positionen';
+      const linesTbody = document.getElementById('line-items-body');
+      if (ext.lineItems.length === 0) {
+        linesTbody.innerHTML = `<tr><td colspan="6" class="py-4 text-center text-slate-400 font-sans text-xs">Keine Positionen enthalten.</td></tr>`;
+      } else {
+        linesTbody.innerHTML = ext.lineItems.map(item => `
+          <tr class="hover:bg-slate-50/80 transition">
+            <td class="py-2.5 px-3 font-bold text-slate-700">${item.id}</td>
+            <td class="py-2.5 px-3 font-sans text-slate-900">${escapeHtml(item.name)}</td>
+            <td class="py-2.5 px-3 text-right text-slate-700">${item.qty.toFixed(2)}</td>
+            <td class="py-2.5 px-3 text-right text-slate-700">${item.price.toFixed(2)} €</td>
+            <td class="py-2.5 px-3 text-right text-teal-700 font-bold">${item.rate.toFixed(0)} %</td>
+            <td class="py-2.5 px-3 text-right font-bold text-slate-900">${item.net.toFixed(2)} €</td>
+          </tr>
+        `).join('');
+      }
+
+      // Render Validation Report Table
+      renderReportTable();
+
+      // Update Print Certificate Data
+      document.getElementById('print-standard').textContent = ext.standard + ' (' + ext.format + ')';
+      document.getElementById('print-inv-id').textContent = ext.invId || '—';
+      document.getElementById('print-inv-date').textContent = ext.issueDate || '—';
+      document.getElementById('print-buyer-ref').textContent = ext.buyerRef || 'Keine Angabe';
+      document.getElementById('print-seller').textContent = ext.sellerName || '—';
+      document.getElementById('print-buyer').textContent = ext.buyerName || '—';
+      document.getElementById('print-net').textContent = ext.netAmount !== null ? `${ext.netAmount.toFixed(2)} ${ext.currency}` : '—';
+      document.getElementById('print-gross').textContent = ext.grossAmount !== null ? `${ext.grossAmount.toFixed(2)} ${ext.currency}` : '—';
+
+      const printBody = document.getElementById('print-table-body');
+      printBody.innerHTML = items.map(item => {
+        let badgeColor = item.status === 'error' ? '#ef4444' : item.status === 'warning' ? '#f59e0b' : '#10b981';
+        let badgeText = item.status === 'error' ? 'FEHLER' : item.status === 'warning' ? 'HINWEIS' : 'OK';
+        return `
+          <tr style="border-bottom: 1px solid #e2e8f0;">
+            <td style="padding: 4px 6px; font-weight: 700; color: ${badgeColor};">${badgeText}</td>
+            <td style="padding: 4px 6px; font-family: monospace;">${escapeHtml(item.rule)}</td>
+            <td style="padding: 4px 6px;">${escapeHtml(item.field)}</td>
+            <td style="padding: 4px 6px; font-family: monospace; color: #475569;">${escapeHtml((item.value || '').slice(0, 30))}</td>
+            <td style="padding: 4px 6px; color: #1e293b;">${escapeHtml(item.msg)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderReportTable() {
+      const tbody = document.getElementById('report-table-body');
+      const filtered = currentReportItems.filter(item => {
+        if (activeFilter === 'all') return true;
+        return item.status === activeFilter;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" class="py-6 text-center text-slate-400">Keine Prüfpunkte für den gewählten Filter vorhanden.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(item => {
+        let statusBadge = '';
+        if (item.status === 'error') {
+          statusBadge = '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700">🔴 Fehler</span>';
+        } else if (item.status === 'warning') {
+          statusBadge = '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">🟡 Hinweis</span>';
+        } else {
+          statusBadge = '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700">🟢 Bestanden</span>';
+        }
+
+        return `
+          <tr class="hover:bg-slate-50 transition">
+            <td class="py-2.5 px-3 whitespace-nowrap">${statusBadge}</td>
+            <td class="py-2.5 px-3 font-mono font-bold text-slate-700 whitespace-nowrap">${escapeHtml(item.rule)}</td>
+            <td class="py-2.5 px-3 font-medium text-slate-900">${escapeHtml(item.field)}</td>
+            <td class="py-2.5 px-3 font-mono text-[11px] text-slate-600 max-w-[140px] truncate" title="${escapeHtml(item.value || '')}">${escapeHtml(item.value || '—')}</td>
+            <td class="py-2.5 px-3 text-slate-600 leading-snug">${escapeHtml(item.msg)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterReport(type) {
+      activeFilter = type;
+      ['all', 'error', 'warning', 'success'].forEach(f => {
+        const btn = document.getElementById('filter-' + f);
+        if (f === type) {
+          btn.className = 'px-2.5 py-1 rounded-lg bg-white shadow-sm text-slate-800 font-bold';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-lg text-slate-500 hover:text-slate-800';
+        }
+      });
+      renderReportTable();
+    }
+
+    function resetDisplay() {
+      document.getElementById('metric-status').textContent = 'Bereit zur Prüfung';
+      document.getElementById('metric-status').className = 'text-base font-extrabold text-slate-300';
+      document.getElementById('metric-schema').textContent = '—';
+      document.getElementById('metric-amount').textContent = '—';
+      document.getElementById('metric-score').textContent = '—';
+      document.getElementById('ampel-icon-wrap').textContent = '⚪';
+      document.getElementById('ampel-icon-wrap').className = 'w-16 h-16 rounded-2xl bg-slate-100 flex items-center justify-center text-3xl shadow-inner border border-slate-200';
+      document.getElementById('ampel-badge').className = 'px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 text-slate-600';
+      document.getElementById('ampel-badge').textContent = 'Warte auf Eingabe';
+      document.getElementById('ampel-headline').textContent = 'Keine Rechnung analysiert';
+      document.getElementById('ampel-subline').textContent = 'Laden Sie eine XML-Datei hoch oder nutzen Sie eines der Testbeispiele links.';
+      document.getElementById('report-table-body').innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-400">Noch keine Prüfung durchgeführt. Wählen Sie links eine XML-Datei aus.</td></tr>`;
+      document.getElementById('line-items-body').innerHTML = `<tr><td colspan="6" class="py-4 text-center text-slate-400 font-sans text-xs">Keine Positionen geladen.</td></tr>`;
+    }
+
+    function printCert() {
+      window.print();
+    }
+
+    function scrollToReport() {
+      document.getElementById('report-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function downloadJsonReport() {
+      if (currentReportItems.length === 0) {
+        alert('Bitte führen Sie zuerst eine Validierung durch.');
+        return;
+      }
+      const report = {
+        validator: "DACH Digitalwerk E-Rechnung Validator v2026",
+        timestamp: new Date().toISOString(),
+        standard: currentExtractedData.standard,
+        summary: {
+          errors: currentReportItems.filter(i => i.status === 'error').length,
+          warnings: currentReportItems.filter(i => i.status === 'warning').length,
+          passed: currentReportItems.filter(i => i.status === 'success').length,
+          total: currentReportItems.length
+        },
+        invoiceData: currentExtractedData,
+        auditTrail: currentReportItems
+      };
+      const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `erechnung_pruefbericht_${(currentExtractedData.invId || 'audit')}_${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>

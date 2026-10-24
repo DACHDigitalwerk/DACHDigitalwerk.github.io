@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Verzugszinsen-, Mahnspesen- & Mahnschreiben-Generator 2026 (§ 288 BGB, Art. 104 OR & § 456 UGB inkl. 40-€-Pauschale) | DACH Digitalwerk</title>
+  <meta name="description" content="Gesetzliche Verzugszinsen taggenau berechnen für Deutschland (§ 288 BGB), Schweiz (Art. 104 OR) und Österreich (§ 456 UGB). Inkl. 40-€-B2B-Verzugspauschale, 3 Mahnstufen & druckfertigem DIN-A4 Mahnschreiben." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // Konfigurierbare Gumroad URL
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 20mm 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      position: relative;
+    }
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 0 20mm 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Forderungs-, Schuldner- & Bankdaten werden ausschließlich lokal in Ihrem Browser berechnet (keine Server-Speicherung, DSGVO & revDSG konform).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsordnung:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 288 BGB)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (Art. 104 OR / SchKG)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§ 456 UGB / ABGB)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          ⚖️
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Verzugszinsen- & Mahn-Suite 2026</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Taggenaue Zinsformel • 40-€-Pauschale • 3 Mahnstufen • DIN-A4 Dokumente & SchKG-Vorbereitung</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../arbeitszeugnis/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🔍</span>
+          <span>Arbeitszeugnis</span>
+        </a>
+        <a href="../impressum-datenschutz-generator/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🛡️</span>
+          <span>Impressum & DSGVO</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Vollversion (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & DEMO SELECTOR -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold mb-3">
+          <span>⚡ DACH Verzugs- & Mahnrecht 2026</span>
+          <span>•</span>
+          <span id="hero-badge-law">§ 288 BGB (DE) • Art. 104 OR (CH) • § 456 UGB (AT)</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          Verzugszinsen, 40-€-Pauschale & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-sky-300 to-emerald-300">Mahnschreiben rechtssicher berechnen</span>
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Kunden zahlen schleppend? Fordern Sie Ihr gutes Recht ein: Berechnen Sie die <strong>taggenauen gesetzlichen Verzugszinsen</strong>, die <strong>gesetzliche 40,00 € Verzugspauschale</strong> (§ 288 Abs. 5 BGB / § 458 UGB) ohne Schadensnachweis und generieren Sie das perfekte Mahnschreiben von der freundlichen Erinnerung bis zur Klageandrohung / Betreibung.
+        </p>
+      </div>
+
+      <!-- 1-KLICK PRAXISBEISPIELE -->
+      <div class="mt-6 pt-6 border-t border-slate-800">
+        <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2.5 flex items-center gap-2">
+          <span>🚀 Häufige Praxis-Szenarien direkt laden (1-Klick):</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <button onclick="loadScenario('DE_B2B')" class="bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-indigo-500/50 p-3 rounded-xl text-left transition text-xs group">
+            <div class="flex items-center justify-between text-indigo-400 font-bold mb-1">
+              <span>🇩🇪 DE Handwerker/Agentur B2B</span>
+              <span class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <div class="text-slate-300 font-semibold">4.850 € • 45 Tage Verzug</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">12,37 % p.a. + 40,00 € Pauschale (§ 288 Abs. 5)</div>
+          </button>
+
+          <button onclick="loadScenario('CH_KMU')" class="bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-indigo-500/50 p-3 rounded-xl text-left transition text-xs group">
+            <div class="flex items-center justify-between text-sky-400 font-bold mb-1">
+              <span>🇨🇭 CH KMU-Werkvertrag</span>
+              <span class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <div class="text-slate-300 font-semibold">6.200 CHF • 30 Tage Verzug</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">5,00 % p.a. (Art. 104 OR) vor SchKG-Betreibung</div>
+          </button>
+
+          <button onclick="loadScenario('AT_B2B')" class="bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-indigo-500/50 p-3 rounded-xl text-left transition text-xs group">
+            <div class="flex items-center justify-between text-emerald-400 font-bold mb-1">
+              <span>🇦🇹 AT B2B Warenlieferung</span>
+              <span class="group-hover:translate-x-0.5 transition">→</span>
+            </div>
+            <div class="text-slate-300 font-semibold">3.400 € • 60 Tage Verzug</div>
+            <div class="text-slate-400 text-[11px] mt-0.5">12,58 % (§ 456 UGB) + 40,00 € Betreibungskosten</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <div class="bg-white border-b border-slate-200 sticky top-16 z-20 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex overflow-x-auto space-x-2 sm:space-x-8 py-3 scrollbar-none">
+        <button onclick="switchTab('rechner')" id="tab-btn-rechner" class="tab-btn px-3 py-2 text-xs sm:text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap">
+          <span>🧮</span>
+          <span>1. Taggenauer Zins- & Pauschalen-Rechner</span>
+        </button>
+        <button onclick="switchTab('stufen')" id="tab-btn-stufen" class="tab-btn px-3 py-2 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap">
+          <span>📋</span>
+          <span>2. 3-Stufen-Mahn-Konfigurator</span>
+        </button>
+        <button onclick="switchTab('dokument')" id="tab-btn-dokument" class="tab-btn px-3 py-2 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap">
+          <span>📄</span>
+          <span>3. DIN-A4 Mahnschreiben & SchKG-Generator (Pro)</span>
+          <span class="bg-amber-100 text-amber-800 text-[10px] font-extrabold px-1.5 py-0.5 rounded">PRO</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ===================================================================== -->
+    <!-- TAB 1: VERZUGSZINSEN- & PAUSCHALEN-RECHNER -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-rechner" class="tab-content">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LINKER EINGABE-BEREICH -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7">
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+              <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <span>📊</span>
+                <span>Forderungs- & Verzugsparameter</span>
+              </h2>
+              <span id="currency-badge" class="bg-indigo-50 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-indigo-100">
+                Währung: EUR (€)
+              </span>
+            </div>
+
+            <div class="space-y-5">
+              <!-- KUNDENTYP UMSCHALTER (B2B vs B2C) -->
+              <div>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  Kundentyp (Schuldner-Status):
+                </label>
+                <div class="grid grid-cols-2 gap-3">
+                  <label id="label-cust-b2b" class="relative flex flex-col p-3.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 cursor-pointer transition">
+                    <input type="radio" name="customer_type" value="B2B" checked onchange="updateCustomerType('B2B')" class="sr-only">
+                    <span class="text-xs font-bold text-indigo-950 flex items-center gap-1.5">
+                      <span>🏢</span>
+                      <span>B2B / Geschäftskunde</span>
+                    </span>
+                    <span id="b2b-sublabel" class="text-[11px] text-slate-500 mt-1">
+                      +9 %p über Basis (§ 288 Abs. 2 BGB) + 40 € Verzugspauschale!
+                    </span>
+                  </label>
+
+                  <label id="label-cust-b2c" class="relative flex flex-col p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-slate-300 cursor-pointer transition">
+                    <input type="radio" name="customer_type" value="B2C" onchange="updateCustomerType('B2C')" class="sr-only">
+                    <span class="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                      <span>👤</span>
+                      <span>B2C / Verbraucher (Privat)</span>
+                    </span>
+                    <span id="b2c-sublabel" class="text-[11px] text-slate-500 mt-1">
+                      +5 %p über Basis (§ 288 Abs. 1 BGB), keine 40-€-Pauschale
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- RECHNUNGSBETRAG -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="input-amount" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Offener Rechnungsbetrag (<span class="currency-sign">€</span>):
+                  </label>
+                  <div class="relative">
+                    <input type="number" id="input-amount" value="4850.00" step="0.01" min="1" oninput="calculateInterest()"
+                      class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-base font-semibold text-slate-900 focus:bg-white focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 pr-10 font-mono">
+                    <span class="currency-sign absolute right-3.5 top-2.5 text-slate-400 font-semibold text-base">€</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">Hauptforderung (Brutto inkl. USt bzw. Netto je nach Rechnung).</p>
+                </div>
+
+                <div>
+                  <label for="input-invoice-nr" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Rechnungsnummer / Referenz:
+                  </label>
+                  <input type="text" id="input-invoice-nr" value="RE-2026-1084" oninput="calculateInterest()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:bg-white focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-mono">
+                  <p class="text-[11px] text-slate-500 mt-1">Für die eindeutige Zuordnung im Mahnschreiben.</p>
+                </div>
+              </div>
+
+              <!-- DATEN: RECHNUNGSDATUM, FÄLLIGKEIT & STICHTAG -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label for="input-invoice-date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Rechnungsdatum:
+                  </label>
+                  <input type="date" id="input-invoice-date" onchange="calculateInterest()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:bg-white focus:border-indigo-600">
+                </div>
+
+                <div>
+                  <label for="input-due-date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Urspr. Fälligkeitsdatum:
+                  </label>
+                  <input type="date" id="input-due-date" onchange="calculateInterest()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:bg-white focus:border-indigo-600">
+                </div>
+
+                <div>
+                  <label for="input-calc-date" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Berechnungs-Stichtag:
+                  </label>
+                  <input type="date" id="input-calc-date" onchange="calculateInterest()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:bg-white focus:border-indigo-600">
+                </div>
+              </div>
+
+              <!-- ZINSSATZ & BASISZINSSATZ DETAILS -->
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Gesetzlicher Verzugszinssatz (p.a.):</span>
+                  <button type="button" onclick="toggleCustomRate()" class="text-[11px] text-indigo-600 hover:text-indigo-800 font-semibold underline">
+                    Eigener/Vertraglicher Zinssatz?
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span id="rate-display-badge" class="text-2xl font-black text-indigo-600 font-mono">12,37 %</span>
+                      <span class="text-xs text-slate-500 font-medium">p.a.</span>
+                    </div>
+                    <p id="rate-formula-explainer" class="text-[11px] text-slate-500 mt-0.5">
+                      Basiszinssatz (3,37 %) + 9,00 %-Punkte (§ 288 Abs. 2 BGB)
+                    </p>
+                  </div>
+
+                  <div id="custom-rate-box" class="hidden">
+                    <label for="input-custom-rate" class="block text-[11px] font-bold text-slate-600 mb-1">
+                      Individueller Zinssatz (% p.a.):
+                    </label>
+                    <input type="number" id="input-custom-rate" step="0.01" min="0" max="50" oninput="calculateInterest()"
+                      class="w-full bg-white border border-slate-300 rounded-lg px-2.5 py-1.5 text-xs font-bold font-mono">
+                  </div>
+                </div>
+              </div>
+
+              <!-- MAHNSTUFE & SPESEN -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="select-mahnstufe" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    Mahnstufe / Eskalation:
+                  </label>
+                  <select id="select-mahnstufe" onchange="onMahnstufeChange()"
+                    class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:bg-white focus:border-indigo-600">
+                    <option value="1">Stufe 1: Freundliche Zahlungserinnerung</option>
+                    <option value="2" selected>Stufe 2: Bestimmte 2. Mahnung mit Zinsen</option>
+                    <option value="3">Stufe 3: Letzte Mahnung vor Inkasso/Gericht/SchKG</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="input-spesen" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                    <span id="spesen-label-text">Verzugspauschale / Mahnspesen (<span class="currency-sign">€</span>):</span>
+                  </label>
+                  <div class="relative">
+                    <input type="number" id="input-spesen" value="40.00" step="0.50" min="0" oninput="calculateInterest()"
+                      class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold text-slate-900 focus:bg-white focus:border-indigo-600 font-mono pr-10">
+                    <span class="currency-sign absolute right-3.5 top-2.5 text-slate-400 font-semibold text-sm">€</span>
+                  </div>
+                  <p id="spesen-explainer" class="text-[11px] text-slate-500 mt-1">
+                    Gesetzliche 40,00 € Verzugspauschale gem. § 288 Abs. 5 BGB.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RECHTS-HINWEIS BOX -->
+          <div id="legal-box-info" class="p-4 bg-slate-100/80 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-2">
+            <!-- Dynamisch via JavaScript gefüllt -->
+          </div>
+        </div>
+
+        <!-- RECHTER ERGEBNIS-BEREICH (LIVE KPI & AUFSCHLÜSSELUNG) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-6 sm:p-7 shadow-xl border border-indigo-900/50 sticky top-28">
+            <div class="flex items-center justify-between pb-3 border-b border-indigo-800/60">
+              <span class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Forderungsaufstellung Live</span>
+              <span id="badge-verzugstage" class="bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-2.5 py-0.5 rounded-full font-mono">
+                45 Tage Verzug
+              </span>
+            </div>
+
+            <!-- GESAMT-BETRAG PROMINENT -->
+            <div class="my-5 text-center sm:text-left">
+              <span class="text-xs text-slate-400 block font-medium">Aktuelle Gesamtforderung:</span>
+              <div class="text-3xl sm:text-4xl font-black text-white font-mono mt-1 tracking-tight flex items-baseline justify-center sm:justify-start gap-2">
+                <span id="kpi-total">4.963,89</span>
+                <span class="currency-sign text-indigo-300 text-2xl font-bold">€</span>
+              </div>
+              <p class="text-[11px] text-emerald-400 mt-1 flex items-center justify-center sm:justify-start gap-1">
+                <span>✓</span>
+                <span>Taggenau berechnet nach aktuellem DACH-Recht 2026</span>
+              </p>
+            </div>
+
+            <!-- AUFSCHLÜSSELUNG TABELLE -->
+            <div class="space-y-3 pt-4 border-t border-indigo-900/60 text-xs">
+              <div class="flex justify-between items-center text-slate-300">
+                <span>1. Hauptforderung (offener Betrag):</span>
+                <span id="row-base-amount" class="font-bold text-white font-mono">4.850,00 €</span>
+              </div>
+
+              <div class="flex justify-between items-center text-slate-300">
+                <div class="flex flex-col">
+                  <span>2. Verzugszinsen (<span id="row-rate-percent">12,37 %</span> p.a.):</span>
+                  <span id="row-days-calc" class="text-[10px] text-indigo-300">45 Verzugstage / 365 Tage</span>
+                </div>
+                <span id="row-interest-amount" class="font-bold text-amber-300 font-mono">+ 73,89 €</span>
+              </div>
+
+              <div class="flex justify-between items-center text-slate-300">
+                <div class="flex flex-col">
+                  <span>3. <span id="row-spesen-label">Verzugspauschale (§ 288 Abs. 5 BGB)</span>:</span>
+                  <span id="row-spesen-sub" class="text-[10px] text-slate-400">Gesetzlich ohne Schadensnachweis</span>
+                </div>
+                <span id="row-spesen-amount" class="font-bold text-emerald-300 font-mono">+ 40,00 €</span>
+              </div>
+
+              <div class="pt-3 border-t border-indigo-800/80 flex justify-between items-center text-sm font-bold text-white">
+                <span>Gesamtbetrag zur Zahlung:</span>
+                <span id="row-grand-total" class="font-extrabold text-amber-300 font-mono text-base">4.963,89 €</span>
+              </div>
+            </div>
+
+            <!-- SCHNELLE AKTIONEN -->
+            <div class="mt-6 pt-5 border-t border-indigo-900/60 space-y-3">
+              <button onclick="switchTab('dokument')" class="w-full bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm shadow-lg shadow-indigo-500/25 transition flex items-center justify-center gap-2">
+                <span>📄</span>
+                <span>Fertiges DIN-A4 Mahnschreiben generieren</span>
+                <span>→</span>
+              </button>
+
+              <button onclick="copyCalculationSummary()" id="btn-copy-calc" class="w-full bg-slate-800/90 hover:bg-slate-700/90 text-slate-200 font-semibold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 border border-slate-700">
+                <span>📋</span>
+                <span id="btn-copy-calc-text">Forderungsaufstellung in Zwischenablage kopieren</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 2: 3-STUFEN-MAHN- & ESKALATIONS-KONFIGURATOR -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-stufen" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+        <div class="max-w-3xl mb-6">
+          <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span>⚖️</span>
+            <span>Der 3-Stufen-Mahnplan nach DACH-Recht 2026</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            Wählen Sie die passende Tonalität und Eskalationsstufe. Vermeiden Sie Beziehungsabbrüche bei versehentlichem Zahlungsverzug oder setzen Sie säumigen Zahlern unmissverständliche gerichtliche Fristen.
+          </p>
+        </div>
+
+        <!-- 3 TABS FÜR MAHNSTUFEN -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          <button onclick="selectEscalationStep(1)" id="esc-tab-1" class="esc-tab-card p-4 rounded-xl border-2 border-slate-200 text-left transition hover:border-slate-300">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Stufe 1</span>
+              <span class="text-base">🤝</span>
+            </div>
+            <div class="text-sm font-bold text-slate-900">Freundliche Zahlungserinnerung</div>
+            <p class="text-[11px] text-slate-500 mt-1">Beziehung schonen, Versehen annehmen. Keine Zinsen oder nur optional.</p>
+          </button>
+
+          <button onclick="selectEscalationStep(2)" id="esc-tab-2" class="esc-tab-card p-4 rounded-xl border-2 border-indigo-600 bg-indigo-50/40 text-left transition">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Stufe 2 (Aktiv)</span>
+              <span class="text-base">⚠️</span>
+            </div>
+            <div class="text-sm font-bold text-slate-900">Bestimmte 2. Mahnung</div>
+            <p class="text-[11px] text-slate-500 mt-1">Verzugszinsen & 40-€-Pauschale berechnen. Klare 7-Tage-Zahlungsfrist.</p>
+          </button>
+
+          <button onclick="selectEscalationStep(3)" id="esc-tab-3" class="esc-tab-card p-4 rounded-xl border-2 border-slate-200 text-left transition hover:border-slate-300">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Stufe 3</span>
+              <span class="text-base">⚖️</span>
+            </div>
+            <div class="text-sm font-bold text-slate-900">Letzte außergerichtliche Mahnung</div>
+            <p class="text-[11px] text-slate-500 mt-1">Androhung gerichtl. Mahnverfahren (§ 688 ZPO) / Betreibung (Art. 67 SchKG).</p>
+          </button>
+        </div>
+
+        <!-- DETAIL-ANSICHT DER GEWÄHLTEN STUFE -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200">
+            <div>
+              <span id="esc-badge-level" class="bg-indigo-100 text-indigo-800 text-xs font-extrabold px-2.5 py-1 rounded-md">
+                Stufe 2: Bestimmte Mahnung
+              </span>
+              <h3 id="esc-heading" class="text-base font-bold text-slate-900 mt-1.5">
+                Mahnung mit Zins- & Verzugspauschalenabrechnung
+              </h3>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-slate-500">Zahlungsziel:</span>
+              <span id="esc-deadline-badge" class="bg-white border border-slate-300 text-slate-800 text-xs font-bold px-2 py-1 rounded-lg">
+                7 Werktage
+              </span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- RECHTLICHE WIRKUNG -->
+            <div class="bg-white p-4 rounded-lg border border-slate-200 text-xs space-y-2">
+              <div class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span>📌</span>
+                <span>Rechtliche Einordnung & Verzugseintritt:</span>
+              </div>
+              <p id="esc-legal-text" class="text-slate-600 leading-relaxed">
+                Der Schuldner befindet sich spätestens jetzt im qualifizierten Verzug. Nach § 288 Abs. 5 BGB (DE) bzw. § 458 UGB (AT) ist die 40,00 € Verzugspauschale fällig. In der Schweiz setzt diese Mahnung den Schuldner in Verzug (Art. 102 Abs. 1 OR), womit ab jetzt der 5 % Verzugszins nach Art. 104 OR geschuldet ist.
+              </p>
+            </div>
+
+            <!-- EMPFOHLENE TONALITÄT -->
+            <div class="bg-white p-4 rounded-lg border border-slate-200 text-xs space-y-2">
+              <div class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span>🎯</span>
+                <span>Empfohlene Formulierung & Taktik:</span>
+              </div>
+              <p id="esc-tone-text" class="text-slate-600 leading-relaxed">
+                Sachlich, verbindlich und transparent. Geben Sie die genaue Zinsrechnung und die 40-€-Pauschale separat an. Nennen Sie ein kalendermäßig exaktes Datum (keine vagen Formulierungen wie "in Kürze").
+              </p>
+            </div>
+          </div>
+
+          <!-- MUSTER-TEXT VORSCHAU MIT COPY-BUTTON -->
+          <div class="pt-2">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                Muster-Formulierung (Volltext):
+              </span>
+              <button onclick="copyEscalationText()" id="btn-copy-esc-text" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                <span>📋</span>
+                <span id="btn-copy-esc-label">Text kopieren</span>
+              </button>
+            </div>
+            <div id="esc-sample-text" class="p-4 bg-white rounded-xl border border-slate-300 text-xs font-mono text-slate-800 leading-relaxed whitespace-pre-wrap select-all max-h-64 overflow-y-auto">
+              <!-- Dynamisch via JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-end">
+          <button onclick="switchTab('dokument')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-5 rounded-xl text-xs sm:text-sm shadow-md transition flex items-center gap-2">
+            <span>Diesen Text in das druckfertige DIN-A4 Mahnschreiben übernehmen</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 3: PRO-GENERATOR (DIN-A4 MAHNSCHREIBEN & SCHKG / MAHNVERFAHREN) -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-dokument" class="tab-content hidden space-y-8">
+      
+      <!-- STEUERUNG & PRO FREISCHALT-BANNER -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 no-print">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h2 class="text-lg font-bold text-slate-900">Druckfertiges DIN-A4 Dokument & Gerichtsunterlagen</h2>
+              <span id="pro-badge-top" class="bg-amber-100 text-amber-800 text-xs font-bold px-2 py-0.5 rounded">Pro-Modul</span>
+            </div>
+            <p class="text-xs text-slate-500">
+              Automatische Formatierung nach DIN 5008 mit Fensterbrief-Falzmarken, transparenter Zinstabelle und Bankdaten.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button onclick="printA4Document()" id="print-doc-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs shadow-md transition flex items-center gap-1.5">
+              <span>🖨️</span>
+              <span>Als PDF drucken / speichern</span>
+            </button>
+            <button id="main-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs shadow-md shadow-amber-500/20 transition flex items-center gap-1.5">
+              <span>🔓</span>
+              <span class="price-label-btn">Vollversion freischalten (4,90 €)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- DOKUMENT-UMSCHALTER: 1. MAHNSCHREIBEN vs. 2. GERICHTS-VORBEREITUNG -->
+        <div class="mt-5 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
+            <button onclick="setDocType('mahnung')" id="doc-type-mahnung" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition">
+              📄 1. DIN-A4 Mahnschreiben (Mahnstufe <span id="doc-stufe-nr">2</span>)
+            </button>
+            <button onclick="setDocType('gericht')" id="doc-type-gericht" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">
+              ⚖️ 2. Gerichts- & Betreibungs-Vorbereitungsbogen
+            </button>
+          </div>
+
+          <span class="text-xs text-slate-500">
+            Rechtsordnung: <strong id="doc-jur-indicator">Deutschland (§ 288 BGB)</strong>
+          </span>
+        </div>
+      </div>
+
+      <!-- ABSENDER- & EMPFÄNGER-DATENMASKE -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-7 no-print">
+        <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <span>✍️</span>
+          <span>Absender- (Gläubiger) & Empfänger- (Schuldner) Daten anpassen</span>
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- GLÄUBIGER (ABSENDER) -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <span class="text-xs font-bold text-indigo-950 uppercase tracking-wider block">Gläubiger (Ihre Angaben):</span>
+            
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-600 mb-1">Ihr Firmenname / Name:</label>
+              <input type="text" id="g-name" value="Muster-Agentur & Handwerk GmbH" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Straße & Hausnummer:</label>
+                <input type="text" id="g-street" value="Werkstraße 14" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">PLZ & Ort:</label>
+                <input type="text" id="g-city" value="10115 Berlin" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">IBAN für Überweisung:</label>
+                <input type="text" id="g-iban" value="DE89 3704 0044 0532 0130 00" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-mono">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">BIC / Bank:</label>
+                <input type="text" id="g-bic" value="COBADEFFXXX" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-mono">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-600 mb-1">Ansprechpartner & Kontakt:</label>
+              <input type="text" id="g-contact" value="Buchhaltung / Herr Dr. M. Weber (030 1234567)" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+            </div>
+          </div>
+
+          <!-- SCHULDNER (EMPFÄNGER) -->
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <span class="text-xs font-bold text-slate-900 uppercase tracking-wider block">Schuldner (Kunde / Empfänger):</span>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-600 mb-1">Firma / Kundenname:</label>
+              <input type="text" id="s-name" value="Acme Industries & Handel KG" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-600 mb-1">z. Hd. / Geschäftsführung:</label>
+              <input type="text" id="s-attn" value="z. Hd. Geschäftsleitung" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Straße & Hausnummer:</label>
+                <input type="text" id="s-street" value="Gewerbepark 7" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">PLZ & Ort:</label>
+                <input type="text" id="s-city" value="20095 Hamburg" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-medium">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Zahlungsfrist (Tage ab heute):</label>
+                <input type="number" id="s-deadline-days" value="7" min="1" max="30" oninput="updateDocumentPreview()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs font-bold">
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-slate-600 mb-1">Konkreter Stichtag:</label>
+                <input type="text" id="s-deadline-date-preview" readonly class="w-full bg-slate-100 border border-slate-200 rounded-lg p-2 text-xs font-bold text-slate-600">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIN-A4 VORSCHAU-CONTAINER (PRINTABLE) -->
+      <div class="a4-sheet-wrapper py-4 flex justify-center">
+        
+        <!-- ================= DOKUMENT 1: MAHNSCHREIBEN ================= -->
+        <div id="a4-doc-mahnung" class="a4-sheet">
+          
+          <!-- PRO WATERMARK OVERLAY (WENN NICHT FREIGESCHALTET) -->
+          <div id="pro-watermark-overlay" class="absolute inset-0 bg-white/70 backdrop-blur-[2px] z-10 flex flex-col items-center justify-center p-6 text-center no-print">
+            <div class="max-w-md bg-white p-6 sm:p-8 rounded-2xl shadow-2xl border border-slate-200">
+              <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 font-extrabold">
+                🔒
+              </div>
+              <h3 class="text-lg font-bold text-slate-900">DIN-A4 Mahnschreiben freischalten</h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Schalten Sie das druckfertige DIN-A4 Mahnschreiben (alle 3 Stufen), die unbegrenzte PDF-Erstellung und den gerichtlichen Mahnverfahrens- & Schweizer Betreibungsbegehren-Bogen sofort frei.
+              </p>
+              
+              <div class="mt-4 pt-4 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold py-2.5 px-4 rounded-xl text-xs shadow-md transition">
+                  <span class="price-label-btn">Vollversion freischalten (4,90 €)</span>
+                </button>
+                <button onclick="openCheckoutModal()" class="text-[11px] text-slate-500 hover:text-slate-800 font-medium">
+                  Bereits gekauft? Lizenzcode hier eingeben
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABSENDERKOPF KLEIN (RÜCKENDE-ADRESSE FÜR SICHTFENSTER DIN 5008) -->
+          <div class="text-[8pt] text-slate-500 border-b border-slate-300 pb-1 mb-6 font-sans">
+            <span id="prev-sender-line">Muster-Agentur & Handwerk GmbH • Werkstraße 14 • 10115 Berlin</span>
+          </div>
+
+          <!-- EMPFÄNGER-ADRESSFELD (DIN 5008 FENSTERBRIEF) -->
+          <div class="mb-8 min-h-[75px] text-[10pt] text-slate-900 leading-snug">
+            <div id="prev-empfaenger-name" class="font-bold">Acme Industries & Handel KG</div>
+            <div id="prev-empfaenger-attn">z. Hd. Geschäftsleitung</div>
+            <div id="prev-empfaenger-street">Gewerbepark 7</div>
+            <div id="prev-empfaenger-city">20095 Hamburg</div>
+          </div>
+
+          <!-- DATUM & ORT RECHTSBÜNDIG -->
+          <div class="flex justify-between items-start mb-6 text-[9pt] text-slate-600">
+            <div>
+              <span>Unser Zeichen: <strong id="prev-zeichen" class="text-slate-900 font-mono">RE-2026-1084/MAHN</strong></span>
+            </div>
+            <div class="text-right">
+              <span id="prev-datum-ort">Berlin, den 23. Oktober 2026</span>
+            </div>
+          </div>
+
+          <!-- BETREFF FETT -->
+          <div class="mb-5 pb-2 border-b-2 border-slate-900">
+            <h1 id="prev-betreff" class="text-[12pt] font-extrabold text-slate-900 tracking-tight">
+              2. Mahnung: Ausstehende Forderung zur Rechnung RE-2026-1084 inkl. Verzugszinsen
+            </h1>
+          </div>
+
+          <!-- ANREDE & TEXT -->
+          <div class="text-[9.5pt] text-slate-800 space-y-3 leading-relaxed mb-5">
+            <p id="prev-anrede">Sehr geehrte Damen und Herren,</p>
+            <p id="prev-body-p1">
+              trotz Fälligkeit zum <span id="prev-txt-duedate" class="font-semibold">08.09.2026</span> konnten wir bis zum heutigen Stichtag noch keinen Zahlungseingang für die unten aufgeführte Rechnung feststellen.
+            </p>
+            <p id="prev-body-p2">
+              Gemäß § 288 BGB (Deutschland) bzw. § 456 UGB (Österreich) / Art. 104 OR (Schweiz) berechnen wir Ihnen den gesetzlichen Verzugszinssatz sowie die gesetzliche Verzugspauschale wie folgt:
+            </p>
+          </div>
+
+          <!-- FORDERUNGSTABELLE -->
+          <div class="mb-5">
+            <table class="w-full text-[9pt] border-collapse border border-slate-300">
+              <thead>
+                <tr class="bg-slate-100 text-slate-900 font-bold border-b border-slate-300">
+                  <th class="p-2 text-left">Forderungsposition</th>
+                  <th class="p-2 text-left">Grundlage / Zeitraum</th>
+                  <th class="p-2 text-right">Betrag (<span class="currency-sign">€</span>)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200">
+                <tr>
+                  <td class="p-2 font-semibold">Hauptforderung (Rechnung <span id="prev-tab-inv">RE-2026-1084</span>)</td>
+                  <td class="p-2 text-slate-600">Fällig seit <span id="prev-tab-due">08.09.2026</span></td>
+                  <td class="p-2 text-right font-mono font-semibold" id="prev-tab-base">4.850,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold">Gesetzliche Verzugszinsen</td>
+                  <td class="p-2 text-slate-600"><span id="prev-tab-rate">12,37 %</span> p.a. (<span id="prev-tab-days">45</span> Tage)</td>
+                  <td class="p-2 text-right font-mono font-semibold text-amber-700" id="prev-tab-interest">+ 73,89 €</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-semibold" id="prev-tab-spesen-label">Gesetzliche Verzugspauschale (§ 288 Abs. 5 BGB)</td>
+                  <td class="p-2 text-slate-600" id="prev-tab-spesen-basis">Ohne Schadensnachweis fällig (B2B)</td>
+                  <td class="p-2 text-right font-mono font-semibold text-emerald-700" id="prev-tab-spesen">+ 40,00 €</td>
+                </tr>
+                <tr class="bg-slate-50 font-bold border-t-2 border-slate-900 text-slate-900">
+                  <td class="p-2 text-[10pt]" colspan="2">Gesamtforderung zur Überweisung:</td>
+                  <td class="p-2 text-right font-mono text-[10pt]" id="prev-tab-total">4.963,89 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FRISTSETZUNG & KONKRETER TERMIN -->
+          <div class="text-[9.5pt] text-slate-800 space-y-3 leading-relaxed mb-6">
+            <p id="prev-body-p3">
+              Wir fordern Sie hiermit auf, den offenen Gesamtbetrag in Höhe von 
+              <strong id="prev-body-total" class="font-mono">4.963,89 €</strong> 
+              bis spätestens zum <strong id="prev-body-deadline" class="text-slate-900 underline font-semibold">30.10.2026</strong> 
+              (Zahlungseingang) auf das unten genannte Geschäftskonto zu überweisen.
+            </p>
+            <p id="prev-body-consequence" class="text-[9pt] text-slate-700">
+              Sollte die Zahlung nicht fristgerecht eingehen, behalten wir uns vor, ohne weitere Vorankündigung das gerichtliche Mahnverfahren einzuleiten bzw. rechtliche Schritte / Betreibung zu veranlassen. Hierdurch entstehen Ihnen erhebliche Mehrkosten.
+            </p>
+          </div>
+
+          <!-- ZAHLUNGSINFORMATIONEN BOX -->
+          <div class="p-3.5 bg-slate-50 rounded border border-slate-300 text-[8.5pt] text-slate-800 mb-6 font-mono">
+            <div class="grid grid-cols-2 gap-2">
+              <div>Kontoinhaber: <strong id="prev-bank-holder">Muster-Agentur & Handwerk GmbH</strong></div>
+              <div>Bankinstitut: <strong id="prev-bank-bic">COBADEFFXXX</strong></div>
+              <div>IBAN: <strong id="prev-bank-iban">DE89 3704 0044 0532 0130 00</strong></div>
+              <div>Verwendungszweck: <strong id="prev-bank-ref">RE-2026-1084 Mahnung</strong></div>
+            </div>
+          </div>
+
+          <!-- GRUSS & UNTERSCHRIFT -->
+          <div class="text-[9.5pt] text-slate-800 space-y-12">
+            <div>
+              <p>Mit freundlichen Grüßen,</p>
+              <p class="font-bold mt-1" id="prev-sign-company">Muster-Agentur & Handwerk GmbH</p>
+            </div>
+            <div class="pt-4 border-t border-slate-300 inline-block min-w-[220px]">
+              <p class="text-[8.5pt] text-slate-500" id="prev-sign-name">Buchhaltung / Geschäftsleitung</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ================= DOKUMENT 2: GERICHTS- & SCHKG VORBEREITUNGSBOGEN ================= -->
+        <div id="a4-doc-gericht" class="a4-sheet hidden">
+          
+          <!-- ABSENDERKOPF -->
+          <div class="text-[8pt] text-slate-500 border-b border-slate-300 pb-1 mb-6 font-sans">
+            <span id="g-prev-sender-line">Muster-Agentur & Handwerk GmbH • VORBEREITUNGSBOGEN GERICHTLICHES VERFAHREN</span>
+          </div>
+
+          <!-- TITEL -->
+          <div class="mb-6 pb-2 border-b-2 border-slate-900">
+            <h1 id="g-prev-title" class="text-[13pt] font-extrabold text-slate-900 tracking-tight">
+              🇩🇪 Vorbereitungsbogen für das gerichtliche Mahnverfahren (Online-Mahnbescheid)
+            </h1>
+            <p id="g-prev-subtitle" class="text-[9pt] text-slate-600 mt-1">
+              Erfasst alle notwendigen Rechtsdaten für den automatisierten Mahnbescheidsantrag (§ 688 ZPO) bzw. das Betreibungsbegehren (Art. 67 SchKG).
+            </p>
+          </div>
+
+          <!-- CHECKLISTE & SCHRITT FÜR SCHRITT -->
+          <div class="space-y-4 text-[9pt] text-slate-800">
+            
+            <div class="p-3 bg-slate-50 rounded border border-slate-200">
+              <h2 class="font-bold text-slate-900 text-[10pt] mb-2 flex items-center gap-1.5">
+                <span>1.</span>
+                <span>Forderungsdaten für das Mahngericht / Betreibungsamt</span>
+              </h2>
+              <div class="grid grid-cols-2 gap-2 font-mono text-[8.5pt]">
+                <div>Hauptforderung: <strong id="g-prev-amount">4.850,00 €</strong></div>
+                <div>Forderungsgrund: <strong>Werkvertrag / Kaufvertrag / Dienstleistung</strong></div>
+                <div>Rechnungs-Nr. & Datum: <strong id="g-prev-ref">RE-2026-1084 vom 23.08.2026</strong></div>
+                <div>Fälligkeitstag: <strong id="g-prev-due">08.09.2026</strong></div>
+                <div>Verzugszins-Antrag: <strong id="g-prev-rate">12,37 % p.a. seit 09.09.2026</strong></div>
+                <div>Nebenforderung: <strong id="g-prev-extra">40,00 € Pauschale (§ 288 Abs. 5 BGB)</strong></div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded border border-slate-200">
+              <h2 class="font-bold text-slate-900 text-[10pt] mb-2 flex items-center gap-1.5">
+                <span>2.</span>
+                <span>Parteien-Identifikation</span>
+              </h2>
+              <div class="grid grid-cols-2 gap-4 text-[8.5pt]">
+                <div>
+                  <span class="font-bold block text-slate-900 mb-1">Antragsteller / Gläubiger:</span>
+                  <div id="g-prev-glaeubiger" class="font-mono text-slate-700 leading-snug">
+                    Muster-Agentur & Handwerk GmbH<br>
+                    Werkstraße 14, 10115 Berlin<br>
+                    Vertreten durch die Geschäftsleitung
+                  </div>
+                </div>
+                <div>
+                  <span class="font-bold block text-slate-900 mb-1">Antragsgegner / Schuldner:</span>
+                  <div id="g-prev-schuldner" class="font-mono text-slate-700 leading-snug">
+                    Acme Industries & Handel KG<br>
+                    z. Hd. Geschäftsleitung<br>
+                    Gewerbepark 7, 20095 Hamburg
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="g-prev-country-guide" class="p-3 bg-slate-50 rounded border border-slate-200">
+              <!-- Dynamischer Länderspezifischer Verfahrensablauf -->
+            </div>
+
+            <div class="p-3 bg-amber-50 rounded border border-amber-200 text-amber-900 text-[8.5pt]">
+              <strong>Wichtiger Verfahrenshinweis:</strong><br>
+              Das Mahngericht prüft beim Erlass des Mahnbescheids (bzw. das Betreibungsamt beim Erlass des Zahlungsbefehls) <em>nicht</em>, ob der Anspruch materiell besteht. Legt der Schuldner Rechtsbehelf (Widerspruch / Einspruch / Rechtsvorschlag) ein, geht das Verfahren auf Antrag in ein ordentliches Zivilklageverfahren über.
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- GUMROAD CHECKOUT & VOUCHER MODAL -->
+  <!-- ========================================================================= -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in duration-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-lg font-bold w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 transition">
+        ✕
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 bg-gradient-to-tr from-amber-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center text-2xl mx-auto mb-3 shadow-lg shadow-indigo-500/30">
+          ⚡
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900 font-display">Pro-Vollversion freischalten</h3>
+        <p class="text-xs text-slate-600 mt-1">
+          Einmalige Freischaltung • Kein Abo • Sofortiger Download & PDF-Export
+        </p>
+      </div>
+
+      <!-- HIGHLIGHTS LISTE -->
+      <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 mb-6 space-y-2.5 text-xs text-slate-700">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Druckfertiges DIN-A4 Mahnschreiben</strong> (Stufe 1, 2 und 3)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Automatische Paragraphenkette</strong> (§ 288 BGB / Art. 104 OR / § 456 UGB)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Gerichtlicher Vorbereitungsbogen</strong> (Online-Mahnbescheid & SchKG Betreibung)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>100% DSGVO & revDSG-konform</strong> (Null Server-Speicherung)</span>
+        </div>
+      </div>
+
+      <!-- GUMROAD BUTTON -->
+      <a id="gumroad-link-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener noreferrer"
+        class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-bold py-3.5 px-4 rounded-xl text-sm shadow-xl shadow-amber-500/25 transition flex items-center justify-center gap-2 text-center">
+        <span>🛒</span>
+        <span class="price-label-btn">Jetzt für 4,90 € freischalten (Gumroad)</span>
+      </a>
+
+      <!-- GUTSCHEINCODE EINGABE -->
+      <div class="mt-6 pt-5 border-t border-slate-200">
+        <label for="voucher-input" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          Bereits gekauft oder Freischaltcode vorhanden?
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="z.B. DW-PRO-2026 oder MAHNUNG-2026"
+            class="flex-1 rounded-xl border border-slate-300 p-2.5 text-xs font-mono uppercase focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          <button onclick="redeemVoucher()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition">
+            Aktivieren
+          </button>
+        </div>
+        <p id="voucher-error" class="text-[11px] text-rose-600 font-semibold mt-1 hidden"></p>
+        <p class="text-[10px] text-slate-400 mt-1.5">Test- & Partner-Codes: <code>DW-PRO-2026</code>, <code>MAHNUNG-2026</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 mt-16 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-display font-extrabold text-base">
+            <span>⚖️</span>
+            <span>DACH Digitalwerk</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Hochpräzise, 100% browserbasierte Rechts- & Finanztools für Unternehmer, Handwerker und Freiberufler im DACH-Raum.
+          </p>
+          <div class="text-[11px] text-emerald-400">
+            🔒 Client-Side Only • Keine Server-Cookies
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Rechtliche Ratgeber</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="../verzugszinsen-berechnen-rechner-b2b.html" class="hover:text-white transition">Verzugszinsen berechnen B2B</a></li>
+            <li><a href="../mahnung-schreiben-vorlage-3-stufen.html" class="hover:text-white transition">Mahnung Vorlage 3-Stufen</a></li>
+            <li><a href="../zahlungsbefehl-betreibung-schweiz-ablauf.html" class="hover:text-white transition">Betreibung Schweiz Art. 67 SchKG</a></li>
+            <li><a href="../abmahnfaehiges-impressum-pruefen-checkliste.html" class="hover:text-white transition">Impressumspflicht 2026</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Weitere B2B Tools</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="../arbeitszeugnis/" class="hover:text-white transition">Arbeitszeugnis-Decoder</a></li>
+            <li><a href="../handwerker-stundensatz-aufmass/" class="hover:text-white transition">Handwerker-Kalkulator</a></li>
+            <li><a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum & DSGVO</a></li>
+            <li><a href="../mietvertrag-kuendigung-generator/" class="hover:text-white transition">Mietkündigung & Übergabe</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Transparenz & Haftung</h4>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Dieses Tool ersetzt keine Rechts- oder Steuerberatung. Alle Zinssätze basieren auf den amtlichen Basiszinssätzen der Deutschen Bundesbank, der Oesterreichischen Nationalbank sowie Art. 104 OR (Schweiz) Stand 2026.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 text-center text-slate-400 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div>© 2026 DACH Digitalwerk. Alle Rechte vorbehalten.</div>
+        <div class="flex gap-4">
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT APP LOGIC -->
+  <!-- ========================================================================= -->
+  <script>
+    // App State
+    let currentJurisdiction = 'DE'; // 'DE', 'CH', 'AT'
+    let currentCustomerType = 'B2B'; // 'B2B', 'B2C'
+    let currentMahnstufe = 2; // 1, 2, 3
+    let useCustomRate = false;
+    let isProUnlocked = false;
+    let currentDocType = 'mahnung'; // 'mahnung', 'gericht'
+
+    // Zins-Referenzdaten DACH 2026
+    const BASE_RATES = {
+      DE: {
+        baseRate: 3.37, // Bundesbank Basiszinssatz § 247 BGB
+        marginB2B: 9.00, // § 288 Abs. 2 BGB
+        marginB2C: 5.00, // § 288 Abs. 1 BGB
+        pauschaleB2B: 40.00, // § 288 Abs. 5 BGB
+        pauschaleB2C: 0.00,
+        currency: 'EUR',
+        symbol: '€',
+        lawName: '§ 288 BGB',
+        daysInYear: 365
+      },
+      CH: {
+        baseRate: 0.00,
+        statutoryRate: 5.00, // Art. 104 Abs. 1 OR starr 5% p.a.
+        marginB2B: 5.00,
+        marginB2C: 5.00,
+        pauschaleB2B: 30.00, // Mahnspesen vertraglich / Art. 106 OR
+        pauschaleB2C: 15.00,
+        currency: 'CHF',
+        symbol: 'CHF',
+        lawName: 'Art. 104 OR',
+        daysInYear: 365
+      },
+      AT: {
+        baseRate: 3.38, // OeNB Basiszinssatz
+        marginB2B: 9.20, // § 456 UGB (9,2 %-Punkte über Basis)
+        statutoryB2C: 4.00, // § 1000 Abs. 1 ABGB
+        pauschaleB2B: 40.00, // § 458 UGB Betreibungskostenpauschale
+        pauschaleB2C: 0.00,
+        currency: 'EUR',
+        symbol: '€',
+        lawName: '§ 456 UGB',
+        daysInYear: 365
+      }
+    };
+
+    // Initialisierung bei DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Datum-Defaults
+      const today = new Date();
+      const calcDateStr = today.toISOString().split('T')[0];
+      
+      // Default: 45 Tage Verzug (Fälligkeit vor 45 Tagen)
+      const dueDate = new Date(today);
+      dueDate.setDate(dueDate.getDate() - 45);
+      const dueDateStr = dueDate.toISOString().split('T')[0];
+
+      // Rechnungsdatum vor 60 Tagen
+      const invDate = new Date(today);
+      invDate.setDate(invDate.getDate() - 60);
+      const invDateStr = invDate.toISOString().split('T')[0];
+
+      document.getElementById('input-calc-date').value = calcDateStr;
+      document.getElementById('input-due-date').value = dueDateStr;
+      document.getElementById('input-invoice-date').value = invDateStr;
+
+      // Gespeicherter Pro-Status aus localStorage
+      if (localStorage.getItem('dw_pro_unlocked') === 'true') {
+        unlockPro(false);
+      }
+
+      // Initial berechnen
+      applyJurisdictionUI();
+      calculateInterest();
+      updateEscalationView();
+    });
+
+    // Umschalten Jurisdiktion (DE / CH / AT)
+    function setJurisdiction(country) {
+      currentJurisdiction = country;
+
+      // Button-Styles aktualisieren
+      ['DE', 'CH', 'AT'].forEach(c => {
+        const btn = document.getElementById(`jur-btn-${c}`);
+        if (c === country) {
+          btn.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      applyJurisdictionUI();
+      calculateInterest();
+      updateEscalationView();
+      updateDocumentPreview();
+    }
+
+    // UI-Elemente an Land anpassen
+    function applyJurisdictionUI() {
+      const conf = BASE_RATES[currentJurisdiction];
+      const curSigns = document.querySelectorAll('.currency-sign');
+      curSigns.forEach(el => el.textContent = conf.symbol);
+
+      const curBadge = document.getElementById('currency-badge');
+      if (curBadge) curBadge.textContent = `Währung: ${conf.currency} (${conf.symbol})`;
+
+      const heroLaw = document.getElementById('hero-badge-law');
+      const docJur = document.getElementById('doc-jur-indicator');
+      const spesenLabel = document.getElementById('spesen-label-text');
+      const spesenExplainer = document.getElementById('spesen-explainer');
+      const inputSpesen = document.getElementById('input-spesen');
+
+      if (currentJurisdiction === 'DE') {
+        heroLaw.textContent = '§ 288 BGB • § 288 Abs. 5 (40-€-Pauschale) • 12,37 % p.a. B2B';
+        if (docJur) docJur.textContent = 'Deutschland (§ 288 BGB / § 688 ZPO)';
+        if (spesenLabel) spesenLabel.innerHTML = 'Verzugspauschale / Mahnspesen (<span class="currency-sign">€</span>):';
+        if (spesenExplainer) spesenExplainer.textContent = 'Gesetzliche 40,00 € Verzugspauschale gem. § 288 Abs. 5 BGB (bei B2B ohne Schadensnachweis).';
+        if (currentCustomerType === 'B2B') inputSpesen.value = "40.00";
+        else inputSpesen.value = "2.50";
+      } else if (currentJurisdiction === 'CH') {
+        heroLaw.textContent = 'Art. 104 OR (5,00 % gesetzl. Zins) • Art. 106 OR • SchKG Betreibung';
+        if (docJur) docJur.textContent = 'Schweiz (Art. 104 OR / Art. 67 SchKG)';
+        if (spesenLabel) spesenLabel.innerHTML = 'Mahnspesen / Bearbeitungsgebühr (<span class="currency-sign">CHF</span>):';
+        if (spesenExplainer) spesenExplainer.textContent = 'Mahnspesen gem. Vertrag/AGB bzw. Art. 106 OR als Verzugsschaden (üblich: 20–50 CHF).';
+        if (currentCustomerType === 'B2B') inputSpesen.value = "30.00";
+        else inputSpesen.value = "15.00";
+      } else if (currentJurisdiction === 'AT') {
+        heroLaw.textContent = '§ 456 UGB (12,58 % B2B) • § 458 UGB (40-€-Pauschale) • § 1000 ABGB';
+        if (docJur) docJur.textContent = 'Österreich (§ 456/458 UGB / § 244 ZPO)';
+        if (spesenLabel) spesenLabel.innerHTML = 'Betreibungskostenpauschale / Spesen (<span class="currency-sign">€</span>):';
+        if (spesenExplainer) spesenExplainer.textContent = 'Gesetzliche 40,00 € Betreibungskostenpauschale gem. § 458 UGB (bei B2B ohne Schadensnachweis).';
+        if (currentCustomerType === 'B2B') inputSpesen.value = "40.00";
+        else inputSpesen.value = "2.50";
+      }
+
+      // Legal Info Box
+      updateLegalBox();
+    }
+
+    // Umschalten B2B / B2C
+    function updateCustomerType(type) {
+      currentCustomerType = type;
+      const b2bLabel = document.getElementById('label-cust-b2b');
+      const b2cLabel = document.getElementById('label-cust-b2c');
+
+      if (type === 'B2B') {
+        b2bLabel.className = 'relative flex flex-col p-3.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 cursor-pointer transition';
+        b2cLabel.className = 'relative flex flex-col p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-slate-300 cursor-pointer transition';
+      } else {
+        b2cLabel.className = 'relative flex flex-col p-3.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 cursor-pointer transition';
+        b2bLabel.className = 'relative flex flex-col p-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-slate-300 cursor-pointer transition';
+      }
+
+      applyJurisdictionUI();
+      calculateInterest();
+      updateEscalationView();
+    }
+
+    // Toggle eigener Zinssatz
+    function toggleCustomRate() {
+      useCustomRate = !useCustomRate;
+      const box = document.getElementById('custom-rate-box');
+      if (useCustomRate) {
+        box.classList.remove('hidden');
+        document.getElementById('input-custom-rate').focus();
+      } else {
+        box.classList.add('hidden');
+      }
+      calculateInterest();
+    }
+
+    // 1-Klick Szenarien
+    function loadScenario(scenario) {
+      const today = new Date();
+      const calcDateStr = today.toISOString().split('T')[0];
+      document.getElementById('input-calc-date').value = calcDateStr;
+
+      if (scenario === 'DE_B2B') {
+        setJurisdiction('DE');
+        updateCustomerType('B2B');
+        document.querySelector('input[name="customer_type"][value="B2B"]').checked = true;
+        document.getElementById('input-amount').value = "4850.00";
+        document.getElementById('input-invoice-nr').value = "RE-2026-1084";
+        
+        const due = new Date(today);
+        due.setDate(due.getDate() - 45);
+        document.getElementById('input-due-date').value = due.toISOString().split('T')[0];
+
+        const inv = new Date(today);
+        inv.setDate(inv.getDate() - 60);
+        document.getElementById('input-invoice-date').value = inv.toISOString().split('T')[0];
+
+        document.getElementById('select-mahnstufe').value = "2";
+        document.getElementById('input-spesen').value = "40.00";
+      } else if (scenario === 'CH_KMU') {
+        setJurisdiction('CH');
+        updateCustomerType('B2B');
+        document.querySelector('input[name="customer_type"][value="B2B"]').checked = true;
+        document.getElementById('input-amount').value = "6200.00";
+        document.getElementById('input-invoice-nr').value = "CH-2026-9921";
+        
+        const due = new Date(today);
+        due.setDate(due.getDate() - 30);
+        document.getElementById('input-due-date').value = due.toISOString().split('T')[0];
+
+        const inv = new Date(today);
+        inv.setDate(inv.getDate() - 45);
+        document.getElementById('input-invoice-date').value = inv.toISOString().split('T')[0];
+
+        document.getElementById('select-mahnstufe').value = "2";
+        document.getElementById('input-spesen').value = "30.00";
+      } else if (scenario === 'AT_B2B') {
+        setJurisdiction('AT');
+        updateCustomerType('B2B');
+        document.querySelector('input[name="customer_type"][value="B2B"]').checked = true;
+        document.getElementById('input-amount').value = "3400.00";
+        document.getElementById('input-invoice-nr').value = "AT-2026-4430";
+        
+        const due = new Date(today);
+        due.setDate(due.getDate() - 60);
+        document.getElementById('input-due-date').value = due.toISOString().split('T')[0];
+
+        const inv = new Date(today);
+        inv.setDate(inv.getDate() - 75);
+        document.getElementById('input-invoice-date').value = inv.toISOString().split('T')[0];
+
+        document.getElementById('select-mahnstufe').value = "3";
+        document.getElementById('input-spesen').value = "40.00";
+      }
+
+      onMahnstufeChange();
+      calculateInterest();
+      switchTab('rechner');
+    }
+
+    // Berechnung Zinssatz ermitteln
+    function getApplicableRate() {
+      if (useCustomRate) {
+        const custom = parseFloat(document.getElementById('input-custom-rate').value);
+        if (!isNaN(custom) && custom >= 0) return custom;
+      }
+
+      const conf = BASE_RATES[currentJurisdiction];
+      if (currentJurisdiction === 'DE') {
+        return currentCustomerType === 'B2B' 
+          ? (conf.baseRate + conf.marginB2B) 
+          : (conf.baseRate + conf.marginB2C);
+      } else if (currentJurisdiction === 'CH') {
+        return conf.statutoryRate; // 5.00 %
+      } else if (currentJurisdiction === 'AT') {
+        return currentCustomerType === 'B2B'
+          ? (conf.baseRate + conf.marginB2B)
+          : conf.statutoryB2C;
+      }
+      return 5.00;
+    }
+
+    // Hauptberechnung
+    function calculateInterest() {
+      const amount = parseFloat(document.getElementById('input-amount').value) || 0;
+      const dueDateStr = document.getElementById('input-due-date').value;
+      const calcDateStr = document.getElementById('input-calc-date').value;
+      const spesen = parseFloat(document.getElementById('input-spesen').value) || 0;
+
+      // Tage berechnen
+      let days = 0;
+      if (dueDateStr && calcDateStr) {
+        const dueDate = new Date(dueDateStr);
+        const calcDate = new Date(calcDateStr);
+        const diffTime = calcDate - dueDate;
+        days = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
+      }
+
+      const rate = getApplicableRate();
+      const conf = BASE_RATES[currentJurisdiction];
+
+      // Formel: (Forderung * Zinssatz / 100 * Tage) / 365
+      const interestAmount = (amount * (rate / 100) * days) / conf.daysInYear;
+      const grandTotal = amount + interestAmount + spesen;
+
+      // UI Aktualisierungen Zinssatzanzeige
+      const rateBadge = document.getElementById('rate-display-badge');
+      const rateFormula = document.getElementById('rate-formula-explainer');
+
+      if (rateBadge) rateBadge.textContent = `${rate.toFixed(2).replace('.', ',')} %`;
+      if (rateFormula) {
+        if (useCustomRate) {
+          rateFormula.textContent = 'Individuell / vertraglich vereinbarter Zinssatz';
+        } else if (currentJurisdiction === 'DE') {
+          if (currentCustomerType === 'B2B') {
+            rateFormula.textContent = `Basiszinssatz (${conf.baseRate.toFixed(2).replace('.', ',')} %) + 9,00 %p (§ 288 Abs. 2 BGB)`;
+          } else {
+            rateFormula.textContent = `Basiszinssatz (${conf.baseRate.toFixed(2).replace('.', ',')} %) + 5,00 %p (§ 288 Abs. 1 BGB)`;
+          }
+        } else if (currentJurisdiction === 'CH') {
+          rateFormula.textContent = 'Gesetzlicher Verzugszins von 5,00 % p.a. (Art. 104 Abs. 1 OR)';
+        } else if (currentJurisdiction === 'AT') {
+          if (currentCustomerType === 'B2B') {
+            rateFormula.textContent = `OeNB Basiszinssatz (${conf.baseRate.toFixed(2).replace('.', ',')} %) + 9,20 %p (§ 456 UGB)`;
+          } else {
+            rateFormula.textContent = 'Gesetzlicher Zinssatz von 4,00 % p.a. gem. § 1000 Abs. 1 ABGB';
+          }
+        }
+      }
+
+      // KPI Widget
+      const kpiTotal = document.getElementById('kpi-total');
+      const badgeDays = document.getElementById('badge-verzugstage');
+      if (kpiTotal) kpiTotal.textContent = formatCurrency(grandTotal);
+      if (badgeDays) {
+        badgeDays.textContent = `${days} Verzugstag${days === 1 ? '' : 'e'}`;
+        if (days === 0) {
+          badgeDays.className = 'bg-slate-400/20 text-slate-300 border border-slate-400/30 text-xs font-bold px-2.5 py-0.5 rounded-full font-mono';
+        } else {
+          badgeDays.className = 'bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold px-2.5 py-0.5 rounded-full font-mono';
+        }
+      }
+
+      // Tabelle
+      document.getElementById('row-base-amount').textContent = `${formatCurrency(amount)} ${conf.symbol}`;
+      document.getElementById('row-rate-percent').textContent = `${rate.toFixed(2).replace('.', ',')} %`;
+      document.getElementById('row-days-calc').textContent = `${days} Verzugstage / ${conf.daysInYear} Tage`;
+      document.getElementById('row-interest-amount').textContent = `+ ${formatCurrency(interestAmount)} ${conf.symbol}`;
+      document.getElementById('row-spesen-amount').textContent = `+ ${formatCurrency(spesen)} ${conf.symbol}`;
+      document.getElementById('row-grand-total').textContent = `${formatCurrency(grandTotal)} ${conf.symbol}`;
+
+      // Spesen Label Tabelle
+      const spesenLabelRow = document.getElementById('row-spesen-label');
+      const spesenSubRow = document.getElementById('row-spesen-sub');
+      if (currentJurisdiction === 'DE' && currentCustomerType === 'B2B') {
+        spesenLabelRow.textContent = 'Verzugspauschale (§ 288 Abs. 5 BGB)';
+        spesenSubRow.textContent = 'Gesetzlich ohne Schadensnachweis';
+      } else if (currentJurisdiction === 'AT' && currentCustomerType === 'B2B') {
+        spesenLabelRow.textContent = 'Betreibungspauschale (§ 458 UGB)';
+        spesenSubRow.textContent = 'Gesetzlich ohne Schadensnachweis';
+      } else if (currentJurisdiction === 'CH') {
+        spesenLabelRow.textContent = 'Mahnspesen / Bearbeitungsgebühr';
+        spesenSubRow.textContent = 'Verzugsschaden gem. Art. 106 OR';
+      } else {
+        spesenLabelRow.textContent = 'Mahngebühr / Portospesen';
+        spesenSubRow.textContent = 'Tatsächlicher Aufwand';
+      }
+
+      // Document Preview updaten
+      updateDocumentPreview();
+    }
+
+    // Formatierung
+    function formatCurrency(num) {
+      return num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // Legal Info Box Updaten
+    function updateLegalBox() {
+      const box = document.getElementById('legal-box-info');
+      if (!box) return;
+
+      if (currentJurisdiction === 'DE') {
+        box.innerHTML = `
+          <div class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span>⚖️</span>
+            <span>Rechtslage Deutschland 2026: § 286 & § 288 BGB</span>
+          </div>
+          <p class="leading-relaxed">
+            <strong>Verzugseintritt:</strong> Nach § 286 BGB tritt Verzug durch Mahnung ein oder automatisch 30 Tage nach Zugang der Rechnung (bei Verbrauchern nur mit entsprechendem Hinweis auf der Rechnung!).
+          </p>
+          <p class="leading-relaxed">
+            <strong>40-€-Pauschale (§ 288 Abs. 5 BGB):</strong> Bei Entgeltforderungen zwischen Unternehmern (B2B) entsteht kraft Gesetzes ein Pauschalanspruch von 40,00 €. Dieser Betrag ist auf spätere Anwalts-/Inkassokosten anzurechnen.
+          </p>
+        `;
+      } else if (currentJurisdiction === 'CH') {
+        box.innerHTML = `
+          <div class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span>🇨🇭</span>
+            <span>Rechtslage Schweiz 2026: Art. 102 & 104 OR & Art. 67 SchKG</span>
+          </div>
+          <p class="leading-relaxed">
+            <strong>Inverzugsetzung (Art. 102 OR):</strong> Ist ein Verfalltag vertraglich vereinbart, gerät der Schuldner mit Ablauf des Tages in Verzug. Andernfalls bedarf es einer Mahnung.
+          </p>
+          <p class="leading-relaxed">
+            <strong>Verzugszins (Art. 104 OR):</strong> Der gesetzliche Zinssatz beträgt einheitlich 5,00 % p.a., sofern nicht vertraglich ein höherer Zins vereinbart wurde. Bei Nichtzahlung kann direkt das <strong>Betreibungsbegehren nach Art. 67 SchKG</strong> beim Betreibungsamt gestellt werden.
+          </p>
+        `;
+      } else if (currentJurisdiction === 'AT') {
+        box.innerHTML = `
+          <div class="font-bold text-slate-900 flex items-center gap-1.5">
+            <span>🇦🇹</span>
+            <span>Rechtslage Österreich 2026: § 456 & § 458 UGB / § 1000 ABGB</span>
+          </div>
+          <p class="leading-relaxed">
+            <strong>B2B-Unternehmergeschäfte (§ 456 UGB):</strong> Bei Zahlungsverzug zwischen Unternehmen beträgt der Zinssatz 9,2 %-Punkte über dem OeNB-Basiszinssatz.
+          </p>
+          <p class="leading-relaxed">
+            <strong>40-€-Pauschale (§ 458 UGB):</strong> Der Gläubiger hat bei B2B-Forderungen Anspruch auf einen pauschalen Betrag von 40,00 € für Betreibungskosten ohne gesonderten Schadensnachweis.
+          </p>
+        `;
+      }
+    }
+
+    // Mahnstufen-Wechsel
+    function onMahnstufeChange() {
+      const select = document.getElementById('select-mahnstufe');
+      currentMahnstufe = parseInt(select.value, 10);
+      selectEscalationStep(currentMahnstufe);
+    }
+
+    // Eskalationsstufe auswählen
+    function selectEscalationStep(step) {
+      currentMahnstufe = step;
+      document.getElementById('select-mahnstufe').value = step.toString();
+
+      // Tab Cards Stylen
+      [1, 2, 3].forEach(s => {
+        const card = document.getElementById(`esc-tab-s`);
+        const el = document.getElementById(`esc-tab-${s}`);
+        if (!el) return;
+        if (s === step) {
+          el.className = 'esc-tab-card p-4 rounded-xl border-2 border-indigo-600 bg-indigo-50/40 text-left transition';
+        } else {
+          el.className = 'esc-tab-card p-4 rounded-xl border-2 border-slate-200 text-left transition hover:border-slate-300';
+        }
+      });
+
+      updateEscalationView();
+      updateDocumentPreview();
+    }
+
+    // Eskalations-View Details aktualisieren
+    function updateEscalationView() {
+      const badge = document.getElementById('esc-badge-level');
+      const heading = document.getElementById('esc-heading');
+      const deadline = document.getElementById('esc-deadline-badge');
+      const legalText = document.getElementById('esc-legal-text');
+      const toneText = document.getElementById('esc-tone-text');
+      const sampleBox = document.getElementById('esc-sample-text');
+
+      const invNr = document.getElementById('input-invoice-nr').value || 'RE-2026-1084';
+      const conf = BASE_RATES[currentJurisdiction];
+      const rate = getApplicableRate();
+
+      if (currentMahnstufe === 1) {
+        if (badge) badge.textContent = 'Stufe 1: Freundliche Erinnerung';
+        if (heading) heading.textContent = 'Zahlungserinnerung ohne harte Zinsdurchsetzung';
+        if (deadline) deadline.textContent = '10 Werktage';
+        if (legalText) legalText.textContent = 'Dient der Inverzugsetzung (falls noch kein Verzug nach § 286 BGB / Art. 102 OR eingetreten ist). Rechtlich wichtig, um formell die Frist in Gang zu setzen, ohne die Kundenbeziehung zu belasten.';
+        if (toneText) toneText.textContent = 'Höflich und kooperativ. Es wird unterstellt, dass die Rechnung im Alltagsgeschäft übersehen wurde. Noch keine Zinsen berechnen, sondern um zügige Begleichung bitten.';
+        
+        if (sampleBox) {
+          sampleBox.textContent = `Sehr geehrte Damen und Herren,\n\nbei der Durchsicht unserer Buchhaltung haben wir festgestellt, dass unsere Rechnung ${invNr} noch offen ist. Sicherlich handelt es sich hierbei lediglich um ein buchhalterisches Versehen im laufenden Tagesgeschäft.\n\nWir bitten Sie daher höflich, den offenen Betrag innerhalb der nächsten 10 Tage auf unser unten angegebenes Konto zu überweisen.\n\nSollte sich Ihre Zahlung mit diesem Schreiben überschnitten haben, betrachten Sie diese Erinnerung bitte als gegenstandslos.\n\nMit freundlichen Grüßen\nIhre Buchhaltung`;
+        }
+      } else if (currentMahnstufe === 2) {
+        if (badge) badge.textContent = 'Stufe 2: Bestimmte Mahnung';
+        if (heading) heading.textContent = 'Mahnung mit gesetzlicher Zins- & Verzugspauschalenabrechnung';
+        if (deadline) deadline.textContent = '7 Werktage';
+        if (legalText) legalText.textContent = `Der Schuldner ist definitiv in Verzug. Bei B2B wird die 40-€-Pauschale (${conf.lawName}) fällig. Der gesetzliche Verzugszins von ${rate.toFixed(2)} % p.a. wird tagesgenau geltend gemacht.`;
+        if (toneText) toneText.textContent = 'Klar, professionell und bestimmt. Nennen Sie ein exaktes Datumsziel und stellen Sie die Zinsen und Gebühren transparent auf.';
+
+        if (sampleBox) {
+          sampleBox.textContent = `Sehr geehrte Damen und Herren,\n\nauf unsere Zahlungserinnerung zur Rechnung ${invNr} konnten wir bisher leider keinen Zahlungseingang verbuchen. Sie befinden sich nunmehr in Zahlungsverzug.\n\nGemäß ${conf.lawName} stellen wir Ihnen hiermit die aufgelaufenen gesetzlichen Verzugszinsen sowie die Verzugspauschale in Rechnung.\n\nWir fordern Sie auf, die Gesamtforderung bis spätestens zum unten angegebenen Datum vollständig auszugleichen, um weitere rechtliche Schritte zu vermeiden.\n\nMit freundlichen Grüßen\nIhre Geschäftsleitung`;
+        }
+      } else if (currentMahnstufe === 3) {
+        if (badge) badge.textContent = 'Stufe 3: Letzte Mahnung';
+        if (heading) heading.textContent = currentJurisdiction === 'CH' 
+          ? 'Letzte Mahnung vor Schweizer Betreibungsbegehren (Art. 67 SchKG)' 
+          : 'Letzte Mahnung vor gerichtlichem Mahnverfahren (§ 688 ZPO / § 244 ZPO)';
+        if (deadline) deadline.textContent = '3 bis 5 Werktage';
+        if (legalText) legalText.textContent = currentJurisdiction === 'CH'
+          ? 'Letzte Chance vor Einreichung des Betreibungsbegehrens beim Betreibungsamt. Eintrag im Betreibungsregister droht (schwere Bonitätsauswirkungen für den Schuldner).'
+          : 'Letzte außergerichtliche Frist vor Beantragung des gerichtlichen Mahnbescheids beim zuständigen zentralen Mahngericht. Es entstehen Gerichts- und Zustellkosten.';
+        if (toneText) toneText.textContent = 'Unmissverständlich und scharf. Keine weiteren Fristverlängerungen ankündigen. Frist kurz setzen (3-5 Werktage).';
+
+        if (sampleBox) {
+          const gerichtText = currentJurisdiction === 'CH' 
+            ? 'werden wir ohne erneute Ankündigung das Betreibungsbegehren nach Art. 67 SchKG beim zuständigen Betreibungsamt einreichen' 
+            : 'werden wir unverzüglich den gerichtlichen Mahnbescheid (§ 688 ZPO / § 244 ZPO) beantragen bzw. ein Inkassounternehmen mit der Vollstreckung beauftragen';
+
+          sampleBox.textContent = `Sehr geehrte Damen und Herren,\n\nSie haben weder auf unsere vorherigen Mahnungen reagiert noch den fälligen Betrag zur Rechnung ${invNr} beglichen. Dies ist unsere LETZTE AUSSERGERICHTLICHE MAHNUNG.\n\nSollte die Gesamtforderung nicht bis zur gesetzten Frist unwiderruflich auf unserem Konto gutgeschrieben sein, ${gerichtText}.\n\nDie dadurch entstehenden beträchtlichen Mehrkosten (Gerichtsgebühren, Vollstreckungskosten, Zinsen) gehen in voller Höhe zu Ihren Lasten.\n\nMit verbindlichen Grüßen\nGeschäftsleitung`;
+        }
+      }
+    }
+
+    // Umschalten Dokumenttyp (Mahnschreiben vs Gerichts-Bogen)
+    function setDocType(type) {
+      currentDocType = type;
+      const btnMahnung = document.getElementById('doc-type-mahnung');
+      const btnGericht = document.getElementById('doc-type-gericht');
+      const docMahnung = document.getElementById('a4-doc-mahnung');
+      const docGericht = document.getElementById('a4-doc-gericht');
+
+      if (type === 'mahnung') {
+        btnMahnung.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition';
+        btnGericht.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition';
+        docMahnung.classList.remove('hidden');
+        docGericht.classList.add('hidden');
+      } else {
+        btnGericht.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition';
+        btnMahnung.className = 'px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition';
+        docMahnung.classList.add('hidden');
+        docGericht.classList.remove('hidden');
+      }
+
+      updateDocumentPreview();
+    }
+
+    // Druckfertige Dokument-Vorschau aktualisieren
+    function updateDocumentPreview() {
+      const gName = document.getElementById('g-name').value || 'Muster-Agentur & Handwerk GmbH';
+      const gStreet = document.getElementById('g-street').value || 'Werkstraße 14';
+      const gCity = document.getElementById('g-city').value || '10115 Berlin';
+      const gIban = document.getElementById('g-iban').value || 'DE89 3704 0044 0532 0130 00';
+      const gBic = document.getElementById('g-bic').value || 'COBADEFFXXX';
+      const gContact = document.getElementById('g-contact').value || 'Buchhaltung';
+
+      const sName = document.getElementById('s-name').value || 'Acme Industries & Handel KG';
+      const sAttn = document.getElementById('s-attn').value || 'z. Hd. Geschäftsleitung';
+      const sStreet = document.getElementById('s-street').value || 'Gewerbepark 7';
+      const sCity = document.getElementById('s-city').value || '20095 Hamburg';
+
+      const deadlineDays = parseInt(document.getElementById('s-deadline-days').value, 10) || 7;
+      const today = new Date();
+      const targetDate = new Date(today);
+      targetDate.setDate(targetDate.getDate() + deadlineDays);
+      const targetDateFormatted = targetDate.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const targetDateLong = targetDate.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      document.getElementById('s-deadline-date-preview').value = targetDateFormatted;
+
+      const invNr = document.getElementById('input-invoice-nr').value || 'RE-2026-1084';
+      const dueDateVal = document.getElementById('input-due-date').value;
+      const dueDateFormatted = dueDateVal ? new Date(dueDateVal).toLocaleDateString('de-DE') : '08.09.2026';
+
+      const amount = parseFloat(document.getElementById('input-amount').value) || 0;
+      const spesen = parseFloat(document.getElementById('input-spesen').value) || 0;
+      const rate = getApplicableRate();
+      const conf = BASE_RATES[currentJurisdiction];
+
+      // Verzugstage
+      let days = 0;
+      const calcDateStr = document.getElementById('input-calc-date').value;
+      if (dueDateVal && calcDateStr) {
+        const d1 = new Date(dueDateVal);
+        const d2 = new Date(calcDateStr);
+        days = Math.max(0, Math.floor((d2 - d1) / (1000 * 60 * 60 * 24)));
+      }
+
+      const interestAmount = (amount * (rate / 100) * days) / conf.daysInYear;
+      const grandTotal = amount + interestAmount + spesen;
+
+      // 1. DIN-A4 Mahnschreiben Header & Adressfeld
+      document.getElementById('prev-sender-line').textContent = `${gName} • ${gStreet} • ${gCity}`;
+      document.getElementById('prev-empfaenger-name').textContent = sName;
+      document.getElementById('prev-empfaenger-attn').textContent = sAttn;
+      document.getElementById('prev-empfaenger-street').textContent = sStreet;
+      document.getElementById('prev-empfaenger-city').textContent = sCity;
+
+      document.getElementById('prev-zeichen').textContent = `${invNr}/MAHN-${currentMahnstufe}`;
+      document.getElementById('prev-datum-ort').textContent = `${gCity.split(' ').slice(1).join(' ') || 'Berlin'}, den ${today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}`;
+
+      // Betreff & Stufe-Anzeige
+      const docStufeNr = document.getElementById('doc-stufe-nr');
+      if (docStufeNr) docStufeNr.textContent = currentMahnstufe;
+
+      const prevBetreff = document.getElementById('prev-betreff');
+      const prevBodyP1 = document.getElementById('prev-body-p1');
+      const prevBodyP2 = document.getElementById('prev-body-p2');
+      const prevBodyConsequence = document.getElementById('prev-body-consequence');
+
+      if (currentMahnstufe === 1) {
+        prevBetreff.textContent = `Zahlungserinnerung: Ausstehende Rechnung ${invNr}`;
+        prevBodyP1.innerHTML = `bei der Abstimmung unserer Debitorenkonten ist uns aufgefallen, dass der Rechnungsbetrag für unsere Rechnung <strong>${invNr}</strong> (fällig zum ${dueDateFormatted}) noch nicht verbucht werden konnte.`;
+        prevBodyP2.innerHTML = `Sicherlich ist diese Rechnung im laufenden Tagesgeschäft lediglich Ihrem Blick entgangen. Wir möchten Sie hiermit höflich an den offenen Ausgleich erinnern:`;
+        prevBodyConsequence.innerHTML = `Sollte sich Ihre Zahlung mit diesem Schreiben bereits gekreuzt haben, bedanken wir uns herzlich und bitten Sie, dieses Schreiben als gegenstandslos zu betrachten.`;
+      } else if (currentMahnstufe === 2) {
+        prevBetreff.textContent = `2. Mahnung: Rechnung ${invNr} inkl. gesetzlicher Verzugszinsen`;
+        prevBodyP1.innerHTML = `trotz unserer bisherigen Hinweise konnten wir bis zum heutigen Stichtag noch keinen Zahlungseingang für die unten aufgeführte Rechnung <strong>${invNr}</strong> feststellen. Sie befinden sich im Zahlungsverzug.`;
+        prevBodyP2.innerHTML = `Gemäß <strong>${conf.lawName}</strong> stellen wir Ihnen die aufgelaufenen gesetzlichen Verzugszinsen und Pauschalspesen wie folgt in Rechnung:`;
+        prevBodyConsequence.innerHTML = `Bitte beachten Sie, dass bei fruchtlosem Verstreichen dieser Frist umgehend die letzte Mahnung mit Androhung des gerichtlichen Verfahrens erfolgt.`;
+      } else if (currentMahnstufe === 3) {
+        const androhungText = currentJurisdiction === 'CH' 
+          ? 'vor Einleitung des Schweizer Betreibungsbegehrens (Art. 67 SchKG)' 
+          : 'vor Beantragung des gerichtlichen Mahnbescheids (§ 688 ZPO / § 244 ZPO)';
+        prevBetreff.textContent = `LETZTE AUSSERGERICHTLICHE MAHNUNG: Rechnung ${invNr} ${androhungText}`;
+        prevBodyP1.innerHTML = `Sie haben die vorherigen Zahlungsaufforderungen zur Rechnung <strong>${invNr}</strong> ignoriert. Wir fordern Sie hiermit letztmalig außergerichtlich zur Begleichung auf.`;
+        prevBodyP2.innerHTML = `Die Forderung setzt sich gemäß <strong>${conf.lawName}</strong> wie folgt zusammen:`;
+        
+        if (currentJurisdiction === 'CH') {
+          prevBodyConsequence.innerHTML = `<strong class="text-rose-700">WICHTIGER HINWEIS:</strong> Geht der Gesamtbetrag nicht fristgerecht bei uns ein, werden wir unverzüglich und ohne weitere Vorwarnung das Betreibungsbegehren nach Art. 67 SchKG beim zuständigen Betreibungsamt einreichen. Der resultierende Zahlungsbefehl wird im Betreibungsregister eingetragen und schränkt Ihre geschäftliche Bonität empfindlich ein. Alle Gebühren fallen Ihnen zur Last.`;
+        } else {
+          prevBodyConsequence.innerHTML = `<strong class="text-rose-700">WICHTIGER HINWEIS:</strong> Verstreicht diese Frist ergebnislos, werden wir ohne weitere Ankündigung den <strong>gerichtlichen Mahnbescheid beim zuständigen zentralen Mahngericht</strong> beantragen und die Zwangsvollstreckung durch den Gerichtsvollzieher vorbereiten. Sämtliche damit verbundenen Gerichts- und Anwaltskosten sind von Ihnen zu tragen.`;
+        }
+      }
+
+      // Tabelle im Dokument
+      document.getElementById('prev-tab-inv').textContent = invNr;
+      document.getElementById('prev-tab-due').textContent = dueDateFormatted;
+      document.getElementById('prev-tab-base').textContent = `${formatCurrency(amount)} ${conf.symbol}`;
+      document.getElementById('prev-tab-rate').textContent = `${rate.toFixed(2).replace('.', ',')} %`;
+      document.getElementById('prev-tab-days').textContent = days;
+      document.getElementById('prev-tab-interest').textContent = `+ ${formatCurrency(interestAmount)} ${conf.symbol}`;
+      
+      const prevTabSpesenLabel = document.getElementById('prev-tab-spesen-label');
+      const prevTabSpesenBasis = document.getElementById('prev-tab-spesen-basis');
+      if (currentJurisdiction === 'DE' && currentCustomerType === 'B2B') {
+        prevTabSpesenLabel.textContent = 'Gesetzliche Verzugspauschale (§ 288 Abs. 5 BGB)';
+        prevTabSpesenBasis.textContent = 'Pauschal ohne Schadensnachweis (B2B)';
+      } else if (currentJurisdiction === 'AT' && currentCustomerType === 'B2B') {
+        prevTabSpesenLabel.textContent = 'Betreibungskostenpauschale (§ 458 UGB)';
+        prevTabSpesenBasis.textContent = 'Pauschal ohne Schadensnachweis (B2B)';
+      } else if (currentJurisdiction === 'CH') {
+        prevTabSpesenLabel.textContent = 'Mahnspesen / Bearbeitungsaufwand';
+        prevTabSpesenBasis.textContent = 'Verzugsschaden gem. Art. 106 OR';
+      } else {
+        prevTabSpesenLabel.textContent = 'Mahn- & Auslagengebühr';
+        prevTabSpesenBasis.textContent = 'Aufwandspauschale';
+      }
+
+      document.getElementById('prev-tab-spesen').textContent = `+ ${formatCurrency(spesen)} ${conf.symbol}`;
+      document.getElementById('prev-tab-total').textContent = `${formatCurrency(grandTotal)} ${conf.symbol}`;
+
+      // Fließtext Frist & Bank
+      document.getElementById('prev-body-total').textContent = `${formatCurrency(grandTotal)} ${conf.symbol}`;
+      document.getElementById('prev-body-deadline').textContent = targetDateLong;
+
+      document.getElementById('prev-bank-holder').textContent = gName;
+      document.getElementById('prev-bank-bic').textContent = gBic;
+      document.getElementById('prev-bank-iban').textContent = gIban;
+      document.getElementById('prev-bank-ref').textContent = `${invNr} Mahnung`;
+
+      document.getElementById('prev-sign-company').textContent = gName;
+      document.getElementById('prev-sign-name').textContent = gContact;
+
+      // 2. Dokument: Gerichts- & Betreibungsbogen
+      updateGerichtDoc(amount, interestAmount, spesen, grandTotal, days, rate, invNr, dueDateFormatted, gName, gStreet, gCity, sName, sAttn, sStreet, sCity, conf);
+    }
+
+    // Gerichts-Bogen aktualisieren
+    function updateGerichtDoc(amount, interest, spesen, total, days, rate, invNr, dueDateFormatted, gName, gStreet, gCity, sName, sAttn, sStreet, sCity, conf) {
+      document.getElementById('g-prev-sender-line').textContent = `${gName} • VORBEREITUNGSBOGEN GERICHTLICHES VERFAHREN 2026`;
+      
+      const gTitle = document.getElementById('g-prev-title');
+      const gSub = document.getElementById('g-prev-subtitle');
+      const gGuide = document.getElementById('g-prev-country-guide');
+
+      document.getElementById('g-prev-amount').textContent = `${formatCurrency(amount)} ${conf.symbol}`;
+      document.getElementById('g-prev-ref').textContent = `${invNr} (Fällig seit ${dueDateFormatted})`;
+      document.getElementById('g-prev-due').textContent = dueDateFormatted;
+      document.getElementById('g-prev-rate').textContent = `${rate.toFixed(2).replace('.', ',')} % p.a. seit Fälligkeit (${days} Tage: ${formatCurrency(interest)} ${conf.symbol})`;
+      document.getElementById('g-prev-extra').textContent = `${formatCurrency(spesen)} ${conf.symbol} (${currentJurisdiction === 'CH' ? 'Mahnspesen Art. 106 OR' : 'Pauschale gem. Gesetz'})`;
+
+      document.getElementById('g-prev-glaeubiger').innerHTML = `${gName}<br>${gStreet}, ${gCity}`;
+      document.getElementById('g-prev-schuldner').innerHTML = `${sName}<br>${sAttn}<br>${sStreet}, ${sCity}`;
+
+      if (currentJurisdiction === 'DE') {
+        gTitle.textContent = '🇩🇪 Vorbereitungsbogen: Online-Mahnbescheid (§ 688 ZPO)';
+        gSub.textContent = 'Zur direkten Eingabe im zentralen Mahnportal der Bundesländer (online-mahnantrag.de).';
+        gGuide.innerHTML = `
+          <h2 class="font-bold text-slate-900 text-[10pt] mb-2 flex items-center gap-1.5">
+            <span>3.</span>
+            <span>Ablauf beim Zentralen Mahngericht (Deutschland)</span>
+          </h2>
+          <ol class="list-decimal pl-4 space-y-1.5 text-slate-700">
+            <li><strong>Mahnportal aufrufen:</strong> www.online-mahnantrag.de starten und Bundesland Ihres Sitzes wählen.</li>
+            <li><strong>Forderungskatalog-Nummer:</strong> Wählen Sie die zutreffende Katalognummer (z.B. Nr. 33 „Warenlieferung“, Nr. 24 „Handwerkerleistung“ oder Nr. 10 „Dienstleistungsvertrag“).</li>
+            <li><strong>Nebenforderung eintragen:</strong> Die 40,00 € Pauschale unter „Nebenforderung gem. § 288 Abs. 5 BGB“ erfassen.</li>
+            <li><strong>Verzugszinsen:</strong> „${rate.toFixed(2).replace('.', ',')} % Jahreszinsen ab ${dueDateFormatted}“ ankreuzen.</li>
+            <li><strong>Kosten & Vollstreckungsbescheid:</strong> Die Gerichtskosten (mind. 36 € nach GKG) werden dem Schuldner automatisch auferlegt. Widerspricht der Schuldner binnen 2 Wochen nicht, beantragen Sie direkt den Vollstreckungsbescheid.</li>
+          </ol>
+        `;
+      } else if (currentJurisdiction === 'CH') {
+        gTitle.textContent = '🇨🇭 Betreibungsbegehren nach Art. 67 SchKG (Schweiz)';
+        gSub.textContent = 'Zur Einreichung beim zuständigen Betreibungsamt am Wohnsitz bzw. Sitz des Schuldners.';
+        gGuide.innerHTML = `
+          <h2 class="font-bold text-slate-900 text-[10pt] mb-2 flex items-center gap-1.5">
+            <span>3.</span>
+            <span>Ablauf der Betreibung auf Pfändung / Konkurs (Schweiz)</span>
+          </h2>
+          <ol class="list-decimal pl-4 space-y-1.5 text-slate-700">
+            <li><strong>Zuständiges Betreibungsamt ermitteln:</strong> Betreibungsamt der Gemeinde des Schuldners (${sCity}) ermitteln.</li>
+            <li><strong>Betreibungsbegehren einreichen:</strong> Amtliches Formular nach Art. 67 SchKG ausfüllen (Forderungsgrund: Rechnung ${invNr}, Verzugszins zu 5 % seit ${dueDateFormatted}).</li>
+            <li><strong>Zahlungsbefehl:</strong> Das Betreibungsamt stellt dem Schuldner den Zahlungsbefehl zu (Kosten nach GebV SchKG gehen zu Lasten des Schuldners).</li>
+            <li><strong>Rechtsvorschlag (Art. 74 SchKG):</strong> Erhebt der Schuldner innert 10 Tagen Rechtsvorschlag, beseitigen Sie diesen durch Vorlage der unterschriebenen Schuldanerkennung / Vertrages im Rechtsöffnungsverfahren (Art. 82 SchKG).</li>
+            <li><strong>Fortsetzungsbegehren (Art. 88 SchKG):</strong> Nach fruchtlosem Ablauf der 20-Tage-Zahlungsfrist beantragen Sie die Pfändung bzw. Konkursandrohung.</li>
+          </ol>
+        `;
+      } else if (currentJurisdiction === 'AT') {
+        gTitle.textContent = '🇦🇹 Vorbereitungsbogen: Bedingter Zahlungsbefehl (§ 244 ZPO)';
+        gSub.textContent = 'Zur Einbringung der Mahnklage beim zuständigen Bezirksgericht am Sitz des Beklagten.';
+        gGuide.innerHTML = `
+          <h2 class="font-bold text-slate-900 text-[10pt] mb-2 flex items-center gap-1.5">
+            <span>3.</span>
+            <span>Ablauf des gerichtlichen Mahnverfahrens (Österreich)</span>
+          </h2>
+          <ol class="list-decimal pl-4 space-y-1.5 text-slate-700">
+            <li><strong>Zuständiges Bezirksgericht:</strong> Bezirksgericht am Wohnsitz/Sitz des Beklagten (${sCity}) für Forderungen bis 75.000 €.</li>
+            <li><strong>Mahnklage einbringen:</strong> Elektronischer Rechtsverkehr (Web-ERV) oder Formular mit Angabe des UGB-Zinssatzes (${rate.toFixed(2).replace('.', ',')} % gem. § 456 UGB).</li>
+            <li><strong>40-€-Pauschale (§ 458 UGB):</strong> Als gesetzliche Betreibungskostenpauschale gesondert als Nebenforderung geltend machen.</li>
+            <li><strong>Bedingter Zahlungsbefehl:</strong> Das Gericht erlässt den Zahlungsbefehl ohne vorherige Anhörung.</li>
+            <li><strong>Einspruchsfrist:</strong> Erhebt der Schuldner binnen 4 Wochen keinen Einspruch, wird der Zahlungsbefehl rechtskräftig und vollstreckbar (Exekutionstitel).</li>
+          </ol>
+        `;
+      }
+    }
+
+    // Kopieren der Berechnungszusammenfassung
+    function copyCalculationSummary() {
+      const amount = parseFloat(document.getElementById('input-amount').value) || 0;
+      const spesen = parseFloat(document.getElementById('input-spesen').value) || 0;
+      const rate = getApplicableRate();
+      const conf = BASE_RATES[currentJurisdiction];
+      const invNr = document.getElementById('input-invoice-nr').value || 'RE-2026-1084';
+
+      let days = 0;
+      const dueDateVal = document.getElementById('input-due-date').value;
+      const calcDateStr = document.getElementById('input-calc-date').value;
+      if (dueDateVal && calcDateStr) {
+        days = Math.max(0, Math.floor((new Date(calcDateStr) - new Date(dueDateVal)) / (1000 * 60 * 60 * 24)));
+      }
+
+      const interest = (amount * (rate / 100) * days) / conf.daysInYear;
+      const total = amount + interest + spesen;
+
+      const text = `FORDERUNGSAUFSTELLUNG (${conf.lawName} - Stand: ${calcDateStr}):
+--------------------------------------------------
+Rechnung: ${invNr} (Fällig seit: ${dueDateVal})
+Hauptforderung: ${formatCurrency(amount)} ${conf.symbol}
+Verzugszinsen (${rate.toFixed(2).replace('.', ',')} % p.a., ${days} Tage): ${formatCurrency(interest)} ${conf.symbol}
+Verzugspauschale / Mahnspesen: ${formatCurrency(spesen)} ${conf.symbol}
+--------------------------------------------------
+GESAMTFORDEUNG: ${formatCurrency(total)} ${conf.symbol}
+Berechnet mit DACH Digitalwerk (https://dach-digitalwerk.netlify.app/)`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const btnText = document.getElementById('btn-copy-calc-text');
+        btnText.textContent = '✓ In die Zwischenablage kopiert!';
+        setTimeout(() => {
+          btnText.textContent = 'Forderungsaufstellung in Zwischenablage kopieren';
+        }, 2500);
+      });
+    }
+
+    // Kopieren des Eskalationstextes
+    function copyEscalationText() {
+      const sampleBox = document.getElementById('esc-sample-text');
+      if (!sampleBox) return;
+
+      navigator.clipboard.writeText(sampleBox.textContent).then(() => {
+        const label = document.getElementById('btn-copy-esc-label');
+        label.textContent = '✓ Kopiert!';
+        setTimeout(() => {
+          label.textContent = 'Text kopieren';
+        }, 2000);
+      });
+    }
+
+    // Tab-Umschaltung
+    function switchTab(tabId) {
+      ['rechner', 'stufen', 'dokument'].forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tabId) {
+          btn.className = 'tab-btn px-3 py-2 text-xs sm:text-sm font-bold border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap';
+          content.classList.remove('hidden');
+        } else {
+          btn.className = 'tab-btn px-3 py-2 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap';
+          content.classList.add('hidden');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Pro Unlock Logik
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const input = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['DW-PRO-2026', 'MAHNUNG-2026', 'PRO2026', 'GUMROAD'];
+      if (validCodes.includes(input)) {
+        unlockPro(true);
+        closeCheckoutModal();
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = 'Ungültiger Freischaltcode. Bitte prüfen oder auf Gumroad erwerben.';
+        err.classList.remove('hidden');
+      }
+    }
+
+    function unlockPro(save) {
+      isProUnlocked = true;
+      if (save) localStorage.setItem('dw_pro_unlocked', 'true');
+
+      // Badges
+      const proPill = document.getElementById('pro-status-pill');
+      if (proPill) {
+        proPill.textContent = 'Pro-Version Aktiv ✓';
+        proPill.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full';
+      }
+
+      const headerBtn = document.getElementById('header-unlock-btn');
+      if (headerBtn) {
+        headerBtn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+        headerBtn.className = 'bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-xl flex items-center gap-1.5 cursor-default';
+        headerBtn.onclick = null;
+      }
+
+      const mainUnlockBtn = document.getElementById('main-unlock-btn');
+      if (mainUnlockBtn) mainUnlockBtn.classList.add('hidden');
+
+      const watermark = document.getElementById('pro-watermark-overlay');
+      if (watermark) watermark.classList.add('hidden');
+
+      const topBadge = document.getElementById('pro-badge-top');
+      if (topBadge) {
+        topBadge.textContent = 'Freigeschaltet ✓';
+        topBadge.className = 'bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded';
+      }
+    }
+
+    // Drucken
+    function printA4Document() {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+      window.print();
+    }
+  </script>
+</body>
+</html>

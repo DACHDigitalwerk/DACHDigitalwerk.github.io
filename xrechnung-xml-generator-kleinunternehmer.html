@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XRechnung 3.0 XML kostenlos im Browser erstellen (EN 16931 / UBL 2.1) | DACH Digitalwerk</title>
+  <meta name="description" content="Erstellen Sie gültige XRechnung 3.0 XML-Dateien kostenlos im Browser. Konform mit EN 16931 & UBL 2.1 für Behörden (B2G) und B2B. Speziell für Kleinunternehmer & Freelancer ohne Abo." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/xrechnung-xml-generator-kleinunternehmer.html" />
+  <meta property="og:title" content="XRechnung 3.0 XML kostenlos im Browser erstellen (EN 16931 / UBL 2.1)" />
+  <meta property="og:description" content="Kostenloser XRechnung XML Generator für Kleinunternehmer, Selbstständige & Handwerker. 100% Datenschutz im Browser ohne Registrierung." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/xrechnung-xml-generator-kleinunternehmer.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org SoftwareApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DACH XRechnung 3.0 Express Generator",
+    "operatingSystem": "All modern web browsers",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Erstellung valider XRechnung 3.0.x XML-Rechnungen nach dem europäischen Standard EN 16931 und UBL 2.1 Syntax direkt im Browser."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Müssen Kleinunternehmer ab 2025/2026 eine E-Rechnung ausstellen können?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für die Ausstellung an Privatkunden (B2C) gilt die E-Rechnungspflicht nicht. Im geschäftlichen Verkehr (B2B) müssen ab dem 1. Januar 2025 alle inländischen Unternehmer E-Rechnungen empfangen können. Für die verpflichtende Ausstellung gelten Übergangsfristen, doch Rechnungen an Bundes- und Landesbehörden (B2G) erfordern bereits seit November 2020 zwingend das Format XRechnung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist die Leitweg-ID und wo finde ich sie?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Leitweg-ID ist eine eindeutige Kennung für öffentliche Auftraggeber in Deutschland (z. B. 04011000-12345-67). Sie wird Ihnen vom jeweiligen Auftraggeber in der Ausschreibung oder Bestellung mitgeteilt und muss im XML-Feld BT-10 (BuyerReference) eingetragen werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ist eine PDF-Rechnung noch zulässig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine reine PDF-Datei gilt nach dem neuen deutschen Gesetz (Wachstumschancengesetz) nicht mehr als elektronische Rechnung, da sie keine strukturierte XML-Syntax nach EN 16931 enthält. Zulässig sind künftig nur XRechnung (reines XML) oder ZUGFeRD (PDF mit eingebettetem XML)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">DSGVO-konform (Kein Upload auf fremde Server)</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-indigo-300">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-600 text-white flex items-center justify-center font-extrabold tracking-tight">
+          XML
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">E-Rechnung & XRechnung 3.0</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./qr-suite/" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🧾 XRechnung Generator öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-indigo-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">XRechnung XML Generator für Kleinunternehmer</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold">
+        <span>⚡ Standard EN 16931 / UBL 2.1</span>
+        <span>•</span>
+        <span>Rechtssicher für B2G & B2B</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        XRechnung 3.0 XML kostenlos im Browser erstellen
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Mit der gesetzlichen <strong>E-Rechnungspflicht</strong> in Deutschland und der Pflicht zur elektronischen Rechnungsstellung an öffentliche Auftraggeber (B2G via ZRE & OZG-RE) stehen viele Kleinunternehmer, Handwerker und Freiberufler vor teuren Software-Hürden. Unser Web-Generator löst dieses Problem: Sie erstellen valide XRechnung-XML-Dateien in Sekunden – völlig kostenlos und ohne Registrierung.
+      </p>
+    </header>
+
+    <!-- CTA HERO BOX -->
+    <section class="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-indigo-800/40">
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Sofort-Generierung</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">XRechnung jetzt ohne Abo erzeugen</h2>
+        <p class="text-sm text-slate-300 max-w-xl">
+          Füllen Sie einfach Rechnungsnummer, Leitweg-ID, Ihre Steuernummer und Rechnungspositionen aus. Der Generator erzeugt in Echtzeit eine validierte UBL 2.1 XML-Datei zum sofortigen Herunterladen.
+        </p>
+      </div>
+      <a href="./qr-suite/" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition">
+        XRechnung Generator starten →
+      </a>
+    </section>
+
+    <!-- KLEINUNTERNEHMER-REGELUNG (§ 19 UStG) -->
+    <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Besonderheiten für Kleinunternehmer nach § 19 UStG</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Als Kleinunternehmer weisen Sie keine Umsatzsteuer aus. In der XRechnung müssen hierfür standardkonforme XML-Codes hinterlegt werden, damit das Rechnungsportal der Bundes- oder Landesverwaltung die Datei nicht als fehlerhaft ablehnt:
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-4 pt-2">
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+          <span class="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">Steuerkategorie 'E'</span>
+          <h3 class="font-bold text-slate-900 text-sm">Exempt from Tax (Steuerbefreit)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            In der XML-Zeile für die Steuerkategorie (BT-151) wird der Code <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">E</code> eingetragen, der Steuersatz (BT-152) beträgt <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">0.00</code>.
+          </p>
+        </div>
+
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+          <span class="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">BT-120 Freitext-Hinweis</span>
+          <h3 class="font-bold text-slate-900 text-sm">Gesetzlicher Pflicht-Hinweis</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Im Pflichtfeld für den Befreiungsgrund muss der gesetzliche Text hinterlegt sein: <em>„Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.“</em>
+          </p>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 pt-2">
+        💡 Unser Browser-Generator bietet hierfür eine 1-Klick-Option: Setzen Sie einfach das Häkchen bei <em>„Kleinunternehmerregelung aktivieren“</em>, und alle XML-Tags werden automatisch normgerecht befüllt.
+      </p>
+    </section>
+
+    <!-- DIE WICHTIGSTEN PFLICHTFELDER -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900">Die wichtigsten Pflichtfelder einer XRechnung 3.0</h2>
+
+      <div class="space-y-3">
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3">
+          <span class="font-mono text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded">BT-10</span>
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Käuferreferenz (Leitweg-ID / Einkäufer-Referenz)</h4>
+            <p class="text-xs text-slate-600 mt-0.5">Bei öffentlichen Behörden zwingend die Leitweg-ID (z. B. 04011000-12345-67). Bei B2B-Kunden die interne Bestell- oder Kundennummer.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3">
+          <span class="font-mono text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded">BT-31 / BT-32</span>
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Umsatzsteuer-Identifikationsnummer oder Steuernummer</h4>
+            <p class="text-xs text-slate-600 mt-0.5">Die USt-IdNr. des Verkäufers (z. B. DE123456789) oder die reguläre Finanzamts-Steuernummer.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3">
+          <span class="font-mono text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded">BT-73 / BT-74</span>
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Leistungszeitraum oder Lieferdatum</h4>
+            <p class="text-xs text-slate-600 mt-0.5">Das Datum, an dem die Dienstleistung erbracht oder die Ware geliefert wurde.</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-3">
+          <span class="font-mono text-xs font-bold bg-slate-100 text-slate-700 px-2 py-1 rounded">BT-84</span>
+          <div>
+            <h4 class="font-bold text-sm text-slate-900">Bankverbindung (IBAN)</h4>
+            <p class="text-xs text-slate-600 mt-0.5">SEPA-Bankverbindung des Rechnungsausstellers zur automatischen Verbuchung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ)</h2>
+
+      <div class="space-y-3">
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Wo lade ich die generierte XML-Datei für Bundesbehörden hoch?</span>
+            <span class="text-indigo-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Rechnungen an Bundesbehörden werden über die <strong>Zentrale Rechnungseingangsplattform des Bundes (ZRE)</strong> eingereicht. Rechnungen an Bundesländer, Städte oder Kommunen laufen in der Regel über das <strong>OZG-konforme Rechnungseingangsportal (OZG-RE)</strong> des jeweiligen Bundeslandes. Beide Portale akzeptieren die mit unserem Tool erzeugte XML-Datei direkt.
+          </p>
+        </details>
+
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Sind meine Rechnungsdaten bei Ihnen sicher?</span>
+            <span class="text-indigo-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Absolut. DACH Digitalwerk speichert weder Namen, Bankverbindungen noch Beträge auf einem Server. Die gesamte XML-Generierung findet im Speicher Ihres Browsers statt. Sie laden die fertige Datei lokal auf Ihre Festplatte herunter.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- BOTTOM LINKS -->
+    <section class="bg-slate-900 text-white p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h4 class="text-xl font-bold">Jetzt XRechnung im Browser erstellen</h4>
+        <p class="text-xs text-slate-400 mt-1">100% kostenlos, ohne Abo, sofort downloadbar.</p>
+      </div>
+      <a href="./qr-suite/" class="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition">
+        Zur E-Rechnungs-Suite →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-sm font-extrabold text-white">DACH Digitalwerk – Ratgeber & Tools</div>
+        <p class="text-slate-500 mt-1">100% DSGVO-konforme Client-Side Browser-Applikationen.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 text-slate-300">
+        <a href="./qr-suite/" class="hover:text-emerald-400">Swiss QR & XRechnung</a>
+        <a href="./arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+        <a href="./rechner/" class="hover:text-amber-400">Handwerker-Rechner</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

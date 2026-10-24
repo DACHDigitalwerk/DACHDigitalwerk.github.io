@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Vorabpauschale-, ETF-Steuer- &amp; Zinseszins-Rechner 2026 | InvStG § 18, Basiszins 2026, Sparerpauschbetrag, DE / AT / CH</title>
+  <meta name="description" content="Kostenloser, 100% DSGVO-konformer Vorabpauschale- &amp; ETF-Steuerrechner 2026 für Deutschland (InvStG § 18, Basiszins 2,55 %, Teilfreistellung § 20, Sparerpauschbetrag), Österreich (KESt 27,5 %, OeKB Meldefonds) und Schweiz (ESTV ICTax, Art. 16 Abs. 3 DBG). Mit 30-Jahre Zinseszins-Simulator &amp; DIN-A4 Liquiditätsbericht." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/vorabpauschale-etf-rechner/" />
+  <meta property="og:title" content="DACH Vorabpauschale-, ETF-Steuer- &amp; Zinseszins-Rechner 2026" />
+  <meta property="og:description" content="Berechne Vorabpauschale (§ 18 InvStG), Teilfreistellung, Liquiditätsbedarf zum 02.01.2027, 30-Jahre ETF-Sparplan und erstelle den druckfertigen DIN-A4 Steuerbericht." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/vorabpauschale-etf-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-page {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        color: black !important;
+        page-break-inside: avoid;
+      }
+      .print-box {
+        border: 1px solid #334155 !important;
+        background: white !important;
+        color: black !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 12mm;
+      }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Vorabpauschale-, ETF-Steuer- & Zinseszins-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/vorabpauschale-etf-rechner/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "description": "Präziser Vorabpauschale- und ETF-Steuerrechner 2026 nach § 18 & § 20 InvStG (Deutschland, Basiszins 2026: 2,55 %, Teilfreistellung 30 % / 15 % / 60 % / 80 %, Sparerpauschbetrag), InvFG 2011 (Österreich, 27,5 % KESt, OeKB Meldefonds) und DBG / ICTax (Schweiz, steuerfreie Kapitalgewinne). Inklusive 30-Jahre Sparplan-Simulator und druckfertigem DIN-A4 Liquiditätsbericht.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          <span>⚡ BASISZINS 2026: 2,55 %</span>
+        </span>
+        <span class="text-slate-300 font-medium">§ 18 InvStG Vorabpauschale • 1.000 € / 2.000 € Sparerpauschbetrag (§ 20 Abs. 9 EStG)</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Übertragung von Depotwerten)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 InvStG 2026</span>
+        <span>•</span>
+        <span>🇦🇹 OeKB KESt 27,5 %</span>
+        <span>•</span>
+        <span>🇨🇭 ESTV ICTax Art. 16 DBG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-emerald-400 ml-2 px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-800">Tool #28</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>📥 CSV</span>
+        </button>
+        <button onclick="exportJSON()" class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5">
+          <span>💾 Backup</span>
+        </button>
+        <label class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5 cursor-pointer">
+          <span>📂 Laden</span>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJSON(event)" />
+        </label>
+        <button onclick="switchToTab('bericht'); setTimeout(() => window.print(), 250);" class="text-xs font-semibold bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Steuerbericht</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="no-print pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-3">
+          <span>📈 InvStG § 18, InvFG 2011 &amp; DBG 2026</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>100% Client-Side &amp; DSGVO-sicher</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          DACH Vorabpauschale-, ETF-Steuer- &amp; Zinseszins-Rechner 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+          Ermittle die exakte Vorabpauschale 2026 nach § 18 InvStG, Teilfreistellungen nach § 20 InvStG, den Stichtags-Liquiditätsbedarf auf deinem Verrechnungskonto am 02.01.2027 sowie steueroptimierte 30-Jahre Sparpläne für Deutschland, Österreich (OeKB Meldefonds) und die Schweiz (ICTax).
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="text-xs bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 font-medium shadow-sm">
+          <span>⭐ Enterprise-Support &amp; Steuer-Suite</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB NAVIGATION -->
+    <div class="flex flex-wrap items-center gap-2 mt-6">
+      <button onclick="switchToTab('de')" id="tabBtn-de" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">
+        <span>🇩🇪 Deutschland (§ 18 InvStG)</span>
+      </button>
+      <button onclick="switchToTab('at')" id="tabBtn-at" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (OeKB / KESt)</span>
+      </button>
+      <button onclick="switchToTab('ch')" id="tabBtn-ch" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (ESTV ICTax / DBG)</span>
+      </button>
+      <button onclick="switchToTab('simulator')" id="tabBtn-simulator" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📈 30-Jahre Sparplan-Simulator</span>
+      </button>
+      <button onclick="switchToTab('bericht')" id="tabBtn-bericht" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📄 DIN-A4 Liquiditätsbericht</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 w-full pb-16">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: DEUTSCHLAND (§ 18 InvStG, § 20 InvStG, § 20 Abs. 9 EStG) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-de" class="tab-content block space-y-6">
+
+      <!-- QUICK PRESETS -->
+      <div class="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 flex flex-wrap items-center gap-2 text-xs">
+        <span class="text-slate-400 font-semibold mr-1">⚡ Schnelle Muster-Szenarien:</span>
+        <button onclick="loadDePreset('msci10k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          MSCI World Thesaurierend (10.000 €)
+        </button>
+        <button onclick="loadDePreset('allworld50k')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          All-World Depot (50.000 €)
+        </button>
+        <button onclick="loadDePreset('distributor')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          Ausschüttender ETF (Vollanrechnung)
+        </button>
+        <button onclick="loadDePreset('loss_year')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-900/40 transition">
+          Verlustjahr / Baisse (0 € Steuer)
+        </button>
+        <button onclick="loadDePreset('holding_gmbh')" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-cyan-900/40 transition">
+          Holding GmbH (80 % TFS)
+        </button>
+      </div>
+
+      <!-- MAIN GRID: INPUTS & OUTPUTS -->
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT COLUMN: INPUT CONTROLS (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- DEPOTWERTE KARTE -->
+          <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">1</span>
+                <h3 class="font-bold text-white text-base">Depotwerte &amp; Ausschüttungen</h3>
+              </div>
+              <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2.5 py-1 rounded-md">§ 18 Abs. 1 InvStG</span>
+            </div>
+
+            <!-- Depotwert Jahresanfang -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="de_start_value" class="text-xs font-semibold text-slate-300">
+                  Depotwert zu Jahresbeginn (01.01.2026) in €
+                </label>
+                <span class="text-xs font-mono text-slate-400">Rücknahmepreis aller Anteile</span>
+              </div>
+              <div class="relative">
+                <input type="number" id="de_start_value" step="100" min="0" value="10000" oninput="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-3 text-white font-mono font-bold text-lg outline-none transition" />
+                <span class="absolute right-4 top-3.5 text-slate-500 font-mono text-sm">EUR</span>
+              </div>
+              <input type="range" id="de_start_value_range" min="0" max="100000" step="500" value="10000" oninput="syncDeFromRange('start')" class="w-full mt-2 accent-emerald-500 cursor-pointer" />
+            </div>
+
+            <!-- Depotwert Jahresende -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="de_end_value" class="text-xs font-semibold text-slate-300">
+                  Depotwert zu Jahresende (31.12.2026) in €
+                </label>
+                <span id="de_growth_badge" class="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">+10,0 % Wertzuwachs</span>
+              </div>
+              <div class="relative">
+                <input type="number" id="de_end_value" step="100" min="0" value="11000" oninput="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-3 text-white font-mono font-bold text-lg outline-none transition" />
+                <span class="absolute right-4 top-3.5 text-slate-500 font-mono text-sm">EUR</span>
+              </div>
+              <input type="range" id="de_end_value_range" min="0" max="120000" step="500" value="11000" oninput="syncDeFromRange('end')" class="w-full mt-2 accent-emerald-500 cursor-pointer" />
+            </div>
+
+            <!-- Ausschüttungen im Kalenderjahr -->
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label for="de_distributions" class="text-xs font-semibold text-slate-300">
+                  Tatsächliche Ausschüttungen im Kalenderjahr in €
+                </label>
+                <span class="text-[11px] text-slate-400">Bei Thesaurierern = 0,00 €</span>
+              </div>
+              <div class="relative">
+                <input type="number" id="de_distributions" step="10" min="0" value="0" oninput="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+                <span class="absolute right-4 top-3 text-slate-500 font-mono text-sm">EUR</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">Ausschüttungen mindern die Vorabpauschale gem. § 18 Abs. 1 Satz 2 InvStG direkt um den gezahlten Betrag.</p>
+            </div>
+          </div>
+
+          <!-- PARAMETER & TEILFREISTELLUNG -->
+          <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm">2</span>
+                <h3 class="font-bold text-white text-base">Fondstyp, Basiszins &amp; Anleger</h3>
+              </div>
+              <span class="text-xs font-mono text-teal-400 bg-teal-950/60 border border-teal-800 px-2.5 py-1 rounded-md">§ 20 InvStG TFS</span>
+            </div>
+
+            <!-- Fondstyp Auswahl -->
+            <div>
+              <label for="de_fund_type" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Fondskategorie / Anlageklasse:
+              </label>
+              <select id="de_fund_type" onchange="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-3 text-white text-sm font-semibold outline-none transition">
+                <option value="equity">Aktienfonds (mind. 51 % Aktien) → 30 % Teilfreistellung</option>
+                <option value="mixed">Mischfonds (mind. 25 % Aktien) → 15 % Teilfreistellung</option>
+                <option value="real_estate_de">Immobilienfonds (inländische Objekte) → 60 % Teilfreistellung</option>
+                <option value="real_estate_foreign">Immobilienfonds (ausländische Objekte) → 80 % Teilfreistellung</option>
+                <option value="other">Sonstige Fonds (Geldmarkt, Renten, Rohstoffe) → 0 % Teilfreistellung</option>
+              </select>
+            </div>
+
+            <!-- Anlegertyp (Privat vs. Betriebsvermögen vs. GmbH) -->
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Rechtsform / Anlegertyp:
+              </label>
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" id="de_anleger_privat" onclick="setInvestorType('private')" class="p-2.5 rounded-xl border text-center transition flex flex-col items-center justify-center bg-emerald-500/20 border-emerald-500 text-white">
+                  <span class="text-xs font-bold">Privatanleger</span>
+                  <span class="text-[10px] text-emerald-300 mt-0.5">30 % TFS Aktien</span>
+                </button>
+                <button type="button" id="de_anleger_bv" onclick="setInvestorType('business')" class="p-2.5 rounded-xl border text-center transition flex flex-col items-center justify-center bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                  <span class="text-xs font-bold">Betriebsvermögen</span>
+                  <span class="text-[10px] text-slate-500 mt-0.5">60 % TFS Aktien</span>
+                </button>
+                <button type="button" id="de_anleger_gmbh" onclick="setInvestorType('gmbh')" class="p-2.5 rounded-xl border text-center transition flex flex-col items-center justify-center bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                  <span class="text-xs font-bold">Holding / GmbH</span>
+                  <span class="text-[10px] text-slate-500 mt-0.5">80 % TFS Aktien</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Amtlicher Basiszins & Kaufmonat -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="de_base_rate" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                  Amtlicher Basiszins 2026 (%)
+                </label>
+                <div class="relative">
+                  <input type="number" id="de_base_rate" step="0.01" min="0" max="10" value="2.55" oninput="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-sm outline-none transition" />
+                  <span class="absolute right-3.5 top-2.5 text-slate-500 font-mono text-sm">%</span>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1">Deutsche Bundesbank / BMF: 2,55 % (2025: 2,29 %).</p>
+              </div>
+
+              <div>
+                <label for="de_holding_months" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                  Besitzmonate im Steuerjahr (§ 18 Abs. 2)
+                </label>
+                <select id="de_holding_months" onchange="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-white text-sm font-semibold outline-none transition">
+                  <option value="12">Ganzjährig gehalten (12 / 12)</option>
+                  <option value="11">Kauf im Februar (11 / 12)</option>
+                  <option value="10">Kauf im März (10 / 12)</option>
+                  <option value="9">Kauf im April (9 / 12)</option>
+                  <option value="8">Kauf im Mai (8 / 12)</option>
+                  <option value="7">Kauf im Juni (7 / 12)</option>
+                  <option value="6">Kauf im Juli (6 / 12)</option>
+                  <option value="5">Kauf im August (5 / 12)</option>
+                  <option value="4">Kauf im September (4 / 12)</option>
+                  <option value="3">Kauf im Oktober (3 / 12)</option>
+                  <option value="2">Kauf im November (2 / 12)</option>
+                  <option value="1">Kauf im Dezember (1 / 12)</option>
+                </select>
+                <p class="text-[10px] text-slate-500 mt-1">Kürzung um 1/12 für jeden vollen Monat vor Erwerb.</p>
+              </div>
+            </div>
+
+            <!-- Freistellungsauftrag & Kirchensteuer -->
+            <div class="grid sm:grid-cols-2 gap-4 border-t border-slate-800/80 pt-4">
+              <div>
+                <label for="de_allowance" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                  Verfügbarer Sparerpauschbetrag (€)
+                </label>
+                <div class="relative">
+                  <input type="number" id="de_allowance" step="50" min="0" value="1000" oninput="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-sm outline-none transition" />
+                  <span class="absolute right-3.5 top-2.5 text-slate-500 font-mono text-sm">EUR</span>
+                </div>
+                <div class="flex gap-2 mt-1.5">
+                  <button type="button" onclick="setAllowance(1000)" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-0.5 rounded">1.000 € Single</button>
+                  <button type="button" onclick="setAllowance(2000)" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-0.5 rounded">2.000 € Ehe</button>
+                  <button type="button" onclick="setAllowance(0)" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-0.5 rounded">0 € Aufgebraucht</button>
+                </div>
+              </div>
+
+              <div>
+                <label for="de_church_tax" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                  Kirchensteuer-Satz (§ 32d EStG)
+                </label>
+                <select id="de_church_tax" onchange="syncDeValues()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-3 py-2.5 text-white text-sm font-semibold outline-none transition">
+                  <option value="none">Keine Kirchensteuer (26,375 % Abgeltung + Soli)</option>
+                  <option value="bayern_bw">8 % in Bayern &amp; Baden-Württemberg (~27,82 %)</option>
+                  <option value="other">9 % in den übrigen Bundesländern (~28,00 %)</option>
+                </select>
+                <p class="text-[10px] text-slate-500 mt-1">Automatische Kürzung der KapESt nach Sonderformel.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: RESULTS & LIQUIDITY BANNER (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- HERO RESULT CARD -->
+          <div class="bg-gradient-to-b from-slate-950 to-slate-900 border border-emerald-500/30 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-4">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
+                <span>🇩🇪 Steuerjahr 2026</span>
+              </span>
+              <span id="de_status_pill" class="text-xs font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Berechnung aktiv</span>
+            </div>
+
+            <!-- VORABPAUSCHALE -->
+            <div class="space-y-1 mb-5">
+              <div class="text-xs font-medium text-slate-400">Vorabpauschale gem. § 18 InvStG:</div>
+              <div id="de_res_vorabpauschale" class="text-3xl sm:text-4xl font-extrabold text-white font-mono">
+                178,50 €
+              </div>
+              <div id="de_res_tfs_note" class="text-xs text-slate-400 font-medium">
+                davon steuerfrei (30 % TFS): <span class="text-emerald-400 font-mono">53,55 €</span>
+              </div>
+            </div>
+
+            <!-- LIQUIDITY ALERT BOX -->
+            <div id="de_liquidity_box" class="rounded-2xl p-4 border bg-emerald-950/40 border-emerald-500/40 text-emerald-200 space-y-2 mb-5">
+              <div class="flex items-center gap-2">
+                <span id="de_liquidity_icon" class="text-lg">✅</span>
+                <div class="font-bold text-sm text-white">Liquiditätsbedarf Verrechnungskonto:</div>
+              </div>
+              <div id="de_res_total_tax_display" class="text-2xl font-black font-mono text-emerald-400">
+                0,00 €
+              </div>
+              <p id="de_liquidity_desc" class="text-xs leading-relaxed text-slate-300">
+                Der Sparerpauschbetrag deckt die Vorabpauschale vollständig ab. Es ist <strong class="text-white">keine Kontodeckung</strong> für Steuerabzüge am 02.01.2027 erforderlich.
+              </p>
+              <div class="text-[10px] font-mono text-slate-400 flex items-center justify-between border-t border-emerald-500/20 pt-2 mt-1">
+                <span>Fälligkeit Bankeinzug:</span>
+                <span class="text-white font-bold">Erster Bankarbeitstag Jan. 2027</span>
+              </div>
+            </div>
+
+            <!-- DETAIL METRICS LIST -->
+            <div class="space-y-2.5 text-xs border-t border-slate-800 pt-4">
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Unbereinigter Basisertrag (70% × 2,55%):</span>
+                <span id="de_res_raw_base" class="font-mono text-slate-200">178,50 €</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Tatsächliche Wertsteigerung:</span>
+                <span id="de_res_actual_gain" class="font-mono text-slate-200">+1.000,00 €</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Deckelung greift (§ 18 Abs. 1 Satz 3):</span>
+                <span id="de_res_cap_active" class="font-mono text-slate-200">Nein (Wertzuwachs &gt; Basisertrag)</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Abzug tatsächliche Ausschüttungen:</span>
+                <span id="de_res_dist_deduction" class="font-mono text-slate-200">-0,00 €</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Steuerpflichtige Vorabpauschale (nach TFS):</span>
+                <span id="de_res_taxable_base" class="font-mono text-slate-200">124,95 €</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Angerechneter Sparerpauschbetrag:</span>
+                <span id="de_res_allowance_used" class="font-mono text-emerald-400">-124,95 €</span>
+              </div>
+              <div class="flex justify-between items-center text-slate-400">
+                <span>Verbleibender Sparerpauschbetrag:</span>
+                <span id="de_res_allowance_remaining" class="font-mono text-slate-300">875,05 €</span>
+              </div>
+              <div class="flex justify-between items-center font-bold text-white border-t border-slate-800/80 pt-2">
+                <span>Zu versteuernder Ertrag:</span>
+                <span id="de_res_final_taxable" class="font-mono text-emerald-400">0,00 €</span>
+              </div>
+            </div>
+
+            <!-- STEUER-AUFSCHLÜSSELUNG -->
+            <div class="mt-4 p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5 text-[11px] font-mono">
+              <div class="flex justify-between text-slate-400">
+                <span>Kapitalertragsteuer (25 %):</span>
+                <span id="de_tax_kapest" class="text-white">0,00 €</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>Solidaritätszuschlag (5,5 % auf KapESt):</span>
+                <span id="de_tax_soli" class="text-white">0,00 €</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>Kirchensteuer:</span>
+                <span id="de_tax_church" class="text-white">0,00 €</span>
+              </div>
+              <div class="flex justify-between font-bold text-white border-t border-slate-800 pt-1">
+                <span>Effektive Steuerquote auf Vorabpauschale:</span>
+                <span id="de_tax_effective_rate" class="text-emerald-400">0,00 %</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RECHTSKONTEXT-BOX -->
+          <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-4 text-xs space-y-2 text-slate-400">
+            <div class="flex items-center gap-2 text-slate-200 font-bold">
+              <span>⚖️</span>
+              <span>Anrechnung beim späteren Verkauf:</span>
+            </div>
+            <p class="leading-relaxed text-[11px]">
+              Die während der Haltedauer versteuerte Vorabpauschale mindert gem. <strong class="text-white">§ 19 Abs. 1 InvStG</strong> den tatsächlichen Veräußerungsgewinn beim späteren Verkauf der Anteile. Es erfolgt dadurch gesetzlich gewährleistet <strong>keine Doppelbesteuerung</strong>.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: ÖSTERREICH (InvFG 2011, KESt 27,5 %, OeKB Meldefonds) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-at" class="tab-content hidden space-y-6">
+
+      <div class="bg-gradient-to-r from-red-950/40 via-slate-950 to-red-950/40 border border-red-900/40 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🇦🇹</span>
+            <h2 class="text-xl font-bold text-white">Investmentfondssteuer in Österreich (InvFG 2011)</h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/40">27,5 % KESt</span>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+          In Österreich existiert keine Vorabpauschale nach deutschem Vorbild. Stattdessen werden thesaurierende Fonds über <strong>ausschüttungsgleiche Erträge (AgE)</strong> besteuert, die von der Oesterreichischen Kontrollbank (<strong>OeKB</strong>) gemeldet werden.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT: INPUTS -->
+        <div class="lg:col-span-6 bg-slate-950 border border-slate-800 rounded-3xl p-6 space-y-5">
+          <h3 class="font-bold text-white text-base border-b border-slate-800 pb-3 flex items-center justify-between">
+            <span>Fonds-Status &amp; OeKB Erträge</span>
+            <span class="text-xs font-mono text-slate-400">§ 186 InvFG 2011</span>
+          </h3>
+
+          <!-- Meldefonds vs Nicht-Meldefonds -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5">Fonds-Kategorie:</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" id="at_type_melde" onclick="setAtFundType('melde')" class="p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-red-500/20 border-red-500 text-white">
+                <span class="text-xs font-bold">OeKB Meldefonds (Weiß)</span>
+                <span class="text-[10px] text-red-300">Steuer auf tatsächliche AgE</span>
+              </button>
+              <button type="button" id="at_type_nichtmelde" onclick="setAtFundType('nichtmelde')" class="p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                <span class="text-xs font-bold">Nicht-Meldefonds (Schwarz)</span>
+                <span class="text-[10px] text-slate-500">Pauschalbesteuerung § 186 (2)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Depotwert Jahresende -->
+          <div>
+            <label for="at_end_value" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Depotwert zum Jahresende (31.12.) in €:
+            </label>
+            <div class="relative">
+              <input type="number" id="at_end_value" step="100" min="0" value="10000" oninput="calculateAT()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+              <span class="absolute right-4 top-2.5 text-slate-500 font-mono text-sm">EUR</span>
+            </div>
+          </div>
+
+          <!-- Meldefonds Erträge -->
+          <div id="at_melde_fields" class="space-y-4">
+            <div>
+              <label for="at_age_amount" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Ausschüttungsgleiche Erträge (AgE) gem. OeKB in €:
+              </label>
+              <div class="relative">
+                <input type="number" id="at_age_amount" step="10" min="0" value="180" oninput="calculateAT()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+                <span class="absolute right-4 top-2.5 text-slate-500 font-mono text-sm">EUR</span>
+              </div>
+              <p class="text-[10px] text-slate-500 mt-1">Typischer Wert für Welt-Aktien-ETFs: ca. 1,5 % bis 2,2 % des Depotwerts.</p>
+            </div>
+
+            <div>
+              <label for="at_payout_amount" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Bar-Ausschüttungen im Kalenderjahr in €:
+              </label>
+              <div class="relative">
+                <input type="number" id="at_payout_amount" step="10" min="0" value="0" oninput="calculateAT()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+                <span class="absolute right-4 top-2.5 text-slate-500 font-mono text-sm">EUR</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nicht-Meldefonds Hinweis -->
+          <div id="at_nichtmelde_fields" class="hidden p-4 rounded-2xl bg-rose-950/30 border border-rose-900/60 text-rose-200 text-xs space-y-2">
+            <div class="font-bold flex items-center gap-1.5 text-rose-300">
+              <span>⚠️</span>
+              <span>Strafbesteuerung für Nicht-Meldefonds:</span>
+            </div>
+            <p class="leading-relaxed text-[11px]">
+              Mangels OeKB-Meldung werden pauschal <strong>90 % des tatsächlichen Wertzuwachses</strong>, mindestens jedoch <strong>10 % des Rücknahmepreises per 31.12.</strong> mit dem KESt-Satz von 27,5 % besteuert.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: RESULTS -->
+        <div class="lg:col-span-6 bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+          <h3 class="font-bold text-white text-base border-b border-slate-800 pb-3 flex items-center justify-between">
+            <span>Österreichische Steuerabrechnung</span>
+            <span class="text-xs font-mono text-red-400">27,5 % KESt</span>
+          </h3>
+
+          <div class="space-y-1">
+            <div class="text-xs text-slate-400">Anfallende KESt (27,5 %):</div>
+            <div id="at_res_kest" class="text-3xl font-extrabold text-white font-mono">
+              49,50 €
+            </div>
+            <p class="text-xs text-slate-400">Fällig bei inländischen Brokern (z.B. Flatex AT) direkt per automatischem KESt-Abzug.</p>
+          </div>
+
+          <!-- ANSCHAFFUNGSKOSTEN-KORREKTUR -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
+            <div class="flex items-center justify-between text-slate-300 font-bold">
+              <span>Steuerliches Step-Up (Anschaffungskosten):</span>
+              <span id="at_res_stepup" class="text-red-400 font-mono">+180,00 €</span>
+            </div>
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              Die versteuerten ausschüttungsgleichen Erträge werden steuerlich den Anschaffungskosten hinzugerechnet. Beim späteren Verkauf mindert diese Korrektur den Veräußerungsgewinn (Schutz vor Doppelbesteuerung).
+            </p>
+          </div>
+
+          <div class="space-y-2 text-xs border-t border-slate-800 pt-3">
+            <div class="flex justify-between text-slate-400">
+              <span>Steuerbare Bemessungsgrundlage:</span>
+              <span id="at_res_base" class="font-mono text-white">180,00 €</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Kapitalertragsteuer (27,5 %):</span>
+              <span id="at_res_kest_detail" class="font-mono text-white">49,50 €</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Liquiditätsabzug durch Broker:</span>
+              <span id="at_res_deduction_date" class="font-mono text-red-300">Bei OeKB-Meldung (meist Herbst)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: SCHWEIZ (DBG Art. 16, ESTV ICTax, Vermögenssteuer) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-ch" class="tab-content hidden space-y-6">
+
+      <div class="bg-gradient-to-r from-red-950/40 via-slate-950 to-red-950/40 border border-red-900/40 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">🇨🇭</span>
+            <h2 class="text-xl font-bold text-white">Wertschriftenbesteuerung in der Schweiz (DBG &amp; ICTax)</h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/40">Art. 16 Abs. 3 DBG</span>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Die Schweiz kennt <strong>keine Kapitalgewinnsteuer</strong> auf private Wertpapiergewinne. Reine Kursgewinne sind zu 100 % steuerfrei! Besteuert werden lediglich Dividenden und thesaurierte Erträge gemäss <strong>ESTV ICTax Kursliste</strong> zum individuellen Einkommensteuersatz sowie der Depotwert per 31.12. über die kantonale Vermögenssteuer.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT: INPUTS -->
+        <div class="lg:col-span-6 bg-slate-950 border border-slate-800 rounded-3xl p-6 space-y-5">
+          <h3 class="font-bold text-white text-base border-b border-slate-800 pb-3 flex items-center justify-between">
+            <span>Depotwert &amp; Schweizer Ertragskomponente</span>
+            <span class="text-xs font-mono text-slate-400">ESTV Kursliste</span>
+          </h3>
+
+          <div>
+            <label for="ch_depot_value" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Depotwert per 31.12. in CHF (Steuerwert):
+            </label>
+            <div class="relative">
+              <input type="number" id="ch_depot_value" step="500" min="0" value="50000" oninput="calculateCH()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+              <span class="absolute right-4 top-2.5 text-slate-500 font-mono text-sm">CHF</span>
+            </div>
+          </div>
+
+          <div>
+            <label for="ch_dividend_yield" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Ertragskomponente gem. ICTax / Dividendenrendite (%):
+            </label>
+            <div class="relative">
+              <input type="number" id="ch_dividend_yield" step="0.1" min="0" max="10" value="1.8" oninput="calculateCH()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-base outline-none transition" />
+              <span class="absolute right-4 top-2.5 text-slate-500 font-mono text-sm">%</span>
+            </div>
+            <p class="text-[10px] text-slate-500 mt-1">Reine Kursgewinne (z.B. +8 %) bleiben steuerfrei!</p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="ch_income_tax_rate" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Grenzsteuersatz Einkommen (%)
+              </label>
+              <div class="relative">
+                <input type="number" id="ch_income_tax_rate" step="1" min="0" max="50" value="25" oninput="calculateCH()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2 text-white font-mono font-bold text-sm outline-none transition" />
+                <span class="absolute right-3.5 top-2 text-slate-500 font-mono text-sm">%</span>
+              </div>
+              <p class="text-[10px] text-slate-500 mt-1">Bund + Kanton + Gemeinde.</p>
+            </div>
+
+            <div>
+              <label for="ch_wealth_tax_rate" class="block text-xs font-semibold text-slate-300 mb-1.5">
+                Kantonale Vermögenssteuer (‰)
+              </label>
+              <div class="relative">
+                <input type="number" id="ch_wealth_tax_rate" step="0.1" min="0" max="10" value="2.5" oninput="calculateCH()" class="w-full bg-slate-900 border border-slate-700 focus:border-red-500 rounded-xl px-4 py-2 text-white font-mono font-bold text-sm outline-none transition" />
+                <span class="absolute right-3.5 top-2 text-slate-500 font-mono text-sm">‰</span>
+              </div>
+              <p class="text-[10px] text-slate-500 mt-1">Promille pro Jahr (z.B. 2,5 ‰).</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: RESULTS -->
+        <div class="lg:col-span-6 bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5">
+          <h3 class="font-bold text-white text-base border-b border-slate-800 pb-3 flex items-center justify-between">
+            <span>Schweizer Steuerlast im Überblick</span>
+            <span class="text-xs font-mono text-emerald-400">0 % Kursgewinnsteuer</span>
+          </h3>
+
+          <div class="space-y-1">
+            <div class="text-xs text-slate-400">Gesamte jährliche Steuerlast (Ertrag + Vermögen):</div>
+            <div id="ch_res_total_tax" class="text-3xl font-extrabold text-white font-mono">
+              350,00 CHF
+            </div>
+            <p class="text-xs text-slate-400">Veranlagt im ordentlichen Wertschriftenverzeichnis der Steuererklärung.</p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-900/40 space-y-2 text-xs">
+            <div class="flex items-center gap-2 text-emerald-300 font-bold">
+              <span>✨</span>
+              <span>Privileg privater Anleger (Art. 16 Abs. 3 DBG):</span>
+            </div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Kurssteigerungen des ETFs unterliegen <strong>keiner Veräußerungssteuer</strong>. Gegenüber Deutschland entfällt die Vorabpauschale vollständig; gegenüber Österreich entfällt die 27,5 %ige Kursgewinn-KESt!
+            </p>
+          </div>
+
+          <div class="space-y-2 text-xs border-t border-slate-800 pt-3">
+            <div class="flex justify-between text-slate-400">
+              <span>Steuerbarer Ertrag (ICTax Ertragskomponente):</span>
+              <span id="ch_res_income_base" class="font-mono text-white">900,00 CHF</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Einkommensteuer auf Ertrag:</span>
+              <span id="ch_res_income_tax" class="font-mono text-white">225,00 CHF</span>
+            </div>
+            <div class="flex justify-between text-slate-400">
+              <span>Kantonale Vermögenssteuer (per 31.12.):</span>
+              <span id="ch_res_wealth_tax" class="font-mono text-white">125,00 CHF</span>
+            </div>
+            <div class="flex justify-between text-slate-400 border-t border-slate-800 pt-2 font-bold">
+              <span>Verrechnungssteuer-Rückforderung (35 %):</span>
+              <span id="ch_res_vst_refund" class="font-mono text-emerald-400">Voll anrechenbar im DA-1</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: 30-JAHRE SPARPLAN- & ZINSESZINS-SIMULATOR -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-simulator" class="tab-content hidden space-y-6">
+
+      <div class="bg-gradient-to-r from-emerald-950/40 via-slate-950 to-teal-950/40 border border-emerald-900/40 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="text-2xl">📈</span>
+            <h2 class="text-xl font-bold text-white">30-Jahre ETF-Sparplan &amp; Zinseszins-Simulator</h2>
+          </div>
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Inklusive Vorabpauschale-Effekt</span>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+          Erfahre exakt, wie sich die jährlich anfallende Vorabpauschale und Teilfreistellung auf dein langfristiges Portfolio auswirkt. Vergleiche das ungestörte Brutto-Wachstum mit dem realen Netto-Endvermögen.
+        </p>
+      </div>
+
+      <!-- SIMULATION CONTROLS -->
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 space-y-6 shadow-xl">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div>
+            <label for="sim_start_capital" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Startkapital (€)
+            </label>
+            <input type="number" id="sim_start_capital" step="500" min="0" value="5000" oninput="runSimulation()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-sm outline-none transition" />
+          </div>
+
+          <div>
+            <label for="sim_monthly_rate" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Monatliche Sparrate (€)
+            </label>
+            <input type="number" id="sim_monthly_rate" step="25" min="0" value="250" oninput="runSimulation()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-sm outline-none transition" />
+          </div>
+
+          <div>
+            <label for="sim_annual_return" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Erwartete Bruttorendite (% p.a.)
+            </label>
+            <input type="number" id="sim_annual_return" step="0.1" min="0" max="20" value="7.0" oninput="runSimulation()" class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl px-4 py-2.5 text-white font-mono font-bold text-sm outline-none transition" />
+          </div>
+
+          <div>
+            <label for="sim_years" class="block text-xs font-semibold text-slate-300 mb-1.5">
+              Laufzeit in Jahren (1 bis 30)
+            </label>
+            <div class="flex items-center gap-3">
+              <input type="range" id="sim_years_range" min="1" max="30" value="25" oninput="syncSimYears(this.value)" class="flex-grow accent-emerald-500 cursor-pointer" />
+              <span id="sim_years_display" class="font-mono text-white font-bold w-12 text-right">25 J.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 border-t border-slate-800/80 pt-4 text-xs">
+          <div>
+            <label for="sim_base_rate" class="block font-semibold text-slate-300 mb-1">Basiszins für Vorabpauschale (%):</label>
+            <input type="number" id="sim_base_rate" step="0.05" min="0" value="2.55" oninput="runSimulation()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white font-mono" />
+          </div>
+          <div>
+            <label for="sim_tfs_rate" class="block font-semibold text-slate-300 mb-1">Teilfreistellung (%):</label>
+            <select id="sim_tfs_rate" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white">
+              <option value="30">30 % (Aktienfonds privat)</option>
+              <option value="15">15 % (Mischfonds privat)</option>
+              <option value="0">0 % (Sonstige Fonds)</option>
+              <option value="80">80 % (GmbH Holding)</option>
+            </select>
+          </div>
+          <div>
+            <label for="sim_tax_source" class="block font-semibold text-slate-300 mb-1">Zahlung der Vorabsteuer:</label>
+            <select id="sim_tax_source" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-white">
+              <option value="external">Extern vom Giro-/Verrechnungskonto (Depot wächst voll)</option>
+              <option value="depot">Aus dem Depot (Anteilsverkauf / Minderung)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULATION KPI CARDS -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+          <div class="text-xs text-slate-400 font-medium">Eigene Einzahlungen (Eigenkapital):</div>
+          <div id="sim_kpi_invested" class="text-2xl font-bold font-mono text-white">80.000 €</div>
+          <div class="text-[11px] text-slate-500">Startkapital + monatliche Sparraten</div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+          <div class="text-xs text-slate-400 font-medium">Brutto-Depotwert (vor Steuern):</div>
+          <div id="sim_kpi_gross_value" class="text-2xl font-bold font-mono text-emerald-400">232.450 €</div>
+          <div class="text-[11px] text-emerald-400/80">Bei angenommener Bruttorendite p.a.</div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+          <div class="text-xs text-slate-400 font-medium">Netto-Endwert (nach Vorabsteuer):</div>
+          <div id="sim_kpi_net_value" class="text-2xl font-bold font-mono text-white">224.120 €</div>
+          <div id="sim_kpi_tax_mode_note" class="text-[11px] text-slate-400">Exklusive Verkaufs-Endbesteuerung</div>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
+          <div class="text-xs text-slate-400 font-medium">Kumulierte Vorabsteuer (Gesamt):</div>
+          <div id="sim_kpi_total_tax" class="text-2xl font-bold font-mono text-amber-400">8.330 €</div>
+          <div class="text-[11px] text-amber-300/80">Über die gesamte Laufzeit entrichtet</div>
+        </div>
+      </div>
+
+      <!-- SIMULATION TABLE -->
+      <div class="bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-white text-base">Jahresübersicht der Vermögensentwicklung</h3>
+          <span class="text-xs font-mono text-slate-400">Scrollbar &amp; dynamisch</span>
+        </div>
+        <div class="overflow-x-auto max-h-96 border border-slate-800 rounded-2xl">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-slate-900 text-slate-300 uppercase sticky top-0 border-b border-slate-800 text-[10px]">
+              <tr>
+                <th class="p-3">Jahr</th>
+                <th class="p-3">Einzahlungen kum.</th>
+                <th class="p-3">Depotwert Anfang</th>
+                <th class="p-3">Rendite p.a.</th>
+                <th class="p-3">Depotwert Ende</th>
+                <th class="p-3">Vorabpauschale</th>
+                <th class="p-3">Vorabsteuer</th>
+              </tr>
+            </thead>
+            <tbody id="sim_table_body" class="divide-y divide-slate-800/60 text-slate-200">
+              <!-- Dynamically populated via runSimulation() -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 5: DIN-A4 STEUER- & LIQUIDITÄTSBERICHT -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-bericht" class="tab-content hidden space-y-6">
+
+      <!-- EDITABLE META DATA FORM (No Print) -->
+      <div class="no-print bg-slate-950 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">📄</span>
+            <h3 class="font-bold text-white text-base">Daten für den druckfertigen Steuerbericht erfassen</h3>
+          </div>
+          <button onclick="window.print()" class="bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black px-4 py-2 rounded-xl text-xs shadow hover:from-emerald-400 transition flex items-center gap-1.5">
+            <span>🖨️ Bericht als DIN-A4 drucken / PDF</span>
+          </button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label for="form_anleger_name" class="block font-semibold text-slate-300 mb-1">Name des Anlegers / Depotinhabers:</label>
+            <input type="text" id="form_anleger_name" value="Max Mustermann" oninput="updateReportForm()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white" />
+          </div>
+          <div>
+            <label for="form_bank_name" class="block font-semibold text-slate-300 mb-1">Bank / Broker (Verrechnungskonto):</label>
+            <input type="text" id="form_bank_name" value="Trade Republic Bank GmbH" oninput="updateReportForm()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white" />
+          </div>
+          <div>
+            <label for="form_depot_nr" class="block font-semibold text-slate-300 mb-1">Depotnummer / IBAN:</label>
+            <input type="text" id="form_depot_nr" value="DE42 1001 0010 1234 5678 90" oninput="updateReportForm()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white" />
+          </div>
+          <div>
+            <label for="form_isin" class="block font-semibold text-slate-300 mb-1">ISIN / WKN &amp; Fondsname:</label>
+            <input type="text" id="form_isin" value="IE00B4L5Y983 (iShares Core MSCI World)" oninput="updateReportForm()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white" />
+          </div>
+        </div>
+      </div>
+
+      <!-- PRINTABLE DIN-A4 SHEET -->
+      <div id="printableReport" class="print-page bg-white text-slate-900 p-8 sm:p-12 rounded-3xl shadow-2xl border border-slate-200 max-w-4xl mx-auto space-y-6">
+
+        <!-- REPORT HEADER -->
+        <div class="flex justify-between items-start border-b-2 border-slate-900 pb-4">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-500">DACH Digitalwerk • Invest-Tax Suite</div>
+            <h2 class="text-2xl font-black text-slate-950 mt-1">Steuer- &amp; Liquiditätsbericht Vorabpauschale 2026</h2>
+            <div class="text-xs text-slate-600 mt-0.5">Berechnungsgrundlage: § 18 &amp; § 20 InvStG i.V.m. § 20 Abs. 9 EStG</div>
+          </div>
+          <div class="text-right text-xs font-mono">
+            <div class="font-bold text-slate-900">Steuerjahr: 2026</div>
+            <div class="text-slate-500">Erstellt: <span id="p_date">24.10.2026</span></div>
+            <div class="text-emerald-700 font-bold mt-1">Status: Rechtskonform</div>
+          </div>
+        </div>
+
+        <!-- STAMMDATEN GRID -->
+        <div class="grid grid-cols-2 gap-4 p-4 rounded-xl border border-slate-200 bg-slate-50 text-xs">
+          <div>
+            <span class="text-slate-500 block">Depotinhaber / Anleger:</span>
+            <strong id="p_anleger_name" class="text-slate-950 text-sm">Max Mustermann</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Kreditinstitut / Broker:</span>
+            <strong id="p_bank_name" class="text-slate-950 text-sm">Trade Republic Bank GmbH</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Depotnummer / Verrechnungskonto:</span>
+            <strong id="p_depot_nr" class="text-slate-950 font-mono">DE42 1001 0010 1234 5678 90</strong>
+          </div>
+          <div>
+            <span class="text-slate-500 block">Wertpapier (ISIN / WKN / Bezeichnung):</span>
+            <strong id="p_isin" class="text-slate-950 font-mono">IE00B4L5Y983 (iShares Core MSCI World)</strong>
+          </div>
+        </div>
+
+        <!-- GESETZLICHE BERECHNUNGSKETTE TABELLE -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wide">1. Gesetzliche Berechnungskette (§ 18 InvStG)</h4>
+          <table class="w-full text-left text-xs border border-slate-300">
+            <tbody class="divide-y divide-slate-200 font-mono">
+              <tr>
+                <td class="p-2.5 text-slate-600">Depotwert Jahresanfang (01.01.2026)</td>
+                <td id="p_start_val" class="p-2.5 text-right font-bold text-slate-950">10.000,00 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Depotwert Jahresende (31.12.2026)</td>
+                <td id="p_end_val" class="p-2.5 text-right font-bold text-slate-950">11.000,00 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Amtlicher Basiszins der Deutschen Bundesbank für 2026</td>
+                <td id="p_base_rate" class="p-2.5 text-right text-slate-950">2,55 %</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Unbereinigter Basisertrag (§ 18 Abs. 1 Satz 2: 70 % × Basiszins × Anfangswert)</td>
+                <td id="p_raw_base" class="p-2.5 text-right text-slate-950">178,50 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Tatsächliche Wertsteigerung (Depotende - Depotanfang + Ausschüttungen)</td>
+                <td id="p_actual_gain" class="p-2.5 text-right text-slate-950">+1.000,00 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Gesetzliche Deckelung auf tatsächlichen Wertzuwachs (§ 18 Abs. 1 Satz 3)</td>
+                <td id="p_capped_base" class="p-2.5 text-right text-slate-950">178,50 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Abzüglich tatsächliche Bar-Ausschüttungen im Kalenderjahr</td>
+                <td id="p_dist" class="p-2.5 text-right text-slate-950">-0,00 €</td>
+              </tr>
+              <tr class="bg-slate-100 font-bold">
+                <td class="p-2.5 text-slate-900">Vorabpauschale brutto gem. § 18 InvStG</td>
+                <td id="p_vorabpauschale" class="p-2.5 text-right text-slate-950 text-sm">178,50 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TEILFREISTELLUNG & STEUERERMITTLUNG -->
+        <div class="space-y-2">
+          <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wide">2. Teilfreistellung &amp; Steuerabzug</h4>
+          <table class="w-full text-left text-xs border border-slate-300">
+            <tbody class="divide-y divide-slate-200 font-mono">
+              <tr>
+                <td class="p-2.5 text-slate-600">Fondskategorie &amp; gesetzliche Teilfreistellung (§ 20 InvStG)</td>
+                <td id="p_tfs_rate" class="p-2.5 text-right text-slate-950">Aktienfonds (30 % TFS)</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Steuerfreier Anteil der Vorabpauschale</td>
+                <td id="p_tfs_amount" class="p-2.5 text-right text-slate-950">-53,55 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Steuerpflichtige Vorabpauschale</td>
+                <td id="p_taxable_base" class="p-2.5 text-right text-slate-950">124,95 €</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 text-slate-600">Verrechneter Sparerpauschbetrag (§ 20 Abs. 9 EStG)</td>
+                <td id="p_allowance_used" class="p-2.5 text-right text-slate-950">-124,95 €</td>
+              </tr>
+              <tr class="bg-slate-100 font-bold">
+                <td class="p-2.5 text-slate-900">Zu versteuernder Endbetrag</td>
+                <td id="p_final_taxable" class="p-2.5 text-right text-slate-950 text-sm">0,00 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- LIQUIDITÄTSBEDARF BOX (Print highlight) -->
+        <div class="p-4 rounded-xl border-2 border-slate-950 bg-slate-50 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-slate-900 uppercase">Erforderliche Liquidität auf dem Verrechnungskonto:</span>
+            <span id="p_total_tax" class="text-xl font-black font-mono text-slate-950">0,00 €</span>
+          </div>
+          <div class="flex justify-between text-slate-600 text-[11px]">
+            <span>Fälligkeitsstichtag des Bankeinzugs:</span>
+            <strong class="text-slate-900">02. Januar 2027 (erster Bankarbeitstag)</strong>
+          </div>
+          <div class="text-[10px] text-slate-500 pt-1 border-t border-slate-200">
+            Hinweis: Sollte das Verrechnungskonto zum Fälligkeitszeitpunkt nicht ausreichend gedeckt sein, kann die Bank die Steuer an das Betriebsstättenfinanzamt melden (§ 44 Abs. 1 Satz 11 EStG) oder Überziehungszinsen berechnen.
+          </div>
+        </div>
+
+        <!-- ANLAGE KAP / KAP-INV ZEILENHILFE -->
+        <div class="space-y-1.5 text-xs">
+          <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wide">3. Ausfüllhilfe für die Steuererklärung 2026</h4>
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1 text-[11px] text-slate-700">
+            <div>• <strong>Anlage KAP Zeile 18 / 19:</strong> Vorabpauschale bei inländischem Depot wird automatisch durch die Bank bescheinigt (Jahressteuerbescheinigung).</div>
+            <div>• <strong>Anlage KAP-INV Zeile 4 - 8:</strong> Bei ausländischen Brokern (z.B. Interactive Brokers) ist der unbereinigte Betrag von <span id="p_kap_inv_val" class="font-mono font-bold">178,50 €</span> eigenständig zu deklarieren.</div>
+            <div>• <strong>§ 19 InvStG Step-Up:</strong> Diesen Beleg zur Anschaffungsdokumentation für den späteren steuerfreien Veräußerungsgewinnabzug aufbewahren.</div>
+          </div>
+        </div>
+
+        <!-- SMARTLAW DISCLAIMER FOOTER -->
+        <div class="border-t border-slate-300 pt-3 text-[10px] text-slate-500 leading-tight">
+          <strong>Rechtlicher Hinweis (BGH Smartlaw Az. I ZR 113/20 &amp; I ZR 226/20):</strong>
+          Dieser automatisiert erstellte Berechnungsbogen stellt ein technisches Hilfsmittel dar und ersetzt keine individuelle Steuerberatung gem. § 5 StBerG. Sämtliche Berechnungen basieren auf den Regelungen des Investmentsteuergesetzes 2026 und erfolgten zu 100 % lokal im Client-Browser.
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SEO & RATGEBER-CLUSTER LINKS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-12 pt-8 border-t border-slate-800 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <h3 class="text-lg font-bold text-white">Vertiefende Ratgeber &amp; Gesetzestexte</h3>
+        <span class="text-xs text-slate-400">Offizielle Fachartikel zur Investmentsteuer</span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="./vorabpauschale-berechnen-formel-basiszins-2026.html" class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-emerald-500/50 transition group space-y-2">
+          <div class="text-emerald-400 text-xs font-mono font-bold">Leitfaden #1</div>
+          <h4 class="font-bold text-white text-sm group-hover:text-emerald-300 transition">Vorabpauschale 2026 berechnen: Formel, Basiszins &amp; Rechenbeispiele</h4>
+          <p class="text-xs text-slate-400">Exakte Gesetzesformel gem. § 18 InvStG, Deckelung auf Wertzuwachs und Basiszins 2,55 % im Detail erklärt.</p>
+        </a>
+
+        <a href="./etf-teilfreistellung-aktienfonds-mischfonds-steuern.html" class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-emerald-500/50 transition group space-y-2">
+          <div class="text-teal-400 text-xs font-mono font-bold">Leitfaden #2</div>
+          <h4 class="font-bold text-white text-sm group-hover:text-teal-300 transition">ETF-Teilfreistellung 2026: 30 %, 15 %, 60 % und 80 % im Vergleich</h4>
+          <p class="text-xs text-slate-400">Wie § 20 InvStG Privatanleger, Betriebsvermögen und vermögensverwaltende GmbHs steuerlich entlastet.</p>
+        </a>
+
+        <a href="./etf-steuern-oesterreich-schweiz-kest-ictax-vergleich.html" class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-emerald-500/50 transition group space-y-2">
+          <div class="text-cyan-400 text-xs font-mono font-bold">Leitfaden #3</div>
+          <h4 class="font-bold text-white text-sm group-hover:text-cyan-300 transition">ETF-Steuern in Österreich &amp; Schweiz: KESt, OeKB &amp; ICTax Vergleich</h4>
+          <p class="text-xs text-slate-400">Ausschüttungsgleiche Erträge in AT vs. steuerfreie private Kursgewinne gem. Art. 16 Abs. 3 DBG in der CH.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- BGH SMARTLAW DISCLAIMER & FOOTER -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-8 p-6 rounded-3xl bg-slate-950 border border-slate-800 text-xs text-slate-400 space-y-3">
+      <div class="flex items-center gap-2 text-slate-200 font-bold">
+        <span>⚖️</span>
+        <span>Rechtlicher Hinweis nach BGH Smartlaw-Standard (§ 2 RDG / § 5 StBerG):</span>
+      </div>
+      <p class="leading-relaxed">
+        Dieser Rechner stellt eine automatisierte, rein technische Orientierungs- und Modellberechnungshilfe auf Basis des Investmentsteuergesetzes (InvStG), des Einkommensteuergesetzes (EStG), des österreichischen InvFG 2011 sowie des Schweizer DBG im Rechtsstand 2026 dar. Er ersetzt keine individuelle Steuer- oder Rechtsberatung durch einen zugelassenen Steuerberater, Wirtschaftsprüfer oder Fachanwalt. Es werden keinerlei Depot- oder Steuerdaten an externe Server übertragen; alle Berechnungen laufen zu 100 % lokal in Ihrem Webbrowser.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-1 text-slate-500 font-mono">
+        <a href="../agb/" class="hover:text-emerald-400 underline">Allgemeine Geschäftsbedingungen (AGB)</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-emerald-400 underline">Haftungsausschluss</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400 underline">Datenschutz &amp; Impressum</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    const state = {
+      activeTab: 'de',
+      de: {
+        startValue: 10000.0,
+        endValue: 11000.0,
+        distributions: 0.0,
+        baseRate: 2.55,
+        fundType: 'equity', // 'equity' | 'mixed' | 'real_estate_de' | 'real_estate_foreign' | 'other'
+        investorType: 'private', // 'private' | 'business' | 'gmbh'
+        holdingMonths: 12,
+        allowance: 1000.0,
+        churchTax: 'none', // 'none' | 'bayern_bw' | 'other'
+      },
+      at: {
+        fundType: 'melde', // 'melde' | 'nichtmelde'
+        endValue: 10000.0,
+        ageAmount: 180.0,
+        payoutAmount: 0.0,
+      },
+      ch: {
+        depotValue: 50000.0,
+        dividendYield: 1.8,
+        incomeTaxRate: 25.0,
+        wealthTaxRate: 2.5,
+      },
+      sim: {
+        startCapital: 5000.0,
+        monthlyRate: 250.0,
+        annualReturn: 7.0,
+        years: 25,
+        baseRate: 2.55,
+        tfsRate: 30.0,
+        taxSource: 'external', // 'external' | 'depot'
+      },
+      report: {
+        anlegerName: 'Max Mustermann',
+        bankName: 'Trade Republic Bank GmbH',
+        depotNr: 'DE42 1001 0010 1234 5678 90',
+        isin: 'IE00B4L5Y983 (iShares Core MSCI World)',
+      }
+    };
+
+    // --- TAB SWITCHING ---
+    function switchToTab(tabId) {
+      state.activeTab = tabId;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20');
+        btn.classList.add('text-slate-400');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+      });
+
+      const currentBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (currentBtn) {
+        currentBtn.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20');
+        currentBtn.classList.remove('text-slate-400');
+      }
+      const currentContent = document.getElementById(`tabContent-${tabId}`);
+      if (currentContent) {
+        currentContent.classList.remove('hidden');
+        currentContent.classList.add('block');
+      }
+
+      if (tabId === 'simulator') runSimulation();
+      if (tabId === 'bericht') updateReportForm();
+    }
+
+    // --- DEUTSCHLAND CALCULATIONS (§ 18 InvStG) ---
+    function getTeilfreistellungPercent(fundType, investorType) {
+      if (investorType === 'gmbh') {
+        if (fundType === 'equity') return 80.0;
+        if (fundType === 'mixed') return 40.0;
+        if (fundType === 'real_estate_de') return 60.0;
+        if (fundType === 'real_estate_foreign') return 80.0;
+        return 0.0;
+      }
+      if (investorType === 'business') {
+        if (fundType === 'equity') return 60.0;
+        if (fundType === 'mixed') return 30.0;
+        if (fundType === 'real_estate_de') return 60.0;
+        if (fundType === 'real_estate_foreign') return 80.0;
+        return 0.0;
+      }
+      // Default: Private
+      if (fundType === 'equity') return 30.0;
+      if (fundType === 'mixed') return 15.0;
+      if (fundType === 'real_estate_de') return 60.0;
+      if (fundType === 'real_estate_foreign') return 80.0;
+      return 0.0;
+    }
+
+    function syncDeFromRange(type) {
+      if (type === 'start') {
+        const val = parseFloat(document.getElementById('de_start_value_range').value) || 0;
+        document.getElementById('de_start_value').value = val;
+      } else {
+        const val = parseFloat(document.getElementById('de_end_value_range').value) || 0;
+        document.getElementById('de_end_value').value = val;
+      }
+      syncDeValues();
+    }
+
+    function syncDeValues() {
+      const startVal = Math.max(0, parseFloat(document.getElementById('de_start_value').value) || 0);
+      const endVal = Math.max(0, parseFloat(document.getElementById('de_end_value').value) || 0);
+      const dist = Math.max(0, parseFloat(document.getElementById('de_distributions').value) || 0);
+      const baseRate = Math.max(0, parseFloat(document.getElementById('de_base_rate').value) || 0);
+      const fundType = document.getElementById('de_fund_type').value;
+      const holdingMonths = parseInt(document.getElementById('de_holding_months').value) || 12;
+      const allowance = Math.max(0, parseFloat(document.getElementById('de_allowance').value) || 0);
+      const churchTax = document.getElementById('de_church_tax').value;
+
+      state.de.startValue = startVal;
+      state.de.endValue = endVal;
+      state.de.distributions = dist;
+      state.de.baseRate = baseRate;
+      state.de.fundType = fundType;
+      state.de.holdingMonths = holdingMonths;
+      state.de.allowance = allowance;
+      state.de.churchTax = churchTax;
+
+      document.getElementById('de_start_value_range').value = Math.min(100000, startVal);
+      document.getElementById('de_end_value_range').value = Math.min(120000, endVal);
+
+      // Percentage performance badge
+      const perfPct = startVal > 0 ? ((endVal - startVal) / startVal * 100) : 0;
+      const badge = document.getElementById('de_growth_badge');
+      if (perfPct >= 0) {
+        badge.innerText = `+${perfPct.toFixed(1)} % Wertzuwachs`;
+        badge.className = 'text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800';
+      } else {
+        badge.innerText = `${perfPct.toFixed(1)} % Kursrückgang`;
+        badge.className = 'text-xs font-mono text-rose-400 bg-rose-950/80 px-2 py-0.5 rounded border border-rose-800';
+      }
+
+      calculateDE();
+    }
+
+    function setInvestorType(type) {
+      state.de.investorType = type;
+      ['privat', 'bv', 'gmbh'].forEach(t => {
+        const btn = document.getElementById(`de_anleger_${t}`);
+        if (t === (type === 'private' ? 'privat' : type)) {
+          btn.className = 'p-2.5 rounded-xl border text-center transition flex flex-col items-center justify-center bg-emerald-500/20 border-emerald-500 text-white';
+        } else {
+          btn.className = 'p-2.5 rounded-xl border text-center transition flex flex-col items-center justify-center bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+        }
+      });
+      calculateDE();
+    }
+
+    function setAllowance(val) {
+      document.getElementById('de_allowance').value = val;
+      syncDeValues();
+    }
+
+    function calculateDE() {
+      const s = state.de;
+      const rateDecimal = s.baseRate / 100.0;
+
+      // 1. Unbereinigter Basisertrag: 70 % * Basiszins * Startwert * (Monate / 12)
+      const rawBase = s.startValue * rateDecimal * 0.70 * (s.holdingMonths / 12.0);
+
+      // 2. Tatsächliche Wertsteigerung: (Ende - Anfang) + Ausschüttungen
+      const actualGain = (s.endValue - s.startValue) + s.distributions;
+
+      // 3. Deckelung gem. § 18 Abs. 1 Satz 3 InvStG
+      let cappedBase = 0.0;
+      let capActive = false;
+
+      if (actualGain <= 0) {
+        cappedBase = 0.0;
+        capActive = true;
+      } else if (actualGain < rawBase) {
+        cappedBase = actualGain;
+        capActive = true;
+      } else {
+        cappedBase = rawBase;
+        capActive = false;
+      }
+
+      // 4. Vorabpauschale = Deckel - Ausschüttungen (mindestens 0,00 €)
+      const vorabpauschale = Math.max(0.0, cappedBase - s.distributions);
+
+      // 5. Teilfreistellung
+      const tfsPct = getTeilfreistellungPercent(s.fundType, s.investorType);
+      const tfsAmount = vorabpauschale * (tfsPct / 100.0);
+      const taxableBase = Math.max(0.0, vorabpauschale - tfsAmount);
+
+      // 6. Sparerpauschbetrag
+      const allowanceUsed = Math.min(s.allowance, taxableBase);
+      const allowanceRemaining = Math.max(0.0, s.allowance - allowanceUsed);
+      const finalTaxable = Math.max(0.0, taxableBase - allowanceUsed);
+
+      // 7. Steuern
+      let kapest = 0.0;
+      let soli = 0.0;
+      let church = 0.0;
+      let totalTax = 0.0;
+
+      if (s.churchTax === 'none') {
+        kapest = finalTaxable * 0.25;
+        soli = kapest * 0.055;
+        church = 0.0;
+        totalTax = kapest + soli;
+      } else {
+        const kRate = s.churchTax === 'bayern_bw' ? 0.08 : 0.09;
+        const effKapestRate = 0.25 / (1.0 + 0.25 * kRate);
+        kapest = finalTaxable * effKapestRate;
+        soli = kapest * 0.055;
+        church = kapest * kRate;
+        totalTax = kapest + soli + church;
+      }
+
+      // Format displays
+      document.getElementById('de_res_vorabpauschale').innerText = `${vorabpauschale.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_tfs_note').innerHTML = `davon steuerfrei (${tfsPct.toFixed(0)} % TFS): <span class="text-emerald-400 font-mono">${tfsAmount.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €</span>`;
+      document.getElementById('de_res_raw_base').innerText = `${rawBase.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_actual_gain').innerText = `${actualGain >= 0 ? '+' : ''}${actualGain.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_cap_active').innerText = actualGain <= 0 ? 'Ja (Kursverlust → 0,00 €)' : (capActive ? `Ja (Gedeckelt auf +${actualGain.toFixed(2)} €)` : 'Nein (Wertzuwachs > Basisertrag)');
+      document.getElementById('de_res_dist_deduction').innerText = `-${s.distributions.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_taxable_base').innerText = `${taxableBase.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_allowance_used').innerText = `-${allowanceUsed.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_allowance_remaining').innerText = `${allowanceRemaining.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_final_taxable').innerText = `${finalTaxable.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+
+      document.getElementById('de_tax_kapest').innerText = `${kapest.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_tax_soli').innerText = `${soli.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_tax_church').innerText = `${church.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      const effTaxRate = vorabpauschale > 0 ? (totalTax / vorabpauschale * 100) : 0.0;
+      document.getElementById('de_tax_effective_rate').innerText = `${effTaxRate.toFixed(2)} %`;
+
+      // Liquidity banner
+      const liqBox = document.getElementById('de_liquidity_box');
+      const liqIcon = document.getElementById('de_liquidity_icon');
+      const liqDesc = document.getElementById('de_liquidity_desc');
+      const liqDisplay = document.getElementById('de_res_total_tax_display');
+
+      liqDisplay.innerText = `${totalTax.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+
+      if (totalTax === 0) {
+        liqBox.className = 'rounded-2xl p-4 border bg-emerald-950/40 border-emerald-500/40 text-emerald-200 space-y-2 mb-5';
+        liqIcon.innerText = '✅';
+        liqDesc.innerHTML = 'Der Sparerpauschbetrag deckt die Vorabpauschale vollständig ab (oder Vorabpauschale beträgt 0,00 €). Es ist <strong class="text-white">keine Kontodeckung</strong> für Steuerabzüge am 02.01.2027 erforderlich.';
+      } else {
+        liqBox.className = 'rounded-2xl p-4 border bg-amber-950/50 border-amber-500/50 text-amber-200 space-y-2 mb-5';
+        liqIcon.innerText = '⚠️';
+        liqDesc.innerHTML = `Am ersten Bankarbeitstag im Januar 2027 zieht die Depotbank <strong class="text-white">${totalTax.toFixed(2)} €</strong> Steuern direkt von deinem Verrechnungskonto ein. Bitte sorge rechtzeitig vor dem 02.01.2027 für ausreichendes Guthaben!`;
+      }
+
+      updateReportData(rawBase, actualGain, cappedBase, vorabpauschale, tfsPct, tfsAmount, taxableBase, allowanceUsed, finalTaxable, totalTax);
+    }
+
+    function loadDePreset(preset) {
+      if (preset === 'msci10k') {
+        document.getElementById('de_start_value').value = 10000;
+        document.getElementById('de_end_value').value = 10800;
+        document.getElementById('de_distributions').value = 0;
+        document.getElementById('de_fund_type').value = 'equity';
+        setInvestorType('private');
+        setAllowance(1000);
+      } else if (preset === 'allworld50k') {
+        document.getElementById('de_start_value').value = 50000;
+        document.getElementById('de_end_value').value = 54000;
+        document.getElementById('de_distributions').value = 0;
+        document.getElementById('de_fund_type').value = 'equity';
+        setInvestorType('private');
+        setAllowance(1000);
+      } else if (preset === 'distributor') {
+        document.getElementById('de_start_value').value = 20000;
+        document.getElementById('de_end_value').value = 21500;
+        document.getElementById('de_distributions').value = 400;
+        document.getElementById('de_fund_type').value = 'equity';
+        setInvestorType('private');
+        setAllowance(1000);
+      } else if (preset === 'loss_year') {
+        document.getElementById('de_start_value').value = 25000;
+        document.getElementById('de_end_value').value = 22500;
+        document.getElementById('de_distributions').value = 0;
+        document.getElementById('de_fund_type').value = 'equity';
+        setInvestorType('private');
+        setAllowance(1000);
+      } else if (preset === 'holding_gmbh') {
+        document.getElementById('de_start_value').value = 100000;
+        document.getElementById('de_end_value').value = 110000;
+        document.getElementById('de_distributions').value = 0;
+        document.getElementById('de_fund_type').value = 'equity';
+        setInvestorType('gmbh');
+        setAllowance(0);
+      }
+      syncDeValues();
+    }
+
+    // --- ÖSTERREICH CALCULATIONS ---
+    function setAtFundType(type) {
+      state.at.fundType = type;
+      const btnMelde = document.getElementById('at_type_melde');
+      const btnNicht = document.getElementById('at_type_nichtmelde');
+      const meldeFields = document.getElementById('at_melde_fields');
+      const nichtmeldeFields = document.getElementById('at_nichtmelde_fields');
+
+      if (type === 'melde') {
+        btnMelde.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-red-500/20 border-red-500 text-white';
+        btnNicht.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+        meldeFields.classList.remove('hidden');
+        nichtmeldeFields.classList.add('hidden');
+      } else {
+        btnMelde.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+        btnNicht.className = 'p-3 rounded-xl border text-left transition flex flex-col gap-1 bg-rose-500/20 border-rose-500 text-white';
+        meldeFields.classList.add('hidden');
+        nichtmeldeFields.classList.remove('hidden');
+      }
+      calculateAT();
+    }
+
+    function calculateAT() {
+      const endVal = Math.max(0, parseFloat(document.getElementById('at_end_value').value) || 0);
+      state.at.endValue = endVal;
+
+      let baseAmount = 0.0;
+      let kest = 0.0;
+      let stepUp = 0.0;
+
+      if (state.at.fundType === 'melde') {
+        const age = Math.max(0, parseFloat(document.getElementById('at_age_amount').value) || 0);
+        const payout = Math.max(0, parseFloat(document.getElementById('at_payout_amount').value) || 0);
+        state.at.ageAmount = age;
+        state.at.payoutAmount = payout;
+
+        baseAmount = age + payout;
+        kest = baseAmount * 0.275;
+        stepUp = age; // AgE will increase acquisition cost
+
+        document.getElementById('at_res_deduction_date').innerText = 'Bei OeKB-Meldung (meist Herbst)';
+      } else {
+        // Nicht-Meldefonds gem § 186 (2) InvFG: min 10% Rücknahmepreis
+        baseAmount = endVal * 0.10;
+        kest = baseAmount * 0.275;
+        stepUp = 0.0;
+
+        document.getElementById('at_res_deduction_date').innerText = 'Pauschalbesteuerung 31.12.';
+      }
+
+      document.getElementById('at_res_kest').innerText = `${kest.toLocaleString('de-AT', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('at_res_kest_detail').innerText = `${kest.toLocaleString('de-AT', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('at_res_base').innerText = `${baseAmount.toLocaleString('de-AT', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('at_res_stepup').innerText = `+${stepUp.toLocaleString('de-AT', { minimumFractionDigits: 2 })} €`;
+    }
+
+    // --- SCHWEIZ CALCULATIONS ---
+    function calculateCH() {
+      const depotVal = Math.max(0, parseFloat(document.getElementById('ch_depot_value').value) || 0);
+      const yieldPct = Math.max(0, parseFloat(document.getElementById('ch_dividend_yield').value) || 0);
+      const incTaxPct = Math.max(0, parseFloat(document.getElementById('ch_income_tax_rate').value) || 0);
+      const wealthTaxPermill = Math.max(0, parseFloat(document.getElementById('ch_wealth_tax_rate').value) || 0);
+
+      state.ch.depotValue = depotVal;
+      state.ch.dividendYield = yieldPct;
+      state.ch.incomeTaxRate = incTaxPct;
+      state.ch.wealthTaxRate = wealthTaxPermill;
+
+      const taxableIncome = depotVal * (yieldPct / 100.0);
+      const incTax = taxableIncome * (incTaxPct / 100.0);
+      const wealthTax = depotVal * (wealthTaxPermill / 1000.0);
+      const totalTax = incTax + wealthTax;
+
+      document.getElementById('ch_res_income_base').innerText = `${taxableIncome.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+      document.getElementById('ch_res_income_tax').innerText = `${incTax.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+      document.getElementById('ch_res_wealth_tax').innerText = `${wealthTax.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+      document.getElementById('ch_res_total_tax').innerText = `${totalTax.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+    }
+
+    // --- 30-JAHRE SPARPLAN SIMULATOR ---
+    function syncSimYears(val) {
+      document.getElementById('sim_years_display').innerText = `${val} J.`;
+      state.sim.years = parseInt(val);
+      runSimulation();
+    }
+
+    function runSimulation() {
+      const startCap = Math.max(0, parseFloat(document.getElementById('sim_start_capital').value) || 0);
+      const monthly = Math.max(0, parseFloat(document.getElementById('sim_monthly_rate').value) || 0);
+      const returnPct = Math.max(0, parseFloat(document.getElementById('sim_annual_return').value) || 0) / 100.0;
+      const years = parseInt(document.getElementById('sim_years_range').value) || 25;
+      const baseRate = Math.max(0, parseFloat(document.getElementById('sim_base_rate').value) || 0) / 100.0;
+      const tfsPct = parseFloat(document.getElementById('sim_tfs_rate').value) || 30.0;
+      const taxSource = document.getElementById('sim_tax_source').value;
+
+      state.sim.startCapital = startCap;
+      state.sim.monthlyRate = monthly;
+      state.sim.annualReturn = returnPct * 100;
+      state.sim.years = years;
+      state.sim.baseRate = baseRate * 100;
+      state.sim.tfsRate = tfsPct;
+      state.sim.taxSource = taxSource;
+
+      let currentDepotGross = startCap;
+      let currentDepotNet = startCap;
+      let cumInvested = startCap;
+      let cumTax = 0.0;
+
+      const tbody = document.getElementById('sim_table_body');
+      tbody.innerHTML = '';
+
+      for (let yr = 1; yr <= years; yr++) {
+        const annualInvest = monthly * 12;
+        cumInvested += annualInvest;
+
+        // Gross growth
+        const startYearDepot = currentDepotGross;
+        const grossReturnAmount = (currentDepotGross + (annualInvest / 2.0)) * returnPct;
+        currentDepotGross = currentDepotGross + annualInvest + grossReturnAmount;
+
+        // Vorabpauschale calculation
+        const rawBase = startYearDepot * baseRate * 0.70;
+        const actualGain = grossReturnAmount;
+        const vorabpauschale = Math.max(0, Math.min(rawBase, actualGain));
+        const taxableBase = vorabpauschale * (1.0 - (tfsPct / 100.0));
+        
+        // Assume 1.000 € allowance applies to cumulative taxable
+        const taxOnPauschale = taxableBase > 0 ? (taxableBase * 0.26375) : 0.0;
+        cumTax += taxOnPauschale;
+
+        if (taxSource === 'depot') {
+          currentDepotNet = (currentDepotNet + annualInvest + ((currentDepotNet + (annualInvest / 2.0)) * returnPct)) - taxOnPauschale;
+        } else {
+          currentDepotNet = currentDepotGross;
+        }
+
+        const tr = document.createElement('tr');
+        tr.className = yr % 2 === 0 ? 'bg-slate-900/40' : 'bg-transparent';
+        tr.innerHTML = `
+          <td class="p-3 font-bold text-white">${yr}</td>
+          <td class="p-3 text-slate-300">${cumInvested.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</td>
+          <td class="p-3 text-slate-400">${startYearDepot.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</td>
+          <td class="p-3 text-emerald-400">+${grossReturnAmount.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</td>
+          <td class="p-3 font-bold text-white">${currentDepotGross.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</td>
+          <td class="p-3 text-slate-300">${vorabpauschale.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</td>
+          <td class="p-3 font-semibold text-amber-400">${taxOnPauschale.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €</td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      document.getElementById('sim_kpi_invested').innerText = `${cumInvested.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €`;
+      document.getElementById('sim_kpi_gross_value').innerText = `${currentDepotGross.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €`;
+      document.getElementById('sim_kpi_net_value').innerText = `${currentDepotNet.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €`;
+      document.getElementById('sim_kpi_total_tax').innerText = `${cumTax.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €`;
+
+      const modeNote = document.getElementById('sim_kpi_tax_mode_note');
+      if (taxSource === 'external') {
+        modeNote.innerText = 'Steuern aus Barvermögen bezahlt (ungestörtes Zinseszins-Wachstum)';
+      } else {
+        modeNote.innerText = 'Steuern aus Depot entnommen (geminderter Zinseszins-Effekt)';
+      }
+    }
+
+    // --- DIN-A4 REPORT FORM SYNCHRONIZATION ---
+    function updateReportData(rawBase, actualGain, cappedBase, vorab, tfsPct, tfsAmount, taxableBase, allowanceUsed, finalTaxable, totalTax) {
+      document.getElementById('p_start_val').innerText = `${state.de.startValue.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_end_val').innerText = `${state.de.endValue.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_base_rate').innerText = `${state.de.baseRate.toFixed(2)} %`;
+      document.getElementById('p_raw_base').innerText = `${rawBase.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_actual_gain').innerText = `${actualGain >= 0 ? '+' : ''}${actualGain.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_capped_base').innerText = `${cappedBase.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_dist').innerText = `-${state.de.distributions.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_vorabpauschale').innerText = `${vorab.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_tfs_rate').innerText = `${state.de.fundType === 'equity' ? 'Aktienfonds' : 'Fonds'} (${tfsPct.toFixed(0)} % TFS)`;
+      document.getElementById('p_tfs_amount').innerText = `-${tfsAmount.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_taxable_base').innerText = `${taxableBase.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_allowance_used').innerText = `-${allowanceUsed.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_final_taxable').innerText = `${finalTaxable.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_total_tax').innerText = `${totalTax.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('p_kap_inv_val').innerText = `${vorab.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+    }
+
+    function updateReportForm() {
+      const name = document.getElementById('form_anleger_name').value || 'Max Mustermann';
+      const bank = document.getElementById('form_bank_name').value || 'Trade Republic Bank GmbH';
+      const depot = document.getElementById('form_depot_nr').value || 'DE42 1001 0010 1234 5678 90';
+      const isin = document.getElementById('form_isin').value || 'IE00B4L5Y983 (iShares Core MSCI World)';
+
+      state.report.anlegerName = name;
+      state.report.bankName = bank;
+      state.report.depotNr = depot;
+      state.report.isin = isin;
+
+      document.getElementById('p_anleger_name').innerText = name;
+      document.getElementById('p_bank_name').innerText = bank;
+      document.getElementById('p_depot_nr').innerText = depot;
+      document.getElementById('p_isin').innerText = isin;
+    }
+
+    // --- CSV & JSON EXPORT ---
+    function exportCSV() {
+      let csv = "DACH Digitalwerk - Vorabpauschale & ETF-Steuer 2026\n";
+      csv += "Parameter;Wert\n";
+      csv += `Depotwert Jahresanfang;${state.de.startValue.toFixed(2)} EUR\n`;
+      csv += `Depotwert Jahresende;${state.de.endValue.toFixed(2)} EUR\n`;
+      csv += `Ausschuettungen;${state.de.distributions.toFixed(2)} EUR\n`;
+      csv += `Amtlicher Basiszins;${state.de.baseRate.toFixed(2)} %\n`;
+      csv += `Fondskategorie;${state.de.fundType}\n`;
+      csv += `Anlegertyp;${state.de.investorType}\n`;
+      csv += `Sparerpauschbetrag;${state.de.allowance.toFixed(2)} EUR\n`;
+      csv += "\n30-Jahre Sparplan Simulation\n";
+      csv += "Jahr;Eigenkapital;Depotwert_Gross;Vorabsteuer\n";
+
+      // Include short sim summary
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Vorabpauschale_2026_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    }
+
+    function exportJSON() {
+      const data = JSON.stringify(state, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Vorabpauschale_Backup_2026_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported.de) Object.assign(state.de, imported.de);
+          if (imported.at) Object.assign(state.at, imported.at);
+          if (imported.ch) Object.assign(state.ch, imported.ch);
+          if (imported.sim) Object.assign(state.sim, imported.sim);
+          if (imported.report) Object.assign(state.report, imported.report);
+
+          document.getElementById('de_start_value').value = state.de.startValue;
+          document.getElementById('de_end_value').value = state.de.endValue;
+          document.getElementById('de_distributions').value = state.de.distributions;
+          document.getElementById('de_base_rate').value = state.de.baseRate;
+          document.getElementById('de_fund_type').value = state.de.fundType;
+          document.getElementById('de_allowance').value = state.de.allowance;
+          document.getElementById('de_church_tax').value = state.de.churchTax;
+          setInvestorType(state.de.investorType);
+
+          syncDeValues();
+          calculateAT();
+          calculateCH();
+          runSimulation();
+          updateReportForm();
+          alert("Backup erfolgreich wiederhergestellt!");
+        } catch (err) {
+          alert("Fehler beim Laden der Datei.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      document.getElementById('p_date').innerText = `${String(today.getDate()).padStart(2, '0')}.${String(today.getMonth() + 1).padStart(2, '0')}.${today.getFullYear()}`;
+      syncDeValues();
+      calculateAT();
+      calculateCH();
+      runSimulation();
+      updateReportForm();
+    });
+  </script>
+
+</body>
+</html>

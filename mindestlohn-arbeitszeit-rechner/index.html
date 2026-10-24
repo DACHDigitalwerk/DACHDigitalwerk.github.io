@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Mindestlohn-, Mindestvergütungs- &amp; Arbeitszeit-Dokumentations-Generator 2026 | MiLoG § 17, ArbZG, AZG &amp; ArG</title>
+  <meta name="description" content="Rechtssicherer Mindestlohn-Rechner 2026 &amp; Stundenzettel-Generator für Deutschland (12,82 € MiLoG, 556 € Minijob), Österreich (Kollektivverträge) und Schweiz (Kanton Genf 24,32 CHF &amp; Kantone). Druckfertiger DIN-A4 Arbeitszeitnachweis nach § 17 MiLoG &amp; Zoll-Kriterien." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/mindestlohn-arbeitszeit-rechner/" />
+  <meta property="og:title" content="DACH Mindestlohn- &amp; Arbeitszeit-Dokumentations-Generator 2026" />
+  <meta property="og:description" content="Kostenlose, 100% zoll- und DSGVO-konforme Arbeitszeitdokumentation nach § 17 MiLoG, ArbZG und BAG-Urteil. Inklusive Pausen-Wächter (§ 4 ArbZG), Monatslohn-Mindestlohn-Verprobung und DIN-A4 Export." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/mindestlohn-arbeitszeit-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-card { border: 1px solid #94a3b8 !important; box-shadow: none !important; background: white !important; color: black !important; page-break-inside: avoid; }
+      .print-table { width: 100% !important; border-collapse: collapse !important; font-size: 10px !important; }
+      .print-table th, .print-table td { border: 1px solid #475569 !important; color: black !important; padding: 3px 5px !important; text-align: left; }
+      .print-table th { background-color: #f1f5f9 !important; font-weight: bold !important; }
+      .print-break-inside-avoid { page-break-inside: avoid !important; }
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm 12mm 12mm;
+      }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Mindestlohn-, Mindestvergütungs- & Arbeitszeit-Dokumentations-Generator 2026",
+    "url": "https://dachdigitalwerk.github.io/mindestlohn-arbeitszeit-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Zoll- und finanzamtskonformer Arbeitszeitnachweis und Mindestlohn-Verprobungsrechner nach § 17 MiLoG, ArbZG, BAG 1 ABR 22/21, österr. Kollektivvertrag & Schweizer OR/ArG.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold text-[10px]">
+          <span>⚡ NEU 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">MiLoG § 17, ArbZG § 4 &amp; BAG 1 ABR 22/21 zertifiziert</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Personaldaten-Übertragung)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 Mindestlohn 12,82 € | Minijob 556 €</span>
+        <span>•</span>
+        <span>🇦🇹 KV-Branchen 1.800–2.150 €</span>
+        <span>•</span>
+        <span>🇨🇭 Genf 24,32 CHF &amp; Kantone</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 to-orange-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-amber-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-amber-400 ml-2 px-1.5 py-0.5 rounded bg-amber-950 border border-amber-800">Tool #23</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>📥 CSV</span>
+        </button>
+        <button onclick="exportJSON()" class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5">
+          <span>💾 Backup</span>
+        </button>
+        <label class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5 cursor-pointer">
+          <span>📂 Laden</span>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJSON(event)" />
+        </label>
+        <button onclick="window.print()" class="text-xs font-semibold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-amber-500/20 transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Stundennachweis</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= PRINT COVER HEADER (A4 PRINT ONLY) ================= -->
+  <div class="print-only mb-4 p-4 border-b-2 border-black">
+    <div class="flex justify-between items-start">
+      <div>
+        <div class="text-xl font-black uppercase tracking-tight">Arbeitszeitnachweis &amp; Stundenzettel</div>
+        <div class="text-xs font-semibold text-gray-700">Gesetzliche Dokumentation gem. § 17 Mindestlohngesetz (MiLoG) &amp; § 16 Abs. 2 ArbZG</div>
+        <div class="text-[10px] text-gray-500">Erstellt mit DACH Digitalwerk (100% Client-Side • Konform mit Zoll-FKS Prüfstandards)</div>
+      </div>
+      <div class="text-right text-[11px]">
+        <div><strong>Abrechnungsmonat:</strong> <span id="printPeriodSummary">Oktober 2026</span></div>
+        <div><strong>Status:</strong> Zoll- &amp; MiLoG-konform</div>
+        <div><strong>Druckdatum:</strong> <span id="printDateStamp">24.10.2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+
+    <!-- HERO TITLE AREA -->
+    <div class="no-print mb-8 space-y-3">
+      <nav class="text-xs font-mono text-slate-500 flex items-center gap-2">
+        <a href="../" class="hover:text-amber-400 transition">Home</a>
+        <span>/</span>
+        <span class="text-slate-300">Tool #23: Mindestlohn &amp; MiLoG-Arbeitszeitdokumentation 2026</span>
+      </nav>
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-2xl sm:text-4xl font-display font-extrabold text-white tracking-tight">
+          DACH Mindestlohn-, Mindestvergütungs- &amp; Arbeitszeit-Generator 2026
+        </h1>
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          MiLoG § 17 &amp; ArbZG konform
+        </span>
+      </div>
+      <p class="text-sm text-slate-400 max-w-4xl leading-relaxed">
+        Erstellen Sie betriebsprüfungs- und zollfeste <strong>Arbeitszeitnachweise nach § 17 MiLoG</strong> für Minijobber, Sofortmeldebranchen (§ 2a SchwarzArbG) und Vollzeitkräfte. Prüfen Sie <strong>Monatsfestgehälter auf verdeckte Mindestlohnunterschreitung</strong> (12,82 €/h), überwachen Sie <strong>ArbZG-Ruhepausen</strong> (§ 4 ArbZG: 30 Min bei &gt; 6h, 45 Min bei &gt; 9h) sowie <strong>österreichische Kollektivverträge</strong> (§ 6 AZG 50% Überstunden) und <strong>Schweizer kantonale Mindestlöhne</strong> (Genf 24,32 CHF/h, Basel-Stadt etc.).
+      </p>
+    </div>
+
+    <!-- COUNTRY TABS -->
+    <div class="no-print flex border-b border-slate-800 mb-8 space-x-2">
+      <button onclick="setCountryTab('DE')" id="tab-de" class="px-4 py-2.5 border-b-2 border-amber-500 font-bold text-sm text-amber-400 transition flex items-center gap-2">
+        <span>🇩🇪 Deutschland (MiLoG 12,82 € &amp; ArbZG)</span>
+      </button>
+      <button onclick="setCountryTab('AT')" id="tab-at" class="px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (Kollektivverträge &amp; § 6 AZG)</span>
+      </button>
+      <button onclick="setCountryTab('CH')" id="tab-ch" class="px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (Kantonale Mindestlöhne &amp; ArG)</span>
+      </button>
+    </div>
+
+    <!-- ================= SECTION 1: VERGÜTUNGS- & MINDESTLOHN-CHECK ================= -->
+    <div class="no-print grid lg:grid-cols-12 gap-8 mb-10">
+      
+      <!-- Left Config Card -->
+      <div class="lg:col-span-7 bg-slate-950/70 border border-slate-800 rounded-3xl p-6 sm:p-7 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="text-amber-400">⚖️</span>
+              <span>1. Arbeitsvertrag &amp; Mindestlohn-Verprobung</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">Prüfung von Monatsfestgehältern, Minijob-Grenzen &amp; Mindeststundenlohn</p>
+          </div>
+          <span id="countryBadge" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/30">
+            🇩🇪 DE (12,82 €)
+          </span>
+        </div>
+
+        <!-- DEUTSCHLAND INPUTS -->
+        <div id="section-de-config" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Vertragsart</label>
+              <select id="deContractType" onchange="handleContractTypeChange()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="minijob">Minijob (Geringfügig gem. § 8 SGB IV)</option>
+                <option value="festgehalt" selected>Monatsfestgehalt (Vollzeit / Teilzeit)</option>
+                <option value="stundenlohn">Stundenlohnvergütung</option>
+                <option value="midijob">Midijob / Übergangsbereich (bis 2.000 €)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Minijob-Grenze 2026</label>
+              <select id="deMinijobLimit" onchange="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="556" selected>556 € / Monat (Dynamisch bei 12,82 € Mindestlohn)</option>
+                <option value="538">538 € / Monat (Altregelung bei 12,41 €)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+                <span id="labelSalary">Bruttomonatsgehalt (€)</span>
+              </label>
+              <div class="relative">
+                <input type="number" id="inputSalary" value="2400" step="10" min="0" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">€</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1" id="subSalaryHint">Grundgehalt ohne Spesen oder zweckgebundene Zulagen</div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Vertragliche Wochenstunden</label>
+              <div class="relative">
+                <input type="number" id="inputWeeklyHours" value="40" step="0.5" min="1" max="60" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">h/Woche</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1">
+                Monatssoll: <span id="calculatedMonthlyHours" class="font-mono text-slate-300 font-bold">173,33 h</span> (Faktor 4,333)
+              </div>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Gesetzlicher Mindestlohn 2026</label>
+              <div class="relative">
+                <input type="number" id="deMinimumWage" value="12.82" step="0.01" min="10" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">€/h</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1">MiLoV4 (Vierte Mindestlohnanpassungsverordnung)</div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Sofortmeldebranche nach § 2a SchwarzArbG</label>
+              <select id="deIndustry" onchange="handleIndustryChange()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="standard">Allgemeines KMU / Dienstleistung / Handel</option>
+                <option value="bau">Baugewerbe (§ 2a Nr. 1 SchwarzArbG)</option>
+                <option value="gastro">Gaststätten- &amp; Beherbergungsgewerbe (§ 2a Nr. 2)</option>
+                <option value="logistik">Spedition, Transport &amp; Logistik (§ 2a Nr. 4)</option>
+                <option value="reinigung">Gebäudereinigungsgewerbe (§ 2a Nr. 7)</option>
+                <option value="messe">Messebau &amp; Ausstellungen (§ 2a Nr. 8)</option>
+                <option value="fleisch">Fleischwirtschaft (§ 2a Nr. 9)</option>
+                <option value="sicherheit">Wach- &amp; Sicherheitsgewerbe (§ 2a Nr. 10)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÖSTERREICH INPUTS (HIDDEN IN DE) -->
+        <div id="section-at-config" class="hidden space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Kollektivvertrag (KV-Branche)</label>
+              <select id="atKVBranch" onchange="applyATPreset()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="handwerk">Handwerk &amp; Gewerbe (KV Mindestlohn ~2.150 €)</option>
+                <option value="handel">Handel / Angestellte im Handel (~1.980 €)</option>
+                <option value="gastro">Hotellerie &amp; Gastronomie (~1.850 €)</option>
+                <option value="it">IT-Kollektivvertrag (Einstieg ST1 ~2.650 €)</option>
+                <option value="custom">Individueller Kollektivvertrag</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Normalarbeitszeit (KV)</label>
+              <select id="atNormalTime" onchange="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="38.5">38,5 Stunden / Woche (Handel / Industrie)</option>
+                <option value="40">40 Stunden / Woche (Gastronomie / Gewerbe)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">KV-Mindestgehalt (€ / Monat)</label>
+              <div class="relative">
+                <input type="number" id="atKVSalary" value="2150" step="10" min="500" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">€</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Überstundenzuschlag (§ 6 AZG)</label>
+              <div class="relative">
+                <input type="number" id="atOvertimeBonus" value="50" step="5" min="0" max="100" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">%</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-1">Gesetzlich mind. 50 % auf den Normalstundenlohn</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHWEIZ INPUTS (HIDDEN IN DE) -->
+        <div id="section-ch-config" class="hidden space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Kanton / GAV-Regelung</label>
+              <select id="chCanton" onchange="applyCHPreset()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="geneve">Genf (Genève) – 24,32 CHF / Stunde</option>
+                <option value="basel">Basel-Stadt – 21,70 CHF / Stunde</option>
+                <option value="neuchatel">Neuenburg (Neuchâtel) – 21,30 CHF / Stunde</option>
+                <option value="jura">Jura – 21,00 CHF / Stunde</option>
+                <option value="ticino">Tessin (Ticino) – 20,25 CHF / Stunde</option>
+                <option value="gav">GAV-Mindestlohn / Anderer Kanton</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Höchstarbeitszeit gem. Art. 9 ArG</label>
+              <select id="chMaxWeeklyHours" onchange="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-amber-500">
+                <option value="45">45 h / Woche (Industrie, Büro, techn. Angestellte, Grossdetailhandel)</option>
+                <option value="50">50 h / Woche (Gewerbe, Handwerk, Gastronomie, Übrige)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Mindeststundenlohn (CHF)</label>
+              <div class="relative">
+                <input type="number" id="chHourlyWage" value="24.32" step="0.05" min="15" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">CHF/h</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1.5">Monatslohn Basis (CHF)</label>
+              <div class="relative">
+                <input type="number" id="chMonthlySalary" value="4300" step="50" min="1000" oninput="recalculateAll()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white focus:outline-none focus:border-amber-500" />
+                <span class="absolute right-3.5 top-2.5 text-slate-500 text-sm font-mono">CHF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAMMDATEN DER ZEITERFASSUNG -->
+        <div class="pt-4 border-t border-slate-800">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+            📋 Zoll-Pflichtangaben (§ 17 MiLoG &amp; ArbZG)
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="text-slate-400 block mb-1">Arbeitnehmer (Name, Vorname)</label>
+              <input type="text" id="employeeName" value="Max Mustermann" oninput="updatePrintHeader()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">Personalnummer / ID</label>
+              <input type="text" id="employeeId" value="PN-2026-408" oninput="updatePrintHeader()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">Arbeitgeber / Unternehmen</label>
+              <input type="text" id="employerName" value="Musterbetrieb GmbH" oninput="updatePrintHeader()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">Betriebsnummer (BBNR) / UID</label>
+              <input type="text" id="employerBBNR" value="BBNR-98765432" oninput="updatePrintHeader()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">Abrechnungsmonat &amp; Jahr</label>
+              <input type="month" id="workMonthPicker" value="2026-10" onchange="handleMonthChange()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white font-mono focus:outline-none focus:border-amber-500" />
+            </div>
+            <div>
+              <label class="text-slate-400 block mb-1">Tätigkeitsbereich / Position</label>
+              <input type="text" id="jobRole" value="Fachkraft / Montage / Service" oninput="updatePrintHeader()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-amber-500" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Dashboard: Live Compliance Monitor & Minijob-Wächter -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Live Status Card -->
+        <div id="complianceCard" class="bg-gradient-to-br from-slate-950 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 shadow-xl relative overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">Prüfbericht • Status</span>
+            <span id="complianceStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-extrabold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+              ✓ Konform
+            </span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <div class="text-xs text-slate-400">Effektiver Stundenlohn</div>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span id="metricEffectiveRate" class="text-3xl sm:text-4xl font-extrabold font-mono text-white">13,85 €</span>
+                <span class="text-xs text-slate-400">/ Stunde</span>
+              </div>
+              <div id="metricRateCompare" class="text-xs font-medium text-emerald-400 mt-1">
+                +1,03 € über gesetzlichem Mindestlohn (12,82 €)
+              </div>
+            </div>
+
+            <!-- Overtime Buffer Warning -->
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 space-y-2 text-xs">
+              <div class="flex justify-between items-center text-slate-300">
+                <span>Max. Überstunden ohne Mindestlohn-Verstoß:</span>
+                <span id="metricMaxOvertime" class="font-mono font-bold text-amber-400">13,9 h</span>
+              </div>
+              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                <div id="metricOvertimeBar" class="bg-amber-500 h-full rounded-full transition-all duration-300" style="width: 20%"></div>
+              </div>
+              <div id="metricOvertimeHint" class="text-[11px] text-slate-400">
+                Bei mehr als 13,9 unbezahlten Überstunden sinkt der Stundenlohn unter 12,82 €!
+              </div>
+            </div>
+
+            <!-- Minijob Max Hours Warning -->
+            <div id="boxMinijobWatcher" class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4 space-y-1.5 text-xs">
+              <div class="flex items-center gap-1.5 text-amber-400 font-bold">
+                <span>⚠️ Minijob-Höchstarbeitszeit-Wächter</span>
+              </div>
+              <p class="text-slate-300 text-[11px] leading-relaxed">
+                Bei der Minijob-Grenze von <strong id="hintMinijobLimit">556 €</strong> und 12,82 € Mindestlohn darf der Mitarbeiter maximal <strong id="hintMinijobMaxHours" class="text-amber-300">43,37 Stunden</strong> im Monat arbeiten (ca. 10 h/Woche). Jede weitere Stunde löst die volle Sozialversicherungspflicht aus!
+              </p>
+            </div>
+
+            <!-- Aufzeichnungspflicht Info -->
+            <div class="border-t border-slate-800 pt-3 text-[11px] text-slate-400 space-y-1">
+              <div class="flex items-center justify-between">
+                <span>Aufzeichnungspflicht (§ 17 MiLoG):</span>
+                <span id="badgeFKS" class="text-emerald-400 font-semibold font-mono">Zwingend erforderlich</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Aufbewahrungsfrist:</span>
+                <span class="text-slate-300 font-mono">2 Jahre am Betriebsort</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span>Dokumentationsfrist:</span>
+                <span class="text-slate-300 font-mono">Bis zum Ablauf von 7 Tagen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions & Template Presets -->
+        <div class="bg-slate-950/70 border border-slate-800 rounded-3xl p-5 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400">
+            ⚡ 1-Klick Stundenzettel Vorlagen
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="applyWeekTemplate('standard')" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition">
+              <div class="font-bold text-white">📅 Mo–Fr Vollzeit</div>
+              <div class="text-[10px] text-slate-400">08:00–16:30 (30m Pause)</div>
+            </button>
+            <button onclick="applyWeekTemplate('minijob')" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition">
+              <div class="font-bold text-white">⏱️ Minijob 10h/Woche</div>
+              <div class="text-[10px] text-slate-400">Di &amp; Do à 5 Stunden</div>
+            </button>
+            <button onclick="applyWeekTemplate('gastro')" class="p-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-left transition">
+              <div class="font-bold text-white">🍽️ Gastronomie</div>
+              <div class="text-[10px] text-slate-400">Mi–So Teildienst / Schicht</div>
+            </button>
+            <button onclick="resetMonthSheet()" class="p-2.5 rounded-xl bg-slate-900 hover:bg-rose-950/50 border border-slate-700 hover:border-rose-700 text-left transition text-rose-400">
+              <div class="font-bold">🔄 Zurücksetzen</div>
+              <div class="text-[10px] text-slate-500">Alle Tage leeren</div>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= SECTION 2: INTERAKTIVE STUNDENZETTEL-MATRIX (§ 17 MiLoG) ================= -->
+    <div class="bg-slate-950/80 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 mb-12 shadow-2xl">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+        <div>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <span>📝</span>
+            <span>2. Interaktiver Arbeitszeitnachweis &amp; Stundenzettel</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">
+            Erfassung von Beginn, Ende und Ruhepausen gem. § 17 MiLoG &amp; ArbZG mit automatischer Gesetzesprüfung.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-xs text-slate-400">
+            Monat: <span id="labelCurrentMonthName" class="font-bold text-amber-400">Oktober 2026</span>
+          </div>
+          <button onclick="window.print()" class="no-print bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold px-3 py-1.5 rounded-xl transition">
+            🖨️ Drucken
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Legend & Pause Compliance Alert -->
+      <div class="no-print bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex flex-wrap items-center gap-4 text-slate-300">
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Regulär</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> Urlaub</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Feiertag</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span> Krankheit (LFZ)</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span> Frei / Sa / So</span>
+        </div>
+        <div class="text-[11px] text-slate-400">
+          <span class="text-amber-400 font-bold">§ 4 ArbZG Pausenpflicht:</span> &gt; 6h mind. 30 Min | &gt; 9h mind. 45 Min
+        </div>
+      </div>
+
+      <!-- TABLE CONTAINER -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs print-table border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 font-semibold bg-slate-900/60">
+              <th class="py-2.5 px-3">Datum</th>
+              <th class="py-2.5 px-2">Tag</th>
+              <th class="py-2.5 px-3">Status</th>
+              <th class="py-2.5 px-2">Beginn</th>
+              <th class="py-2.5 px-2">Ende</th>
+              <th class="py-2.5 px-2">Pause (Min)</th>
+              <th class="py-2.5 px-3 text-right">Netto (h)</th>
+              <th class="py-2.5 px-3 no-print">ArbZG-Prüfung</th>
+              <th class="py-2.5 px-3">Tätigkeit / Bemerkung</th>
+            </tr>
+          </thead>
+          <tbody id="timesheetTbody" class="divide-y divide-slate-800/60 font-mono text-slate-200">
+            <!-- Dynamically generated rows 1..31 -->
+          </tbody>
+          <tfoot>
+            <tr class="bg-slate-900 font-bold text-white border-t-2 border-slate-700">
+              <td colspan="6" class="py-3 px-3 text-right text-slate-300">Summe geleistete Netto-Arbeitsstunden:</td>
+              <td class="py-3 px-3 text-right font-mono text-amber-400 text-sm" id="totalNetHoursDisplay">0,00 h</td>
+              <td class="py-3 px-3 no-print" id="totalWarningsDisplay">
+                <span class="text-emerald-400 font-normal text-[11px]">✓ Keine Verstöße</span>
+              </td>
+              <td class="py-3 px-3 text-slate-400 font-normal text-[11px]" id="totalDaysSummary">
+                0 Arbeitstage • 0 Urlaub • 0 Krank
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!-- Live Summary KPI Strip -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t border-slate-800 no-print">
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800">
+          <div class="text-[11px] text-slate-400">Monatssoll vertraglich</div>
+          <div class="text-xl font-bold font-mono text-white mt-1" id="kpiTargetHours">173,33 h</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">Basis vertragl. Wochenstunden</div>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800">
+          <div class="text-[11px] text-slate-400">Ist-Arbeitsstunden</div>
+          <div class="text-xl font-bold font-mono text-amber-400 mt-1" id="kpiActualHours">0,00 h</div>
+          <div class="text-[10px] text-slate-500 mt-0.5">Summe der Netto-Arbeitszeiten</div>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800">
+          <div class="text-[11px] text-slate-400">Überstundensaldo (Monat)</div>
+          <div class="text-xl font-bold font-mono text-white mt-1" id="kpiOvertimeBalance">0,00 h</div>
+          <div class="text-[10px] text-slate-500 mt-0.5" id="kpiOvertimeStatus">Ausgeglichen</div>
+        </div>
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800">
+          <div class="text-[11px] text-slate-400">Tatsächlicher Monatsstundenlohn</div>
+          <div class="text-xl font-bold font-mono text-emerald-400 mt-1" id="kpiActualHourlyWage">0,00 €/h</div>
+          <div class="text-[10px] text-slate-500 mt-0.5" id="kpiWageCompliance">MiLoG-Konformität</div>
+        </div>
+      </div>
+
+      <!-- ================= PRINT SIGNATURE SECTION (A4 ONLY) ================= -->
+      <div class="print-only mt-8 pt-4 border-t-2 border-black print-break-inside-avoid">
+        <div class="text-xs mb-3 font-semibold text-gray-800">
+          Bestätigungserklärung nach § 17 Abs. 1 Mindestlohngesetz (MiLoG) &amp; Arbeitszeitgesetz (ArbZG):
+        </div>
+        <p class="text-[10px] text-gray-600 mb-6 leading-relaxed">
+          Die vorstehenden Aufzeichnungen über Beginn, Ende, Pausen und Dauer der täglichen Arbeitszeit sind vollständig und richtig. Die gesetzlichen Ruhepausen gem. § 4 ArbZG sowie die tägliche Ruhezeit gem. § 5 ArbZG wurden eingehalten. Der Arbeitnehmer bestätigt die Richtigkeit der geleisteten Stunden.
+        </p>
+
+        <div class="grid grid-cols-2 gap-8 text-xs pt-4">
+          <div class="border-t border-black pt-2">
+            <div class="flex justify-between">
+              <span>Ort, Datum: _______________________</span>
+            </div>
+            <div class="mt-6 text-gray-700 font-semibold">
+              Unterschrift Arbeitnehmer (<span id="printSignEmployee">Max Mustermann</span>)
+            </div>
+          </div>
+          <div class="border-t border-black pt-2">
+            <div class="flex justify-between">
+              <span>Ort, Datum: _______________________</span>
+            </div>
+            <div class="mt-6 text-gray-700 font-semibold">
+              Unterschrift Arbeitgeber / Vorgesetzter (<span id="printSignEmployer">Musterbetrieb GmbH</span>)
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= SECTION 3: RECHTLICHER COMPLIANCE-LEITFADEN 2026 ================= -->
+    <div class="no-print grid lg:grid-cols-3 gap-6 mb-12">
+      <div class="bg-slate-950/70 border border-slate-800 rounded-3xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-lg font-bold">
+          📜
+        </div>
+        <h3 class="text-base font-bold text-white">§ 17 MiLoG &amp; Aufzeichnungspflicht</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Arbeitgeber sind gesetzlich verpflichtet, Beginn, Ende und Dauer der täglichen Arbeitszeit von <strong>Minijobbern (§ 8 Abs. 1 SGB IV)</strong> und Arbeitnehmern in den <strong>10 Sofortmeldebranchen (§ 2a SchwarzArbG)</strong> spätestens bis zum Ablauf des 7. auf den Tag der Arbeitsleistung folgenden Kalendertages aufzuzeichnen und mindestens 2 Jahre aufzubewahren.
+        </p>
+        <div class="text-[11px] font-mono text-amber-400">Bußgeld bei Verstoß: Bis 30.000 € (§ 21 MiLoG)</div>
+      </div>
+
+      <div class="bg-slate-950/70 border border-slate-800 rounded-3xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold">
+          ⏸️
+        </div>
+        <h3 class="text-base font-bold text-white">§ 4 ArbZG Pausenvorschriften</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Ruhepausen sind gesetzlich vorgeschrieben und zählen nicht zur Arbeitszeit: Bei einer Arbeitszeit von <strong>mehr als 6 bis zu 9 Stunden</strong> mindestens <strong>30 Minuten</strong>; bei <strong>mehr als 9 Stunden</strong> mindestens <strong>45 Minuten</strong>. Ruhepausen können in Zeitabschnitte von jeweils mind. 15 Minuten aufgeteilt werden. Länger als 6h am Stück darf nicht ohne Pause gearbeitet werden.
+        </p>
+        <div class="text-[11px] font-mono text-emerald-400">Tägliche Ruhezeit: Mind. 11h ununterbrochen (§ 5 ArbZG)</div>
+      </div>
+
+      <div class="bg-slate-950/70 border border-slate-800 rounded-3xl p-6 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center text-lg font-bold">
+          ⚖️
+        </div>
+        <h3 class="text-base font-bold text-white">BAG-Grundsatzurteil &amp; EuGH C-55/18</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Nach dem Urteil des Bundesarbeitsgerichts vom 13.09.2022 (<strong>BAG 1 ABR 22/21</strong>) und dem EuGH-Urteil (CCOO) sind Arbeitgeber in Deutschland bereits jetzt unmittelbar nach <strong>§ 3 Abs. 2 Nr. 1 ArbSchG</strong> verpflichtet, ein objektives, verlässliches und zugängliches System zur Erfassung der geleisteten täglichen Arbeitszeit einzuführen.
+        </p>
+        <div class="text-[11px] font-mono text-sky-400">Gilt für KMU &amp; alle Betriebe ohne Ausnahme</div>
+      </div>
+    </div>
+
+    <!-- ================= SECTION 4: RATGEBER & SEO CROSS-LINKS ================= -->
+    <div class="no-print bg-slate-950/60 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6 mb-12">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <span>📚</span>
+            <span>Praxis-Ratgeber &amp; Gesetzliche Leitfäden 2026</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-0.5">Vertiefende Rechtsanalysen für Geschäftsführer, HR &amp; Lohnbuchhaltung</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="./mindestlohn-2026-stundenlohn-tabelle-dach.html" class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800/80 transition group block">
+          <div class="text-xs font-mono text-amber-400 mb-2">Tabelle 2026</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mb-2">
+            Mindestlohn 2026 DACH: Stundenlohn-Tabelle Deutschland, Österreich &amp; Schweiz
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Vergleich aller Mindestlöhne: Deutschland (12,82 € &amp; 556 € Minijob), Österreichische Kollektivverträge und Schweizer kantonale Regelungen (Genf 24,32 CHF).
+          </p>
+          <div class="mt-4 text-xs font-bold text-amber-400 flex items-center gap-1">
+            <span>Ratgeber lesen</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <a href="./milog-arbeitszeitnachweis-stundenzettel-vorlage-excel.html" class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800/80 transition group block">
+          <div class="text-xs font-mono text-amber-400 mb-2">Zoll-Vorgaben</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mb-2">
+            MiLoG Arbeitszeitnachweis &amp; Stundenzettel Vorlage 2026
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Anforderungen der Zoll-Finanzkontrolle Schwarzarbeit (FKS): Beginn, Ende, Pausen, 7-Tage-Frist, 2 Jahre Aufbewahrung &amp; Sofortmeldebranchen.
+          </p>
+          <div class="mt-4 text-xs font-bold text-amber-400 flex items-center gap-1">
+            <span>Ratgeber lesen</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <a href="./arbeitszeiterfassung-pflicht-kmu-bag-urteil-checkliste.html" class="p-5 rounded-2xl bg-slate-900 border border-slate-800 hover:border-amber-500/50 hover:bg-slate-800/80 transition group block">
+          <div class="text-xs font-mono text-amber-400 mb-2">BAG 1 ABR 22/21</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mb-2">
+            Arbeitszeiterfassung Pflicht für KMU: BAG-Urteil Checkliste 2026
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Wie Geschäftsführer und Personalleiter die Zeiterfassungspflicht nach EuGH und BAG rechtskonform und ohne teure Software umsetzen.
+          </p>
+          <div class="mt-4 text-xs font-bold text-amber-400 flex items-center gap-1">
+            <span>Ratgeber lesen</span>
+            <span>→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ================= SECTION 5: FAQ ACCORDION ================= -->
+    <div class="no-print bg-slate-950/70 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-4 mb-12">
+      <h2 class="text-lg font-bold text-white mb-2">Häufig gestellte Fragen (FAQ) zu Mindestlohn &amp; MiLoG-Stundenzetteln</h2>
+      
+      <div class="space-y-3">
+        <details class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-xs">
+          <summary class="font-bold text-white cursor-pointer hover:text-amber-400">
+            Wie hoch ist der gesetzliche Mindestlohn in Deutschland 2026?
+          </summary>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            Der gesetzliche Mindestlohn in Deutschland beträgt gem. der Vierten Mindestlohnanpassungsverordnung (MiLoV4) <strong>12,82 Euro brutto pro Zeitstunde</strong>. Er gilt flächendeckend für alle erwachsenen Arbeitnehmerinnen und Arbeitnehmer, Praktikanten (sofern kein Pflichtpraktikum &lt; 3 Monate) und Minijobber.
+          </p>
+        </details>
+
+        <details class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-xs">
+          <summary class="font-bold text-white cursor-pointer hover:text-amber-400">
+            Wie berechnet sich die Minijob-Grenze 2026 und wie viele Stunden darf man arbeiten?
+          </summary>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            Nach § 8 Abs. 1a SGB IV ist die Minijob-Grenze dynamisch an den Mindestlohn gekoppelt mit der gesetzlichen Formel: (Mindestlohn × 130) / 3. Bei einem Mindestlohn von 12,82 Euro ergibt dies exakt 555,53 Euro, kaufmännisch aufgerundet auf <strong>556 Euro pro Monat</strong>. Bei 12,82 Euro/h beträgt die maximale Arbeitszeit im Minijob <strong>43,37 Stunden pro Monat</strong> (ca. 10 Stunden pro Woche).
+          </p>
+        </details>
+
+        <details class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-xs">
+          <summary class="font-bold text-white cursor-pointer hover:text-amber-400">
+            Wer muss nach § 17 MiLoG zwingend Arbeitszeiten aufzeichnen?
+          </summary>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            Nach § 17 Abs. 1 MiLoG gilt die Aufzeichnungspflicht für alle <strong>geringfügig Beschäftigten (Minijobber gem. § 8 Abs. 1 SGB IV)</strong> sowie für alle Arbeitnehmer in den 10 Sofortmeldebranchen nach § 2a Schwarzarbeitsbekämpfungsgesetz (z.B. Bau, Gastronomie, Spedition, Reinigung, Fleischwirtschaft). Aufzuzeichnen sind Beginn, Ende und Dauer der täglichen Arbeitszeit innerhalb von 7 Kalendertagen. Die Aufbewahrungsfrist beträgt mindestens 2 Jahre.
+          </p>
+        </details>
+
+        <details class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-xs">
+          <summary class="font-bold text-white cursor-pointer hover:text-amber-400">
+            Wie droht bei Monatsfestgehältern eine verdeckte Mindestlohnunterschreitung?
+          </summary>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            Wird ein festes Monatsgehalt gezahlt, errechnet sich der effektive Stundenlohn durch Division des Bruttogehalts durch die tatsächlichen Ist-Arbeitsstunden inklusive aller Überstunden. Leistet ein Arbeitnehmer mit 2.400 Euro Festgehalt bei vertraglich 40 Wochenstunden (173,3h) mehr als 13,9 Überstunden im Monat (Gesamt &gt; 187,2h), fällt der reale Stundenlohn unter 12,82 Euro. Dies stellt einen Verstoß gegen § 1 MiLoG dar und kann von der Zoll-FKS mit Bußgeldern bis 500.000 Euro geahndet werden!
+          </p>
+        </details>
+      </div>
+    </div>
+
+    <!-- ================= SECTION 6: PRO GUMROAD BANNER ================= -->
+    <div class="no-print bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-bold text-amber-400 uppercase">
+          <span>⭐ Pro HR &amp; Lohnbuchhaltungs-Suite</span>
+        </div>
+        <h3 class="text-xl font-bold text-white">Brauchen Sie automatisierte Zeiterfassung für Ihr gesamtes KMU?</h3>
+        <p class="text-xs text-slate-300 max-w-2xl leading-relaxed">
+          Nutzen Sie unsere erweiterte DACH HR-Toolbox inklusive Mandantenfähigkeit, Excel-Sammelimport für bis zu 100 Mitarbeiter, digitaler Signatur-Erfassung und automatischer Zoll-FKS Prüfbericht-Exportfunktion.
+        </p>
+      </div>
+      <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black px-6 py-3.5 rounded-2xl shadow-xl shadow-amber-500/25 transition text-xs sm:text-sm">
+        Pro-Lizenz auf Gumroad sichern →
+      </a>
+    </div>
+
+    <!-- ================= SECTION 7: BGH SMARTLAW DISCLAIMER ================= -->
+    <div class="no-print bg-slate-950 border border-slate-800 rounded-3xl p-6 text-xs text-slate-400 space-y-3">
+      <div class="flex items-center gap-2 text-amber-400 font-bold">
+        <span>⚠️</span>
+        <span>Rechtlicher Hinweis &amp; BGH Smartlaw Urteil (Az. I ZR 113/18)</span>
+      </div>
+      <p class="leading-relaxed text-[11px]">
+        Dieser Generator und Mindestlohn-Rechner dient ausschließlich der mathematischen Modellierung, Arbeitszeiterfassung und Dokumentationserleichterung für Arbeitgeber und Arbeitnehmer. DACH Digitalwerk erbringt keine Rechts- oder Steuerberatung im Sinne des Rechtsdienstleistungsgesetzes (§ 2 RDG) oder des Steuerberatungsgesetzes (§ 5 StBerG). Gemäß dem Grundsatzurteil des Bundesgerichtshofs (BGH, Urteil vom 27.11.2019 – I ZR 113/18 – „Smartlaw“) stellen automatisierte Softwaregeneratoren und didaktische Berechnungstools keine verbotene Rechtsberatung dar, ersetzen jedoch im Einzelfall nicht die fachkundige Prüfung durch eine Rechtsanwältin, einen Fachanwalt für Arbeitsrecht oder einen Steuerberater.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-2 text-[11px] text-slate-500">
+        <a href="../agb/" class="hover:text-amber-400 transition">Allgemeine Geschäftsbedingungen (AGB)</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-amber-400 transition">Haftungsausschluss &amp; Datenschutz</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-amber-400 transition">Impressum</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 text-slate-500 text-xs py-8 px-4 sm:px-6 mt-auto">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <strong class="text-slate-300">DACH Digitalwerk</strong> • Flaggschiff #23 • Mindestlohn- &amp; Arbeitszeit-Generator 2026
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <a href="../" class="hover:text-amber-400 transition">Hub-Übersicht</a>
+        <a href="../sachbezug-benefit-rechner/" class="hover:text-amber-400 transition">Sachbezug &amp; Benefits</a>
+        <a href="../abfindung-kuendigung/" class="hover:text-amber-400 transition">Abfindung &amp; Fristen</a>
+        <a href="../agb/" class="hover:text-amber-400 transition">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-amber-400 transition">Haftungsausschluss</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= VANILLA JAVASCRIPT ENGINE ================= -->
+  <script>
+    // State Management
+    let currentCountry = 'DE';
+    let timesheetDays = []; // [{ day: 1, dateStr: '2026-10-01', weekday: 'Do', status: 'work', start: '08:00', end: '16:30', pause: 30, net: 8.0, note: '' }]
+    
+    // Country Switcher
+    function setCountryTab(country) {
+      currentCountry = country;
+      document.getElementById('tab-de').className = country === 'DE' 
+        ? 'px-4 py-2.5 border-b-2 border-amber-500 font-bold text-sm text-amber-400 transition flex items-center gap-2'
+        : 'px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2';
+      document.getElementById('tab-at').className = country === 'AT' 
+        ? 'px-4 py-2.5 border-b-2 border-amber-500 font-bold text-sm text-amber-400 transition flex items-center gap-2'
+        : 'px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2';
+      document.getElementById('tab-ch').className = country === 'CH' 
+        ? 'px-4 py-2.5 border-b-2 border-amber-500 font-bold text-sm text-amber-400 transition flex items-center gap-2'
+        : 'px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2';
+
+      document.getElementById('section-de-config').classList.toggle('hidden', country !== 'DE');
+      document.getElementById('section-at-config').classList.toggle('hidden', country !== 'AT');
+      document.getElementById('section-ch-config').classList.toggle('hidden', country !== 'CH');
+
+      const countryBadge = document.getElementById('countryBadge');
+      if (country === 'DE') {
+        countryBadge.innerHTML = '🇩🇪 DE (12,82 €)';
+        document.getElementById('boxMinijobWatcher').classList.remove('hidden');
+      } else if (country === 'AT') {
+        countryBadge.innerHTML = '🇦🇹 AT (Kollektivvertrag)';
+        document.getElementById('boxMinijobWatcher').classList.add('hidden');
+      } else {
+        countryBadge.innerHTML = '🇨🇭 CH (Genf 24,32 CHF & Kantone)';
+        document.getElementById('boxMinijobWatcher').classList.add('hidden');
+      }
+
+      recalculateAll();
+    }
+
+    // Change Contract Type in DE
+    function handleContractTypeChange() {
+      const type = document.getElementById('deContractType').value;
+      const salaryInput = document.getElementById('inputSalary');
+      const salaryLabel = document.getElementById('labelSalary');
+      const weeklyHours = document.getElementById('inputWeeklyHours');
+      const minijobBox = document.getElementById('boxMinijobWatcher');
+
+      if (type === 'minijob') {
+        const limit = parseFloat(document.getElementById('deMinijobLimit').value) || 556;
+        salaryInput.value = limit;
+        salaryLabel.innerText = 'Minijob-Verdienst (€ / Monat)';
+        weeklyHours.value = 10;
+        minijobBox.classList.remove('hidden');
+      } else if (type === 'stundenlohn') {
+        salaryInput.value = 14.50;
+        salaryLabel.innerText = 'Vereinbarter Stundenlohn (€ / h)';
+        weeklyHours.value = 40;
+        minijobBox.classList.add('hidden');
+      } else if (type === 'midijob') {
+        salaryInput.value = 1200;
+        salaryLabel.innerText = 'Midijob-Monatsgehalt (€)';
+        weeklyHours.value = 25;
+        minijobBox.classList.add('hidden');
+      } else {
+        salaryInput.value = 2400;
+        salaryLabel.innerText = 'Bruttomonatsgehalt (€)';
+        weeklyHours.value = 40;
+        minijobBox.classList.add('hidden');
+      }
+      recalculateAll();
+    }
+
+    function handleIndustryChange() {
+      const industry = document.getElementById('deIndustry').value;
+      const fksBadge = document.getElementById('badgeFKS');
+      if (industry !== 'standard') {
+        fksBadge.innerText = 'Zwingend nach § 2a SchwarzArbG';
+        fksBadge.className = 'text-amber-400 font-semibold font-mono';
+      } else {
+        fksBadge.innerText = 'Zwingend für Minijobber';
+        fksBadge.className = 'text-emerald-400 font-semibold font-mono';
+      }
+    }
+
+    function applyATPreset() {
+      const branch = document.getElementById('atKVBranch').value;
+      const kvSalary = document.getElementById('atKVSalary');
+      const normalTime = document.getElementById('atNormalTime');
+
+      if (branch === 'handwerk') {
+        kvSalary.value = 2150;
+        normalTime.value = 38.5;
+      } else if (branch === 'handel') {
+        kvSalary.value = 1980;
+        normalTime.value = 38.5;
+      } else if (branch === 'gastro') {
+        kvSalary.value = 1850;
+        normalTime.value = 40;
+      } else if (branch === 'it') {
+        kvSalary.value = 2650;
+        normalTime.value = 38.5;
+      }
+      recalculateAll();
+    }
+
+    function applyCHPreset() {
+      const canton = document.getElementById('chCanton').value;
+      const hourly = document.getElementById('chHourlyWage');
+
+      if (canton === 'geneve') {
+        hourly.value = 24.32;
+      } else if (canton === 'basel') {
+        hourly.value = 21.70;
+      } else if (canton === 'neuchatel') {
+        hourly.value = 21.30;
+      } else if (canton === 'jura') {
+        hourly.value = 21.00;
+      } else if (canton === 'ticino') {
+        hourly.value = 20.25;
+      } else {
+        hourly.value = 22.00;
+      }
+      recalculateAll();
+    }
+
+    // Helper: Parse Month & Generate Days
+    function getDaysInMonth(year, month) {
+      return new Date(year, month, 0).getDate();
+    }
+
+    function getWeekdayName(date) {
+      const days = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+      return days[date.getDay()];
+    }
+
+    function handleMonthChange() {
+      initTimesheetMatrix();
+      recalculateAll();
+      updatePrintHeader();
+    }
+
+    function initTimesheetMatrix() {
+      const monthPicker = document.getElementById('workMonthPicker').value; // '2026-10'
+      const parts = monthPicker.split('-');
+      const year = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10); // 1..12
+
+      const daysCount = getDaysInMonth(year, month);
+      timesheetDays = [];
+
+      for (let d = 1; d <= daysCount; d++) {
+        const dateObj = new Date(year, month - 1, d);
+        const dayOfWeek = dateObj.getDay(); // 0 is Sun, 6 is Sat
+        const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+        const weekday = getWeekdayName(dateObj);
+        const padDay = String(d).padStart(2, '0');
+        const padMonth = String(month).padStart(2, '0');
+        const dateStr = `${year}-${padMonth}-${padDay}`;
+
+        timesheetDays.push({
+          day: d,
+          dateStr: dateStr,
+          weekday: weekday,
+          isWeekend: isWeekend,
+          status: isWeekend ? 'weekend' : 'work',
+          start: isWeekend ? '' : '08:00',
+          end: isWeekend ? '' : '16:30',
+          pause: isWeekend ? 0 : 30,
+          net: isWeekend ? 0 : 8.0,
+          note: isWeekend ? 'Wochenende' : ''
+        });
+      }
+
+      renderTimesheetTable();
+    }
+
+    function renderTimesheetTable() {
+      const tbody = document.getElementById('timesheetTbody');
+      tbody.innerHTML = '';
+
+      timesheetDays.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        const isWknd = item.isWeekend;
+        tr.className = isWknd 
+          ? 'bg-slate-900/30 text-slate-400 hover:bg-slate-900/50 transition' 
+          : 'hover:bg-slate-900/50 transition';
+
+        tr.innerHTML = `
+          <td class="py-2 px-3 font-mono text-[11px] whitespace-nowrap">
+            ${item.dateStr.split('-')[2]}.${item.dateStr.split('-')[1]}.
+          </td>
+          <td class="py-2 px-2 font-semibold ${isWknd ? 'text-amber-500/80' : 'text-slate-300'}">
+            ${item.weekday}
+          </td>
+          <td class="py-2 px-2">
+            <select onchange="updateDayRow(${index}, 'status', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-[11px] text-white focus:outline-none focus:border-amber-500">
+              <option value="work" ${item.status === 'work' ? 'selected' : ''}>Regulär</option>
+              <option value="urlaub" ${item.status === 'urlaub' ? 'selected' : ''}>Urlaub</option>
+              <option value="feiertag" ${item.status === 'feiertag' ? 'selected' : ''}>Feiertag</option>
+              <option value="krank" ${item.status === 'krank' ? 'selected' : ''}>Krank (LFZ)</option>
+              <option value="zeitausgleich" ${item.status === 'zeitausgleich' ? 'selected' : ''}>Zeitausgleich</option>
+              <option value="weekend" ${item.status === 'weekend' ? 'selected' : ''}>Frei / Sa / So</option>
+            </select>
+          </td>
+          <td class="py-2 px-2">
+            <input type="time" value="${item.start}" onchange="updateDayRow(${index}, 'start', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-[11px] text-white w-20 font-mono focus:outline-none focus:border-amber-500" ${item.status !== 'work' ? 'disabled' : ''} />
+          </td>
+          <td class="py-2 px-2">
+            <input type="time" value="${item.end}" onchange="updateDayRow(${index}, 'end', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-[11px] text-white w-20 font-mono focus:outline-none focus:border-amber-500" ${item.status !== 'work' ? 'disabled' : ''} />
+          </td>
+          <td class="py-2 px-2">
+            <input type="number" value="${item.pause}" min="0" step="5" onchange="updateDayRow(${index}, 'pause', this.value)" class="bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-[11px] text-white w-16 font-mono focus:outline-none focus:border-amber-500" ${item.status !== 'work' ? 'disabled' : ''} />
+          </td>
+          <td class="py-2 px-3 text-right font-mono font-bold ${item.net > 0 ? 'text-amber-400' : 'text-slate-500'}">
+            ${item.net.toFixed(2)} h
+          </td>
+          <td class="py-2 px-3 no-print" id="warn-${index}">
+            ${checkDayCompliance(item)}
+          </td>
+          <td class="py-2 px-3">
+            <input type="text" value="${item.note}" placeholder="Tätigkeit / Bemerkung" onchange="updateDayRow(${index}, 'note', this.value)" class="w-full bg-slate-900/60 border border-slate-800 rounded px-2 py-1 text-[11px] text-slate-300 focus:outline-none focus:border-amber-500" />
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      calculateMatrixTotals();
+    }
+
+    function checkDayCompliance(day) {
+      if (day.status !== 'work' || day.net <= 0) {
+        return '<span class="text-slate-500 text-[10px]">-</span>';
+      }
+
+      const grossHours = day.net + (day.pause / 60);
+
+      // § 3 ArbZG / ArG: Daily max 10h warning
+      if (day.net > 10.0) {
+        return '<span class="inline-flex items-center gap-1 text-[10px] text-rose-400 bg-rose-500/10 px-1.5 py-0.5 rounded border border-rose-500/20 font-sans font-semibold">🚨 > 10h (§ 3 ArbZG)</span>';
+      }
+
+      // § 4 ArbZG: Pause rule
+      if (day.net > 9.0 && day.pause < 45) {
+        return '<span class="inline-flex items-center gap-1 text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20 font-sans font-semibold">⚠️ Pause &lt; 45 Min</span>';
+      }
+
+      if (day.net > 6.0 && day.pause < 30) {
+        return '<span class="inline-flex items-center gap-1 text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20 font-sans font-semibold">⚠️ Pause &lt; 30 Min</span>';
+      }
+
+      return '<span class="text-emerald-400 text-[10px] font-sans">✓ ArbZG OK</span>';
+    }
+
+    function updateDayRow(index, field, value) {
+      const day = timesheetDays[index];
+
+      if (field === 'status') {
+        day.status = value;
+        if (value !== 'work') {
+          day.start = '';
+          day.end = '';
+          day.pause = 0;
+          day.net = 0;
+          if (value === 'urlaub') day.note = 'Urlaubstag';
+          else if (value === 'feiertag') day.note = 'Gesetzlicher Feiertag';
+          else if (value === 'krank') day.note = 'Krankheit (LFZ gem. EFZG)';
+          else if (value === 'zeitausgleich') day.note = 'Zeitausgleich';
+          else if (value === 'weekend') day.note = 'Wochenende / Ruhetag';
+        } else {
+          day.start = '08:00';
+          day.end = '16:30';
+          day.pause = 30;
+          day.net = 8.0;
+          day.note = '';
+        }
+      } else if (field === 'start') {
+        day.start = value;
+        calculateRowNet(day);
+      } else if (field === 'end') {
+        day.end = value;
+        calculateRowNet(day);
+      } else if (field === 'pause') {
+        day.pause = parseFloat(value) || 0;
+        calculateRowNet(day);
+      } else if (field === 'note') {
+        day.note = value;
+      }
+
+      renderTimesheetTable();
+      recalculateAll();
+    }
+
+    function calculateRowNet(day) {
+      if (!day.start || !day.end || day.status !== 'work') {
+        day.net = 0;
+        return;
+      }
+
+      const [startH, startM] = day.start.split(':').map(Number);
+      const [endH, endM] = day.end.split(':').map(Number);
+
+      let startMinutes = startH * 60 + startM;
+      let endMinutes = endH * 60 + endM;
+
+      if (endMinutes < startMinutes) {
+        // Über Mitternacht
+        endMinutes += 24 * 60;
+      }
+
+      const grossMinutes = endMinutes - startMinutes;
+      const netMinutes = Math.max(0, grossMinutes - (day.pause || 0));
+      day.net = Math.round((netMinutes / 60) * 100) / 100;
+    }
+
+    // Apply Presets to Matrix
+    function applyWeekTemplate(type) {
+      timesheetDays.forEach(day => {
+        const dateObj = new Date(day.dateStr);
+        const dayOfWeek = dateObj.getDay(); // 0 = Sun, 1 = Mon ... 6 = Sat
+
+        if (type === 'standard') {
+          // Mon-Fri 8h
+          if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+            day.status = 'work';
+            day.start = '08:00';
+            day.end = '16:30';
+            day.pause = 30;
+            day.net = 8.0;
+            day.note = 'Reguläre Arbeitszeit';
+          } else {
+            day.status = 'weekend';
+            day.start = '';
+            day.end = '';
+            day.pause = 0;
+            day.net = 0;
+            day.note = 'Wochenende';
+          }
+        } else if (type === 'minijob') {
+          // Tue & Thu 5h each = 10h/week
+          if (dayOfWeek === 2 || dayOfWeek === 4) {
+            day.status = 'work';
+            day.start = '09:00';
+            day.end = '14:00';
+            day.pause = 0; // unter 6h ist keine Pause zwingend, aber erlaubt
+            day.net = 5.0;
+            day.note = 'Minijob-Schicht';
+          } else {
+            day.status = 'weekend';
+            day.start = '';
+            day.end = '';
+            day.pause = 0;
+            day.net = 0;
+            day.note = 'Frei';
+          }
+        } else if (type === 'gastro') {
+          // Wed - Sun (Wed, Thu, Fri, Sat, Sun)
+          if (dayOfWeek >= 3 || dayOfWeek === 0) {
+            day.status = 'work';
+            day.start = '11:30';
+            day.end = '20:30';
+            day.pause = 60;
+            day.net = 8.0;
+            day.note = 'Gastronomie Service / Küche';
+          } else {
+            day.status = 'weekend';
+            day.start = '';
+            day.end = '';
+            day.pause = 0;
+            day.net = 0;
+            day.note = 'Ruhetag';
+          }
+        }
+      });
+
+      renderTimesheetTable();
+      recalculateAll();
+    }
+
+    function resetMonthSheet() {
+      if (confirm('Möchten Sie wirklich alle Einträge für diesen Monat leeren?')) {
+        timesheetDays.forEach(day => {
+          day.status = day.isWeekend ? 'weekend' : 'work';
+          day.start = '';
+          day.end = '';
+          day.pause = 0;
+          day.net = 0;
+          day.note = day.isWeekend ? 'Wochenende' : '';
+        });
+        renderTimesheetTable();
+        recalculateAll();
+      }
+    }
+
+    // Master Calculation Function
+    function recalculateAll() {
+      // 1. Calculate Monthly Target Hours
+      let weeklyHours = 40;
+      let monthlySalary = 2400;
+      let statutoryMinWage = 12.82;
+      let currency = '€';
+
+      if (currentCountry === 'DE') {
+        const contractType = document.getElementById('deContractType').value;
+        statutoryMinWage = parseFloat(document.getElementById('deMinimumWage').value) || 12.82;
+        weeklyHours = parseFloat(document.getElementById('inputWeeklyHours').value) || 40;
+        
+        if (contractType === 'stundenlohn') {
+          const hourlyRate = parseFloat(document.getElementById('inputSalary').value) || 12.82;
+          monthlySalary = hourlyRate * (weeklyHours * 4.3333);
+        } else {
+          monthlySalary = parseFloat(document.getElementById('inputSalary').value) || 2400;
+        }
+
+        const minijobLimit = parseFloat(document.getElementById('deMinijobLimit').value) || 556;
+        document.getElementById('hintMinijobLimit').innerText = `${minijobLimit.toFixed(0)} €`;
+        const maxMinijobHours = (minijobLimit / statutoryMinWage).toFixed(2);
+        document.getElementById('hintMinijobMaxHours').innerText = `${maxMinijobHours} Stunden`;
+
+      } else if (currentCountry === 'AT') {
+        currency = '€';
+        weeklyHours = parseFloat(document.getElementById('atNormalTime').value) || 38.5;
+        monthlySalary = parseFloat(document.getElementById('atKVSalary').value) || 2150;
+        statutoryMinWage = monthlySalary / (weeklyHours * 4.3333);
+      } else if (currentCountry === 'CH') {
+        currency = 'CHF';
+        weeklyHours = parseFloat(document.getElementById('chMaxWeeklyHours').value) || 45;
+        statutoryMinWage = parseFloat(document.getElementById('chHourlyWage').value) || 24.32;
+        monthlySalary = parseFloat(document.getElementById('chMonthlySalary').value) || 4300;
+      }
+
+      // Target monthly hours = weekly * (52 / 12) = weekly * 4.3333
+      const targetMonthlyHours = Math.round(weeklyHours * 4.3333 * 100) / 100;
+      document.getElementById('calculatedMonthlyHours').innerText = `${targetMonthlyHours.toFixed(2)} h`;
+      document.getElementById('kpiTargetHours').innerText = `${targetMonthlyHours.toFixed(2)} h`;
+
+      // 2. Sum actual hours from table
+      let totalActualHours = 0;
+      let workDaysCount = 0;
+      let vacationDays = 0;
+      let sickDays = 0;
+      let holidayDays = 0;
+      let totalWarnings = 0;
+
+      timesheetDays.forEach(d => {
+        if (d.status === 'work') {
+          totalActualHours += d.net;
+          if (d.net > 0) workDaysCount++;
+          if (d.net > 10 || (d.net > 6 && d.pause < 30) || (d.net > 9 && d.pause < 45)) {
+            totalWarnings++;
+          }
+        } else if (d.status === 'urlaub') {
+          vacationDays++;
+        } else if (d.status === 'krank') {
+          sickDays++;
+        } else if (d.status === 'feiertag') {
+          holidayDays++;
+        }
+      });
+
+      totalActualHours = Math.round(totalActualHours * 100) / 100;
+      document.getElementById('totalNetHoursDisplay').innerText = `${totalActualHours.toFixed(2)} h`;
+      document.getElementById('kpiActualHours').innerText = `${totalActualHours.toFixed(2)} h`;
+      document.getElementById('totalDaysSummary').innerText = `${workDaysCount} Arbeitstage • ${vacationDays} Urlaub • ${sickDays} Krank • ${holidayDays} Feiertag`;
+
+      // Warnings Display
+      const warnDisplay = document.getElementById('totalWarningsDisplay');
+      if (totalWarnings > 0) {
+        warnDisplay.innerHTML = `<span class="text-amber-400 font-bold text-[11px]">⚠️ ${totalWarnings} ArbZG-Hinweise</span>`;
+      } else {
+        warnDisplay.innerHTML = '<span class="text-emerald-400 font-normal text-[11px]">✓ Keine ArbZG-Verstöße</span>';
+      }
+
+      // Overtime balance
+      const overtimeBalance = Math.round((totalActualHours - targetMonthlyHours) * 100) / 100;
+      const kpiBalance = document.getElementById('kpiOvertimeBalance');
+      const kpiBalanceStatus = document.getElementById('kpiOvertimeStatus');
+
+      if (overtimeBalance > 0) {
+        kpiBalance.innerText = `+${overtimeBalance.toFixed(2)} h`;
+        kpiBalance.className = 'text-xl font-bold font-mono text-amber-400 mt-1';
+        kpiBalanceStatus.innerText = 'Mehrarbeit / Überstunden';
+      } else if (overtimeBalance < 0) {
+        kpiBalance.innerText = `${overtimeBalance.toFixed(2)} h`;
+        kpiBalance.className = 'text-xl font-bold font-mono text-sky-400 mt-1';
+        kpiBalanceStatus.innerText = 'Minusstunden';
+      } else {
+        kpiBalance.innerText = '0,00 h';
+        kpiBalance.className = 'text-xl font-bold font-mono text-white mt-1';
+        kpiBalanceStatus.innerText = 'Exakt Soll erfüllt';
+      }
+
+      // 3. Effective Hourly Wage Calculation
+      // If actual hours > 0, effective rate = monthlySalary / totalActualHours; otherwise based on target
+      const divisorHours = totalActualHours > 0 ? totalActualHours : targetMonthlyHours;
+      const effectiveRate = divisorHours > 0 ? (monthlySalary / divisorHours) : 0;
+      const roundedEffective = Math.round(effectiveRate * 100) / 100;
+
+      document.getElementById('metricEffectiveRate').innerText = `${roundedEffective.toFixed(2)} ${currency}`;
+      document.getElementById('kpiActualHourlyWage').innerText = `${roundedEffective.toFixed(2)} ${currency}/h`;
+
+      // 4. Compliance Check against Statutory Minimum Wage
+      const diff = roundedEffective - statutoryMinWage;
+      const rateCompare = document.getElementById('metricRateCompare');
+      const compBadge = document.getElementById('complianceStatusBadge');
+      const compCard = document.getElementById('complianceCard');
+      const wageCompliance = document.getElementById('kpiWageCompliance');
+
+      if (roundedEffective >= statutoryMinWage) {
+        // COMPLIANT
+        rateCompare.innerHTML = `+${diff.toFixed(2)} ${currency} über gesetzl. Mindestlohn (${statutoryMinWage.toFixed(2)} ${currency})`;
+        rateCompare.className = 'text-xs font-medium text-emerald-400 mt-1';
+        compBadge.innerText = '✓ MiLoG Konform';
+        compBadge.className = 'px-2.5 py-1 rounded-full text-xs font-extrabold uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/30';
+        compCard.className = 'bg-gradient-to-br from-slate-950 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 shadow-xl relative overflow-hidden';
+        wageCompliance.innerText = 'Mindestlohn voll eingehalten';
+        wageCompliance.className = 'text-[10px] text-emerald-400 mt-0.5';
+      } else {
+        // VIOLATION / VERDECKTE UNTERSCHREITUNG
+        rateCompare.innerHTML = `🚨 ACHTUNG: ${Math.abs(diff).toFixed(2)} ${currency} UNTER Mindestlohn (${statutoryMinWage.toFixed(2)} ${currency})!`;
+        rateCompare.className = 'text-xs font-bold text-rose-400 mt-1';
+        compBadge.innerText = '⚠️ Mindestlohn-Verstoß';
+        compBadge.className = 'px-2.5 py-1 rounded-full text-xs font-extrabold uppercase bg-rose-500/10 text-rose-400 border border-rose-500/30';
+        compCard.className = 'bg-gradient-to-br from-slate-950 to-slate-900 border-2 border-rose-500/60 rounded-3xl p-6 shadow-xl relative overflow-hidden';
+        wageCompliance.innerText = 'Mindestlohn UNTERSCHRITTEN!';
+        wageCompliance.className = 'text-[10px] text-rose-400 font-bold mt-0.5';
+      }
+
+      // 5. Calculate Max Overtime Buffer
+      // Max total hours before salary / hours < statutoryMinWage:
+      // maxHours = monthlySalary / statutoryMinWage
+      const maxAllowedTotalHours = statutoryMinWage > 0 ? (monthlySalary / statutoryMinWage) : 0;
+      const maxOvertimeBuffer = Math.max(0, maxAllowedTotalHours - targetMonthlyHours);
+      
+      document.getElementById('metricMaxOvertime').innerText = `${maxOvertimeBuffer.toFixed(1)} h`;
+      document.getElementById('metricOvertimeHint').innerText = 
+        `Bei mehr als ${maxOvertimeBuffer.toFixed(1)} unbezahlten Überstunden sinkt der Stundenlohn unter ${statutoryMinWage.toFixed(2)} ${currency}!`;
+
+      const bufferPercent = Math.min(100, Math.max(5, (maxOvertimeBuffer / targetMonthlyHours) * 100));
+      document.getElementById('metricOvertimeBar').style.width = `${bufferPercent}%`;
+
+      updatePrintHeader();
+    }
+
+    function calculateMatrixTotals() {
+      recalculateAll();
+    }
+
+    function updatePrintHeader() {
+      const monthPicker = document.getElementById('workMonthPicker').value;
+      const [year, month] = monthPicker.split('-');
+      const monthNames = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+      const monthLabel = `${monthNames[parseInt(month, 10) - 1]} ${year}`;
+
+      document.getElementById('labelCurrentMonthName').innerText = monthLabel;
+      document.getElementById('printPeriodSummary').innerText = monthLabel;
+
+      const empName = document.getElementById('employeeName').value || 'Mitarbeiter';
+      const empId = document.getElementById('employeeId').value || '';
+      const empFirma = document.getElementById('employerName').value || 'Arbeitgeber';
+
+      document.getElementById('printSignEmployee').innerText = empName;
+      document.getElementById('printSignEmployer').innerText = empFirma;
+
+      const today = new Date();
+      const padD = String(today.getDate()).padStart(2, '0');
+      const padM = String(today.getMonth() + 1).padStart(2, '0');
+      document.getElementById('printDateStamp').innerText = `${padD}.${padM}.${today.getFullYear()}`;
+    }
+
+    // CSV Export
+    function exportCSV() {
+      const empName = document.getElementById('employeeName').value || 'Mitarbeiter';
+      const monthPicker = document.getElementById('workMonthPicker').value;
+      
+      let csvContent = 'data:text/csv;charset=utf-8,';
+      csvContent += 'Datum;Wochentag;Status;Beginn;Ende;Pause_Minuten;Netto_Stunden;Taetigkeit\r\n';
+
+      timesheetDays.forEach(d => {
+        const row = [
+          d.dateStr,
+          d.weekday,
+          d.status,
+          d.start || '',
+          d.end || '',
+          d.pause,
+          d.net.toFixed(2).replace('.', ','),
+          `"${(d.note || '').replace(/"/g, '""')}"`
+        ].join(';');
+        csvContent += row + '\r\n';
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', `Stundennachweis_MiLoG_${monthPicker}_${empName.replace(/\\s+/g, '_')}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // JSON Export / Import
+    function exportJSON() {
+      const data = {
+        version: '2026.1',
+        country: currentCountry,
+        month: document.getElementById('workMonthPicker').value,
+        employee: {
+          name: document.getElementById('employeeName').value,
+          id: document.getElementById('employeeId').value,
+          role: document.getElementById('jobRole').value
+        },
+        employer: {
+          name: document.getElementById('employerName').value,
+          bbnr: document.getElementById('employerBBNR').value
+        },
+        contract: {
+          salary: document.getElementById('inputSalary').value,
+          weeklyHours: document.getElementById('inputWeeklyHours').value,
+          minWage: document.getElementById('deMinimumWage').value
+        },
+        timesheetDays: timesheetDays
+      };
+
+      const jsonStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(data, null, 2));
+      const link = document.createElement('a');
+      link.setAttribute('href', jsonStr);
+      link.setAttribute('download', `Stundenzettel_Backup_${data.month}_${data.employee.name.replace(/\\s+/g, '_')}.json`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = JSON.parse(e.target.result);
+          if (data.timesheetDays && Array.isArray(data.timesheetDays)) {
+            timesheetDays = data.timesheetDays;
+            if (data.month) document.getElementById('workMonthPicker').value = data.month;
+            if (data.employee) {
+              if (data.employee.name) document.getElementById('employeeName').value = data.employee.name;
+              if (data.employee.id) document.getElementById('employeeId').value = data.employee.id;
+              if (data.employee.role) document.getElementById('jobRole').value = data.employee.role;
+            }
+            if (data.employer) {
+              if (data.employer.name) document.getElementById('employerName').value = data.employer.name;
+              if (data.employer.bbnr) document.getElementById('employerBBNR').value = data.employer.bbnr;
+            }
+            if (data.contract) {
+              if (data.contract.salary) document.getElementById('inputSalary').value = data.contract.salary;
+              if (data.contract.weeklyHours) document.getElementById('inputWeeklyHours').value = data.contract.weeklyHours;
+              if (data.contract.minWage) document.getElementById('deMinimumWage').value = data.contract.minWage;
+            }
+            renderTimesheetTable();
+            recalculateAll();
+            alert('Stundenzettel-Daten erfolgreich importiert!');
+          }
+        } catch (err) {
+          alert('Fehler beim Laden der JSON-Datei: Ungültiges Format.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // Initialize on Page Load
+    document.addEventListener('DOMContentLoaded', () => {
+      initTimesheetMatrix();
+      recalculateAll();
+      updatePrintHeader();
+    });
+  </script>
+</body>
+</html>

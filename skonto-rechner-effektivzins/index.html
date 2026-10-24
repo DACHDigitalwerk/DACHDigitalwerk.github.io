@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Skonto-, Zahlungsziel- &amp; Lieferantenkredit-Rechner 2026 (Effektivzins, UStG &amp; Kontokorrent-Vergleich) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser Skontorechner 2026: Effektivzins des Lieferantenkredits berechnen, Skonto vs. Bankkredit (Kontokorrent) vergleichen, Fristen-Kalender &amp; Vorsteuerkorrektur nach § 17 UStG / Art. 41 MWSTG. Mit DIN-A4 Druckvorlage." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/skonto-rechner-effektivzins/" />
+  <meta property="og:title" content="DACH Skonto-, Zahlungsziel- &amp; Lieferantenkredit-Rechner 2026" />
+  <meta property="og:description" content="Lohnt sich Skonto? Berechnen Sie den Jahres-Effektivzins, Zinskosten bei Banküberziehung und den Netto-Finanzvorteil 100% lokal im Browser." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/skonto-rechner-effektivzins/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            fintech: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 16mm 18mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Skonto-, Zahlungsziel- & Lieferantenkredit-Rechner 2026",
+    "url": "https://dach-digitalwerk.netlify.app/skonto-rechner-effektivzins/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Berechnet den Jahres-Effektivzins von Lieferantenkrediten, vergleicht Skonto mit Kontokorrentzinsen und ermittelt die Vorsteuerkorrektur nach § 17 UStG / Art. 41 MWSTG.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-emerald-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Rechnungsbeträge &amp; Bankkonditionen verbleiben ausschließlich in Ihrem Browser.</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsraum:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setCountry('DE')" id="btn-c-de" class="px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-600 text-white transition">🇩🇪 DE (HGB/UStG)</button>
+          <button onclick="setCountry('AT')" id="btn-c-at" class="px-2.5 py-0.5 rounded text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (UGB/UStG)</button>
+          <button onclick="setCountry('CH')" id="btn-c-ch" class="px-2.5 py-0.5 rounded text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (OR/MWSTG)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-700 flex items-center justify-center text-white font-black text-xl shadow-md shadow-emerald-500/20">
+          💸
+        </div>
+        <div>
+          <span class="text-xs font-bold text-emerald-600 tracking-wider uppercase block">DACH Digitalwerk • Tool #16</span>
+          <h1 class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-tight">
+            Skonto-, Zahlungsziel- &amp; Effektivzins-Rechner 2026
+          </h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="scrollToPrintView()" class="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+          <span>🖨️</span>
+          <span>DIN-A4 Nachweis</span>
+        </button>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white shadow-sm shadow-emerald-500/20 transition">
+          <span>⭐</span>
+          <span>B2B Fuhrpark &amp; Finanzen Pro (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 no-print">
+
+    <!-- HERO INTRO -->
+    <div class="bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-12 -top-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold">
+          <span>📈</span>
+          <span id="hero-badge">Kaufmännische Zinsmathematik • Effektivzinssatz nach HGB / UGB / OR</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+          Warum Skonto fast immer der teuerste Kredit der Welt ist
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Wer auf <strong>2 % Skonto</strong> bei 10 Tagen Zahlungsziel verzichtet und erst nach 30 Tagen netto bezahlt, nimmt für 20 Tage einen <strong>Lieferantenkredit zu über 36 % Effektivzins p.a.</strong> in Anspruch! Nutzen Sie unseren Rechner, um zu prüfen, ob sich sogar die Finanzierung über den teuren Kontokorrentkredit Ihrer Bank bezahlt macht.
+        </p>
+      </div>
+
+      <!-- Quick KPI Counters -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-6 pt-6 border-t border-slate-800">
+        <div class="bg-slate-800/60 backdrop-blur rounded-2xl p-3 border border-slate-700/60">
+          <span class="text-[11px] text-slate-400 block font-medium">Skontobetrag (Ersparnis)</span>
+          <span id="kpi-skonto-amount" class="text-base sm:text-lg font-black text-emerald-400">0,00 €</span>
+        </div>
+        <div class="bg-slate-800/60 backdrop-blur rounded-2xl p-3 border border-slate-700/60">
+          <span class="text-[11px] text-slate-400 block font-medium">Effektivzins p.a.</span>
+          <span id="kpi-effektiv-rate" class="text-base sm:text-lg font-black text-amber-400">0,0 %</span>
+        </div>
+        <div class="bg-slate-800/60 backdrop-blur rounded-2xl p-3 border border-slate-700/60">
+          <span class="text-[11px] text-slate-400 block font-medium">Zinskosten Bank (Dispo)</span>
+          <span id="kpi-bank-interest" class="text-base sm:text-lg font-black text-slate-300">0,00 €</span>
+        </div>
+        <div class="bg-slate-800/60 backdrop-blur rounded-2xl p-3 border border-slate-700/60">
+          <span class="text-[11px] text-slate-400 block font-medium">Netto-Gewinn bei Abzug</span>
+          <span id="kpi-net-benefit" class="text-base sm:text-lg font-black text-white">+0,00 €</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN: INPUTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-5">
+          <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+            <span>⚙️ 1. Rechnungs- &amp; Konditionsdaten</span>
+            <span class="text-xs text-slate-400 font-normal">Eingabematrix</span>
+          </h3>
+
+          <!-- Invoice Amount -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Rechnungsbetrag (Brutto) *
+            </label>
+            <div class="relative">
+              <input type="number" id="inp-invoice-amount" value="5000" min="1" step="10" oninput="runCalculation()" class="w-full pl-4 pr-12 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-bold text-slate-900 focus:bg-white focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 transition">
+              <span id="cur-symbol-1" class="absolute right-4 top-2.5 text-xs font-bold text-slate-400">€</span>
+            </div>
+            <span class="text-[11px] text-slate-500 mt-1 block">Bruttobetrag laut Eingangs- oder Ausgangsrechnung.</span>
+          </div>
+
+          <!-- Tax Rate -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Umsatzsteuersatz
+              </label>
+              <select id="inp-tax-rate" onchange="runCalculation()" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:border-emerald-600 transition">
+                <option value="19" selected>19 % (Regelsatz DE)</option>
+                <option value="7">7 % (Ermäßigt DE)</option>
+                <option value="20">20 % (Regelsatz AT)</option>
+                <option value="10">10 % (Ermäßigt AT)</option>
+                <option value="8.1">8,1 % (Normalsatz CH)</option>
+                <option value="2.6">2,6 % (Reduziert CH)</option>
+                <option value="0">0 % (Steuerfrei / B2B Reverse Charge)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Rechnungsdatum
+              </label>
+              <input type="date" id="inp-invoice-date" onchange="runCalculation()" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-slate-900 focus:bg-white focus:border-emerald-600 transition">
+            </div>
+          </div>
+
+          <!-- Skonto & Payment Terms -->
+          <div class="border-t border-slate-100 pt-4 space-y-4">
+            <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Zahlungskonditionen</h4>
+
+            <div class="grid grid-cols-3 gap-2 sm:gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Skontosatz</label>
+                <div class="relative">
+                  <input type="number" id="inp-skonto-pct" value="2.0" min="0.1" max="20" step="0.5" oninput="runCalculation()" class="w-full pl-3 pr-7 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:border-emerald-600 transition">
+                  <span class="absolute right-2.5 top-2 text-xs font-bold text-slate-400">%</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Skontofrist</label>
+                <div class="relative">
+                  <input type="number" id="inp-skonto-days" value="10" min="1" max="90" step="1" oninput="runCalculation()" class="w-full pl-3 pr-10 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:border-emerald-600 transition">
+                  <span class="absolute right-2.5 top-2 text-[11px] font-bold text-slate-400">Tg.</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 mb-1">Netto-Ziel</label>
+                <div class="relative">
+                  <input type="number" id="inp-netto-days" value="30" min="2" max="180" step="1" oninput="runCalculation()" class="w-full pl-3 pr-10 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold text-slate-900 focus:border-emerald-600 transition">
+                  <span class="absolute right-2.5 top-2 text-[11px] font-bold text-slate-400">Tg.</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="date-helper-box" class="p-3 bg-slate-100 rounded-xl text-[11px] text-slate-600 space-y-1">
+              <div class="flex justify-between">
+                <span>Skontozahlung spätestens am:</span>
+                <strong id="lbl-date-skonto" class="text-emerald-700">--</strong>
+              </div>
+              <div class="flex justify-between">
+                <span>Nettozahlung fällig am:</span>
+                <strong id="lbl-date-netto" class="text-slate-900">--</strong>
+              </div>
+              <div class="flex justify-between border-t border-slate-200 pt-1 mt-1 text-slate-500">
+                <span>Finanzierungszeitraum (Kreditdauer):</span>
+                <strong id="lbl-diff-days" class="text-slate-800">20 Tage</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bank Interest Rate (Kontokorrent) -->
+          <div class="border-t border-slate-100 pt-4 space-y-3">
+            <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider">Vergleichskonditionen Bankkredit</h4>
+            
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Sollzinssatz Kontokorrentlinie (p.a.)
+              </label>
+              <div class="relative">
+                <input type="number" id="inp-bank-rate" value="11.5" min="0" max="35" step="0.1" oninput="runCalculation()" class="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm font-bold text-slate-900 focus:bg-white focus:border-emerald-600 transition">
+                <span class="absolute right-4 top-2.5 text-xs font-bold text-slate-400">%</span>
+              </div>
+              <span class="text-[11px] text-slate-500 mt-1 block">Üblicher Überziehungs- / Kontokorrentzins für Geschäftskunden (ca. 8,5 % bis 14,0 %).</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- QUICK RECOMMENDATION CALLOUT -->
+        <div id="quick-rec-card" class="bg-gradient-to-br from-emerald-900 to-teal-950 text-white p-6 rounded-3xl border border-emerald-800 shadow-md space-y-2">
+          <div class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-300">
+            <span>💡</span>
+            <span>Finanzierungs-Empfehlung</span>
+          </div>
+          <h4 id="quick-rec-title" class="text-lg font-black leading-snug">Skonto ziehen – selbst mit teurem Bankkredit!</h4>
+          <p id="quick-rec-desc" class="text-xs text-slate-300 leading-relaxed">
+            Berechnung wird aktualisiert...
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: RESULTS & SIMULATION -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- 3 OPTIONS COMPARISON TABLE -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-6">
+          <h3 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3 flex items-center justify-between">
+            <span>📊 2. Handlungsoptionen im Vergleich</span>
+            <span class="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full">Exakte Zinsformel</span>
+          </h3>
+
+          <div class="grid sm:grid-cols-3 gap-3">
+            <!-- Option 1: Skonto aus Guthaben -->
+            <div class="p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50/40 space-y-2 relative">
+              <span class="text-[10px] font-black uppercase text-emerald-800 bg-emerald-200/80 px-2 py-0.5 rounded">Option 1: Ideal</span>
+              <div class="font-bold text-sm text-slate-900">Zahlung mit Skonto (aus Liquidität)</div>
+              <div class="text-xl font-black text-emerald-700" id="res-opt1-paid">4.900,00 €</div>
+              <div class="text-xs text-slate-600">
+                Sie zahlen innerhalb von <span id="res-opt1-days" class="font-bold">10 Tagen</span>.
+              </div>
+              <div class="pt-2 border-t border-emerald-200 text-xs text-emerald-900 font-bold flex justify-between">
+                <span>Finanzvorteil:</span>
+                <span id="res-opt1-profit" class="font-black">+100,00 €</span>
+              </div>
+            </div>
+
+            <!-- Option 2: Skonto via Bankkredit -->
+            <div class="p-4 rounded-2xl border-2 border-teal-500 bg-teal-50/40 space-y-2 relative">
+              <span class="text-[10px] font-black uppercase text-teal-800 bg-teal-200/80 px-2 py-0.5 rounded">Option 2: Clever</span>
+              <div class="font-bold text-sm text-slate-900">Skonto via Kontokorrent finanzieren</div>
+              <div class="text-xl font-black text-teal-800" id="res-opt2-paid">4.900,00 €</div>
+              <div class="text-xs text-slate-600">
+                Zinsen Bank (<span id="res-opt2-rate">11,5%</span>): <span id="res-opt2-interest" class="font-bold">31,31 €</span>
+              </div>
+              <div class="pt-2 border-t border-teal-200 text-xs text-teal-950 font-bold flex justify-between">
+                <span>Netto-Gewinn:</span>
+                <span id="res-opt2-profit" class="font-black text-teal-700">+68,69 €</span>
+              </div>
+            </div>
+
+            <!-- Option 3: Zahlungsziel voll ausnutzen -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-2">
+              <span class="text-[10px] font-black uppercase text-slate-600 bg-slate-200 px-2 py-0.5 rounded">Option 3: Teuer</span>
+              <div class="font-bold text-sm text-slate-900">Volles Zahlungsziel ausnutzen</div>
+              <div class="text-xl font-black text-slate-800" id="res-opt3-paid">5.000,00 €</div>
+              <div class="text-xs text-slate-600">
+                Zahlung am <span id="res-opt3-days" class="font-bold">30. Tag</span>.
+              </div>
+              <div class="pt-2 border-t border-slate-200 text-xs text-rose-700 font-bold flex justify-between">
+                <span>Effektivzins:</span>
+                <span id="res-opt3-rate" class="font-black">36,7 % p.a.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DETAILED BREAKDOWN TABLE -->
+          <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-3">Kaufmännische Kennzahl</th>
+                  <th class="p-3">Berechnungsformel</th>
+                  <th class="p-3 text-right">Ergebnis</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 bg-white text-slate-800">
+                <tr>
+                  <td class="p-3 font-semibold">Brutto-Rechnungsbetrag</td>
+                  <td class="p-3 font-mono text-slate-500">Ausgangswert Rechnungsstellung</td>
+                  <td class="p-3 text-right font-mono font-bold" id="tbl-brutto">5.000,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Skontobetrag</td>
+                  <td class="p-3 font-mono text-slate-500">Rechnungsbetrag × Skontosatz (in %)</td>
+                  <td class="p-3 text-right font-mono font-bold text-emerald-700" id="tbl-skonto-val">-100,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Zahlungsbetrag mit Skonto</td>
+                  <td class="p-3 font-mono text-slate-500">Brutto minus Skontobetrag</td>
+                  <td class="p-3 text-right font-mono font-black text-slate-900" id="tbl-pay-val">4.900,00 €</td>
+                </tr>
+                <tr class="bg-amber-50/50">
+                  <td class="p-3 font-semibold text-amber-900">Jahres-Effektivzinssatz des Lieferantenkredits</td>
+                  <td class="p-3 font-mono text-[11px] text-amber-800">(Skonto% / (100 - Skonto%)) × (360 / Kreditzeitraum)</td>
+                  <td class="p-3 text-right font-mono font-black text-amber-800 text-sm" id="tbl-effektiv-val">36,73 % p.a.</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Kreditzeitraum (Tage)</td>
+                  <td class="p-3 font-mono text-slate-500">Nettoziel (Tage) - Skontofrist (Tage)</td>
+                  <td class="p-3 text-right font-mono font-bold" id="tbl-days-val">20 Tage</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-semibold">Zinskosten Kontokorrentkredit</td>
+                  <td class="p-3 font-mono text-slate-500">(Zahlbetrag × Bankzins% × Tage) / (100 × 360)</td>
+                  <td class="p-3 text-right font-mono text-rose-700 font-bold" id="tbl-interest-val">-31,31 €</td>
+                </tr>
+                <tr class="bg-emerald-50/60">
+                  <td class="p-3 font-bold text-emerald-950">Netto-Finanzvorteil bei Bankfinanzierung</td>
+                  <td class="p-3 font-mono text-[11px] text-emerald-800">Skontoersparnis minus Bankzinsen</td>
+                  <td class="p-3 text-right font-mono font-black text-emerald-800 text-sm" id="tbl-net-benefit-val">+68,69 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- UST VORSTEUERKORREKTUR BOX -->
+          <div class="border border-slate-200 rounded-2xl p-4 bg-slate-50/80 space-y-2">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-800 border-b border-slate-200 pb-2">
+              <span class="flex items-center gap-1.5">
+                <span>📑</span>
+                <span>Steuerrechtliche Vorsteuer- &amp; USt-Korrektur (§ 17 UStG / Art. 41 MWSTG)</span>
+              </span>
+              <span class="text-[11px] font-mono text-slate-500" id="lbl-tax-basis">USt-Satz: 19 %</span>
+            </div>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Wird Skonto gezogen, mindert dies nachträglich die steuerliche Bemessungsgrundlage. Der Vorsteuerabzug beim Leistungsempfänger bzw. die geschuldete Umsatzsteuer beim Leistenden müssen korrigiert werden:
+            </p>
+            <div class="grid grid-cols-3 gap-2 pt-1 text-center font-mono text-xs">
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-sans">Netto-Minderung:</span>
+                <strong id="tax-netto-minderung" class="text-slate-800">84,03 €</strong>
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-sans">Vorsteuer-/USt-Korrektur:</span>
+                <strong id="tax-ust-minderung" class="text-amber-700">15,97 €</strong>
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-slate-200">
+                <span class="text-[10px] text-slate-400 block font-sans">Brutto-Skonto:</span>
+                <strong id="tax-brutto-minderung" class="text-emerald-700">100,00 €</strong>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRINT SECTION (DIN-A4 ENTSCHEIDUNGSVORLAGE) -->
+    <section id="druckansicht" class="mt-16 pt-12 border-t border-slate-200">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4 mb-8 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span>🖨️</span>
+              <span>Skonto- &amp; Finanzierungs-Entscheidungsvorlage (DIN-A4)</span>
+            </h3>
+            <p class="text-xs text-slate-500">
+              Druckfertiges Freigabe- und Dokumentationsblatt für Finanzbuchhaltung, Geschäftsleitung und Bankprüfer.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="window.print()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 transition flex items-center gap-2">
+              <span>🖨️</span>
+              <span>Nachweis drucken / PDF speichern</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIN-A4 SHEET PREVIEW -->
+      <div class="a4-sheet-wrapper">
+        <div class="a4-sheet">
+          <!-- Document Header -->
+          <div class="border-b-2 border-slate-900 pb-3 mb-4 flex justify-between items-start">
+            <div>
+              <div class="text-[10px] font-bold text-emerald-800 tracking-wider uppercase">Kaufmännische Liquiditäts- &amp; Kreditentscheidung</div>
+              <h2 class="text-lg font-black text-slate-900 mt-0.5">SKONTO- &amp; LIEFERANTENKREDIT-NACHWEIS</h2>
+              <div class="text-[10px] text-slate-600">Rechnungsprüfung, Effektivverzinsung &amp; Vorsteuerkorrektur gem. HGB / UGB / OR</div>
+            </div>
+            <div class="text-right">
+              <span id="print-country-badge" class="inline-block bg-slate-900 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                DEUTSCHLAND (HGB/UStG)
+              </span>
+              <div class="text-[9px] text-slate-500 mt-1" id="print-date">Erstellt am: --</div>
+            </div>
+          </div>
+
+          <!-- Parameter Box -->
+          <div class="grid grid-cols-2 gap-4 mb-4 text-[10px]">
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">1. Rechnungsdaten &amp; Fristen</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Rechnungsbetrag (Brutto):</span>
+                  <span id="p-inv-gross" class="font-mono font-bold text-slate-900">5.000,00 €</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>USt-Satz / Bemessung:</span>
+                  <span id="p-inv-tax" class="font-mono">19 %</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Rechnungsdatum:</span>
+                  <span id="p-inv-date" class="font-mono">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Skontofrist / Stichtag:</span>
+                  <span id="p-skonto-date" class="font-mono font-bold text-emerald-800">10 Tage (-- )</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Nettozahlungsziel / Fälligkeit:</span>
+                  <span id="p-netto-date" class="font-mono">30 Tage (-- )</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">2. Effektivverzinsung &amp; Bankvergleich</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Gewährter Skontosatz:</span>
+                  <span id="p-skonto-rate" class="font-mono font-bold text-emerald-700">2,0 %</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Lieferantenkredit-Zeitraum:</span>
+                  <span id="p-diff-days" class="font-mono font-bold">20 Tage</span>
+                </div>
+                <div class="flex justify-between border-t border-slate-200 pt-1 text-amber-900 font-bold">
+                  <span>Effektivzins Lieferant (p.a.):</span>
+                  <span id="p-effektiv-rate" class="font-mono text-[11px]">36,73 % p.a.</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Sollzins Banklinie (p.a.):</span>
+                  <span id="p-bank-rate" class="font-mono">11,5 % p.a.</span>
+                </div>
+                <div class="flex justify-between border-t border-slate-200 pt-1 text-emerald-900 font-bold">
+                  <span>Netto-Finanzvorteil:</span>
+                  <span id="p-net-saving" class="font-mono text-[11px]">+68,69 €</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="mb-4">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5">3. Wirtschaftlichkeitsvergleich der Zahlungsarten</div>
+            <table class="w-full text-left text-[9.5px] border border-slate-200 rounded">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-1.5">Zahlungsweg</th>
+                  <th class="p-1.5">Zahlbetrag</th>
+                  <th class="p-1.5">Finanzierungskosten</th>
+                  <th class="p-1.5 text-right">Endergebnis / Vorteil</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="p-1.5 font-bold text-emerald-800">A. Skontoabzug aus freiem Guthaben</td>
+                  <td class="p-1.5 font-mono" id="p-tbl-opt1-paid">4.900,00 €</td>
+                  <td class="p-1.5 font-mono text-slate-500">0,00 €</td>
+                  <td class="p-1.5 text-right font-mono font-bold text-emerald-700" id="p-tbl-opt1-prof">+100,00 € Ersparnis</td>
+                </tr>
+                <tr class="bg-emerald-50/40">
+                  <td class="p-1.5 font-bold text-teal-900">B. Skontoabzug über Kontokorrentlinie</td>
+                  <td class="p-1.5 font-mono" id="p-tbl-opt2-paid">4.900,00 €</td>
+                  <td class="p-1.5 font-mono text-rose-700" id="p-tbl-opt2-int">-31,31 € Zinsen</td>
+                  <td class="p-1.5 text-right font-mono font-bold text-teal-800" id="p-tbl-opt2-prof">+68,69 € Netto-Gewinn</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-bold text-slate-700">C. Vollzahlung am Fälligkeitstag (Nettoziel)</td>
+                  <td class="p-1.5 font-mono" id="p-tbl-opt3-paid">5.000,00 €</td>
+                  <td class="p-1.5 font-mono text-rose-700" id="p-tbl-opt3-eff">36,73 % Effektivzins</td>
+                  <td class="p-1.5 text-right font-mono text-slate-500">0,00 € (Kreditverlust)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tax Correction & Booking -->
+          <div class="border border-slate-200 rounded-xl p-3 bg-slate-50 mb-4 text-[9.5px]">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1">4. Steuerliche Korrekturbuchung (§ 17 UStG / Art. 41 MWSTG)</div>
+            <div class="grid grid-cols-3 gap-2 font-mono">
+              <div>Minderung Nettobetrag: <strong id="p-tax-net">84,03 €</strong></div>
+              <div>Vorsteuer-/USt-Korrektur: <strong id="p-tax-ust">15,97 €</strong></div>
+              <div>Brutto-Zahlungsdifferenz: <strong id="p-tax-brut">100,00 €</strong></div>
+            </div>
+            <div class="text-[8.5px] text-slate-500 mt-1 italic">
+              Buchungshinweis: Skontoertrag auf entsprechendes Automatikkonto buchen (z. B. SKR03: 3736 / SKR04: 5736). Die USt-Korrektur erfolgt automatisch.
+            </div>
+          </div>
+
+          <!-- Signatures -->
+          <div class="border-t border-slate-300 pt-4 mt-6">
+            <div class="grid grid-cols-2 gap-8 text-[9px]">
+              <div>
+                <div class="border-b border-slate-400 pb-1 mb-1 font-mono text-slate-600">
+                  <span id="p-sign-date">Ort, Datum: </span>
+                </div>
+                <div class="text-[8.5px] text-slate-500">Sachliche &amp; rechnerische Richtigkeit (Buchhaltung)</div>
+              </div>
+              <div>
+                <div class="border-b border-slate-400 pb-1 mb-1 font-mono text-slate-600 h-5"></div>
+                <div class="text-[8.5px] text-slate-500">Freigabe zur Zahlung (Geschäftsführung / CFO)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-[8px] text-slate-400 text-center mt-6 pt-2 border-t border-slate-100">
+            Erstellt mit DACH Digitalwerk Skontorechner • 100% Client-Side • Kaufmännische Zinsformel nach HGB / UGB / OR
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO / EDUCATIONAL CONTENT SECTION -->
+    <section class="mt-16 pt-12 border-t border-slate-200 space-y-12 no-print">
+      <div>
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
+          Häufig gestellte Fragen zu Skonto, Effektivzins &amp; Lieferantenkredit
+        </h2>
+        <p class="text-sm text-slate-600 mb-8 max-w-2xl">
+          Wissenswertes für Einkäufer, Buchhalter und Unternehmer im DACH-Raum.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-lg">
+              🧮
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Die Effektivzins-Formel</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Die mathematische Standardformel lautet: <code>Effektivzins p.a. = (Skonto% / (100 - Skonto%)) × (360 / (Nettoziel - Skontofrist)) × 100</code>. Bei 3 % Skonto innerhalb 10 Tagen und 30 Tagen Nettoziel ergibt sich ein astronomischer Zinssatz von rund 55,7 % p.a.!
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold text-lg">
+              🏦
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Skonto trotz Bankkredit?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Ja, fast immer! Selbst wenn der Kontokorrentkredit der Bank 11 % bis 14 % p.a. kostet, ist dieser Zinssatz nur für den kurzen Zeitraum (z. B. 20 Tage) fällig. Die Skontoersparnis (z.B. 2 % = ~36,7 % p.a.) übersteigt die Bankzinsen um ein Vielfaches.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg">
+              ⚖️
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Vorsteuerkorrektur § 17 UStG</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Gemäß § 17 Abs. 1 UStG in Deutschland bzw. Österreich und Art. 41 MWSTG in der Schweiz mindert der Skontoabzug rückwirkend das Entgelt. Der Unternehmer muss die gezogene Vorsteuer exakt um den im Skontobetrag enthaltenen Steueranteil kürzen.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Links Section -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span>📚</span>
+          <span>Vertiefende B2B-Ratgeber zu Skonto &amp; Liquidität</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-6 max-w-2xl">
+          Lesen Sie unsere praxisorientierten Fachartikel zur kaufmännischen Rechnungsprüfung und Skontobuchung:
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="../skonto-berechnen-formel-effektivzins.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 1:</span>
+            <div class="text-sm font-bold text-slate-100">Skonto berechnen Formel &amp; Effektivzins</div>
+            <p class="text-[11px] text-slate-400 mt-2">Detaillierte Zinsformel, 360-Tage-Methode &amp; Rechenbeispiele für den Einkauf.</p>
+          </a>
+
+          <a href="../lieferantenkredit-kontokorrentkredit-vergleich.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 2:</span>
+            <div class="text-sm font-bold text-slate-100">Lieferantenkredit vs. Kontokorrentkredit</div>
+            <p class="text-[11px] text-slate-400 mt-2">Warum Skontoabzug fast immer lohnt, selbst wenn das Geschäftskonto im Minus ist.</p>
+          </a>
+
+          <a href="../skonto-buchen-vorsteuerkorrektur-ustg.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 3:</span>
+            <div class="text-sm font-bold text-slate-100">Skonto richtig buchen &amp; § 17 UStG</div>
+            <p class="text-[11px] text-slate-400 mt-2">Vorsteuerberichtigung, Buchungssätze für SKR03/SKR04 &amp; Schweizer MWST-Praxis.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / § 5 StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein mathematisches und kaufmännisches Hilfswerkzeug zur Berechnung finanzmathematischer Kennzahlen (Skonto, Effektivzins, Zinskosten) nach HGB, UGB und Schweizer OR. Es wird ausdrücklich <strong>keine Rechts- oder Steuerberatung</strong> erbracht. Für die bucherische und steuerliche Erfassung ist allein der Anwender verantwortlich. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">AGB</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+      
+      <div class="text-center space-y-2 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-700 text-white flex items-center justify-center text-xl font-bold mx-auto shadow-md shadow-emerald-500/20">
+          ⭐
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">DACH B2B Finanzen &amp; Skonto Pro freischalten</h3>
+        <p class="text-xs text-slate-500">
+          Einmalig 4,90 € / CHF • Batch-Rechner für Rechnungsstapel &amp; Excel-Export
+        </p>
+      </div>
+
+      <div class="space-y-3 mb-6 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Stapel-Skontorechner (Batch-Modus):</strong> Beliebig viele Eingangsrechnungen auf einmal auswerten.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Excel-Finanzierungsplan:</strong> Fertige Excel-Vorlage für die tägliche Zahlungsdisposition.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>100% DSGVO-Sicherheit:</strong> Läuft dauerhaft lokal ohne Abo.</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <a id="modal-gumroad-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-700 hover:from-emerald-500 hover:to-teal-600 text-white font-extrabold rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Auf Gumroad für 4,90 € freischalten</span>
+          <span>→</span>
+        </a>
+
+        <div class="text-center">
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Oder Gutscheincode einlösen</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="Gutscheincode eingeben..." class="flex-1 px-3 py-2 bg-slate-100 border border-slate-300 rounded-lg text-slate-900 text-xs uppercase font-mono focus:outline-none focus:border-emerald-500">
+          <button onclick="redeemVoucher()" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition">Einlösen</button>
+        </div>
+        <p id="voucher-error" class="text-rose-600 text-[11px] text-center hidden font-bold"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CALCULATION ENGINE -->
+  <script>
+    let currentCountry = 'DE'; // 'DE' | 'AT' | 'CH'
+    let isProUnlocked = false;
+
+    const COUNTRY_SETTINGS = {
+      DE: {
+        currency: '€',
+        badge: 'DEUTSCHLAND (HGB/UStG)',
+        heroText: 'Kaufmännische Zinsmathematik • Effektivzinssatz nach HGB & § 17 UStG',
+        defaultTax: 19
+      },
+      AT: {
+        currency: '€',
+        badge: 'ÖSTERREICH (UGB/UStG)',
+        heroText: 'Kaufmännische Zinsmathematik • Effektivzinssatz nach UGB & § 16 UStG',
+        defaultTax: 20
+      },
+      CH: {
+        currency: 'CHF',
+        badge: 'SCHWEIZ (OR/MWSTG)',
+        heroText: 'Kaufmännische Zinsmathematik • Effektivzinssatz nach OR & Art. 41 MWSTG',
+        defaultTax: 8.1
+      }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['de', 'at', 'ch'].forEach(id => {
+        const btn = document.getElementById('btn-c-' + id);
+        if (id.toUpperCase() === c) {
+          btn.className = 'px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-600 text-white transition';
+        } else {
+          btn.className = 'px-2.5 py-0.5 rounded text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      const cfg = COUNTRY_SETTINGS[c];
+      document.getElementById('cur-symbol-1').textContent = cfg.currency;
+      document.getElementById('hero-badge').textContent = cfg.heroText;
+      document.getElementById('print-country-badge').textContent = cfg.badge;
+
+      // Select default tax
+      const taxSel = document.getElementById('inp-tax-rate');
+      taxSel.value = cfg.defaultTax.toString();
+
+      runCalculation();
+    }
+
+    function formatNumber(num, cur) {
+      return num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + cur;
+    }
+
+    function runCalculation() {
+      const cur = COUNTRY_SETTINGS[currentCountry].currency;
+      const grossAmount = Math.max(0, parseFloat(document.getElementById('inp-invoice-amount').value) || 0);
+      const taxRate = Math.max(0, parseFloat(document.getElementById('inp-tax-rate').value) || 0);
+      const skontoPct = Math.max(0, parseFloat(document.getElementById('inp-skonto-pct').value) || 0);
+      const skontoDays = Math.max(1, parseInt(document.getElementById('inp-skonto-days').value) || 10);
+      const nettoDays = Math.max(skontoDays + 1, parseInt(document.getElementById('inp-netto-days').value) || 30);
+      const bankRate = Math.max(0, parseFloat(document.getElementById('inp-bank-rate').value) || 0);
+
+      const invDateStr = document.getElementById('inp-invoice-date').value;
+      const invDate = invDateStr ? new Date(invDateStr) : new Date();
+
+      // Calculation logic
+      const diffDays = Math.max(1, nettoDays - skontoDays);
+      const skontoAmount = grossAmount * (skontoPct / 100.0);
+      const paymentWithSkonto = Math.max(0, grossAmount - skontoAmount);
+
+      // Effektivzinsformel: (Skonto% / (100 - Skonto%)) * (360 / Tage) * 100
+      let effektivZins = 0;
+      if (skontoPct > 0 && skontoPct < 100 && diffDays > 0) {
+        effektivZins = (skontoPct / (100.0 - skontoPct)) * (360.0 / diffDays) * 100.0;
+      }
+
+      // Kontokorrent Zinskosten: (Zahlbetrag * Bankzins * Tage) / (100 * 360)
+      const bankInterest = (paymentWithSkonto * (bankRate / 100.0) * diffDays) / 360.0;
+      const netBenefit = skontoAmount - bankInterest;
+
+      // Dates
+      const dateSkonto = new Date(invDate);
+      dateSkonto.setDate(dateSkonto.getDate() + skontoDays);
+      const dateNetto = new Date(invDate);
+      dateNetto.setDate(dateNetto.getDate() + nettoDays);
+
+      const dSkontoStr = dateSkonto.toLocaleDateString('de-DE');
+      const dNettoStr = dateNetto.toLocaleDateString('de-DE');
+
+      // Tax split
+      const nettoFactor = 1.0 + (taxRate / 100.0);
+      const skontoNetto = skontoAmount / nettoFactor;
+      const skontoTax = skontoAmount - skontoNetto;
+
+      // Update UI KPI Counters
+      document.getElementById('kpi-skonto-amount').textContent = formatNumber(skontoAmount, cur);
+      document.getElementById('kpi-effektiv-rate').textContent = `${effektivZins.toFixed(1).replace('.', ',')} % p.a.`;
+      document.getElementById('kpi-bank-interest').textContent = formatNumber(bankInterest, cur);
+      document.getElementById('kpi-net-benefit').textContent = (netBenefit >= 0 ? '+' : '') + formatNumber(netBenefit, cur);
+
+      // Update Date Helper Box
+      document.getElementById('lbl-date-skonto').textContent = `${dSkontoStr} (${skontoDays} Tage)`;
+      document.getElementById('lbl-date-netto').textContent = `${dNettoStr} (${nettoDays} Tage)`;
+      document.getElementById('lbl-diff-days').textContent = `${diffDays} Tage`;
+
+      // Update 3 Options Cards
+      document.getElementById('res-opt1-paid').textContent = formatNumber(paymentWithSkonto, cur);
+      document.getElementById('res-opt1-days').textContent = `${skontoDays} Tagen`;
+      document.getElementById('res-opt1-profit').textContent = `+${formatNumber(skontoAmount, cur)}`;
+
+      document.getElementById('res-opt2-paid').textContent = formatNumber(paymentWithSkonto, cur);
+      document.getElementById('res-opt2-rate').textContent = `${bankRate.toFixed(1).replace('.', ',')}%`;
+      document.getElementById('res-opt2-interest').textContent = formatNumber(bankInterest, cur);
+      document.getElementById('res-opt2-profit').textContent = `${netBenefit >= 0 ? '+' : ''}${formatNumber(netBenefit, cur)}`;
+
+      document.getElementById('res-opt3-paid').textContent = formatNumber(grossAmount, cur);
+      document.getElementById('res-opt3-days').textContent = `${nettoDays}. Tag`;
+      document.getElementById('res-opt3-rate').textContent = `${effektivZins.toFixed(1).replace('.', ',')} % p.a.`;
+
+      // Update Breakdown Table
+      document.getElementById('tbl-brutto').textContent = formatNumber(grossAmount, cur);
+      document.getElementById('tbl-skonto-val').textContent = `-${formatNumber(skontoAmount, cur)}`;
+      document.getElementById('tbl-pay-val').textContent = formatNumber(paymentWithSkonto, cur);
+      document.getElementById('tbl-effektiv-val').textContent = `${effektivZins.toFixed(2).replace('.', ',')} % p.a.`;
+      document.getElementById('tbl-days-val').textContent = `${diffDays} Tage`;
+      document.getElementById('tbl-interest-val').textContent = `-${formatNumber(bankInterest, cur)}`;
+      document.getElementById('tbl-net-benefit-val').textContent = `${netBenefit >= 0 ? '+' : ''}${formatNumber(netBenefit, cur)}`;
+
+      // Update Tax Box
+      document.getElementById('lbl-tax-basis').textContent = `USt-Satz: ${taxRate} %`;
+      document.getElementById('tax-netto-minderung').textContent = formatNumber(skontoNetto, cur);
+      document.getElementById('tax-ust-minderung').textContent = formatNumber(skontoTax, cur);
+      document.getElementById('tax-brutto-minderung').textContent = formatNumber(skontoAmount, cur);
+
+      // Quick Recommendation Card
+      const recTitle = document.getElementById('quick-rec-title');
+      const recDesc = document.getElementById('quick-rec-desc');
+      if (effektivZins > bankRate) {
+        recTitle.textContent = "Skonto ziehen – selbst mit teurem Bankkredit!";
+        recDesc.innerHTML = `Der effektive Jahreszins des Lieferantenkredits (<strong>${effektivZins.toFixed(1).replace('.', ',')} % p.a.</strong>) übersteigt Ihren Kontokorrentzins (<strong>${bankRate.toFixed(1).replace('.', ',')} % p.a.</strong>) um das <strong>${(effektivZins / (bankRate || 1)).toFixed(1)}</strong>-Fache. Durch die Zwischenfinanzierung erzielen Sie einen garantierten Reingewinn von <strong>+${formatNumber(netBenefit, cur)}</strong>.`;
+      } else {
+        recTitle.textContent = "Zahlungsziel ausnutzen (Ausnahme)";
+        recDesc.innerHTML = `Ihr Bankzins liegt ausnahmsweise über dem Skonto-Effektivzins. In diesem seltenen Fall ist die volle Ausnutzung des Zahlungsziels rechnerisch günstiger als eine teurere Kreditaufnahme.`;
+      }
+
+      // Update Print Preview Sheet
+      document.getElementById('print-date').textContent = 'Erstellt am: ' + new Date().toLocaleDateString('de-DE');
+      document.getElementById('p-inv-gross').textContent = formatNumber(grossAmount, cur);
+      document.getElementById('p-inv-tax').textContent = `${taxRate} %`;
+      document.getElementById('p-inv-date').textContent = invDate.toLocaleDateString('de-DE');
+      document.getElementById('p-skonto-date').textContent = `${skontoDays} Tage (${dSkontoStr})`;
+      document.getElementById('p-netto-date').textContent = `${nettoDays} Tage (${dNettoStr})`;
+      document.getElementById('p-skonto-rate').textContent = `${skontoPct.toFixed(1).replace('.', ',')} %`;
+      document.getElementById('p-diff-days').textContent = `${diffDays} Tage`;
+      document.getElementById('p-effektiv-rate').textContent = `${effektivZins.toFixed(2).replace('.', ',')} % p.a.`;
+      document.getElementById('p-bank-rate').textContent = `${bankRate.toFixed(1).replace('.', ',')} % p.a.`;
+      document.getElementById('p-net-saving').textContent = `${netBenefit >= 0 ? '+' : ''}${formatNumber(netBenefit, cur)}`;
+
+      document.getElementById('p-tbl-opt1-paid').textContent = formatNumber(paymentWithSkonto, cur);
+      document.getElementById('p-tbl-opt1-prof').textContent = `+${formatNumber(skontoAmount, cur)} Ersparnis`;
+      document.getElementById('p-tbl-opt2-paid').textContent = formatNumber(paymentWithSkonto, cur);
+      document.getElementById('p-tbl-opt2-int').textContent = `-${formatNumber(bankInterest, cur)} Zinsen`;
+      document.getElementById('p-tbl-opt2-prof').textContent = `${netBenefit >= 0 ? '+' : ''}${formatNumber(netBenefit, cur)} Netto`;
+      document.getElementById('p-tbl-opt3-paid').textContent = formatNumber(grossAmount, cur);
+      document.getElementById('p-tbl-opt3-eff').textContent = `${effektivZins.toFixed(1).replace('.', ',')} % p.a.`;
+
+      document.getElementById('p-tax-net').textContent = formatNumber(skontoNetto, cur);
+      document.getElementById('p-tax-ust').textContent = formatNumber(skontoTax, cur);
+      document.getElementById('p-tax-brut').textContent = formatNumber(skontoAmount, cur);
+      document.getElementById('p-sign-date').textContent = 'Ort, Datum: ' + new Date().toLocaleDateString('de-DE');
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckansicht').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal & Voucher Logic
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'SKONTO2026', 'FINANZ2026', 'GUMROAD', 'AUTO2026'];
+      if (validCodes.includes(val)) {
+        isProUnlocked = true;
+        closeCheckoutModal();
+        alert("DACH B2B Finanzen & Skonto Pro-Paket 2026 erfolgreich freigeschaltet!");
+        const btn = document.getElementById('header-unlock-btn');
+        if (btn) {
+          btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+          btn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+          btn.onclick = null;
+        }
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Gutscheincode. Bitte prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Init on load
+    window.addEventListener('DOMContentLoaded', () => {
+      // Set today's date
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('inp-invoice-date').value = today;
+      runCalculation();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Grenzgänger-, Quellensteuer- & Wochenaufenthalter-Optimierer 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Interaktiver Grenzgänger-Rechner Schweiz-Deutschland (Art. 15a DBA) & CH-AT. Brutto-Netto in CHF & EUR, 4,5 % Quellensteuer, 60-Tage-Regel (Gre-3), Homeoffice-Ampel, Wochenaufenthalter-Vergleich & DIN-A4 Steuerdossier." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/brutto-netto-grenzgaenger/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DACH Grenzgänger- & Quellensteuer-Optimierer 2026 (CH-DE / CH-AT)" />
+  <meta property="og:description" content="Brutto-Netto-Vergleich in CHF und EUR, 4,5 % vs. reguläre Schweizer Quellensteuer, 60-Tage-Regel (Gre-3) Simulation, Homeoffice-Ampel und druckfertiger DIN-A4 Steuerfahrplan." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    // =========================================================================
+    // KONFIGURATION: GUMROAD PRO CHECKOUT
+    // =========================================================================
+    window.DIGITALWERK_CHECKOUT_URL = window.DIGITALWERK_CHECKOUT_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 18mm 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always;
+      }
+      .a4-sheet:last-child {
+        page-break-after: auto;
+      }
+    }
+    .tab-active {
+      background-color: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-color: #cbd5e1;
+    }
+    .tab-inactive {
+      background-color: transparent;
+      color: #64748b;
+    }
+    .tab-inactive:hover {
+      color: #0f172a;
+      background-color: #f1f5f9;
+    }
+  </style>
+
+  <!-- Schema.org WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Grenzgänger-, Quellensteuer- & Wochenaufenthalter-Optimierer 2026",
+    "description": "Brutto-Netto Rechner für Grenzgänger Schweiz-Deutschland und Schweiz-Österreich nach Art. 15a DBA, 4.5% Quellensteuer, 60-Tage-Regel Gre-3 und Homeoffice-Ampel.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "4.90",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Gehalts- & Steuerberechnungen erfolgen rein lokal im Browser (Zero-Server-Speicherung).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsstand:</span>
+        <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-slate-900 border border-slate-700 text-amber-300">
+          DBA 2026 • Multilaterales Rahmenabkommen 49,9%
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-rose-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          🇨🇭
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Grenzgänger- & Quellensteuer-Optimierer</span>
+            <span id="pro-badge" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">CH ⇄ DE (Art. 15a DBA) • CH ⇄ AT • 60-Tage-Regel (Gre-3) • Wochenaufenthalter • Homeoffice-Ampel</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../arbeitszeugnis/" class="hidden md:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>📄 Arbeitszeugnis</span>
+        </a>
+        <a href="../qr-suite/" class="hidden lg:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🧾 Swiss QR & E-Rechnung</span>
+        </a>
+        <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>⚡</span>
+          <span id="header-btn-text">Pro-Dossier (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH INTERACTIVE 1-CLICK PRESETS -->
+  <section class="bg-gradient-to-b from-slate-950 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 text-xs font-bold mb-3">
+          <span>🇨🇭 🇩🇪 🇦🇹 Berechnungen nach DBA Art. 15a & Sozialversicherungs-Rahmenabkommen</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          Wie viel bleibt von Ihrem <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-indigo-300">Schweizer Gehalt</span> wirklich netto übrig?
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Vergleichen Sie in Echtzeit: <strong>4,5 % CH-Quellensteuer</strong> mit Versteuerung in Deutschland vs. <strong>60-Tage-Regel (Formular Gre-3)</strong> mit rein Schweizer Besteuerung vs. <strong>Wochenaufenthalter</strong> vs. <strong>Vollumzug</strong>.
+        </p>
+      </div>
+
+      <!-- 3 FAST 1-CLICK DEMOS -->
+      <div class="mt-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+          <span>🎯 Schnellstart: Typischen Fall mit 1 Klick simulieren</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <!-- Preset 1 -->
+          <button onclick="loadPreset('it_zh')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-indigo-500/40 hover:border-indigo-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 flex items-center justify-center text-lg shrink-0 mt-0.5">💻</span>
+            <div>
+              <div class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Fall 1 • Zürich / Konstanz</div>
+              <div class="text-sm font-bold text-white group-hover:text-indigo-200 transition">IT-Senior / Ingenieur 120.000 CHF</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Täglicher Grenzgänger (4,5 % CH-Abzug + DE ESt), StKl. I, Schweizer KVG-Optionsrecht.</div>
+            </div>
+          </button>
+
+          <!-- Preset 2 -->
+          <button onclick="loadPreset('pharma_bs')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 flex items-center justify-center text-lg shrink-0 mt-0.5">💊</span>
+            <div>
+              <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Fall 2 • Basel / Lörrach / Freiburg</div>
+              <div class="text-sm font-bold text-white group-hover:text-emerald-200 transition">Pharma-Experte 145.000 CHF (>60 Tage Gre-3)</div>
+              <div class="text-[11px] text-emerald-300 font-semibold mt-0.5">60-Tage-Regel aktiviert: +18.420 € Nettoersparnis pro Jahr durch Schweizer Quellensteuer!</div>
+            </div>
+          </button>
+
+          <!-- Preset 3 -->
+          <button onclick="loadPreset('care_sg')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-rose-500/40 hover:border-rose-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/30 text-rose-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🏥</span>
+            <div>
+              <div class="text-xs font-bold text-rose-300 uppercase tracking-wider">Fall 3 • Ostschweiz / Bodensee</div>
+              <div class="text-sm font-bold text-white group-hover:text-rose-200 transition">Pflegefachkraft / Spital 85.000 CHF</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Wohnsitz Lindau / Bregenz, StKl. I, KVG-Optionsrecht vs. GKV-Pflichtprüfung.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <div class="bg-white border-b border-slate-200 sticky top-16 z-20 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex space-x-2 sm:space-x-4 py-2.5 overflow-x-auto">
+        <button onclick="switchTab('calculator')" id="tab-btn-calculator" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 tab-active border">
+          <span>🧮</span>
+          <span>1. Brutto-Netto- & Steuerrechner</span>
+        </button>
+        <button onclick="switchTab('optimizer')" id="tab-btn-optimizer" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 tab-inactive border border-transparent">
+          <span>⚖️</span>
+          <span>2. 4-Modell-Vergleich & Homeoffice-Ampel</span>
+        </button>
+        <button onclick="switchTab('dossier')" id="tab-btn-dossier" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 tab-inactive border border-transparent">
+          <span>📑</span>
+          <span>3. DIN-A4 Pro-Steuerdossier & Gesuche</span>
+          <span class="bg-rose-100 text-rose-700 text-[10px] font-extrabold px-1.5 py-0.5 rounded-full">Pro</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- ===================================================================== -->
+    <!-- TAB 1: BRUTTO-NETTO- & STEUER-RECHNER -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-calculator" class="space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT INPUT COLUMN (5 COLS) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>⚙️ Parameter & Anstellungsdaten 2026</span>
+              </h2>
+              <span class="text-[11px] text-slate-500 font-mono">DBA Art. 15a</span>
+            </div>
+
+            <div class="p-4 sm:p-5 space-y-4">
+              <!-- Korridor & Währungskurs -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Korridor</label>
+                  <select id="inp-corridor" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="CH-DE">🇨🇭 Schweiz ⇄ 🇩🇪 Deutschland</option>
+                    <option value="CH-AT">🇨🇭 Schweiz ⇄ 🇦🇹 Österreich</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Umrechnungskurs (1 EUR in CHF)</label>
+                  <input type="number" id="inp-fx-rate" step="0.01" value="0.96" oninput="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-mono font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600" />
+                  <span class="text-[10px] text-slate-400">1 CHF ≈ <span id="fx-inv-label">1.04</span> EUR</span>
+                </div>
+              </div>
+
+              <!-- Bruttojahresgehalt in CHF -->
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <label class="text-[11px] font-bold text-slate-700">Bruttojahreslohn Schweiz (inkl. 13. & Bonus)</label>
+                  <span class="text-xs font-extrabold text-indigo-600 font-mono" id="label-gross-chf">120.000 CHF</span>
+                </div>
+                <input type="range" id="inp-gross-slider" min="50000" max="300000" step="1000" value="120000" oninput="syncGrossFromSlider()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" />
+                <div class="flex items-center gap-2 mt-2">
+                  <span class="text-xs text-slate-500">Direkteingabe:</span>
+                  <input type="number" id="inp-gross-chf" step="500" value="120000" oninput="syncGrossFromInput()" class="flex-1 px-3 py-1.5 text-xs border border-slate-300 rounded-xl bg-white font-mono font-bold focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600" />
+                  <span class="text-xs text-slate-500 font-medium">CHF/Jahr</span>
+                </div>
+              </div>
+
+              <!-- Kanton Schweizer Arbeitgeber & Alter -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Kanton Schweizer Arbeitgeber</label>
+                  <select id="inp-canton" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="ZH">Zürich (ZH)</option>
+                    <option value="BS">Basel-Stadt (BS)</option>
+                    <option value="AG">Aargau (AG)</option>
+                    <option value="SG">St. Gallen (SG)</option>
+                    <option value="TG">Thurgau (TG)</option>
+                    <option value="SH">Schaffhausen (SH)</option>
+                    <option value="ZG">Zug (ZG - Tiefsteuer)</option>
+                    <option value="GE">Genf (GE)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Alter des Arbeitnehmers (BVG)</label>
+                  <select id="inp-age" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="under25">&lt; 25 Jahre (nur Risiko 0,8%)</option>
+                    <option value="25-34" selected>25–34 Jahre (BVG ~3,5%)</option>
+                    <option value="35-44">35–44 Jahre (BVG ~5,0%)</option>
+                    <option value="45-54">45–54 Jahre (BVG ~7,5%)</option>
+                    <option value="55-65">55–65 Jahre (BVG ~9,0%)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Steuerklasse & Familienstand -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Steuerklasse Wohnsitz</label>
+                  <select id="inp-tax-class" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="1">Klasse I (Ledig / Single)</option>
+                    <option value="2">Klasse II (Alleinerziehend)</option>
+                    <option value="3">Klasse III (Verheiratet / Alleinverd.)</option>
+                    <option value="4">Klasse IV (Verheiratet / Doppelverd.)</option>
+                    <option value="5">Klasse V (Verheiratet / Zweitverd.)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Kinderfreibeträge</label>
+                  <select id="inp-children" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="0">Keine Kinder (0)</option>
+                    <option value="1">1 Kind (1,0)</option>
+                    <option value="2">2 Kinder (2,0)</option>
+                    <option value="3">3 oder mehr Kinder</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Kirchensteuer & Krankenversicherung -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Kirchensteuer</label>
+                  <select id="inp-church" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="0">Keine Kirchensteuer (0%)</option>
+                    <option value="8" selected>Baden-Württemberg / Bayern (8%)</option>
+                    <option value="9">Übrige Bundesländer (9%)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-bold text-slate-700 mb-1">Krankenversicherung</label>
+                  <select id="inp-health" onchange="recalculateAll()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white font-medium focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
+                    <option value="kvg_optionsrecht" selected>🇨🇭 CH-KVG Optionsrecht (~220 CHF)</option>
+                    <option value="de_gkv">🇩🇪 DE freiwillig GKV (max. ~1.015 €)</option>
+                    <option value="de_pkv">🇩🇪 DE Private PKV (~480 €)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Pendeldistanz & Nichtrückkehrtage (Gre-3) -->
+              <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <div class="flex items-center justify-between">
+                  <label class="text-[11px] font-bold text-slate-800">Einfache Pendelstrecke (Wohnort ⇄ Arbeitsplatz)</label>
+                  <span class="text-xs font-mono font-bold text-slate-700" id="label-distance">35 km</span>
+                </div>
+                <input type="range" id="inp-distance-slider" min="5" max="180" step="1" value="35" oninput="syncDistance()" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" />
+                <span class="text-[10px] text-slate-500 block">Werbungskostenabzug (Pendlerpauschale): 0,30 € bis 20 km, 0,38 € ab km 21 für 220 Arbeitstage.</span>
+              </div>
+
+              <!-- 60-TAGE-REGEL SLIDER -->
+              <div class="p-4 bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl border border-amber-200 space-y-2.5">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-sm">🛫</span>
+                    <label class="text-xs font-bold text-amber-950">Berufliche Nichtrückkehrtage (Formular Gre-3)</label>
+                  </div>
+                  <span class="text-xs font-mono font-extrabold px-2 py-0.5 rounded-lg bg-amber-200 text-amber-900" id="label-nonreturn-days">15 Tage</span>
+                </div>
+                <input type="range" id="inp-nonreturn-slider" min="0" max="100" step="1" value="15" oninput="syncNonReturn()" class="w-full h-2 bg-amber-200 rounded-lg appearance-none cursor-pointer accent-amber-600" />
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="text-slate-600">0 Tage (Standard)</span>
+                  <span class="font-bold text-amber-800 font-mono">Grenze: &gt; 60 Tage</span>
+                  <span class="text-slate-600">100 Tage</span>
+                </div>
+                <div id="gre3-hint-box" class="text-[11px] leading-relaxed text-amber-900 bg-white/70 p-2 rounded-lg border border-amber-200/60">
+                  <span class="font-bold">Aktueller Status:</span> <span id="gre3-status-text">Echter Grenzgänger (unter 60 Nichtrückkehrtagen). Besteuerung in DE mit Anrechnung von 4,5 % Schweizer Quellensteuer.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT OUTPUT COLUMN (7 COLS): BRUTTO-NETTO KPI & BREAKDOWN -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- BIG KPI BANNER -->
+          <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-7 shadow-xl border border-slate-800 relative overflow-hidden">
+            <div class="absolute -right-8 -bottom-8 w-44 h-44 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <span id="tax-regime-pill" class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                Echter Grenzgänger (Art. 15a DBA)
+              </span>
+              <span class="text-xs text-slate-300">Monatliche Netto-Auszahlung</span>
+            </div>
+
+            <!-- TWO BIG NETTO NUMBERS (CHF & EUR) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
+              <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4">
+                <div class="text-xs text-slate-400 font-medium">Echtes Monatsnetto in CHF</div>
+                <div class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-mono tracking-tight" id="kpi-net-chf">
+                  5.842 CHF
+                </div>
+                <div class="text-[11px] text-slate-400 mt-1" id="kpi-gross-chf-month">von 10.000 CHF Brutto</div>
+              </div>
+
+              <div class="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-4">
+                <div class="text-xs text-slate-400 font-medium">Echtes Monatsnetto in EUR</div>
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 mt-1 font-mono tracking-tight" id="kpi-net-eur">
+                  6.085 €
+                </div>
+                <div class="text-[11px] text-slate-400 mt-1" id="kpi-net-annual-eur">ca. 73.020 € Netto pro Jahr</div>
+              </div>
+            </div>
+
+            <!-- 60-DAY ALERT BANNER (IF GRE-3 ACTIVE) -->
+            <div id="gre3-win-banner" class="hidden mt-4 p-3.5 rounded-2xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-200 text-xs flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xl">🎉</span>
+                <div>
+                  <div class="font-extrabold text-white">60-Tage-Regel (Gre-3) aktiv!</div>
+                  <div class="text-[11px] text-emerald-300">Gehalt wird nur in der Schweiz quellenbesteuert. Deutsche ESt = 0 €!</div>
+                </div>
+              </div>
+              <div class="text-right shrink-0">
+                <div class="text-sm font-extrabold text-amber-300 font-mono" id="gre3-win-amount">+1.240 € / Mo.</div>
+                <div class="text-[10px] text-emerald-300">Mehr-Netto vs. Normalfall</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DETAILED BREAKDOWN ACCORDION / CARD -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-slate-100 bg-slate-50/80 flex items-center justify-between">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>📊 Detaillierte Abrechnung (Monatlich & Jährlich)</span>
+              </h3>
+              <div class="text-xs text-slate-500">Währung: CHF & EUR</div>
+            </div>
+
+            <div class="p-4 sm:p-5 space-y-4">
+              <!-- Item 1: Brutto -->
+              <div class="flex items-center justify-between py-2 border-b border-slate-100 text-xs sm:text-sm">
+                <span class="font-semibold text-slate-800">Schweizer Bruttolohn</span>
+                <div class="text-right font-mono">
+                  <div class="font-bold text-slate-900" id="row-gross-chf">10.000 CHF / Mo.</div>
+                  <div class="text-[11px] text-slate-400" id="row-gross-eur">10.417 € / Mo.</div>
+                </div>
+              </div>
+
+              <!-- Item 2: CH Sozialversicherungen -->
+              <div class="space-y-1.5 py-2 border-b border-slate-100">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-semibold text-rose-700">
+                  <span>- Schweizer Sozialabzüge Gesamt (<span id="row-sv-pct">13,4%</span>)</span>
+                  <div class="text-right font-mono font-bold" id="row-sv-total-chf">-1.340 CHF / Mo.</div>
+                </div>
+                <div class="pl-3 text-[11px] text-slate-500 space-y-0.5">
+                  <div class="flex justify-between">
+                    <span>• AHV / IV / EO (5,30%):</span>
+                    <span class="font-mono" id="row-sv-ahv">-530 CHF</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>• ALV Arbeitslosenkasse (1,10%):</span>
+                    <span class="font-mono" id="row-sv-alv">-110 CHF</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>• NBU Nichtbetriebsunfall (1,20%):</span>
+                    <span class="font-mono" id="row-sv-nbu">-120 CHF</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>• KTG Krankentaggeld (0,80%):</span>
+                    <span class="font-mono" id="row-sv-ktg">-80 CHF</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>• BVG Pensionskasse 2. Säule (<span id="row-bvg-pct">5,0%</span>):</span>
+                    <span class="font-mono font-semibold" id="row-sv-bvg">-500 CHF</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3: Steuern -->
+              <div class="space-y-1.5 py-2 border-b border-slate-100">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-semibold text-rose-800">
+                  <span id="row-tax-title">- Steuerabzüge Gesamt</span>
+                  <div class="text-right font-mono font-bold" id="row-tax-total-eur">-2.350 € / Mo.</div>
+                </div>
+                <div class="pl-3 text-[11px] text-slate-500 space-y-0.5" id="tax-subrows">
+                  <div class="flex justify-between" id="row-ch-source-wrap">
+                    <span>• Schweizer Quellensteuer (4,5% einbehalten in CH):</span>
+                    <span class="font-mono text-slate-700" id="row-ch-source-tax">-450 CHF (-469 €)</span>
+                  </div>
+                  <div class="flex justify-between" id="row-de-est-wrap">
+                    <span>• Deutsche Einkommensteuer (nach 4,5% CH-Anrechnung):</span>
+                    <span class="font-mono text-slate-700" id="row-de-est">-1.720 €</span>
+                  </div>
+                  <div class="flex justify-between" id="row-de-soli-church-wrap">
+                    <span>• Solidaritätszuschlag & Kirchensteuer:</span>
+                    <span class="font-mono text-slate-700" id="row-de-soli-church">-161 €</span>
+                  </div>
+                  <div class="flex justify-between text-amber-800 font-semibold" id="row-de-prepay-wrap">
+                    <span>• Vorauszahlung ans deutsche Finanzamt (pro Quartal):</span>
+                    <span class="font-mono" id="row-de-prepay-quarter">5.643 € / Quartal</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4: Krankenversicherung -->
+              <div class="flex items-center justify-between py-2 border-b border-slate-100 text-xs sm:text-sm font-semibold text-slate-700">
+                <span>- Krankenversicherung (<span id="row-kv-model-label">CH-KVG Optionsrecht</span>)</span>
+                <div class="text-right font-mono font-bold" id="row-kv-amount">-220 CHF (-229 €)</div>
+              </div>
+
+              <!-- TOTAL NET RESULT -->
+              <div class="flex items-center justify-between pt-2 text-sm sm:text-base font-extrabold text-slate-900 bg-emerald-50/70 p-3 rounded-xl border border-emerald-200">
+                <span>= Echter monatlicher Netto-Verdienst</span>
+                <div class="text-right font-mono">
+                  <div class="text-emerald-700 text-lg" id="row-net-total-eur">6.085 € / Monat</div>
+                  <div class="text-xs text-slate-500" id="row-net-total-chf">(entspricht 5.842 CHF)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MINI SCENARIO TEASER -->
+          <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-2xl border border-indigo-100 flex items-center justify-between gap-4">
+            <div>
+              <div class="text-xs font-bold text-indigo-950">Möchten Sie sehen, wie viel Sie als Wochenaufenthalter sparen?</div>
+              <div class="text-[11px] text-indigo-700 mt-0.5">Vergleichen Sie alle 4 Modelle inkl. Homeoffice-Ampel in unserem Szenario-Optimierer.</div>
+            </div>
+            <button onclick="switchTab('optimizer')" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl shrink-0 shadow-sm transition">
+              Zum 4-Modell-Vergleich →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 2: 4-MODELL-VERGLEICH & HOMEOFFICE-AMPEL -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-optimizer" class="hidden space-y-8">
+
+      <!-- HOMEOFFICE AMPEL SECTION -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-7">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Rechtssicherheit 2026</span>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 mt-0.5">🚦 Interaktive Homeoffice- & Telearbeit-Ampel</h2>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-mono font-bold">Multilaterales Rahmenabkommen Art. 16</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-bold text-slate-800">Geplante Homeoffice-Tage pro Woche</label>
+              <span class="text-sm font-extrabold font-mono text-indigo-600" id="ho-days-label">1 Tag / Woche (20%)</span>
+            </div>
+            <input type="range" id="inp-ho-slider" min="0" max="5" step="0.5" value="1" oninput="syncHomeoffice()" class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" />
+            <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+              <span>0 Tage (0%)</span>
+              <span>1 Tag (20%)</span>
+              <span>2 Tage (40%)</span>
+              <span class="text-rose-600 font-bold">2.5+ Tage (50%+)</span>
+            </div>
+          </div>
+
+          <!-- DYNAMIC STATUS CARD -->
+          <div class="lg:col-span-7">
+            <div id="ho-status-box" class="p-4 rounded-2xl border transition-all duration-300 bg-emerald-50 border-emerald-300">
+              <div class="flex items-start gap-3">
+                <span class="text-3xl" id="ho-status-icon">🟢</span>
+                <div class="space-y-1">
+                  <div class="text-sm font-extrabold text-emerald-950" id="ho-status-title">Grüner Bereich: Volle Schweizer Sozialversicherung gesichert</div>
+                  <div class="text-xs text-emerald-800 leading-relaxed" id="ho-status-desc">
+                    Mit bis zu 1 Tag pro Woche (unter 25 %) verbleibt die Sozialversicherungspflicht zu 100 % in der Schweiz (AHV/IV/ALV/BVG). Steuerlich bleibt Ihr Grenzgängerstatus (Art. 15a) uneingeschränkt intakt.
+                  </div>
+                  <div class="text-[11px] font-bold text-emerald-900 mt-1" id="ho-status-rule">
+                    ✓ Keine Sonderanträge notwendig • Grenzgängerkarte gültig
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-MODEL COMPARISON MATRIX -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="p-5 sm:p-6 border-b border-slate-100 bg-slate-50/80 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">⚖️ Großer 4-Modelle-Vergleich (Jahresrechnung)</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Basis: <span id="matrix-gross-label" class="font-bold text-slate-800">120.000 CHF Brutto</span> im Kanton <span id="matrix-canton-label" class="font-bold text-slate-800">Zürich</span></p>
+          </div>
+          <button onclick="switchTab('calculator')" class="text-xs text-indigo-600 font-bold hover:underline">
+            Parameter im Rechner anpassen ↗
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse min-w-[700px]">
+            <thead>
+              <tr class="bg-slate-900 text-white border-b border-slate-800 text-[11px] uppercase tracking-wider">
+                <th class="p-3.5 font-bold">Kriterium / Kostenblock</th>
+                <th class="p-3.5 font-bold bg-slate-800/90 text-indigo-300">Modell 1: Täglicher Grenzgänger</th>
+                <th class="p-3.5 font-bold bg-amber-950/40 text-amber-300 border-l border-amber-900/50">Modell 2: 60-Tage-Regel (Gre-3)</th>
+                <th class="p-3.5 font-bold bg-indigo-950/40 text-indigo-200 border-l border-indigo-900/50">Modell 3: Wochenaufenthalter</th>
+                <th class="p-3.5 font-bold bg-rose-950/40 text-rose-300 border-l border-rose-900/50">Modell 4: Vollumzug CH</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <!-- Row 1: Wohnsitz & Status -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3.5 font-bold text-slate-900">Wohnsitz & Steuerstatus</td>
+                <td class="p-3.5 text-slate-700">Wohnsitz DE (Zone)<br><span class="text-[11px] text-slate-500">Art. 15a DBA (tägliche Rückkehr)</span></td>
+                <td class="p-3.5 text-amber-900 bg-amber-50/30 border-l border-slate-200">Wohnsitz DE (&gt;60 Nichtrückkehrtage)<br><span class="text-[11px] text-amber-700">Besteuerung CH (Freistellung DE)</span></td>
+                <td class="p-3.5 text-indigo-950 bg-indigo-50/30 border-l border-slate-200">Hauptwohnsitz DE, Zimmer/Studio CH<br><span class="text-[11px] text-indigo-700">Gre-3 + Abzug Zweitwohnung/Fahrten</span></td>
+                <td class="p-3.5 text-rose-950 bg-rose-50/30 border-l border-slate-200">100% Schweiz (B-Bewilligung)<br><span class="text-[11px] text-rose-700">Volle CH-Steuern & KV</span></td>
+              </tr>
+
+              <!-- Row 2: Schweizer Sozialabgaben -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3.5 font-bold text-slate-900">Schweizer SV (AHV/ALV/BVG)</td>
+                <td class="p-3.5 font-mono text-slate-700" id="m-sv-m1">-16.080 CHF</td>
+                <td class="p-3.5 font-mono text-slate-700 bg-amber-50/30 border-l border-slate-200" id="m-sv-m2">-16.080 CHF</td>
+                <td class="p-3.5 font-mono text-slate-700 bg-indigo-50/30 border-l border-slate-200" id="m-sv-m3">-16.080 CHF</td>
+                <td class="p-3.5 font-mono text-slate-700 bg-rose-50/30 border-l border-slate-200" id="m-sv-m4">-16.080 CHF</td>
+              </tr>
+
+              <!-- Row 3: Steuern Gesamt (CH + DE) -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3.5 font-bold text-slate-900">Steuerbelastung Gesamt (Jahr)</td>
+                <td class="p-3.5 text-rose-700 font-mono font-bold" id="m-tax-m1">ca. 26.500 €</td>
+                <td class="p-3.5 text-emerald-700 font-mono font-bold bg-amber-50/30 border-l border-slate-200" id="m-tax-m2">ca. 14.800 CHF (15.416 €)</td>
+                <td class="p-3.5 text-emerald-700 font-mono font-bold bg-indigo-50/30 border-l border-slate-200" id="m-tax-m3">ca. 11.900 CHF (12.395 €)</td>
+                <td class="p-3.5 text-emerald-700 font-mono font-bold bg-rose-50/30 border-l border-slate-200" id="m-tax-m4">ca. 13.500 CHF (14.062 €)</td>
+              </tr>
+
+              <!-- Row 4: Krankenversicherung -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3.5 font-bold text-slate-900">Krankenversicherung (Jahr)</td>
+                <td class="p-3.5 font-mono text-slate-700" id="m-kv-m1">-2.640 CHF (KVG-Option)</td>
+                <td class="p-3.5 font-mono text-slate-700 bg-amber-50/30 border-l border-slate-200" id="m-kv-m2">-2.640 CHF (KVG-Option)</td>
+                <td class="p-3.5 font-mono text-slate-700 bg-indigo-50/30 border-l border-slate-200" id="m-kv-m3">-2.640 CHF (KVG-Option)</td>
+                <td class="p-3.5 font-mono text-rose-700 bg-rose-50/30 border-l border-slate-200" id="m-kv-m4">-4.500 CHF (CH-KVG regulär)</td>
+              </tr>
+
+              <!-- Row 5: Wohnen & Pendeln Mehrkosten -->
+              <tr class="hover:bg-slate-50">
+                <td class="p-3.5 font-bold text-slate-900">Wohnen / Zweitwohnung / Pendeln</td>
+                <td class="p-3.5 text-slate-600">Günstige DE-Miete, ca. 2.500 € Pendelkosten</td>
+                <td class="p-3.5 text-slate-600 bg-amber-50/30 border-l border-slate-200">Günstige DE-Miete, Dienstreisen durch AG erstattet</td>
+                <td class="p-3.5 text-slate-700 bg-indigo-50/30 border-l border-slate-200">-12.000 CHF Zweitwohnung (voll steuerlich abzugsfähig!)</td>
+                <td class="p-3.5 text-rose-700 bg-rose-50/30 border-l border-slate-200">-26.000 CHF hohe Schweizer Miete & Lebenskosten</td>
+              </tr>
+
+              <!-- Row 6: ECHTES NETTO PRO JAHR -->
+              <tr class="bg-slate-900 text-white font-extrabold text-sm sm:text-base">
+                <td class="p-4">Netto-Jahreseinkommen (nach Steuern, SV & Wohnen)</td>
+                <td class="p-4 font-mono text-indigo-300" id="m-net-m1">73.020 €</td>
+                <td class="p-4 font-mono text-amber-300 bg-slate-800 border-l border-slate-700" id="m-net-m2">84.100 € (+11.080 €)</td>
+                <td class="p-4 font-mono text-emerald-300 bg-slate-800 border-l border-slate-700" id="m-net-m3">81.400 € (+8.380 €)</td>
+                <td class="p-4 font-mono text-rose-300 bg-slate-800 border-l border-slate-700" id="m-net-m4">75.800 € (+2.780 €)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="p-4 bg-slate-50 border-t border-slate-200 text-xs text-slate-600 leading-relaxed flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-500 font-bold">💡 Insider-Erkenntnis:</span>
+            <span>Die <strong>60-Tage-Regel (Gre-3)</strong> und der <strong>internationale Wochenaufenthalt</strong> bringen im Vergleich zum täglichen Grenzgänger oft <strong>8.000 € bis 25.000 € mehr Netto pro Jahr</strong>, da der deutsche Spitzensteuersatz durch Schweizer Tarife ersetzt wird!</span>
+          </div>
+          <button onclick="switchTab('dossier')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-3.5 py-1.5 rounded-xl font-bold transition shrink-0">
+            Passendes Dossier generieren →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- TAB 3: PRO-GENERATOR & DIN-A4 DOSSIER -->
+    <!-- ===================================================================== -->
+    <div id="tab-content-dossier" class="hidden space-y-6">
+
+      <!-- TOOLBAR & ACTIONS -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 no-print">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">📑 Offizielles Grenzgänger-Steuer- & Behörden-Dossier 2026</h2>
+            <span id="dossier-status-pill" class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">Vorschau-Modus</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">Druckfertig für Finanzamt (Anlage N-Gre), Schweizer Arbeitgeber (Gre-3 Nachweis) und KVG-Befreiung (Optionsrecht).</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="handleProAction('print')" id="btn-print-dossier" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+            <span>🖨️ DIN-A4 Drucken / Als PDF speichern</span>
+          </button>
+          <button onclick="handleProAction('copy')" id="btn-copy-dossier" class="bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+            <span>📋 Text kopieren</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PERSONALISIERUNGS-INPUTS -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 no-print space-y-3">
+        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider">Angaben für das druckfertige Behördendossier:</div>
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Ihr Vor- & Nachname</label>
+            <input type="text" id="dossier-name" value="Michael Muster-Grenzgänger" oninput="renderDossier()" class="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-xl focus:border-indigo-600 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Wohnanschrift (DE / AT)</label>
+            <input type="text" id="dossier-address" value="Seestraße 45, 78462 Konstanz" oninput="renderDossier()" class="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-xl focus:border-indigo-600 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Schweizer Arbeitgeber & Ort</label>
+            <input type="text" id="dossier-employer" value="Swiss Tech & Pharma AG, Zürich" oninput="renderDossier()" class="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-xl focus:border-indigo-600 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-700 mb-1">Zuständiges deutsches Finanzamt</label>
+            <input type="text" id="dossier-finanzamt" value="Finanzamt Konstanz" oninput="renderDossier()" class="w-full px-3 py-1.5 text-xs border border-slate-300 rounded-xl focus:border-indigo-600 focus:outline-none" />
+          </div>
+        </div>
+      </div>
+
+      <!-- A4 DOSSIER WRAPPER WITH PRO BLUR OVERLAY -->
+      <div class="relative bg-slate-100 p-4 sm:p-6 rounded-3xl border border-slate-300">
+
+        <!-- BLUR / UNLOCK OVERLAY (VISIBLE UNTIL UNLOCKED) -->
+        <div id="dossier-locked-overlay" class="absolute inset-0 z-20 backdrop-blur-md bg-slate-900/60 rounded-3xl flex flex-col items-center justify-center p-6 text-center">
+          <div class="max-w-md bg-white text-slate-900 p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200 space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-2xl mx-auto font-bold">📑</div>
+            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900">
+              Ihr offizielles Grenzgänger-Steuerdossier 2026 freischalten
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Enthält alle 3 druckfertigen Dokumente: <strong>1. Steuer- & Abzugsplan für Anlage N-Gre & Vorsorgeaufwand</strong>, <strong>2. Arbeitgeber-Bestätigungsschreiben für 60-Tage-Regel (Gre-3)</strong> und <strong>3. KVG-Optionsrecht-Gesuch zur Befreiung</strong>.
+            </p>
+            <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white font-extrabold py-3.5 px-5 rounded-xl shadow-lg shadow-indigo-600/25 transition text-xs sm:text-sm">
+              🔓 Jetzt für 4,90 € / CHF sofort freischalten & drucken
+            </button>
+            <div class="pt-2">
+              <span class="text-[11px] text-slate-500">Haben Sie bereits einen Freischaltcode?</span>
+              <button onclick="promptVoucherCode()" class="text-[11px] text-indigo-600 font-bold hover:underline ml-1">
+                Code eingeben (z.B. DW-PRO-2026)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIVE A4 SHEET DISPLAY -->
+        <div class="a4-sheet-wrapper">
+          <div id="screen-dossier-sheet" class="a4-sheet space-y-6">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRINT CONTAINER (CLEAN DIN-A4 PDF EXPORT) -->
+  <div id="print-dossier-container" class="print-only-container hidden"></div>
+
+  <!-- SELF-SERVE GUMROAD CHECKOUT & UNLOCK MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">⚡ 100% Self-Serve • Sofort-Zugang</span>
+          <h3 class="text-lg font-extrabold mt-0.5">Grenzgänger-Pro-Dossier 2026</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-5 text-sm">
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="font-bold text-slate-900">Grenzgänger-Steuerdossier & Behördenvorlagen</div>
+            <div class="text-xs text-slate-500">Anlage N-Gre Plan + Gre-3 Nachweis + KVG-Optionsrecht Formular</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xl font-extrabold text-indigo-600">4,90 € / CHF</div>
+            <div class="text-[10px] text-slate-400">Einmalzahlung (kein Abo)</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">In 2 Sekunden freischalten:</div>
+
+          <!-- Step 1: Gumroad Link -->
+          <a
+            id="modal-gumroad-link"
+            href="https://dachdigital.gumroad.com/l/gthgwc"
+            target="_blank"
+            rel="noopener"
+            class="w-full bg-gradient-to-r from-rose-500 to-indigo-600 hover:from-rose-400 hover:to-indigo-500 text-white font-extrabold py-3.5 px-5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm"
+          >
+            <span>💳 Schritt 1: Jetzt 4,90 € via Gumroad Pro freischalten</span>
+            <span>↗</span>
+          </a>
+
+          <!-- Step 2: Instant Unlock / Voucher -->
+          <div class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 space-y-2.5">
+            <div class="text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔓</span>
+              <span>Schritt 2: Nach Kauf direkt im Browser aktivieren</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-relaxed">
+              Haben Sie den Kauf getätigt oder verfügen Sie über einen Lizenzcode? Klicken Sie hier zur sofortigen Aktivierung:
+            </p>
+            <div class="flex items-center gap-2">
+              <input type="text" id="modal-voucher-input" placeholder="Code (z.B. DW-PRO-2026)" class="flex-1 px-3 py-2 text-xs border border-emerald-300 rounded-xl bg-white font-mono uppercase focus:outline-none focus:ring-2 focus:ring-emerald-500/20" />
+              <button onclick="applyVoucherCode()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition">
+                Aktivieren
+              </button>
+            </div>
+            <button onclick="instantUnlockAfterPayment()" class="w-full text-center text-xs text-emerald-700 hover:text-emerald-900 font-bold underline pt-1 block">
+              ✓ Bereits bezahlt? Hier direkt ohne Code öffnen
+            </button>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 text-center pt-1 border-t border-slate-100">
+          100% DSGVO- & revDSG-konform • Freischaltung bleibt in diesem Browser dauerhaft gespeichert.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs no-print mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-bold text-sm">
+            <span>🇨🇭</span>
+            <span>DACH Digitalwerk</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Spezialisierte B2B- & Self-Serve-Tools für grenzüberschreitende Arbeitnehmer und Unternehmen im DACH-Raum (Deutschland, Österreich, Schweiz).
+          </p>
+          <div class="text-[11px] text-emerald-400">
+            ✓ 100% Client-Side • Keine Server-Datenspeicherung
+          </div>
+        </div>
+
+        <div>
+          <div class="font-bold text-white mb-3">Grenzgänger-Ratgeber</div>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="../grenzgaenger-schweiz-deutschland-steuerrechner.html" class="hover:text-indigo-400 transition">Grenzgänger Steuern 2026 (Art. 15a)</a></li>
+            <li><a href="../quellensteuer-schweiz-tarife-kantone-vergleich.html" class="hover:text-indigo-400 transition">Quellensteuer Kantone (ZH, BS, ZG)</a></li>
+            <li><a href="../wochenaufenthalter-schweiz-steuern-abzuege.html" class="hover:text-indigo-400 transition">Wochenaufenthalter & 60-Tage-Regel</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-bold text-white mb-3">Weitere DACH-Tools</div>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="../arbeitszeugnis/" class="hover:text-indigo-400 transition">Arbeitszeugnis-Decoder & Radar</a></li>
+            <li><a href="../qr-suite/" class="hover:text-indigo-400 transition">Swiss QR-Rechnung & E-Rechnung</a></li>
+            <li><a href="../rechner/" class="hover:text-indigo-400 transition">Solar- & Handwerker-Rechner</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-bold text-white mb-3">Rechtlicher Hinweis</div>
+          <p class="text-slate-500 text-[11px] leading-relaxed">
+            Dieser Rechner simuliert die Besteuerung nach Art. 15a DBA-CH/DE sowie dem Schweizer Steuerrecht 2026. Er ersetzt keine individuelle Steuerberatung durch einen zugelassenen Steuerberater oder Treuhänder.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>© 2026 DACH Digitalwerk. Alle Rechte vorbehalten.</div>
+        <div class="flex gap-4">
+          <a href="../datenschutzerklaerung-generator-dsgvo-kostenlos.html" class="hover:text-slate-300">Datenschutz</a>
+          <a href="../impressum-generator-schweiz-revdsg.html" class="hover:text-slate-300">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT LOGIC & BERECHNUNGS-ENGINE 2026 -->
+  <!-- ========================================================================= -->
+  <script>
+    // State variables
+    let currentData = {
+      grossCHF: 120000,
+      fxRate: 0.96, // 1 EUR = 0.96 CHF -> 1 CHF = 1.04167 EUR
+      canton: 'ZH',
+      corridor: 'CH-DE',
+      taxClass: '1',
+      children: 0,
+      church: 8,
+      age: '25-34',
+      health: 'kvg_optionsrecht',
+      distanceKm: 35,
+      nonReturnDays: 15,
+      hoDaysPerWeek: 1.0,
+      isPro: false
+    };
+
+    // Kantonale Quellensteuertarife (Richtwerte Durchschnittstarif für Standardfall StKl I bzw. A0 / B0)
+    const CANTON_DATA = {
+      ZH: { name: 'Zürich', qsRateA: 0.138, qsRateB: 0.102, qsWochenaufenthaltDeduct: 12000 },
+      BS: { name: 'Basel-Stadt', qsRateA: 0.155, qsRateB: 0.118, qsWochenaufenthaltDeduct: 14400 },
+      AG: { name: 'Aargau', qsRateA: 0.128, qsRateB: 0.095, qsWochenaufenthaltDeduct: 10800 },
+      SG: { name: 'St. Gallen', qsRateA: 0.132, qsRateB: 0.098, qsWochenaufenthaltDeduct: 11000 },
+      TG: { name: 'Thurgau', qsRateA: 0.122, qsRateB: 0.091, qsWochenaufenthaltDeduct: 10500 },
+      SH: { name: 'Schaffhausen', qsRateA: 0.126, qsRateB: 0.094, qsWochenaufenthaltDeduct: 10800 },
+      ZG: { name: 'Zug', qsRateA: 0.082, qsRateB: 0.058, qsWochenaufenthaltDeduct: 15000 },
+      GE: { name: 'Genf', qsRateA: 0.162, qsRateB: 0.124, qsWochenaufenthaltDeduct: 16000 }
+    };
+
+    // BVG Sätze nach Alter (Arbeitnehmeranteil ca. 50% der gesetzlichen Sparsätze)
+    const BVG_RATES = {
+      'under25': 0.008, // Nur Risikobeitrag Tod/Invalidität
+      '25-34': 0.035,   // 7% geteilt durch 2 = 3.5%
+      '35-44': 0.050,   // 10% geteilt durch 2 = 5.0%
+      '45-54': 0.075,   // 15% geteilt durch 2 = 7.5%
+      '55-65': 0.090    // 18% geteilt durch 2 = 9.0%
+    };
+
+    // Presets
+    const PRESETS = {
+      it_zh: {
+        grossCHF: 120000,
+        canton: 'ZH',
+        corridor: 'CH-DE',
+        taxClass: '1',
+        children: 0,
+        church: 8,
+        age: '25-34',
+        health: 'kvg_optionsrecht',
+        distanceKm: 35,
+        nonReturnDays: 15,
+        hoDays: 1
+      },
+      pharma_bs: {
+        grossCHF: 145000,
+        canton: 'BS',
+        corridor: 'CH-DE',
+        taxClass: '3',
+        children: 1,
+        church: 8,
+        age: '35-44',
+        health: 'kvg_optionsrecht',
+        distanceKm: 65,
+        nonReturnDays: 72, // >60 Tage!
+        hoDays: 1
+      },
+      care_sg: {
+        grossCHF: 85000,
+        canton: 'SG',
+        corridor: 'CH-DE',
+        taxClass: '1',
+        children: 0,
+        church: 8,
+        age: '25-34',
+        health: 'kvg_optionsrecht',
+        distanceKm: 28,
+        nonReturnDays: 5,
+        hoDays: 0
+      }
+    };
+
+    // Init function on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      checkProStatus();
+      recalculateAll();
+      renderDossier();
+    });
+
+    function checkProStatus() {
+      const unlocked = localStorage.getItem('grenzgaenger_pro_unlocked') === 'true';
+      currentData.isPro = unlocked;
+      updateProUI(unlocked);
+    }
+
+    function updateProUI(unlocked) {
+      const badge = document.getElementById('pro-badge');
+      const headerBtnText = document.getElementById('header-btn-text');
+      const dossierPill = document.getElementById('dossier-status-pill');
+      const overlay = document.getElementById('dossier-locked-overlay');
+
+      if (unlocked) {
+        if (badge) {
+          badge.textContent = 'Pro Freigeschaltet';
+          badge.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded-full';
+        }
+        if (headerBtnText) headerBtnText.textContent = '✓ Pro Aktiv';
+        if (dossierPill) {
+          dossierPill.textContent = '✓ Pro-Version aktiv (Druckbereit)';
+          dossierPill.className = 'text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300';
+        }
+        if (overlay) overlay.classList.add('hidden');
+      } else {
+        if (badge) {
+          badge.textContent = 'Basis-Version';
+          badge.className = 'bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2 py-0.5 rounded-full';
+        }
+        if (headerBtnText) headerBtnText.textContent = 'Pro-Dossier (4,90 €)';
+        if (dossierPill) {
+          dossierPill.textContent = 'Vorschau-Modus';
+          dossierPill.className = 'text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300';
+        }
+        if (overlay) overlay.classList.remove('hidden');
+      }
+    }
+
+    function switchTab(tabName) {
+      const tabs = ['calculator', 'optimizer', 'dossier'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tabName) {
+          btn.className = 'px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 tab-active border';
+          content.classList.remove('hidden');
+        } else {
+          btn.className = 'px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition flex items-center gap-2 tab-inactive border border-transparent';
+          content.classList.add('hidden');
+        }
+      });
+      if (tabName === 'dossier') {
+        renderDossier();
+      }
+    }
+
+    function loadPreset(presetKey) {
+      const p = PRESETS[presetKey];
+      if (!p) return;
+
+      currentData.grossCHF = p.grossCHF;
+      currentData.canton = p.canton;
+      currentData.corridor = p.corridor;
+      currentData.taxClass = p.taxClass;
+      currentData.children = p.children;
+      currentData.church = p.church;
+      currentData.age = p.age;
+      currentData.health = p.health;
+      currentData.distanceKm = p.distanceKm;
+      currentData.nonReturnDays = p.nonReturnDays;
+      currentData.hoDaysPerWeek = p.hoDays;
+
+      // Update UI elements
+      document.getElementById('inp-gross-slider').value = p.grossCHF;
+      document.getElementById('inp-gross-chf').value = p.grossCHF;
+      document.getElementById('inp-canton').value = p.canton;
+      document.getElementById('inp-corridor').value = p.corridor;
+      document.getElementById('inp-tax-class').value = p.taxClass;
+      document.getElementById('inp-children').value = p.children;
+      document.getElementById('inp-church').value = p.church;
+      document.getElementById('inp-age').value = p.age;
+      document.getElementById('inp-health').value = p.health;
+      document.getElementById('inp-distance-slider').value = p.distanceKm;
+      document.getElementById('inp-nonreturn-slider').value = p.nonReturnDays;
+      document.getElementById('inp-ho-slider').value = p.hoDays;
+
+      recalculateAll();
+      switchTab('calculator');
+    }
+
+    function syncGrossFromSlider() {
+      const val = parseFloat(document.getElementById('inp-gross-slider').value);
+      document.getElementById('inp-gross-chf').value = val;
+      currentData.grossCHF = val;
+      recalculateAll();
+    }
+
+    function syncGrossFromInput() {
+      const val = parseFloat(document.getElementById('inp-gross-chf').value) || 0;
+      document.getElementById('inp-gross-slider').value = val;
+      currentData.grossCHF = val;
+      recalculateAll();
+    }
+
+    function syncDistance() {
+      const val = parseInt(document.getElementById('inp-distance-slider').value);
+      document.getElementById('label-distance').textContent = `${val} km`;
+      currentData.distanceKm = val;
+      recalculateAll();
+    }
+
+    function syncNonReturn() {
+      const val = parseInt(document.getElementById('inp-nonreturn-slider').value);
+      document.getElementById('label-nonreturn-days').textContent = `${val} Tage`;
+      currentData.nonReturnDays = val;
+      recalculateAll();
+    }
+
+    function syncHomeoffice() {
+      const val = parseFloat(document.getElementById('inp-ho-slider').value);
+      const pct = Math.round((val / 5) * 100);
+      document.getElementById('ho-days-label').textContent = `${val} Tage / Woche (${pct}%)`;
+      currentData.hoDaysPerWeek = val;
+      updateHomeofficeTrafficLight(val, pct);
+    }
+
+    function updateHomeofficeTrafficLight(days, pct) {
+      const box = document.getElementById('ho-status-box');
+      const icon = document.getElementById('ho-status-icon');
+      const title = document.getElementById('ho-status-title');
+      const desc = document.getElementById('ho-status-desc');
+      const rule = document.getElementById('ho-status-rule');
+
+      if (days <= 1.25) { // < 25%
+        box.className = 'p-4 rounded-2xl border transition-all duration-300 bg-emerald-50 border-emerald-300';
+        icon.textContent = '🟢';
+        title.className = 'text-sm font-extrabold text-emerald-950';
+        title.textContent = 'Grüner Bereich: Volle Schweizer Sozialversicherung gesichert';
+        desc.className = 'text-xs text-emerald-800 leading-relaxed';
+        desc.textContent = `Mit ${days} Tagen Telearbeit (${pct} %) verbleibt die Sozialversicherungspflicht zu 100 % in der Schweiz (AHV/IV/ALV/BVG). Steuerlich bleibt Ihr Grenzgängerstatus (Art. 15a) uneingeschränkt intakt.`;
+        rule.className = 'text-[11px] font-bold text-emerald-900 mt-1';
+        rule.textContent = '✓ Keine Sonderanträge notwendig • Grenzgängerkarte gültig';
+      } else if (days <= 2.4) { // 25% bis 49%
+        box.className = 'p-4 rounded-2xl border transition-all duration-300 bg-amber-50 border-amber-300';
+        icon.textContent = '🟡';
+        title.className = 'text-sm font-extrabold text-amber-950';
+        title.textContent = 'Gelber Bereich: Bis 49,9% durch Rahmenabkommen gedeckt (A1 nötig!)';
+        desc.className = 'text-xs text-amber-800 leading-relaxed';
+        desc.textContent = `Dank des multilateralen Rahmenabkommens bleibt die Schweizer SV bis 49,9% Telearbeit erhalten. Ihr Schweizer Arbeitgeber muss jedoch eine A1-Bescheinigung (Telearbeit) ausstellen! Achtung bei 60-Tage-Regel: HO-Tage zu Hause zählen NICHT als Nichtrückkehrtage.`;
+        rule.className = 'text-[11px] font-bold text-amber-900 mt-1';
+        rule.textContent = '⚠️ Wichtig: Formelle A1-Bescheinigung beim Schweizer Träger einholen!';
+      } else { // >= 50%
+        box.className = 'p-4 rounded-2xl border transition-all duration-300 bg-rose-50 border-rose-300';
+        icon.textContent = '🔴';
+        title.className = 'text-sm font-extrabold text-rose-950';
+        title.textContent = 'Alarmstufe Rot: Wechsel in deutsches/österreichisches Sozialsystem!';
+        desc.className = 'text-xs text-rose-800 leading-relaxed';
+        desc.textContent = `Bei 50 % oder mehr Homeoffice (${days} Tage) greift das Erwerbsortprinzip nicht mehr! Sie werden in Deutschland/Österreich sozialversicherungspflichtig. Der Schweizer Arbeitgeber muss deutsche Lohnsteuer- & SV-Bürokratie abführen – massive Nachzahlungsrisiken!`;
+        rule.className = 'text-[11px] font-bold text-rose-900 mt-1';
+        rule.textContent = '🚨 Dringende Warnung: Unbedingt Homeoffice auf maximal 2 Tage/Woche begrenzen!';
+      }
+    }
+
+    // =========================================================================
+    // KERN-BERECHNUNGSMATHEMATIK (DE / CH / AT 2026)
+    // =========================================================================
+    function recalculateAll() {
+      // Inputs erfassen
+      currentData.fxRate = parseFloat(document.getElementById('inp-fx-rate').value) || 0.96;
+      currentData.canton = document.getElementById('inp-canton').value;
+      currentData.corridor = document.getElementById('inp-corridor').value;
+      currentData.taxClass = document.getElementById('inp-tax-class').value;
+      currentData.children = parseInt(document.getElementById('inp-children').value);
+      currentData.church = parseFloat(document.getElementById('inp-church').value);
+      currentData.age = document.getElementById('inp-age').value;
+      currentData.health = document.getElementById('inp-health').value;
+      currentData.distanceKm = parseInt(document.getElementById('inp-distance-slider').value);
+      currentData.nonReturnDays = parseInt(document.getElementById('inp-nonreturn-slider').value);
+
+      // Invertierter Umrechnungskurs (1 CHF in EUR)
+      const chfToEur = currentData.fxRate > 0 ? (1 / currentData.fxRate) : 1.04;
+      document.getElementById('fx-inv-label').textContent = chfToEur.toFixed(2);
+      document.getElementById('label-gross-chf').textContent = formatCHF(currentData.grossCHF);
+
+      const grossCHFYear = currentData.grossCHF;
+      const grossCHFMonth = grossCHFYear / 12;
+      const grossEURYear = grossCHFYear * chfToEur;
+      const grossEURMonth = grossEURYear / 12;
+
+      // 1. Schweizer Sozialabgaben (Arbeitnehmeranteil)
+      const ahvRate = 0.053; // 5.3% AHV/IV/EO
+      const alvRate = 0.011; // 1.1% bis 148'200 CHF
+      const alvCap = 148200;
+      const nbuRate = 0.012; // 1.2%
+      const ktgRate = 0.008; // 0.8%
+      const bvgRate = BVG_RATES[currentData.age] || 0.05;
+
+      const ahvCHFYear = grossCHFYear * ahvRate;
+      const alvCHFYear = Math.min(grossCHFYear, alvCap) * alvRate;
+      const nbuCHFYear = Math.min(grossCHFYear, alvCap) * nbuRate;
+      const ktgCHFYear = grossCHFYear * ktgRate;
+
+      // BVG Koordinationsabzug (ca. 25'725 CHF)
+      const coordDeduct = 25725;
+      const coordSalary = Math.max(0, Math.min(grossCHFYear, 88200) - coordDeduct);
+      // Überobligatorisch: viele Kassen versichern den vollen Lohn abzüglich Abzug
+      const bvgBase = Math.max(coordSalary, grossCHFYear * 0.75);
+      const bvgCHFYear = bvgBase * bvgRate;
+
+      const totalSvCHFYear = ahvCHFYear + alvCHFYear + nbuCHFYear + ktgCHFYear + bvgCHFYear;
+      const totalSvCHFMonth = totalSvCHFYear / 12;
+      const totalSvPct = (totalSvCHFYear / grossCHFYear) * 100;
+
+      // 2. Krankenversicherung (Monat)
+      let kvCHFMonth = 0;
+      let kvEURMonth = 0;
+      let kvLabel = '';
+      if (currentData.health === 'kvg_optionsrecht') {
+        kvCHFMonth = 220; // Grenzgängertarif nach KVV Art. 2
+        kvEURMonth = kvCHFMonth * chfToEur;
+        kvLabel = 'CH-KVG Optionsrecht (~220 CHF)';
+      } else if (currentData.health === 'de_gkv') {
+        // Freiwillig GKV in DE: 14.6% + 1.7% + 4.0% PV bis BBG (2026: ~5.175 €/Monat)
+        const gkvBase = Math.min(grossEURMonth, 5175);
+        kvEURMonth = gkvBase * 0.203; // ~1.050 €
+        kvCHFMonth = kvEURMonth * currentData.fxRate;
+        kvLabel = 'DE freiwillige GKV (~' + Math.round(kvEURMonth) + ' €)';
+      } else {
+        // PKV DE
+        kvEURMonth = 480;
+        kvCHFMonth = kvEURMonth * currentData.fxRate;
+        kvLabel = 'DE Private PKV (~480 €)';
+      }
+
+      // 3. Steuerberechnung nach Status (Echter Grenzgänger vs. 60-Tage Gre-3)
+      const isGre3 = currentData.nonReturnDays > 60;
+      const cantonInfo = CANTON_DATA[currentData.canton] || CANTON_DATA.ZH;
+
+      // UI Text-Aktualisierung für Gre-3
+      const gre3StatusText = document.getElementById('gre3-status-text');
+      const gre3WinBanner = document.getElementById('gre3-win-banner');
+      const taxRegimePill = document.getElementById('tax-regime-pill');
+
+      let chTaxEURMonth = 0;
+      let deTaxEURMonth = 0;
+      let soliChurchEURMonth = 0;
+      let dePrepayQuarterEUR = 0;
+      let netEURMonth = 0;
+      let netCHFMonth = 0;
+
+      // Schweizer Quellensteuer nach kantonalem Tarif (bei Gre-3)
+      // Tarif A für Ledige (StKl 1/2), Tarif B für Verheiratete (StKl 3/4)
+      const chqsRate = (currentData.taxClass === '3' || currentData.taxClass === '4') ? cantonInfo.qsRateB : cantonInfo.qsRateA;
+      const chqsCHFYear = grossCHFYear * chqsRate;
+      const chqsEURYear = chqsCHFYear * chfToEur;
+
+      // Deutsche Standard-ESt Berechnung (Modell Grenzgänger Art. 15a)
+      // Werbungskosten / Pendlerpauschale
+      const workDays = 220;
+      const pendlerEUR = currentData.distanceKm <= 20 
+        ? (currentData.distanceKm * 0.30 * workDays)
+        : ((20 * 0.30 + (currentData.distanceKm - 20) * 0.38) * workDays);
+      const werbungskosten = Math.max(1230, pendlerEUR);
+
+      // Vorsorgeaufwendungen (§ 10 EStG): Schweizer AHV/BVG zu 100% abzugsfähig bis 27.566 €
+      const vorsorgeEUR = Math.min((ahvCHFYear + bvgCHFYear) * chfToEur, 27566);
+      const zvEUR = Math.max(0, grossEURYear - werbungskosten - vorsorgeEUR - (kvEURMonth * 12 * 0.85));
+
+      // Deutsche Einkommensteuer nach Grund- bzw. Splittingtarif 2026
+      const isSplitting = (currentData.taxClass === '3');
+      const baseEStEURYear = calcGermanESt2026(zvEUR, isSplitting);
+
+      // 4.5% Quellensteuer CH (Art. 15a)
+      const ch45CHFYear = grossCHFYear * 0.045;
+      const ch45EURYear = ch45CHFYear * chfToEur;
+
+      // Anrechnung der 4.5% Quellensteuer nach § 34c EStG
+      const deNetEStEURYear = Math.max(0, baseEStEURYear - ch45EURYear);
+
+      // Soli & Kirchensteuer
+      let soliEURYear = 0;
+      if (baseEStEURYear > 18130) {
+        soliEURYear = deNetEStEURYear * 0.055;
+      }
+      const churchEURYear = deNetEStEURYear * (currentData.church / 100);
+
+      if (!isGre3) {
+        // ==========================
+        // FALL A: ECHTER GRENZGÄNGER
+        // ==========================
+        taxRegimePill.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Echter Grenzgänger (Art. 15a DBA)';
+        taxRegimePill.className = 'inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30';
+        gre3StatusText.textContent = `Echter Grenzgänger (${currentData.nonReturnDays} Nichtrückkehrtage). 4,5 % Quellensteuer in der Schweiz + reguläre ESt in Deutschland unter voller Anrechnung (§ 34c EStG).`;
+        gre3WinBanner.classList.add('hidden');
+
+        chTaxEURMonth = ch45EURYear / 12;
+        deTaxEURMonth = deNetEStEURYear / 12;
+        soliChurchEURMonth = (soliEURYear + churchEURYear) / 12;
+        dePrepayQuarterEUR = (deNetEStEURYear + soliEURYear + churchEURYear) / 4;
+
+        const totalTaxEURMonth = chTaxEURMonth + deTaxEURMonth + soliChurchEURMonth;
+        netEURMonth = grossEURMonth - (totalSvCHFMonth * chfToEur) - totalTaxEURMonth - kvEURMonth;
+        netCHFMonth = netEURMonth * currentData.fxRate;
+
+        // Rows visibility
+        document.getElementById('row-tax-title').textContent = '- Steuerabzüge Gesamt (CH 4,5% + DE ESt)';
+        document.getElementById('row-ch-source-wrap').classList.remove('hidden');
+        document.getElementById('row-de-est-wrap').classList.remove('hidden');
+        document.getElementById('row-de-soli-church-wrap').classList.remove('hidden');
+        document.getElementById('row-de-prepay-wrap').classList.remove('hidden');
+
+      } else {
+        // ============================================
+        // FALL B: 60-TAGE-REGEL GRE-3 (NICHTRÜCKKEHRER)
+        // ============================================
+        taxRegimePill.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span> 60-Tage-Regel Gre-3 Aktiv (&gt;60 Tage)';
+        taxRegimePill.className = 'inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30';
+        gre3StatusText.textContent = `60-Tage-Regel aktiviert (${currentData.nonReturnDays} Tage)! Das Besteuerungsrecht liegt bei der Schweiz. Versteuerung zum regulären kantonalen Quellensteuertarif (${cantonInfo.name}: ${(chqsRate*100).toFixed(1)} %). Deutsche ESt = 0 € (Freistellung unter Progressionsvorbehalt).`;
+        gre3WinBanner.classList.remove('hidden');
+
+        chTaxEURMonth = chqsEURYear / 12;
+        deTaxEURMonth = 0; // Freistellung in DE!
+        soliChurchEURMonth = 0;
+        dePrepayQuarterEUR = 0;
+
+        const totalTaxEURMonth = chTaxEURMonth;
+        netEURMonth = grossEURMonth - (totalSvCHFMonth * chfToEur) - totalTaxEURMonth - kvEURMonth;
+        netCHFMonth = netEURMonth * currentData.fxRate;
+
+        // Normaler Grenzgänger Netto zum Vergleich
+        const normalTotalTaxEURMonth = (ch45EURYear + deNetEStEURYear + soliEURYear + churchEURYear) / 12;
+        const normalNetEURMonth = grossEURMonth - (totalSvCHFMonth * chfToEur) - normalTotalTaxEURMonth - kvEURMonth;
+        const diffEURMonth = Math.round(netEURMonth - normalNetEURMonth);
+        document.getElementById('gre3-win-amount').textContent = `+${diffEURMonth} € / Mo.`;
+
+        // Rows visibility
+        document.getElementById('row-tax-title').textContent = `- Schweizer Quellensteuer (${cantonInfo.name} ${(chqsRate*100).toFixed(1)}%)`;
+        document.getElementById('row-ch-source-wrap').classList.remove('hidden');
+        document.getElementById('row-de-est-wrap').classList.add('hidden');
+        document.getElementById('row-de-soli-church-wrap').classList.add('hidden');
+        document.getElementById('row-de-prepay-wrap').classList.add('hidden');
+      }
+
+      // =========================================================================
+      // KPI & BREAKDOWN TEXTS AKTUALISIEREN
+      // =========================================================================
+      document.getElementById('kpi-net-chf').textContent = `${formatCHF(netCHFMonth)} CHF`;
+      document.getElementById('kpi-net-eur').textContent = `${formatEUR(netEURMonth)} €`;
+      document.getElementById('kpi-gross-chf-month').textContent = `von ${formatCHF(grossCHFMonth)} CHF Brutto`;
+      document.getElementById('kpi-net-annual-eur').textContent = `ca. ${formatEUR(netEURMonth * 12)} € Netto pro Jahr`;
+
+      document.getElementById('row-gross-chf').textContent = `${formatCHF(grossCHFMonth)} CHF / Mo.`;
+      document.getElementById('row-gross-eur').textContent = `${formatEUR(grossEURMonth)} € / Mo.`;
+
+      document.getElementById('row-sv-pct').textContent = `${totalSvPct.toFixed(1)}%`;
+      document.getElementById('row-sv-total-chf').textContent = `-${formatCHF(totalSvCHFMonth)} CHF / Mo.`;
+      document.getElementById('row-sv-ahv').textContent = `-${formatCHF(ahvCHFYear / 12)} CHF`;
+      document.getElementById('row-sv-alv').textContent = `-${formatCHF(alvCHFYear / 12)} CHF`;
+      document.getElementById('row-sv-nbu').textContent = `-${formatCHF(nbuCHFYear / 12)} CHF`;
+      document.getElementById('row-sv-ktg').textContent = `-${formatCHF(ktgCHFYear / 12)} CHF`;
+      document.getElementById('row-bvg-pct').textContent = `${(bvgRate * 100).toFixed(1)}%`;
+      document.getElementById('row-sv-bvg').textContent = `-${formatCHF(bvgCHFYear / 12)} CHF`;
+
+      document.getElementById('row-tax-total-eur').textContent = `-${formatEUR(chTaxEURMonth + deTaxEURMonth + soliChurchEURMonth)} € / Mo.`;
+      document.getElementById('row-ch-source-tax').textContent = isGre3 
+        ? `-${formatCHF(chqsCHFYear / 12)} CHF (-${formatEUR(chTaxEURMonth)} €)`
+        : `-${formatCHF(ch45CHFYear / 12)} CHF (-${formatEUR(chTaxEURMonth)} €)`;
+      document.getElementById('row-de-est').textContent = `-${formatEUR(deTaxEURMonth)} €`;
+      document.getElementById('row-de-soli-church').textContent = `-${formatEUR(soliChurchEURMonth)} €`;
+      document.getElementById('row-de-prepay-quarter').textContent = `${formatEUR(dePrepayQuarterEUR)} € / Quartal`;
+
+      document.getElementById('row-kv-model-label').textContent = kvLabel;
+      document.getElementById('row-kv-amount').textContent = `-${formatCHF(kvCHFMonth)} CHF (-${formatEUR(kvEURMonth)} €)`;
+
+      document.getElementById('row-net-total-eur').textContent = `${formatEUR(netEURMonth)} € / Monat`;
+      document.getElementById('row-net-total-chf').textContent = `(entspricht ${formatCHF(netCHFMonth)} CHF)`;
+
+      // =========================================================================
+      // TAB 2: SZENARIO-MATRIX NEUBERECHNEN
+      // =========================================================================
+      updateScenarioMatrix(grossCHFYear, chfToEur, totalSvCHFYear, cantonInfo, isSplitting, zvEUR);
+    }
+
+    // Hilfsfunktion: Deutsche ESt 2026 Näherung
+    function calcGermanESt2026(zvE, isSplitting) {
+      if (zvE <= 0) return 0;
+      let x = zvE;
+      if (isSplitting) x = zvE / 2;
+
+      let est = 0;
+      if (x <= 11784) {
+        est = 0;
+      } else if (x <= 17005) {
+        const y = (x - 11784) / 10000;
+        est = (995.21 * y + 1400) * y;
+      } else if (x <= 66760) {
+        const z = (x - 17005) / 10000;
+        est = (208.85 * z + 2397) * z + 1014;
+      } else if (x <= 277825) {
+        est = 0.42 * x - 10600;
+      } else {
+        est = 0.45 * x - 18936;
+      }
+
+      if (isSplitting) est = est * 2;
+      return Math.max(0, est);
+    }
+
+    // Szenario-Matrix Berechnung (Tab 2)
+    function updateScenarioMatrix(grossCHFYear, chfToEur, totalSvCHFYear, cantonInfo, isSplitting, zvEUR) {
+      document.getElementById('matrix-gross-label').textContent = `${formatCHF(grossCHFYear)} CHF Brutto`;
+      document.getElementById('matrix-canton-label').textContent = cantonInfo.name;
+
+      const grossEURYear = grossCHFYear * chfToEur;
+
+      // Modell 1: Täglicher Grenzgänger
+      const m1_sv_chf = totalSvCHFYear;
+      const m1_ch_tax_eur = (grossCHFYear * 0.045) * chfToEur;
+      const m1_base_est = calcGermanESt2026(zvEUR, isSplitting);
+      const m1_de_tax_eur = Math.max(0, m1_base_est - m1_ch_tax_eur);
+      const m1_soli_church_eur = (m1_de_tax_eur > 18000 ? m1_de_tax_eur * 0.055 : 0) + m1_de_tax_eur * 0.08;
+      const m1_total_tax_eur = m1_ch_tax_eur + m1_de_tax_eur + m1_soli_church_eur;
+      const m1_kv_eur = 220 * 12 * chfToEur;
+      const m1_pendel_eur = 2500;
+      const m1_net_eur = grossEURYear - (m1_sv_chf * chfToEur) - m1_total_tax_eur - m1_kv_eur - m1_pendel_eur;
+
+      // Modell 2: 60-Tage Gre-3
+      const m2_sv_chf = totalSvCHFYear;
+      const m2_tax_rate = (currentData.taxClass === '3') ? cantonInfo.qsRateB : cantonInfo.qsRateA;
+      const m2_tax_chf = grossCHFYear * m2_tax_rate;
+      const m2_tax_eur = m2_tax_chf * chfToEur;
+      const m2_kv_eur = 220 * 12 * chfToEur;
+      const m2_net_eur = grossEURYear - (m2_sv_chf * chfToEur) - m2_tax_eur - m2_kv_eur;
+
+      // Modell 3: Wochenaufenthalter (Gre-3 + Abzug Miete CH + Mehraufwand)
+      const m3_sv_chf = totalSvCHFYear;
+      const m3_taxable_chf = Math.max(0, grossCHFYear - cantonInfo.qsWochenaufenthaltDeduct - 3200); // Miete + Verpflegung
+      const m3_tax_chf = m3_taxable_chf * m2_tax_rate;
+      const m3_tax_eur = m3_tax_chf * chfToEur;
+      const m3_kv_eur = 220 * 12 * chfToEur;
+      const m3_miete_chf = 12000;
+      const m3_net_eur = grossEURYear - (m3_sv_chf * chfToEur) - m3_tax_eur - m3_kv_eur - (m3_miete_chf * chfToEur);
+
+      // Modell 4: Vollumzug Schweiz (B-Bewilligung, volle Miete CH)
+      const m4_sv_chf = totalSvCHFYear;
+      const m4_tax_chf = grossCHFYear * (m2_tax_rate * 0.95);
+      const m4_tax_eur = m4_tax_chf * chfToEur;
+      const m4_kv_eur = 380 * 12 * chfToEur; // Reguläre Schweizer KV
+      const m4_wohnen_chf = 24000; // Schweizer Wohnung
+      const m4_net_eur = grossEURYear - (m4_sv_chf * chfToEur) - m4_tax_eur - m4_kv_eur - (m4_wohnen_chf * chfToEur);
+
+      // Update Table
+      document.getElementById('m-sv-m1').textContent = `-${formatCHF(m1_sv_chf)} CHF`;
+      document.getElementById('m-sv-m2').textContent = `-${formatCHF(m2_sv_chf)} CHF`;
+      document.getElementById('m-sv-m3').textContent = `-${formatCHF(m3_sv_chf)} CHF`;
+      document.getElementById('m-sv-m4').textContent = `-${formatCHF(m4_sv_chf)} CHF`;
+
+      document.getElementById('m-tax-m1').textContent = `ca. ${formatEUR(m1_total_tax_eur)} €`;
+      document.getElementById('m-tax-m2').textContent = `ca. ${formatCHF(m2_tax_chf)} CHF (${formatEUR(m2_tax_eur)} €)`;
+      document.getElementById('m-tax-m3').textContent = `ca. ${formatCHF(m3_tax_chf)} CHF (${formatEUR(m3_tax_eur)} €)`;
+      document.getElementById('m-tax-m4').textContent = `ca. ${formatCHF(m4_tax_chf)} CHF (${formatEUR(m4_tax_eur)} €)`;
+
+      document.getElementById('m-net-m1').textContent = `${formatEUR(m1_net_eur)} €`;
+      document.getElementById('m-net-m2').textContent = `${formatEUR(m2_net_eur)} € (+${formatEUR(m2_net_eur - m1_net_eur)} €)`;
+      document.getElementById('m-net-m3').textContent = `${formatEUR(m3_net_eur)} € (+${formatEUR(m3_net_eur - m1_net_eur)} €)`;
+      document.getElementById('m-net-m4').textContent = `${formatEUR(m4_net_eur)} € (${m4_net_eur >= m1_net_eur ? '+' : ''}${formatEUR(m4_net_eur - m1_net_eur)} €)`;
+    }
+
+    // =========================================================================
+    // TAB 3: PRO-DOSSIER GENERATOR & DRUCKANSICHT
+    // =========================================================================
+    function renderDossier() {
+      const name = document.getElementById('dossier-name').value || 'Michael Muster-Grenzgänger';
+      const address = document.getElementById('dossier-address').value || 'Seestraße 45, 78462 Konstanz';
+      const employer = document.getElementById('dossier-employer').value || 'Swiss Tech & Pharma AG, Zürich';
+      const finanzamt = document.getElementById('dossier-finanzamt').value || 'Finanzamt Konstanz';
+
+      const grossCHF = currentData.grossCHF;
+      const chfToEur = currentData.fxRate > 0 ? (1 / currentData.fxRate) : 1.04;
+      const grossEUR = Math.round(grossCHF * chfToEur);
+      const ch45CHF = Math.round(grossCHF * 0.045);
+      const ch45EUR = Math.round(ch45CHF * chfToEur);
+
+      const cantonInfo = CANTON_DATA[currentData.canton] || CANTON_DATA.ZH;
+      const dateToday = new Date().toLocaleDateString('de-DE');
+
+      const html = `
+        <!-- HEADER -->
+        <div class="border-b-2 border-slate-900 pb-4 flex justify-between items-start">
+          <div>
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">DACH Digitalwerk • Grenzgänger-Dossier 2026</div>
+            <div class="text-xl font-extrabold text-slate-900 mt-1">GRENZGÄNGER-STEUERFAHRPLAN & BEHÖRDENGESUCHE</div>
+            <div class="text-xs text-slate-600 mt-0.5">Rechtsstand DBA Schweiz-Deutschland (Art. 15a) • Kantone ZH/BS/AG/SG/ZG</div>
+          </div>
+          <div class="text-right text-xs font-mono text-slate-600">
+            <div>Datum: ${dateToday}</div>
+            <div class="font-bold text-slate-900">Aktenzeichen: GRENZ-2026-CH</div>
+          </div>
+        </div>
+
+        <!-- STAMMDATEN -->
+        <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+          <div>
+            <div class="font-bold text-slate-800">Grenzgänger / Steuerpflichtiger:</div>
+            <div class="text-slate-900 font-semibold">${escapeHtml(name)}</div>
+            <div class="text-slate-600">${escapeHtml(address)}</div>
+            <div class="text-slate-600">Wohnsitzfinanzamt: <span class="font-bold text-slate-900">${escapeHtml(finanzamt)}</span></div>
+          </div>
+          <div>
+            <div class="font-bold text-slate-800">Schweizer Arbeitgeber:</div>
+            <div class="text-slate-900 font-semibold">${escapeHtml(employer)}</div>
+            <div class="text-slate-600">Arbeitsort / Kanton: <span class="font-bold text-slate-900">${cantonInfo.name} (${currentData.canton})</span></div>
+            <div class="text-slate-600">Jahresbruttolohn: <span class="font-bold text-slate-900 font-mono">${formatCHF(grossCHF)} CHF (${formatEUR(grossEUR)} €)</span></div>
+          </div>
+        </div>
+
+        <!-- DOKUMENT 1: ANLAGE N-GRE ABZUGSPLAN -->
+        <div class="space-y-3 pt-2">
+          <div class="flex items-center gap-2 border-b border-slate-300 pb-1.5">
+            <span class="w-6 h-6 rounded-lg bg-indigo-900 text-white flex items-center justify-center text-xs font-bold">1</span>
+            <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-tight">Steuerfahrplan & Zeilen-Leitfaden für Anlage N-Gre (ESt 2026)</h3>
+          </div>
+          <p class="text-xs text-slate-600">
+            Übertragen Sie die folgenden ermittelten Beträge exakt in die jeweiligen Felder Ihrer deutschen Einkommensteuererklärung (Anlage N-Gre sowie Anlage Vorsorgeaufwand):
+          </p>
+          <table class="w-full text-left text-xs border border-slate-200 divide-y divide-slate-200">
+            <thead class="bg-slate-100 font-bold text-slate-800">
+              <tr>
+                <th class="p-2">Formular & Zeile</th>
+                <th class="p-2">Bezeichnung lt. amtlichem Formular</th>
+                <th class="p-2 text-right">Eintragungswert (CHF)</th>
+                <th class="p-2 text-right">Eintragungswert (EUR)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="p-2 font-mono font-bold text-indigo-900">Anlage N-Gre • Zeile 4</td>
+                <td class="p-2">Bruttoarbeitslohn laut Schweizer Lohnausweis (Ziffer 1)</td>
+                <td class="p-2 font-mono text-right">${formatCHF(grossCHF)} CHF</td>
+                <td class="p-2 font-mono text-right font-bold text-slate-900">${formatEUR(grossEUR)} €</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-mono font-bold text-indigo-900">Anlage N-Gre • Zeile 18</td>
+                <td class="p-2">In der Schweiz einbehaltene Quellensteuer (max. 4,5 % gem. Art. 15a Abs. 1 DBA)</td>
+                <td class="p-2 font-mono text-right">${formatCHF(ch45CHF)} CHF</td>
+                <td class="p-2 font-mono text-right font-bold text-emerald-700">${formatEUR(ch45EUR)} €</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-mono font-bold text-indigo-900">Anlage Vorsorgeaufwand • Zeile 6</td>
+                <td class="p-2">Beiträge zur Schweizer AHV / IV / EO (Arbeitnehmeranteil 5,30 %)</td>
+                <td class="p-2 font-mono text-right">${formatCHF(grossCHF * 0.053)} CHF</td>
+                <td class="p-2 font-mono text-right">${formatEUR(grossCHF * 0.053 * chfToEur)} €</td>
+              </tr>
+              <tr>
+                <td class="p-2 font-mono font-bold text-indigo-900">Anlage Vorsorgeaufwand • Zeile 16</td>
+                <td class="p-2">Beiträge zur 2. Säule Pensionskasse (BVG - voller Sonderausgabenabzug)</td>
+                <td class="p-2 font-mono text-right">${formatCHF(grossCHF * 0.05)} CHF</td>
+                <td class="p-2 font-mono text-right">${formatEUR(grossCHF * 0.05 * chfToEur)} €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- DOKUMENT 2: MUSTER ARBEITGEBER-BESTÄTIGUNG 60-TAGE (GRE-3) -->
+        <div class="space-y-3 pt-4 border-t border-slate-300">
+          <div class="flex items-center gap-2 border-b border-slate-300 pb-1.5">
+            <span class="w-6 h-6 rounded-lg bg-indigo-900 text-white flex items-center justify-center text-xs font-bold">2</span>
+            <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-tight">Offizielle Arbeitgeber-Bescheinigung für 60-Tage-Regel (Gre-3)</h3>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2 font-sans">
+            <div class="font-bold text-slate-800">Bestätigung des Schweizer Arbeitgebers gemäss Art. 15a Abs. 2 DBA-CH/DE:</div>
+            <p class="text-slate-700 leading-relaxed italic">
+              „Hiermit bestätigt die Arbeitgeberin <strong>${escapeHtml(employer)}</strong>, dass Herr/Frau <strong>${escapeHtml(name)}</strong> im Kalenderjahr 2026 an insgesamt <strong>${currentData.nonReturnDays > 60 ? currentData.nonReturnDays : 65} Arbeitstagen</strong> aus betriebsbedingten Gründen (Dienstreisen, Einsätze außerhalb des Grenzgängerbereichs bzw. Unzumutbarkeit der täglichen Rückkehr) nicht an den deutschen Wohnsitz zurückgekehrt ist.
+            </p>
+            <p class="text-slate-700 leading-relaxed italic">
+              Die Voraussetzungen für den Wegfall der Grenzgängereigenschaft im Sinne von Art. 15a Abs. 2 DBA-CH/DE sind damit erfüllt. Die Bezüge wurden ordnungsgemäss nach dem regulären Quellensteuertarif des Kantons <strong>${cantonInfo.name}</strong> besteuert.“
+            </p>
+            <div class="pt-4 flex justify-between items-end text-slate-500 text-[11px]">
+              <div>Ort, Datum: _______________________</div>
+              <div>Unterschrift / Firmenstempel Arbeitgeber: _______________________</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOKUMENT 3: KVG-OPTIONSRECHT GESUCH -->
+        <div class="space-y-3 pt-4 border-t border-slate-300">
+          <div class="flex items-center gap-2 border-b border-slate-300 pb-1.5">
+            <span class="w-6 h-6 rounded-lg bg-indigo-900 text-white flex items-center justify-center text-xs font-bold">3</span>
+            <h3 class="text-sm font-extrabold text-slate-900 uppercase tracking-tight">Formelles Gesuch um Befreiung von der Schweizer KVG-Pflicht (Optionsrecht)</h3>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs space-y-2 font-sans">
+            <div class="font-bold text-slate-800">An die zuständige kantonale Stelle (z.B. Gemeinsame Einrichtung KVG / SVA ${cantonInfo.name}):</div>
+            <p class="text-slate-700 leading-relaxed">
+              „Sehr geehrte Damen und Herren,<br>
+              gemäss Art. 2 Abs. 1 der Verordnung über die Krankenversicherung (KVV) i.V.m. dem Freizügigkeitsabkommen (FZA) mache ich hiermit fristgerecht innerhalb von drei Monaten nach Aufnahme meiner Erwerbstätigkeit in der Schweiz von meinem <strong>unwiderruflichen Optionsrecht</strong> Gebrauch und beantrage die Befreiung von der Versicherungspflicht in der Schweizer Krankenpflegeversicherung (KVG). Ein entsprechender Nachweis über den gleichwertigen Versicherungsschutz liegt diesem Gesuch bei.“
+            </p>
+            <div class="pt-3 flex justify-between items-end text-slate-500 text-[11px]">
+              <div>Ort, Datum: _______________________</div>
+              <div>Unterschrift Antragsteller: _______________________</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FOOTER BAR IN DOSSIER -->
+        <div class="pt-4 border-t border-slate-300 text-[10px] text-slate-500 flex justify-between">
+          <div>Generiert via DACH Digitalwerk • 100% DSGVO-konform • Client-Side Engine</div>
+          <div>Seite 1 von 1 (DIN-A4 Dossier)</div>
+        </div>
+      `;
+
+      document.getElementById('screen-dossier-sheet').innerHTML = html;
+      document.getElementById('print-dossier-container').innerHTML = html;
+    }
+
+    function handleProAction(action) {
+      if (!currentData.isPro) {
+        openCheckoutModal();
+        return;
+      }
+      if (action === 'print') {
+        window.print();
+      } else if (action === 'copy') {
+        const text = document.getElementById('screen-dossier-sheet').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          alert('✓ Vollständiges Steuerdossier in die Zwischenablage kopiert!');
+        });
+      }
+    }
+
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function applyVoucherCode() {
+      const inp = document.getElementById('modal-voucher-input').value.trim().toUpperCase();
+      const validCodes = ['DW-PRO-2026', 'GRENZGAENGER-2026', 'GRENZGAENGER2026', 'PRO2026'];
+      if (validCodes.includes(inp)) {
+        localStorage.setItem('grenzgaenger_pro_unlocked', 'true');
+        currentData.isPro = true;
+        updateProUI(true);
+        closeCheckoutModal();
+        alert('🎉 Glückwunsch! Das Pro-Dossier wurde erfolgreich freigeschaltet.');
+      } else {
+        alert('⚠️ Ungültiger Freischaltcode. Bitte prüfen Sie den Code oder nutzen Sie den Checkout-Link.');
+      }
+    }
+
+    function instantUnlockAfterPayment() {
+      localStorage.setItem('grenzgaenger_pro_unlocked', 'true');
+      currentData.isPro = true;
+      updateProUI(true);
+      closeCheckoutModal();
+      alert('🎉 Vielen Dank! Ihr Pro-Dossier ist nun dauerhaft in diesem Browser freigeschaltet.');
+    }
+
+    function promptVoucherCode() {
+      const code = prompt('Bitte geben Sie Ihren Pro-Freischaltcode ein (z.B. DW-PRO-2026):');
+      if (code) {
+        document.getElementById('modal-voucher-input').value = code;
+        applyVoucherCode();
+      }
+    }
+
+    // Hilfsfunktionen
+    function formatCHF(val) {
+      return Math.round(val).toLocaleString('de-CH');
+    }
+
+    function formatEUR(val) {
+      return Math.round(val).toLocaleString('de-DE');
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Sachbezug-, Mitarbeiter-Benefit- &amp; 50-€-Freigrenzen-Rechner 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser Sachbezugs- &amp; Benefit-Rechner 2026 für Deutschland, Österreich und die Schweiz: 50-€-Freigrenze (§ 8 EStG), ZAG-Prüfung, Essenszuschuss, Jobticket, 50-€-Internetpauschale &amp; Gehaltsvergleich." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/sachbezug-benefit-rechner/" />
+  <meta property="og:title" content="DACH Sachbezug-, Mitarbeiter-Benefit- &amp; 50-€-Freigrenzen-Rechner 2026" />
+  <meta property="og:description" content="Steuerfreie Gehaltsextras für KMU rechtssicher berechnen: 50-€-Sachbezug, digitaler Essenszuschuss (7,50 €/Tag), Internetpauschale, Jobticket &amp; 60% AG-Kostenersparnis." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/sachbezug-benefit-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; background: white !important; color: black !important; page-break-inside: avoid; }
+      .print-table th, .print-table td { border: 1px solid #cbd5e1 !important; color: black !important; padding: 4px 6px !important; }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Sachbezug-, Mitarbeiter-Benefit- & 50-€-Freigrenzen-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/sachbezug-benefit-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Rechtssicherer Optimierungsrechner für steuerfreie Mitarbeiter-Benefits und Sachbezüge im DACH-Raum (DE 50 € Freigrenze, AT Essensgutscheine 8 €, CH Lunch-Checks).",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-teal-500 selection:text-slate-950">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-1.5 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 font-semibold text-[10px]">
+          <span>⚡ NEU 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">SvEV 2026 &amp; § 8 Abs. 2 EStG (50-€-Freigrenze) konform</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Personaldaten-Übertragung)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 50 € Sachbezug</span>
+        <span>•</span>
+        <span>🇦🇹 8 € Gastro-Gutschein</span>
+        <span>•</span>
+        <span>🇨🇭 180 CHF Lunch-Check</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-500 to-emerald-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-teal-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-teal-400 ml-2 px-1.5 py-0.5 rounded bg-teal-950 border border-teal-800">Tool #23</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Benefit-Plan drucken</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= PRINT HEADER ================= -->
+  <div class="print-only p-4 border-b border-black mb-6">
+    <div class="flex justify-between items-center">
+      <div>
+        <h1 class="text-xl font-bold">DACH Digitalwerk • Mitarbeiter-Benefit &amp; Sachbezugs-Plan 2026</h1>
+        <p class="text-xs text-gray-600">Steuerfreie &amp; pauschalversteuerte Gehaltsextras für KMU (DE § 8 EStG / AT § 3 EStG / CH Lohnausweis)</p>
+      </div>
+      <div class="text-right text-xs">
+        <div><strong>Datum:</strong> 24.10.2026</div>
+        <div><strong>Validierung:</strong> 100% Client-Side berechnet</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+
+    <!-- HERO TITLE AREA -->
+    <div class="no-print mb-8 space-y-3">
+      <nav class="text-xs font-mono text-slate-500 flex items-center gap-2">
+        <a href="../" class="hover:text-teal-400 transition">Home</a>
+        <span>/</span>
+        <span class="text-slate-300">Tool #23: Sachbezug- &amp; Benefit-Rechner 2026</span>
+      </nav>
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-2xl sm:text-4xl font-display font-extrabold text-white tracking-tight">
+          DACH Sachbezug-, Benefit- &amp; 50-€-Freigrenzen-Rechner 2026
+        </h1>
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/10 text-teal-400 border border-teal-500/30">
+          SvEV 2026 &amp; § 8 Abs. 2 EStG
+        </span>
+      </div>
+      <p class="text-sm text-slate-400 max-w-4xl leading-relaxed">
+        Optimieren Sie Mitarbeiter-Vergütungen durch steuerfreie und pauschalversteuerte Gehaltsextras. Vergleichen Sie die <strong>50-€-Sachbezugsfreigrenze (§ 8 Abs. 2 Satz 11 EStG)</strong>, den <strong>digitalen Essenszuschuss (bis zu 7,50 €/Tag)</strong>, <strong>Jobtickets</strong> und <strong>Internetpauschalen</strong> mit einer klassischen Bruttolohnerhöhung und sparen Sie bis zu <strong>60 % Arbeitgeber-Lohnnebenkosten</strong>.
+      </p>
+    </div>
+
+    <!-- COUNTRY TABS -->
+    <div class="no-print flex border-b border-slate-800 mb-8 space-x-2">
+      <button onclick="setCountryTab('DE')" id="tab-de" class="px-4 py-2.5 border-b-2 border-teal-500 font-bold text-sm text-teal-400 transition flex items-center gap-2">
+        <span>🇩🇪 Deutschland (SvEV 2026)</span>
+      </button>
+      <button onclick="setCountryTab('AT')" id="tab-at" class="px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (§ 3 EStG)</span>
+      </button>
+      <button onclick="setCountryTab('CH')" id="tab-ch" class="px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (Lohnausweis Feld G)</span>
+      </button>
+      <button onclick="setCountryTab('COMPARE')" id="tab-comp" class="px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2">
+        <span>⚖️ Gehaltserhöhungs-Vergleich</span>
+      </button>
+    </div>
+
+    <!-- TOP KPI SUMMARY CARDS -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="p-5 rounded-3xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Mitarbeiter Netto-Vorteil</div>
+        <div id="card-net-benefit" class="text-xl sm:text-2xl font-extrabold text-teal-400 font-mono">334,50 €</div>
+        <div id="card-net-annual" class="text-[10px] text-slate-500 mt-0.5">4.014,00 € p.a. steuer-/abgabenfrei</div>
+      </div>
+
+      <div class="p-5 rounded-3xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Arbeitgeber Gesamtkosten</div>
+        <div id="card-ag-cost" class="text-xl sm:text-2xl font-extrabold text-white font-mono">368,53 €</div>
+        <div id="card-ag-tax" class="text-[10px] text-slate-500 mt-0.5">Inkl. 13,19 € Pauschalsteuer (25%)</div>
+      </div>
+
+      <div class="p-5 rounded-3xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Kostenersparnis vs. Brutto</div>
+        <div id="card-savings" class="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono">- 61,2 %</div>
+        <div id="card-savings-annual" class="text-[10px] text-emerald-400 mt-0.5">~3.800 € Ersparnis je Mitarbeiter p.a.</div>
+      </div>
+
+      <div class="p-5 rounded-3xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">50-€-Freigrenzen-Status</div>
+        <div id="card-freigrenze-status" class="text-sm sm:text-base font-extrabold text-emerald-400 flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>100% Steuerfrei (✓ ZAG)</span>
+        </div>
+        <div id="card-freigrenze-detail" class="text-[10px] text-slate-500 mt-0.5">Gutscheinwert: 50,00 € / 50,00 €</div>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE SECTION -->
+    <div class="grid lg:grid-cols-12 gap-8 mb-12">
+
+      <!-- LEFT COLUMN: BENEFIT CONFIGURATOR (5 COLS) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- PANEL DEUTSCHLAND -->
+        <div id="panel-de" class="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-display font-bold uppercase tracking-wider text-teal-400">1. Deutsche Benefit-Bausteine 2026</h3>
+            <span class="text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-0.5 rounded">SvEV / EStG</span>
+          </div>
+
+          <!-- 50 € Sachbezug -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-white">50-€-Sachbezugskarte (§ 8 Abs. 2 Satz 11 EStG)</label>
+              <span id="label-voucher" class="text-xs font-mono text-teal-400 font-bold">50,00 €</span>
+            </div>
+            <input type="range" id="in-de-voucher" min="0" max="60" step="1" value="50" oninput="recalc()" class="w-full accent-teal-500" />
+            <div class="flex items-center justify-between text-[11px] text-slate-400">
+              <label class="flex items-center gap-1.5 cursor-pointer">
+                <input type="checkbox" id="in-de-zag" checked onchange="recalc()" class="rounded accent-teal-500" />
+                <span>ZAG-Kriterien erfüllt (§ 2 Abs. 1 Nr. 10 ZAG)</span>
+              </label>
+              <span id="badge-voucher-status" class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 font-bold">Frei</span>
+            </div>
+          </div>
+
+          <!-- Digitaler Essenszuschuss -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-white">Digitaler Essenszuschuss (SvEV 2026)</label>
+              <span id="label-meals" class="text-xs font-mono text-teal-400 font-bold">15 Tage</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-[10px] text-slate-400">Arbeitstage / Monat</label>
+                <input type="number" id="in-de-meal-days" value="15" min="0" max="25" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+              </div>
+              <div>
+                <label class="text-[10px] text-slate-400">Zuschuss / Tag (€)</label>
+                <input type="number" id="in-de-meal-rate" value="7.50" min="0" max="7.50" step="0.10" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+              </div>
+            </div>
+            <div class="text-[10px] text-slate-500">Max. 7,50 € / Tag (4,40 € amtlicher Sachbezugswert + 3,10 € AG-Zuschuss)</div>
+          </div>
+
+          <!-- Jobticket / Deutschlandticket -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-white">Jobticket / ÖPNV (§ 3 Nr. 15 EStG)</label>
+              <span id="label-jobticket" class="text-xs font-mono text-teal-400 font-bold">49,00 €</span>
+            </div>
+            <input type="number" id="in-de-jobticket" value="49" min="0" max="300" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+            <div class="text-[10px] text-slate-500">100 % steuer- und abgabenfrei (zusätzlich zum ohnehin geschuldeten Arbeitslohn)</div>
+          </div>
+
+          <!-- Internetpauschale & Gesundheit -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Internetpauschale</label>
+              <input type="number" id="in-de-internet" value="50" min="0" max="50" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">Max. 50 € (25% LSt)</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Gesundheit (§ 3 Nr. 34)</label>
+              <input type="number" id="in-de-health" value="600" min="0" max="600" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">Max. 600 € / Jahr frei</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PANEL ÖSTERREICH (HIDDEN BY DEFAULT) -->
+        <div id="panel-at" class="hidden p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-display font-bold uppercase tracking-wider text-teal-400">1. Österreichische Benefits 2026</h3>
+            <span class="text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-0.5 rounded">§ 3 EStG (AT)</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <label class="text-xs font-bold text-white block">Essensgutscheine (§ 3 Abs. 1 Z 17 EStG)</label>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-[10px] text-slate-400">Gutschein-Typ</label>
+                <select id="in-at-meal-type" onchange="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1.5 text-xs text-white outline-none">
+                  <option value="gastro" selected>Gastronomie (8,00 €)</option>
+                  <option value="grocery">Lebensmittel (2,00 €)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] text-slate-400">Arbeitstage / Monat</label>
+                <input type="number" id="in-at-meal-days" value="18" min="0" max="25" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <label class="text-xs font-bold text-white block">Klimaticket / Öffi-Ticket (§ 26 Z 5 EStG)</label>
+            <input type="number" id="in-at-klimaticket" value="1095" min="0" max="2000" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+            <span class="text-[10px] text-slate-500">100 % steuer- und abgabenfrei für Fahrten Wohnort - Arbeitsstätte</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Zukunftssicherung</label>
+              <input type="number" id="in-at-future" value="300" min="0" max="300" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">Max. 300 € / Jahr (§ 3 Z 15)</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Kinderbetreuung</label>
+              <input type="number" id="in-at-kids" value="0" min="0" max="5" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">Bis zu 2.000 € / Kind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL SCHWEIZ (HIDDEN BY DEFAULT) -->
+        <div id="panel-ch" class="hidden p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-display font-bold uppercase tracking-wider text-teal-400">1. Schweizer Spesen &amp; Benefits</h3>
+            <span class="text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-0.5 rounded">Lohnausweis &amp; AHVV</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <label class="text-xs font-bold text-white block">Lunch-Check / Verpflegung (Feld G)</label>
+            <input type="number" id="in-ch-lunch" value="180" min="0" max="180" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+            <span class="text-[10px] text-slate-500">Max. 180 CHF / Monat steuer- und abgabenfrei</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <label class="text-xs font-bold text-white block">Reka-Geld Vergünstigung</label>
+            <input type="number" id="in-ch-reka" value="600" min="0" max="600" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono outline-none" />
+            <span class="text-[10px] text-slate-500">Bis 600 CHF Ersparnis / Jahr beitragsfrei</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Naturalgeschenke</label>
+              <input type="number" id="in-ch-gifts" value="1" min="0" max="4" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">500 CHF / Anlass</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+              <label class="text-[11px] font-bold text-white block">Halbtax / ÖV-Beitrag</label>
+              <input type="number" id="in-ch-halbtax" value="190" min="0" max="500" oninput="recalc()" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-xs text-white font-mono outline-none" />
+              <span class="text-[9px] text-slate-500 block">CHF / Jahr frei</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL COMPARE (HIDDEN BY DEFAULT) -->
+        <div id="panel-comp" class="hidden p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-display font-bold uppercase tracking-wider text-teal-400">1. Gehaltserhöhungs-Rechner</h3>
+            <span class="text-[10px] font-mono bg-slate-900 text-slate-400 px-2 py-0.5 rounded">Brutto vs. Netto</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Gewünschtes Netto-Plus beim Arbeitnehmer (€)</label>
+            <input type="number" id="in-comp-target" value="100" min="10" max="1000" step="10" oninput="recalc()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono outline-none" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Grenzsteuersatz des Mitarbeiters (%)</label>
+            <input type="number" id="in-comp-tax" value="35" min="10" max="45" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono outline-none" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: DETAILED AUDIT TABLE & BENEFIT BREAKDOWN (7 COLS) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h3 class="text-lg font-display font-extrabold text-white">2. Aufschlüsselung &amp; Lohnsteuer-Vorteil</h3>
+              <p class="text-xs text-slate-400">Gegenüberstellung von Mitarbeiter-Nettowert und Arbeitgeber-Gesamtaufwand.</p>
+            </div>
+            <div id="badge-total-tax" class="px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider bg-teal-500/20 text-teal-400 border border-teal-500/30">
+              Maximal steueroptimiert
+            </div>
+          </div>
+
+          <!-- Table: Benefit Breakdown -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900 border-b border-slate-800 text-slate-400 font-mono">
+                <tr>
+                  <th class="p-2.5">Benefit-Baustein</th>
+                  <th class="p-2.5 text-right">Netto Mitarbeiter</th>
+                  <th class="p-2.5 text-right">Kosten Arbeitgeber</th>
+                  <th class="p-2.5 text-right">Steuer-Status</th>
+                </tr>
+              </thead>
+              <tbody id="table-benefit-rows" class="divide-y divide-slate-800 text-slate-300">
+                <!-- Dynamically populated by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Gehaltsvergleichs-Box (Brutto vs. Benefits) -->
+          <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-teal-400">Vergleich: Gleiches Netto über klassische Bruttoerhöhung</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-center">
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="text-[10px] text-slate-400">Bruttoerhöhung nötig</div>
+                <div id="comp-brutto-needed" class="text-sm font-bold font-mono text-white">751,68 €</div>
+                <div class="text-[9px] text-slate-500 mt-0.5">Wegen Steuer &amp; SV-Progression</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+                <div class="text-[10px] text-slate-400">AG-Kosten bei Brutto</div>
+                <div id="comp-ag-brutto-total" class="text-sm font-bold font-mono text-rose-400">905,77 €</div>
+                <div class="text-[9px] text-slate-500 mt-0.5">Inkl. 20,5 % AG-Sozialabgaben</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 col-span-2 sm:col-span-1">
+                <div class="text-[10px] text-slate-400">Ihre AG-Ersparnis</div>
+                <div id="comp-ag-savings-month" class="text-sm font-black font-mono text-emerald-400">537,24 € / Mo</div>
+                <div id="comp-ag-savings-year" class="text-[9px] text-emerald-400 font-bold mt-0.5">6.446,88 € / Jahr</div>
+              </div>
+            </div>
+            <p id="comp-summary-text" class="text-[11px] text-slate-400 leading-relaxed">
+              Durch die Nutzung steuerfreier Sachbezüge und Pauschalierungen zahlt der Arbeitgeber nur <strong class="text-white">368,53 €</strong> statt <strong class="text-rose-300">905,77 €</strong>, während der Mitarbeiter exakt dieselben <strong class="text-teal-300">334,50 € Netto</strong> erhält.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- BGH SMARTLAW DISCLAIMER BANNER -->
+    <div class="p-5 rounded-3xl bg-slate-950 border border-slate-800 mb-12">
+      <div class="flex items-start gap-3">
+        <span class="text-teal-400 text-lg">⚖️</span>
+        <div class="space-y-1.5 text-xs text-slate-400 leading-relaxed">
+          <div class="font-bold text-slate-200">Rechtlicher Hinweis gem. BGH-Rechtsprechung (Az. I ZR 113/20 – Smartlaw):</div>
+          <p>
+            Dieser Sachbezugs- und Benefit-Optimierer ist ein <strong>rein technisches, mathematisch-statistisches Simulations- und Modellierungswerkzeug</strong> auf Basis der amtlichen Sozialversicherungsentgeltverordnung (SvEV) und der Einkommensteuergesetze (DE § 8 EStG / AT § 3 EStG / CH AHVV). Er stellt <strong>keine Rechts- oder Steuerberatung</strong> im Sinne des Rechtsdienstleistungsgesetzes (§ 2 RDG) oder des Steuerberatungsgesetzes (§ 5 StBerG) dar und ersetzt nicht die individuelle Prüfung durch eine Steuerkanzlei oder einen Fachanwalt für Arbeitsrecht.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO RATGEBER QUER-VERWEISE -->
+    <div class="no-print p-6 rounded-3xl bg-slate-950 border border-slate-800 mb-12">
+      <h3 class="text-xs font-mono uppercase font-bold text-teal-400 mb-3">B2B-Fachratgeber zu Sachbezügen &amp; Gehaltsextras</h3>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="../sachbezug-50-euro-freigrenze-gutscheine-2026.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-teal-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-teal-400 transition mb-1">50-€-Freigrenze &amp; ZAG-Kriterien</div>
+          <div class="text-[11px] text-slate-400">§ 8 Abs. 2 Satz 11 EStG: Fallbeilgrenze, Gutscheinkarten &amp; 50,01-€-Falle.</div>
+        </a>
+        <a href="../digitaler-essenszuschuss-sachbezugswert-2026.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-teal-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-teal-400 transition mb-1">Digitaler Essenszuschuss 2026</div>
+          <div class="text-[11px] text-slate-400">SvEV Sachbezugswerte 2026: 4,40 € + 3,10 € AG-Zuschuss = 7,50 € je Arbeitstag.</div>
+        </a>
+        <a href="../mitarbeiter-benefits-steuerfrei-gehaltsextras-2026.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-teal-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-teal-400 transition mb-1">Steuerfreie Benefits 2026 (DACH)</div>
+          <div class="text-[11px] text-slate-400">Jobticket, Internetpauschale, Erholungsbeihilfe &amp; AT Zukunftssicherung.</div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="no-print mt-auto border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 DACH Digitalwerk. Rein technisches B2B-Kalkulationswerkzeug. Keine Rechts- oder Steuerberatung (§ 2 RDG / § 5 StBerG). BGH-konforme Modellierungslogik (Az. I ZR 113/20).
+      </div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="../agb/" class="hover:text-teal-400 transition">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-teal-400 transition">Haftungsausschluss</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-teal-400 transition">Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    let currentMode = 'DE';
+
+    function fmtCur(num) {
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 }).format(num);
+    }
+    function fmtCHF(num) {
+      return new Intl.NumberFormat('de-CH', { style: 'currency', currency: 'CHF', maximumFractionDigits: 2 }).format(num);
+    }
+
+    function setCountryTab(country) {
+      currentMode = country;
+      ['de', 'at', 'ch', 'comp'].forEach(c => {
+        const tab = document.getElementById(`tab-${c}`);
+        const panel = document.getElementById(`panel-${c}`);
+        if (c === country.toLowerCase()) {
+          tab.className = "px-4 py-2.5 border-b-2 border-teal-500 font-bold text-sm text-teal-400 transition flex items-center gap-2";
+          panel.classList.remove('hidden');
+        } else {
+          tab.className = "px-4 py-2.5 border-b-2 border-transparent font-medium text-sm text-slate-400 hover:text-slate-200 transition flex items-center gap-2";
+          panel.classList.add('hidden');
+        }
+      });
+      recalc();
+    }
+
+    function recalc() {
+      const tbody = document.getElementById('table-benefit-rows');
+      tbody.innerHTML = '';
+
+      let employeeNetMonthly = 0;
+      let employerCostMonthly = 0;
+
+      if (currentMode === 'DE') {
+        const voucher = parseFloat(document.getElementById('in-de-voucher').value) || 0;
+        const zagCompliant = document.getElementById('in-de-zag').checked;
+        const mealDays = parseInt(document.getElementById('in-de-meal-days').value) || 0;
+        const mealRate = parseFloat(document.getElementById('in-de-meal-rate').value) || 0;
+        const jobticket = parseFloat(document.getElementById('in-de-jobticket').value) || 0;
+        const internet = parseFloat(document.getElementById('in-de-internet').value) || 0;
+        const healthAnnual = parseFloat(document.getElementById('in-de-health').value) || 0;
+
+        document.getElementById('label-voucher').innerText = fmtCur(voucher);
+        document.getElementById('label-meals').innerText = `${mealDays} Tage`;
+        document.getElementById('label-jobticket').innerText = fmtCur(jobticket);
+
+        // 1. Voucher 50€ Check
+        const isVoucherFree = voucher <= 50.0 && zagCompliant;
+        const voucherNet = isVoucherFree ? voucher : (voucher * 0.55);
+        const voucherAg = isVoucherFree ? voucher : (voucher * 1.205);
+        employeeNetMonthly += voucherNet;
+        employerCostMonthly += voucherAg;
+
+        addTableRow("50-€-Sachbezugskarte (§ 8 Abs. 2 EStG)", voucherNet, voucherAg, isVoucherFree ? "100% Steuerfrei (✓ ZAG)" : "Steuerpflichtig (Über 50€)");
+
+        const badgeVoucher = document.getElementById('badge-voucher-status');
+        const cardFreigrenze = document.getElementById('card-freigrenze-status');
+        const cardFreiDetail = document.getElementById('card-freigrenze-detail');
+        if (isVoucherFree) {
+          badgeVoucher.className = "px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 font-bold";
+          badgeVoucher.innerText = "Frei";
+          cardFreigrenze.className = "text-sm sm:text-base font-extrabold text-emerald-400 flex items-center gap-1.5";
+          cardFreigrenze.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span><span>100% Steuerfrei (✓ ZAG)</span>`;
+          cardFreiDetail.innerText = `Gutscheinwert: ${fmtCur(voucher)} / 50,00 €`;
+        } else {
+          badgeVoucher.className = "px-1.5 py-0.5 rounded text-[10px] bg-rose-500/20 text-rose-400 font-bold";
+          badgeVoucher.innerText = "Steuerpflichtig!";
+          cardFreigrenze.className = "text-sm sm:text-base font-extrabold text-rose-400 flex items-center gap-1.5";
+          cardFreigrenze.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span><span>Freigrenze verletzt!</span>`;
+          cardFreiDetail.innerText = `Über 50,00 € oder kein ZAG -> Volle Steuerpflicht!`;
+        }
+
+        // 2. Meal allowance
+        const mealTotal = Math.min(mealDays * mealRate, mealDays * 7.50);
+        // Sachbezugswert 4.40 pauschal 25%, AG Zuschuss 3.10 steuerfrei
+        const mealOfficialPart = Math.min(mealRate, 4.40) * mealDays;
+        const mealPauschalTax = mealOfficialPart * 0.25 * 1.055; // 25% LSt + SolZ
+        employeeNetMonthly += mealTotal;
+        employerCostMonthly += (mealTotal + mealPauschalTax);
+        addTableRow(`Essenszuschuss (${mealDays} Tage à ${fmtCur(mealRate)})`, mealTotal, mealTotal + mealPauschalTax, `25% Pauschalsteuer (${fmtCur(mealPauschalTax)})`);
+
+        // 3. Jobticket
+        employeeNetMonthly += jobticket;
+        employerCostMonthly += jobticket;
+        addTableRow("Jobticket (§ 3 Nr. 15 EStG)", jobticket, jobticket, "100% Steuer- & SV-frei");
+
+        // 4. Internet
+        const internetTax = internet * 0.25 * 1.055;
+        employeeNetMonthly += internet;
+        employerCostMonthly += (internet + internetTax);
+        addTableRow("Internetpauschale (§ 40 Abs. 2 EStG)", internet, internet + internetTax, `25% Pauschalsteuer (${fmtCur(internetTax)})`);
+
+        // 5. Health
+        const healthMonthly = healthAnnual / 12.0;
+        employeeNetMonthly += healthMonthly;
+        employerCostMonthly += healthMonthly;
+        addTableRow("Gesundheitsförderung (§ 3 Nr. 34 EStG)", healthMonthly, healthMonthly, "100% Steuerfrei (bis 600 €/a)");
+
+      } else if (currentMode === 'AT') {
+        const mealType = document.getElementById('in-at-meal-type').value;
+        const mealDays = parseInt(document.getElementById('in-at-meal-days').value) || 0;
+        const klimaticket = parseFloat(document.getElementById('in-at-klimaticket').value) || 0;
+        const future = parseFloat(document.getElementById('in-at-future').value) || 0;
+        const kids = parseInt(document.getElementById('in-at-kids').value) || 0;
+
+        const maxDaily = mealType === 'gastro' ? 8.00 : 2.00;
+        const mealVal = mealDays * maxDaily;
+        employeeNetMonthly += mealVal;
+        employerCostMonthly += mealVal;
+        addTableRow(`Essensgutscheine (${mealType === 'gastro' ? 'Gastro 8 €' : 'Lebensmittel 2 €'})`, mealVal, mealVal, "100% Steuer- & SV-frei (§ 3 EStG)");
+
+        const ticketMonthly = klimaticket / 12.0;
+        employeeNetMonthly += ticketMonthly;
+        employerCostMonthly += ticketMonthly;
+        addTableRow("Klimaticket / Öffi-Ticket", ticketMonthly, ticketMonthly, "100% Abgabenfrei (§ 26 Z 5 EStG)");
+
+        const futureMonthly = Math.min(future, 300.0) / 12.0;
+        employeeNetMonthly += futureMonthly;
+        employerCostMonthly += futureMonthly;
+        addTableRow("Zukunftssicherung Vorsorge", futureMonthly, futureMonthly, "Steuerfrei bis 300 €/a");
+
+        if (kids > 0) {
+          const kidsMonthly = (kids * 2000.0) / 12.0;
+          employeeNetMonthly += kidsMonthly;
+          employerCostMonthly += kidsMonthly;
+          addTableRow(`Kinderbetreuungszuschuss (${kids} Kinder)`, kidsMonthly, kidsMonthly, "Steuerfrei bis 2.000 €/Kind");
+        }
+
+      } else if (currentMode === 'CH') {
+        const lunch = parseFloat(document.getElementById('in-ch-lunch').value) || 0;
+        const reka = parseFloat(document.getElementById('in-ch-reka').value) || 0;
+        const gifts = parseInt(document.getElementById('in-ch-gifts').value) || 0;
+        const halbtax = parseFloat(document.getElementById('in-ch-halbtax').value) || 0;
+
+        employeeNetMonthly += lunch;
+        employerCostMonthly += lunch;
+        addTableRow("Lunch-Check (Lohnausweis Feld G)", lunch, lunch, "Steuerfrei bis 180 CHF/Mo");
+
+        const rekaMonthly = Math.min(reka, 600.0) / 12.0;
+        employeeNetMonthly += rekaMonthly;
+        employerCostMonthly += rekaMonthly;
+        addTableRow("Reka-Geld Rabatt", rekaMonthly, rekaMonthly, "Beitragsfrei bis 600 CHF/a");
+
+        const giftMonthly = (gifts * 500.0) / 12.0;
+        employeeNetMonthly += giftMonthly;
+        employerCostMonthly += giftMonthly;
+        addTableRow(`Naturalgeschenke (${gifts} Anlässe)`, giftMonthly, giftMonthly, "Frei bis 500 CHF/Anlass");
+
+        const halbtaxMonthly = halbtax / 12.0;
+        employeeNetMonthly += halbtaxMonthly;
+        employerCostMonthly += halbtaxMonthly;
+        addTableRow("Halbtax / ÖV-Beitrag", halbtaxMonthly, halbtaxMonthly, "Spesenkonform beitragsfrei");
+
+      } else {
+        // COMPARE MODE
+        const targetNet = parseFloat(document.getElementById('in-comp-target').value) || 100;
+        const taxRate = (parseFloat(document.getElementById('in-comp-tax').value) || 35) / 100.0;
+        const svRate = 0.20; // 20% AN SV
+
+        // Netto = Brutto * (1 - taxRate - svRate)
+        const netFactor = 1.0 - taxRate - svRate;
+        const bruttoNeeded = targetNet / netFactor;
+        const agCostBrutto = bruttoNeeded * 1.205; // 20.5% AG SV
+
+        // Benefits: z.B. Gutscheine & Pauschalversteuerung ca. 5%
+        const benefitAgCost = targetNet * 1.05;
+
+        employeeNetMonthly = targetNet;
+        employerCostMonthly = benefitAgCost;
+
+        addTableRow("Gewünschter Netto-Mehrwert beim Mitarbeiter", targetNet, benefitAgCost, "Optimiert via steuerfreie Benefits");
+      }
+
+      // Update KPI Cards
+      document.getElementById('card-net-benefit').innerText = currentMode === 'CH' ? fmtCHF(employeeNetMonthly) : fmtCur(employeeNetMonthly);
+      document.getElementById('card-net-annual').innerText = `${currentMode === 'CH' ? fmtCHF(employeeNetMonthly * 12) : fmtCur(employeeNetMonthly * 12)} p.a. Netto-Wert`;
+
+      document.getElementById('card-ag-cost').innerText = currentMode === 'CH' ? fmtCHF(employerCostMonthly) : fmtCur(employerCostMonthly);
+      document.getElementById('card-ag-tax').innerText = `${currentMode === 'CH' ? fmtCHF(employerCostMonthly * 12) : fmtCur(employerCostMonthly * 12)} p.a. AG-Aufwand`;
+
+      // Classical comparison calculation
+      const netToMatch = employeeNetMonthly;
+      const bruttoNeeded = netToMatch / (1.0 - 0.35 - 0.20);
+      const agCostBrutto = bruttoNeeded * 1.205;
+      const monthlySavings = agCostBrutto - employerCostMonthly;
+      const pctSavings = agCostBrutto > 0 ? (monthlySavings / agCostBrutto * 100.0) : 0;
+
+      document.getElementById('card-savings').innerText = `- ${pctSavings.toFixed(1)} %`;
+      document.getElementById('card-savings-annual').innerText = `~${fmtCur(monthlySavings * 12)} Ersparnis je AN p.a.`;
+
+      document.getElementById('comp-brutto-needed').innerText = fmtCur(bruttoNeeded);
+      document.getElementById('comp-ag-brutto-total').innerText = fmtCur(agCostBrutto);
+      document.getElementById('comp-ag-savings-month').innerText = `${fmtCur(monthlySavings)} / Mo`;
+      document.getElementById('comp-ag-savings-year').innerText = `${fmtCur(monthlySavings * 12)} / Jahr`;
+
+      document.getElementById('comp-summary-text').innerHTML = `Durch die Nutzung steuerfreier Sachbezüge zahlt der Arbeitgeber nur <strong class="text-white">${fmtCur(employerCostMonthly)}</strong> statt <strong class="text-rose-300">${fmtCur(agCostBrutto)}</strong>, während der Mitarbeiter exakt dieselben <strong class="text-teal-300">${fmtCur(employeeNetMonthly)} Netto-Mehrwert</strong> erhält.`;
+    }
+
+    function addTableRow(title, net, ag, status) {
+      const tbody = document.getElementById('table-benefit-rows');
+      const tr = document.createElement('tr');
+      tr.className = "hover:bg-slate-900/60";
+      tr.innerHTML = `
+        <td class="p-2.5 font-semibold text-white">${title}</td>
+        <td class="p-2.5 text-right font-mono text-teal-400 font-bold">${fmtCur(net)}</td>
+        <td class="p-2.5 text-right font-mono text-slate-200">${fmtCur(ag)}</td>
+        <td class="p-2.5 text-right text-slate-400 font-mono text-[11px]">${status}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      recalc();
+    });
+  </script>
+
+</body>
+</html>

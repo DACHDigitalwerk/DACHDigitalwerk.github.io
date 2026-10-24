@@ -1,0 +1,1845 @@
+﻿<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Impressum-, DSGVO- & Schweizer revDSG-Datenschutzerklärungs-Generator 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Erstellen & prüfen Sie Ihr rechtssicheres Impressum (DDG/ECG/UWG) und Datenschutzerklärung (DSGVO/revDSG) für DE, AT und CH. Inkl. 2026 Abmahn-Scanner, Cookie-Banner-Snippet & AVV-Muster." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // =========================================================================
+    // KONFIGURIERBARER GUMROAD / PAYPAL CHECKOUT LINK
+    // =========================================================================
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 20mm 22mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 18mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Alle Daten & Texte verbleiben lokal in Ihrem Browser (Zero-Server-Storage).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsstand 2026:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setGlobalJurisdiction('DE')" id="top-jur-btn-DE" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 5 DDG)</button>
+          <button onclick="setGlobalJurisdiction('CH')" id="top-jur-btn-CH" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (revDSG & UWG)</button>
+          <button onclick="setGlobalJurisdiction('AT')" id="top-jur-btn-AT" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§ 5 ECG)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          ⚖️
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">DACH Rechtstext-Suite 2026</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Impressum (DDG/ECG/UWG) • revDSG & DSGVO • Abmahn-Scanner • AVV-Muster & Cookie-Snippet</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../arbeitszeugnis/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🔍</span>
+          <span>Arbeitszeugnis-Radar</span>
+        </a>
+        <a href="../qr-suite/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🧾</span>
+          <span>E-Rechnung & Swiss QR</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Paket freischalten (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold mb-3">
+          <span>⚡ Aktuell nach Reformen 2024–2026</span>
+          <span>•</span>
+          <span>§ 5 DDG (ersetzt TMG) & § 25 TDDDG • Schweizer revDSG & EDÖB</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          DACH Impressum-, DSGVO- & Schweizer revDSG-Generator <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-indigo-300">2026</span>
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Wer 2026 noch „§ 5 TMG“ oder „TTDSG“ im Impressum stehen hat, riskiert kostenpflichtige Abmahnungen. Prüfen Sie Ihr bestehendes Impressum im Live-Audit oder konfigurieren Sie in 60 Sekunden maßgeschneiderte Rechtstexte für Deutschland, Österreich und die Schweiz.
+        </p>
+      </div>
+
+      <!-- 3 PRESET DEMO BUTTONS -->
+      <div class="mt-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+          <span>🎯 1-Klick-Praxisbeispiele zum Testen laden:</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <button onclick="loadDemoCase('de_tmg_old')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-rose-500/40 hover:border-rose-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/30 text-rose-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇩🇪</span>
+            <div>
+              <div class="text-xs font-bold text-rose-300 uppercase tracking-wider">Fall 1 • Hohes Abmahnrisiko</div>
+              <div class="text-sm font-bold text-white group-hover:text-rose-200 transition">DE Freelancer mit veraltetem TMG & TTDSG</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Veraltetes „§ 5 TMG“, fehlende § 18 MStV Angabe, Remote Google Fonts ohne Hinweis.</div>
+            </div>
+          </button>
+
+          <button onclick="loadDemoCase('ch_revdsg_verein')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-amber-500/40 hover:border-amber-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇨🇭</span>
+            <div>
+              <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Fall 2 • Schweizer revDSG & UWG</div>
+              <div class="text-sm font-bold text-white group-hover:text-amber-200 transition">CH KMU / Verein nach neuem revDSG</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Art. 3 UWG Impressum, Art. 19 revDSG Infopflicht, EDÖB & Drittstaaten-Übermittlung (USA).</div>
+            </div>
+          </button>
+
+          <button onclick="loadDemoCase('at_ecg_shop')" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-indigo-500/40 hover:border-indigo-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇦🇹</span>
+            <div>
+              <div class="text-xs font-bold text-indigo-300 uppercase tracking-wider">Fall 3 • Österreich E-Commerce</div>
+              <div class="text-sm font-bold text-white group-hover:text-indigo-200 transition">AT Webshop nach § 5 ECG & § 25 MedienG</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Gewerbeordnung, WKO-Fachgruppe, Offenlegung gem. § 25 MedienG & UID-Nr.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <div class="bg-white border-b border-slate-200 sticky top-16 z-20 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex overflow-x-auto gap-2">
+      <button onclick="switchTab('audit')" id="tab-btn-audit" class="px-5 py-3.5 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition">
+        <span>🛡️ 1. Abmahn- & Compliance-Scanner</span>
+        <span id="scanner-badge" class="px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 text-[10px] font-black uppercase">Live-Audit</span>
+      </button>
+
+      <button onclick="switchTab('config')" id="tab-btn-config" class="px-5 py-3.5 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>⚙️ 2. Impressum- & DSGVO-Konfigurator</span>
+        <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase">Sofort-Generator</span>
+      </button>
+
+      <button onclick="switchTab('pro')" id="tab-btn-pro" class="px-5 py-3.5 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>📦 3. PRO Komplett-Paket (AVV & Cookie-Snippet)</span>
+        <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black uppercase">PRO (4,90 € / CHF)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 no-print">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: ABMAHN- & COMPLIANCE-SCANNER                                  -->
+    <!-- =================================================================== -->
+    <div id="tab-content-audit" class="space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT COLUMN: INPUT / AUDIT OPTIONS -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/60">
+              <div>
+                <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <span>📋 Live Website- / Impressum-Audit 2026</span>
+                </h2>
+                <p class="text-[11px] text-slate-500 mt-0.5">Fügen Sie Ihren Text ein oder prüfen Sie die 12 zentralen Abmahnfallen per Checkliste.</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="toggleScannerMode('text')" id="mode-btn-text" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">Text einfügen</button>
+                <button onclick="toggleScannerMode('checklist')" id="mode-btn-check" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">12-Punkte-Check</button>
+              </div>
+            </div>
+
+            <!-- MODE A: TEXT SCANNER -->
+            <div id="scanner-view-text" class="p-4 sm:p-5 space-y-4">
+              <textarea
+                id="audit-text-input"
+                rows="10"
+                oninput="runTextAudit()"
+                placeholder="Fügen Sie hier Ihr bestehendes Impressum oder Ihre Datenschutzerklärung ein (z.B. 'Angaben gemäß § 5 TMG: Musterfirma GmbH...'). Das Tool prüft sofort veraltete Rechtsnormen und fehlende Pflichtangaben."
+                class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 p-3.5 text-xs sm:text-sm text-slate-800 leading-relaxed focus:outline-none resize-y font-mono"
+              ></textarea>
+
+              <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                <span id="audit-stats-label">0 Wörter analysiert</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="clearAuditText()" class="text-slate-400 hover:text-rose-600 font-semibold px-2 py-1">Text leeren</button>
+                  <button onclick="runTextAudit(true)" class="bg-slate-900 hover:bg-indigo-600 text-white font-bold px-4 py-2 rounded-xl shadow-sm transition text-xs flex items-center gap-1.5">
+                    <span>🔍 Jetzt analysieren</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- MODE B: 12-POINT CHECKLIST -->
+            <div id="scanner-view-checklist" class="hidden p-4 sm:p-5 space-y-3">
+              <div class="text-xs text-slate-600 mb-2">Haken Sie die Punkte an, die auf Ihre Website / Verein aktuell zutreffen:</div>
+              <div id="checklist-items" class="space-y-2.5">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- DETAILED FINDINGS & RED FLAGS -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm">Erkannte Abmahnrisiken & Handlungsempfehlungen</h3>
+                <p class="text-xs text-slate-500">Konkrete Rechtsbegründungen nach DDG, DSGVO, revDSG, ECG und MedienG.</p>
+              </div>
+              <span id="findings-count-badge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-rose-100 text-rose-800 border border-rose-200">0 Warnungen</span>
+            </div>
+
+            <div id="findings-list-container" class="space-y-3">
+              <!-- Findings rendered here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: SCORE, SAVINGS & INSTANT FIX CTA -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- SCORE CARD -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Abmahnrisiko-Index 2026</span>
+                <span id="score-level-label" class="text-lg font-extrabold text-slate-900">Sehr hohes Abmahnrisiko</span>
+              </div>
+              <div class="text-right">
+                <div id="score-percentage" class="text-4xl font-extrabold text-rose-600">85 %</div>
+                <div class="text-[11px] text-slate-400">Gefährdungspotenzial</div>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="space-y-1.5">
+              <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden flex">
+                <div id="score-bar" class="bg-gradient-to-r from-amber-500 to-rose-600 h-full transition-all duration-500" style="width: 85%;"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-slate-400 font-semibold">
+                <span>0 % (Rechtssicher)</span>
+                <span>50 % (Mittel)</span>
+                <span>100 % (Akut abmahngefährdet)</span>
+              </div>
+            </div>
+
+            <!-- COST ESTIMATION -->
+            <div class="p-4 rounded-xl bg-amber-50/70 border border-amber-200/80 space-y-1">
+              <div class="text-xs font-bold text-amber-900 flex items-center justify-between">
+                <span>💸 Geschätzte vermiedene Abmahn-/Anwaltskosten:</span>
+                <span id="saved-costs-label" class="text-sm font-extrabold text-amber-950">750 € – 1.250 €</span>
+              </div>
+              <p class="text-[11px] text-amber-800 leading-relaxed">
+                Berechnung basiert auf üblichen Streitwerten (3.000 € bis 10.000 €) und 1,3 Geschäftsgebühr nach RVG bzw. Schweizer Anwaltstarifen bei UWG-/Wettbewerbsabmahnungen.
+              </p>
+            </div>
+
+            <!-- CTA: FIX WITH CONFIGURATOR -->
+            <div class="pt-2 border-t border-slate-100 space-y-2">
+              <button onclick="applyFixesToConfigurator()" class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-extrabold py-3 px-4 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center justify-center gap-2 text-sm">
+                <span>⚡ Alle Mängel mit 1 Klick im Konfigurator beheben</span>
+                <span>→</span>
+              </button>
+              <div class="text-[11px] text-center text-slate-400">
+                Überträgt die erkannten Parameter direkt in Modul 2 für eine fehlerfreie Neugenerierung.
+              </div>
+            </div>
+          </div>
+
+          <!-- 2026 LEGAL COMPLIANCE QUICK FACTS -->
+          <div class="bg-slate-900 text-slate-200 rounded-2xl p-5 sm:p-6 space-y-3.5 shadow-sm text-xs">
+            <h4 class="font-bold text-white text-sm flex items-center gap-2">
+              <span>⚖️</span>
+              <span>Rechtsänderungen 2024–2026 im Überblick</span>
+            </h4>
+            <ul class="space-y-2 text-slate-300 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong class="text-white">„§ 5 TMG“ ist Geschichte:</strong> In Deutschland gilt seit Mai 2024 das Digitale-Dienste-Gesetz (<strong>§ 5 DDG</strong>). Veraltete Zitate können als wettbewerbswidrige Irreführung gerügt werden.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold shrink-0">✕</span>
+                <span><strong class="text-white">„TTDSG“ wurde zu „TDDDG“:</strong> Cookie- und Tracking-Hinweise müssen auf <strong>§ 25 TDDDG</strong> verweisen.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold shrink-0">🇨🇭</span>
+                <span><strong class="text-white">Schweizer revDSG & Drittstaaten:</strong> Art. 19 revDSG verlangt die Nennung aller Empfängerstaaten (z.B. USA mit Swiss-US Data Privacy Framework) und des EDÖB.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold shrink-0">🇦🇹</span>
+                <span><strong class="text-white">Österreich § 25 MedienG:</strong> Neben § 5 ECG verlangt das österreichische Mediengesetz eine Offenlegung der grundlegenden Richtung („Blattlinie“).</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: INTERAKTIVER IMPRESSUMS- & DATENSCHUTZ-KONFIGURATOR           -->
+    <!-- =================================================================== -->
+    <div id="tab-content-config" class="hidden space-y-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT COLUMN: INPUT FORM (7 COLS) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-6">
+
+            <!-- STEP 1: JURISDICTION & LEGAL FORM -->
+            <div class="space-y-3 pb-5 border-b border-slate-100">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <span>1. Land & Rechtsform</span>
+                </h3>
+                <span class="text-[11px] text-slate-400 font-semibold">Schritt 1 von 3</span>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2">
+                <button type="button" onclick="setJurisdiction('DE')" id="jur-choice-DE" class="p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 text-indigo-950 font-bold text-xs flex flex-col items-center gap-1 transition">
+                  <span class="text-base">🇩🇪</span>
+                  <span>Deutschland</span>
+                  <span class="text-[9px] font-normal text-slate-500">§ 5 DDG • TDDDG</span>
+                </button>
+                <button type="button" onclick="setJurisdiction('CH')" id="jur-choice-CH" class="p-2.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-xs flex flex-col items-center gap-1 transition">
+                  <span class="text-base">🇨🇭</span>
+                  <span>Schweiz</span>
+                  <span class="text-[9px] font-normal text-slate-500">revDSG • UWG</span>
+                </button>
+                <button type="button" onclick="setJurisdiction('AT')" id="jur-choice-AT" class="p-2.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-xs flex flex-col items-center gap-1 transition">
+                  <span class="text-base">🇦🇹</span>
+                  <span>Österreich</span>
+                  <span class="text-[9px] font-normal text-slate-500">§ 5 ECG • MedienG</span>
+                </button>
+              </div>
+
+              <div class="pt-2">
+                <label class="block text-xs font-bold text-slate-700 mb-1">Rechtsform des Betreibers:</label>
+                <select id="cfg-legal-form" onchange="updateFormFieldsVisibility(); regenerateAllTexts();" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800 bg-white">
+                  <option value="sole">Einzelunternehmen / Freelancer / Freiberufler</option>
+                  <option value="corp" selected>Kapitalgesellschaft (GmbH, AG, UG haftungsbeschränkt)</option>
+                  <option value="club">Eingetragener Verein / Verband (e.V. / Art. 60 ff. ZGB)</option>
+                  <option value="regulated">Freier Beruf / Kammerberuf (Anwalt, Steuerberater, Arzt)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- STEP 2: MASTER DATA -->
+            <div class="space-y-4 pb-5 border-b border-slate-100">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>2. Stammdaten & Ladungsfähige Anschrift</span>
+              </h3>
+
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" id="lbl-org-name">Unternehmensname / Firmenbezeichnung:</label>
+                  <input type="text" id="cfg-org-name" oninput="regenerateAllTexts()" value="AlpenDigital Solutions GmbH" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" id="lbl-representatives">Vertretungsberechtigte Person(en) (z.B. Geschäftsführer / Vorstand):</label>
+                  <input type="text" id="cfg-representatives" oninput="regenerateAllTexts()" value="Maximilian Muster (Geschäftsführer)" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <div class="sm:col-span-2">
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Straße & Hausnummer:</label>
+                    <input type="text" id="cfg-street" oninput="regenerateAllTexts()" value="Technologiepark 14" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">PLZ & Ort:</label>
+                    <input type="text" id="cfg-city" oninput="regenerateAllTexts()" value="80333 München" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">E-Mail-Adresse:</label>
+                    <input type="email" id="cfg-email" oninput="regenerateAllTexts()" value="kontakt@alpendigital-solutions.de" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Telefonnummer:</label>
+                    <input type="tel" id="cfg-phone" oninput="regenerateAllTexts()" value="+49 (0) 89 12345678" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                </div>
+
+                <!-- REGISTER & TAX DATA -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" id="lbl-register-court">Registergericht / Handelsregisteramt:</label>
+                    <input type="text" id="cfg-register-court" oninput="regenerateAllTexts()" value="Amtsgericht München" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" id="lbl-register-num">Registernummer (HRB / VR / UID):</label>
+                    <input type="text" id="cfg-register-num" oninput="regenerateAllTexts()" value="HRB 248910" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" id="lbl-vat-id">Umsatzsteuer-Identifikationsnummer (USt-IdNr. / UID):</label>
+                    <input type="text" id="cfg-vat-id" oninput="regenerateAllTexts()" value="DE 329 881 772" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                  <div id="mtsv-container">
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Redaktionell verantwortlich (§ 18 Abs. 2 MStV):</label>
+                    <input type="text" id="cfg-mtsv-person" oninput="regenerateAllTexts()" value="Maximilian Muster (Anschrift wie oben)" class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 p-2.5 text-xs text-slate-800">
+                  </div>
+                </div>
+
+                <!-- SPECIAL JURISDICTION & CHAMBER FIELDS -->
+                <div id="chamber-container" class="hidden p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div class="text-xs font-bold text-slate-800">Kammer & Aufsichtsbehörde (für freie & reglementierte Berufe):</div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div>
+                      <label class="block text-[11px] text-slate-600">Zuständige Kammer:</label>
+                      <input type="text" id="cfg-chamber" oninput="regenerateAllTexts()" value="Rechtsanwaltskammer München" class="w-full rounded-lg border border-slate-300 p-2 text-xs">
+                    </div>
+                    <div>
+                      <label class="block text-[11px] text-slate-600">Gesetzliche Berufsbezeichnung:</label>
+                      <input type="text" id="cfg-profession" oninput="regenerateAllTexts()" value="Rechtsanwalt (verliehen in Deutschland)" class="w-full rounded-lg border border-slate-300 p-2 text-xs">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: TECHNICAL STACK & USED SERVICES -->
+            <div class="space-y-4">
+              <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>3. Eingesetzte Dienste & Web-Technologien</span>
+              </h3>
+
+              <div class="space-y-3 text-xs">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-1">Hosting-Provider & Server-Standort:</label>
+                  <select id="cfg-hoster" onchange="regenerateAllTexts()" class="w-full rounded-xl border border-slate-300 p-2.5 text-xs text-slate-800 bg-white">
+                    <option value="hetzner">Hetzner Online GmbH (Deutschland / Finnland - DSGVO-Vorbild)</option>
+                    <option value="netlify">Netlify Inc. (USA / EU CDN - Swiss-US & EU-US Data Privacy Framework)</option>
+                    <option value="hostpoint">Hostpoint AG (Schweiz - Rechenzentrum Zürich/Glattbrugg)</option>
+                    <option value="infomaniak">Infomaniak Network SA (Schweiz - 100% erneuerbare Energie)</option>
+                    <option value="ionos">IONOS SE (Deutschland / EU)</option>
+                    <option value="aws">Amazon Web Services (AWS EMEA - Region Frankfurt/Zürich)</option>
+                    <option value="self">Eigener Server / Managed On-Premise</option>
+                  </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Webanalyse & Tracking:</label>
+                    <select id="cfg-analytics" onchange="regenerateAllTexts()" class="w-full rounded-xl border border-slate-300 p-2.5 text-xs text-slate-800 bg-white">
+                      <option value="cookieless">Matomo / Plausible (Cookiefrei & lokal - Kein Consent nötig)</option>
+                      <option value="ga4">Google Analytics 4 (Erfordert Cookie-Consent-Banner!)</option>
+                      <option value="none">Kein Tracking / Keine Webanalyse</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Schriftarten (Typography):</label>
+                    <select id="cfg-fonts" onchange="regenerateAllTexts()" class="w-full rounded-xl border border-slate-300 p-2.5 text-xs text-slate-800 bg-white">
+                      <option value="local">Lokal gehostet / Systemschriften (100% sorgfältig geprüft)</option>
+                      <option value="google_consent">Google Fonts CDN (mit vorgeschaltetem Consent-Banner)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Zahlungsdienstleister (E-Commerce):</label>
+                    <select id="cfg-payment" onchange="regenerateAllTexts()" class="w-full rounded-xl border border-slate-300 p-2.5 text-xs text-slate-800 bg-white">
+                      <option value="none">Keine Online-Zahlung (nur Rechnung/Vorkasse)</option>
+                      <option value="twint">TWINT (Schweizer Zahlungsstandard) + Stripe</option>
+                      <option value="paypal_stripe">PayPal & Stripe</option>
+                      <option value="gumroad">Gumroad Inc. (Self-Serve Checkout)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Newsletter-Versand:</label>
+                    <select id="cfg-newsletter" onchange="regenerateAllTexts()" class="w-full rounded-xl border border-slate-300 p-2.5 text-xs text-slate-800 bg-white">
+                      <option value="none">Kein Newsletter</option>
+                      <option value="brevo">Brevo (ehem. Sendinblue - Server in Deutschland)</option>
+                      <option value="mailchimp">Mailchimp (Intuit - USA)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="pt-2 flex flex-wrap gap-4">
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" id="cfg-contact-form" onchange="regenerateAllTexts()" checked class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                    <span class="text-xs text-slate-700 font-medium">Kontaktformular vorhanden</span>
+                  </label>
+                  <label class="inline-flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" id="cfg-ssl" onchange="regenerateAllTexts()" checked class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
+                    <span class="text-xs text-slate-700 font-medium">SSL/TLS-Verschlüsselung (HTTPS)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: LIVE GENERATED TEXTS (5 COLS) -->
+        <div class="lg:col-span-6 space-y-6">
+
+          <!-- TEXT SUB-TABS -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="p-3 sm:p-4 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2 bg-slate-50/80">
+              <div class="flex items-center gap-2">
+                <button onclick="switchPreviewDoc('impressum')" id="prev-btn-impressum" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white transition">
+                  📄 Impressum (2026)
+                </button>
+                <button onclick="switchPreviewDoc('datenschutz')" id="prev-btn-datenschutz" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+                  🔒 Datenschutzerklärung
+                </button>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <button onclick="copyGeneratedText()" id="btn-copy-preview" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow-sm transition flex items-center gap-1.5">
+                  <span>📋 Kopieren</span>
+                </button>
+                <button onclick="downloadGeneratedText()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3 py-1.5 rounded-xl text-xs transition">
+                  💾 HTML Export
+                </button>
+              </div>
+            </div>
+
+            <!-- CODE / TEXT DISPLAY -->
+            <div class="p-4 sm:p-5">
+              <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
+                <span id="preview-format-label">HTML-Quellcode (kopierfertig für Website oder CMS)</span>
+                <span class="text-[11px] font-mono text-emerald-600 font-semibold" id="preview-jurisdiction-badge">🇩🇪 DDG 2026 konform</span>
+              </div>
+              <textarea
+                id="preview-textarea"
+                rows="18"
+                readonly
+                class="w-full rounded-xl bg-slate-900 text-slate-100 p-4 text-xs font-mono leading-relaxed focus:outline-none resize-y selection:bg-indigo-500 selection:text-white"
+              ></textarea>
+            </div>
+
+            <div class="p-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+              <span class="text-slate-600">Rechtssicher generiert für Ihre Domain ohne Server-Tracking.</span>
+              <button onclick="switchTab('pro')" class="font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                <span>Zum vollständigen Pro-Paket (AVV & Cookie-Snippet)</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: PRO-GENERATOR (KOMPLETT-RECHTSTEXT-PAKET)                     -->
+    <!-- =================================================================== -->
+    <div id="tab-content-pro" class="hidden space-y-8">
+
+      <!-- PRO STATUS & UNLOCK BANNER (SHOWN IF LOCKED) -->
+      <div id="pro-locked-banner" class="bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 p-1 rounded-3xl shadow-xl">
+        <div class="bg-white rounded-[22px] p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-black uppercase">
+              <span>👑 Pro-Vollversion freischalten</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+              Das schlüsselfertige Rechtssicherheits-Paket für Agenturen, KMU & Vereine
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              Erhalten Sie neben dem Impressum die <strong>vollständige, anwaltlich geprüfte Datenschutzerklärung 2026 (DSGVO & Schweizer revDSG)</strong>, das <strong>fertige Cookie-Consent-Banner Snippet (0-Dependency HTML/JS)</strong> sowie das druckfertige <strong>Muster für den Auftragsverarbeitungsvertrag (AVV / ADV)</strong> zum direkten Ausfüllen.
+            </p>
+          </div>
+
+          <div class="shrink-0 flex flex-col items-center sm:items-end gap-3">
+            <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-xl shadow-indigo-600/30 transition text-sm flex items-center gap-2">
+              <span>🔓 Jetzt für 4,90 € / CHF freischalten</span>
+              <span>↗</span>
+            </button>
+            <button onclick="unlockWithCouponPrompt()" class="text-xs text-indigo-600 hover:underline font-semibold">
+              Gutscheincode eingeben (z.B. DW-PRO-2026)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRO CONTENT CARDS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+        <!-- LEFT (4 COLS): PRO TOOLS SELECTOR -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 space-y-2">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider px-2 py-1">Enthaltene Module:</div>
+
+            <button onclick="selectProTool('full_policy')" id="pro-tool-btn-policy" class="w-full text-left p-3 rounded-xl bg-indigo-50 text-indigo-900 border border-indigo-200 font-bold text-xs flex items-center justify-between transition">
+              <span class="flex items-center gap-2">
+                <span>🛡️</span>
+                <span>Vollständige Datenschutzerklärung</span>
+              </span>
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-indigo-200 text-indigo-800">DSGVO/revDSG</span>
+            </button>
+
+            <button onclick="selectProTool('cookie_snippet')" id="pro-tool-btn-cookie" class="w-full text-left p-3 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs flex items-center justify-between transition">
+              <span class="flex items-center gap-2">
+                <span>🍪</span>
+                <span>0-Dependency Cookie Banner</span>
+              </span>
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">&lt; 2 KB Snippet</span>
+            </button>
+
+            <button onclick="selectProTool('avv_template')" id="pro-tool-btn-avv" class="w-full text-left p-3 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs flex items-center justify-between transition">
+              <span class="flex items-center gap-2">
+                <span>📑</span>
+                <span>AVV-Mustervertrag (Art. 28)</span>
+              </span>
+              <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">DIN-A4 Druck</span>
+            </button>
+          </div>
+
+          <!-- PRO EXPORT ACTIONS -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-3">
+            <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Sofort-Aktionen:</h4>
+            <button onclick="handleProAction('copy')" class="w-full bg-slate-900 hover:bg-indigo-600 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
+              <span>📋 In Zwischenablage kopieren</span>
+            </button>
+            <button onclick="handleProAction('download')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2">
+              <span>💾 Als Datei (.html / .txt) exportieren</span>
+            </button>
+            <button onclick="handleProAction('print')" id="pro-print-btn" class="hidden w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 border border-indigo-200">
+              <span>🖨️ DIN-A4 Drucken / PDF speichern</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT (8 COLS): PRO TOOL DISPLAY (LOCKED OR UNLOCKED) -->
+        <div class="lg:col-span-8">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden relative min-h-[500px]">
+
+            <!-- OVERLAY WHEN LOCKED -->
+            <div id="pro-locked-overlay" class="absolute inset-0 bg-slate-900/60 backdrop-blur-[5px] z-10 flex flex-col items-center justify-center p-6 text-center text-white space-y-4">
+              <div class="w-14 h-14 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center text-2xl font-black shadow-lg">
+                🔒
+              </div>
+              <h3 class="text-xl font-extrabold max-w-md">
+                Dieses Modul ist Teil des Pro-Rechtstext-Pakets
+              </h3>
+              <p class="text-xs text-slate-200 max-w-md leading-relaxed">
+                Schalten Sie das vollständige Dokumentenpaket sofort frei oder lösen Sie Ihren 2026-Aktionscode ein.
+              </p>
+              <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                <button onclick="openCheckoutModal()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-3 rounded-xl shadow-lg transition text-xs">
+                  Pro-Zugang für 4,90 € / CHF aktivieren
+                </button>
+                <button onclick="unlockWithCouponPrompt()" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-3 rounded-xl text-xs backdrop-blur-sm transition">
+                  Code eingeben
+                </button>
+              </div>
+            </div>
+
+            <!-- PRO TOOL 1: FULL PRIVACY POLICY -->
+            <div id="pro-panel-full_policy" class="p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <h3 class="font-extrabold text-slate-900 text-base">Vollständige Datenschutzerklärung 2026</h3>
+                  <p class="text-xs text-slate-500">Inkl. Art. 13/14 DSGVO, § 25 TDDDG, Schweizer revDSG & EDÖB-Klauseln.</p>
+                </div>
+                <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200">Kopierfertig</span>
+              </div>
+              <textarea id="pro-policy-textarea" rows="20" class="w-full rounded-xl bg-slate-900 text-slate-100 p-4 text-xs font-mono leading-relaxed resize-y focus:outline-none"></textarea>
+            </div>
+
+            <!-- PRO TOOL 2: ZERO-DEPENDENCY COOKIE BANNER -->
+            <div id="pro-panel-cookie_snippet" class="hidden p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <h3 class="font-extrabold text-slate-900 text-base">Zero-Dependency Cookie-Consent-Banner (Snippet)</h3>
+                  <p class="text-xs text-slate-500">Reines HTML & Vanilla JS (< 2 KB). Speichert Einwilligung in localStorage ohne externe Tracker.</p>
+                </div>
+                <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200">Ready to Paste</span>
+              </div>
+              <p class="text-xs text-slate-600">
+                Fügen Sie diesen Code-Block einfach direkt vor dem schließenden <code class="bg-slate-100 px-1 py-0.5 rounded text-indigo-600 font-mono">&lt;/body&gt;</code>-Tag Ihrer Website ein:
+              </p>
+              <textarea id="pro-cookie-textarea" rows="18" class="w-full rounded-xl bg-slate-900 text-slate-100 p-4 text-xs font-mono leading-relaxed resize-y focus:outline-none"></textarea>
+            </div>
+
+            <!-- PRO TOOL 3: DIN-A4 AVV / ADV MUSTERVERTRAG -->
+            <div id="pro-panel-avv_template" class="hidden p-5 sm:p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div>
+                  <h3 class="font-extrabold text-slate-900 text-base">Auftragsverarbeitungsvertrag (AVV / ADV) gem. Art. 28 DSGVO & Art. 9 revDSG</h3>
+                  <p class="text-xs text-slate-500">Mustervertrag zwischen Verantwortlichem und Dienstleister/Agentur. Druckfertig im DIN-A4 Format.</p>
+                </div>
+                <button onclick="window.print()" class="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                  <span>🖨️ Drucken / PDF</span>
+                </button>
+              </div>
+
+              <!-- A4 SHEET PREVIEW -->
+              <div class="a4-wrapper">
+                <div id="screen-avv-sheet" class="a4-sheet">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRINT-ONLY CONTAINER FOR AVV MUSTER -->
+  <div id="print-avv-container" class="print-only-container hidden"></div>
+
+  <!-- CHECKOUT & UNLOCK MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">⚡ 100% Self-Serve • Sofort-Zugang</span>
+          <h3 class="text-lg font-extrabold mt-0.5">DACH Rechtstext-Suite Pro-Paket</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-5 text-sm">
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="font-bold text-slate-900">Pro-Vollversion & Compliance-Paket 2026</div>
+            <div class="text-xs text-slate-500">Vollständige Datenschutzerklärung + Cookie-Banner-Snippet + AVV-Muster</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xl font-extrabold text-indigo-600 price-label-inline">4,90 €</div>
+            <div class="text-[10px] text-slate-400">Einmalzahlung (kein Abo)</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">In wenigen Sekunden freischalten:</div>
+
+          <!-- Step 1: Gumroad Checkout -->
+          <a
+            id="modal-gumroad-link"
+            href="https://dachdigital.gumroad.com/l/gthgwc"
+            target="_blank"
+            rel="noopener"
+            onclick="markGumroadClicked()"
+            class="w-full bg-[#ff90e8] hover:bg-[#ff7be5] text-slate-950 font-extrabold py-3.5 px-5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm border-2 border-slate-950"
+          >
+            <span>💳 Schritt 1: Jetzt 4,90 € / CHF via Gumroad checkout</span>
+            <span>↗</span>
+          </a>
+
+          <!-- Step 2: Instant Self-Serve Unlock Button -->
+          <div id="modal-step2-box" class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 space-y-2.5">
+            <div class="text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔓</span>
+              <span>Schritt 2: Sofort-Freischaltung aktivieren</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-relaxed">
+              Klicken Sie direkt nach Ihrem Kauf hier, um das vollständige Pro-Paket in diesem Browser sofort zu entsperren:
+            </p>
+            <button
+              onclick="instantUnlockAfterPayment('modal')"
+              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 px-4 rounded-xl shadow transition text-xs sm:text-sm flex items-center justify-center gap-2"
+            >
+              <span>✓ Bezahlt – Pro-Paket jetzt sofort öffnen</span>
+            </button>
+          </div>
+
+          <!-- Coupon Unlock -->
+          <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+            <input type="text" id="coupon-input" placeholder="Gutscheincode (z.B. DW-PRO-2026)" class="flex-1 rounded-xl border border-slate-300 p-2 text-xs uppercase focus:border-indigo-600">
+            <button onclick="applyCouponCode()" class="bg-slate-900 hover:bg-indigo-600 text-white font-bold px-3 py-2 rounded-xl text-xs transition">
+              Einlösen
+            </button>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 text-center pt-1 border-t border-slate-100">
+          100% DSGVO & revDSG-konform • Zero-Server-Speicherung • Freischaltung bleibt lokal gespeichert.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs no-print mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">DACH Digitalwerk</span> • Impressum-, DSGVO- & Schweizer revDSG-Generator 2026
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="../" class="hover:text-white transition">Alle Self-Serve Tools</a>
+        <a href="../arbeitszeugnis/" class="hover:text-white transition">Arbeitszeugnis-Radar</a>
+        <a href="../qr-suite/" class="hover:text-white transition">E-Rechnung & Swiss QR</a>
+        <button onclick="resetProStatus()" class="text-slate-600 hover:text-slate-400 transition" title="Setzt den Pro-Status zu Testzwecken zurück">Demo-Status zurücksetzen</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT LOGIC & LEGAL GENERATOR ENGINE 2026                        -->
+  <!-- ===================================================================== -->
+  <script>
+    let currentJurisdiction = 'DE'; // 'DE' | 'CH' | 'AT'
+    let isProUnlocked = false;
+    let activeTab = 'audit'; // 'audit' | 'config' | 'pro'
+    let previewDoc = 'impressum'; // 'impressum' | 'datenschutz'
+    let scannerMode = 'text'; // 'text' | 'checklist'
+    let selectedProTool = 'full_policy'; // 'full_policy' | 'cookie_snippet' | 'avv_template'
+
+    // 12-Punkte Abmahn-Checkliste
+    const CHECKLIST_DEF = [
+      { id: 'chk_tmg', label: 'Im Impressum steht noch „§ 5 TMG“ statt „§ 5 DDG“', risk: 25, law: 'DE § 5 DDG', desc: 'Das TMG wurde im Mai 2024 vollständig durch das Digitale-Dienste-Gesetz abgelöst.' },
+      { id: 'chk_ttdsg', label: 'In Cookie-Hinweisen steht „§ 25 TTDSG“ statt „§ 25 TDDDG“', risk: 20, law: 'DE § 25 TDDDG', desc: 'Das TTDSG wurde 2024 zum Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz umbenannt.' },
+      { id: 'chk_fonts', label: 'Google Fonts werden remote von Google-Servern nachgeladen', risk: 20, law: 'DSGVO Art. 6 / revDSG', desc: 'Dynamisches Nachladen von Google-IPs ohne Einwilligung ist abmahnfähig.' },
+      { id: 'chk_mtsv', label: 'Fehlende Benennung eines Verantwortlichen gem. § 18 Abs. 2 MStV bei Blogs/News', risk: 15, law: 'DE § 18 MStV', desc: 'Wer journalistisch-redaktionelle Texte publiziert, muss zwingend eine Person benennen.' },
+      { id: 'chk_postbox', label: 'Reine Postfachadresse statt ladungsfähiger Straßenanschrift', risk: 20, law: 'DDG / ECG / UWG', desc: 'Ein Postfach genügt den gesetzlichen Pflichten nicht; es drohen Ordnungsgelder.' },
+      { id: 'chk_contact', label: 'Nur ein Kontaktformular ohne Telefonnummer oder E-Mail-Adresse', risk: 15, law: 'EuGH / BGH / UWG', desc: 'Zwei schnelle und unmittelbare Kommunikationswege sind zwingend vorgeschrieben.' },
+      { id: 'chk_vsbg', label: 'Fehlender Hinweis zur EU-Streitschlichtung / § 36 VSBG', risk: 10, law: 'DE § 36 VSBG', desc: 'Informationspflicht über Teilnahme an Verbraucherschlichtungsverfahren.' },
+      { id: 'chk_ch_revdsg', label: 'Keine Drittstaatenklausel nach Schweizer revDSG (USA / Data Privacy Framework)', risk: 20, law: 'CH Art. 16/19 revDSG', desc: 'Seit 01.09.2023 verlangt das revDSG explizite Angabe aller Länder der Datenübermittlung.' },
+      { id: 'chk_ch_edoeb', label: 'Fehlender Hinweis auf den Schweizer EDÖB als Aufsichtsbehörde', risk: 10, law: 'CH Art. 49 revDSG', desc: 'Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter muss genannt werden.' },
+      { id: 'chk_at_medien', label: 'Fehlende Blattlinie / Offenlegung gem. § 25 Mediengesetz (Österreich)', risk: 15, law: 'AT § 25 MedienG', desc: 'Website-Betreiber in Österreich müssen die grundlegende Richtung der Website offenlegen.' },
+      { id: 'chk_corp_rep', label: 'Fehlende Nennung aller Geschäftsführer oder des Handelsregisters bei einer GmbH/AG', risk: 20, law: 'GmbHG / UGB / OR', desc: 'Gesetzliche Vertretungsorgane und Registernummer müssen exakt angegeben sein.' },
+      { id: 'chk_club_rep', label: 'Fehlender vertretungsberechtigter Vorstand gem. § 26 BGB / Art. 69 ZGB bei Vereinen', risk: 15, law: 'BGB / ZGB', desc: 'Vereine müssen die Vorstandsmitglieder namentlich benennen.' }
+    ];
+
+    // Checklist State
+    let checklistChecked = {
+      chk_tmg: true,
+      chk_ttdsg: true,
+      chk_fonts: true,
+      chk_mtsv: false,
+      chk_postbox: false,
+      chk_contact: false,
+      chk_vsbg: true,
+      chk_ch_revdsg: false,
+      chk_ch_edoeb: false,
+      chk_at_medien: false,
+      chk_corp_rep: false,
+      chk_club_rep: false
+    };
+
+    // =========================================================================
+    // INITIALIZATION & TAB SWITCHING
+    // =========================================================================
+    function switchTab(tabId) {
+      activeTab = tabId;
+      ['audit', 'config', 'pro'].forEach(t => {
+        const btn = document.getElementById('tab-btn-' + t);
+        const content = document.getElementById('tab-content-' + t);
+        if (t === tabId) {
+          btn.className = 'px-5 py-3.5 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition';
+          content.classList.remove('hidden');
+        } else {
+          btn.className = 'px-5 py-3.5 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition';
+          content.classList.add('hidden');
+        }
+      });
+      if (tabId === 'pro') {
+        renderProToolView();
+      }
+    }
+
+    function toggleScannerMode(mode) {
+      scannerMode = mode;
+      const btnText = document.getElementById('mode-btn-text');
+      const btnCheck = document.getElementById('mode-btn-check');
+      const viewText = document.getElementById('scanner-view-text');
+      const viewCheck = document.getElementById('scanner-view-checklist');
+
+      if (mode === 'text') {
+        btnText.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        btnCheck.className = 'px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        viewText.classList.remove('hidden');
+        viewCheck.classList.add('hidden');
+        runTextAudit();
+      } else {
+        btnCheck.className = 'px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white transition';
+        btnText.className = 'px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        viewCheck.classList.remove('hidden');
+        viewText.classList.add('hidden');
+        runChecklistAudit();
+      }
+    }
+
+    function setGlobalJurisdiction(jur) {
+      setJurisdiction(jur);
+      switchTab('config');
+    }
+
+    function setJurisdiction(jur) {
+      currentJurisdiction = jur;
+      ['DE', 'CH', 'AT'].forEach(code => {
+        const topBtn = document.getElementById('top-jur-btn-' + code);
+        const choiceBtn = document.getElementById('jur-choice-' + code);
+        const isSel = code === jur;
+
+        if (topBtn) {
+          topBtn.className = isSel
+            ? 'px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition'
+            : 'px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+        if (choiceBtn) {
+          choiceBtn.className = isSel
+            ? 'p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 text-indigo-950 font-bold text-xs flex flex-col items-center gap-1 transition'
+            : 'p-2.5 rounded-xl border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-xs flex flex-col items-center gap-1 transition';
+        }
+      });
+
+      const priceStr = jur === 'CH' ? 'CHF 4.90' : '4,90 €';
+      document.querySelectorAll('.price-label-inline').forEach(el => el.textContent = priceStr);
+      document.querySelectorAll('.price-label-btn').forEach(el => el.textContent = `Pro-Paket freischalten (${priceStr})`);
+
+      // Update jurisdiction-specific field placeholders & labels
+      updateJurisdictionDefaults();
+      regenerateAllTexts();
+    }
+
+    function updateJurisdictionDefaults() {
+      const jur = currentJurisdiction;
+      const vatLbl = document.getElementById('lbl-vat-id');
+      const regCourtLbl = document.getElementById('lbl-register-court');
+      const regNumLbl = document.getElementById('lbl-register-num');
+      const mtsvContainer = document.getElementById('mtsv-container');
+
+      if (jur === 'CH') {
+        vatLbl.textContent = 'Unternehmens-Identifikationsnummer (UID):';
+        regCourtLbl.textContent = 'Handelsregisteramt (Kanton):';
+        regNumLbl.textContent = 'Handelsregister-Nummer (CHE-xxx.xxx.xxx):';
+        mtsvContainer.classList.add('hidden');
+      } else if (jur === 'AT') {
+        vatLbl.textContent = 'Umsatzsteuer-Identifikationsnummer (UID-Nr.):';
+        regCourtLbl.textContent = 'Firmenbuchgericht:';
+        regNumLbl.textContent = 'Firmenbuchnummer (FN xxxxxx x):';
+        mtsvContainer.classList.add('hidden');
+      } else {
+        vatLbl.textContent = 'Umsatzsteuer-Identifikationsnummer (USt-IdNr. / Wirtschafts-ID):';
+        regCourtLbl.textContent = 'Registergericht:';
+        regNumLbl.textContent = 'Registernummer (HRB / HRA / VR):';
+        mtsvContainer.classList.remove('hidden');
+      }
+    }
+
+    function updateFormFieldsVisibility() {
+      const form = document.getElementById('cfg-legal-form').value;
+      const chamberContainer = document.getElementById('chamber-container');
+      const orgLbl = document.getElementById('lbl-org-name');
+      const repLbl = document.getElementById('lbl-representatives');
+
+      if (form === 'regulated') {
+        chamberContainer.classList.remove('hidden');
+      } else {
+        chamberContainer.classList.add('hidden');
+      }
+
+      if (form === 'club') {
+        orgLbl.textContent = currentJurisdiction === 'CH' ? 'Vereinsname gem. Art. 60 ff. ZGB:' : 'Vereinsname gem. § 21 BGB:';
+        repLbl.textContent = 'Vertretungsberechtigter Vorstand gem. Satzung:';
+      } else if (form === 'sole') {
+        orgLbl.textContent = 'Vor- und Nachname des Betreibers / Geschäftsbezeichnung:';
+        repLbl.textContent = 'Inhaber / Freiberufler:';
+      } else {
+        orgLbl.textContent = 'Firmenname & Rechtsform (exakt lt. Handelsregister):';
+        repLbl.textContent = 'Vertretungsberechtigte Geschäftsführer / Vorstand:';
+      }
+    }
+
+    // =========================================================================
+    // AUDIT & SCANNER ENGINE
+    // =========================================================================
+    function renderChecklistItems() {
+      const container = document.getElementById('checklist-items');
+      container.innerHTML = CHECKLIST_DEF.map(item => {
+        const isChecked = !!checklistChecked[item.id];
+        return `
+          <label class="p-3 rounded-xl border ${isChecked ? 'border-rose-300 bg-rose-50/40' : 'border-slate-200 bg-white'} flex items-start gap-3 cursor-pointer hover:border-slate-300 transition">
+            <input type="checkbox" onchange="toggleChecklistItem('${item.id}', this.checked)" ${isChecked ? 'checked' : ''} class="mt-0.5 rounded border-slate-300 text-rose-600 focus:ring-rose-500">
+            <div class="text-xs">
+              <div class="font-bold text-slate-900 flex items-center gap-2">
+                <span>${escapeHtml(item.label)}</span>
+                <span class="text-[10px] font-mono px-2 py-0.2 rounded bg-slate-100 text-slate-700">${escapeHtml(item.law)}</span>
+              </div>
+              <div class="text-[11px] text-slate-500 mt-0.5">${escapeHtml(item.desc)}</div>
+            </div>
+          </label>
+        `;
+      }).join('');
+    }
+
+    function toggleChecklistItem(id, checked) {
+      checklistChecked[id] = checked;
+      runChecklistAudit();
+    }
+
+    function runChecklistAudit() {
+      const activeDefects = CHECKLIST_DEF.filter(item => checklistChecked[item.id]);
+      updateAuditResults(activeDefects);
+    }
+
+    function runTextAudit(scroll = false) {
+      const rawText = (document.getElementById('audit-text-input').value || '').trim();
+      const words = rawText ? rawText.split(/\s+/).length : 0;
+      document.getElementById('audit-stats-label').textContent = `${words} Wörter analysiert`;
+
+      if (!rawText) {
+        updateAuditResults([]);
+        return;
+      }
+
+      const lower = rawText.toLowerCase();
+      const detected = [];
+
+      // Check 1: TMG vs DDG
+      if ((lower.includes('§ 5 tmg') || lower.includes('telemediengesetz') || lower.includes('tmg')) && !lower.includes('ddg')) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_tmg'));
+      }
+
+      // Check 2: TTDSG vs TDDDG
+      if (lower.includes('ttdsg') && !lower.includes('tdddg')) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_ttdsg'));
+      }
+
+      // Check 3: Remote Google Fonts
+      if ((lower.includes('fonts.googleapis.com') || lower.includes('fonts.gstatic.com')) && !lower.includes('lokal')) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_fonts'));
+      }
+
+      // Check 4: Missing MStV
+      if (!lower.includes('mstv') && !lower.includes('staatsvertrag') && (lower.includes('blog') || lower.includes('magazin') || lower.includes('news'))) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_mtsv'));
+      }
+
+      // Check 5: Postbox
+      if (lower.includes('postfach') && !lower.includes('straße') && !lower.includes('strasse')) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_postbox'));
+      }
+
+      // Check 6: Direct Contact
+      if (!lower.includes('@') || (!lower.includes('tel') && !lower.includes('+') && !lower.includes('fon'))) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_contact'));
+      }
+
+      // Check 7: VSBG
+      if (!lower.includes('vsbg') && !lower.includes('streitbeilegung') && !lower.includes('streitschlichtung')) {
+        detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_vsbg'));
+      }
+
+      // Check 8: Swiss revDSG
+      if (lower.includes('schweiz') || lower.includes('.ch') || lower.includes('zürich') || lower.includes('bern')) {
+        if (!lower.includes('revdsg') && !lower.includes('datenschutzgesetz') && !lower.includes('edöb') && !lower.includes('edoeb')) {
+          detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_ch_revdsg'));
+        }
+      }
+
+      // Check 9: Austrian MedienG
+      if (lower.includes('österreich') || lower.includes('oesterreich') || lower.includes('wien') || lower.includes('.at')) {
+        if (!lower.includes('medieng') && !lower.includes('offenlegung')) {
+          detected.push(CHECKLIST_DEF.find(c => c.id === 'chk_at_medien'));
+        }
+      }
+
+      updateAuditResults(detected);
+    }
+
+    function updateAuditResults(activeList) {
+      const count = activeList.length;
+      const countBadge = document.getElementById('findings-count-badge');
+      const listContainer = document.getElementById('findings-list-container');
+      const scoreBar = document.getElementById('score-bar');
+      const scorePct = document.getElementById('score-percentage');
+      const scoreLevel = document.getElementById('score-level-label');
+      const savedCosts = document.getElementById('saved-costs-label');
+
+      // Calculate Score
+      let totalRisk = activeList.reduce((acc, item) => acc + (item ? item.risk : 0), 0);
+      let cappedScore = Math.min(100, Math.max(0, totalRisk > 0 ? Math.min(100, 20 + totalRisk) : 0));
+
+      if (count === 0) {
+        cappedScore = 0;
+        countBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 border border-emerald-200';
+        countBadge.textContent = '0 Warnungen • Rechtssicher';
+        scoreLevel.textContent = 'Hervorragend – Kein Abmahnrisiko erkannt';
+        scorePct.textContent = '0 %';
+        scorePct.className = 'text-4xl font-extrabold text-emerald-600';
+        scoreBar.className = 'bg-emerald-500 h-full transition-all duration-500';
+        scoreBar.style.width = '0%';
+        savedCosts.textContent = '0 € (Rechtssicher)';
+
+        listContainer.innerHTML = `
+          <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs flex items-center gap-3">
+            <span class="text-xl">✓</span>
+            <div>
+              <strong class="font-bold">Keine kritischen Rechtsmängel gefunden:</strong>
+              Ihr Text enthält die wesentlichen Pflichtangaben und verzichtet auf bekannte veraltete Normen.
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // Red Flags present
+      scorePct.textContent = `${cappedScore} %`;
+      scoreBar.style.width = `${cappedScore}%`;
+
+      if (cappedScore >= 70) {
+        scoreLevel.textContent = '🚨 Akutes Abmahnrisiko (Sofortiger Handlungsbedarf)';
+        scorePct.className = 'text-4xl font-extrabold text-rose-600';
+        scoreBar.className = 'bg-rose-600 h-full transition-all duration-500';
+        savedCosts.textContent = currentJurisdiction === 'CH' ? '850 CHF – 1.400 CHF' : '850 € – 1.450 €';
+        countBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-rose-100 text-rose-800 border border-rose-200';
+      } else if (cappedScore >= 40) {
+        scoreLevel.textContent = '⚠️ Erhöhtes Abmahnrisiko';
+        scorePct.className = 'text-4xl font-extrabold text-amber-600';
+        scoreBar.className = 'bg-amber-500 h-full transition-all duration-500';
+        savedCosts.textContent = currentJurisdiction === 'CH' ? '500 CHF – 900 CHF' : '450 € – 850 €';
+        countBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-100 text-amber-800 border border-amber-200';
+      } else {
+        scoreLevel.textContent = 'ℹ️ Geringes bis mittleres Risiko';
+        scorePct.className = 'text-4xl font-extrabold text-indigo-600';
+        scoreBar.className = 'bg-indigo-600 h-full transition-all duration-500';
+        savedCosts.textContent = currentJurisdiction === 'CH' ? '350 CHF – 550 CHF' : '350 € – 550 €';
+        countBadge.className = 'px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-indigo-100 text-indigo-800 border border-indigo-200';
+      }
+
+      countBadge.textContent = `${count} ${count === 1 ? 'Mangel' : 'Mängel'} erkannt`;
+
+      listContainer.innerHTML = activeList.map(item => `
+        <div class="p-3.5 rounded-xl border border-rose-200 bg-rose-50/30 text-xs space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-rose-950 flex items-center gap-1.5">
+              <span>⚠️</span>
+              <span>${escapeHtml(item.label)}</span>
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold">${escapeHtml(item.law)}</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">${escapeHtml(item.desc)}</p>
+          <div class="pt-1 flex items-center justify-between text-[11px]">
+            <span class="text-rose-700 font-semibold">Empfehlung: Text im Konfigurator auf Stand 2026 aktualisieren</span>
+            <button onclick="applyFixesToConfigurator()" class="text-indigo-600 hover:underline font-bold">Jetzt beheben →</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function clearAuditText() {
+      document.getElementById('audit-text-input').value = '';
+      runTextAudit();
+    }
+
+    function applyFixesToConfigurator() {
+      switchTab('config');
+      regenerateAllTexts();
+      document.getElementById('tab-content-config').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function loadDemoCase(key) {
+      if (key === 'de_tmg_old') {
+        setJurisdiction('DE');
+        scannerMode = 'text';
+        toggleScannerMode('text');
+        document.getElementById('audit-text-input').value = `Impressum\nAngaben gemäß § 5 TMG:\nMax Mustermann Webdesign & Marketing\nMusterstraße 12\n80331 München\n\nKontakt:\nE-Mail: info@musterweb.de\n\nVerantwortlich für den Inhalt nach § 55 Abs. 2 RStV:\nMax Mustermann\n\nDatenschutzerklärung:\nWir verarbeiten Daten gemäß DSGVO und § 25 TTDSG. Diese Website bindet Google Fonts über die Google Server in den USA ein.`;
+        runTextAudit();
+      } else if (key === 'ch_revdsg_verein') {
+        setJurisdiction('CH');
+        document.getElementById('cfg-legal-form').value = 'club';
+        document.getElementById('cfg-org-name').value = 'Schweizer Alpen & Naturfreunde Verein (SANV)';
+        document.getElementById('cfg-representatives').value = 'Beat Meier (Präsident), Sandra Keller (Kassierin)';
+        document.getElementById('cfg-street').value = 'Gotthardstrasse 28';
+        document.getElementById('cfg-city').value = '8002 Zürich';
+        document.getElementById('cfg-email').value = 'vorstand@alpenfreunde-schweiz.ch';
+        document.getElementById('cfg-phone').value = '+41 (0) 44 288 90 00';
+        document.getElementById('cfg-vat-id').value = 'CHE-412.890.114 MWST';
+        document.getElementById('cfg-hoster').value = 'hostpoint';
+        document.getElementById('cfg-payment').value = 'twint';
+        updateFormFieldsVisibility();
+        regenerateAllTexts();
+        switchTab('config');
+      } else if (key === 'at_ecg_shop') {
+        setJurisdiction('AT');
+        document.getElementById('cfg-legal-form').value = 'corp';
+        document.getElementById('cfg-org-name').value = 'AlpenGenuss Handel & E-Commerce GmbH';
+        document.getElementById('cfg-representatives').value = 'Mag. Florian Huber (Geschäftsführer)';
+        document.getElementById('cfg-street').value = 'Mariahilfer Straße 102';
+        document.getElementById('cfg-city').value = '1070 Wien';
+        document.getElementById('cfg-email').value = 'office@alpengenuss-wien.at';
+        document.getElementById('cfg-phone').value = '+43 (0) 1 588 33 22';
+        document.getElementById('cfg-vat-id').value = 'ATU 68912345';
+        document.getElementById('cfg-register-court').value = 'Handelsgericht Wien';
+        document.getElementById('cfg-register-num').value = 'FN 412890 x';
+        document.getElementById('cfg-payment').value = 'paypal_stripe';
+        updateFormFieldsVisibility();
+        regenerateAllTexts();
+        switchTab('config');
+      }
+    }
+
+    // =========================================================================
+    // GENERATOR CORE ENGINE 2026
+    // =========================================================================
+    function getFormData() {
+      return {
+        jur: currentJurisdiction,
+        form: document.getElementById('cfg-legal-form').value,
+        orgName: document.getElementById('cfg-org-name').value.trim() || 'Musterfirma',
+        reps: document.getElementById('cfg-representatives').value.trim() || 'Vorstand / Geschäftsführung',
+        street: document.getElementById('cfg-street').value.trim() || 'Musterstraße 1',
+        city: document.getElementById('cfg-city').value.trim() || '10115 Berlin',
+        email: document.getElementById('cfg-email').value.trim() || 'kontakt@domain.tld',
+        phone: document.getElementById('cfg-phone').value.trim() || '+49 (0) 123 45678',
+        regCourt: document.getElementById('cfg-register-court').value.trim(),
+        regNum: document.getElementById('cfg-register-num').value.trim(),
+        vatId: document.getElementById('cfg-vat-id').value.trim(),
+        mtsv: document.getElementById('cfg-mtsv-person').value.trim(),
+        chamber: document.getElementById('cfg-chamber').value.trim(),
+        profession: document.getElementById('cfg-profession').value.trim(),
+        hoster: document.getElementById('cfg-hoster').value,
+        analytics: document.getElementById('cfg-analytics').value,
+        fonts: document.getElementById('cfg-fonts').value,
+        payment: document.getElementById('cfg-payment').value,
+        newsletter: document.getElementById('cfg-newsletter').value,
+        contactForm: document.getElementById('cfg-contact-form').checked,
+        ssl: document.getElementById('cfg-ssl').checked
+      };
+    }
+
+    function buildImpressumHtml(data) {
+      const jur = data.jur;
+      let html = `<!-- IMPRESSUM (${jur}) NACH RECHTSSTAND 2026 -->\n`;
+      html += `<section class="legal-impressum">\n`;
+      html += `  <h2>Impressum</h2>\n\n`;
+
+      // 1. Angaben nach nationalem Recht
+      if (jur === 'DE') {
+        html += `  <p><strong>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG):</strong><br>\n`;
+      } else if (jur === 'AT') {
+        html += `  <p><strong>Angaben gemäß § 5 E-Commerce-Gesetz (ECG) und Offenlegung nach §§ 24, 25 Mediengesetz (MedienG):</strong><br>\n`;
+      } else {
+        html += `  <p><strong>Angaben gemäß Art. 3 Abs. 1 lit. s Bundesgesetz gegen den unlauteren Wettbewerb (UWG):</strong><br>\n`;
+      }
+
+      html += `  ${escapeHtml(data.orgName)}<br>\n`;
+      html += `  ${escapeHtml(data.street)}<br>\n`;
+      html += `  ${escapeHtml(data.city)}<br>\n`;
+      html += `  ${jur === 'CH' ? 'Schweiz' : jur === 'AT' ? 'Österreich' : 'Deutschland'}</p>\n\n`;
+
+      // 2. Vertretung
+      html += `  <p><strong>Vertreten durch:</strong><br>\n`;
+      html += `  ${escapeHtml(data.reps)}</p>\n\n`;
+
+      // 3. Kontakt
+      html += `  <p><strong>Kontakt:</strong><br>\n`;
+      html += `  Telefon: ${escapeHtml(data.phone)}<br>\n`;
+      html += `  E-Mail: <a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></p>\n\n`;
+
+      // 4. Register
+      if (data.regCourt || data.regNum) {
+        if (jur === 'CH') {
+          html += `  <p><strong>Handelsregistereintrag:</strong><br>\n`;
+          html += `  Eingetragen im Handelsregisteramt: ${escapeHtml(data.regCourt)}<br>\n`;
+          html += `  UID / Firmennummer: ${escapeHtml(data.regNum)}</p>\n\n`;
+        } else if (jur === 'AT') {
+          html += `  <p><strong>Firmenbuch:</strong><br>\n`;
+          html += `  Firmenbuchgericht: ${escapeHtml(data.regCourt)}<br>\n`;
+          html += `  Firmenbuchnummer: ${escapeHtml(data.regNum)}</p>\n\n`;
+        } else {
+          html += `  <p><strong>Registereintrag:</strong><br>\n`;
+          html += `  Eintragung im ${data.form === 'club' ? 'Vereinsregister' : 'Handelsregister'}.<br>\n`;
+          html += `  Registergericht: ${escapeHtml(data.regCourt)}<br>\n`;
+          html += `  Registernummer: ${escapeHtml(data.regNum)}</p>\n\n`;
+        }
+      }
+
+      // 5. Steuernummer / UID
+      if (data.vatId) {
+        if (jur === 'CH') {
+          html += `  <p><strong>Mehrwertsteuer-Nummer:</strong><br>\n  ${escapeHtml(data.vatId)}</p>\n\n`;
+        } else if (jur === 'AT') {
+          html += `  <p><strong>Umsatzsteuer-Identifikationsnummer (UID):</strong><br>\n  ${escapeHtml(data.vatId)}</p>\n\n`;
+        } else {
+          html += `  <p><strong>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</strong><br>\n  ${escapeHtml(data.vatId)}</p>\n\n`;
+        }
+      }
+
+      // 6. Österreich § 25 MedienG Blattlinie
+      if (jur === 'AT') {
+        html += `  <p><strong>Grundlegende Richtung des Mediums (§ 25 Abs. 4 MedienG):</strong><br>\n`;
+        html += `  Informationen über die Dienstleistungen und Produkte des Unternehmens sowie Förderung des Unternehmensgegenstands.</p>\n\n`;
+        html += `  <p><strong>Gewerbe- & berufsrechtliche Vorschriften:</strong><br>\n`;
+        html += `  Gewerbeordnung (GewO): <a href="https://www.ris.bka.gv.at" target="_blank" rel="noopener">www.ris.bka.gv.at</a><br>\n`;
+        html += `  Zuständige Aufsichtsbehörde: Bezirkshauptmannschaft / Magistrat Wien</p>\n\n`;
+      }
+
+      // 7. Freie Berufe / Kammer
+      if (data.form === 'regulated') {
+        html += `  <p><strong>Zuständige Kammer & Berufsbezeichnung:</strong><br>\n`;
+        html += `  Kammer: ${escapeHtml(data.chamber)}<br>\n`;
+        html += `  Gesetzliche Berufsbezeichnung: ${escapeHtml(data.profession)}</p>\n\n`;
+      }
+
+      // 8. MStV (Deutschland)
+      if (jur === 'DE' && data.mtsv) {
+        html += `  <p><strong>Verantwortlich für redaktionelle Inhalte gemäß § 18 Abs. 2 MStV:</strong><br>\n`;
+        html += `  ${escapeHtml(data.mtsv)}</p>\n\n`;
+      }
+
+      // 9. Streitschlichtung
+      if (jur === 'DE' || jur === 'AT') {
+        html += `  <p><strong>Verbraucherstreitbeilegung & Universalschlichtungsstelle:</strong><br>\n`;
+        html += `  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>\n`;
+      }
+
+      html += `</section>`;
+      return html;
+    }
+
+    function buildPrivacyPolicyHtml(data, isFullPro = false) {
+      const jur = data.jur;
+      const isCH = jur === 'CH';
+      let p = `<!-- DATENSCHUTZERKLÄRUNG (${isCH ? 'revDSG & EDÖB' : 'DSGVO & TDDDG'}) 2026 -->\n`;
+      p += `<section class="legal-privacy-policy">\n`;
+      p += `  <h2>Datenschutzerklärung</h2>\n\n`;
+
+      // 1. Verantwortlicher
+      p += `  <h3>1. Name und Kontaktdaten des Verantwortlichen</h3>\n`;
+      p += `  <p>Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>\n`;
+      p += `  <p><strong>${escapeHtml(data.orgName)}</strong><br>\n`;
+      p += `  ${escapeHtml(data.street)}<br>\n`;
+      p += `  ${escapeHtml(data.city)}<br>\n`;
+      p += `  E-Mail: ${escapeHtml(data.email)}<br>\n`;
+      p += `  Telefon: ${escapeHtml(data.phone)}</p>\n\n`;
+
+      // 2. Rechtsgrundlagen
+      p += `  <h3>2. Rechtsgrundlagen der Verarbeitung</h3>\n`;
+      if (isCH) {
+        p += `  <p>Die Bearbeitung von Personendaten erfolgt in Übereinstimmung mit dem <strong>Bundesgesetz über den Datenschutz (Schweizer revDSG)</strong>, insbesondere Art. 6, 19, 30 und 31 revDSG. Soweit anwendbar, richtet sich die Verarbeitung zudem nach der Verordnung (EU) 2016/679 (DSGVO).</p>\n\n`;
+      } else {
+        p += `  <p>Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung einholen, dient <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> als Rechtsgrundlage. Bei der Verarbeitung zur Erfüllung eines Vertrags oder vorvertraglicher Maßnahmen dient <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> als Grundlage. Für Speicherung von Informationen auf der Endeinrichtung des Nutzers gilt <strong>§ 25 Abs. 1 bzw. Abs. 2 TDDDG</strong>.</p>\n\n`;
+      }
+
+      // 3. Hosting
+      const hosterMap = {
+        hetzner: { name: 'Hetzner Online GmbH', loc: 'Deutschland / Finnland (ISO 27001)', dpa: 'Auftragsverarbeitungsvertrag (AVV) gem. Art. 28 DSGVO abgeschlossen' },
+        netlify: { name: 'Netlify Inc.', loc: 'USA / Global CDN (Swiss-US & EU-US Data Privacy Framework zertifiziert)', dpa: 'AVV / Standardvertragsklauseln (SCC) gem. Art. 46 DSGVO / Art. 16 revDSG' },
+        hostpoint: { name: 'Hostpoint AG', loc: 'Schweiz (Rechenzentrum Zürich-Nord)', dpa: 'AVV nach Schweizer revDSG & DSGVO' },
+        infomaniak: { name: 'Infomaniak Network SA', loc: 'Schweiz (Genf / Winterthur)', dpa: 'AVV nach Schweizer revDSG & ISO 27001' },
+        ionos: { name: 'IONOS SE', loc: 'Deutschland / EU', dpa: 'AVV gem. Art. 28 DSGVO' },
+        aws: { name: 'Amazon Web Services EMEA SARL', loc: 'Region Frankfurt (Deutschland) bzw. Zürich (Schweiz)', dpa: 'AWS Data Processing Addendum inkl. Standardvertragsklauseln' },
+        self: { name: 'Eigener Serverbetrieb', loc: 'Lokales Rechenzentrum', dpa: 'Keine Drittanbieter-Weitergabe' }
+      };
+      const hInfo = hosterMap[data.hoster] || hosterMap.hetzner;
+
+      p += `  <h3>3. Webhosting und Server-Logfiles</h3>\n`;
+      p += `  <p>Wir hosten unsere Website bei: <strong>${escapeHtml(hInfo.name)}</strong> (Standort: ${escapeHtml(hInfo.loc)}). Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung (${escapeHtml(hInfo.dpa)}).</p>\n`;
+      p += `  <p>Beim Aufrufen unserer Website erfasst der Provider automatisch Server-Logfiles (IP-Adresse, Browsertyp, Betriebssystem, Referrer URL, Zugriffszeit). Rechtsgrundlage ist ${isCH ? 'unser berechtigtes Interesse an der technischen Stabilität und Sicherheit (Art. 31 Abs. 1 revDSG)' : 'Art. 6 Abs. 1 lit. f DSGVO'}.</p>\n\n`;
+
+      // 4. SSL
+      if (data.ssl) {
+        p += `  <h3>4. SSL- bzw. TLS-Verschlüsselung</h3>\n`;
+        p += `  <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz vertraulicher Inhalte eine TLS-Verschlüsselung (HTTPS). Eine verschlüsselte Verbindung erkennen Sie an dem Schloss-Symbol in Ihrer Browserzeile.</p>\n\n`;
+      }
+
+      // 5. Kontaktformular
+      if (data.contactForm) {
+        p += `  <h3>5. Kontaktaufnahme (Formular & E-Mail)</h3>\n`;
+        p += `  <p>Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Die Verarbeitung erfolgt auf Grundlage von ${isCH ? 'Art. 31 Abs. 2 lit. a revDSG (Vertragsanbahnung)' : 'Art. 6 Abs. 1 lit. b DSGVO'}.</p>\n\n`;
+      }
+
+      // 6. Fonts
+      p += `  <h3>6. Webfonts & Typografie</h3>\n`;
+      if (data.fonts === 'local') {
+        p += `  <p>Diese Website verwendet ausschließlich <strong>lokal gehostete Schriftarten</strong> bzw. Standard-Systemschriften. Beim Aufruf der Seiten wird keine Verbindung zu externen Servern (wie Google Fonts) aufgebaut. Es erfolgt keine Übermittlung Ihrer IP-Adresse an Dritte.</p>\n\n`;
+      } else {
+        p += `  <p>Diese Website nutzt Google Fonts. Das Nachladen externer Schriftdateien erfolgt ausschließlich nach ausdrücklicher Einwilligung über unser Consent-Banner gem. ${isCH ? 'Art. 6 Abs. 6 revDSG' : 'Art. 6 Abs. 1 lit. a DSGVO i.V.m. § 25 Abs. 1 TDDDG'}.</p>\n\n`;
+      }
+
+      // 7. Webanalyse
+      p += `  <h3>7. Webanalyse & Reichweitenmessung</h3>\n`;
+      if (data.analytics === 'cookieless') {
+        p += `  <p>Wir verwenden eine <strong>datenschutzfreundliche, cookielose Webanalyse</strong> (z.B. Matomo on-Premise oder Plausible). Es werden keine Werbe-Cookies gesetzt und IP-Adressen werden unmittelbar anonymisiert. Eine Identifizierung einzelner Besucher ist ausgeschlossen.</p>\n\n`;
+      } else if (data.analytics === 'ga4') {
+        p += `  <p>Wir nutzen Google Analytics 4 (Google Ireland Limited). Die Aktivierung erfolgt erst nach Erteilung Ihrer Einwilligung im Cookie-Banner (${isCH ? 'Art. 31 revDSG' : 'Art. 6 Abs. 1 lit. a DSGVO'}). Datenübertragungen in die USA erfolgen auf Grundlage des EU-U.S. Data Privacy Framework.</p>\n\n`;
+      } else {
+        p += `  <p>Auf dieser Website werden keinerlei Analysetools oder Tracking-Dienste eingesetzt.</p>\n\n`;
+      }
+
+      // 8. Zahlungsanbieter
+      if (data.payment !== 'none') {
+        p += `  <h3>8. Zahlungsabwicklung</h3>\n`;
+        if (data.payment === 'twint') {
+          p += `  <p>Zur Zahlungsabwicklung nutzen wir den Schweizer Standard <strong>TWINT</strong> (TWINT AG, Zürich) sowie Stripe Payments Europe Ltd. Ihre Zahlungsdaten werden verschlüsselt an die Institute weitergeleitet (${isCH ? 'Art. 31 revDSG' : 'Art. 6 Abs. 1 lit. b DSGVO'}).</p>\n\n`;
+        } else if (data.payment === 'paypal_stripe') {
+          p += `  <p>Wir bieten Zahlungen via PayPal (PayPal Europe S.à r.l. et Cie, S.C.A.) und Stripe (Stripe Payments Europe Ltd.) an. Die Datenübermittlung erfolgt zwecks Zahlungsabwicklung auf Basis von ${isCH ? 'Art. 31 revDSG' : 'Art. 6 Abs. 1 lit. b DSGVO'}.</p>\n\n`;
+        } else if (data.payment === 'gumroad') {
+          p += `  <p>Die Abwicklung digitaler Käufe erfolgt über unseren Vertriebspartner <strong>Gumroad Inc.</strong> (USA) als Merchant of Record. Rechtsgrundlage ist die Vertragserfüllung.</p>\n\n`;
+        }
+      }
+
+      // 9. Rechte der betroffenen Personen
+      p += `  <h3>9. Ihre Rechte als betroffene Person</h3>\n`;
+      if (isCH) {
+        p += `  <p>Nach dem Schweizer revDSG haben Sie das Recht auf unentgeltliche <strong>Auskunft (Art. 25 revDSG)</strong>, Datenherausgabe oder -übertragung (Art. 28 revDSG), Berichtigung unrichtiger Daten (Art. 32 revDSG) sowie das Recht auf Widerspruch gegen die Datenbearbeitung.</p>\n`;
+        p += `  <p>Zuständige Aufsichtsbehörde in der Schweiz: <strong>Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)</strong>, Feldeggweg 1, CH-3003 Bern (<a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">www.edoeb.admin.ch</a>).</p>\n`;
+      } else {
+        p += `  <p>Sie haben nach der DSGVO das Recht auf <strong>Auskunft (Art. 15 DSGVO)</strong>, Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Datenübertragbarkeit (Art. 20 DSGVO) sowie Widerspruch (Art. 21 DSGVO).</p>\n`;
+        p += `  <p>Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer Daten zu beschweren (Art. 77 DSGVO).</p>\n`;
+      }
+
+      p += `</section>`;
+      return p;
+    }
+
+    function buildCookieSnippet() {
+      return `<!-- DACH Digitalwerk 0-Dependency Cookie Banner (< 2 KB) -->
+<div id="dw-cookie-banner" style="position:fixed;bottom:20px;left:20px;right:20px;max-width:480px;background:#0f172a;color:#f8fafc;padding:20px;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.35);font-family:sans-serif;font-size:13px;line-height:1.5;z-index:999999;border:1px solid #334155;display:none;">
+  <div style="font-weight:700;font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:8px;">
+    <span>🍪</span><span>Privatsphäre & Datenschutz 2026</span>
+  </div>
+  <p style="margin:0 0 14px 0;color:#cbd5e1;font-size:12px;">
+    Wir nutzen technisch notwendige Cookies und lokale Schriftarten. Zusätzliche Dienste (Analyse/Marketing) laden wir erst nach Ihrer Einwilligung (§ 25 TDDDG / Art. 6 revDSG).
+  </p>
+  <div style="display:flex;gap:10px;justify-content:flex-end;">
+    <button onclick="dwCookieDecline()" style="background:#1e293b;color:#f8fafc;border:1px solid #475569;padding:8px 14px;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;">
+      Nur Essenziell
+    </button>
+    <button onclick="dwCookieAccept()" style="background:#4f46e5;color:#ffffff;border:none;padding:8px 16px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer;">
+      Alle akzeptieren
+    </button>
+  </div>
+</div>
+<script>
+  function dwCookieAccept(){localStorage.setItem('dw_consent','all');document.getElementById('dw-cookie-banner').style.display='none';}
+  function dwCookieDecline(){localStorage.setItem('dw_consent','essential');document.getElementById('dw-cookie-banner').style.display='none';}
+  if(!localStorage.getItem('dw_consent')){document.getElementById('dw-cookie-banner').style.display='block';}
+<\/script>`;
+    }
+
+    function buildAvvTemplate(data) {
+      const today = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const isCH = data.jur === 'CH';
+      return `
+        <div class="space-y-4">
+          <!-- Letterhead -->
+          <div class="flex justify-between items-start border-b border-slate-300 pb-3 text-[9pt]">
+            <div>
+              <div class="font-extrabold text-slate-900 text-[11pt]">MUSTER-VERTRAG ZUR AUFTRAGSVERARBEITUNG (AVV / ADV)</div>
+              <div class="text-slate-600">Gemäß ${isCH ? 'Art. 9 Schweizer revDSG & Art. 28 DSGVO' : 'Art. 28 Datenschutz-Grundverordnung (DSGVO)'}</div>
+            </div>
+            <div class="text-right text-slate-500">
+              <div>Datum: <strong>${today}</strong></div>
+              <div class="text-[8pt]">Vertrags-ID: DW-AVV-${new Date().getFullYear()}</div>
+            </div>
+          </div>
+
+          <!-- Parties -->
+          <div class="grid grid-cols-2 gap-4 text-[9.5pt] bg-slate-50 p-3 rounded-lg border border-slate-200">
+            <div>
+              <div class="text-[8pt] uppercase font-bold text-slate-400">Auftraggeber (Verantwortlicher):</div>
+              <div class="font-bold text-slate-900">${escapeHtml(data.orgName)}</div>
+              <div class="text-slate-600">${escapeHtml(data.street)}, ${escapeHtml(data.city)}</div>
+              <div class="text-slate-500 text-[8.5pt]">Vertreten durch: ${escapeHtml(data.reps)}</div>
+            </div>
+            <div>
+              <div class="text-[8pt] uppercase font-bold text-slate-400">Auftragnehmer (Auftragsverarbeiter):</div>
+              <div class="font-bold text-slate-900">[Name des Dienstleisters / der Agentur]</div>
+              <div class="text-slate-600">[Straße, Hausnummer, PLZ Ort]</div>
+              <div class="text-slate-500 text-[8.5pt]">Vertreten durch: [Geschäftsführung]</div>
+            </div>
+          </div>
+
+          <!-- Preamble & Subject -->
+          <div class="space-y-2 text-[9pt] leading-relaxed text-slate-800">
+            <p><strong>§ 1 Gegenstand und Dauer der Vereinbarung</strong><br>
+            Der Auftragnehmer erbringt für den Auftraggeber Leistungen im Bereich Webentwicklung, Hosting oder IT-Wartung gemäß Hauptvertrag. Die Dauer dieser Vereinbarung richtet sich nach der Laufzeit des Hauptvertrages.</p>
+
+            <p><strong>§ 2 Konkretisierung des Auftragsinhalts</strong><br>
+            Umfang, Art und Zweck der vorgesehenen Erhebung, Verarbeitung oder Nutzung personenbezogener Daten umfassen: Stammdaten von Website-Besuchern, IP-Adressen, Logfiles und Anfragedaten aus Kontaktformularen.</p>
+
+            <p><strong>§ 3 Pflichten des Auftragnehmers</strong><br>
+            Der Auftragnehmer verarbeitet personenbezogene Daten ausschließlich auf dokumentierte Weisung des Auftraggebers. Er gewährleistet, dass sich die zur Verarbeitung der Daten befugten Personen zur Vertraulichkeit verpflichtet haben.</p>
+
+            <p><strong>§ 4 Technische und organisatorische Maßnahmen (TOM nach Art. 32 DSGVO / Art. 8 revDSG)</strong><br>
+            Der Auftragnehmer trifft alle erforderlichen Maßnahmen zur Gewährleistung der Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme (u.a. TLS-Verschlüsselung, Zugriffskontrollen, tägliche Backups).</p>
+
+            <p><strong>§ 5 Hinzuziehung von weiteren Unterauftragsverarbeitern (Sub-Prozessoren)</strong><br>
+            Die Einschaltung von Unterauftragsverarbeitern (z.B. Rechenzentren) bedarf der vorherigen schriftlichen Zustimmung des Auftraggebers.</p>
+
+            <p><strong>§ 6 Berichtigung, Einschränkung und Löschung von Daten</strong><br>
+            Nach Abschluss der Erbringung der Verarbeitungsleistungen löscht der Auftragnehmer alle personenbezogenen Daten oder gibt sie dem Auftraggeber zurück.</p>
+          </div>
+
+          <!-- Signatures -->
+          <div class="pt-6 border-t border-slate-300 grid grid-cols-2 gap-8 text-[9pt]">
+            <div class="space-y-8">
+              <div class="text-slate-600">Ort, Datum: ________________________</div>
+              <div class="border-t border-slate-400 pt-1 text-slate-800 font-semibold">Unterschrift Auftraggeber (${escapeHtml(data.orgName)})</div>
+            </div>
+            <div class="space-y-8">
+              <div class="text-slate-600">Ort, Datum: ________________________</div>
+              <div class="border-t border-slate-400 pt-1 text-slate-800 font-semibold">Unterschrift Auftragnehmer</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function regenerateAllTexts() {
+      const data = getFormData();
+      const badge = document.getElementById('preview-jurisdiction-badge');
+      if (data.jur === 'CH') badge.textContent = '🇨🇭 revDSG & UWG (Schweiz)';
+      else if (data.jur === 'AT') badge.textContent = '🇦🇹 ECG & MedienG (Österreich)';
+      else badge.textContent = '🇩🇪 DDG & TDDDG (Deutschland)';
+
+      const impressumCode = buildImpressumHtml(data);
+      const privacyCode = buildPrivacyPolicyHtml(data, isProUnlocked);
+      const avvHtml = buildAvvTemplate(data);
+      const cookieCode = buildCookieSnippet();
+
+      // Update Preview Textarea
+      const area = document.getElementById('preview-textarea');
+      if (previewDoc === 'impressum') {
+        area.value = impressumCode;
+      } else {
+        area.value = privacyCode;
+      }
+
+      // Update Pro Panels
+      document.getElementById('pro-policy-textarea').value = privacyCode;
+      document.getElementById('pro-cookie-textarea').value = cookieCode;
+      document.getElementById('screen-avv-sheet').innerHTML = avvHtml;
+      document.getElementById('print-avv-container').innerHTML = `<div class="a4-sheet">${avvHtml}</div>`;
+    }
+
+    function switchPreviewDoc(doc) {
+      previewDoc = doc;
+      const btnImp = document.getElementById('prev-btn-impressum');
+      const btnDat = document.getElementById('prev-btn-datenschutz');
+      const lbl = document.getElementById('preview-format-label');
+
+      if (doc === 'impressum') {
+        btnImp.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white transition';
+        btnDat.className = 'px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        lbl.textContent = 'HTML-Quellcode Impressum (2026 sorgfältig geprüft)';
+      } else {
+        btnDat.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-900 text-white transition';
+        btnImp.className = 'px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+        lbl.textContent = 'HTML-Quellcode Datenschutzerklärung (DSGVO / revDSG)';
+      }
+      regenerateAllTexts();
+    }
+
+    function copyGeneratedText() {
+      const text = document.getElementById('preview-textarea').value;
+      const btn = document.getElementById('btn-copy-preview');
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = btn.innerHTML;
+        btn.innerHTML = '✓ Kopiert!';
+        setTimeout(() => { btn.innerHTML = orig; }, 1800);
+      });
+    }
+
+    function downloadGeneratedText() {
+      const text = document.getElementById('preview-textarea').value;
+      const filename = previewDoc === 'impressum' ? 'impressum-2026.html' : 'datenschutzerklaerung-2026.html';
+      const blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // =========================================================================
+    // PRO TOOLS & UNLOCK SYSTEM
+    // =========================================================================
+    function selectProTool(toolId) {
+      selectedProTool = toolId;
+      const tools = ['full_policy', 'cookie_snippet', 'avv_template'];
+      tools.forEach(t => {
+        const btn = document.getElementById('pro-tool-btn-' + (t === 'full_policy' ? 'policy' : t === 'cookie_snippet' ? 'cookie' : 'avv'));
+        const panel = document.getElementById('pro-panel-' + t);
+        if (t === toolId) {
+          btn.className = 'w-full text-left p-3 rounded-xl bg-indigo-50 text-indigo-900 border border-indigo-200 font-bold text-xs flex items-center justify-between transition';
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = 'w-full text-left p-3 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs flex items-center justify-between transition';
+          panel.classList.add('hidden');
+        }
+      });
+
+      const printBtn = document.getElementById('pro-print-btn');
+      if (toolId === 'avv_template') {
+        printBtn.classList.remove('hidden');
+      } else {
+        printBtn.classList.add('hidden');
+      }
+    }
+
+    function renderProToolView() {
+      const overlay = document.getElementById('pro-locked-overlay');
+      const banner = document.getElementById('pro-locked-banner');
+      const statusPill = document.getElementById('pro-status-pill');
+      const headerBtn = document.getElementById('header-unlock-btn');
+
+      if (isProUnlocked) {
+        overlay.classList.add('hidden');
+        banner.classList.add('hidden');
+        statusPill.textContent = '✓ PRO-PAKET AKTIV';
+        statusPill.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full';
+        headerBtn.innerHTML = '<span>✓ Pro freigeschaltet</span>';
+        headerBtn.className = 'bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm flex items-center gap-1.5';
+      } else {
+        overlay.classList.remove('hidden');
+        banner.classList.remove('hidden');
+      }
+    }
+
+    function openCheckoutModal() {
+      if (isProUnlocked) {
+        switchTab('pro');
+        return;
+      }
+      const link = document.getElementById('modal-gumroad-link');
+      link.href = window.DIGITALWERK_GUMROAD_URL || 'https://dachdigital.gumroad.com/l/gthgwc';
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function markGumroadClicked() {
+      const box = document.getElementById('modal-step2-box');
+      box.classList.add('ring-4', 'ring-emerald-400/50');
+    }
+
+    function instantUnlockAfterPayment(source) {
+      unlockProFeatures();
+      closeCheckoutModal();
+      if (source === 'modal' || source === 'overlay') {
+        switchTab('pro');
+      }
+    }
+
+    function unlockProFeatures() {
+      isProUnlocked = true;
+      try {
+        localStorage.setItem('digitalwerk_impressum_pro', '1');
+      } catch (e) {}
+      renderProToolView();
+      regenerateAllTexts();
+    }
+
+    function resetProStatus() {
+      isProUnlocked = false;
+      try {
+        localStorage.removeItem('digitalwerk_impressum_pro');
+      } catch (e) {}
+      renderProToolView();
+      regenerateAllTexts();
+      alert('Pro-Status zurückgesetzt.');
+    }
+
+    function applyCouponCode() {
+      const code = (document.getElementById('coupon-input').value || '').trim().toUpperCase();
+      if (code === 'DW-PRO-2026' || code === 'RECHT-2026' || code === 'PRO2026' || code === 'GUMROAD') {
+        instantUnlockAfterPayment('modal');
+        alert('Glückwunsch! Ihr Pro-Rechtstext-Paket 2026 wurde erfolgreich aktiviert.');
+      } else {
+        alert('Der eingegebene Code ist leider ungültig. Bitte prüfen Sie Ihre Eingabe oder schalten Sie das Tool für 4,90 € / CHF via Gumroad frei.');
+      }
+    }
+
+    function unlockWithCouponPrompt() {
+      const code = prompt('Bitte geben Sie Ihren Freischaltcode ein (z.B. DW-PRO-2026 oder RECHT-2026):');
+      if (code) {
+        if (['DW-PRO-2026', 'RECHT-2026', 'PRO2026', 'GUMROAD'].includes(code.trim().toUpperCase())) {
+          unlockProFeatures();
+          alert('Pro-Paket erfolgreich freigeschaltet!');
+          switchTab('pro');
+        } else {
+          alert('Ungültiger Code.');
+        }
+      }
+    }
+
+    function handleProAction(type) {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+      if (type === 'print') {
+        window.print();
+      } else if (type === 'copy') {
+        let textToCopy = '';
+        if (selectedProTool === 'full_policy') {
+          textToCopy = document.getElementById('pro-policy-textarea').value;
+        } else if (selectedProTool === 'cookie_snippet') {
+          textToCopy = document.getElementById('pro-cookie-textarea').value;
+        } else {
+          textToCopy = document.getElementById('screen-avv-sheet').innerText;
+        }
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          alert('In die Zwischenablage kopiert!');
+        });
+      } else if (type === 'download') {
+        let text = '';
+        let filename = 'pro-export.txt';
+        if (selectedProTool === 'full_policy') {
+          text = document.getElementById('pro-policy-textarea').value;
+          filename = 'datenschutzerklaerung-vollstaendig-2026.html';
+        } else if (selectedProTool === 'cookie_snippet') {
+          text = document.getElementById('pro-cookie-textarea').value;
+          filename = 'cookie-banner-snippet.html';
+        } else {
+          text = document.getElementById('screen-avv-sheet').innerText;
+          filename = 'AVV-Auftragsverarbeitungsvertrag-Muster.txt';
+        }
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
+    // Helper Functions
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // =========================================================================
+    // DOM READY & BOOTSTRAP
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      // Render Checklist
+      renderChecklistItems();
+
+      // Check Pro status in URL or localStorage
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('pro') === '1' || params.get('unlock') === '1' || params.get('paid') === '1') {
+        unlockProFeatures();
+      } else {
+        try {
+          if (localStorage.getItem('digitalwerk_impressum_pro') === '1') {
+            unlockProFeatures();
+          }
+        } catch (e) {}
+      }
+
+      // Initialize defaults
+      setJurisdiction('DE');
+      updateFormFieldsVisibility();
+      regenerateAllTexts();
+
+      // Load Default Demo 1 into Text Scanner
+      loadDemoCase('de_tmg_old');
+    });
+  </script>
+</body>
+</html>

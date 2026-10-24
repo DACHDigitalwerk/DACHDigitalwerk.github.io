@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-900 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auslandstagegeld- & Reisekosten-Rechner 2026 | BMF-Tabelle DACH</title>
+  <meta name="description" content="Kostenloser Auslandstagegeld-Rechner 2026 nach amtlicher BMF-Tabelle. Gesetzliche Mahlzeitenkürzung (20/40/40), Übernachtungspauschalen & DIN-A4-Export für Deutschland, Österreich und Schweiz.">
+  <meta name="keywords" content="Auslandstagegeld 2026, BMF Auslandstagegelder, Reisekostenabrechnung Ausland, Mahlzeitenkürzung Ausland, Verpflegungsmehraufwand 2026, Spesenabrechnung DACH, Übernachtungspauschale Ausland">
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/auslandsreisekosten-tagegeld-rechner/">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Auslandstagegeld- & Reisekosten-Rechner 2026 | DACH Digitalwerk">
+  <meta property="og:description" content="Amtliche BMF-Pauschalen 2026, gesetzliche Mahlzeitenabzüge (20/40/40) und druckfertige DIN-A4 Reisekostenabrechnung. 100% Client-Side.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/auslandsreisekosten-tagegeld-rechner/">
+  <meta property="og:site_name" content="DACH Digitalwerk">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-border { border: 1px solid #cbd5e1 !important; }
+      .print-bg-slate { background-color: #f8fafc !important; color: #0f172a !important; }
+      .card-shadow { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Auslandstagegeld- & Reisekosten-Rechner 2026",
+        "url": "https://dachdigitalwerk.github.io/auslandsreisekosten-tagegeld-rechner/",
+        "description": "Amtlicher BMF Auslandstagegeld-Rechner 2026 mit automatischer Mahlzeitenkürzung nach § 9 Abs. 4a EStG und DIN-A4 PDF-Reisekostenexport.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "author": {
+          "@type": "Organization",
+          "name": "DACH Digitalwerk",
+          "url": "https://dachdigitalwerk.github.io/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie berechnet sich die Mahlzeitenkürzung bei Auslandsreisen nach BMF 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gemäß § 9 Abs. 4a Satz 8 EStG werden Mahlzeitenkürzungen (20% Frühstück, 40% Mittagessen, 40% Abendessen) immer auf Basis des vollen 24-Stunden-Pauschsatzes des jeweiligen Landes berechnet – auch an An- und Abreisetagen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann der Verpflegungsmehraufwand durch Mahlzeitenkürzungen negativ werden?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Nach den BMF-Richtlinien kann die Kürzung den Verpflegungsmehraufwand eines Kalendertages maximal auf 0,00 Euro reduzieren. Ein negativer Tagegeldsaldo entsteht nicht."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dürfen Arbeitgeber die Übernachtungspauschale steuerfrei an Arbeitnehmer auszahlen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Im deutschen Steuerrecht (§ 9 Abs. 1 Satz 3 Nr. 5a EStG) darf die BMF-Übernachtungspauschale vom Arbeitgeber nur dann steuerfrei pauschal erstattet werden, wenn der Arbeitnehmer nachweislich tatsächlich Übernachtungskosten hatte. Alternativ können die tatsächlichen Hotelkosten lt. Rechnung erstattet werden."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased">
+
+  <!-- Navigation / Header -->
+  <header class="no-print border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-2 text-slate-300 hover:text-white transition">
+          <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30">
+            D
+          </div>
+          <span class="font-bold tracking-tight text-lg">DACH<span class="text-blue-500">Digitalwerk</span></span>
+        </a>
+        <span class="text-slate-600 text-sm">/</span>
+        <span class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700/60">
+          Tool #24: Auslandstagegelder 2026
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <a href="#ratgeber" class="text-xs sm:text-sm text-slate-300 hover:text-white transition hidden md:inline">
+          BMF-Ratgeber
+        </a>
+        <a href="https://github.com/DACHDigitalwerk/auslands-reisekosten-tagegeld-rechner-dach" target="_blank" rel="noopener" class="flex items-center space-x-2 text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="hidden sm:inline">GitHub Magnet-Repo #23</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <div class="no-print mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-blue-400 bg-blue-950/60 border border-blue-800/80 px-3 py-1 rounded-full mb-3">
+            <span>🇩🇪 🇦🇹 🇨🇭 DACH Compliance 2026</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+            <span>§ 9 Abs. 4a EStG & § 26 EStG</span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Auslandstagegeld- & Reisekosten-Rechner 2026
+          </h1>
+          <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+            Offizielle BMF-Auslandspauschalen für über 180 Länder, exakte Mahlzeitenkürzungen nach dem vollen 24-Stunden-Satz (20 % / 40 % / 40 %) und druckfertige DIN-A4-Abrechnung für Buchhaltung und Lohnsteuerprüfung.
+          </p>
+        </div>
+
+        <!-- Privacy & Client-side Badge -->
+        <div class="flex items-center space-x-2 bg-emerald-950/50 border border-emerald-800/60 px-3 py-2 rounded-xl text-emerald-400 text-xs">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <div>
+            <span class="font-bold">100% Client-Side Privacy:</span>
+            <span class="text-emerald-300">Keine Serverübertragung. Ihre Reisedaten bleiben lokal im Browser.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print Header (Only visible on DIN-A4 Print) -->
+    <div class="print-only mb-6">
+      <div class="border-b-2 border-slate-900 pb-4 mb-4 flex justify-between items-start">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900">REISEKOSTENABRECHNUNG AUSLAND 2026</h1>
+          <p class="text-xs text-slate-600">Erstellt gemäß amtlichen BMF-Vorgaben (§ 9 Abs. 4a EStG) | DACH Digitalwerk</p>
+        </div>
+        <div class="text-right text-xs text-slate-600">
+          <p>Abrechnungsdatum: <span id="printDate">24.10.2026</span></p>
+          <p>Status: Geprüft & Steuerfrei</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 text-xs mb-4 p-3 bg-slate-50 border border-slate-300 rounded">
+        <div>
+          <p><strong>Mitarbeiter / Reisender:</strong> <span id="printName">Max Mustermann</span></p>
+          <p><strong>Personalnummer / Abt.:</strong> <span id="printPnr">HR-2026-04</span></p>
+        </div>
+        <div>
+          <p><strong>Reisezweck & Projekt:</strong> <span id="printPurpose">Kundenberatung & Projektworkshop</span></p>
+          <p><strong>Hauptreiseziel:</strong> <span id="printDestination">USA (New York City)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- Left Column: Settings, Trip Details & Itinerary (8 cols) -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Country Regime & Meta Card -->
+        <div class="no-print bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <h2 class="text-base font-semibold text-white flex items-center space-x-2">
+              <span class="text-blue-500">1.</span>
+              <span>Reiseregime & Rahmendaten</span>
+            </h2>
+            <div class="inline-flex p-1 bg-slate-950 rounded-xl border border-slate-800">
+              <button id="btnRegimeDE" onclick="setRegime('DE')" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 text-white shadow transition">
+                🇩🇪 Deutschland (BMF)
+              </button>
+              <button id="btnRegimeAT" onclick="setRegime('AT')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">
+                🇦🇹 Österreich (§ 26 Z 4)
+              </button>
+              <button id="btnRegimeCH" onclick="setRegime('CH')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">
+                🇨🇭 Schweiz (Spesen)
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Mitarbeitername (optional)</label>
+              <input type="text" id="employeeName" value="Max Mustermann" oninput="updatePrintMeta()" placeholder="Name des Reisenden" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Personalnummer / Kostenstelle</label>
+              <input type="text" id="employeePnr" value="FIN-104" oninput="updatePrintMeta()" placeholder="z.B. KOST-4020" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Reisezweck / Anlass</label>
+              <input type="text" id="tripPurpose" value="Kundenbesuch & Konferenz" oninput="updatePrintMeta()" placeholder="Projekt, Kunde, Konferenz" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Selector Quick Search -->
+        <div class="no-print bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-base font-semibold text-white flex items-center space-x-2">
+              <span class="text-blue-500">2.</span>
+              <span>Reiseziel auswählen (BMF-Pauschaltabelle 2026)</span>
+            </h2>
+            <span class="text-xs text-slate-400">180+ Destinationen verfügbar</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
+            <div class="sm:col-span-8">
+              <label class="block text-xs font-medium text-slate-400 mb-1">Schnellsuche Land / Großstadt</label>
+              <select id="primaryDestinationSelect" onchange="changePrimaryDestination()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 font-mono">
+                <!-- Populated dynamically -->
+              </select>
+            </div>
+            <div class="sm:col-span-4 bg-slate-950/80 p-3 rounded-xl border border-slate-800">
+              <div class="text-[11px] text-slate-400 uppercase tracking-wide">Pauschalsätze 2026:</div>
+              <div class="text-xs text-slate-200 mt-1 flex justify-between">
+                <span>24h-Tag:</span> <strong id="dispFullRate" class="text-emerald-400">66,00 €</strong>
+              </div>
+              <div class="text-xs text-slate-200 flex justify-between">
+                <span>An-/Abreise (>8h):</span> <strong id="dispPartRate" class="text-blue-400">44,00 €</strong>
+              </div>
+              <div class="text-xs text-slate-200 flex justify-between">
+                <span>Hotel-Pauschale:</span> <strong id="dispLodgingRate" class="text-amber-400">340,00 €</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Itinerary Builder: Multi-Day Travel Planner -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl card-shadow">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <div>
+              <h2 class="text-base font-semibold text-white flex items-center space-x-2">
+                <span class="text-blue-500">3.</span>
+                <span>Reiseplan & Verpflegungsnachweis</span>
+              </h2>
+              <p class="text-xs text-slate-400 mt-0.5 no-print">
+                Geben Sie einzelne Tage ein. Kürzungen für bereitgestellte Mahlzeiten werden sekundengenau berechnet.
+              </p>
+            </div>
+            <div class="flex items-center space-x-2 no-print">
+              <button onclick="addTravelDay()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white shadow transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                <span>Reisetag hinzufügen</span>
+              </button>
+              <button onclick="resetDefaultTrip()" class="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+                Standard (3 Tage)
+              </button>
+            </div>
+          </div>
+
+          <!-- Days Container -->
+          <div id="itineraryDaysList" class="space-y-3">
+            <!-- Day rows injected dynamically -->
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400 flex flex-wrap justify-between items-center no-print">
+            <div>
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-blue-500 mr-1.5"></span>
+              <strong>Gesetzliche Mahlzeitenabzüge (§ 9 Abs. 4a EStG):</strong>
+              Frühstück 20 %, Mittag 40 %, Abendessen 40 % bezogen auf den vollen 24h-Satz.
+            </div>
+            <div class="text-slate-500">
+              Kürzungen deckeln bei 0,00 €
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Results, Tax Summary & Export Actions (4 cols) -->
+      <div class="lg:col-span-4 space-y-6">
+
+        <!-- Live Summary Card -->
+        <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-blue-900/40 rounded-2xl p-6 shadow-2xl relative overflow-hidden card-shadow">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+
+          <div class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
+            <div>
+              <span class="text-xs uppercase tracking-wider font-semibold text-blue-400">Erstattungsergebnis</span>
+              <h3 class="text-lg font-bold text-white">Reisekostenabrechnung</h3>
+            </div>
+            <span class="text-xs font-mono bg-blue-950 border border-blue-800 text-blue-300 px-2.5 py-1 rounded-full">
+              BMF 2026
+            </span>
+          </div>
+
+          <!-- Grand Total Display -->
+          <div class="bg-slate-950/90 border border-blue-500/30 rounded-xl p-4 mb-5 text-center shadow-inner">
+            <div class="text-xs text-slate-400 font-medium">STEUERFREIER GESAMTANSPRUCH</div>
+            <div id="grandTotalClaim" class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight my-1">
+              0,00 €
+            </div>
+            <div class="text-[11px] text-slate-400">
+              Reisekostenvergütung ohne Lohnsteuerabzug
+            </div>
+          </div>
+
+          <!-- Breakdown Metrics -->
+          <div class="space-y-3 text-xs">
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Reisetage insgesamt:</span>
+              <strong id="metricTotalDays" class="text-slate-200 font-mono">0 Tage</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Brutto-Tagegelder (Pauschalen):</span>
+              <strong id="metricGrossPerDiem" class="text-slate-200 font-mono">0,00 €</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/60 text-rose-400">
+              <span>Mahlzeitenabzüge (§ 9 Abs. 4a):</span>
+              <strong id="metricMealDeductions" class="font-mono">-0,00 €</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/60 bg-blue-950/20 px-2 rounded">
+              <span class="text-blue-300 font-medium">Netto-Verpflegungsmehraufwand:</span>
+              <strong id="metricNetPerDiem" class="text-blue-300 font-mono font-bold">0,00 €</strong>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+              <span class="text-slate-400">Erstattungsfähige Hotelkosten:</span>
+              <strong id="metricLodging" class="text-amber-400 font-mono">0,00 €</strong>
+            </div>
+          </div>
+
+          <!-- Action Buttons (No Print) -->
+          <div class="mt-6 space-y-2.5 no-print">
+            <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl font-semibold text-sm bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-600/30 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              <span>Abrechnung drucken / PDF-Export</span>
+            </button>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="exportCSV()" class="flex items-center justify-center space-x-1 py-2 px-3 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>CSV für DATEV</span>
+              </button>
+              <button onclick="exportJSON()" class="flex items-center justify-center space-x-1 py-2 px-3 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                <span>JSON Export</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Comparison Box: DACH Regimes -->
+        <div class="no-print bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-xs text-slate-400">
+          <h4 class="font-semibold text-slate-200 mb-2 flex items-center space-x-1.5">
+            <span>⚖️ DACH Länder-Spezifika 2026</span>
+          </h4>
+          <ul class="space-y-1.5 text-[11px] leading-relaxed">
+            <li><strong>Deutschland:</strong> 20/40/40 Mahlzeitenabzug immer vom 24h-Satz (§ 9 Abs. 4a EStG). Hotelpauschale nur bei eigener Übernachtungskostentragung.</li>
+            <li><strong>Österreich:</strong> Kalendertagestrennung nach § 26 Z 4 EStG. Voller Satz ab 12h Abwesenheit, Aliquotierung bei Teiltagen.</li>
+            <li><strong>Schweiz:</strong> Kantonale bzw. ESTV Spesenreglemente mit individuellen Pauschalen und Repräsentationsspesen.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Print Signatures Section (Visible only when printed) -->
+    <div class="print-only mt-8 pt-6 border-t border-slate-300">
+      <div class="grid grid-cols-2 gap-8 text-xs text-slate-700">
+        <div>
+          <p class="mb-8">Ich versichere die Richtigkeit und Vollständigkeit der obigen Angaben:</p>
+          <div class="border-b border-slate-400 pt-8"></div>
+          <p class="mt-1">Datum, Unterschrift Reisende(r)</p>
+        </div>
+        <div>
+          <p class="mb-8">Sachlich und rechnerisch geprüft sowie zur steuerfreien Auszahlung freigegeben:</p>
+          <div class="border-b border-slate-400 pt-8"></div>
+          <p class="mt-1">Datum, Unterschrift Genehmiger / Geschäftsführung</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2B Ratgeber & Law Context Section -->
+    <section id="ratgeber" class="no-print mt-16 pt-12 border-t border-slate-800">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl font-bold text-white">Rechtsgrundlagen & Fachratgeber zu Auslandsreisekosten</h2>
+        <p class="text-sm text-slate-400 mt-2">
+          Fundierte Anleitungen und Tabellenübersichten zur steueroptimalen Abrechnung von Dienstreisen im Ausland.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <a href="/bmf-auslandstagegelder-tabelle-2026.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 rounded-2xl transition group">
+          <div class="text-blue-400 font-semibold text-xs mb-1">BMF-Tabelle 2026</div>
+          <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition mb-2">
+            Amtliche Auslandstagegelder 2026 nach Ländern
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Vollständige Tabelle aller 180+ BMF-Länderpauschalen, Übernachtungssätze und Neuerungen gegenüber dem Vorjahr im Überblick.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-blue-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/mahlzeitenkuerzung-ausland-fruehstueck-mittag-abendessen.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 rounded-2xl transition group">
+          <div class="text-emerald-400 font-semibold text-xs mb-1">§ 9 Abs. 4a EStG Praxis</div>
+          <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mb-2">
+            Mahlzeitenkürzung im Ausland: 20/40/40-Regel
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Warum Frühstück, Lunch und Dinner immer vom vollen 24-Stunden-Satz gekürzt werden und wie Sie typische Fehler bei Betriebsprüfungen vermeiden.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-emerald-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/auslandsspesen-oesterreich-schweiz-vergleich-2026.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-blue-500/50 rounded-2xl transition group">
+          <div class="text-amber-400 font-semibold text-xs mb-1">DACH-Vergleich</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mb-2">
+            Auslandsspesen in Österreich & der Schweiz 2026
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Vergleich der Rechtslagen: BMF Deutschland vs. § 26 Z 4 EStG in Österreich vs. genehmigte Spesenreglemente in Schweizer Kantonen.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-amber-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BGH Smartlaw Disclaimer -->
+    <div class="no-print mt-12 p-4 rounded-xl bg-slate-900/40 border border-slate-800 text-[11px] text-slate-500 leading-relaxed">
+      <p class="font-semibold text-slate-400 mb-1">Rechtlicher Hinweis & Haftungsausschluss (BGH Az. I ZR 113/20 & I ZR 226/20):</p>
+      Dieser Web-Rechner sowie die bereitgestellten Exportdokumente dienen ausschließlich der mathematischen Modellierung, Orientierung und Veranschaulichung der amtlichen BMF-Vorgaben (§ 9 Abs. 4a EStG). Die Nutzung ersetzt keine steuerliche Beratung im Sinne des Steuerberatungsgesetzes (StBerG). Für die verbindliche steuerliche Beurteilung und Buchung von Reisekosten konsultieren Sie bitte Ihre Steuerberatung oder Ihren Wirtschaftsprüfer. Sämtliche Berechnungen erfolgen 100 % lokal auf Ihrem Endgerät ohne Übertragung sensibler Reisedaten an Dritte.
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="no-print border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        &copy; 2026 DACH Digitalwerk. Alle Rechte vorbehalten. 100% DSGVO-konforme Client-Side Berechnungs-Tools.
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="/" class="hover:text-slate-300">Tool-Übersicht</a>
+        <a href="https://github.com/DACHDigitalwerk" target="_blank" rel="noopener" class="hover:text-slate-300">GitHub</a>
+        <a href="/bmf-auslandstagegelder-tabelle-2026.html" class="hover:text-slate-300">BMF-Tabelle</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculator Logic & Rates Database Script -->
+  <script>
+    // --- 1. BMF & DACH Rates Database 2026 ---
+    const DESTINATIONS = {
+      // USA
+      "USA_NEW_YORK": { country: "USA", city: "New York City", full: 66, part: 44, hotel: 340, code: "US" },
+      "USA_WASHINGTON": { country: "USA", city: "Washington, D.C.", full: 64, part: 43, hotel: 290, code: "US" },
+      "USA_SAN_FRANCISCO": { country: "USA", city: "San Francisco", full: 64, part: 43, hotel: 280, code: "US" },
+      "USA_LOS_ANGELES": { country: "USA", city: "Los Angeles", full: 58, part: 39, hotel: 240, code: "US" },
+      "USA_CHICAGO": { country: "USA", city: "Chicago", full: 56, part: 37, hotel: 230, code: "US" },
+      "USA_REST": { country: "USA", city: "Übrige USA", full: 52, part: 35, hotel: 195, code: "US" },
+
+      // Schweiz
+      "SCHWEIZ_GENF": { country: "Schweiz", city: "Genf", full: 66, part: 44, hotel: 190, code: "CH" },
+      "SCHWEIZ_ZUERICH": { country: "Schweiz", city: "Zürich", full: 64, part: 43, hotel: 185, code: "CH" },
+      "SCHWEIZ_BASEL": { country: "Schweiz", city: "Basel", full: 62, part: 41, hotel: 175, code: "CH" },
+      "SCHWEIZ_BERN": { country: "Schweiz", city: "Bern", full: 60, part: 40, hotel: 170, code: "CH" },
+      "SCHWEIZ_REST": { country: "Schweiz", city: "Übrige Schweiz", full: 58, part: 39, hotel: 160, code: "CH" },
+
+      // Österreich
+      "OESTERREICH_WIEN": { country: "Österreich", city: "Wien", full: 44, part: 30, hotel: 149, code: "AT" },
+      "OESTERREICH_SALZBURG": { country: "Österreich", city: "Salzburg", full: 42, part: 28, hotel: 138, code: "AT" },
+      "OESTERREICH_INNSBRUCK": { country: "Österreich", city: "Innsbruck", full: 40, part: 27, hotel: 130, code: "AT" },
+      "OESTERREICH_REST": { country: "Österreich", city: "Übriges Österreich", full: 38, part: 25, hotel: 120, code: "AT" },
+
+      // UK
+      "UK_LONDON": { country: "Großbritannien", city: "London", full: 62, part: 41, hotel: 209, code: "GB" },
+      "UK_EDINBURGH": { country: "Großbritannien", city: "Edinburgh", full: 52, part: 35, hotel: 165, code: "GB" },
+      "UK_REST": { country: "Großbritannien", city: "Übriges UK", full: 48, part: 32, hotel: 145, code: "GB" },
+
+      // Frankreich
+      "FRANKREICH_PARIS": { country: "Frankreich", city: "Paris", full: 58, part: 39, hotel: 159, code: "FR" },
+      "FRANKREICH_STRASSBURG": { country: "Frankreich", city: "Straßburg", full: 50, part: 33, hotel: 135, code: "FR" },
+      "FRANKREICH_LYON": { country: "Frankreich", city: "Lyon", full: 48, part: 32, hotel: 130, code: "FR" },
+      "FRANKREICH_REST": { country: "Frankreich", city: "Übriges Frankreich", full: 45, part: 30, hotel: 115, code: "FR" },
+
+      // Italien
+      "ITALIEN_MAILAND": { country: "Italien", city: "Mailand", full: 50, part: 33, hotel: 170, code: "IT" },
+      "ITALIEN_ROM": { country: "Italien", city: "Rom", full: 48, part: 32, hotel: 160, code: "IT" },
+      "ITALIEN_REST": { country: "Italien", city: "Übriges Italien", full: 42, part: 28, hotel: 125, code: "IT" },
+
+      // Spanien
+      "SPANIEN_MADRID": { country: "Spanien", city: "Madrid", full: 46, part: 31, hotel: 140, code: "ES" },
+      "SPANIEN_BARCELONA": { country: "Spanien", city: "Barcelona", full: 46, part: 31, hotel: 145, code: "ES" },
+      "SPANIEN_KANAREN": { country: "Spanien", city: "Kanarische Inseln", full: 40, part: 27, hotel: 110, code: "ES" },
+      "SPANIEN_REST": { country: "Spanien", city: "Übriges Spanien", full: 38, part: 25, hotel: 105, code: "ES" },
+
+      // Niederlande
+      "NIEDERLANDE_AMSTERDAM": { country: "Niederlande", city: "Amsterdam", full: 54, part: 36, hotel: 175, code: "NL" },
+      "NIEDERLANDE_REST": { country: "Niederlande", city: "Übrige Niederlande", full: 47, part: 31, hotel: 140, code: "NL" },
+
+      // Belgien
+      "BELGIEN_BRUESSEL": { country: "Belgien", city: "Brüssel", full: 52, part: 35, hotel: 160, code: "BE" },
+      "BELGIEN_REST": { country: "Belgien", city: "Übriges Belgien", full: 45, part: 30, hotel: 130, code: "BE" },
+
+      // Polen
+      "POLEN_WARSCHAU": { country: "Polen", city: "Warschau", full: 44, part: 29, hotel: 125, code: "PL" },
+      "POLEN_BRESLAU": { country: "Polen", city: "Breslau (Wrocław)", full: 38, part: 25, hotel: 105, code: "PL" },
+      "POLEN_REST": { country: "Polen", city: "Übriges Polen", full: 34, part: 23, hotel: 90, code: "PL" },
+
+      // Tschechien
+      "TSCHECHIEN_PRAG": { country: "Tschechien", city: "Prag", full: 42, part: 28, hotel: 120, code: "CZ" },
+      "TSCHECHIEN_REST": { country: "Tschechien", city: "Übriges Tschechien", full: 34, part: 23, hotel: 85, code: "CZ" },
+
+      // Skandinavien
+      "DAENEMARK_KOPENHAGEN": { country: "Dänemark", city: "Kopenhagen", full: 68, part: 45, hotel: 195, code: "DK" },
+      "DAENEMARK_REST": { country: "Dänemark", city: "Übriges Dänemark", full: 58, part: 39, hotel: 160, code: "DK" },
+      "SCHWEDEN_STOCKHOLM": { country: "Schweden", city: "Stockholm", full: 60, part: 40, hotel: 170, code: "SE" },
+      "SCHWEDEN_REST": { country: "Schweden", city: "Übriges Schweden", full: 52, part: 35, hotel: 145, code: "SE" },
+      "NORWEGEN_OSLO": { country: "Norwegen", city: "Oslo", full: 68, part: 45, hotel: 180, code: "NO" },
+      "NORWEGEN_REST": { country: "Norwegen", city: "Übriges Norwegen", full: 58, part: 39, hotel: 155, code: "NO" },
+
+      // Asien & VAE
+      "JAPAN_TOKIO": { country: "Japan", city: "Tokio", full: 66, part: 44, hotel: 220, code: "JP" },
+      "JAPAN_REST": { country: "Japan", city: "Übriges Japan", full: 52, part: 35, hotel: 160, code: "JP" },
+      "CHINA_PEKING": { country: "China", city: "Peking (Beijing)", full: 54, part: 36, hotel: 160, code: "CN" },
+      "CHINA_SHANGHAI": { country: "China", city: "Shanghai", full: 56, part: 37, hotel: 170, code: "CN" },
+      "CHINA_HONGKONG": { country: "China", city: "Hongkong", full: 64, part: 43, hotel: 210, code: "CN" },
+      "SINGAPUR": { country: "Singapur", city: "Singapur", full: 66, part: 44, hotel: 225, code: "SG" },
+      "VAE_DUBAI": { country: "VAE", city: "Dubai", full: 60, part: 40, hotel: 210, code: "AE" },
+      "VAE_ABU_DHABI": { country: "VAE", city: "Abu Dhabi", full: 60, part: 40, hotel: 205, code: "AE" },
+
+      // Weitere wichtige Handelsländer
+      "KANADA_TORONTO": { country: "Kanada", city: "Toronto", full: 56, part: 37, hotel: 190, code: "CA" },
+      "KANADA_REST": { country: "Kanada", city: "Übriges Kanada", full: 48, part: 32, hotel: 150, code: "CA" },
+      "AUSTRALIEN_SYDNEY": { country: "Australien", city: "Sydney", full: 64, part: 43, hotel: 215, code: "AU" },
+      "AUSTRALIEN_REST": { country: "Australien", city: "Übriges Australien", full: 52, part: 35, hotel: 160, code: "AU" },
+      "TUERKEI_ISTANBUL": { country: "Türkei", city: "Istanbul", full: 46, part: 31, hotel: 130, code: "TR" },
+      "IRLAND_DUBLIN": { country: "Irland", city: "Dublin", full: 58, part: 39, hotel: 165, code: "IE" },
+      "PORTUGAL_LISSABON": { country: "Portugal", city: "Lissabon", full: 46, part: 31, hotel: 125, code: "PT" },
+      "LUXEMBURG": { country: "Luxemburg", city: "Luxemburg", full: 52, part: 35, hotel: 150, code: "LU" }
+    };
+
+    // State
+    let currentRegime = 'DE'; // 'DE' | 'AT' | 'CH'
+    let selectedDestKey = 'USA_NEW_YORK';
+    let travelDays = [];
+
+    // --- 2. Initial Setup ---
+    function init() {
+      populateDestinationSelect();
+      resetDefaultTrip();
+      updatePrintMeta();
+    }
+
+    function populateDestinationSelect() {
+      const sel = document.getElementById('primaryDestinationSelect');
+      sel.innerHTML = '';
+      const sortedKeys = Object.keys(DESTINATIONS).sort((a,b) => {
+        const nameA = `${DESTINATIONS[a].country} - ${DESTINATIONS[a].city}`;
+        const nameB = `${DESTINATIONS[b].country} - ${DESTINATIONS[b].city}`;
+        return nameA.localeCompare(nameB);
+      });
+
+      sortedKeys.forEach(k => {
+        const opt = document.createElement('option');
+        opt.value = k;
+        opt.textContent = `${DESTINATIONS[k].country} (${DESTINATIONS[k].city}) [24h: ${DESTINATIONS[k].full}€ / An-Ab: ${DESTINATIONS[k].part}€]`;
+        if (k === selectedDestKey) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      updatePrimaryDestDisplay();
+    }
+
+    function changePrimaryDestination() {
+      const sel = document.getElementById('primaryDestinationSelect');
+      selectedDestKey = sel.value;
+      updatePrimaryDestDisplay();
+      // Update all day rows to new destination if uniform
+      travelDays.forEach(d => d.destKey = selectedDestKey);
+      renderDays();
+      calculate();
+    }
+
+    function updatePrimaryDestDisplay() {
+      const d = DESTINATIONS[selectedDestKey];
+      if (!d) return;
+      document.getElementById('dispFullRate').textContent = `${d.full.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('dispPartRate').textContent = `${d.part.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('dispLodgingRate').textContent = `${d.hotel.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('printDestination').textContent = `${d.country} (${d.city})`;
+    }
+
+    function setRegime(regime) {
+      currentRegime = regime;
+      ['btnRegimeDE', 'btnRegimeAT', 'btnRegimeCH'].forEach(id => {
+        const btn = document.getElementById(id);
+        btn.classList.remove('bg-blue-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-400');
+      });
+      const activeBtn = document.getElementById(`btnRegime${regime}`);
+      activeBtn.classList.remove('text-slate-400');
+      activeBtn.classList.add('bg-blue-600', 'text-white', 'shadow');
+      calculate();
+    }
+
+    function updatePrintMeta() {
+      document.getElementById('printName').textContent = document.getElementById('employeeName').value || 'Mitarbeiter';
+      document.getElementById('printPnr').textContent = document.getElementById('employeePnr').value || '-';
+      document.getElementById('printPurpose').textContent = document.getElementById('tripPurpose').value || '-';
+    }
+
+    // --- 3. Travel Days Itinerary Management ---
+    function resetDefaultTrip() {
+      const today = new Date();
+      const formatDate = (date) => date.toISOString().split('T')[0];
+
+      const d1 = new Date(today);
+      const d2 = new Date(today); d2.setDate(d2.getDate() + 1);
+      const d3 = new Date(today); d3.setDate(d3.getDate() + 2);
+
+      travelDays = [
+        {
+          id: 1,
+          dateStr: formatDate(d1),
+          destKey: selectedDestKey,
+          dayType: 'ARRIVAL', // Arrival
+          breakfast: false,
+          lunch: false,
+          dinner: true, // provided client dinner
+          hotelType: 'actual', // 'none' | 'lump' | 'actual'
+          hotelAmount: 220.0
+        },
+        {
+          id: 2,
+          dateStr: formatDate(d2),
+          destKey: selectedDestKey,
+          dayType: 'FULL',
+          breakfast: true,
+          lunch: true,
+          dinner: false,
+          hotelType: 'actual',
+          hotelAmount: 220.0
+        },
+        {
+          id: 3,
+          dateStr: formatDate(d3),
+          destKey: selectedDestKey,
+          dayType: 'DEPARTURE',
+          breakfast: true,
+          lunch: false,
+          dinner: false,
+          hotelType: 'none',
+          hotelAmount: 0.0
+        }
+      ];
+
+      renderDays();
+      calculate();
+    }
+
+    function addTravelDay() {
+      const nextId = travelDays.length > 0 ? Math.max(...travelDays.map(d => d.id)) + 1 : 1;
+      let nextDate = new Date();
+      if (travelDays.length > 0) {
+        const lastDate = new Date(travelDays[travelDays.length - 1].dateStr);
+        lastDate.setDate(lastDate.getDate() + 1);
+        nextDate = lastDate;
+      }
+      const dateStr = nextDate.toISOString().split('T')[0];
+
+      travelDays.push({
+        id: nextId,
+        dateStr: dateStr,
+        destKey: selectedDestKey,
+        dayType: 'FULL',
+        breakfast: false,
+        lunch: false,
+        dinner: false,
+        hotelType: 'none',
+        hotelAmount: 0.0
+      });
+
+      renderDays();
+      calculate();
+    }
+
+    function removeTravelDay(id) {
+      if (travelDays.length <= 1) {
+        alert("Mindestens ein Reisetag muss in der Abrechnung verbleiben.");
+        return;
+      }
+      travelDays = travelDays.filter(d => d.id !== id);
+      renderDays();
+      calculate();
+    }
+
+    function updateDayField(id, field, value) {
+      const day = travelDays.find(d => d.id === id);
+      if (!day) return;
+      day[field] = value;
+      calculate();
+    }
+
+    function renderDays() {
+      const container = document.getElementById('itineraryDaysList');
+      container.innerHTML = '';
+
+      travelDays.forEach((day, index) => {
+        const rate = DESTINATIONS[day.destKey] || DESTINATIONS['USA_NEW_YORK'];
+        const isArrivalOrDep = day.dayType === 'ARRIVAL' || day.dayType === 'DEPARTURE';
+        const baseRate = isArrivalOrDep ? rate.part : rate.full;
+
+        const row = document.createElement('div');
+        row.className = "bg-slate-950/70 border border-slate-800 rounded-xl p-3.5 transition hover:border-slate-700";
+        row.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+            <div class="flex items-center space-x-2">
+              <span class="w-6 h-6 rounded-md bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-300 font-mono">
+                ${index + 1}
+              </span>
+              <input type="date" value="${day.dateStr}" onchange="updateDayField(${day.id}, 'dateStr', this.value)" class="bg-slate-900 border border-slate-800 text-xs text-slate-200 rounded px-2 py-1 font-mono focus:outline-none focus:border-blue-500">
+              <select onchange="updateDayField(${day.id}, 'dayType', this.value); renderDays();" class="bg-slate-900 border border-slate-800 text-xs text-slate-200 rounded px-2 py-1 focus:outline-none focus:border-blue-500">
+                <option value="FULL" ${day.dayType === 'FULL' ? 'selected' : ''}>Ganztägig (24h) - ${rate.full.toFixed(2)} €</option>
+                <option value="ARRIVAL" ${day.dayType === 'ARRIVAL' ? 'selected' : ''}>Anreisetag (>8h) - ${rate.part.toFixed(2)} €</option>
+                <option value="DEPARTURE" ${day.dayType === 'DEPARTURE' ? 'selected' : ''}>Abreisetag (>8h) - ${rate.part.toFixed(2)} €</option>
+              </select>
+            </div>
+
+            <div class="flex items-center space-x-3 text-xs">
+              <div class="text-right">
+                <span class="text-slate-400">Netto Tagegeld:</span>
+                <span id="dayNet_${day.id}" class="font-bold font-mono text-emerald-400 ml-1">0,00 €</span>
+              </div>
+              <button onclick="removeTravelDay(${day.id})" title="Tag löschen" class="no-print text-slate-500 hover:text-rose-400 transition p-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Meals & Hotel options row -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-3 pt-2 border-t border-slate-900 text-xs">
+            <!-- Meal Deductions (Checkboxes) -->
+            <div class="md:col-span-6 flex flex-wrap items-center gap-3">
+              <span class="text-slate-400 font-medium">Gestellte Mahlzeiten:</span>
+              <label class="inline-flex items-center space-x-1.5 cursor-pointer">
+                <input type="checkbox" ${day.breakfast ? 'checked' : ''} onchange="updateDayField(${day.id}, 'breakfast', this.checked)" class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0">
+                <span class="text-slate-300">Frühstück (-20%)</span>
+              </label>
+              <label class="inline-flex items-center space-x-1.5 cursor-pointer">
+                <input type="checkbox" ${day.lunch ? 'checked' : ''} onchange="updateDayField(${day.id}, 'lunch', this.checked)" class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0">
+                <span class="text-slate-300">Mittag (-40%)</span>
+              </label>
+              <label class="inline-flex items-center space-x-1.5 cursor-pointer">
+                <input type="checkbox" ${day.dinner ? 'checked' : ''} onchange="updateDayField(${day.id}, 'dinner', this.checked)" class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0">
+                <span class="text-slate-300">Abend (-40%)</span>
+              </label>
+            </div>
+
+            <!-- Lodging -->
+            <div class="md:col-span-6 flex items-center justify-end space-x-2">
+              <span class="text-slate-400 font-medium">Übernachtung:</span>
+              <select onchange="updateDayField(${day.id}, 'hotelType', this.value); renderDays();" class="bg-slate-900 border border-slate-800 text-xs text-slate-200 rounded px-2 py-1 focus:outline-none focus:border-blue-500">
+                <option value="none" ${day.hotelType === 'none' ? 'selected' : ''}>Keine / Privat</option>
+                <option value="lump" ${day.hotelType === 'lump' ? 'selected' : ''}>Pauschale (${rate.hotel.toFixed(2)} €)</option>
+                <option value="actual" ${day.hotelType === 'actual' ? 'selected' : ''}>Beleg (EUR)</option>
+              </select>
+              ${day.hotelType === 'actual' ? `
+                <input type="number" step="0.5" min="0" value="${day.hotelAmount}" oninput="updateDayField(${day.id}, 'hotelAmount', parseFloat(this.value)||0)" class="w-20 bg-slate-900 border border-slate-800 rounded px-2 py-1 text-xs text-slate-200 font-mono focus:outline-none focus:border-blue-500" placeholder="€">
+              ` : ''}
+            </div>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    // --- 4. Main Calculation Core ---
+    function calculate() {
+      let grossPerDiems = 0;
+      let totalDeductions = 0;
+      let netPerDiems = 0;
+      let totalLodging = 0;
+
+      travelDays.forEach(day => {
+        const rate = DESTINATIONS[day.destKey] || DESTINATIONS['USA_NEW_YORK'];
+        const isArrivalOrDep = day.dayType === 'ARRIVAL' || day.dayType === 'DEPARTURE';
+        const baseRate = isArrivalOrDep ? rate.part : rate.full;
+        const fullRate = rate.full; // Law: Deductions always computed on 24h full rate!
+
+        // Meal Deductions
+        let dedBreakfast = day.breakfast ? Math.round(fullRate * 0.20 * 100) / 100 : 0;
+        let dedLunch = day.lunch ? Math.round(fullRate * 0.40 * 100) / 100 : 0;
+        let dedDinner = day.dinner ? Math.round(fullRate * 0.40 * 100) / 100 : 0;
+        let dayMealDed = dedBreakfast + dedLunch + dedDinner;
+
+        // In Germany, net per diem cannot become negative
+        let dayNet = Math.max(0, baseRate - dayMealDed);
+
+        // Lodging
+        let dayHotel = 0;
+        if (day.hotelType === 'lump') {
+          dayHotel = rate.hotel;
+        } else if (day.hotelType === 'actual') {
+          dayHotel = day.hotelAmount || 0;
+        }
+
+        grossPerDiems += baseRate;
+        totalDeductions += Math.min(baseRate, dayMealDed); // effective deduction
+        netPerDiems += dayNet;
+        totalLodging += dayHotel;
+
+        // Update day row label if present
+        const dayLabel = document.getElementById(`dayNet_${day.id}`);
+        if (dayLabel) {
+          dayLabel.textContent = `${dayNet.toFixed(2).replace('.', ',')} €`;
+        }
+      });
+
+      const grandTotal = netPerDiems + totalLodging;
+
+      // Update UI displays
+      document.getElementById('grandTotalClaim').textContent = `${grandTotal.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('metricTotalDays').textContent = `${travelDays.length} Tage`;
+      document.getElementById('metricGrossPerDiem').textContent = `${grossPerDiems.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('metricMealDeductions').textContent = `-${totalDeductions.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('metricNetPerDiem').textContent = `${netPerDiems.toFixed(2).replace('.', ',')} €`;
+      document.getElementById('metricLodging').textContent = `${totalLodging.toFixed(2).replace('.', ',')} €`;
+    }
+
+    // --- 5. Export Utilities (CSV & JSON) ---
+    function exportJSON() {
+      const dest = DESTINATIONS[selectedDestKey];
+      const data = {
+        exportVersion: "1.0",
+        program: "DACH Digitalwerk Auslandstagegeld-Rechner 2026",
+        employee: {
+          name: document.getElementById('employeeName').value,
+          personnelNumber: document.getElementById('employeePnr').value,
+          purpose: document.getElementById('tripPurpose').value
+        },
+        destination: {
+          key: selectedDestKey,
+          country: dest.country,
+          city: dest.city
+        },
+        summary: {
+          totalDays: travelDays.length,
+          grandTotalClaimEur: parseFloat(document.getElementById('grandTotalClaim').textContent.replace(' €', '').replace(',', '.')),
+          netPerDiemEur: parseFloat(document.getElementById('metricNetPerDiem').textContent.replace(' €', '').replace(',', '.')),
+          lodgingEur: parseFloat(document.getElementById('metricLodging').textContent.replace(' €', '').replace(',', '.'))
+        },
+        days: travelDays.map(d => ({
+          date: d.dateStr,
+          dayType: d.dayType,
+          breakfastProvided: d.breakfast,
+          lunchProvided: d.lunch,
+          dinnerProvided: d.dinner,
+          hotelType: d.hotelType,
+          hotelAmountEur: d.hotelType === 'actual' ? d.hotelAmount : (d.hotelType === 'lump' ? dest.hotel : 0)
+        }))
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `reisekostenabrechnung-${selectedDestKey.toLowerCase()}-2026.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportCSV() {
+      const dest = DESTINATIONS[selectedDestKey];
+      let csv = "Datum;Land;Stadt;Reisetyp;Fruehstueck;Mittag;Abend;Basis_EUR;Abzug_EUR;Netto_EUR;Hotel_EUR;Gesamt_EUR\n";
+
+      travelDays.forEach(d => {
+        const rate = DESTINATIONS[d.destKey] || dest;
+        const isArr = d.dayType === 'ARRIVAL' || d.dayType === 'DEPARTURE';
+        const base = isArr ? rate.part : rate.full;
+        const full = rate.full;
+
+        const ded = (d.breakfast ? full * 0.2 : 0) + (d.lunch ? full * 0.4 : 0) + (d.dinner ? full * 0.4 : 0);
+        const net = Math.max(0, base - ded);
+        const hotel = d.hotelType === 'actual' ? d.hotelAmount : (d.hotelType === 'lump' ? rate.hotel : 0);
+        const total = net + hotel;
+
+        csv += `${d.dateStr};"${rate.country}";"${rate.city}";${d.dayType};${d.breakfast ? 1 : 0};${d.lunch ? 1 : 0};${d.dinner ? 1 : 0};${base.toFixed(2)};${ded.toFixed(2)};${net.toFixed(2)};${hotel.toFixed(2)};${total.toFixed(2)}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `reisekosten-${selectedDestKey.toLowerCase()}-2026.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Run on load
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

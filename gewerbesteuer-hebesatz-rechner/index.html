@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gewerbesteuer- &amp; Hebesatz-Rechner 2026 | Freibetrag 24.500 €, § 35 EStG &amp; Städtevergleich</title>
+  <meta name="description" content="Kostenloser Gewerbesteuer-Rechner 2026: Steuermesszahl 3,5 %, Hebesätze aller Kommunen, Freibetrag 24.500 € für Einzelunternehmer/GbR, § 8 Hinzurechnungen &amp; § 35 EStG Anrechnungsfaktor 4,0." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/gewerbesteuer-hebesatz-rechner/" />
+  
+  <meta property="og:title" content="Gewerbesteuer- &amp; Hebesatz-Rechner 2026: Freibetrag, § 35 EStG &amp; Städte" />
+  <meta property="og:description" content="Gewerbesteuer exakt berechnen nach GewStG 2026: Steuermessbetrag, Hinzurechnungen (§ 8), Hebesatz-Vergleich (München, Berlin, Grünwald) und ESt-Anrechnung." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/gewerbesteuer-hebesatz-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @media print {
+      body * { visibility: hidden; }
+      .a4-sheet-wrapper, .a4-sheet-wrapper * { visibility: visible; }
+      .a4-sheet-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .no-print { display: none !important; }
+      .a4-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        padding: 15mm 20mm !important;
+      }
+    }
+    .a4-sheet {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 20mm;
+      box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+  </style>
+
+  <!-- Schema.org SoftwareApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DACH Gewerbesteuer- & Hebesatz-Rechner 2026",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Kaufmännischer Gewerbesteuer-Rechner für Deutschland (§ 11 GewStG, Steuermesszahl 3,5 %, Hebesätze, § 35 EStG Anrechnung) mit Rechtsformvergleich und DACH-Kontext.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-white font-bold hover:text-amber-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser (Zero Server-Speicherung)
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-[11px]">
+          GewStG 2026 • Steuermesszahl 3,5 % • § 35 EStG Faktor 4,0 • Freibetrag 24.500 €
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200/80 sticky top-0 z-30 backdrop-blur-md bg-white/95 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-600 via-orange-600 to-amber-950 text-white flex items-center justify-center text-2xl font-black shadow-lg shadow-amber-600/20">
+          🏛️
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">Gewerbesteuer- &amp; Hebesatz-Rechner 2026</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
+              GewStG &amp; § 35 EStG
+            </span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium block">
+            Steuermessbetrag, Freibetrag 24.500 €, Hinzurechnungen § 8, Städtehebesätze &amp; ESt-Anrechnung
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="scrollToPrintView()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+          <span>🖨️</span>
+          <span>Druckansicht</span>
+        </button>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white shadow-md shadow-amber-600/20 transition">
+          <span>⚡</span>
+          <span>Pro Freischalten (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- LEGAL FORM TABS & OVERVIEW -->
+    <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3 no-print">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold uppercase text-slate-500 mr-2 tracking-wider">Unternehmensform:</span>
+        <button onclick="setLegalForm('person')" id="btn-form-person" class="legal-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-600 text-white shadow-sm">
+          <span>Einzelunternehmer / GbR / Personengesellschaft</span>
+          <span class="text-[10px] opacity-80">(Freibetrag 24.500 € + § 35 EStG)</span>
+        </button>
+        <button onclick="setLegalForm('capital')" id="btn-form-capital" class="legal-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200">
+          <span>Kapitalgesellschaft (GmbH / UG / AG)</span>
+          <span class="text-[10px] opacity-80">(0 € Freibetrag)</span>
+        </button>
+      </div>
+      <div class="text-[11px] text-slate-500 flex items-center gap-2">
+        <span>Gewerbesteuer-Status:</span>
+        <span id="active-status-badge" class="font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+          Freibetrag 24.500 € aktiv • ESt-Anrechnung Faktor 4,0
+        </span>
+      </div>
+    </div>
+
+    <!-- MAIN GRID: INPUTS & KPIS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start no-print">
+      
+      <!-- LEFT COLUMN: INPUT FORM (5 COLS) -->
+      <div class="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <h2 class="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>⚙️</span>
+            <span>1. Gewinn &amp; Gemeinde-Hebesatz</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Erfassen Sie Ihren steuerlichen Gewinn und wählen Sie die hebeberechtigte Kommune.
+          </p>
+        </div>
+
+        <div class="space-y-4 text-xs">
+          <!-- GEWINN AUS GEWERBEBETRIEB -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Gewinn aus Gewerbebetrieb (vor Steuern):</label>
+            <div class="relative">
+              <input type="number" id="inp-profit" value="85000.00" step="1000" min="0" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm" />
+              <span class="absolute right-3 top-2.5 text-slate-400 font-bold">€</span>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 block">Gewinn lt. EÜR bzw. Steuerbilanz vor Gewerbesteuer.</span>
+          </div>
+
+          <!-- CITY PRESET SELECTOR -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Kommune / Hebesatz-Vorlage:</label>
+            <select id="sel-city" onchange="applyCityPreset()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="custom">✏️ Eigener Hebesatz (manuell eintragen)</option>
+              <option value="490" selected>München (490 %)</option>
+              <option value="460">Frankfurt am Main (460 %)</option>
+              <option value="410">Berlin (410 %)</option>
+              <option value="470">Hamburg (470 %)</option>
+              <option value="475">Köln (475 %)</option>
+              <option value="440">Düsseldorf (440 %)</option>
+              <option value="420">Stuttgart (420 %)</option>
+              <option value="460">Leipzig (460 %)</option>
+              <option value="450">Dresden (450 %)</option>
+              <option value="480">Nürnberg (480 %)</option>
+              <option value="403">Bundesdurchschnitt (ca. 403 %)</option>
+              <option value="240">Grünwald b. München (240 % - Niedrigsteuer)</option>
+              <option value="250">Monheim am Rhein (250 % - Gewerbeoase)</option>
+              <option value="270">Zossen b. Berlin (270 %)</option>
+              <option value="200">Gesetzlicher Mindesthebesatz (200 %)</option>
+            </select>
+          </div>
+
+          <!-- MANUAL HEBESATZ INPUT -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Gewerbesteuer-Hebesatz:</label>
+              <div class="relative">
+                <input type="number" id="inp-hebesatz" value="490" min="200" max="950" oninput="onHebesatzInput()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500" />
+                <span class="absolute right-3 top-2.5 text-slate-400 font-bold">%</span>
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Steuermesszahl (§ 11 GewStG):</label>
+              <input type="text" value="3,5 % (bundeseinheitlich)" disabled class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-100 font-mono font-semibold text-slate-600 cursor-not-allowed" />
+            </div>
+          </div>
+
+          <!-- HINZURECHNUNGEN ACCORDION TOGGLE -->
+          <div class="pt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-2">
+              <label class="flex items-center gap-2 cursor-pointer font-bold text-slate-800">
+                <input type="checkbox" id="chk-hinzurechnung" onchange="toggleHinzurechnung()" class="rounded text-amber-600 focus:ring-amber-500" />
+                <span>Hinzurechnungen nach § 8 Nr. 1 GewStG erfassen</span>
+              </label>
+              <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Freibetrag 200k €</span>
+            </div>
+
+            <!-- HINZURECHNUNGEN FIELDS -->
+            <div id="hinzurechnung-box" class="space-y-3 p-4 bg-slate-50/70 border border-slate-200 rounded-2xl hidden">
+              <p class="text-[11px] text-slate-500 leading-relaxed">
+                Finanzierungsaufwendungen werden nach Abzug des Freibetrags von <strong>200.000 €</strong> zu <strong>25 %</strong> dem Gewinn hinzugerechnet:
+              </p>
+
+              <div>
+                <label class="block text-slate-700 font-semibold mb-0.5">Schuldzinsen &amp; Kreditkosten (100 %):</label>
+                <div class="relative">
+                  <input type="number" id="inp-hinz-zinsen" value="0.00" step="500" min="0" oninput="runCalculation()" class="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono" />
+                  <span class="absolute right-2.5 top-2 text-slate-400">€</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-slate-700 font-semibold mb-0.5">Miete / Leasing beweglicher WG (Maschinen, Pkw) (20 %):</label>
+                <div class="relative">
+                  <input type="number" id="inp-hinz-movable" value="0.00" step="500" min="0" oninput="runCalculation()" class="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono" />
+                  <span class="absolute right-2.5 top-2 text-slate-400">€</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-slate-700 font-semibold mb-0.5">Miete unbeweglicher WG (Büro, Halle, Gebäude) (50 %):</label>
+                <div class="relative">
+                  <input type="number" id="inp-hinz-immovable" value="0.00" step="500" min="0" oninput="runCalculation()" class="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono" />
+                  <span class="absolute right-2.5 top-2 text-slate-400">€</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-slate-700 font-semibold mb-0.5">Lizenzen, Software &amp; Urheberrechte (25 %):</label>
+                <div class="relative">
+                  <input type="number" id="inp-hinz-licenses" value="0.00" step="500" min="0" oninput="runCalculation()" class="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono" />
+                  <span class="absolute right-2.5 top-2 text-slate-400">€</span>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-slate-200 flex justify-between items-center text-[11px]">
+                <span class="text-slate-600">Hinzurechnungsbetrag nach 200k € Freibetrag (zu 25 %):</span>
+                <span id="txt-hinzurechnung-result" class="font-mono font-bold text-amber-900">+0,00 €</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KÜRZUNGEN (§ 9 GewStG) -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Kürzungen nach § 9 GewStG (z.B. Grundbesitzkürzung):</label>
+            <div class="relative">
+              <input type="number" id="inp-kuerzungen" value="0.00" step="100" min="0" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              <span class="absolute right-3 top-2.5 text-slate-400 font-bold">€</span>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 block">z. B. 1,2 % des Einheitswerts des betrieblichen Grundbesitzes (§ 9 Nr. 1 GewStG).</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: RESULTS & SUMMARY (7 COLS) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- TOP KPI BANNER -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Festgesetzte Gewerbesteuer</span>
+            <div class="text-2xl font-black text-amber-600 font-mono" id="kpi-gewst-total">0,00 €</div>
+            <span class="text-[10px] text-slate-500 block" id="kpi-gewst-sub">Steuermessbetrag × Hebesatz</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Effektive Steuerquote</span>
+            <div class="text-2xl font-black text-slate-900 font-mono" id="kpi-tax-rate">0,00 %</div>
+            <span class="text-[10px] text-slate-500 block" id="kpi-rate-sub">bezogen auf Gewinn</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">§ 35 EStG Anrechnung</span>
+            <div class="text-2xl font-black text-emerald-600 font-mono" id="kpi-est-offset">0,00 €</div>
+            <span class="text-[10px] text-emerald-700 font-semibold block" id="kpi-est-sub">Faktor 4,0 Entlastung</span>
+          </div>
+        </div>
+
+        <!-- § 35 EStG NETTO-BELASTUNG / ÜBERHANG CARD -->
+        <div id="est-offset-card" class="p-6 rounded-3xl border bg-white shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">⚖️</span>
+              <h3 class="font-bold text-slate-900 text-sm">Echte Netto-Gewerbesteuerbelastung (§ 35 EStG)</h3>
+            </div>
+            <span id="badge-offset-status" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+              Nahezu 100 % neutralisiert
+            </span>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed" id="desc-offset-text">
+            Für Einzelunternehmer und Personengesellschaften wird die Gewerbesteuer über den Faktor 4,0 auf die tarifliche Einkommensteuer angerechnet. Bis zu einem Hebesatz von rund 400 % bis 420 % entsteht faktisch <strong>keine Mehrbelastung</strong>!
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 text-xs font-mono bg-slate-50 p-4 rounded-2xl border border-slate-100">
+            <div>
+              <span class="text-slate-500 block">Gezahlte Gewerbesteuer:</span>
+              <span id="res-gewst-paid" class="font-bold text-slate-900 text-sm">0,00 €</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Max. ESt-Ermäßigung (Faktor 4,0):</span>
+              <span id="res-est-deduction" class="font-bold text-emerald-700 text-sm">0,00 €</span>
+            </div>
+            <div class="col-span-2 pt-2 border-t border-slate-200 flex justify-between items-center font-sans">
+              <span class="font-bold text-slate-800">Verbleibende Netto-Mehrbelastung (Überhang):</span>
+              <span id="res-net-burden" class="font-mono font-bold text-base text-amber-900">0,00 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAILED STEP-BY-STEP CALCULATION TABLE -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-slate-100 flex justify-between items-center">
+            <div>
+              <h3 class="font-extrabold text-slate-900 text-base">Berechnungsschritte gem. GewStG</h3>
+              <p class="text-xs text-slate-500">Transparente Nachverfolgung aller Rechenstufen</p>
+            </div>
+            <span class="text-xs font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">
+              §§ 7–16 GewStG
+            </span>
+          </div>
+
+          <div class="divide-y divide-slate-100 text-xs">
+            <div class="p-3.5 flex justify-between items-center">
+              <span class="text-slate-700">1. Ausgangsgewinn aus Gewerbebetrieb</span>
+              <span id="st-profit" class="font-mono font-bold text-slate-900">0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center bg-slate-50/50">
+              <span class="text-slate-700">+ Hinzurechnungen nach § 8 GewStG (nach 200k € Freibetrag)</span>
+              <span id="st-hinz" class="font-mono text-amber-700">+0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center">
+              <span class="text-slate-700">- Kürzungen nach § 9 GewStG</span>
+              <span id="st-kuerz" class="font-mono text-emerald-700">-0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center font-bold bg-slate-50">
+              <span class="text-slate-900">= Maßgebender Gewerbeertrag (abgerundet auf volle 100 €)</span>
+              <span id="st-ertrag-rounded" class="font-mono text-slate-900">0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center text-emerald-800">
+              <span>- Gesetzlicher Freibetrag (§ 11 Abs. 1 GewStG)</span>
+              <span id="st-freibetrag" class="font-mono font-bold">-24.500,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center font-bold">
+              <span class="text-slate-900">= Gekürzter Gewerbeertrag</span>
+              <span id="st-ertrag-taxable" class="font-mono text-slate-900">0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center text-indigo-900 bg-indigo-50/40">
+              <span class="font-bold">× Steuermesszahl 3,5 % = Steuermessbetrag</span>
+              <span id="st-messbetrag" class="font-mono font-black text-sm">0,00 €</span>
+            </div>
+            <div class="p-3.5 flex justify-between items-center font-black text-sm text-amber-950 bg-amber-50">
+              <span>× Hebesatz <span id="st-hebesatz-lbl">490 %</span> = Gewerbesteuer</span>
+              <span id="st-final-gewst" class="font-mono text-base text-amber-600">0,00 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOCATION BENCHMARK BAR -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-extrabold text-slate-900 text-sm">Standort-Benchmark: Gewerbesteuer im Städtevergleich</h3>
+          <p class="text-xs text-slate-500">So viel Gewerbesteuer fällt für denselben Gewerbeertrag in anderen Kommunen an:</p>
+          <div id="city-benchmark-bars" class="space-y-3">
+            <!-- Dynamically populated comparison bars -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DIN-A4 GEWERBESTEUER-BERECHNUNGSBOGEN (PRINTABLE) -->
+    <section id="druckansicht" class="pt-6">
+      <div class="text-center max-w-2xl mx-auto mb-6 no-print">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
+          Steuer- &amp; Planungsnachweis 2026
+        </span>
+        <h2 class="text-2xl font-black text-slate-900 mt-2">
+          DIN-A4 Gewerbesteuer-Berechnungsbogen
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Druckfertiger Nachweis für Ihre Liquiditätsplanung, Jahresabschluss und Bankgespräche.
+        </p>
+        <button onclick="window.print()" class="mt-4 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-black rounded-2xl text-xs shadow-lg shadow-amber-600/20 transition inline-flex items-center gap-2">
+          <span>🖨️</span>
+          <span>Drucken / Als PDF speichern</span>
+        </button>
+      </div>
+
+      <!-- A4 SHEET WRAPPER -->
+      <div class="a4-sheet-wrapper">
+        <div class="a4-sheet">
+          <!-- Document Header -->
+          <div class="border-b-2 border-slate-900 pb-4 mb-4 flex justify-between items-start">
+            <div>
+              <div class="text-[10px] font-bold text-amber-800 tracking-wider uppercase">Betriebliche Steuerplanung &amp; Gewerbeertrag</div>
+              <h1 class="text-xl font-black text-slate-900 mt-0.5">GEWERBESTEUER-BERECHNUNGSBOGEN 2026</h1>
+              <div class="text-[10px] text-slate-600">Ermittlung des Steuermessbetrags &amp; der Gewerbesteuer gem. GewStG</div>
+            </div>
+            <div class="text-right">
+              <span id="print-form-badge" class="inline-block bg-slate-900 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                PERSONENGESELLSCHAFT / EINZELUNTERNEHMEN
+              </span>
+              <div class="text-[9px] text-slate-500 mt-1" id="print-date">Datum: --</div>
+            </div>
+          </div>
+
+          <!-- Parameter Summary -->
+          <div class="grid grid-cols-2 gap-4 mb-4 text-[10px]">
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">1. Besteuerungsgrundlagen</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Ausgangsgewinn (Gewerbebetrieb):</span>
+                  <span id="p-profit" class="font-mono font-bold text-slate-900">-- €</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Hinzurechnungen (§ 8 GewStG):</span>
+                  <span id="p-hinz" class="font-mono">-- €</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Kürzungen (§ 9 GewStG):</span>
+                  <span id="p-kuerz" class="font-mono">-- €</span>
+                </div>
+                <div class="flex justify-between border-t border-slate-200 pt-1 font-bold">
+                  <span>Maßgebender Gewerbeertrag:</span>
+                  <span id="p-ertrag-rounded" class="font-mono text-slate-900">-- €</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">2. Hebesatz &amp; ESt-Anrechnung</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Gesetzlicher Freibetrag:</span>
+                  <span id="p-freibetrag" class="font-mono font-bold text-emerald-800">-- €</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Steuermessbetrag (3,5 %):</span>
+                  <span id="p-messbetrag" class="font-mono font-bold text-indigo-900">-- €</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Hebesatz der Kommune:</span>
+                  <span id="p-hebesatz" class="font-mono font-bold">-- %</span>
+                </div>
+                <div class="flex justify-between border-t border-slate-200 pt-1 font-bold">
+                  <span>Gewerbesteuer (Zahllast):</span>
+                  <span id="p-final-gewst" class="font-mono text-amber-700 text-[11px]">-- €</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tax Calculation Table in Sheet -->
+          <div class="mb-4">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5">3. Zusammenfassende Steuerermittlung</div>
+            <table class="w-full text-left text-[9.5px] border border-slate-200 rounded">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-1.5">Position</th>
+                  <th class="p-1.5">Rechtsgrundlage</th>
+                  <th class="p-1.5 text-right">Betrag</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-mono">
+                <tr>
+                  <td class="p-1.5 font-sans">Gewerbeertrag vor Freibetrag</td>
+                  <td class="p-1.5 text-slate-500 font-sans">§ 7 GewStG</td>
+                  <td class="p-1.5 text-right" id="p-tbl-ertrag">-- €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans">Abzurechnender Freibetrag</td>
+                  <td class="p-1.5 text-slate-500 font-sans">§ 11 Abs. 1 GewStG</td>
+                  <td class="p-1.5 text-right text-emerald-700" id="p-tbl-freibetrag">-- €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans font-bold">Steuerpflichtiger Gewerbeertrag</td>
+                  <td class="p-1.5 text-slate-500 font-sans">§ 11 Abs. 1 GewStG</td>
+                  <td class="p-1.5 text-right font-bold" id="p-tbl-taxable">-- €</td>
+                </tr>
+                <tr class="bg-indigo-50/30">
+                  <td class="p-1.5 font-sans font-bold">Steuermessbetrag (3,5 %)</td>
+                  <td class="p-1.5 text-slate-500 font-sans">§ 11 Abs. 2 GewStG</td>
+                  <td class="p-1.5 text-right font-bold text-indigo-900" id="p-tbl-messbetrag">-- €</td>
+                </tr>
+                <tr class="bg-amber-50/40">
+                  <td class="p-1.5 font-sans font-black">Festzusetzende Gewerbesteuer</td>
+                  <td class="p-1.5 text-slate-500 font-sans" id="p-tbl-hebesatz-basis">§ 16 GewStG (-- %)</td>
+                  <td class="p-1.5 text-right font-black text-amber-900" id="p-tbl-gewst">-- €</td>
+                </tr>
+                <tr class="bg-emerald-50/40">
+                  <td class="p-1.5 font-sans font-bold text-emerald-950">ESt-Ermäßigung nach § 35 EStG (Faktor 4,0)</td>
+                  <td class="p-1.5 text-slate-500 font-sans">§ 35 Abs. 1 EStG</td>
+                  <td class="p-1.5 text-right font-bold text-emerald-700" id="p-tbl-est-deduction">-- €</td>
+                </tr>
+                <tr class="font-black">
+                  <td class="p-1.5 font-sans">Tatsächliche Netto-Mehrbelastung (Überhang)</td>
+                  <td class="p-1.5 text-slate-500 font-sans">Gewerbesteuer minus ESt-Anrechnung</td>
+                  <td class="p-1.5 text-right" id="p-tbl-net-burden">-- €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Legal Confirmation -->
+          <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/40 text-[9px] text-slate-600 mb-6 space-y-1">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[8.5px]">4. Steuerlicher Prüfvermerk</div>
+            <p id="p-legal-note" class="leading-relaxed">
+              Die Gewerbesteuer wurde nach den Vorschriften des Gewerbesteuergesetzes (GewStG) berechnet. Für Personengesellschaften und Einzelunternehmer wird die Gewerbesteuer über den Faktor 4,0 auf die tarifliche Einkommensteuer angerechnet (§ 35 EStG).
+            </p>
+          </div>
+
+          <!-- Signatures -->
+          <div class="grid grid-cols-2 gap-8 pt-4 border-t border-slate-200 text-[10px]">
+            <div>
+              <div class="border-b border-slate-400 pb-6 mb-1"></div>
+              <div class="text-slate-500">Ort, Datum / Erstellt durch Buchhaltung / CFO</div>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 pb-6 mb-1"></div>
+              <div class="text-slate-500">Prüfung &amp; Freigabe Steuerberatung / Geschäftsführung</div>
+            </div>
+          </div>
+
+          <!-- Footer in Sheet -->
+          <div class="mt-8 pt-3 border-t border-slate-100 text-[8px] text-slate-400 flex justify-between">
+            <span>DACH Digitalwerk Gewerbesteuer-Engine 2026 • 100% Client-Side Generator</span>
+            <span>Seite 1 von 1 • Revisionssicher archivieren</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ & RATGEBER LINKS SECTION -->
+    <section class="space-y-6 pt-10 border-t border-slate-200 no-print">
+      <div>
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
+          Häufig gestellte Fragen zu Gewerbesteuer, Hebesätzen &amp; § 35 EStG
+        </h2>
+        <p class="text-sm text-slate-600 mb-6 max-w-2xl">
+          Wissenswertes für Existenzgründer, Einzelunternehmer, GmbH-Geschäftsführer und Steuerabteilungen.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-lg">
+              🏢
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Freibetrag: Person vs. Kapital</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Einzelunternehmen und Personengesellschaften (GbR, OHG, KG) erhalten einen <strong>gesetzlichen Freibetrag von 24.500 €</strong> (§ 11 Abs. 1 GewStG). Liegt der Gewerbeertrag darunter, fällt 0 € Gewerbesteuer an. Kapitalgesellschaften (GmbH, UG, AG) haben <strong>keinen Freibetrag</strong>!
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-lg">
+              ⚖️
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">§ 35 EStG Anrechnung (Faktor 4,0)</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Zur Vermeidung der Doppelbelastung wird die Gewerbesteuer bei Einzelunternehmern mit dem <strong>4,0-Fachen des Steuermessbetrags</strong> auf die Einkommensteuer angerechnet. Bei einem Hebesatz von bis zu ca. 400 % bis 420 % ist die Gewerbesteuer dadurch quasi <strong>vollständig steuerneutral</strong>.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold text-lg">
+              📍
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Gewerbesteueroasen</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Gemeinden wie <strong>Grünwald (240 %)</strong> oder <strong>Monheim am Rhein (250 %)</strong> nutzen niedrige Hebesätze, um Unternehmensansiedlungen anzulocken. Großstädte wie München (490 %) oder Frankfurt (460 %) verlangen fast das Doppelte an Gewerbesteuer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO LINKS -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span>📚</span>
+          <span>Vertiefende B2B-Ratgeber zu Gewerbesteuer &amp; Standortplanung</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-6 max-w-2xl">
+          Lesen Sie unsere praxisorientierten Fachleitfäden für eine optimale Steuerstruktur:
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="../gewerbesteuer-berechnen-formel-hebesatz-2026.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-amber-400 group-hover:underline block mb-1">Ratgeber 1:</span>
+            <div class="text-sm font-bold text-slate-100">Gewerbesteuer berechnen Formel &amp; Hebesätze</div>
+            <p class="text-[11px] text-slate-400 mt-2">Steuermesszahl 3,5 %, Hebesätze der Städte, Freibetrag 24.500 € &amp; Rechenbeispiele.</p>
+          </a>
+
+          <a href="../gewerbesteuer-hinzurechnungen-kuerzungen-paragraph-8-gewstg.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-amber-400 group-hover:underline block mb-1">Ratgeber 2:</span>
+            <div class="text-sm font-bold text-slate-100">Hinzurechnungen nach § 8 GewStG</div>
+            <p class="text-[11px] text-slate-400 mt-2">Zinsen, Mieten, Pachten, Leasing, 200.000 € Freibetrag &amp; 25 % Hinzurechnungssatz.</p>
+          </a>
+
+          <a href="../gewerbesteueranrechnung-paragraph-35-estg-faktor-4.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-amber-400 group-hover:underline block mb-1">Ratgeber 3:</span>
+            <div class="text-sm font-bold text-slate-100">§ 35 EStG Gewerbesteueranrechnung</div>
+            <p class="text-[11px] text-slate-400 mt-2">Anrechnungsfaktor 4,0, Entlastung bei der Einkommensteuer &amp; Hebesatz-Grenzen.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / § 5 StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein technisches und mathematisches Berechnungswerkzeug zur Simulation der Gewerbesteuer nach dem deutschen Gewerbesteuergesetz (GewStG). Es wird ausdrücklich <strong>keine Steuer- oder Rechtsberatung</strong> erbracht. Für die steuerrechtliche Festsetzung ist allein das zuständige Betriebsfinanzamt bzw. die hebeberechtigte Gemeinde zuständig. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">AGB</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD PRO CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+
+      <div class="text-center space-y-3">
+        <div class="w-14 h-14 bg-amber-50 border border-amber-200 text-amber-700 rounded-2xl flex items-center justify-center text-3xl mx-auto shadow-sm">
+          ⚡
+        </div>
+        <h3 class="text-xl font-black text-slate-900">DACH Gewerbesteuer &amp; Standort-Pro-Paket 2026</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Schalten Sie alle erweiterten Export- &amp; Vergleichsfunktionen frei: Multi-Standort-Vergleich (bis zu 10 Kommunen parallel), Zerlegungsrechner für Betriebsstätten (§§ 28–34 GewStG) und druckfertiger Export mit Firmenlogo.
+        </p>
+      </div>
+
+      <div class="mt-6 space-y-3">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-black py-3.5 px-6 rounded-2xl shadow-xl shadow-amber-600/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Jetzt Pro freischalten (4,90 € / CHF)</span>
+          <span>→</span>
+        </a>
+
+        <div class="pt-4 border-t border-slate-100 space-y-2">
+          <label class="block text-xs font-bold text-slate-700">Bereits Lizenzcode oder Gutschein vorhanden?</label>
+          <div class="flex gap-2">
+            <input type="text" id="voucher-input" placeholder="Gutscheincode (z. B. PRO2026, GEWST2026)" class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs uppercase font-mono font-bold" />
+            <button onclick="redeemVoucher()" class="px-4 py-2 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800 transition">
+              Einlösen
+            </button>
+          </div>
+          <div id="voucher-error" class="text-rose-600 text-[11px] hidden font-semibold"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORE JAVASCRIPT LOGIC -->
+  <script>
+    let legalForm = 'person'; // 'person' or 'capital'
+    let isProUnlocked = false;
+
+    const BENCHMARK_CITIES = [
+      { name: 'München', hebesatz: 490 },
+      { name: 'Frankfurt am Main', hebesatz: 460 },
+      { name: 'Köln', hebesatz: 475 },
+      { name: 'Hamburg', hebesatz: 470 },
+      { name: 'Berlin', hebesatz: 410 },
+      { name: 'Bundesdurchschnitt', hebesatz: 403 },
+      { name: 'Monheim am Rhein', hebesatz: 250 },
+      { name: 'Grünwald', hebesatz: 240 }
+    ];
+
+    function setLegalForm(form) {
+      legalForm = form;
+      document.querySelectorAll('.legal-btn').forEach(b => {
+        b.className = 'legal-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200';
+      });
+      const activeBtn = document.getElementById('btn-form-' + form);
+      if (activeBtn) {
+        activeBtn.className = 'legal-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-600 text-white shadow-sm';
+      }
+
+      const badge = document.getElementById('active-status-badge');
+      const printBadge = document.getElementById('print-form-badge');
+      const estCard = document.getElementById('est-offset-card');
+
+      if (form === 'person') {
+        badge.textContent = "Freibetrag 24.500 € aktiv • ESt-Anrechnung Faktor 4,0";
+        printBadge.textContent = "PERSONENGESELLSCHAFT / EINZELUNTERNEHMEN";
+        estCard.classList.remove('hidden');
+      } else {
+        badge.textContent = "Kapitalgesellschaft (GmbH/UG/AG): 0 € Freibetrag • Keine § 35 EStG Anrechnung";
+        printBadge.textContent = "KAPITALGESELLSCHAFT (GMBH / UG / AG)";
+        estCard.classList.add('hidden');
+      }
+
+      runCalculation();
+    }
+
+    function applyCityPreset() {
+      const val = document.getElementById('sel-city').value;
+      if (val === 'custom') return;
+      document.getElementById('inp-hebesatz').value = val;
+      runCalculation();
+    }
+
+    function onHebesatzInput() {
+      document.getElementById('sel-city').value = 'custom';
+      runCalculation();
+    }
+
+    function toggleHinzurechnung() {
+      const chk = document.getElementById('chk-hinzurechnung').checked;
+      const box = document.getElementById('hinzurechnung-box');
+      if (chk) box.classList.remove('hidden');
+      else box.classList.add('hidden');
+      runCalculation();
+    }
+
+    function formatNumber(num) {
+      const formatted = num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return `${formatted} €`;
+    }
+
+    function runCalculation() {
+      const profit = parseFloat(document.getElementById('inp-profit').value) || 0;
+      const hebesatz = parseFloat(document.getElementById('inp-hebesatz').value) || 200;
+      const kuerzungen = parseFloat(document.getElementById('inp-kuerzungen').value) || 0;
+
+      // Hinzurechnungen § 8 Nr. 1 GewStG
+      let hinzurechnungsBetrag = 0;
+      if (document.getElementById('chk-hinzurechnung').checked) {
+        const zinsen = (parseFloat(document.getElementById('inp-hinz-zinsen').value) || 0) * 1.0;
+        const movable = (parseFloat(document.getElementById('inp-hinz-movable').value) || 0) * 0.20;
+        const immovable = (parseFloat(document.getElementById('inp-hinz-immovable').value) || 0) * 0.50;
+        const licenses = (parseFloat(document.getElementById('inp-hinz-licenses').value) || 0) * 0.25;
+
+        const sumFinanz = zinsen + movable + immovable + licenses;
+        const taxableFinanz = Math.max(0, sumFinanz - 200000.0);
+        hinzurechnungsBetrag = Math.round((taxableFinanz * 0.25) * 100) / 100;
+
+        document.getElementById('txt-hinzurechnung-result').textContent = `+${formatNumber(hinzurechnungsBetrag)}`;
+      } else {
+        document.getElementById('txt-hinzurechnung-result').textContent = `+0,00 €`;
+      }
+
+      // Step 1: Gewerbeertrag
+      const ertragVorRundung = Math.max(0, profit + hinzurechnungsBetrag - kuerzungen);
+      // Abrundung auf volle 100 Euro gem. § 11 Abs. 1 Satz 3 GewStG
+      const ertragGerundet = Math.floor(ertragVorRundung / 100.0) * 100.0;
+
+      // Step 2: Freibetrag (24.500 € Person / 0 € Kapital)
+      const freibetrag = (legalForm === 'person') ? Math.min(ertragGerundet, 24500.0) : 0.0;
+      const gekuerzterErtrag = Math.max(0, ertragGerundet - freibetrag);
+
+      // Step 3: Steuermessbetrag (3,5 %)
+      const messbetrag = Math.round((gekuerzterErtrag * 0.035) * 100) / 100;
+
+      // Step 4: Gewerbesteuer
+      const gewerbesteuer = Math.round((messbetrag * (hebesatz / 100.0)) * 100) / 100;
+
+      // Effective tax rate
+      const taxRatePct = profit > 0 ? (gewerbesteuer / profit) * 100.0 : 0.0;
+
+      // Step 5: § 35 EStG Anrechnung (Faktor 4,0)
+      let estOffset = 0;
+      let netBurden = gewerbesteuer;
+      if (legalForm === 'person') {
+        const theoreticalOffset = Math.round((messbetrag * 4.0) * 100) / 100;
+        // Cap at actual GewSt paid
+        estOffset = Math.min(theoreticalOffset, gewerbesteuer);
+        netBurden = Math.max(0, Math.round((gewerbesteuer - estOffset) * 100) / 100);
+      }
+
+      // Update KPIs
+      document.getElementById('kpi-gewst-total').textContent = formatNumber(gewerbesteuer);
+      document.getElementById('kpi-gewst-sub').textContent = `Messbetrag ${formatNumber(messbetrag)} × ${hebesatz} %`;
+      document.getElementById('kpi-tax-rate').textContent = `${taxRatePct.toFixed(2).replace('.', ',')} %`;
+      document.getElementById('kpi-est-offset').textContent = (legalForm === 'person') ? `-${formatNumber(estOffset)}` : '0,00 €';
+      document.getElementById('kpi-est-sub').textContent = (legalForm === 'person') ? `Faktor 4,0 (${formatNumber(messbetrag * 4.0)})` : 'Keine Anrechnung (Kapitalges.)';
+
+      // Offset Card
+      document.getElementById('res-gewst-paid').textContent = formatNumber(gewerbesteuer);
+      document.getElementById('res-est-deduction').textContent = `-${formatNumber(estOffset)}`;
+      document.getElementById('res-net-burden').textContent = `+${formatNumber(netBurden)}`;
+
+      const offsetBadge = document.getElementById('badge-offset-status');
+      const offsetDesc = document.getElementById('desc-offset-text');
+      if (hebesatz <= 400) {
+        offsetBadge.textContent = "100 % Neutralisiert (0 € Mehrbelastung)";
+        offsetBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800";
+        offsetDesc.innerHTML = `Bei einem Hebesatz von <strong>${hebesatz} %</strong> wird die Gewerbesteuer über den Faktor 4,0 <strong>vollständig auf die Einkommensteuer angerechnet</strong>. Die Gewerbesteuer verursacht netto <strong>0,00 € Zusatzkosten</strong>!`;
+      } else if (hebesatz <= 420) {
+        offsetBadge.textContent = "Nahezu vollständig angerechnet";
+        offsetBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-100 text-teal-800";
+        offsetDesc.innerHTML = `Bei <strong>${hebesatz} %</strong> Hebesatz verbleibt lediglich ein minimaler Überhang von <strong>${formatNumber(netBurden)}</strong>, da der Anrechnungsfaktor 4,0 einem Hebesatz von ca. 400 % entspricht.`;
+      } else {
+        offsetBadge.textContent = `Überhang: +${formatNumber(netBurden)}`;
+        offsetBadge.className = "px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-900";
+        offsetDesc.innerHTML = `Aufgrund des hohen Hebesatzes von <strong>${hebesatz} %</strong> (z.B. Großstadt) übersteigt die Gewerbesteuer den Anrechnungshöchstbetrag (Faktor 4,0 = 400 %). Es verbleibt eine echte steuerliche Mehrbelastung von <strong>${formatNumber(netBurden)}</strong>.`;
+      }
+
+      // Step-by-Step Table
+      document.getElementById('st-profit').textContent = formatNumber(profit);
+      document.getElementById('st-hinz').textContent = `+${formatNumber(hinzurechnungsBetrag)}`;
+      document.getElementById('st-kuerz').textContent = `-${formatNumber(kuerzungen)}`;
+      document.getElementById('st-ertrag-rounded').textContent = formatNumber(ertragGerundet);
+      document.getElementById('st-freibetrag').textContent = `-${formatNumber(freibetrag)}`;
+      document.getElementById('st-ertrag-taxable').textContent = formatNumber(gekuerzterErtrag);
+      document.getElementById('st-messbetrag').textContent = formatNumber(messbetrag);
+      document.getElementById('st-hebesatz-lbl').textContent = `${hebesatz} %`;
+      document.getElementById('st-final-gewst').textContent = formatNumber(gewerbesteuer);
+
+      // Print Sheet
+      document.getElementById('print-date').textContent = 'Erstellt am: ' + new Date().toLocaleDateString('de-DE');
+      document.getElementById('p-profit').textContent = formatNumber(profit);
+      document.getElementById('p-hinz').textContent = formatNumber(hinzurechnungsBetrag);
+      document.getElementById('p-kuerz').textContent = formatNumber(kuerzungen);
+      document.getElementById('p-ertrag-rounded').textContent = formatNumber(ertragGerundet);
+      document.getElementById('p-freibetrag').textContent = formatNumber(freibetrag);
+      document.getElementById('p-messbetrag').textContent = formatNumber(messbetrag);
+      document.getElementById('p-hebesatz').textContent = `${hebesatz} %`;
+      document.getElementById('p-final-gewst').textContent = formatNumber(gewerbesteuer);
+
+      document.getElementById('p-tbl-ertrag').textContent = formatNumber(ertragGerundet);
+      document.getElementById('p-tbl-freibetrag').textContent = `-${formatNumber(freibetrag)}`;
+      document.getElementById('p-tbl-taxable').textContent = formatNumber(gekuerzterErtrag);
+      document.getElementById('p-tbl-messbetrag').textContent = formatNumber(messbetrag);
+      document.getElementById('p-tbl-hebesatz-basis').textContent = `§ 16 GewStG (${hebesatz} %)`;
+      document.getElementById('p-tbl-gewst').textContent = formatNumber(gewerbesteuer);
+      document.getElementById('p-tbl-est-deduction').textContent = (legalForm === 'person') ? `-${formatNumber(estOffset)}` : 'Entfällt (0,00 €)';
+      document.getElementById('p-tbl-net-burden').textContent = formatNumber(netBurden);
+
+      // Benchmark Bars
+      const benchEl = document.getElementById('city-benchmark-bars');
+      benchEl.innerHTML = '';
+      const maxPossibleGewst = messbetrag * 4.90; // scale against 490%
+
+      BENCHMARK_CITIES.forEach(city => {
+        const cityGewst = Math.round((messbetrag * (city.hebesatz / 100.0)) * 100) / 100;
+        const pct = maxPossibleGewst > 0 ? Math.min(100, (cityGewst / maxPossibleGewst) * 100) : 0;
+        const isSelected = Math.abs(city.hebesatz - hebesatz) < 0.1;
+
+        const row = document.createElement('div');
+        row.className = 'space-y-1';
+        row.innerHTML = `
+          <div class="flex justify-between text-xs">
+            <span class="${isSelected ? 'font-black text-amber-950 flex items-center gap-1.5' : 'font-medium text-slate-700'}">
+              ${isSelected ? '👉 ' : ''}${city.name} (${city.hebesatz} %)
+            </span>
+            <span class="font-mono font-bold ${isSelected ? 'text-amber-800' : 'text-slate-800'}">${formatNumber(cityGewst)}</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+            <div class="h-2 rounded-full transition-all duration-500 ${isSelected ? 'bg-amber-600' : (city.hebesatz < 300 ? 'bg-emerald-500' : 'bg-slate-400')}" style="width: ${pct}%"></div>
+          </div>
+        `;
+        benchEl.appendChild(row);
+      });
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckansicht').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal & Voucher Logic
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'GEWST2026', 'STEUER2026', 'GUMROAD'];
+      if (validCodes.includes(val)) {
+        isProUnlocked = true;
+        closeCheckoutModal();
+        alert("DACH Gewerbesteuer & Standort Pro-Paket erfolgreich aktiviert!");
+        const btn = document.getElementById('header-unlock-btn');
+        if (btn) {
+          btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+          btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+          btn.onclick = null;
+        }
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Gutscheincode. Bitte prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runCalculation();
+    });
+  </script>
+</body>
+</html>

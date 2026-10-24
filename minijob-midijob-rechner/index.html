@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Minijob-, Midijob- &amp; Übergangsbereich-Rechner 2026 | 556-€-Grenze, Gleitzone § 20 SGB IV, DE / AT / CH</title>
+  <meta name="description" content="Kostenloser, 100% DSGVO-konformer Minijob- und Midijob-Rechner 2026 für Deutschland (556-€-Grenze, Gleitzonenformel § 20 SGB IV bis 2.000 €), Österreich (551,10 € ASVG) und die Schweiz (2.300 CHF AHVV). Mit RV-Befreiungs-Simulator und druckfertigem DIN-A4 Antrag gem. § 6 Abs. 1b SGB VI." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/minijob-midijob-rechner/" />
+  <meta property="og:title" content="DACH Minijob-, Midijob- &amp; Übergangsbereich-Rechner 2026" />
+  <meta property="og:description" content="Berechne Minijob (556 €), Midijob (556,01–2.000 €), AG-Abgaben, AN-Netto, RV-Befreiung vs. Pflicht und erstelle den druckfertigen DIN-A4 Befreiungsantrag." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/minijob-midijob-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-page {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        color: black !important;
+        page-break-inside: avoid;
+      }
+      .print-box {
+        border: 1px solid #334155 !important;
+        background: white !important;
+        color: black !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+      }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Minijob-, Midijob- & Übergangsbereich-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/minijob-midijob-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Präziser Minijob- und Midijob-Rechner 2026 nach § 8 & § 20 SGB IV (Deutschland, 556-€-Grenze, Gleitzonenformel bis 2.000 €), ASVG 2026 (Österreich, 551,10 €) und AHVV 2026 (Schweiz, 2.300 CHF). Inklusive RV-Befreiungs-Simulator und druckfertigem DIN-A4 Antrag nach § 6 Abs. 1b SGB VI.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          <span>⚡ REFORM 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">556,00 € Minijob-Grenze (Mindestlohn 12,82 €) • § 20 SGB IV Übergangsbereich bis 2.000,00 €</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Serverübertragung von Gehaltsdaten)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 Minijob 556 € / Midijob 2.000 €</span>
+        <span>•</span>
+        <span>🇦🇹 ASVG 551,10 €</span>
+        <span>•</span>
+        <span>🇨🇭 AHVV 2.300 CHF</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-emerald-400 ml-2 px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-800">Tool #26</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>📥 CSV</span>
+        </button>
+        <button onclick="exportJSON()" class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5">
+          <span>💾 Backup</span>
+        </button>
+        <label class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5 cursor-pointer">
+          <span>📂 Laden</span>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJSON(event)" />
+        </label>
+        <button onclick="switchToTab('antrag'); setTimeout(() => window.print(), 250);" class="text-xs font-semibold bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 RV-Antrag</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="no-print pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-3">
+          <span>💼 SGB IV, ASVG &amp; AHVV 2026</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>100% Client-Side &amp; DSGVO-sicher</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          DACH Minijob-, Midijob- &amp; Übergangsbereich-Rechner 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+          Ermittle präzise die Abgaben für Arbeitgeber und Arbeitnehmer bei Minijob (556,00 €) und Midijob (556,01 € bis 2.000,00 €) nach § 20 SGB IV in Deutschland, der österreichischen Geringfügigkeit (ASVG) und Schweizer Kleinpensen (AHVV &amp; BVG).
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="text-xs bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-emerald-500/30 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 font-medium shadow-sm">
+          <span>⭐ Enterprise-Support &amp; Lohn-Suite</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB NAVIGATION -->
+    <div class="flex flex-wrap items-center gap-2 mt-6">
+      <button onclick="switchToTab('de')" id="tabBtn-de" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-emerald-500 text-slate-950 shadow-lg shadow-emerald-500/20">
+        <span>🇩🇪 Deutschland (§ 20 SGB IV)</span>
+      </button>
+      <button onclick="switchToTab('at')" id="tabBtn-at" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (ASVG)</span>
+      </button>
+      <button onclick="switchToTab('ch')" id="tabBtn-ch" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (AHVV / BVG)</span>
+      </button>
+      <button onclick="switchToTab('simulator')" id="tabBtn-simulator" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>⚖️ RV-Befreiung Simulator</span>
+      </button>
+      <button onclick="switchToTab('antrag')" id="tabBtn-antrag" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📄 DIN-A4 RV-Antrag (§ 6 SGB VI)</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 w-full pb-16">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: DEUTSCHLAND (§ 20 SGB IV, SGB VI, SGB V 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-de" class="tab-content block space-y-6">
+
+      <!-- Dynamic Status Banner -->
+      <div id="de_status_banner" class="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 text-xs sm:text-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl" id="de_banner_icon">🟢</span>
+          <div>
+            <strong class="font-bold text-white text-sm sm:text-base block" id="de_banner_title">Minijob-Bereich (0,00 € bis 556,00 €)</strong>
+            <span class="text-slate-300" id="de_banner_desc">Arbeitnehmer ist vollkommen sozialversicherungs- und steuerfrei (RV-Befreiung aktiv). Arbeitgeber zahlt pauschale Abgaben (31,4 %).</span>
+          </div>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-[10px] text-slate-400 font-mono block">Gleitzonen-Status</span>
+          <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold font-mono text-xs" id="de_banner_badge">ZONE 1: MINIJOB</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Left Column: Inputs & Parameters (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Main Input Card -->
+          <div class="p-5 sm:p-6 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-5">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+              <span>Monatsbrutto &amp; Arbeitszeit</span>
+              <span class="text-[10px] font-mono text-emerald-400 font-bold">2026 WERKSTAND</span>
+            </h2>
+
+            <!-- Slider + Number -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="de_brutto_num" class="text-xs font-bold text-white">Monatlicher Bruttolohn</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="de_brutto_num" value="556" min="0" max="4000" step="1" oninput="syncDeBrutto(this.value)" class="w-28 text-right bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono font-bold text-sm focus:border-emerald-500 focus:outline-none" />
+                  <span class="text-xs font-bold text-slate-400">€</span>
+                </div>
+              </div>
+              <input type="range" id="de_brutto_range" min="0" max="3000" step="5" value="556" oninput="syncDeBrutto(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>0 €</span>
+                <span class="text-emerald-400 font-bold">556 € (Grenze)</span>
+                <span class="text-amber-400 font-bold">2.000 € (Midijob-Max)</span>
+                <span>3.000 €</span>
+              </div>
+            </div>
+
+            <!-- Quick Selection Presets -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="setDeBrutto(450)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">450 € (alt)</button>
+              <button onclick="setDeBrutto(520)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">520 € (2023)</button>
+              <button onclick="setDeBrutto(538)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">538 € (2024)</button>
+              <button onclick="setDeBrutto(556)" class="text-[10px] px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-bold transition">556 € (2026)</button>
+              <button onclick="setDeBrutto(1000)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">1.000 €</button>
+              <button onclick="setDeBrutto(1500)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">1.500 €</button>
+              <button onclick="setDeBrutto(2000)" class="text-[10px] px-2.5 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold transition">2.000 € (Max)</button>
+            </div>
+
+            <!-- Stundenlohn & Arbeitszeit Helper -->
+            <div class="pt-3 border-t border-slate-800/80 space-y-3">
+              <div class="flex items-center justify-between">
+                <label for="de_stundenlohn" class="text-xs text-slate-300">Stundenlohn</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="de_stundenlohn" value="12.82" min="12.82" step="0.10" oninput="calculateDE()" class="w-20 text-right bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-white font-mono text-xs focus:border-emerald-500 focus:outline-none" />
+                  <span class="text-xs text-slate-400">€/Std.</span>
+                </div>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-xs flex justify-between items-center">
+                <span class="text-slate-400">Erforderliche Arbeitszeit:</span>
+                <span class="font-mono font-bold text-white text-right" id="de_arbeitszeit_display">43,37 Std. / Monat (~10,0 h / Wo.)</span>
+              </div>
+            </div>
+
+            <!-- Arbeitgeber-Typ (Gewerbe vs Privathaushalt) -->
+            <div class="space-y-2 pt-2 border-t border-slate-800/80">
+              <label class="text-xs font-bold text-slate-300">Arbeitgeber-Kategorie</label>
+              <div class="grid grid-cols-2 gap-2">
+                <button type="button" id="de_btn_comm" onclick="setEmployerType('comm')" class="p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-emerald-500/20 border-emerald-500 text-white">
+                  <span class="text-xs font-bold">🏢 Gewerblicher Betrieb</span>
+                  <span class="text-[10px] text-slate-400">Pauschalabgabe AG 31,4 %</span>
+                </button>
+                <button type="button" id="de_btn_house" onclick="setEmployerType('house')" class="p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700">
+                  <span class="text-xs font-bold">🏡 Privathaushalt</span>
+                  <span class="text-[10px] text-slate-400">Haushaltsscheck max. 14,9 %</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Rentenversicherungsstatus im Minijob -->
+            <div id="de_rv_selection_box" class="space-y-2 pt-2 border-t border-slate-800/80">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-slate-300">Rentenversicherungspflicht (Minijob)</label>
+                <span class="text-[10px] font-mono text-slate-400">§ 6 Abs. 1b SGB VI</span>
+              </div>
+              <div class="space-y-2">
+                <label class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-900/60 border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
+                  <input type="radio" name="de_rv_status" value="exempted" checked onchange="setDeRvStatus('exempted')" class="mt-0.5 accent-emerald-500" />
+                  <div class="text-xs">
+                    <span class="font-bold text-white block">RV-Befreiung beantragt (Empfohlen für Netto)</span>
+                    <span class="text-[11px] text-slate-400">0,00 € Abzug für AN. Volle 556,00 € Auszahlung.</span>
+                  </div>
+                </label>
+                <label class="flex items-start gap-2.5 p-2 rounded-xl bg-slate-900/60 border border-slate-800 cursor-pointer hover:bg-slate-900 transition">
+                  <input type="radio" name="de_rv_status" value="mandatory" onchange="setDeRvStatus('mandatory')" class="mt-0.5 accent-emerald-500" />
+                  <div class="text-xs">
+                    <span class="font-bold text-white block">Versicherungspflichtig (3,6 % Eigenanteil)</span>
+                    <span class="text-[11px] text-slate-400">Volle Rentenpunkte, Reha-Anspruch &amp; Erwerbsminderungsschutz.</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Steuerklasse & Krankenkasse (Midijob-Optionen) -->
+            <div class="pt-2 border-t border-slate-800/80 grid grid-cols-2 gap-3 text-xs">
+              <div>
+                <label for="de_steuerklasse" class="text-slate-300 block mb-1">Steuerklasse</label>
+                <select id="de_steuerklasse" onchange="calculateDE()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none">
+                  <option value="1" selected>Klasse 1 (Single)</option>
+                  <option value="2">Klasse 2 (Alleinerz.)</option>
+                  <option value="3">Klasse 3 (Verheiratet)</option>
+                  <option value="4">Klasse 4 (Standard)</option>
+                  <option value="5">Klasse 5 (Zweitverdiener)</option>
+                  <option value="6">Klasse 6 (Zweitjob)</option>
+                </select>
+              </div>
+              <div>
+                <label for="de_kv_zusatz" class="text-slate-300 block mb-1">KV-Zusatzbeitrag</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="de_kv_zusatz" value="1.7" min="0.0" max="4.0" step="0.1" oninput="calculateDE()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none text-right" />
+                  <span class="text-slate-400">%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kinder & Elterneigenschaft (PV-PÜG) -->
+            <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+              <div>
+                <span class="font-medium text-slate-300 block">Kinder / Elterneigenschaft</span>
+                <span class="text-[10px] text-slate-500">PÜG-Staffel PV 2026</span>
+              </div>
+              <select id="de_kinder_anzahl" onchange="calculateDE()" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono focus:border-emerald-500 focus:outline-none">
+                <option value="0">0 Kinder (Kinderlos, +0,6%)</option>
+                <option value="1" selected>1 Kind (Regulär 2,0%)</option>
+                <option value="2">2 Kinder (-0,25%)</option>
+                <option value="3">3 Kinder (-0,50%)</option>
+                <option value="4">4 Kinder (-0,75%)</option>
+                <option value="5">5+ Kinder (-1,00%)</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Midijob Gleitzonen-Formel Explanation Card -->
+          <div id="de_gleitzone_formula_card" class="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-xs space-y-2">
+            <div class="flex items-center justify-between text-indigo-300 font-bold">
+              <span>📐 Gleitzonen-Formel § 20 SGB IV</span>
+              <span id="de_faktor_f_badge" class="font-mono bg-indigo-900/80 px-2 py-0.5 rounded text-[11px] text-indigo-200">Faktor F: 0,6747</span>
+            </div>
+            <p class="text-slate-300 text-[11px] leading-relaxed">
+              Fiktive Bemessungsgrundlage <strong>B</strong> für den Arbeitnehmer:
+            </p>
+            <div class="font-mono text-[10px] p-2 rounded bg-slate-900 text-indigo-200 overflow-x-auto">
+              B = F · 556 + [ (2000 / 1444) - (556 / 1444) · F ] · (E - 556)
+            </div>
+            <div class="flex justify-between items-center text-[11px] pt-1 border-t border-indigo-900/60">
+              <span class="text-slate-400">Fiktive Bemessung AN:</span>
+              <span class="font-mono font-bold text-white" id="de_fiktive_b_display">742,15 €</span>
+            </div>
+            <div class="flex justify-between items-center text-[11px]">
+              <span class="text-slate-400">Rentenanspruch (§ 70 SGB VI):</span>
+              <span class="font-bold text-emerald-400">100 % voll auf Basis Brutto!</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Results & Matrix (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Core KPI Display Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <!-- Netto Arbeitnehmer -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-950/80 to-slate-900 border border-emerald-500/40 relative overflow-hidden">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">Netto-Auszahlung (AN)</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="de_res_netto">556,00 €</div>
+              <div class="text-xs text-slate-400 mt-2 flex items-center justify-between">
+                <span>Abzüge Arbeitnehmer:</span>
+                <span class="font-mono font-bold text-rose-400" id="de_res_an_ded">-0,00 € (0,0 %)</span>
+              </div>
+              <div class="absolute -right-4 -bottom-4 text-emerald-500/10 text-8xl font-black pointer-events-none">€</div>
+            </div>
+
+            <!-- Gesamtkosten Arbeitgeber -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-indigo-950/80 to-slate-900 border border-indigo-500/40 relative overflow-hidden">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block">Gesamtaufwand Arbeitgeber</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="de_res_ag_cost">730,58 €</div>
+              <div class="text-xs text-slate-400 mt-2 flex items-center justify-between">
+                <span>Zusatzkosten / Umlagen:</span>
+                <span class="font-mono font-bold text-indigo-300" id="de_res_ag_levies">+174,58 € (31,4 %)</span>
+              </div>
+              <div class="absolute -right-4 -bottom-4 text-indigo-500/10 text-8xl font-black pointer-events-none">🏢</div>
+            </div>
+
+          </div>
+
+          <!-- Gleitzone Visual Progression Slider / Bar -->
+          <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-300">Gleitzonen-Positionierung (§ 20 SGB IV)</span>
+              <span class="font-mono text-emerald-400 font-bold" id="de_gauge_text">100 % Minijob (556,00 €)</span>
+            </div>
+            <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden flex">
+              <div id="de_gauge_mini" style="width: 25%" class="bg-emerald-500 h-full transition-all duration-300" title="Minijob-Bereich bis 556 €"></div>
+              <div id="de_gauge_midi" style="width: 50%" class="bg-amber-500 h-full transition-all duration-300" title="Übergangsbereich 556 - 2.000 €"></div>
+              <div id="de_gauge_reg" style="width: 25%" class="bg-indigo-600 h-full transition-all duration-300" title="Regulärer Bereich > 2.000 €"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+              <span class="text-emerald-400">Minijob (≤ 556 €)</span>
+              <span class="text-amber-400">Übergangsbereich (556–2.000 €)</span>
+              <span class="text-indigo-400">Regulär (> 2.000 €)</span>
+            </div>
+          </div>
+
+          <!-- Privathaushalt § 35a EStG Steuerermäßigung Box -->
+          <div id="de_household_box" class="hidden p-4 rounded-2xl bg-amber-950/60 border border-amber-500/40 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                <span>🏡 Steuerermäßigung § 35a EStG (Haushaltsscheck)</span>
+              </span>
+              <span class="text-xs font-mono font-bold text-emerald-400" id="de_hh_tax_saving">bis zu 42,50 € / Monat</span>
+            </div>
+            <p class="text-slate-300 text-xs leading-relaxed">
+              Für eine geringfügige Beschäftigung im Privathaushalt ermäßigt sich die tarifliche Einkommensteuer des Arbeitgebers um <strong>20 % der Aufwendungen</strong>, maximal jedoch um <strong>510,00 € im Kalenderjahr</strong>. Die effektiven Nettokosten des Haushalts reduzieren sich dadurch deutlich!
+            </p>
+          </div>
+
+          <!-- Detailed Breakdown Table -->
+          <div class="rounded-2xl bg-slate-950/80 border border-slate-800 overflow-hidden">
+            <div class="p-4 bg-slate-900/80 border-b border-slate-800 flex justify-between items-center">
+              <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-300">
+                Detaillierte Beitrags- &amp; Steueraufteilung
+              </h3>
+              <span class="text-[10px] font-mono text-slate-500">Paritätische &amp; Pauschalsätze</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead>
+                  <tr class="border-b border-slate-800 text-[11px] text-slate-400 bg-slate-900/40">
+                    <th class="p-3">Sozialversicherungszweig / Abgabe</th>
+                    <th class="p-3 text-right">Satz AN</th>
+                    <th class="p-3 text-right text-rose-400">Anteil AN (€)</th>
+                    <th class="p-3 text-right">Satz AG</th>
+                    <th class="p-3 text-right text-indigo-400">Anteil AG (€)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-800/60 font-mono text-xs">
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Krankenversicherung (KV)</td>
+                    <td class="p-3 text-right text-slate-400" id="t_an_kv_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_an_kv_val">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_kv_rate">15,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_kv_val">83,40 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Rentenversicherung (RV)</td>
+                    <td class="p-3 text-right text-slate-400" id="t_an_rv_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_an_rv_val">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_rv_rate">15,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_rv_val">83,40 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Arbeitslosenversicherung (AV)</td>
+                    <td class="p-3 text-right text-slate-400" id="t_an_av_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_an_av_val">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_av_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_av_val">0,00 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Pflegeversicherung (PV)</td>
+                    <td class="p-3 text-right text-slate-400" id="t_an_pv_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_an_pv_val">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_pv_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_pv_val">0,00 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Umlagen (U1 Krankheit + U2 Mutterschutz)</td>
+                    <td class="p-3 text-right text-slate-400">—</td>
+                    <td class="p-3 text-right text-slate-500">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_u12_rate">0,89 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_u12_val">4,95 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Insolvenzgeldumlage (Inso)</td>
+                    <td class="p-3 text-right text-slate-400">—</td>
+                    <td class="p-3 text-right text-slate-500">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_inso_rate">0,06 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_inso_val">0,33 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Unfallversicherung (BG / UV)</td>
+                    <td class="p-3 text-right text-slate-400">—</td>
+                    <td class="p-3 text-right text-slate-500">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_uv_rate">1,60 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_uv_val">8,90 €</td>
+                  </tr>
+                  <tr>
+                    <td class="p-3 font-sans text-slate-300">Lohnsteuer / Pauschsteuer (2 %)</td>
+                    <td class="p-3 text-right text-slate-400" id="t_an_tax_rate">0,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_an_tax_val">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400" id="t_ag_tax_rate">2,0 %</td>
+                    <td class="p-3 text-right font-bold text-white" id="t_ag_tax_val">11,12 €</td>
+                  </tr>
+                  <tr class="bg-slate-900/90 font-bold border-t-2 border-slate-700">
+                    <td class="p-3 font-sans text-white">Gesamtsumme</td>
+                    <td class="p-3 text-right text-slate-400">—</td>
+                    <td class="p-3 text-right text-rose-400" id="t_an_total">0,00 €</td>
+                    <td class="p-3 text-right text-slate-400">—</td>
+                    <td class="p-3 text-right text-indigo-400" id="t_ag_total">192,10 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: ÖSTERREICH (ASVG GERINGFÜGIGKEIT 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-at" class="tab-content hidden space-y-6">
+
+      <div class="p-4 rounded-2xl bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 text-xs sm:text-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇦🇹</span>
+          <div>
+            <strong class="font-bold text-white text-sm sm:text-base block">Österreichische Geringfügigkeitsgrenze 2026: 551,10 € / Monat</strong>
+            <span class="text-slate-300">Dienstnehmer sind bei geringfügiger Beschäftigung beitragsfrei. Der Dienstgeber entrichtet nur 1,1 % Unfallversicherung (AUVA).</span>
+          </div>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-[10px] text-slate-400 font-mono block">Rechtsgrundlage</span>
+          <span class="px-2.5 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 font-bold font-mono text-xs">§ 5 Abs. 2 ASVG</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Left Column: Controls (5 Cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-5 sm:p-6 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-5">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-400">
+              Dienstnehmer-Entgelt Österreich
+            </h2>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="at_brutto_num" class="text-xs font-bold text-white">Monatliches Bruttoentgelt</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="at_brutto_num" value="500" min="0" max="4000" step="10" oninput="syncAtBrutto(this.value)" class="w-28 text-right bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono font-bold text-sm focus:border-cyan-500 focus:outline-none" />
+                  <span class="text-xs font-bold text-slate-400">€</span>
+                </div>
+              </div>
+              <input type="range" id="at_brutto_range" min="0" max="2500" step="10" value="500" oninput="syncAtBrutto(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-500" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>0 €</span>
+                <span class="text-cyan-400 font-bold">551,10 € (Grenze 2026)</span>
+                <span>2.500 €</span>
+              </div>
+            </div>
+
+            <!-- Quick Buttons AT -->
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="setAtBrutto(350)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">350 €</button>
+              <button onclick="setAtBrutto(500)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">500 €</button>
+              <button onclick="setAtBrutto(551.10)" class="text-[10px] px-2.5 py-1 rounded bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold transition">551,10 € (Grenze)</button>
+              <button onclick="setAtBrutto(800)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">800 € (Vollvers.)</button>
+              <button onclick="setAtBrutto(1500)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">1.500 €</button>
+            </div>
+
+            <!-- Dienstgeberabgabe Check -->
+            <div class="pt-3 border-t border-slate-800/80 space-y-3 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-300">Mehrere geringfügige Dienstnehmer?</span>
+                <span class="text-[10px] font-mono text-cyan-400">§ 53a ASVG</span>
+              </div>
+              <label class="flex items-start gap-2 cursor-pointer">
+                <input type="checkbox" id="at_dag_active" onchange="calculateAT()" class="mt-0.5 accent-cyan-500" />
+                <span class="text-slate-300 text-[11px] leading-relaxed">
+                  Lohnsumme aller geringfügig Beschäftigten im Betrieb übersteigt das 1,5-fache der Geringfügigkeitsgrenze (<strong>826,65 €</strong>) → Pflicht zur Dienstgeberabgabe (<strong>DAG 16,4 %</strong>).
+                </span>
+              </label>
+            </div>
+
+            <!-- Freiwillige Selbstversicherung Box -->
+            <div class="pt-3 border-t border-slate-800/80 p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
+              <div class="flex justify-between items-center text-cyan-300 font-bold">
+                <span>🛡️ Selbstversicherung gem. § 19a ASVG</span>
+                <span class="font-mono text-white text-xs">ca. 73,34 € / M.</span>
+              </div>
+              <p class="text-slate-400 text-[11px] leading-relaxed">
+                Geringfügig Beschäftigte sind nicht kranken- und pensionsversichert. Sie können sich jedoch für nur ca. 73 € monatlich freiwillig voll kranken- und pensionsversichern (inkl. Rezeptgebührenbefreiung &amp; Wochengeldanspruch!).
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Results AT (7 Cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-cyan-950/80 to-slate-900 border border-cyan-500/40">
+              <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider block">Nettogehalt Dienstnehmer (AT)</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="at_res_netto">500,00 €</div>
+              <div class="text-xs text-slate-400 mt-2 flex justify-between">
+                <span>Sozialversicherung AN:</span>
+                <span class="font-mono font-bold text-white" id="at_res_an_sv">0,00 € (0,0 %)</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-indigo-950/80 to-slate-900 border border-indigo-500/40">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block">Dienstgeber-Gesamtaufwand (AT)</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="at_res_ag_cost">505,50 €</div>
+              <div class="text-xs text-slate-400 mt-2 flex justify-between">
+                <span>Dienstgeber-Abgaben:</span>
+                <span class="font-mono font-bold text-indigo-300" id="at_res_ag_abgaben">+5,50 € (1,1 % UV)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AT Status Note -->
+          <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2 text-xs">
+            <span class="font-bold text-slate-200 block" id="at_status_header">Status: Geringfügige Beschäftigung gem. § 5 Abs. 2 ASVG</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed" id="at_status_text">
+              Das Entgelt liegt unter der monatlichen Geringfügigkeitsgrenze von 551,10 €. Der Dienstnehmer erhält den Betrag ohne SV-Abzüge netto ausbezahlt. Der Dienstgeber zahlt lediglich 1,1 % Unfallversicherungsbeitrag (AUVA).
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: SCHWEIZ (AHVV & BVG EINTRITTSSCHWELLE 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-ch" class="tab-content hidden space-y-6">
+
+      <div class="p-4 rounded-2xl bg-amber-950/60 border border-amber-500/40 text-amber-200 text-xs sm:text-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🇨🇭</span>
+          <div>
+            <strong class="font-bold text-white text-sm sm:text-base block">Schweiz: Geringfügiger Lohn (2.300 CHF/Jahr) &amp; BVG-Schwelle (22.050 CHF/Jahr)</strong>
+            <span class="text-slate-300">Bis 2.300 CHF im Jahr (191,67 CHF/Monat) beitragsfrei gem. Art. 8bis AHVV. Ab 22.050 CHF/Jahr greift die 2. Säule (BVG-Pensionskassenpflicht).</span>
+          </div>
+        </div>
+        <div class="text-right shrink-0">
+          <span class="text-[10px] text-slate-400 font-mono block">Rechtsnorm</span>
+          <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-bold font-mono text-xs">Art. 8bis AHVV / BVG</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Controls CH -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-5 sm:p-6 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-5">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-400">
+              Lohnparameter Schweiz
+            </h2>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="ch_brutto_num" class="text-xs font-bold text-white">Monatlicher Bruttolohn</label>
+                <div class="flex items-center gap-1">
+                  <input type="number" id="ch_brutto_num" value="150" min="0" max="6000" step="50" oninput="syncChBrutto(this.value)" class="w-28 text-right bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white font-mono font-bold text-sm focus:border-amber-500 focus:outline-none" />
+                  <span class="text-xs font-bold text-slate-400">CHF</span>
+                </div>
+              </div>
+              <input type="range" id="ch_brutto_range" min="0" max="4000" step="25" value="150" oninput="syncChBrutto(this.value)" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>0 CHF</span>
+                <span class="text-amber-400 font-bold">191 CHF (AHVV)</span>
+                <span class="text-cyan-400 font-bold">1.838 CHF (BVG)</span>
+                <span>4.000 CHF</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="setChBrutto(150)" class="text-[10px] px-2 py-1 rounded bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 font-bold transition">150 CHF (Frei)</button>
+              <button onclick="setChBrutto(191.60)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">191,60 CHF (Grenze)</button>
+              <button onclick="setChBrutto(1000)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">1.000 CHF (1. Säule)</button>
+              <button onclick="setChBrutto(1837.50)" class="text-[10px] px-2 py-1 rounded bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 font-bold transition">1.837,50 CHF (BVG)</button>
+              <button onclick="setChBrutto(2500)" class="text-[10px] px-2 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-white transition">2.500 CHF</button>
+            </div>
+
+            <!-- Privathaushalt CH (BGSA Pflicht) -->
+            <div class="pt-3 border-t border-slate-800/80 space-y-2 text-xs">
+              <label class="font-bold text-slate-300 block">Tätigkeit im Privathaushalt? (Hausdienst)</label>
+              <label class="flex items-start gap-2 cursor-pointer p-2 rounded-xl bg-slate-900/60 border border-slate-800">
+                <input type="checkbox" id="ch_household_active" onchange="calculateCH()" class="mt-0.5 accent-amber-500" />
+                <span class="text-slate-300 text-[11px] leading-relaxed">
+                  Arbeit in privatem Haushalt (Reinigung, Garten, Betreuung) gem. Bundesgesetz gegen die Schwarzarbeit (BGSA) → <strong>Keine Beitragsbefreiung</strong>, obligatorische Abrechnung ab dem 1. Franken (vereinfachtes Verfahren: 11,4 % inkl. Quellensteuer).
+                </span>
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Results CH -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-amber-950/80 to-slate-900 border border-amber-500/40">
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Nettoauszahlung (CH)</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="ch_res_netto">150,00 CHF</div>
+              <div class="text-xs text-slate-400 mt-2 flex justify-between">
+                <span>Abzüge 1. Säule (AHV/IV/EO/ALV):</span>
+                <span class="font-mono font-bold text-white" id="ch_res_an_ded">0,00 CHF (0,0 %)</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-indigo-950/80 to-slate-900 border border-indigo-500/40">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block">Gesamtaufwand Arbeitgeber (CH)</span>
+              <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1" id="ch_res_ag_cost">150,00 CHF</div>
+              <div class="text-xs text-slate-400 mt-2 flex justify-between">
+                <span>Sozialbeiträge AG:</span>
+                <span class="font-mono font-bold text-indigo-300" id="ch_res_ag_ded">+0,00 CHF (0,0 %)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Box CH -->
+          <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-2 text-xs">
+            <span class="font-bold text-slate-200 block" id="ch_status_header">Status: Geringfügiger Lohn nach Art. 8bis AHVV</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed" id="ch_status_text">
+              Der Jahreslohn liegt voraussichtlich unter 2.300 CHF (monatlich unter 191,67 CHF). Es müssen keine Beiträge an die AHV/IV/EO und ALV entrichtet werden, es sei denn, der Arbeitnehmer verlangt dies ausdrücklich.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: RV-BEFREIUNG SIMULATOR (DEUTSCHLAND) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-simulator" class="tab-content hidden space-y-6">
+
+      <div class="p-5 sm:p-6 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-2">
+            <span>⚖️ Entscheidungsmatrix § 6 Abs. 1b SGB VI</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-white">
+            Rentenversicherungs-Befreiung: Lohnt sich der Verzicht auf die 3,6 %?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl leading-relaxed">
+            Als Minijobber (bis 556,00 €) bist du grundsätzlich rentenversicherungspflichtig und zahlst einen Eigenanteil von nur <strong>3,6 %</strong> (bei 556 € sind das exakt <strong>20,02 € pro Monat</strong>). Du kannst dich auf Antrag befreien lassen. Vergleiche hier die Ersparnis mit den gravierenden Rechtsfolgen.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Option A: Versicherungspflicht -->
+          <div class="p-5 rounded-2xl bg-gradient-to-b from-emerald-950/40 to-slate-900 border-2 border-emerald-500/60 space-y-4">
+            <div class="flex items-center justify-between border-b border-emerald-500/30 pb-3">
+              <span class="font-extrabold text-sm sm:text-base text-emerald-300">Option A: RV-Pflicht (Empfohlen)</span>
+              <span class="font-mono text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">20,02 € / Monat</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
+                <div>
+                  <strong class="text-white block">Volle Wartezeitmonate:</strong>
+                  <span>Jeder Beschäftigungsmonat zählt voll als Beitragsmonat für die 35- bzw. 45-jährige Wartezeit (Altersrente für besonders langjährig Versicherte ohne Abschlag).</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
+                <div>
+                  <strong class="text-white block">Erwerbsminderungsschutz (EM-Rente):</strong>
+                  <span>Hält deinen lebenswichtigen Schutz gegen Erwerbsunfähigkeit aufrecht (setzt 36 Beitragsmonate in den letzten 5 Jahren voraus).</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
+                <div>
+                  <strong class="text-white block">Reha-Anspruch &amp; Kur:</strong>
+                  <span>Voller Anspruch auf medizinische und berufliche Rehabilitation über die Rentenversicherung.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold text-base leading-none">✓</span>
+                <div>
+                  <strong class="text-white block">Riester-Förderberechtigung:</strong>
+                  <span>Unmittelbarer Anspruch auf staatliche Riester-Zulagen (175 € Grundzulage + bis 300 € pro Kind) bei nur 60 € Mindesteigenbeitrag p.a.!</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Option B: RV-Befreiung -->
+          <div class="p-5 rounded-2xl bg-gradient-to-b from-rose-950/40 to-slate-900 border-2 border-rose-500/60 space-y-4">
+            <div class="flex items-center justify-between border-b border-rose-500/30 pb-3">
+              <span class="font-extrabold text-sm sm:text-base text-rose-300">Option B: Befreiung beantragt</span>
+              <span class="font-mono text-xs px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold">0,00 € Abzug</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold text-base leading-none">+</span>
+                <div>
+                  <strong class="text-white block">Sofortige Netto-Ersparnis:</strong>
+                  <span>Exakt 20,02 € mehr Auszahlung pro Monat (240,24 € im Jahr).</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold text-base leading-none">✗</span>
+                <div>
+                  <strong class="text-white block">Nur anteilige Wartezeiten:</strong>
+                  <span>Ein Minijob-Jahr zählt nur noch als ca. 4 bis 5 Monate Wartezeit für die Rente.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold text-base leading-none">✗</span>
+                <div>
+                  <strong class="text-rose-300 block">Verlust des Erwerbsminderungsschutzes:</strong>
+                  <span>Werden die Fristen unterbrochen, erlischt der gesetzliche Schutz bei Berufsunfähigkeit dauerhaft!</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold text-base leading-none">✗</span>
+                <div>
+                  <strong class="text-white block">Verlust der Riester-Förderung:</strong>
+                  <span>Keine unmittelbare Förderberechtigung für Riester-Zulagen mehr.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Fazit & Empfehlungs-Box -->
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-2">
+          <strong class="text-white block text-sm">💡 Praxistipp für die Praxis:</strong>
+          <p class="text-slate-300 leading-relaxed">
+            Für <strong>Studenten, Altersrentner oder Nebenjobber mit bestehendem versicherungspflichtigem Hauptberuf</strong> lohnt sich die Befreiung meist, da die Rentenansprüche bereits über das Hauptbeschäftigungsverhältnis oder die Rentenkasse abgesichert sind. Für <strong>Alleinstehende, Berufseinsteiger oder Hausfrauen/-männer</strong> ist die Zahlung der 3,6 % Eigenanteil hingegen die mit Abstand günstigste Möglichkeit in Deutschland, vollwertige Renten- und Reha-Ansprüche zu sichern!
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 5: DRUCKFERTIGER DIN-A4 RV-BEFREIUNGSANTRAG -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-antrag" class="tab-content hidden space-y-6">
+
+      <!-- Web-Form Controls (Hidden during print) -->
+      <div class="no-print p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="text-base font-bold text-white">DIN-A4 Formular: Antrag auf RV-Befreiung</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Trage deine Daten ein und drucke den offiziellen Antrag direkt aus.</p>
+          </div>
+          <button onclick="window.print()" class="text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-md shadow-emerald-500/20">
+            <span>🖨️ Jetzt als PDF drucken</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
+          <div>
+            <label class="block text-slate-400 mb-1">Name des Arbeitnehmers</label>
+            <input type="text" id="form_an_name" value="Max Mustermann" oninput="updateAntragForm()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Geburtsdatum</label>
+            <input type="date" id="form_an_geb" value="1995-05-15" oninput="updateAntragForm()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Rentenversicherungsnummer</label>
+            <input type="text" id="form_an_rvnr" value="65 150595 M 012" oninput="updateAntragForm()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-slate-400 mb-1">Firma / Arbeitgeber</label>
+            <input type="text" id="form_ag_name" value="Musterbetrieb GmbH" oninput="updateAntragForm()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-white focus:border-emerald-500 focus:outline-none" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Printable DIN-A4 Formular Container -->
+      <div class="print-page bg-white text-slate-900 p-8 sm:p-12 rounded-3xl border border-slate-800 shadow-2xl max-w-4xl mx-auto space-y-6 text-xs leading-relaxed">
+
+        <!-- Form Header -->
+        <div class="border-b-2 border-slate-900 pb-4">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest block">Minijob-Zentrale • DRV-Standard</span>
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-950 mt-1">
+                Antrag auf Befreiung von der Versicherungspflicht in der Rentenversicherung
+              </h3>
+              <span class="text-xs font-semibold text-slate-600 block mt-0.5">für eine geringfügig entlohnte Beschäftigung nach § 6 Abs. 1b SGB VI</span>
+            </div>
+            <div class="border border-slate-400 p-2 text-center text-[10px] rounded shrink-0">
+              <span class="block font-bold">Eingangsstempel AG</span>
+              <span class="text-slate-400 block mt-4">Datum &amp; Handzeichen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1: Stammdaten AN & AG -->
+        <div class="grid grid-cols-2 gap-4 text-xs">
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <span class="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Angaben des Arbeitnehmers</span>
+            <div><strong class="text-slate-900">Name, Vorname:</strong> <span id="p_an_name">Max Mustermann</span></div>
+            <div><strong class="text-slate-900">Geburtsdatum:</strong> <span id="p_an_geb">15.05.1995</span></div>
+            <div><strong class="text-slate-900">Versicherungsnummer (RV):</strong> <span id="p_an_rvnr">65 150595 M 012</span></div>
+          </div>
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <span class="font-bold text-slate-700 block text-[11px] uppercase tracking-wider">Angaben des Arbeitgebers</span>
+            <div><strong class="text-slate-900">Arbeitgeber / Firma:</strong> <span id="p_ag_name">Musterbetrieb GmbH</span></div>
+            <div><strong class="text-slate-900">Rechtsstand:</strong> <span>Gesetzliche Minijob-Grenze 2026 (556,00 €)</span></div>
+            <div><strong class="text-slate-900">Status:</strong> <span>Geringfügig entlohnte Beschäftigung</span></div>
+          </div>
+        </div>
+
+        <!-- Section 2: Antragserklärung -->
+        <div class="space-y-3">
+          <p class="font-semibold text-slate-900">
+            Hiermit beantrage ich die Befreiung von der Versicherungspflicht in der Rentenversicherung im Rahmen meiner geringfügig entlohnten Beschäftigung und verzichte auf die Aufstockung des Arbeitgeber-Pauschalbeitrags um den Eigenanteil von 3,6 % gem. § 6 Abs. 1b SGB VI.
+          </p>
+          <p class="text-slate-700 text-[11px]">
+            Mir ist bekannt, dass der Befreiungsantrag für alle von mir zeitgleich ausgeübten geringfügigen Beschäftigungen gilt und für die Dauer der jeweiligen Beschäftigungen bindend ist; eine Rücknahme ist gesetzlich ausgeschlossen.
+          </p>
+        </div>
+
+        <!-- Section 3: Gesetzliche Belehrung (§ 6 Abs. 1b Satz 2 SGB VI) -->
+        <div class="p-4 bg-slate-100/80 border border-slate-300 rounded-xl space-y-2 text-[10px] text-slate-700 leading-normal">
+          <strong class="font-bold text-slate-900 block text-[11px]">Wichtiger Hinweis und gesetzliche Belehrung über die Rechtsfolgen:</strong>
+          <p>
+            Durch die Befreiung von der Rentenversicherungspflicht verzichtet der Arbeitnehmer auf wesentliche Leistungsansprüche der gesetzlichen Rentenversicherung:
+          </p>
+          <ul class="list-disc pl-4 space-y-1">
+            <li><strong>Erwerbsminderung:</strong> Es werden keine Pflichtbeitragszeiten mehr erworben. Ein bereits bestehender Erwerbsminderungsschutz kann verloren gehen, wenn in den letzten 5 Jahren vor Eintritt der Minderung nicht mindestens 36 Pflichtbeitragsmonate vorliegen.</li>
+            <li><strong>Rehabilitation:</strong> Ansprüche auf medizinische oder berufliche Leistungen zur Teilhabe (Kuren / Reha) der Rentenversicherung können entfallen.</li>
+            <li><strong>Wartezeiten:</strong> Die Beschäftigungszeit wird für die Erfüllung der Wartezeit von 35 oder 45 Jahren (z.B. für Altersrente für besonders langjährig Versicherte) nur noch anteilig berücksichtigt.</li>
+            <li><strong>Riester-Rente:</strong> Der Anspruch auf die staatliche Riester-Förderung (Grund- und Kinderzulagen) entfällt, es sei denn, es besteht anderweitig eine unmittelbare Förderberechtigung.</li>
+          </ul>
+        </div>
+
+        <!-- Section 4: Unterschriften -->
+        <div class="pt-6 grid grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div class="border-b border-slate-400 pb-1">
+              <span class="text-[11px] text-slate-600 block">Ort, Datum</span>
+            </div>
+            <div class="border-b border-slate-900 pb-1 pt-6"></div>
+            <span class="text-[10px] text-slate-500 block">Unterschrift des Arbeitnehmers (bzw. gesetzl. Vertreters)</span>
+          </div>
+
+          <div class="space-y-6">
+            <div class="border-b border-slate-400 pb-1">
+              <span class="text-[11px] text-slate-600 block">Datum des Eingangs beim Arbeitgeber</span>
+            </div>
+            <div class="border-b border-slate-900 pb-1 pt-6"></div>
+            <span class="text-[10px] text-slate-500 block">Unterschrift &amp; Firmenstempel des Arbeitgebers</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SEO & RATGEBER LINKS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-12 p-6 sm:p-8 rounded-2xl bg-slate-950/40 border border-slate-800 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span>📚</span>
+          <span>Fachratgeber &amp; Gesetzesanalysen für Deutschland, Österreich &amp; Schweiz</span>
+        </h3>
+        <span class="text-xs text-slate-500 font-mono">pSEO Fachartikel 2026</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <a href="./minijob-grenze-2026-verdienstgrenze-stundenlohn-556-euro.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-emerald-400 font-bold block mb-1 group-hover:text-emerald-300">Minijob-Grenze 2026: 556 € &amp; 12,82 € Mindestlohn</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Formel der dynamischen Verdienstgrenze (§ 8 SGB IV), max. 43,37 Monatsstunden, Pauschalabgaben für AG und Befreiungsmöglichkeiten.
+          </p>
+        </a>
+        <a href="./midijob-rechner-uebergangsbereich-gleitzone-formel-2026.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-amber-400 font-bold block mb-1 group-hover:text-amber-300">Midijob-Rechner: Gleitzone bis 2.000 € (§ 20 SGB IV)</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Exakte Gleitzonenformel mit Faktor F, fiktive Bemessungsgrundlage B, volle Rentenanwartschaft (§ 70 SGB VI) und Netto-Vorteil.
+          </p>
+        </a>
+        <a href="./geringfuegigkeitsgrenze-oesterreich-schweiz-minijob-vergleich-dach.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-cyan-400 font-bold block mb-1 group-hover:text-cyan-300">Geringfügigkeit AT &amp; CH vs. DE Minijob</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Dreiländer-Vergleich: 551,10 € ASVG (AT, § 19a Selbstversicherung) vs. 2.300 CHF AHVV (CH, BVG 22.050 CHF) vs. DE Minijob.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- BGH SMARTLAW RECHTS-DISCLAIMER & FOOTER INFOS -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-8 p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800/80 text-[11px] text-slate-400 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-slate-300">
+        <span>⚖️</span>
+        <span>Rechtlicher Hinweis nach BGH Smartlaw-Standard (§ 2 RDG / § 5 StBerG):</span>
+      </div>
+      <p class="leading-relaxed">
+        Dieser Rechner stellt eine automatisierte, unverbindliche Orientierungs- und Berechnungshilfe auf Basis des Vierten und Sechsten Buches Sozialgesetzbuch (SGB IV / SGB VI), des Allgemeinen Sozialversicherungsgesetzes (ASVG Österreich) sowie der eidgenössischen AHVV/BVG (Schweiz) im Rechtsstand 2026 dar. Er ersetzt keine individuelle Rechts-, Steuer- oder Sozialberatung durch die Minijob-Zentrale, Krankenkassen oder Steuerberater. Es werden keinerlei Parteienstreitigkeiten intermediiert. Sämtliche Berechnungen erfolgen zu 100 % lokal in Ihrem Browser (Client-Side).
+      </p>
+      <div class="flex flex-wrap gap-4 pt-1 text-slate-500 font-mono">
+        <a href="../agb/" class="hover:text-emerald-400 underline">Allgemeine Geschäftsbedingungen (AGB)</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-emerald-400 underline">Haftungsausschluss</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400 underline">Datenschutz &amp; Impressum</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    const state = {
+      activeTab: 'de',
+      de: {
+        brutto: 556.00,
+        stundenlohn: 12.82,
+        employerType: 'comm', // 'comm' | 'house'
+        rvStatus: 'exempted', // 'exempted' | 'mandatory'
+        taxClass: 1,
+        additionalKvRate: 0.017,
+        childCount: 1,
+      },
+      at: {
+        brutto: 500.00,
+        dagActive: false,
+      },
+      ch: {
+        brutto: 150.00,
+        householdActive: false,
+      },
+      antrag: {
+        anName: 'Max Mustermann',
+        anGeb: '1995-05-15',
+        anRvnr: '65 150595 M 012',
+        agName: 'Musterbetrieb GmbH',
+      }
+    };
+
+    // Constants 2026
+    const LIMIT_MINIJOB_DE = 556.00;
+    const LIMIT_MIDIJOB_DE = 2000.00;
+    const LIMIT_GERING_AT = 551.10;
+    const LIMIT_GERING_CH = 191.67; // 2,300 CHF / 12
+    const LIMIT_BVG_CH = 1837.50;   // 22,050 CHF / 12
+
+    // --- TAB SWITCHING ---
+    function switchToTab(tabId) {
+      state.activeTab = tabId;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20');
+        btn.classList.add('text-slate-400');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+      });
+
+      const currentBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (currentBtn) {
+        currentBtn.classList.add('bg-emerald-500', 'text-slate-950', 'shadow-lg', 'shadow-emerald-500/20');
+        currentBtn.classList.remove('text-slate-400');
+      }
+      const currentContent = document.getElementById(`tabContent-${tabId}`);
+      if (currentContent) {
+        currentContent.classList.remove('hidden');
+        currentContent.classList.add('block');
+      }
+
+      if (tabId === 'antrag') updateAntragForm();
+    }
+
+    // --- DEUTSCHLAND LOGIC (§ 20 SGB IV) ---
+    function syncDeBrutto(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.de.brutto = val;
+      document.getElementById('de_brutto_num').value = val;
+      document.getElementById('de_brutto_range').value = Math.min(3000, val);
+      calculateDE();
+    }
+
+    function setDeBrutto(val) {
+      syncDeBrutto(val);
+    }
+
+    function setEmployerType(type) {
+      state.de.employerType = type;
+      const btnComm = document.getElementById('de_btn_comm');
+      const btnHouse = document.getElementById('de_btn_house');
+      if (type === 'comm') {
+        btnComm.className = 'p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-emerald-500/20 border-emerald-500 text-white';
+        btnHouse.className = 'p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+      } else {
+        btnComm.className = 'p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700';
+        btnHouse.className = 'p-2.5 rounded-xl border text-left transition flex flex-col gap-0.5 bg-emerald-500/20 border-emerald-500 text-white';
+      }
+      calculateDE();
+    }
+
+    function setDeRvStatus(status) {
+      state.de.rvStatus = status;
+      calculateDE();
+    }
+
+    function computeFactorF(addKv) {
+      const totalRate = 0.146 + addKv + 0.186 + 0.026 + 0.040;
+      return Math.round((0.28 / totalRate) * 10000) / 10000;
+    }
+
+    function computeAssessmentBasisMidijob(gross, f) {
+      if (gross <= LIMIT_MINIJOB_DE) return 0;
+      if (gross >= LIMIT_MIDIJOB_DE) return gross;
+      const span = LIMIT_MIDIJOB_DE - LIMIT_MINIJOB_DE; // 1444
+      const term1 = f * LIMIT_MINIJOB_DE;
+      const term2 = ((LIMIT_MIDIJOB_DE / span) - (LIMIT_MINIJOB_DE / span) * f) * (gross - LIMIT_MINIJOB_DE);
+      return Math.round(Math.min(gross, Math.max(0, term1 + term2)) * 100) / 100;
+    }
+
+    function calculateDE() {
+      const gross = state.de.brutto;
+      const wagePerHour = Math.max(1.0, parseFloat(document.getElementById('de_stundenlohn').value) || 12.82);
+      state.de.stundenlohn = wagePerHour;
+      state.de.taxClass = parseInt(document.getElementById('de_steuerklasse').value) || 1;
+      const addKv = (parseFloat(document.getElementById('de_kv_zusatz').value) || 1.7) / 100.0;
+      state.de.additionalKvRate = addKv;
+      state.de.childCount = parseInt(document.getElementById('de_kinder_anzahl').value) || 0;
+
+      // Arbeitszeit calculation
+      const hoursPerMonth = Math.round((gross / wagePerHour) * 100) / 100;
+      const hoursPerWeek = Math.round((hoursPerMonth * 3 / 13) * 10) / 10;
+      document.getElementById('de_arbeitszeit_display').innerText = `${hoursPerMonth.toLocaleString('de-DE', { minimumFractionDigits: 2 })} Std. / Monat (~${hoursPerWeek} h / Wo.)`;
+
+      const isComm = state.de.employerType === 'comm';
+      const isExempt = state.de.rvStatus === 'exempted';
+
+      let anKv = 0, anRv = 0, anAv = 0, anPv = 0, wageTax = 0;
+      let agKv = 0, agRv = 0, agAv = 0, agPv = 0, flatTax = 0;
+      let u1 = 0, u2 = 0, inso = 0, uv = 0;
+      let factorF = computeFactorF(addKv);
+      let basisB = 0;
+
+      const bannerTitle = document.getElementById('de_banner_title');
+      const bannerDesc = document.getElementById('de_banner_desc');
+      const bannerBadge = document.getElementById('de_banner_badge');
+      const bannerIcon = document.getElementById('de_banner_icon');
+      const gaugeText = document.getElementById('de_gauge_text');
+      const rvBox = document.getElementById('de_rv_selection_box');
+      const formulaCard = document.getElementById('de_gleitzone_formula_card');
+      const householdBox = document.getElementById('de_household_box');
+
+      if (gross <= LIMIT_MINIJOB_DE) {
+        // ZONE 1: MINIJOB
+        bannerIcon.innerText = "🟢";
+        bannerTitle.innerText = `Minijob-Bereich (0,00 € bis ${LIMIT_MINIJOB_DE.toFixed(2)} €)`;
+        bannerBadge.innerText = "ZONE 1: MINIJOB";
+        bannerBadge.className = "px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold font-mono text-xs";
+        gaugeText.innerText = `Minijob-Bereich (${gross.toFixed(2)} € / ${LIMIT_MINIJOB_DE.toFixed(2)} €)`;
+        rvBox.classList.remove('hidden');
+        formulaCard.classList.add('hidden');
+
+        if (isComm) {
+          householdBox.classList.add('hidden');
+          bannerDesc.innerText = isExempt
+            ? "Gewerblicher Minijob: 0 % Abzüge für AN. Arbeitgeber zahlt pauschal 31,4 % Abgaben."
+            : "Gewerblicher Minijob mit RV-Pflicht: AN zahlt 3,6 % Eigenanteil für volle Rentenpunkte.";
+
+          if (!isExempt) {
+            anRv = Math.round(gross * 0.036 * 100) / 100;
+          }
+          agKv = Math.round(gross * 0.150 * 100) / 100;
+          agRv = Math.round(gross * 0.150 * 100) / 100;
+          flatTax = Math.round(gross * 0.020 * 100) / 100;
+          u1 = Math.round(gross * 0.007 * 100) / 100;
+          u2 = Math.round(gross * 0.0019 * 100) / 100;
+          inso = Math.round(gross * 0.0006 * 100) / 100;
+          uv = Math.round(gross * 0.016 * 100) / 100;
+        } else {
+          householdBox.classList.remove('hidden');
+          bannerDesc.innerText = isExempt
+            ? "Haushaltsscheckverfahren: AG zahlt max. 14,9 % Pauschale und profitiert von § 35a EStG."
+            : "Haushaltsscheck mit RV-Pflicht: AN zahlt 13,6 % Eigenanteil (Differenz zu 18,6 %).";
+
+          if (!isExempt) {
+            anRv = Math.round(gross * 0.136 * 100) / 100;
+          }
+          agKv = Math.round(gross * 0.050 * 100) / 100;
+          agRv = Math.round(gross * 0.050 * 100) / 100;
+          flatTax = Math.round(gross * 0.020 * 100) / 100;
+          u1 = Math.round(gross * 0.011 * 100) / 100;
+          u2 = Math.round(gross * 0.0019 * 100) / 100;
+          inso = 0.0;
+          uv = Math.round(gross * 0.016 * 100) / 100;
+
+          // § 35a EStG calculation: 20% of total AG costs, max 510 € p.a. (= 42.50 € / month)
+          const totalCostBeforeBreak = gross + agKv + agRv + flatTax + u1 + u2 + uv;
+          const taxSaving = Math.min(42.50, Math.round(totalCostBeforeBreak * 0.20 * 100) / 100);
+          document.getElementById('de_hh_tax_saving').innerText = `bis zu ${taxSaving.toFixed(2)} € / Monat (${(taxSaving * 12).toFixed(0)} € / Jahr)`;
+        }
+
+      } else if (gross <= LIMIT_MIDIJOB_DE) {
+        // ZONE 2: MIDIJOB / ÜBERGANGSBEREICH
+        bannerIcon.innerText = "🟡";
+        bannerTitle.innerText = "Midijob / Übergangsbereich (§ 20 SGB IV: 556,01 € bis 2.000,00 €)";
+        bannerBadge.innerText = "ZONE 2: MIDIJOB";
+        bannerBadge.className = "px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-bold font-mono text-xs";
+        bannerDesc.innerText = "Reduzierte Arbeitnehmerbeiträge steigen gleitend an. Trotz reduzierter Beiträge besteht voller Rentenanspruch nach § 70 Abs. 1a SGB VI!";
+        gaugeText.innerText = `Übergangsbereich (${gross.toFixed(2)} € / 2.000,00 €)`;
+        rvBox.classList.add('hidden');
+        formulaCard.classList.remove('hidden');
+        householdBox.classList.add('hidden');
+
+        basisB = computeAssessmentBasisMidijob(gross, factorF);
+        document.getElementById('de_faktor_f_badge').innerText = `Faktor F: ${factorF.toFixed(4)}`;
+        document.getElementById('de_fiktive_b_display').innerText = `${basisB.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+
+        // Rates
+        const kvTotal = 0.146 + addKv;
+        const anKvRate = kvTotal / 2.0;
+        const agKvRate = kvTotal / 2.0;
+
+        const anRvRate = 0.186 / 2.0;
+        const agRvRate = 0.186 / 2.0;
+
+        const anAvRate = 0.026 / 2.0;
+        const agAvRate = 0.026 / 2.0;
+
+        let anPvRate = 0.020;
+        const agPvRate = 0.020;
+        if (state.de.childCount === 0) {
+          anPvRate += 0.006; // 2.6% kinderlos
+        } else if (state.de.childCount > 1) {
+          const relief = Math.min(0.010, (state.de.childCount - 1) * 0.0025);
+          anPvRate = Math.max(0.010, anPvRate - relief);
+        }
+
+        // AN contributions based on reduced basis B
+        anKv = Math.round(basisB * anKvRate * 100) / 100;
+        anRv = Math.round(basisB * anRvRate * 100) / 100;
+        anAv = Math.round(basisB * anAvRate * 100) / 100;
+        anPv = Math.round(basisB * anPvRate * 100) / 100;
+
+        // AG contributions based on actual gross E
+        agKv = Math.round(gross * agKvRate * 100) / 100;
+        agRv = Math.round(gross * agRvRate * 100) / 100;
+        agAv = Math.round(gross * agAvRate * 100) / 100;
+        agPv = Math.round(gross * agPvRate * 100) / 100;
+
+        u1 = Math.round(gross * 0.007 * 100) / 100;
+        u2 = Math.round(gross * 0.0019 * 100) / 100;
+        inso = Math.round(gross * 0.0006 * 100) / 100;
+        uv = Math.round(gross * 0.016 * 100) / 100;
+
+        // Lohnsteuer im Übergangsbereich: bei Kl. 1 bis ca. 1.350 € steuerfrei
+        if (state.de.taxClass === 1 || state.de.taxClass === 4) {
+          wageTax = gross > 1350.0 ? Math.round((gross - 1350.0) * 0.14 * 100) / 100 : 0.0;
+        } else if (state.de.taxClass === 2) {
+          wageTax = gross > 1550.0 ? Math.round((gross - 1550.0) * 0.14 * 100) / 100 : 0.0;
+        } else if (state.de.taxClass === 3) {
+          wageTax = 0.0;
+        } else if (state.de.taxClass === 5 || state.de.taxClass === 6) {
+          wageTax = Math.round(gross * 0.10 * 100) / 100;
+        }
+
+      } else {
+        // ZONE 3: REGULÄRER BEREICH (> 2.000 €)
+        bannerIcon.innerText = "🔵";
+        bannerTitle.innerText = "Reguläres Arbeitsverhältnis (> 2.000,00 €)";
+        bannerBadge.innerText = "ZONE 3: VOLLZEIT / REGULÄR";
+        bannerBadge.className = "px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold font-mono text-xs";
+        bannerDesc.innerText = "Volle paritätische Sozialversicherungsbeiträge. Übergangsbereichs-Privilegien greifen nicht mehr.";
+        gaugeText.innerText = `Regulärer Bereich (${gross.toFixed(2)} € > 2.000 €)`;
+        rvBox.classList.add('hidden');
+        formulaCard.classList.add('hidden');
+        householdBox.classList.add('hidden');
+
+        const kvTotal = 0.146 + addKv;
+        anKv = Math.round(gross * (kvTotal / 2.0) * 100) / 100;
+        agKv = anKv;
+        anRv = Math.round(gross * 0.093 * 100) / 100;
+        agRv = anRv;
+        anAv = Math.round(gross * 0.013 * 100) / 100;
+        agAv = anAv;
+
+        let anPvRate = 0.020;
+        if (state.de.childCount === 0) anPvRate += 0.006;
+        else if (state.de.childCount > 1) anPvRate = Math.max(0.010, anPvRate - (state.de.childCount - 1) * 0.0025);
+
+        anPv = Math.round(gross * anPvRate * 100) / 100;
+        agPv = Math.round(gross * 0.020 * 100) / 100;
+
+        u1 = Math.round(gross * 0.007 * 100) / 100;
+        u2 = Math.round(gross * 0.0019 * 100) / 100;
+        inso = Math.round(gross * 0.0006 * 100) / 100;
+        uv = Math.round(gross * 0.016 * 100) / 100;
+
+        if (state.de.taxClass === 1 || state.de.taxClass === 4) {
+          wageTax = Math.round((gross - 1200.0) * 0.18 * 100) / 100;
+        } else if (state.de.taxClass === 5 || state.de.taxClass === 6) {
+          wageTax = Math.round(gross * 0.16 * 100) / 100;
+        } else {
+          wageTax = Math.round((gross - 1800.0) * 0.15 * 100) / 100;
+        }
+        wageTax = Math.max(0, wageTax);
+      }
+
+      // Totals
+      const totalAnDed = Math.round((anKv + anRv + anAv + anPv + wageTax) * 100) / 100;
+      const netWage = Math.round((gross - totalAnDed) * 100) / 100;
+
+      const totalAgLevies = Math.round((agKv + agRv + agAv + agPv + flatTax + u1 + u2 + inso + uv) * 100) / 100;
+      const totalAgCost = Math.round((gross + totalAgLevies) * 100) / 100;
+
+      const anDedPct = gross > 0 ? (totalAnDed / gross * 100).toFixed(1) : "0.0";
+      const agLeviesPct = gross > 0 ? (totalAgLevies / gross * 100).toFixed(1) : "0.0";
+
+      // Display KPI
+      document.getElementById('de_res_netto').innerText = `${netWage.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_an_ded').innerText = `-${totalAnDed.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € (${anDedPct} %)`;
+
+      document.getElementById('de_res_ag_cost').innerText = `${totalAgCost.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_ag_levies').innerText = `+${totalAgLevies.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € (${agLeviesPct} %)`;
+
+      // Update Table
+      const fmt = num => `${num.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      const fmtPct = p => `${(p * 100).toFixed(2).replace('.', ',')} %`;
+
+      if (gross <= LIMIT_MINIJOB_DE) {
+        document.getElementById('t_an_kv_rate').innerText = "0,0 %";
+        document.getElementById('t_ag_kv_rate').innerText = isComm ? "15,0 %" : "5,0 %";
+        document.getElementById('t_an_rv_rate').innerText = isExempt ? "0,0 %" : (isComm ? "3,6 %" : "13,6 %");
+        document.getElementById('t_ag_rv_rate').innerText = isComm ? "15,0 %" : "5,0 %";
+        document.getElementById('t_an_av_rate').innerText = "0,0 %";
+        document.getElementById('t_ag_av_rate').innerText = "0,0 %";
+        document.getElementById('t_an_pv_rate').innerText = "0,0 %";
+        document.getElementById('t_ag_pv_rate').innerText = "0,0 %";
+        document.getElementById('t_ag_tax_rate').innerText = "2,0 % (Pausch.)";
+        document.getElementById('t_an_tax_rate').innerText = "0,0 %";
+      } else {
+        const effAnKv = gross > 0 ? anKv / gross : 0;
+        const effAnRv = gross > 0 ? anRv / gross : 0;
+        const effAnAv = gross > 0 ? anAv / gross : 0;
+        const effAnPv = gross > 0 ? anPv / gross : 0;
+        document.getElementById('t_an_kv_rate').innerText = fmtPct(effAnKv);
+        document.getElementById('t_ag_kv_rate').innerText = fmtPct((0.146 + addKv) / 2.0);
+        document.getElementById('t_an_rv_rate').innerText = fmtPct(effAnRv);
+        document.getElementById('t_ag_rv_rate').innerText = "9,30 %";
+        document.getElementById('t_an_av_rate').innerText = fmtPct(effAnAv);
+        document.getElementById('t_ag_av_rate').innerText = "1,30 %";
+        document.getElementById('t_an_pv_rate').innerText = fmtPct(effAnPv);
+        document.getElementById('t_ag_pv_rate').innerText = "2,00 %";
+        document.getElementById('t_ag_tax_rate').innerText = "0,0 %";
+        document.getElementById('t_an_tax_rate').innerText = gross > 0 ? fmtPct(wageTax / gross) : "0,0 %";
+      }
+
+      document.getElementById('t_an_kv_val').innerText = fmt(anKv);
+      document.getElementById('t_ag_kv_val').innerText = fmt(agKv);
+      document.getElementById('t_an_rv_val').innerText = fmt(anRv);
+      document.getElementById('t_ag_rv_val').innerText = fmt(agRv);
+      document.getElementById('t_an_av_val').innerText = fmt(anAv);
+      document.getElementById('t_ag_av_val').innerText = fmt(agAv);
+      document.getElementById('t_an_pv_val').innerText = fmt(anPv);
+      document.getElementById('t_ag_pv_val').innerText = fmt(agPv);
+
+      document.getElementById('t_ag_u12_val').innerText = fmt(u1 + u2);
+      document.getElementById('t_ag_inso_val').innerText = fmt(inso);
+      document.getElementById('t_ag_uv_val').innerText = fmt(uv);
+      document.getElementById('t_an_tax_val').innerText = fmt(wageTax);
+      document.getElementById('t_ag_tax_val').innerText = fmt(flatTax);
+
+      document.getElementById('t_an_total').innerText = fmt(totalAnDed);
+      document.getElementById('t_ag_total').innerText = fmt(totalAgLevies);
+    }
+
+    // --- ÖSTERREICH LOGIC (ASVG 2026) ---
+    function syncAtBrutto(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.at.brutto = val;
+      document.getElementById('at_brutto_num').value = val;
+      document.getElementById('at_brutto_range').value = Math.min(2500, val);
+      calculateAT();
+    }
+
+    function setAtBrutto(val) {
+      syncAtBrutto(val);
+    }
+
+    function calculateAT() {
+      const gross = state.at.brutto;
+      const dagActive = document.getElementById('at_dag_active').checked;
+      state.at.dagActive = dagActive;
+
+      let anSv = 0;
+      let agAbgaben = 0;
+
+      const header = document.getElementById('at_status_header');
+      const desc = document.getElementById('at_status_text');
+
+      if (gross <= LIMIT_GERING_AT) {
+        // Geringfügig
+        anSv = 0.0;
+        let uv = Math.round(gross * 0.011 * 100) / 100; // 1.1% AUVA
+        let dag = dagActive ? Math.round(gross * 0.164 * 100) / 100 : 0.0; // 16.4% DAG
+        agAbgaben = uv + dag;
+
+        header.innerText = `Status: Geringfügige Beschäftigung gem. § 5 Abs. 2 ASVG (bis ${LIMIT_GERING_AT.toFixed(2)} €)`;
+        desc.innerText = dagActive
+          ? "Geringfügig: Dienstnehmer ist beitragsfrei. Der Dienstgeber entrichtet 1,1 % Unfallversicherung und 16,4 % Dienstgeberabgabe (DAG), da die Lohnsumme der geringfügigen Mitarbeiter 826,65 € übersteigt."
+          : "Geringfügig: Dienstnehmer ist beitragsfrei (Brutto = Netto). Der Dienstgeber zahlt lediglich 1,1 % Unfallversicherung an die AUVA. Keine Kranken- oder Pensionsversicherung.";
+        document.getElementById('at_res_ag_abgaben').innerText = dagActive
+          ? `+${agAbgaben.toFixed(2)} € (1,1% UV + 16,4% DAG)`
+          : `+${agAbgaben.toFixed(2)} € (1,1 % UV)`;
+      } else {
+        // Vollversicherung AT (ca. 18.12% AN, 21.38% AG)
+        anSv = Math.round(gross * 0.1812 * 100) / 100;
+        agAbgaben = Math.round(gross * 0.2138 * 100) / 100;
+
+        header.innerText = "Status: Vollversicherungspflicht nach ASVG";
+        desc.innerText = `Das Entgelt übersteigt die Geringfügigkeitsgrenze von ${LIMIT_GERING_AT.toFixed(2)} €. Es besteht volle Versicherungspflicht in der Kranken-, Pensions- und Arbeitslosenversicherung (ca. 18,12 % AN-Beitrag, ca. 21,38 % AG-Beitrag).`;
+        document.getElementById('at_res_ag_abgaben').innerText = `+${agAbgaben.toFixed(2)} € (~21,4 % AG-SV)`;
+      }
+
+      const netWage = Math.round((gross - anSv) * 100) / 100;
+      const totalAgCost = Math.round((gross + agAbgaben) * 100) / 100;
+
+      document.getElementById('at_res_netto').innerText = `${netWage.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('at_res_an_sv').innerText = `-${anSv.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € (${gross > 0 ? (anSv / gross * 100).toFixed(1) : 0} %)`;
+      document.getElementById('at_res_ag_cost').innerText = `${totalAgCost.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+    }
+
+    // --- SCHWEIZ LOGIC (AHVV / BVG 2026) ---
+    function syncChBrutto(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.ch.brutto = val;
+      document.getElementById('ch_brutto_num').value = val;
+      document.getElementById('ch_brutto_range').value = Math.min(4000, val);
+      calculateCH();
+    }
+
+    function setChBrutto(val) {
+      syncChBrutto(val);
+    }
+
+    function calculateCH() {
+      const gross = state.ch.brutto;
+      const isHouse = document.getElementById('ch_household_active').checked;
+      state.ch.householdActive = isHouse;
+
+      let anDed = 0;
+      let agDed = 0;
+
+      const header = document.getElementById('ch_status_header');
+      const desc = document.getElementById('ch_status_text');
+
+      if (isHouse) {
+        // Privathaushalt BGSA vereinfachtes Verfahren: 11.4% (5.3% AHV + 1.1% ALV je AN/AG + Quellensteuer)
+        anDed = Math.round(gross * 0.064 * 100) / 100; // 5.3% AHV/IV/EO + 1.1% ALV
+        agDed = Math.round(gross * (0.064 + 0.050) * 100) / 100; // AHV/ALV AG + 5.0% Pauschalsteuer
+
+        header.innerText = "Status: Privathaushalt (BGSA Pflichtabrechnung)";
+        desc.innerText = "Hausdienst im Privathaushalt ist gem. Bundesgesetz gegen die Schwarzarbeit (BGSA) ab dem 1. Franken beitragspflichtig. Es gilt das vereinfachte Abrechnungsverfahren mit ca. 11,4 % Gesamtabzügen inklusive pauschaler Quellensteuer.";
+      } else if (gross <= LIMIT_GERING_CH) {
+        // Geringfügig beitragsfrei
+        anDed = 0;
+        agDed = 0;
+        header.innerText = "Status: Geringfügiger Lohn nach Art. 8bis AHVV (Beitragsfrei)";
+        desc.innerText = `Der Monatslohn liegt unter 191,67 CHF (Jahresgrenze 2.300 CHF). Er ist beitragsfrei zu AHV/IV/EO und ALV, es sei denn, der Arbeitnehmer verlangt ausdrücklich die Abrechnung.`;
+      } else if (gross < LIMIT_BVG_CH) {
+        // 1. Säule Pflicht (AHV/IV/EO 5.3% + ALV 1.1% = 6.4%), keine 2. Säule
+        anDed = Math.round(gross * 0.064 * 100) / 100;
+        agDed = Math.round(gross * 0.064 * 100) / 100;
+        header.innerText = "Status: 1. Säule obligatorisch (Unter BVG-Eintrittsschwelle)";
+        desc.innerText = `Lohn übersteigt 2.300 CHF/Jahr, liegt aber unter der BVG-Eintrittsschwelle von 22.050 CHF/Jahr (1.837,50 CHF/Monat). Pflicht zur 1. Säule (AHV/IV/EO und ALV mit je 6,4 % AN/AG), jedoch noch keine BVG-Pensionskassenpflicht.`;
+      } else {
+        // Über BVG-Schwelle
+        anDed = Math.round(gross * (0.064 + 0.070) * 100) / 100; // AHV + ca. 7% BVG
+        agDed = Math.round(gross * (0.064 + 0.070) * 100) / 100;
+        header.innerText = "Status: Volle 1. und 2. Säule (BVG-Pensionskassenpflicht)";
+        desc.innerText = `Monatslohn übersteigt die BVG-Schwelle von 1.837,50 CHF (22.050 CHF p.a.). Es greift die obligatorische berufliche Vorsorge (2. Säule Pensionskasse) zusätzlich zur 1. Säule.`;
+      }
+
+      const netWage = Math.round((gross - anDed) * 100) / 100;
+      const totalAgCost = Math.round((gross + agDed) * 100) / 100;
+
+      document.getElementById('ch_res_netto').innerText = `${netWage.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+      document.getElementById('ch_res_an_ded').innerText = `-${anDed.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF (${gross > 0 ? (anDed / gross * 100).toFixed(1) : 0} %)`;
+      document.getElementById('ch_res_ag_cost').innerText = `${totalAgCost.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+      document.getElementById('ch_res_ag_ded').innerText = `+${agDed.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF (${gross > 0 ? (agDed / gross * 100).toFixed(1) : 0} %)`;
+    }
+
+    // --- ANTRAG FORM UPDATES ---
+    function updateAntragForm() {
+      const anName = document.getElementById('form_an_name').value || 'Max Mustermann';
+      const anGeb = document.getElementById('form_an_geb').value;
+      const anRvnr = document.getElementById('form_an_rvnr').value || '65 150595 M 012';
+      const agName = document.getElementById('form_ag_name').value || 'Musterbetrieb GmbH';
+
+      state.antrag.anName = anName;
+      state.antrag.anGeb = anGeb;
+      state.antrag.anRvnr = anRvnr;
+      state.antrag.agName = agName;
+
+      document.getElementById('p_an_name').innerText = anName;
+      document.getElementById('p_an_rvnr').innerText = anRvnr;
+      document.getElementById('p_ag_name').innerText = agName;
+
+      if (anGeb) {
+        const parts = anGeb.split('-');
+        if (parts.length === 3) {
+          document.getElementById('p_an_geb').innerText = `${parts[2]}.${parts[1]}.${parts[0]}`;
+        }
+      }
+    }
+
+    // --- EXPORT & IMPORT ---
+    function exportCSV() {
+      let csv = "Parameter;Wert\n";
+      csv += `Land;${state.activeTab.toUpperCase()}\n`;
+      csv += `DE Bruttolohn;${state.de.brutto.toFixed(2)} EUR\n`;
+      csv += `DE Arbeitgebertyp;${state.de.employerType}\n`;
+      csv += `DE RV-Status;${state.de.rvStatus}\n`;
+      csv += `AT Bruttolohn;${state.at.brutto.toFixed(2)} EUR\n`;
+      csv += `CH Bruttolohn;${state.ch.brutto.toFixed(2)} CHF\n`;
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Minijob_Rechner_2026_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+    }
+
+    function exportJSON() {
+      const data = JSON.stringify(state, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Minijob_Backup_2026_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported.de) Object.assign(state.de, imported.de);
+          if (imported.at) Object.assign(state.at, imported.at);
+          if (imported.ch) Object.assign(state.ch, imported.ch);
+          if (imported.antrag) Object.assign(state.antrag, imported.antrag);
+
+          syncDeBrutto(state.de.brutto);
+          syncAtBrutto(state.at.brutto);
+          syncChBrutto(state.ch.brutto);
+          updateAntragForm();
+          alert("Backup erfolgreich wiederhergestellt!");
+        } catch (err) {
+          alert("Fehler beim Laden der Backup-Datei.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateDE();
+      calculateAT();
+      calculateCH();
+      updateAntragForm();
+    });
+  </script>
+
+</body>
+</html>

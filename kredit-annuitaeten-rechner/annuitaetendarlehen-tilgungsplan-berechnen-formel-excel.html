@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annuitätendarlehen berechnen: Formel, Excel-Funktionen (=RMZ, =ZW) &amp; Tilgungsplan 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Annuitätendarlehen &amp; Tilgungsplan exakt berechnen: Mathematische Formel, monatliche Annuität, Excel-Funktionen RMZ / ZW / KAPZ / ZINSZ, Muster-Tilgungsplan und kostenloser Rechner." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/annuitaetendarlehen-tilgungsplan-berechnen-formel-excel.html" />
+  <meta property="og:title" content="Annuitätendarlehen berechnen: Formel, Excel (=RMZ, =ZW) &amp; Tilgungsplan 2026" />
+  <meta property="og:description" content="Wie berechnet man die Annuität und den Tilgungsplan? Formel, Excel-Funktionen, Praxisbeispiel und interaktives Berechnungstool." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/annuitaetendarlehen-tilgungsplan-berechnen-formel-excel.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Annuitätendarlehen berechnen: Formel, Excel-Funktionen (=RMZ, =ZW) & Tilgungsplan 2026",
+    "description": "Umfassender Ratgeber zur Berechnung von Annuitätendarlehen, Zins- und Tilgungsanteilen sowie Excel-Formeln für Tilgungspläne im DACH-Raum.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Annuitäten-Schnellrechner Widget",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dachdigitalwerk.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Kredit- & Tilgungsplan-Rechner",
+        "item": "https://dachdigitalwerk.github.io/kredit-annuitaeten-rechner/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Annuitätendarlehen berechnen & Excel",
+        "item": "https://dachdigitalwerk.github.io/annuitaetendarlehen-tilgungsplan-berechnen-formel-excel.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was zeichnet ein Annuitätendarlehen aus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei einem Annuitätendarlehen bleibt die periodische Gesamtrate (Annuität) über die gesamte Zinsbindungsdauer konstant. Mit jeder Ratenzahlung sinkt die Restschuld, wodurch der Zinsanteil kontinuierlich sinkt und der Tilgungsanteil im gleichen Maße ansteigt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lautet die mathematische Formel für die monatliche Annuität?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die jährliche Annuität berechnet sich näherungsweise aus Kreditsumme multipliziert mit der Summe aus Sollzinssatz und anfänglichem Tilgungssatz: A = K * (z + t). Die monatliche Rate beträgt entsprechend R = A / 12. Die finanzmathematisch exakte Barwertformel lautet: R = K * [ (q^n * (q - 1)) / (q^n - 1) ], wobei q = 1 + z/12."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Excel-Funktionen werden für den Tilgungsplan benötigt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Microsoft Excel und Google Sheets verwendet man =RMZ(Zins/12; Laufzeit*12; -Kreditsumme) für die monatliche Rate, =ZINSZ() für den Zinsanteil einer bestimmten Periode, =KAPZ() für den Tilgungsanteil sowie =ZW() zur Ermittlung der verbleibenden Restschuld nach n Perioden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was geschieht mit der Restschuld nach Ende der Zinsbindung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nach Ablauf der Zinsbindungsfrist (z. B. 10 oder 15 Jahre) wird der Kredit nicht automatisch fällig. Es erfolgt eine Anschlussfinanzierung (Prolongation bei der bisherigen Bank oder Umschuldung zu einem Drittanbieter) zu den dann gültigen Marktzinsen für die verbleibende Restschuld."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt bei langer Zinsbindung ein Sonderkündigungsrecht?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, in Deutschland regelt § 489 Abs. 1 Nr. 2 BGB, dass Darlehensnehmer Verträge mit gebundenem Sollzinssatz nach Ablauf von 10 Jahren nach dem vollständigen Empfang des Darlehens unter Einhaltung einer 6-monatigen Kündigungsfrist ganz oder teilweise ohne Vorfälligkeitsentschädigung kündigen dürfen."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm">DW</span>
+        <span class="font-display font-bold text-base text-white tracking-tight">DACH Digitalwerk</span>
+      </a>
+      <a href="./" class="text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3.5 py-2 rounded-xl transition shadow-lg shadow-emerald-500/20">
+        Zum Haupt-Kreditrechner #29 →
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 font-mono">
+      <a href="../" class="hover:text-emerald-400">Home</a>
+      <span>/</span>
+      <a href="./" class="hover:text-emerald-400">Kreditrechner</a>
+      <span>/</span>
+      <span class="text-slate-200">Annuitätendarlehen &amp; Excel</span>
+    </nav>
+
+    <!-- Title & Intro -->
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+        <span>📘 Fachratgeber &amp; Finanzmathematik</span>
+        <span>•</span>
+        <span>Rechts- &amp; Zinsstand 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+        Annuitätendarlehen berechnen: Formel, Excel-Funktionen (=RMZ, =ZW) &amp; Tilgungsplan
+      </h1>
+      <p class="text-base text-slate-300 leading-relaxed">
+        Das Annuitätendarlehen ist das dominierende Finanzierungsinstrument für Gewerbe- und Immobilieninvestitionen im DACH-Raum. Erfahren Sie hier, wie sich die Annuität mathematisch herleitet, wie Sie mit Microsoft Excel oder Google Sheets einen fehlerfreien Tilgungsplan aufbauen und wie Zinsbindung und Sondertilgungen die Restschuld beeinflussen.
+      </p>
+    </div>
+
+    <!-- INTERAKTIVES QUICK-WIDGET -->
+    <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 shadow-xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <span>⚡</span>
+          <span>Interaktiver Annuitäten-Schnellrechner</span>
+        </h3>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2.5 py-0.5 rounded-full">Live-Widget</span>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 text-xs">
+        <div>
+          <label class="text-slate-400 block mb-1">Darlehensbetrag (€):</label>
+          <input type="number" id="w_amount" value="250000" step="5000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono" oninput="calcWidget()" />
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">Sollzins (% p.a.):</label>
+          <input type="number" id="w_interest" value="3.8" step="0.1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono" oninput="calcWidget()" />
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">Anfängliche Tilgung (% p.a.):</label>
+          <input type="number" id="w_repayment" value="2.5" step="0.1" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white font-mono" oninput="calcWidget()" />
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 pt-2">
+        <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800">
+          <span class="text-[11px] text-slate-400 block">Monatliche Annuität:</span>
+          <span id="w_res_installment" class="text-lg font-bold text-emerald-400 font-mono">1.312,50 €</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800">
+          <span class="text-[11px] text-slate-400 block">Restschuld nach 10 Jahren:</span>
+          <span id="w_res_balance" class="text-lg font-bold text-amber-300 font-mono">174.281,42 €</span>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-900 border border-slate-800">
+          <span class="text-[11px] text-slate-400 block">Zinsen in den ersten 10 J.:</span>
+          <span id="w_res_interest" class="text-lg font-bold text-rose-300 font-mono">81.781,42 €</span>
+        </div>
+      </div>
+
+      <div class="pt-2 text-right">
+        <a href="./" class="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-bold">
+          <span>Zum vollumfänglichen DACH Kredit- &amp; Tilgungsrechner 2026</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Der mathematische Kern: Die Annuitätenformel -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-white">1. Die mathematische Annuitätenformel</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Das Wort <em>Annuität</em> stammt vom lateinischen <em>annus</em> (Jahr) ab und bezeichnet eine regelmäßig wiederkehrende Zahlung fester Höhe. Sie setzt sich stets aus zwei Komponenten zusammen:
+      </p>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-center text-sm text-emerald-400">
+        Annuität (Rate) = Zinsanteil + Tilgungsanteil
+      </div>
+      <p class="text-slate-300 leading-relaxed">
+        In der kaufmännischen Praxis wird die anfängliche jährliche Rate $A$ über den Sollzins $z$ und den Tilgungssatz $t$ bezogen auf die Kreditsumme $K$ bestimmt:
+      </p>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-center text-sm text-slate-200">
+        A = K &times; (z + t) &nbsp;&nbsp;&rArr;&nbsp;&nbsp; Monatsrate R = A / 12
+      </div>
+      <p class="text-slate-300 leading-relaxed">
+        Da die monatlichen Zinsen jedoch stets auf den jeweiligen <em>Restschuldbestand zu Beginn des Monats</em> berechnet werden ($Zins_m = Restschuld_m \times \frac{z}{12}$), verringert sich mit jeder geleisteten Tilgungszahlung die Zinslast des Folgemonats. Da die Gesamtannuität konstant bleibt, wandert der eingesparte Zinsanteil direkt in die Tilgung hinein. Dies führt zu einem exponentiell ansteigenden Tilgungsverlauf.
+      </p>
+    </section>
+
+    <!-- Excel-Funktionen -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-white">2. Excel-Funktionen für den Tilgungsplan</h2>
+      <p class="text-slate-300 leading-relaxed">
+        In Microsoft Excel, Google Sheets und Apple Numbers stehen native finanzmathematische Formeln bereit:
+      </p>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-800">
+        <table class="w-full text-left text-xs font-mono">
+          <thead class="bg-slate-950 text-slate-300 border-b border-slate-800">
+            <tr>
+              <th class="py-3 px-4">Excel-Funktion</th>
+              <th class="py-3 px-4">Syntax &amp; Parameter</th>
+              <th class="py-3 px-4">Bedeutung</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="py-3 px-4 font-bold text-emerald-400">=RMZ()</td>
+              <td class="py-3 px-4">=RMZ(Zins/12; Laufzeit_Monate; -Kreditsumme)</td>
+              <td class="py-3 px-4">Berechnet die regelmäßige Monatsrate (Regelmäßige Zahlung).</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-emerald-400">=ZINSZ()</td>
+              <td class="py-3 px-4">=ZINSZ(Zins/12; Periode; Laufzeit_Monate; -Kreditsumme)</td>
+              <td class="py-3 px-4">Ermittelt den reinen Zinsanteil für einen konkreten Monat.</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-emerald-400">=KAPZ()</td>
+              <td class="py-3 px-4">=KAPZ(Zins/12; Periode; Laufzeit_Monate; -Kreditsumme)</td>
+              <td class="py-3 px-4">Ermittelt den echten Tilgungsanteil (Kapitalrückzahlung).</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-emerald-400">=ZW()</td>
+              <td class="py-3 px-4">=ZW(Zins/12; Periode; Rate; -Kreditsumme)</td>
+              <td class="py-3 px-4">Ermittelt den zukünftigen Wert (Restschuld) nach n Perioden.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Beispiel-Tilgungsplan -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-white">3. Muster-Tilgungsverlauf (250.000 € Darlehen)</h2>
+      <p class="text-slate-300 leading-relaxed">
+        Das folgende Beispiel zeigt den Verlauf eines Annuitätendarlehens über 250.000 € bei 3,8 % Sollzins und 2,5 % anfänglicher Tilgung (Monatsrate: 1.312,50 €):
+      </p>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-800">
+        <table class="w-full text-left text-xs font-mono">
+          <thead class="bg-slate-950 text-slate-300 border-b border-slate-800">
+            <tr>
+              <th class="py-3 px-4">Jahr</th>
+              <th class="py-3 px-4">Anfangsbestand</th>
+              <th class="py-3 px-4">Jahresrate</th>
+              <th class="py-3 px-4 text-rose-300">Zinsanteil</th>
+              <th class="py-3 px-4 text-emerald-300">Tilgungsanteil</th>
+              <th class="py-3 px-4 text-amber-300">Restschuld</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Jahr 1</td>
+              <td class="py-2.5 px-4">250.000,00 €</td>
+              <td class="py-2.5 px-4">15.750,00 €</td>
+              <td class="py-2.5 px-4 text-rose-300">9.382,14 €</td>
+              <td class="py-2.5 px-4 text-emerald-300">6.367,86 €</td>
+              <td class="py-2.5 px-4 font-bold text-amber-300">243.632,14 €</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Jahr 5</td>
+              <td class="py-2.5 px-4">223.184,50 €</td>
+              <td class="py-2.5 px-4">15.750,00 €</td>
+              <td class="py-2.5 px-4 text-rose-300">8.324,55 €</td>
+              <td class="py-2.5 px-4 text-emerald-300">7.425,45 €</td>
+              <td class="py-2.5 px-4 font-bold text-amber-300">215.759,05 €</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Jahr 10</td>
+              <td class="py-2.5 px-4">182.264,10 €</td>
+              <td class="py-2.5 px-4">15.750,00 €</td>
+              <td class="py-2.5 px-4 text-rose-300">6.767,32 €</td>
+              <td class="py-2.5 px-4 text-emerald-300">8.982,68 €</td>
+              <td class="py-2.5 px-4 font-bold text-amber-300">173.281,42 €</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Jahr 15</td>
+              <td class="py-2.5 px-4">132.840,12 €</td>
+              <td class="py-2.5 px-4">15.750,00 €</td>
+              <td class="py-2.5 px-4 text-rose-300">4.882,61 €</td>
+              <td class="py-2.5 px-4 text-emerald-300">10.867,39 €</td>
+              <td class="py-2.5 px-4 font-bold text-amber-300">121.972,73 €</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Jahr 20</td>
+              <td class="py-2.5 px-4">73.042,30 €</td>
+              <td class="py-2.5 px-4">15.750,00 €</td>
+              <td class="py-2.5 px-4 text-rose-300">2.602,80 €</td>
+              <td class="py-2.5 px-4 text-emerald-300">13.147,20 €</td>
+              <td class="py-2.5 px-4 font-bold text-amber-300">59.895,10 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Bereich -->
+    <section class="space-y-4 pt-4 border-t border-slate-800">
+      <h2 class="text-2xl font-bold text-white">Häufig gestellte Fragen (FAQ)</h2>
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+          <h3 class="font-bold text-white mb-1">Was ist der Unterschied zwischen Annuitätendarlehen und Tilgungsdarlehen?</h3>
+          <p class="text-slate-400">Beim Annuitätendarlehen bleibt die Monatsrate konstant, während Zins- und Tilgungsanteil variieren. Beim Tilgungsdarlehen (auch Ratendarlehen genannt) bleibt der Tilgungsbetrag jeden Monat gleich hoch; dadurch sinkt die Gesamtrate von Monat zu Monat kontinuierlich ab.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+          <h3 class="font-bold text-white mb-1">Kann ich bei 15 Jahren Zinsbindung nach 10 Jahren umschulden?</h3>
+          <p class="text-slate-400">Ja, nach § 489 Abs. 1 Nr. 2 BGB steht Darlehensnehmern ein gesetzliches Kündigungsrecht nach 10 Jahren mit einer 6-monatigen Frist zu – und zwar vollkommen ohne Vorfälligkeitsentschädigung.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Box -->
+    <div class="p-8 rounded-3xl bg-gradient-to-r from-emerald-950/60 via-slate-900 to-indigo-950/60 border border-emerald-500/30 text-center space-y-4">
+      <h3 class="text-xl font-extrabold text-white">Erstellen Sie Ihren individuellen Tilgungsplan online</h3>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+        Nutzen Sie unseren kostenlosen DACH Kreditrechner 2026 für exakte PAngV Effektivzinsen, Sondertilgungs-Optionen, Zinsänderungs-Stresstests und druckfertige DIN-A4 Berichte.
+      </p>
+      <a href="./" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-6 py-3 rounded-xl transition shadow-xl shadow-emerald-500/20 text-sm">
+        Jetzt Kredit &amp; Tilgungsplan berechnen →
+      </a>
+    </div>
+
+    <!-- Legal Disclaimer -->
+    <footer class="pt-8 border-t border-slate-800 text-slate-500 text-[10px] space-y-2">
+      <p>
+        <strong>Rechtlicher Hinweis (BGH Smartlaw § 2 RDG / § 5 StBerG):</strong> Dieser Ratgeber und die zugehörigen Berechnungswerkzeuge stellen unverbindliche redaktionelle und finanzmathematische Informationen dar und ersetzen keine professionelle Finanzberatung durch Kreditinstitute oder Steuerberater.
+      </p>
+      <div class="flex gap-4 font-mono">
+        <a href="../agb/" class="hover:text-emerald-400">AGB</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-emerald-400">Haftungsausschluss</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400">Impressum</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    function calcWidget() {
+      const k = parseFloat(document.getElementById('w_amount').value) || 0;
+      const z = (parseFloat(document.getElementById('w_interest').value) || 0) / 100.0;
+      const t = (parseFloat(document.getElementById('w_repayment').value) || 0) / 100.0;
+
+      const rateM = (k * (z + t)) / 12.0;
+      document.getElementById('w_res_installment').innerText = rateM.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+
+      let bal = k;
+      let totInt = 0;
+      for (let m = 1; m <= 120; m++) {
+        const intP = bal * (z / 12.0);
+        let prinP = rateM - intP;
+        if (bal - prinP < 0) prinP = bal;
+        bal -= prinP;
+        totInt += intP;
+      }
+
+      document.getElementById('w_res_balance').innerText = Math.max(0, bal).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+      document.getElementById('w_res_interest').innerText = totInt.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+    calcWidget();
+  </script>
+
+</body>
+</html>

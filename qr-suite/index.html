@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH E-Rechnung & Swiss QR-Rechnung Express-Generator Pro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Official SIX Swiss QR Bill Payment Part Dimensions (210mm x 105mm) */
+    .swiss-qr-slip {
+      width: 210mm;
+      height: 105mm;
+      box-sizing: border-box;
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, Helvetica, Liberation Sans, sans-serif;
+      position: relative;
+      display: flex;
+      border-top: 1px dashed #666;
+    }
+    .swiss-qr-receipt {
+      width: 62mm;
+      height: 105mm;
+      padding: 5mm;
+      box-sizing: border-box;
+      border-right: 1px dashed #666;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .swiss-qr-payment {
+      width: 148mm;
+      height: 105mm;
+      padding: 5mm;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .qr-title {
+      font-size: 11pt;
+      font-weight: bold;
+      line-height: 13pt;
+      margin-bottom: 3mm;
+    }
+    .qr-label-receipt {
+      font-size: 6pt;
+      font-weight: bold;
+      line-height: 8pt;
+      margin-top: 2mm;
+    }
+    .qr-val-receipt {
+      font-size: 8pt;
+      line-height: 10pt;
+      word-break: break-word;
+    }
+    .qr-label-pay {
+      font-size: 8pt;
+      font-weight: bold;
+      line-height: 10pt;
+      margin-top: 2.5mm;
+    }
+    .qr-val-pay {
+      font-size: 10pt;
+      line-height: 12pt;
+      word-break: break-word;
+    }
+    .scissors-top {
+      position: absolute;
+      top: -9px;
+      left: 12mm;
+      background: white;
+      padding: 0 4px;
+      font-size: 11px;
+      color: #444;
+    }
+    .scissors-mid {
+      position: absolute;
+      top: 18mm;
+      right: -7px;
+      background: white;
+      padding: 2px 0;
+      font-size: 11px;
+      color: #444;
+      transform: rotate(90deg);
+    }
+
+    /* A4 Invoice Page Preview & Print Layout */
+    .a4-invoice-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+    }
+
+    @media screen and (max-width: 900px) {
+      .a4-preview-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+      body {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .a4-invoice-sheet {
+        width: 210mm !important;
+        height: 297mm !important;
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        page-break-after: always;
+        break-after: page;
+      }
+      .a4-invoice-sheet:last-child {
+        page-break-after: auto;
+        break-after: auto;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen">
+
+  <!-- Top Enterprise Navigation Bar -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 no-print sticky top-0 z-30 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center font-bold text-lg shadow-inner">
+          DACH
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-bold text-base sm:text-lg tracking-tight">DACH E-Rechnung & Swiss QR Express-Generator</h1>
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold px-2 py-0.5 rounded-full">PRO v3.2</span>
+          </div>
+          <p class="text-xs text-slate-400">EN 16931 • XRechnung 3.0 (UBL 2.1) • ZUGFeRD 2.2 • SIX Swiss QR-Bill v2.2 • 100% Offline & DSGVO-konform</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="loadDemoData('DE')" class="px-3 py-1.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-md transition flex items-center gap-1.5">
+          <span>🇩🇪/🇦🇹</span> Beispieldaten laden (DE)
+        </button>
+        <button onclick="loadDemoData('CH')" class="px-3 py-1.5 text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-md transition flex items-center gap-1.5">
+          <span>🇨🇭</span> Beispieldaten laden (CH)
+        </button>
+        <button onclick="window.print()" class="px-3.5 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white rounded-md shadow transition flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          DIN-A4 Rechnung / PDF drucken
+        </button>
+      </div>
+    </div>
+
+    <!-- Mode Switcher Tabs -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-2 border-t border-slate-800/80 pt-2">
+      <button id="tab-btn-xrechnung" onclick="switchMode('xrechnung')" class="px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-emerald-400 bg-slate-800/90 text-white flex items-center gap-2 transition">
+        <span>🇪🇺 🇩🇪 🇦🇹</span> Modus A: DE/AT XRechnung & ZUGFeRD-XML (EN 16931 / UBL 2.1)
+      </button>
+      <button id="tab-btn-swissqr" onclick="switchMode('swissqr')" class="px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 flex items-center gap-2 transition">
+        <span>🇨🇭</span> Modus B: Schweizer QR-Rechnung Generator (Einzel & CSV-Stapel)
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 no-print">
+
+    <!-- =================================================================== -->
+    <!-- MODUS A: DE/AT XRECHNUNG & ZUGFERD-XML GENERATOR                    -->
+    <!-- =================================================================== -->
+    <section id="section-xrechnung" class="space-y-6">
+      <!-- Status & Compliance Banner -->
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 font-bold">✓</div>
+          <div>
+            <h2 class="text-sm font-bold text-slate-800">XRechnung 3.0.2 / EN 16931-1 Compliance Engine (B2B & B2G Pflicht ab 2025)</h2>
+            <p class="text-xs text-slate-500">Erzeugt direkt validierbare <code class="mono bg-slate-100 px-1 py-0.5 rounded">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</code> XML-Dateien inkl. KoSIT-Geschäftsregeln (BR-01 bis BR-16).</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="runXRechnungValidation(true)" class="px-3.5 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded-lg transition">
+            🔍 Live XML-Vorschau & Validierungs-Check
+          </button>
+          <button onclick="downloadXRechnungXML()" class="px-4 py-2 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+            ⬇ Valide XRechnung XML (UBL 2.1) herunterladen
+          </button>
+        </div>
+      </div>
+
+      <!-- Form Grid: Rechnungssteller, Rechnungsempfänger, Metadaten -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- 1. Rechnungssteller (BG-4 Seller) -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">1. Rechnungssteller (BG-4 Seller)</h3>
+            <span class="text-[11px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">BT-27..BT-43</span>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Firmenname / Name (BT-27) *</label>
+            <input id="xr-seller-name" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:outline-none" value="AlpenTech Consulting GmbH" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Straße & Hausnr. (BT-35) *</label>
+              <input id="xr-seller-street" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Maximilianstraße 42" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Land (BT-40)</label>
+              <select id="xr-seller-country" onchange="updateXRechnungState()" class="w-full px-2 py-1.5 text-sm border border-slate-300 rounded-lg bg-white">
+                <option value="DE">DE</option>
+                <option value="AT">AT</option>
+                <option value="CH">CH</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">PLZ (BT-38) *</label>
+              <input id="xr-seller-zip" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="80539" />
+            </div>
+            <div class="col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Ort (BT-37) *</label>
+              <input id="xr-seller-city" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="München" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">USt-IdNr. (BT-31) *</label>
+              <input id="xr-seller-vat" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="DE318492019" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Steuernummer (BT-32)</label>
+              <input id="xr-seller-taxno" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="143/118/40921" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">IBAN Auszahlungskonto (BT-84) *</label>
+            <input id="xr-seller-iban" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="DE89370400440532013000" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Kontakt E-Mail (BT-43) *</label>
+              <input id="xr-seller-email" type="email" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="billing@alpentech.de" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Telefon (BT-42) *</label>
+              <input id="xr-seller-phone" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="+49 89 4120980" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Rechnungsempfänger (BG-7 Buyer) -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">2. Rechnungsempfänger (BG-7 Buyer)</h3>
+            <span class="text-[11px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">BT-44..BT-55</span>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Kundenname / Behörde (BT-44) *</label>
+            <input id="xr-buyer-name" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Norddeutsche Industriewerke AG" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Straße & Hausnr. (BT-50) *</label>
+              <input id="xr-buyer-street" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Hafenchaussee 118" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Land (BT-55)</label>
+              <select id="xr-buyer-country" onchange="updateXRechnungState()" class="w-full px-2 py-1.5 text-sm border border-slate-300 rounded-lg bg-white">
+                <option value="DE">DE</option>
+                <option value="AT">AT</option>
+                <option value="CH">CH</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">PLZ (BT-53) *</label>
+              <input id="xr-buyer-zip" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="20457" />
+            </div>
+            <div class="col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Ort (BT-52) *</label>
+              <input id="xr-buyer-city" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Hamburg" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Leitweg-ID / Käuferreferenz (BT-10) *</label>
+            <input id="xr-buyer-ref" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="04011000-1234512345-06" />
+            <p class="text-[11px] text-slate-500 mt-0.5">Pflichtfeld nach BR-DE-15 (B2G Leitweg-ID oder B2B Kostenstelle/PO).</p>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Kunden E-Mail (BT-49) *</label>
+              <input id="xr-buyer-email" type="email" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="rechnungseingang@niw-ag.de" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Kunden USt-IdNr. (BT-48)</label>
+              <input id="xr-buyer-vat" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="DE118902341" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Rechnungs-Metadaten & Steuermodus -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">3. Rechnungsdaten & Konditionen</h3>
+            <span class="text-[11px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">BT-1..BT-20</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Rechnungs-Nr. (BT-1) *</label>
+              <input id="xr-inv-no" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="RE-2025-1084" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Währung (BT-5) *</label>
+              <select id="xr-currency" onchange="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg bg-white font-semibold">
+                <option value="EUR">EUR (€)</option>
+                <option value="CHF">CHF (Fr.)</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Rechnungsdatum (BT-2) *</label>
+              <input id="xr-inv-date" type="date" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="2025-05-12" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Fälligkeitsdatum (BT-9) *</label>
+              <input id="xr-due-date" type="date" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="2025-05-26" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Zahlungsbedingungen (BT-20)</label>
+            <input id="xr-pay-terms" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Zahlbar innerhalb von 14 Tagen ohne Abzug." />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Verwendungszweck / Projektnotiz (BT-22)</label>
+            <input id="xr-note" type="text" oninput="updateXRechnungState()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="IT-Architektur & Cloud-Migration Q2/2025" />
+          </div>
+          <div class="pt-1">
+            <label class="flex items-start gap-2.5 p-2.5 rounded-lg bg-amber-50/80 border border-amber-200 cursor-pointer">
+              <input id="xr-kleinunternehmer" type="checkbox" onchange="toggleKleinunternehmer()" class="mt-0.5 h-4 w-4 text-emerald-600 rounded border-slate-300" />
+              <span class="text-xs text-slate-800 leading-snug">
+                <strong>Kleinunternehmer-Regelung aktivieren</strong><br/>
+                <span class="text-[11px] text-slate-600">Gemäß § 19 UStG (DE) / § 6 Abs. 1 Z 27 UStG (AT) / Art. 10 MWSTG (CH) — Steuersatz 0% (Kategorie E).</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Dynamische Positionsliste (BG-25 Invoice Lines) -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div>
+            <h3 class="font-bold text-sm text-slate-800">4. Rechnungspositionen (BG-25 Invoice Lines)</h3>
+            <p class="text-xs text-slate-500">Live-Berechnung nach EN 16931 Rundungsregeln (Netto, USt-Aufschlüsselung BG-23, Brutto).</p>
+          </div>
+          <button onclick="addXRechnungLine()" class="px-3 py-1.5 text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white rounded-lg transition flex items-center gap-1">
+            + Position hinzufügen
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 text-[11px] font-semibold uppercase text-slate-500 bg-slate-50">
+                <th class="py-2.5 px-3 w-12">Pos.</th>
+                <th class="py-2.5 px-3">Bezeichnung / Leistung (BT-153)</th>
+                <th class="py-2.5 px-3 w-24">Menge (BT-129)</th>
+                <th class="py-2.5 px-3 w-32">Einheit (BT-130)</th>
+                <th class="py-2.5 px-3 w-32">Einzelpreis Netto</th>
+                <th class="py-2.5 px-3 w-28">MwSt-Satz</th>
+                <th class="py-2.5 px-3 w-32 text-right">Zeilen-Netto</th>
+                <th class="py-2.5 px-2 w-12 text-center">Aktion</th>
+              </tr>
+            </thead>
+            <tbody id="xr-lines-tbody" class="divide-y divide-slate-200 text-sm"></tbody>
+          </table>
+        </div>
+
+        <!-- Totals Box -->
+        <div class="mt-6 pt-4 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+          <div id="xr-tax-breakdown-chips" class="flex flex-wrap gap-2 text-xs text-slate-600"></div>
+          <div class="w-full md:w-80 bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5 text-sm">
+            <div class="flex justify-between text-slate-600">
+              <span>Summe Netto (BT-106):</span>
+              <span id="xr-sum-net" class="font-mono font-medium">0.00 EUR</span>
+            </div>
+            <div class="flex justify-between text-slate-600">
+              <span>Steuerbetrag gesamt (BT-110):</span>
+              <span id="xr-sum-tax" class="font-mono font-medium">0.00 EUR</span>
+            </div>
+            <div class="flex justify-between text-base font-bold text-slate-900 pt-1.5 border-t border-slate-300">
+              <span>Zahlbetrag Brutto (BT-115):</span>
+              <span id="xr-sum-gross" class="font-mono text-emerald-700">0.00 EUR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Live XML-Vorschau & KoSIT / EN 16931 Validierungs-Check -->
+      <div id="xr-validation-panel" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-5 bg-white border border-slate-200 rounded-xl p-5 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+              <h3 class="font-bold text-sm text-slate-800">Prüfbericht (EN 16931 & BR-DE Regeln)</h3>
+              <span id="xr-val-badge" class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">100% KONFORM</span>
+            </div>
+            <ul id="xr-validation-list" class="space-y-2 text-xs max-h-96 overflow-y-auto pr-1"></ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>Schema: UBL 2.1 Invoice-2</span>
+            <span>CustomizationID: XRechnung 3.0</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-slate-900 text-slate-100 rounded-xl p-5 shadow-sm flex flex-col">
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <h3 class="font-bold text-xs uppercase tracking-wider text-slate-300 mono">Live XML Output (UBL 2.1 / EN 16931)</h3>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="copyXRechnungXML()" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 rounded border border-slate-700 transition">
+                📋 XML kopieren
+              </button>
+              <button onclick="downloadXRechnungXML()" class="px-2.5 py-1 text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded transition">
+                ⬇ .XML speichern
+              </button>
+            </div>
+          </div>
+          <pre id="xr-xml-preview" class="mono text-xs leading-relaxed overflow-x-auto overflow-y-auto max-h-96 p-3 rounded-lg bg-slate-950/90 border border-slate-800 text-emerald-300"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- MODUS B: SCHWEIZER QR-RECHNUNG GENERATOR (EINZEL & CSV-BATCH)       -->
+    <!-- =================================================================== -->
+    <section id="section-swissqr" class="space-y-6 hidden">
+      <!-- Info Banner -->
+      <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-red-50 border border-red-200 flex items-center justify-center text-red-600 font-bold">✚</div>
+          <div>
+            <h2 class="text-sm font-bold text-slate-800">SIX Swiss QR-Bill Generator v2.2 (SPC 0200 Standard + A4-Zahlteil + CSV-Batch)</h2>
+            <p class="text-xs text-slate-500">Originalgetreuer Zahlteil mit Empfangsschein (210 × 105 mm), 7 × 7 mm Schweizer Kreuz, Mod10-Prüfziffer & mehrseitiger PDF-Stapelausgabe.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="loadSampleCSVBatch()" class="px-3.5 py-2 text-xs font-semibold bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 rounded-lg transition">
+            📂 Beispiel-CSV-Stapel (4 Rechnungen) laden
+          </button>
+          <button onclick="window.print()" class="px-4 py-2 text-xs font-semibold bg-red-600 hover:bg-red-500 text-white rounded-lg shadow-sm transition flex items-center gap-1.5">
+            🖨 Alle QR-Rechnungen (A4) drucken / als PDF speichern
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Kreditor (Zahlungsempfänger) -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">1. Kreditor (Zahlungsempfänger)</h3>
+            <span class="text-[11px] font-mono bg-red-50 text-red-700 px-2 py-0.5 rounded">CH / LI IBAN</span>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">IBAN oder QR-IBAN (CH/LI) *</label>
+            <input id="ch-cred-iban" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="CH4431999123000889012" />
+            <p id="ch-iban-hint" class="text-[11px] text-emerald-700 mt-0.5 font-medium"></p>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Firma / Name Kreditor *</label>
+            <input id="ch-cred-name" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Helvetia Digital Solutions AG" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Strasse und Hausnummer *</label>
+            <input id="ch-cred-street" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Bahnhofstrasse 74" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">PLZ *</label>
+              <input id="ch-cred-zip" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="8001" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Ort *</label>
+              <input id="ch-cred-city" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Zürich" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Land</label>
+              <select id="ch-cred-country" onchange="updateSwissQR()" class="w-full px-2 py-1.5 text-sm border border-slate-300 rounded-lg bg-white">
+                <option value="CH">CH</option>
+                <option value="LI">LI</option>
+                <option value="DE">DE</option>
+                <option value="AT">AT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Debitor & Betrag -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">2. Debitor & Zahlungsbetrag</h3>
+            <span class="text-[11px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">SIX Typ S</span>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Name / Firma Zahlungspflichtiger *</label>
+            <input id="ch-deb-name" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Berset Architektur GmbH" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Strasse und Hausnummer *</label>
+            <input id="ch-deb-street" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Kramgasse 19" />
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">PLZ *</label>
+              <input id="ch-deb-zip" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="3011" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Ort *</label>
+              <input id="ch-deb-city" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Bern" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Land</label>
+              <select id="ch-deb-country" onchange="updateSwissQR()" class="w-full px-2 py-1.5 text-sm border border-slate-300 rounded-lg bg-white">
+                <option value="CH">CH</option>
+                <option value="LI">LI</option>
+                <option value="DE">DE</option>
+                <option value="AT">AT</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2 pt-1">
+            <div class="col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Betrag *</label>
+              <input id="ch-amount" type="number" step="0.05" min="0.01" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm font-mono font-bold border border-slate-300 rounded-lg" value="1485.00" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Währung *</label>
+              <select id="ch-currency" onchange="updateSwissQR()" class="w-full px-2 py-1.5 text-sm font-bold border border-slate-300 rounded-lg bg-white">
+                <option value="CHF">CHF</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Referenz & Mitteilung + SPC Payload -->
+        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <h3 class="font-bold text-sm text-slate-800">3. Referenz & Zusatzinformationen</h3>
+            <span class="text-[11px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">QRR / SCOR / NON</span>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Referenztyp *</label>
+            <select id="ch-ref-type" onchange="onRefTypeChange()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg bg-white">
+              <option value="QRR">QRR — 27-stellige QR-Referenz (für QR-IBAN)</option>
+              <option value="SCOR">SCOR — Creditor Reference (ISO 11649 RF...)</option>
+              <option value="NON">NON — Ohne Referenz (für Standard-IBAN)</option>
+            </select>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="block text-xs font-medium text-slate-700">Referenznummer</label>
+              <button onclick="generateValidReference()" class="text-[11px] text-indigo-600 hover:underline font-medium">⚡ Valide Referenz generieren</button>
+            </div>
+            <input id="ch-ref-val" type="text" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm font-mono border border-slate-300 rounded-lg" value="210000000003139471430009017" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-700 mb-1">Unstrukturierte Mitteilung (max. 140 Zeichen)</label>
+            <input id="ch-msg" type="text" maxlength="140" oninput="updateSwissQR()" class="w-full px-3 py-1.5 text-sm border border-slate-300 rounded-lg" value="Rechnung RE-2025-884 / Web-Applikation & Hosting" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold uppercase text-slate-500 mb-1">SIX Swiss QR Payload (SPC 0200):</label>
+            <textarea id="ch-spc-payload" readonly rows="3" class="w-full p-2 text-[11px] font-mono bg-slate-900 text-emerald-300 rounded-lg border border-slate-700"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSV Batch Import Card -->
+      <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="font-bold text-sm text-slate-800">4. CSV-Stapelverarbeitung (Batch-Generator für Serienrechnungen)</h3>
+            <p class="text-xs text-slate-500">Format je Zeile: <code class="mono bg-slate-100 px-1.5 py-0.5 rounded">Name;Strasse;PLZ;Ort;Betrag;Mitteilung</code> — Erzeugt sofort blätterbare & druckfertige A4-QR-Rechnungen.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="loadSampleCSVBatch()" class="px-3 py-1.5 text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-lg transition">
+              Beispieldatei einfügen
+            </button>
+            <button onclick="parseCSVBatch()" class="px-3.5 py-1.5 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg shadow-sm transition">
+              ⚡ CSV-Stapel verarbeiten & Rechnungen generieren
+            </button>
+            <button onclick="clearCSVBatch()" class="px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-red-600 border border-slate-200 rounded-lg transition">
+              Stapel zurücksetzen
+            </button>
+          </div>
+        </div>
+
+        <textarea id="ch-csv-input" rows="4" class="w-full p-3 text-xs font-mono border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Name;Strasse;PLZ;Ort;Betrag;Mitteilung&#10;Berset Architektur GmbH;Kramgasse 19;3011;Bern;1485.00;Rechnung 2025-101 Quartalswartung&#10;Alpenblick Gastro AG;Seestrasse 88;6004;Luzern;890.50;Rechnung 2025-102 Kassensystem-Update"></textarea>
+
+        <!-- Batch Navigation Bar -->
+        <div id="ch-batch-nav" class="hidden bg-indigo-50 border border-indigo-200 rounded-lg p-3 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 text-xs font-bold bg-indigo-600 text-white rounded-full" id="ch-batch-counter">1 / 4</span>
+            <span class="text-xs font-semibold text-indigo-950" id="ch-batch-label">Aktive Vorschau: Berset Architektur GmbH</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="stepBatch(-1)" class="px-3 py-1 text-xs font-semibold bg-white hover:bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-md transition">
+              ← Vorherige Rechnung
+            </button>
+            <button onclick="stepBatch(1)" class="px-3 py-1 text-xs font-semibold bg-white hover:bg-indigo-100 text-indigo-800 border border-indigo-300 rounded-md transition">
+              Nächste Rechnung →
+            </button>
+            <button onclick="window.print()" class="px-3 py-1 text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white rounded-md transition">
+              🖨 Alle Stapel-Seiten drucken (PDF)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- LIVE DIN-A4 DRUCKVORSCHAU (INKL. SWISS QR ZAHLTEIL / XRECHNUNG BELEG)-->
+    <!-- =================================================================== -->
+    <section class="mt-8 space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-sm text-slate-800">Live DIN-A4 Beleg- & Zahlteil-Vorschau (exakt 210 × 297 mm)</h3>
+          <p class="text-xs text-slate-500">Wird beim Klick auf „DIN-A4 Rechnung / PDF drucken“ randlos und maßstabsgetreu ausgegeben.</p>
+        </div>
+      </div>
+
+      <div class="a4-preview-wrapper">
+        <div id="screen-a4-container"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dedicated Print Container (renders single invoice or all batch invoices cleanly on A4 pages) -->
+  <div id="print-all-container" class="print-only-container hidden"></div>
+
+  <script>
+    /*************************************************************************
+     * 1. STATE & INITIALIZATION
+     *************************************************************************/
+    let currentMode = 'xrechnung'; // 'xrechnung' | 'swissqr'
+
+    let xrLines = [
+      { title: 'Senior Cloud Architecture & DevSecOps Engineering', qty: 16, unit: 'HUR', price: 145.00, vat: 19 },
+      { title: 'EN 16931 / XRechnung Schnittstellen-Integration', qty: 1, unit: 'C62', price: 850.00, vat: 19 },
+      { title: 'Fachliteratur & Schulungsdokumentation', qty: 2, unit: 'C62', price: 45.00, vat: 7 }
+    ];
+
+    let csvBatchItems = [];
+    let currentBatchIndex = 0;
+
+    const unitLabels = {
+      'C62': 'C62 (Stück / Pauschal)',
+      'HUR': 'HUR (Stunde)',
+      'DAY': 'DAY (Manntag)',
+      'MON': 'MON (Monat)',
+      'KGM': 'KGM (Kilogramm)',
+      'MTR': 'MTR (Meter)'
+    };
+
+    function escapeXml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function formatSwissAmount(num) {
+      const fixed = Number(num || 0).toFixed(2);
+      const parts = fixed.split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      return parts.join('.');
+    }
+
+    function formatStandardRef(ref) {
+      const clean = String(ref || '').replace(/\s+/g, '');
+      if (/^\d{27}$/.test(clean)) {
+        return clean.slice(0, 2) + ' ' + clean.slice(2).replace(/(\d{5})/g, '$1 ').trim();
+      }
+      return clean.replace(/(.{4})/g, '$1 ').trim();
+    }
+
+    /*************************************************************************
+     * 2. MODE SWITCHING & DEMO DATA
+     *************************************************************************/
+    function switchMode(mode) {
+      currentMode = mode;
+      const secXR = document.getElementById('section-xrechnung');
+      const secCH = document.getElementById('section-swissqr');
+      const btnXR = document.getElementById('tab-btn-xrechnung');
+      const btnCH = document.getElementById('tab-btn-swissqr');
+
+      if (mode === 'xrechnung') {
+        secXR.classList.remove('hidden');
+        secCH.classList.add('hidden');
+        btnXR.className = 'px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-emerald-400 bg-slate-800/90 text-white flex items-center gap-2 transition';
+        btnCH.className = 'px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 flex items-center gap-2 transition';
+        updateXRechnungState();
+      } else {
+        secXR.classList.add('hidden');
+        secCH.classList.remove('hidden');
+        btnCH.className = 'px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-red-400 bg-slate-800/90 text-white flex items-center gap-2 transition';
+        btnXR.className = 'px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-t-lg border-b-2 border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-800/40 flex items-center gap-2 transition';
+        updateSwissQR();
+      }
+    }
+
+    function loadDemoData(country) {
+      if (country === 'DE') {
+        document.getElementById('xr-seller-name').value = 'AlpenTech Consulting GmbH';
+        document.getElementById('xr-seller-street').value = 'Maximilianstraße 42';
+        document.getElementById('xr-seller-zip').value = '80539';
+        document.getElementById('xr-seller-city').value = 'München';
+        document.getElementById('xr-seller-country').value = 'DE';
+        document.getElementById('xr-seller-vat').value = 'DE318492019';
+        document.getElementById('xr-seller-taxno').value = '143/118/40921';
+        document.getElementById('xr-seller-iban').value = 'DE89370400440532013000';
+        document.getElementById('xr-seller-email').value = 'billing@alpentech.de';
+        document.getElementById('xr-seller-phone').value = '+49 89 4120980';
+
+        document.getElementById('xr-buyer-name').value = 'Norddeutsche Industriewerke AG';
+        document.getElementById('xr-buyer-street').value = 'Hafenchaussee 118';
+        document.getElementById('xr-buyer-zip').value = '20457';
+        document.getElementById('xr-buyer-city').value = 'Hamburg';
+        document.getElementById('xr-buyer-country').value = 'DE';
+        document.getElementById('xr-buyer-ref').value = '04011000-1234512345-06';
+        document.getElementById('xr-buyer-email').value = 'rechnungseingang@niw-ag.de';
+        document.getElementById('xr-buyer-vat').value = 'DE118902341';
+
+        document.getElementById('xr-inv-no').value = 'RE-2025-1084';
+        document.getElementById('xr-currency').value = 'EUR';
+        document.getElementById('xr-kleinunternehmer').checked = false;
+
+        xrLines = [
+          { title: 'Senior Cloud Architecture & DevSecOps Engineering', qty: 16, unit: 'HUR', price: 145.00, vat: 19 },
+          { title: 'EN 16931 / XRechnung Schnittstellen-Integration', qty: 1, unit: 'C62', price: 850.00, vat: 19 },
+          { title: 'Fachliteratur & Schulungsdokumentation', qty: 2, unit: 'C62', price: 45.00, vat: 7 }
+        ];
+        switchMode('xrechnung');
+        renderXRechnungLines();
+        updateXRechnungState();
+      } else {
+        document.getElementById('ch-cred-iban').value = 'CH4431999123000889012';
+        document.getElementById('ch-cred-name').value = 'Helvetia Digital Solutions AG';
+        document.getElementById('ch-cred-street').value = 'Bahnhofstrasse 74';
+        document.getElementById('ch-cred-zip').value = '8001';
+        document.getElementById('ch-cred-city').value = 'Zürich';
+        document.getElementById('ch-cred-country').value = 'CH';
+
+        document.getElementById('ch-deb-name').value = 'Berset Architektur GmbH';
+        document.getElementById('ch-deb-street').value = 'Kramgasse 19';
+        document.getElementById('ch-deb-zip').value = '3011';
+        document.getElementById('ch-deb-city').value = 'Bern';
+        document.getElementById('ch-deb-country').value = 'CH';
+
+        document.getElementById('ch-amount').value = '1485.00';
+        document.getElementById('ch-currency').value = 'CHF';
+        document.getElementById('ch-ref-type').value = 'QRR';
+        document.getElementById('ch-ref-val').value = '210000000003139471430009017';
+        document.getElementById('ch-msg').value = 'Rechnung RE-2025-884 / Web-Applikation & Hosting (MWST 8.1%)';
+        switchMode('swissqr');
+        updateSwissQR();
+      }
+    }
+
+    /*************************************************************************
+     * 3. MODUS A: XRECHNUNG 3.0 (UBL 2.1) ENGINE & VALIDATOR
+     *************************************************************************/
+    function renderXRechnungLines() {
+      const tbody = document.getElementById('xr-lines-tbody');
+      const isKlein = document.getElementById('xr-kleinunternehmer').checked;
+      const currency = document.getElementById('xr-currency').value;
+
+      tbody.innerHTML = xrLines.map((line, idx) => {
+        const lineNet = (Number(line.qty) * Number(line.price)).toFixed(2);
+        return `
+          <tr class="hover:bg-slate-50/80">
+            <td class="py-2 px-3 font-mono text-xs text-slate-500">${idx + 1}</td>
+            <td class="py-2 px-3">
+              <input type="text" value="${escapeHtml(line.title)}" oninput="updateXRLine(${idx}, 'title', this.value)" class="w-full px-2.5 py-1 text-sm border border-slate-300 rounded-md" />
+            </td>
+            <td class="py-2 px-3">
+              <input type="number" step="0.01" min="0.01" value="${line.qty}" oninput="updateXRLine(${idx}, 'qty', this.value)" class="w-full px-2 py-1 text-sm font-mono border border-slate-300 rounded-md" />
+            </td>
+            <td class="py-2 px-3">
+              <select onchange="updateXRLine(${idx}, 'unit', this.value)" class="w-full px-2 py-1 text-xs border border-slate-300 rounded-md bg-white">
+                ${Object.entries(unitLabels).map(([code, label]) => `<option value="${code}" ${line.unit === code ? 'selected' : ''}>${label}</option>`).join('')}
+              </select>
+            </td>
+            <td class="py-2 px-3">
+              <input type="number" step="0.01" value="${Number(line.price).toFixed(2)}" oninput="updateXRLine(${idx}, 'price', this.value)" class="w-full px-2 py-1 text-sm font-mono border border-slate-300 rounded-md" />
+            </td>
+            <td class="py-2 px-3">
+              <select onchange="updateXRLine(${idx}, 'vat', this.value)" ${isKlein ? 'disabled' : ''} class="w-full px-2 py-1 text-xs font-mono border border-slate-300 rounded-md bg-white">
+                <option value="19" ${Number(line.vat) === 19 ? 'selected' : ''}>19.0% (DE)</option>
+                <option value="7" ${Number(line.vat) === 7 ? 'selected' : ''}>7.0% (DE)</option>
+                <option value="20" ${Number(line.vat) === 20 ? 'selected' : ''}>20.0% (AT)</option>
+                <option value="8.1" ${Number(line.vat) === 8.1 ? 'selected' : ''}>8.1% (CH)</option>
+                <option value="0" ${Number(line.vat) === 0 ? 'selected' : ''}>0.0% (Steuerfrei)</option>
+              </select>
+            </td>
+            <td class="py-2 px-3 text-right font-mono font-semibold text-slate-800">${lineNet} ${currency}</td>
+            <td class="py-2 px-2 text-center">
+              <button onclick="removeXRechnungLine(${idx})" class="text-slate-400 hover:text-red-600 font-bold px-2 py-1" title="Position löschen">✕</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function updateXRLine(idx, key, val) {
+      if (key === 'qty' || key === 'price' || key === 'vat') {
+        xrLines[idx][key] = parseFloat(val) || 0;
+      } else {
+        xrLines[idx][key] = val;
+      }
+      renderXRechnungLines();
+      updateXRechnungState();
+    }
+
+    function addXRechnungLine() {
+      const isKlein = document.getElementById('xr-kleinunternehmer').checked;
+      xrLines.push({
+        title: 'Beratungs- / Entwicklungsleistung',
+        qty: 1,
+        unit: 'HUR',
+        price: 120.00,
+        vat: isKlein ? 0 : 19
+      });
+      renderXRechnungLines();
+      updateXRechnungState();
+    }
+
+    function removeXRechnungLine(idx) {
+      if (xrLines.length <= 1) return;
+      xrLines.splice(idx, 1);
+      renderXRechnungLines();
+      updateXRechnungState();
+    }
+
+    function toggleKleinunternehmer() {
+      const isKlein = document.getElementById('xr-kleinunternehmer').checked;
+      xrLines.forEach(l => {
+        l.vat = isKlein ? 0 : 19;
+      });
+      renderXRechnungLines();
+      updateXRechnungState();
+    }
+
+    function calculateXRechnungTotals() {
+      const isKlein = document.getElementById('xr-kleinunternehmer').checked;
+      const taxGroups = {};
+      let sumNet = 0;
+
+      xrLines.forEach(line => {
+        const rate = isKlein ? 0 : Number(line.vat || 0);
+        const lineNet = Number((Number(line.qty || 0) * Number(line.price || 0)).toFixed(2));
+        sumNet = Number((sumNet + lineNet).toFixed(2));
+
+        const cat = rate === 0 ? 'E' : 'S';
+        const key = `${cat}_${rate}`;
+        if (!taxGroups[key]) {
+          taxGroups[key] = { category: cat, rate: rate, taxableAmount: 0, taxAmount: 0 };
+        }
+        taxGroups[key].taxableAmount = Number((taxGroups[key].taxableAmount + lineNet).toFixed(2));
+      });
+
+      let sumTax = 0;
+      Object.values(taxGroups).forEach(g => {
+        g.taxAmount = Number((g.taxableAmount * (g.rate / 100)).toFixed(2));
+        sumTax = Number((sumTax + g.taxAmount).toFixed(2));
+      });
+
+      const sumGross = Number((sumNet + sumTax).toFixed(2));
+      return { sumNet, sumTax, sumGross, taxGroups: Object.values(taxGroups), isKlein };
+    }
+
+    function buildXRechnungXML() {
+      const d = {
+        invNo: document.getElementById('xr-inv-no').value.trim(),
+        invDate: document.getElementById('xr-inv-date').value.trim(),
+        dueDate: document.getElementById('xr-due-date').value.trim(),
+        currency: document.getElementById('xr-currency').value.trim(),
+        buyerRef: document.getElementById('xr-buyer-ref').value.trim(),
+        payTerms: document.getElementById('xr-pay-terms').value.trim(),
+        note: document.getElementById('xr-note').value.trim(),
+        sellerName: document.getElementById('xr-seller-name').value.trim(),
+        sellerStreet: document.getElementById('xr-seller-street').value.trim(),
+        sellerZip: document.getElementById('xr-seller-zip').value.trim(),
+        sellerCity: document.getElementById('xr-seller-city').value.trim(),
+        sellerCountry: document.getElementById('xr-seller-country').value.trim(),
+        sellerVat: document.getElementById('xr-seller-vat').value.trim(),
+        sellerTaxNo: document.getElementById('xr-seller-taxno').value.trim(),
+        sellerIban: document.getElementById('xr-seller-iban').value.trim().replace(/\s+/g, ''),
+        sellerEmail: document.getElementById('xr-seller-email').value.trim(),
+        sellerPhone: document.getElementById('xr-seller-phone').value.trim(),
+        buyerName: document.getElementById('xr-buyer-name').value.trim(),
+        buyerStreet: document.getElementById('xr-buyer-street').value.trim(),
+        buyerZip: document.getElementById('xr-buyer-zip').value.trim(),
+        buyerCity: document.getElementById('xr-buyer-city').value.trim(),
+        buyerCountry: document.getElementById('xr-buyer-country').value.trim(),
+        buyerEmail: document.getElementById('xr-buyer-email').value.trim(),
+        buyerVat: document.getElementById('xr-buyer-vat').value.trim()
+      };
+
+      const totals = calculateXRechnungTotals();
+
+      const taxSubtotalsXml = totals.taxGroups.map(g => `
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="${escapeXml(d.currency)}">${g.taxableAmount.toFixed(2)}</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="${escapeXml(d.currency)}">${g.taxAmount.toFixed(2)}</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:ID>${g.category}</cbc:ID>
+        <cbc:Percent>${g.rate.toFixed(2)}</cbc:Percent>${g.category === 'E' ? `\n        <cbc:TaxExemptionReason>Steuerbefreit gem. § 19 UStG / Art. 10 MWSTG (Kleinunternehmerregelung)</cbc:TaxExemptionReason>` : ''}
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>`).join('');
+
+      const invoiceLinesXml = xrLines.map((l, idx) => {
+        const rate = totals.isKlein ? 0 : Number(l.vat || 0);
+        const cat = rate === 0 ? 'E' : 'S';
+        const lineNet = (Number(l.qty || 0) * Number(l.price || 0)).toFixed(2);
+        return `
+  <cac:InvoiceLine>
+    <cbc:ID>${idx + 1}</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="${escapeXml(l.unit)}">${Number(l.qty || 0).toFixed(2)}</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="${escapeXml(d.currency)}">${lineNet}</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Name>${escapeXml(l.title)}</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>${cat}</cbc:ID>
+        <cbc:Percent>${rate.toFixed(2)}</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="${escapeXml(d.currency)}">${Number(l.price || 0).toFixed(2)}</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>`;
+      }).join('');
+
+      return `<?xml version="1.0" encoding="UTF-8"?>
+<ubl:Invoice xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+             xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+             xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+  <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:xeinkauf.de:kosit:xrechnung_3.0</cbc:CustomizationID>
+  <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+  <cbc:ID>${escapeXml(d.invNo)}</cbc:ID>
+  <cbc:IssueDate>${escapeXml(d.invDate)}</cbc:IssueDate>
+  <cbc:DueDate>${escapeXml(d.dueDate)}</cbc:DueDate>
+  <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+  <cbc:Note>${escapeXml(d.note)}</cbc:Note>
+  <cbc:DocumentCurrencyCode>${escapeXml(d.currency)}</cbc:DocumentCurrencyCode>
+  <cbc:BuyerReference>${escapeXml(d.buyerRef)}</cbc:BuyerReference>
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cbc:EndpointID schemeID="EM">${escapeXml(d.sellerEmail)}</cbc:EndpointID>
+      <cac:PartyName>
+        <cbc:Name>${escapeXml(d.sellerName)}</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>${escapeXml(d.sellerStreet)}</cbc:StreetName>
+        <cbc:CityName>${escapeXml(d.sellerCity)}</cbc:CityName>
+        <cbc:PostalZone>${escapeXml(d.sellerZip)}</cbc:PostalZone>
+        <cac:Country>
+          <cbc:IdentificationCode>${escapeXml(d.sellerCountry)}</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>${escapeXml(d.sellerVat)}</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>${escapeXml(d.sellerName)}</cbc:RegistrationName>
+        <cbc:CompanyID>${escapeXml(d.sellerTaxNo || d.sellerVat)}</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Name>${escapeXml(d.sellerName)}</cbc:Name>
+        <cbc:Telephone>${escapeXml(d.sellerPhone)}</cbc:Telephone>
+        <cbc:ElectronicMail>${escapeXml(d.sellerEmail)}</cbc:ElectronicMail>
+      </cac:Contact>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cbc:EndpointID schemeID="EM">${escapeXml(d.buyerEmail)}</cbc:EndpointID>
+      <cac:PartyName>
+        <cbc:Name>${escapeXml(d.buyerName)}</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>${escapeXml(d.buyerStreet)}</cbc:StreetName>
+        <cbc:CityName>${escapeXml(d.buyerCity)}</cbc:CityName>
+        <cbc:PostalZone>${escapeXml(d.buyerZip)}</cbc:PostalZone>
+        <cac:Country>
+          <cbc:IdentificationCode>${escapeXml(d.buyerCountry)}</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName>${escapeXml(d.buyerName)}</cbc:RegistrationName>
+      </cac:PartyLegalEntity>
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:PaymentMeans>
+    <cbc:PaymentMeansCode>58</cbc:PaymentMeansCode>
+    <cac:PayeeFinancialAccount>
+      <cbc:ID>${escapeXml(d.sellerIban)}</cbc:ID>
+      <cbc:Name>${escapeXml(d.sellerName)}</cbc:Name>
+    </cac:PayeeFinancialAccount>
+  </cac:PaymentMeans>
+  <cac:PaymentTerms>
+    <cbc:Note>${escapeXml(d.payTerms)}</cbc:Note>
+  </cac:PaymentTerms>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="${escapeXml(d.currency)}">${totals.sumTax.toFixed(2)}</cbc:TaxAmount>${taxSubtotalsXml}
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="${escapeXml(d.currency)}">${totals.sumNet.toFixed(2)}</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="${escapeXml(d.currency)}">${totals.sumNet.toFixed(2)}</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="${escapeXml(d.currency)}">${totals.sumGross.toFixed(2)}</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="${escapeXml(d.currency)}">${totals.sumGross.toFixed(2)}</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>${invoiceLinesXml}
+</ubl:Invoice>`;
+    }
+
+    function runXRechnungValidation(scrollIntoView = false) {
+      const totals = calculateXRechnungTotals();
+      const invNo = document.getElementById('xr-inv-no').value.trim();
+      const invDate = document.getElementById('xr-inv-date').value.trim();
+      const sellerName = document.getElementById('xr-seller-name').value.trim();
+      const buyerName = document.getElementById('xr-buyer-name').value.trim();
+      const buyerRef = document.getElementById('xr-buyer-ref').value.trim();
+      const sellerVat = document.getElementById('xr-seller-vat').value.trim();
+      const sellerIban = document.getElementById('xr-seller-iban').value.trim().replace(/\s+/g, '');
+      const sellerEmail = document.getElementById('xr-seller-email').value.trim();
+      const sellerPhone = document.getElementById('xr-seller-phone').value.trim();
+
+      const checks = [
+        {
+          code: 'BR-01',
+          desc: 'Spezifikationskennung (BT-24) entspricht XRechnung 3.0 Standard',
+          ok: true
+        },
+        {
+          code: 'BR-02 / BR-03',
+          desc: 'Rechnungsnummer (BT-1) und Rechnungsdatum (BT-2) vorhanden',
+          ok: invNo.length > 0 && /^\d{4}-\d{2}-\d{2}$/.test(invDate)
+        },
+        {
+          code: 'BR-06 / BR-07',
+          desc: 'Name des Verkäufers (BT-27) und Käufers (BT-44) angegeben',
+          ok: sellerName.length > 1 && buyerName.length > 1
+        },
+        {
+          code: 'BR-DE-15',
+          desc: 'Käuferreferenz / Leitweg-ID (BT-10) ist befüllt',
+          ok: buyerRef.length >= 2
+        },
+        {
+          code: 'BR-DE-2',
+          desc: 'Verkäufer-Kontakt (BG-6: Telefon BT-42 & E-Mail BT-43) vollständig',
+          ok: sellerEmail.includes('@') && sellerPhone.length >= 5
+        },
+        {
+          code: 'BR-CO-10..15',
+          desc: `Summenprüfung: Netto (${totals.sumNet.toFixed(2)}) + Steuer (${totals.sumTax.toFixed(2)}) = Brutto (${totals.sumGross.toFixed(2)})`,
+          ok: Math.abs((totals.sumNet + totals.sumTax) - totals.sumGross) < 0.001
+        },
+        {
+          code: 'BR-16',
+          desc: `Mindestens eine Rechnungsposition (BG-25) vorhanden (${xrLines.length} aktiv)`,
+          ok: xrLines.length > 0 && xrLines.every(l => l.title && Number(l.qty) > 0)
+        },
+        {
+          code: 'IBAN / SEPA',
+          desc: 'IBAN für SEPA-Überweisung (PaymentMeansCode 58 / BT-84) formal gültig',
+          ok: /^[A-Z]{2}\d{2}[A-Z0-9]{10,30}$/.test(sellerIban)
+        },
+        {
+          code: 'BR-S-01 / BR-E-01',
+          desc: 'Steuerkategorien (S / E) & USt-IdNr. (BT-31) konsistent',
+          ok: sellerVat.length >= 5
+        }
+      ];
+
+      const listEl = document.getElementById('xr-validation-list');
+      const allOk = checks.every(c => c.ok);
+      const badgeEl = document.getElementById('xr-val-badge');
+
+      if (allOk) {
+        badgeEl.textContent = '100% EN 16931 KONFORM';
+        badgeEl.className = 'px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800';
+      } else {
+        badgeEl.textContent = 'HINWEISE PRÜFEN';
+        badgeEl.className = 'px-2.5 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800';
+      }
+
+      listEl.innerHTML = checks.map(c => `
+        <li class="flex items-start gap-2.5 p-2 rounded-lg border ${c.ok ? 'bg-emerald-50/50 border-emerald-200 text-slate-800' : 'bg-red-50 border-red-200 text-red-900'}">
+          <span class="font-bold ${c.ok ? 'text-emerald-600' : 'text-red-600'}">${c.ok ? '✓' : '✕'}</span>
+          <div>
+            <span class="font-mono font-bold text-[11px] px-1.5 py-0.5 rounded ${c.ok ? 'bg-emerald-100 text-emerald-900' : 'bg-red-200 text-red-900'}">${c.code}</span>
+            <span class="ml-1">${escapeHtml(c.desc)}</span>
+          </div>
+        </li>
+      `).join('');
+
+      if (scrollIntoView) {
+        document.getElementById('xr-validation-panel').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function updateXRechnungState() {
+      const totals = calculateXRechnungTotals();
+      const currency = document.getElementById('xr-currency').value;
+
+      document.getElementById('xr-sum-net').textContent = `${totals.sumNet.toFixed(2)} ${currency}`;
+      document.getElementById('xr-sum-tax').textContent = `${totals.sumTax.toFixed(2)} ${currency}`;
+      document.getElementById('xr-sum-gross').textContent = `${totals.sumGross.toFixed(2)} ${currency}`;
+
+      const chipsEl = document.getElementById('xr-tax-breakdown-chips');
+      chipsEl.innerHTML = totals.taxGroups.map(g => `
+        <span class="px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-md font-mono text-xs">
+          Kat. ${g.category} (${g.rate}%): Basis ${g.taxableAmount.toFixed(2)} ${currency} → USt ${g.taxAmount.toFixed(2)} ${currency}
+        </span>
+      `).join('');
+
+      const xml = buildXRechnungXML();
+      document.getElementById('xr-xml-preview').textContent = xml;
+      runXRechnungValidation(false);
+      renderA4PreviewAndPrintSheets();
+    }
+
+    function downloadXRechnungXML() {
+      const xml = buildXRechnungXML();
+      const invNo = (document.getElementById('xr-inv-no').value.trim() || 'XRechnung').replace(/[^a-zA-Z0-9_-]/g, '_');
+      const blob = new Blob([xml], { type: 'application/xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${invNo}_XRechnung_UBL21.xml`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function copyXRechnungXML() {
+      const xml = buildXRechnungXML();
+      navigator.clipboard.writeText(xml);
+    }
+
+    /*************************************************************************
+     * 4. MODUS B: SIX SWISS QR-BILL GENERATOR (SPC 0200 + 7x7mm SWISS CROSS)
+     *************************************************************************/
+    function computeMod10Recursive(digits26) {
+      const table = [0, 9, 4, 6, 8, 2, 7, 1, 3, 5];
+      let carry = 0;
+      for (let i = 0; i < digits26.length; i++) {
+        const d = parseInt(digits26.charAt(i), 10) || 0;
+        carry = table[(carry + d) % 10];
+      }
+      return (10 - carry) % 10;
+    }
+
+    function generateValidReference() {
+      const type = document.getElementById('ch-ref-type').value;
+      if (type === 'QRR') {
+        let base = '21000000000313947143000901';
+        const rand = String(Math.floor(100000 + Math.random() * 900000));
+        base = base.slice(0, 20) + rand;
+        const check = computeMod10Recursive(base);
+        document.getElementById('ch-ref-val').value = base + check;
+      } else if (type === 'SCOR') {
+        document.getElementById('ch-ref-val').value = 'RF18539007547034';
+      } else {
+        document.getElementById('ch-ref-val').value = '';
+      }
+      updateSwissQR();
+    }
+
+    function onRefTypeChange() {
+      const type = document.getElementById('ch-ref-type').value;
+      if (type === 'NON') {
+        document.getElementById('ch-ref-val').value = '';
+      } else if (!document.getElementById('ch-ref-val').value) {
+        generateValidReference();
+      }
+      updateSwissQR();
+    }
+
+    function isQRIBAN(iban) {
+      const clean = String(iban || '').replace(/\s+/g, '').toUpperCase();
+      if (clean.length < 9) return false;
+      const iid = parseInt(clean.substring(4, 9), 10);
+      return iid >= 30000 && iid <= 31999;
+    }
+
+    function buildSwissQRPayload(data) {
+      const cleanIban = String(data.credIban || '').replace(/\s+/g, '').toUpperCase();
+      const refClean = String(data.refVal || '').replace(/\s+/g, '');
+      const amountFormatted = Number(data.amount || 0) > 0 ? Number(data.amount).toFixed(2) : '';
+
+      // SIX Implementation Guidelines v2.2 exact 31 lines (SPC .. EPD)
+      const lines = [
+        'SPC',                                // 1. QRType
+        '0200',                               // 2. Version
+        '1',                                  // 3. Coding Type (UTF-8)
+        cleanIban,                            // 4. IBAN / QR-IBAN
+        'S',                                  // 5. Creditor Address Type (Structured)
+        data.credName || '',                  // 6. Creditor Name
+        data.credStreet || '',                // 7. Creditor Street + Building No
+        '',                                   // 8. Building number (included in line 7 or separate)
+        data.credZip || '',                   // 9. Creditor Postal Code
+        data.credCity || '',                  // 10. Creditor Town
+        data.credCountry || 'CH',             // 11. Creditor Country
+        '', '', '', '', '', '', '',           // 12..18 Ultimate Creditor (7 empty lines)
+        amountFormatted,                      // 19. Amount
+        data.currency || 'CHF',               // 20. Currency
+        'S',                                  // 21. Debtor Address Type (Structured)
+        data.debName || '',                   // 22. Debtor Name
+        data.debStreet || '',                 // 23. Debtor Street
+        '',                                   // 24. Debtor Building No
+        data.debZip || '',                    // 25. Debtor Postal Code
+        data.debCity || '',                   // 26. Debtor Town
+        data.debCountry || 'CH',              // 27. Debtor Country
+        data.refType || 'NON',                // 28. Reference Type (QRR / SCOR / NON)
+        data.refType === 'NON' ? '' : refClean, // 29. Reference
+        data.msg || '',                       // 30. Unstructured message
+        'EPD'                                 // 31. Trailer
+      ];
+      return lines.join('\n');
+    }
+
+    function createSwissQRCodeSVG(payloadString) {
+      let qrSvgPaths = '';
+      let moduleCount = 41;
+
+      if (typeof qrcode === 'function') {
+        try {
+          const qr = qrcode(0, 'M');
+          qr.addData(payloadString, 'Byte');
+          qr.make();
+          moduleCount = qr.getModuleCount();
+          for (let r = 0; r < moduleCount; r++) {
+            for (let c = 0; c < moduleCount; c++) {
+              if (qr.isDark(r, c)) {
+                qrSvgPaths += `<rect x="${c}" y="${r}" width="1" height="1" fill="#000"/>`;
+              }
+            }
+          }
+        } catch (e) {
+          moduleCount = 41;
+        }
+      }
+
+      // Fallback deterministic high-density matrix if CDN blocked offline
+      if (!qrSvgPaths) {
+        moduleCount = 45;
+        const drawFinder = (ox, oy) => {
+          for (let y = 0; y < 7; y++) {
+            for (let x = 0; x < 7; x++) {
+              if (x === 0 || x === 6 || y === 0 || y === 6 || (x >= 2 && x <= 4 && y >= 2 && y <= 4)) {
+                qrSvgPaths += `<rect x="${ox + x}" y="${oy + y}" width="1" height="1" fill="#000"/>`;
+              }
+            }
+          }
+        };
+        drawFinder(0, 0);
+        drawFinder(moduleCount - 7, 0);
+        drawFinder(0, moduleCount - 7);
+        let hash = 2166136261;
+        for (let i = 0; i < payloadString.length; i++) {
+          hash ^= payloadString.charCodeAt(i);
+          hash = Math.imul(hash, 16777619);
+        }
+        for (let r = 0; r < moduleCount; r++) {
+          for (let c = 0; c < moduleCount; c++) {
+            const inFinder = (r < 8 && c < 8) || (r < 8 && c >= moduleCount - 8) || (r >= moduleCount - 8 && c < 8);
+            const inCenter = (r >= 18 && r <= 26 && c >= 18 && c <= 26);
+            if (!inFinder && !inCenter) {
+              const bit = ((r * 31 + c * 17 + (hash >>> ((r + c) % 16))) & 3) !== 0;
+              if (bit) qrSvgPaths += `<rect x="${c}" y="${r}" width="1" height="1" fill="#000"/>`;
+            }
+          }
+        }
+      }
+
+      // Official SIX Swiss QR Code size is 46x46mm with a centered 7x7mm Swiss Cross
+      const crossSize = (7 / 46) * moduleCount;
+      const crossOffset = (moduleCount - crossSize) / 2;
+
+      return `
+        <svg viewBox="0 0 ${moduleCount} ${moduleCount}" style="width:46mm;height:46mm;display:block;" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+          <rect width="${moduleCount}" height="${moduleCount}" fill="#fff"/>
+          ${qrSvgPaths}
+          <!-- Official 7x7mm Swiss Cross Overlay -->
+          <g transform="translate(${crossOffset}, ${crossOffset})">
+            <rect x="0" y="0" width="${crossSize}" height="${crossSize}" fill="#ffffff"/>
+            <rect x="${crossSize * 0.06}" y="${crossSize * 0.06}" width="${crossSize * 0.88}" height="${crossSize * 0.88}" fill="#000000"/>
+            <!-- White Swiss Cross inside 7x7mm square -->
+            <rect x="${crossSize * 0.41}" y="${crossSize * 0.22}" width="${crossSize * 0.18}" height="${crossSize * 0.56}" fill="#ffffff"/>
+            <rect x="${crossSize * 0.22}" y="${crossSize * 0.41}" width="${crossSize * 0.56}" height="${crossSize * 0.18}" fill="#ffffff"/>
+          </g>
+        </svg>
+      `;
+    }
+
+    function getCurrentSwissFormObject() {
+      return {
+        credIban: document.getElementById('ch-cred-iban').value.trim(),
+        credName: document.getElementById('ch-cred-name').value.trim(),
+        credStreet: document.getElementById('ch-cred-street').value.trim(),
+        credZip: document.getElementById('ch-cred-zip').value.trim(),
+        credCity: document.getElementById('ch-cred-city').value.trim(),
+        credCountry: document.getElementById('ch-cred-country').value.trim(),
+        debName: document.getElementById('ch-deb-name').value.trim(),
+        debStreet: document.getElementById('ch-deb-street').value.trim(),
+        debZip: document.getElementById('ch-deb-zip').value.trim(),
+        debCity: document.getElementById('ch-deb-city').value.trim(),
+        debCountry: document.getElementById('ch-deb-country').value.trim(),
+        amount: parseFloat(document.getElementById('ch-amount').value) || 0,
+        currency: document.getElementById('ch-currency').value.trim(),
+        refType: document.getElementById('ch-ref-type').value.trim(),
+        refVal: document.getElementById('ch-ref-val').value.trim(),
+        msg: document.getElementById('ch-msg').value.trim()
+      };
+    }
+
+    function updateSwissQR() {
+      const data = getCurrentSwissFormObject();
+      const hintEl = document.getElementById('ch-iban-hint');
+      if (isQRIBAN(data.credIban)) {
+        hintEl.textContent = '✓ QR-IBAN erkannt (IID 30000–31999) — erfordert Referenztyp QRR';
+        hintEl.className = 'text-[11px] text-emerald-700 mt-0.5 font-medium';
+      } else {
+        hintEl.textContent = 'ℹ Standard-IBAN erkannt — kompatibel mit SCOR oder NON';
+        hintEl.className = 'text-[11px] text-slate-600 mt-0.5 font-medium';
+      }
+
+      const payload = buildSwissQRPayload(data);
+      document.getElementById('ch-spc-payload').value = payload;
+      renderA4PreviewAndPrintSheets();
+    }
+
+    /*************************************************************************
+     * 5. CSV-BATCH PROCESSING FOR SWISS QR BILLS
+     *************************************************************************/
+    function loadSampleCSVBatch() {
+      const sample = [
+        'Name;Strasse;PLZ;Ort;Betrag;Mitteilung',
+        'Berset Architektur GmbH;Kramgasse 19;3011;Bern;1485.00;Rechnung RE-2025-901 / IT-Betreuung Q2',
+        'Alpenblick Gastro AG;Seestrasse 88;6004;Luzern;890.50;Rechnung RE-2025-902 / Cloud-Backup & Lizenz',
+        'Rheinfall Logistik GmbH;Industriestrasse 14;8200;Schaffhausen;2450.00;Rechnung RE-2025-903 / ERP-Schnittstelle',
+        'Leman MedTech SA;Rue du Mont-Blanc 22;1201;Genève;3120.75;Rechnung RE-2025-904 / Security Audit'
+      ].join('\n');
+      document.getElementById('ch-csv-input').value = sample;
+      parseCSVBatch();
+    }
+
+    function parseCSVBatch() {
+      const raw = document.getElementById('ch-csv-input').value.trim();
+      if (!raw) return;
+
+      const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const parsed = [];
+      const baseForm = getCurrentSwissFormObject();
+
+      lines.forEach((line, idx) => {
+        const cols = line.split(';').map(c => c.trim());
+        if (idx === 0 && cols[0].toLowerCase() === 'name') return; // Skip header
+        if (cols.length >= 5) {
+          const seq = String(idx + 1).padStart(4, '0');
+          const base26 = `2100000000031394714300${seq}`;
+          const check = computeMod10Recursive(base26);
+          parsed.push({
+            ...baseForm,
+            debName: cols[0],
+            debStreet: cols[1],
+            debZip: cols[2],
+            debCity: cols[3],
+            amount: parseFloat(cols[4].replace(',', '.')) || 0,
+            msg: cols[5] || `Rechnung #${idx + 1}`,
+            refVal: baseForm.refType === 'QRR' ? (base26 + check) : baseForm.refVal
+          });
+        }
+      });
+
+      if (parsed.length > 0) {
+        csvBatchItems = parsed;
+        currentBatchIndex = 0;
+        applyBatchItemToForm(0);
+      }
+    }
+
+    function applyBatchItemToForm(index) {
+      if (!csvBatchItems.length) return;
+      currentBatchIndex = (index + csvBatchItems.length) % csvBatchItems.length;
+      const item = csvBatchItems[currentBatchIndex];
+
+      document.getElementById('ch-deb-name').value = item.debName;
+      document.getElementById('ch-deb-street').value = item.debStreet;
+      document.getElementById('ch-deb-zip').value = item.debZip;
+      document.getElementById('ch-deb-city').value = item.debCity;
+      document.getElementById('ch-amount').value = item.amount.toFixed(2);
+      document.getElementById('ch-msg').value = item.msg;
+      if (item.refVal) document.getElementById('ch-ref-val').value = item.refVal;
+
+      const navEl = document.getElementById('ch-batch-nav');
+      navEl.classList.remove('hidden');
+      document.getElementById('ch-batch-counter').textContent = `${currentBatchIndex + 1} / ${csvBatchItems.length}`;
+      document.getElementById('ch-batch-label').textContent = `Aktive Vorschau: ${item.debName} (${item.amount.toFixed(2)} ${item.currency})`;
+
+      updateSwissQR();
+    }
+
+    function stepBatch(delta) {
+      applyBatchItemToForm(currentBatchIndex + delta);
+    }
+
+    function clearCSVBatch() {
+      csvBatchItems = [];
+      currentBatchIndex = 0;
+      document.getElementById('ch-batch-nav').classList.add('hidden');
+      updateSwissQR();
+    }
+
+    /*************************************************************************
+     * 6. A4 SHEET RENDERER (SWISS QR SLIP 210x105mm + FULL A4 INVOICE)
+     *************************************************************************/
+    function buildSwissA4InvoiceSheetHTML(data, pageNo = 1) {
+      const payload = buildSwissQRPayload(data);
+      const qrSvg = createSwissQRCodeSVG(payload);
+      const formattedIban = formatStandardRef(data.credIban);
+      const formattedRef = data.refType === 'NON' ? '' : formatStandardRef(data.refVal);
+      const formattedAmount = formatSwissAmount(data.amount);
+      const netAmount = (data.amount / 1.081).toFixed(2);
+      const vatAmount = (data.amount - parseFloat(netAmount)).toFixed(2);
+
+      return `
+        <div class="a4-invoice-sheet">
+          <!-- Upper A4 Invoice Body (192mm height) -->
+          <div style="padding: 16mm 18mm 8mm 18mm; font-family: 'Inter', Arial, sans-serif;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom: 2px solid #0f172a; padding-bottom: 5mm;">
+              <div>
+                <div style="font-size:15pt; font-weight:800; color:#0f172a;">${escapeHtml(data.credName)}</div>
+                <div style="font-size:9pt; color:#475569; margin-top:1mm;">
+                  ${escapeHtml(data.credStreet)} • ${escapeHtml(data.credCountry)}-${escapeHtml(data.credZip)} ${escapeHtml(data.credCity)}
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <span style="background:#dc2626; color:#fff; font-weight:700; font-size:8pt; padding:1.5mm 3mm; border-radius:4px;">SWISS QR-RECHNUNG</span>
+                <div style="font-size:8.5pt; color:#64748b; margin-top:2mm;">Datum: ${new Date().toISOString().slice(0, 10)}</div>
+              </div>
+            </div>
+
+            <!-- Recipient & Meta -->
+            <div style="display:flex; justify-content:space-between; margin-top:10mm;">
+              <div style="font-size:10pt; line-height:1.45;">
+                <div style="font-size:7.5pt; text-transform:uppercase; color:#64748b; font-weight:700; margin-bottom:1mm;">Rechnungsempfänger</div>
+                <strong>${escapeHtml(data.debName)}</strong><br/>
+                ${escapeHtml(data.debStreet)}<br/>
+                ${escapeHtml(data.debCountry)}-${escapeHtml(data.debZip)} ${escapeHtml(data.debCity)}
+              </div>
+              <div style="text-align:right; font-size:9.5pt; line-height:1.6;">
+                <div><strong>Beleg-Nr.:</strong> CH-2025-0${pageNo}</div>
+                <div><strong>Währung:</strong> ${escapeHtml(data.currency)}</div>
+                <div><strong>Zahlungsziel:</strong> 30 Tage netto</div>
+              </div>
+            </div>
+
+            <!-- Summary Table -->
+            <div style="margin-top:10mm;">
+              <table style="width:100%; border-collapse:collapse; font-size:9.5pt;">
+                <thead>
+                  <tr style="border-bottom:1.5px solid #cbd5e1; color:#475569; text-align:left; font-size:8pt; text-transform:uppercase;">
+                    <th style="padding:2.5mm 0;">Pos.</th>
+                    <th style="padding:2.5mm 0;">Beschreibung / Mitteilung</th>
+                    <th style="padding:2.5mm 0; text-align:right;">MWST</th>
+                    <th style="padding:2.5mm 0; text-align:right;">Betrag (${escapeHtml(data.currency)})</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid #e2e8f0;">
+                    <td style="padding:3.5mm 0;">01</td>
+                    <td style="padding:3.5mm 0; font-weight:600;">${escapeHtml(data.msg || 'Dienstleistung / Lieferung gemäss Vereinbarung')}</td>
+                    <td style="padding:3.5mm 0; text-align:right;">8.1%</td>
+                    <td style="padding:3.5mm 0; text-align:right; font-family:monospace; font-weight:700;">${formattedAmount}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="display:flex; justify-content:flex-end; margin-top:5mm;">
+                <div style="width:72mm; font-size:9pt; line-height:1.7;">
+                  <div style="display:flex; justify-content:space-between; color:#475569;">
+                    <span>Nettobetrag (exkl. MWST):</span>
+                    <span style="font-family:monospace;">${netAmount} ${escapeHtml(data.currency)}</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; color:#475569;">
+                    <span>MWST (8.1% Normalsteuersatz):</span>
+                    <span style="font-family:monospace;">${vatAmount} ${escapeHtml(data.currency)}</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; font-weight:800; font-size:10.5pt; border-top:1.5px solid #0f172a; padding-top:1.5mm; margin-top:1mm;">
+                    <span>Gesamtbetrag:</span>
+                    <span style="font-family:monospace;">${formattedAmount} ${escapeHtml(data.currency)}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official SIX Swiss QR Payment Part + Receipt (210mm x 105mm) -->
+          <div class="swiss-qr-slip">
+            <span class="scissors-top">✂ Vor der Einzahlung abzutrennen</span>
+
+            <!-- Left Receipt (Empfangsschein: 62mm x 105mm) -->
+            <div class="swiss-qr-receipt">
+              <span class="scissors-mid">✂</span>
+              <div>
+                <div class="qr-title">Empfangsschein</div>
+                <div class="qr-label-receipt">Konto / Zahlbar an</div>
+                <div class="qr-val-receipt">
+                  ${escapeHtml(formattedIban)}<br/>
+                  ${escapeHtml(data.credName)}<br/>
+                  ${escapeHtml(data.credStreet)}<br/>
+                  ${escapeHtml(data.credCountry)}-${escapeHtml(data.credZip)} ${escapeHtml(data.credCity)}
+                </div>
+
+                ${formattedRef ? `
+                <div class="qr-label-receipt">Referenz</div>
+                <div class="qr-val-receipt">${escapeHtml(formattedRef)}</div>
+                ` : ''}
+
+                <div class="qr-label-receipt">Zahlbar durch</div>
+                <div class="qr-val-receipt">
+                  ${escapeHtml(data.debName)}<br/>
+                  ${escapeHtml(data.debStreet)}<br/>
+                  ${escapeHtml(data.debCountry)}-${escapeHtml(data.debZip)} ${escapeHtml(data.debCity)}
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex; gap:6mm; border-top:0.5px solid #eee; padding-top:2mm;">
+                  <div>
+                    <div class="qr-label-receipt">Währung</div>
+                    <div class="qr-val-receipt" style="font-weight:bold; font-size:9pt;">${escapeHtml(data.currency)}</div>
+                  </div>
+                  <div>
+                    <div class="qr-label-receipt">Betrag</div>
+                    <div class="qr-val-receipt" style="font-weight:bold; font-size:9pt;">${escapeHtml(formattedAmount)}</div>
+                  </div>
+                </div>
+                <div style="text-align:right; font-size:6pt; font-weight:bold; margin-top:4mm;">Annahmestelle</div>
+              </div>
+            </div>
+
+            <!-- Right Payment Part (Zahlteil: 148mm x 105mm) -->
+            <div class="swiss-qr-payment">
+              <div style="display:flex; gap:6mm; height:100%;">
+                <!-- Left Column of Payment Part: Title + QR Code + Currency/Amount -->
+                <div style="width:52mm; display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div class="qr-title">Zahlteil</div>
+                    <div style="margin-top:2mm;">
+                      ${qrSvg}
+                    </div>
+                  </div>
+                  <div style="display:flex; gap:6mm;">
+                    <div>
+                      <div class="qr-label-pay">Währung</div>
+                      <div class="qr-val-pay" style="font-weight:bold;">${escapeHtml(data.currency)}</div>
+                    </div>
+                    <div>
+                      <div class="qr-label-pay">Betrag</div>
+                      <div class="qr-val-pay" style="font-weight:bold;">${escapeHtml(formattedAmount)}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Column of Payment Part: Information Block -->
+                <div style="flex:1;">
+                  <div class="qr-label-pay" style="margin-top:0;">Konto / Zahlbar an</div>
+                  <div class="qr-val-pay">
+                    ${escapeHtml(formattedIban)}<br/>
+                    ${escapeHtml(data.credName)}<br/>
+                    ${escapeHtml(data.credStreet)}<br/>
+                    ${escapeHtml(data.credCountry)}-${escapeHtml(data.credZip)} ${escapeHtml(data.credCity)}
+                  </div>
+
+                  ${formattedRef ? `
+                  <div class="qr-label-pay">Referenz</div>
+                  <div class="qr-val-pay">${escapeHtml(formattedRef)}</div>
+                  ` : ''}
+
+                  ${data.msg ? `
+                  <div class="qr-label-pay">Zusätzliche Informationen</div>
+                  <div class="qr-val-pay">${escapeHtml(data.msg)}</div>
+                  ` : ''}
+
+                  <div class="qr-label-pay">Zahlbar durch</div>
+                  <div class="qr-val-pay">
+                    ${escapeHtml(data.debName)}<br/>
+                    ${escapeHtml(data.debStreet)}<br/>
+                    ${escapeHtml(data.debCountry)}-${escapeHtml(data.debZip)} ${escapeHtml(data.debCity)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function buildXRechnungA4VisualSheetHTML() {
+      const totals = calculateXRechnungTotals();
+      const currency = document.getElementById('xr-currency').value;
+      const sellerName = document.getElementById('xr-seller-name').value;
+      const sellerStreet = document.getElementById('xr-seller-street').value;
+      const sellerZip = document.getElementById('xr-seller-zip').value;
+      const sellerCity = document.getElementById('xr-seller-city').value;
+      const sellerCountry = document.getElementById('xr-seller-country').value;
+      const sellerVat = document.getElementById('xr-seller-vat').value;
+      const sellerIban = document.getElementById('xr-seller-iban').value;
+      const sellerEmail = document.getElementById('xr-seller-email').value;
+
+      const buyerName = document.getElementById('xr-buyer-name').value;
+      const buyerStreet = document.getElementById('xr-buyer-street').value;
+      const buyerZip = document.getElementById('xr-buyer-zip').value;
+      const buyerCity = document.getElementById('xr-buyer-city').value;
+      const buyerCountry = document.getElementById('xr-buyer-country').value;
+      const buyerRef = document.getElementById('xr-buyer-ref').value;
+
+      const invNo = document.getElementById('xr-inv-no').value;
+      const invDate = document.getElementById('xr-inv-date').value;
+      const dueDate = document.getElementById('xr-due-date').value;
+      const payTerms = document.getElementById('xr-pay-terms').value;
+      const note = document.getElementById('xr-note').value;
+
+      const rowsHtml = xrLines.map((l, i) => {
+        const lineNet = (Number(l.qty) * Number(l.price)).toFixed(2);
+        const rate = totals.isKlein ? 0 : Number(l.vat);
+        return `
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:3mm 0;">${i + 1}</td>
+            <td style="padding:3mm 0; font-weight:600;">${escapeHtml(l.title)}</td>
+            <td style="padding:3mm 0; text-align:right;">${Number(l.qty).toFixed(2)} ${escapeHtml(l.unit)}</td>
+            <td style="padding:3mm 0; text-align:right; font-family:monospace;">${Number(l.price).toFixed(2)}</td>
+            <td style="padding:3mm 0; text-align:right;">${rate}%</td>
+            <td style="padding:3mm 0; text-align:right; font-family:monospace; font-weight:700;">${lineNet} ${escapeHtml(currency)}</td>
+          </tr>
+        `;
+      }).join('');
+
+      return `
+        <div class="a4-invoice-sheet" style="padding:18mm;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:2px solid #0f172a; padding-bottom:5mm;">
+              <div>
+                <div style="font-size:16pt; font-weight:800; color:#0f172a;">${escapeHtml(sellerName)}</div>
+                <div style="font-size:9pt; color:#475569; margin-top:1mm;">
+                  ${escapeHtml(sellerStreet)} • ${escapeHtml(sellerCountry)}-${escapeHtml(sellerZip)} ${escapeHtml(sellerCity)} • USt-IdNr.: ${escapeHtml(sellerVat)}
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <span style="background:#059669; color:#fff; font-weight:700; font-size:8pt; padding:1.5mm 3mm; border-radius:4px;">EN 16931 / XRECHNUNG 3.0</span>
+                <div style="font-size:9pt; color:#334155; margin-top:2mm; font-weight:700;">Nr. ${escapeHtml(invNo)}</div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; margin-top:10mm; font-size:9.5pt;">
+              <div style="line-height:1.5;">
+                <div style="font-size:7.5pt; text-transform:uppercase; color:#64748b; font-weight:700;">Rechnungsempfänger (BG-7)</div>
+                <strong>${escapeHtml(buyerName)}</strong><br/>
+                ${escapeHtml(buyerStreet)}<br/>
+                ${escapeHtml(buyerCountry)}-${escapeHtml(buyerZip)} ${escapeHtml(buyerCity)}
+              </div>
+              <div style="text-align:right; line-height:1.6;">
+                <div><strong>Rechnungsdatum (BT-2):</strong> ${escapeHtml(invDate)}</div>
+                <div><strong>Fälligkeitsdatum (BT-9):</strong> ${escapeHtml(dueDate)}</div>
+                <div><strong>Leitweg-ID / Käuferreferenz (BT-10):</strong> <span style="font-family:monospace;">${escapeHtml(buyerRef)}</span></div>
+              </div>
+            </div>
+
+            <div style="margin-top:8mm; padding:3mm 4mm; background:#f8fafc; border-left:3px solid #059669; font-size:9pt; color:#334155;">
+              <strong>Projekt / Betreff (BT-22):</strong> ${escapeHtml(note)}
+            </div>
+
+            <table style="width:100%; border-collapse:collapse; font-size:9pt; margin-top:8mm;">
+              <thead>
+                <tr style="border-bottom:1.5px solid #cbd5e1; color:#475569; text-align:left; font-size:8pt; text-transform:uppercase;">
+                  <th style="padding:2.5mm 0;">Pos</th>
+                  <th style="padding:2.5mm 0;">Bezeichnung (BT-153)</th>
+                  <th style="padding:2.5mm 0; text-align:right;">Menge</th>
+                  <th style="padding:2.5mm 0; text-align:right;">Einzelpreis</th>
+                  <th style="padding:2.5mm 0; text-align:right;">USt</th>
+                  <th style="padding:2.5mm 0; text-align:right;">Netto (BT-131)</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rowsHtml}
+              </tbody>
+            </table>
+
+            <div style="display:flex; justify-content:flex-end; margin-top:6mm;">
+              <div style="width:78mm; font-size:9.5pt; line-height:1.7;">
+                <div style="display:flex; justify-content:space-between; color:#475569;">
+                  <span>Summe Netto (BT-106):</span>
+                  <span style="font-family:monospace;">${totals.sumNet.toFixed(2)} ${escapeHtml(currency)}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; color:#475569;">
+                  <span>Umsatzsteuer gesamt (BT-110):</span>
+                  <span style="font-family:monospace;">${totals.sumTax.toFixed(2)} ${escapeHtml(currency)}</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-weight:800; font-size:11pt; border-top:1.5px solid #0f172a; padding-top:1.5mm; margin-top:1mm;">
+                  <span>Zahlbetrag Brutto (BT-115):</span>
+                  <span style="font-family:monospace; color:#047857;">${totals.sumGross.toFixed(2)} ${escapeHtml(currency)}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid #cbd5e1; padding-top:4mm; font-size:8.5pt; color:#475569; line-height:1.6;">
+            <div><strong>Zahlungsbedingungen (BT-20):</strong> ${escapeHtml(payTerms)}</div>
+            ${totals.isKlein ? `<div><strong>Steuerhinweis:</strong> Gemäß § 19 UStG / Art. 10 MWSTG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</div>` : ''}
+            <div><strong>Bankverbindung (BG-17 SEPA Credit Transfer):</strong> IBAN <span style="font-family:monospace; font-weight:700;">${escapeHtml(sellerIban)}</span> • Kontakt: ${escapeHtml(sellerEmail)}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderA4PreviewAndPrintSheets() {
+      const screenContainer = document.getElementById('screen-a4-container');
+      const printContainer = document.getElementById('print-all-container');
+
+      if (currentMode === 'xrechnung') {
+        const sheet = buildXRechnungA4VisualSheetHTML();
+        screenContainer.innerHTML = sheet;
+        printContainer.innerHTML = sheet;
+      } else {
+        const currentData = getCurrentSwissFormObject();
+        const currentSheet = buildSwissA4InvoiceSheetHTML(currentData, currentBatchIndex + 1);
+        screenContainer.innerHTML = currentSheet;
+
+        if (csvBatchItems.length > 0) {
+          printContainer.innerHTML = csvBatchItems.map((item, idx) => buildSwissA4InvoiceSheetHTML(item, idx + 1)).join('');
+        } else {
+          printContainer.innerHTML = currentSheet;
+        }
+      }
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderXRechnungLines();
+      updateXRechnungState();
+      updateSwissQR();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Kleinunternehmer- & USt-Vorsteuer-Rechner 2026 (EU-Kleinunternehmer-Richtlinie DE, AT, CH) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser Kleinunternehmer- & Vorsteuerrechner 2026 für Deutschland (§ 19 UStG n.F., 25.000 €), Österreich (§ 6 UStG, 42.000 €) & Schweiz (100.000 CHF). Schwellenwert-Monitoring, Vorsteuer-Vergleich & DIN-A4 Ausdruck." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/kleinunternehmer-vorsteuer-rechner/" />
+  <meta property="og:title" content="DACH Kleinunternehmer- & USt-Vorsteuer-Rechner 2026 (DE, AT, CH)" />
+  <meta property="og:description" content="Lohnt sich die Kleinunternehmerregelung? Berechnen Sie Vorsteuer-Ersparnis, B2C-Margenvorteil und Schwellenwerte 2026 100% lokal im Browser." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/kleinunternehmer-vorsteuer-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 18mm 18mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 9pt;
+      line-height: 1.45;
+      position: relative;
+    }
+
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Kleinunternehmer- & USt-Vorsteuer-Rechner 2026",
+    "url": "https://dach-digitalwerk.netlify.app/kleinunternehmer-vorsteuer-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Amtliche Grenzwerte 2026 für Deutschland (§ 19 UStG n.F., 25.000 €), Österreich (§ 6 UStG, 42.000 €) und die Schweiz (100.000 CHF). Berechnet B2C-Margenvorteil, Vorsteuerverlust und druckfertige Rentabilitätsnachweise 100% client-side im Browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Kleinunternehmergrenze 2026 in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemäß § 19 UStG n.F. und der EU-Kleinunternehmer-Richtlinie (RL 2020/285) beträgt die Umsatzgrenze des vorangegangenen Kalenderjahres 25.000 Euro (angehoben von bisher 22.000 Euro). Im laufenden Kalenderjahr gilt national ebenfalls die 25.000-Euro-Grenze bzw. für grenzüberschreitende EU-Kleinunternehmer eine Obergrenze von 100.000 Euro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann lohnt sich die Kleinunternehmerregelung wirtschaftlich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Kleinunternehmerregelung lohnt sich vor allem bei einem hohen Anteil an Privatkunden (B2C) und geringen betrieblichen Investitionen, da die Umsatzsteuer nicht abgeführt werden muss. Bei hohen Investitionen oder überwiegenden Unternehmenskunden (B2B) ist die Regelbesteuerung meist vorteilhafter, da die Vorsteuer vom Finanzamt erstattet wird."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Schwellenwerte gelten 2026 in Österreich und der Schweiz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Österreich (§ 6 Abs. 1 Z 27 UStG n.F.) wurde die Grenze 2026 auf 42.000 Euro angehoben, mit einer einmaligen 55.000-Euro-Toleranzgrenze innerhalb von 5 Jahren. In der Schweiz (Art. 10 MWSTG) gilt eine weltweite Umsatzbefreiungsgrenze von 100.000 CHF (150.000 CHF für gemeinnützige Sport- und Kulturvereine)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-40 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../" class="flex items-center gap-2 group">
+          <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition">DW</span>
+          <span class="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-2.5 py-0.5 rounded-full hidden sm:inline">Tool #14: Kleinunternehmer 2026</span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="#druckansicht" onclick="scrollToPrintView()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+          <span>🖨️</span>
+          <span class="hidden md:inline">DIN-A4 Nachweis</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md shadow-amber-500/20 transition">
+          <span>⭐</span>
+          <span>B2B Pro-Paket</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="py-10 sm:py-14 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>EU-Kleinunternehmer-Richtlinie RL (EU) 2020/285 &amp; BMF 2026</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          DACH Kleinunternehmer- &amp; USt-Vorsteuer-Rechner 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Simulieren Sie den wirtschaftlichen Netto-Vorteil der Kleinunternehmerregelung gegenüber der Regelbesteuerung. Amtliche Schwellenwertprüfung für <strong>Deutschland (25.000 €)</strong>, <strong>Österreich (42.000 €)</strong> und die <strong>Schweiz (100.000 CHF)</strong>. 100% lokal &amp; DSGVO-sicher im Browser.
+        </p>
+
+        <!-- COUNTRY SWITCHER -->
+        <div class="pt-4 flex flex-wrap items-center gap-2">
+          <span class="text-xs font-bold text-slate-400 mr-2">Wirtschaftsraum wählen:</span>
+          <button type="button" onclick="setCountry('DE')" id="btn-country-DE" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-600/20">
+            <span>🇩🇪</span>
+            <span>Deutschland (§ 19 UStG)</span>
+          </button>
+          <button type="button" onclick="setCountry('AT')" id="btn-country-AT" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+            <span>🇦🇹</span>
+            <span>Österreich (§ 6 UStG)</span>
+          </button>
+          <button type="button" onclick="setCountry('CH')" id="btn-country-CH" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+            <span>🇨🇭</span>
+            <span>Schweiz (Art. 10 MWSTG)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN INTERACTIVE APP -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 no-print">
+
+    <!-- TOP ROW: SCHWELLENWERT-MONITOR & GRENZÜBERTRITTS-WARNER -->
+    <div class="bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 sm:p-8 backdrop-blur shadow-xl space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700 pb-5">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Schritt 1 • Gesetzliche Schwellenwert-Prüfung</span>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-white mt-1" id="threshold-box-title">
+            Amtliche Grenzwerte 2026 (Deutschland)
+          </h2>
+        </div>
+        <div id="status-badge" class="px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+          <span>✓</span>
+          <span>Zulässig im Rahmen § 19 UStG</span>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 text-xs">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1.5" for="input-prev-turnover">
+            Umsatz Vorjahr (<span class="currency-sym">€</span>)
+          </label>
+          <input type="number" id="input-prev-turnover" value="18500" min="0" step="500" oninput="runAllCalculations()" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+          <span class="text-[11px] text-slate-400 mt-1 block" id="prev-turnover-hint">Grenzschwelle 2026: max. 25.000 €</span>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-300 mb-1.5" for="input-curr-turnover">
+            Geplanter Jahresumsatz 2026 (<span class="currency-sym">€</span>)
+          </label>
+          <input type="number" id="input-curr-turnover" value="23800" min="0" step="500" oninput="syncRevenueAndCalculate(this.value)" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+          <span class="text-[11px] text-slate-400 mt-1 block" id="curr-turnover-hint">Nationale Schwelle: max. 25.000 €</span>
+        </div>
+
+        <div class="sm:col-span-2 lg:col-span-1 bg-slate-900/60 p-4 rounded-2xl border border-slate-700/60 flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-300">
+            <span class="font-bold">Auslastung der Grenze:</span>
+            <span id="progress-pct" class="font-mono font-extrabold text-emerald-400">95.2 %</span>
+          </div>
+          <!-- Progress Bar -->
+          <div class="w-full bg-slate-950 h-3 rounded-full overflow-hidden border border-slate-800 my-2">
+            <div id="progress-bar-fill" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-300" style="width: 95.2%;"></div>
+          </div>
+          <div class="flex justify-between text-[11px] text-slate-400">
+            <span>0 <span class="currency-sym">€</span></span>
+            <span id="limit-label" class="font-bold text-slate-200">25.000 € Grenze</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DYNAMIC WARNING OR CONFIRMATION NOTICE -->
+      <div id="threshold-alert-box" class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 text-xs text-emerald-300 leading-relaxed flex items-start gap-3">
+        <span class="text-xl">💡</span>
+        <div id="threshold-alert-text">
+          <strong>Schwellenwert-Status:</strong> Ihr geplanter Umsatz von 23.800 € liegt innerhalb der neuen 25.000 €-Grenze (§ 19 UStG n.F.). Puffer bis zur Obergrenze: 1.200 €. Sie sind berechtigt, auf den Ausweis von Umsatzsteuer zu verzichten.
+        </div>
+      </div>
+    </div>
+
+    <!-- MIDDLE ROW: DYNAMISCHE RENTABILITÄTS-SIMULATION -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT: EINGABEPARAMETER (7 COLUMNS) -->
+      <div class="lg:col-span-7 bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 sm:p-8 backdrop-blur shadow-xl space-y-6">
+        <div class="border-b border-slate-700 pb-4">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Schritt 2 • Kosten- & Kundenstruktur</span>
+          <h3 class="text-xl font-extrabold text-white mt-1">
+            Lohnt sich die Kleinunternehmerregelung?
+          </h3>
+          <p class="text-xs text-slate-300 mt-1">
+            Geben Sie Ihre Kundenstruktur und geplante Anschaffungen ein, um den Vorsteuer-Effekt exakt zu quantifizieren.
+          </p>
+        </div>
+
+        <!-- B2B vs B2C Anteil Slider -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <label for="input-b2b-slider" class="font-bold text-slate-200 flex items-center gap-1.5">
+              <span>Kundenstruktur:</span>
+              <span id="b2b-pct-label" class="text-emerald-400 font-mono font-black text-sm">30 % B2B</span>
+              <span class="text-slate-400 font-normal">/</span>
+              <span id="b2c-pct-label" class="text-teal-400 font-mono font-black text-sm">70 % B2C</span>
+            </label>
+            <span class="text-[11px] text-slate-400">Verhältnis B2B (Firmen) zu B2C (Privat)</span>
+          </div>
+          <input type="range" id="input-b2b-slider" min="0" max="100" value="30" step="5" oninput="updateB2BSlider(this.value)" class="w-full accent-emerald-500 bg-slate-900 rounded-lg h-2 cursor-pointer">
+          <div class="flex justify-between text-[11px] text-slate-400">
+            <span>0% B2B (100% Privatkunden)</span>
+            <span>50%</span>
+            <span>100% B2B (Nur Geschäftskunden)</span>
+          </div>
+        </div>
+
+        <!-- Betriebsausgaben & Investitionen -->
+        <div class="grid sm:grid-cols-2 gap-4 text-xs">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1" for="input-operating-expenses">
+              Laufende Betriebsausgaben (<span class="currency-sym">€</span> Netto / Jahr)
+            </label>
+            <input type="number" id="input-operating-expenses" value="3200" min="0" step="200" oninput="runAllCalculations()" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+            <span class="text-[11px] text-slate-400 mt-1 block">Software, Webhosting, Büromaterial, Telefon</span>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-300 mb-1" for="input-investments">
+              Investitionen / CAPEX (<span class="currency-sym">€</span> Netto / Jahr)
+            </label>
+            <input type="number" id="input-investments" value="2500" min="0" step="200" oninput="runAllCalculations()" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+            <span class="text-[11px] text-slate-400 mt-1 block">Hardware, Maschinen, Fahrzeuge, Inventar</span>
+          </div>
+        </div>
+
+        <!-- Steuersätze & Admin-Kosten -->
+        <div class="grid sm:grid-cols-2 gap-4 text-xs pt-2">
+          <div>
+            <label class="block font-bold text-slate-300 mb-1" for="select-vat-rate">
+              Durchschnittlicher Vorsteuersatz
+            </label>
+            <select id="select-vat-rate" onchange="runAllCalculations()" class="w-full px-3 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white text-xs font-semibold focus:border-emerald-500 focus:outline-none transition">
+              <option value="0.19" selected>19 % (Regelsteuersatz DE)</option>
+              <option value="0.07">7 % (Ermäßigter Satz DE)</option>
+              <option value="0.20">20 % (Normalsatz Österreich)</option>
+              <option value="0.10">10 % (Ermäßigt Österreich)</option>
+              <option value="0.081">8,1 % (Normalsatz Schweiz)</option>
+              <option value="0.026">2,6 % (Reduziert Schweiz)</option>
+            </select>
+            <span class="text-[11px] text-slate-400 mt-1 block">Steuersatz Ihrer betrieblichen Einkäufe</span>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-300 mb-1" for="input-admin-cost">
+              Bürokratiemehraufwand Regelbesteuerung (<span class="currency-sym">€</span>)
+            </label>
+            <input type="number" id="input-admin-cost" value="400" min="0" step="50" oninput="runAllCalculations()" class="w-full px-4 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+            <span class="text-[11px] text-slate-400 mt-1 block">Kosten für Voranmeldungen, Buchhaltungssoftware &amp; StB</span>
+          </div>
+        </div>
+
+        <!-- DETAIL-TABELLE GEGENÜBERSTELLUNG -->
+        <div class="pt-4 border-t border-slate-700/80">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-slate-300 block mb-3">
+            Detaillierte Gewinn- &amp; Liquiditätsmatrix
+          </span>
+          <div class="overflow-x-auto rounded-2xl border border-slate-700">
+            <table class="w-full text-xs text-left">
+              <thead class="bg-slate-950/80 text-slate-400 font-bold border-b border-slate-700 uppercase tracking-wider text-[10px]">
+                <tr>
+                  <th class="py-3 px-4">Posten</th>
+                  <th class="py-3 px-4 text-emerald-400">Als Kleinunternehmer</th>
+                  <th class="py-3 px-4 text-sky-400">Mit Regelbesteuerung</th>
+                  <th class="py-3 px-4 text-right">Differenz</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800 font-mono text-slate-200">
+                <tr>
+                  <td class="py-2.5 px-4 font-sans text-slate-300">Geplanter Umsatz</td>
+                  <td class="py-2.5 px-4" id="matrix-ku-revenue">23.800,00 €</td>
+                  <td class="py-2.5 px-4" id="matrix-std-revenue">23.800,00 €</td>
+                  <td class="py-2.5 px-4 text-right text-slate-400">0,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-4 font-sans text-slate-300">Umsatzsteuer-Zahllast (B2C)</td>
+                  <td class="py-2.5 px-4 text-emerald-400 font-bold">0,00 €</td>
+                  <td class="py-2.5 px-4 text-rose-400" id="matrix-std-tax">-2.660,17 €</td>
+                  <td class="py-2.5 px-4 text-right text-emerald-400 font-bold" id="matrix-diff-tax">+2.660,17 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-4 font-sans text-slate-300">Gezogene Vorsteuer (Rückerstattung)</td>
+                  <td class="py-2.5 px-4 text-slate-500 font-bold">0,00 € (ausgeschlossen)</td>
+                  <td class="py-2.5 px-4 text-emerald-400 font-bold" id="matrix-std-vorsteuer">+1.083,00 €</td>
+                  <td class="py-2.5 px-4 text-right text-rose-400 font-bold" id="matrix-diff-vorsteuer">-1.083,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-4 font-sans text-slate-300">Ausgaben brutto vs. netto</td>
+                  <td class="py-2.5 px-4 text-rose-300" id="matrix-ku-expenses">-6.783,00 € (Brutto)</td>
+                  <td class="py-2.5 px-4 text-slate-300" id="matrix-std-expenses">-5.700,00 € (Netto)</td>
+                  <td class="py-2.5 px-4 text-right text-rose-400" id="matrix-diff-expenses">-1.083,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 px-4 font-sans text-slate-300">Bürokratie- &amp; StB-Aufwand</td>
+                  <td class="py-2.5 px-4 text-emerald-400 font-bold">0,00 €</td>
+                  <td class="py-2.5 px-4 text-rose-300" id="matrix-std-admin">-400,00 €</td>
+                  <td class="py-2.5 px-4 text-right text-emerald-400 font-bold" id="matrix-diff-admin">+400,00 €</td>
+                </tr>
+                <tr class="bg-slate-950/60 font-bold text-sm">
+                  <td class="py-3 px-4 font-sans text-white">Reingewinn / Liquidität</td>
+                  <td class="py-3 px-4 text-emerald-400" id="matrix-ku-final">17.017,00 €</td>
+                  <td class="py-3 px-4 text-sky-400" id="matrix-std-final">15.039,83 €</td>
+                  <td class="py-3 px-4 text-right text-emerald-400" id="matrix-diff-final">+1.977,17 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: VISUELLE EMPFEHLUNGSKARTE (5 COLUMNS) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- DYNAMISCHE EMPFEHLUNGS-HAUPTKARTE -->
+        <div id="recommendation-card" class="rounded-3xl p-6 sm:p-8 border-2 transition-all duration-300 bg-gradient-to-br from-emerald-950/80 to-slate-900 border-emerald-500 shadow-2xl shadow-emerald-500/10 space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black uppercase tracking-wider text-emerald-400 bg-emerald-950/90 border border-emerald-700/80 px-3 py-1 rounded-full" id="rec-badge">
+              ✓ Klare Empfehlung
+            </span>
+            <span class="text-3xl" id="rec-icon">🟢</span>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-black text-white leading-snug" id="rec-title">
+              Kleinunternehmerregelung lohnt sich!
+            </h3>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed" id="rec-description">
+              Durch Ihren B2C-Kundenanteil und moderate Investitionen erzielen Sie als Kleinunternehmer einen messbaren wirtschaftlichen Vorteil.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 text-center space-y-1">
+            <span class="text-[11px] uppercase tracking-wider font-extrabold text-slate-400 block" id="rec-net-label">
+              Errechneter Netto-Vorteil / Jahr
+            </span>
+            <div class="text-3xl sm:text-4xl font-black font-mono text-emerald-400" id="rec-net-val">
+              +1.977,17 €
+            </div>
+            <span class="text-[10px] text-slate-400 block" id="rec-net-subtext">
+              Mehr Gewinn im Vergleich zur Regelbesteuerung
+            </span>
+          </div>
+
+          <div class="space-y-2 text-xs text-slate-300">
+            <div class="font-bold text-white">Wichtigste Faktoren:</div>
+            <ul class="space-y-1.5" id="rec-reasons-list">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>B2C-Margenvorteil:</strong> Sie behalten die 19 % USt der Privatkunden.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold">✓</span>
+                <span><strong>Bürokratie-Ersparnis:</strong> Keine monatlichen USt-Voranmeldungen.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-rose-400 font-bold">✕</span>
+                <span><strong>Nachteil Vorsteuer:</strong> 1.083,00 € Vorsteuer können nicht abgezogen werden.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- BREAK-EVEN METRICS -->
+          <div class="border-t border-slate-800 pt-4 space-y-2 text-xs">
+            <div class="flex justify-between text-slate-300">
+              <span>Kipp-Punkt Investitionen (CAPEX):</span>
+              <strong id="be-invest-val" class="font-mono text-white">ab 12.906 €</strong>
+            </div>
+            <div class="flex justify-between text-slate-300">
+              <span>Kipp-Punkt B2B-Kundenanteil:</span>
+              <strong id="be-b2b-val" class="font-mono text-white">ab 84.5 % B2B</strong>
+            </div>
+            <span class="text-[10px] text-slate-400 block">
+              Erreichen Ihre Investitionen oder Ihr B2B-Anteil diese Schwellen, wird die Regelbesteuerung lukrativer.
+            </span>
+          </div>
+
+          <div class="pt-2">
+            <button onclick="scrollToPrintView()" class="w-full py-3 px-4 rounded-xl font-extrabold text-xs bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center justify-center gap-2">
+              <span>🖨️ DIN-A4 Auswertung für Buchhaltung generieren</span>
+              <span>↓</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- B2B GUMROAD PRO BOX -->
+        <div class="rounded-3xl p-6 bg-gradient-to-tr from-slate-900 to-slate-800 border border-slate-700 shadow-xl space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl font-bold">
+              ⚡
+            </div>
+            <div>
+              <h4 class="text-sm font-extrabold text-white">DACH Kleinunternehmer Pro-Paket 2026</h4>
+              <span class="text-[11px] text-slate-400">Rechtssichere Vorlagen &amp; Excel-Vorsteuer-Matrix</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sparen Sie Stunden bei der Steuererklärung: Vorkonfigurierte Excel-Matrix mit 7%/19% USt-Trennung, Musterrechnungen nach § 19 UStG n.F. und EU-Richtlinie 2026.
+          </p>
+          <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full py-3 px-4 rounded-xl text-xs font-black bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20">
+            <span>Paket auf Gumroad öffnen (4,90 €)</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RATGEBER LINK SECTION (PROGRAMMATIC SEO CLUSTER) -->
+    <section class="border-t border-slate-800 pt-12 space-y-6">
+      <div class="max-w-2xl">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Wissen &amp; Leitfäden</span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-1">
+          Fundierte Ratgeber zu Kleinunternehmerregelung &amp; Vorsteuer 2026
+        </h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Detaillierte Fachartikel mit Gesetzeszitaten, Berechnungsbeispielen und Checklisten für Deutschland, Österreich und die Schweiz.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5">
+        <a href="../kleinunternehmer-grenze-2026-deutschland-oesterreich.html" class="p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 transition group flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Ratgeber 1</span>
+            <h4 class="text-sm font-extrabold text-white group-hover:text-emerald-400 transition mt-1">
+              Kleinunternehmergrenze 2026 DE &amp; AT
+            </h4>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Neue 25.000 € Schwelle in Deutschland, 42.000 € in Österreich und die 55.000 € Toleranzgrenze im BMF-Vergleich.
+            </p>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold mt-4 flex items-center gap-1">Artikel lesen →</span>
+        </a>
+
+        <a href="../vorsteuerabzug-lohnt-sich-kleinunternehmerregelung-vergleich.html" class="p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 transition group flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Ratgeber 2</span>
+            <h4 class="text-sm font-extrabold text-white group-hover:text-emerald-400 transition mt-1">
+              Vorsteuerabzug vs. B2C-Margenvorteil
+            </h4>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Wann die Regelbesteuerung lukrativer ist, wie B2B-Kunden kalkulieren und wie die 5-jährige Bindungsfrist funktioniert.
+            </p>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold mt-4 flex items-center gap-1">Artikel lesen →</span>
+        </a>
+
+        <a href="../mwst-befreiung-schweiz-freiberufler-selbststaendige.html" class="p-5 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 transition group flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Ratgeber 3</span>
+            <h4 class="text-sm font-extrabold text-white group-hover:text-emerald-400 transition mt-1">
+              MWST-Befreiung Schweiz 2026
+            </h4>
+            <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+              100.000 CHF Schwelle nach Art. 10 MWSTG, Saldosteuersatzmethode und freiwillige Unterstellung für Start-ups.
+            </p>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold mt-4 flex items-center gap-1">Artikel lesen →</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- DRUCKFERTIGE DIN-A4 AUSWERTUNG                                        -->
+  <!-- ===================================================================== -->
+  <section id="druckansicht" class="py-12 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 no-print">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Druckansicht &amp; Nachweisdokument</span>
+          <h2 class="text-2xl font-black text-white mt-1">
+            Prüffähige DIN-A4 Dokumentation für Buchhaltung &amp; Steuerberater
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">
+            Diese Auswertung dient als rechnerischer Nachweis für Ihre Unterlagen, Bankgespräche oder die steuerliche Dokumentation.
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="window.print()" class="px-5 py-2.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/20 transition flex items-center gap-2">
+            <span>🖨️</span>
+            <span>Als PDF drucken / speichern</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- EDITIERBARE FORMULARFELDER FÜR DEN AUSDRUCK -->
+      <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 grid sm:grid-cols-3 gap-4 text-xs no-print">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-company">Unternehmensbezeichnung / Name</label>
+          <input type="text" id="print-input-company" value="Musterfirma / Max Mustermann" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-taxid">Steuernummer / USt-IdNr.</label>
+          <input type="text" id="print-input-taxid" value="123/456/78901 (Finanzamt Musterstadt)" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-date">Prüfungszeitraum / Datum</label>
+          <input type="text" id="print-input-date" value="Wirtschaftsjahr 2026 (Prognose)" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+      </div>
+
+      <!-- DAS TATSÄCHLICHE DIN-A4 BLATT -->
+      <div class="a4-sheet-wrapper">
+        <div class="a4-sheet" id="print-a4-sheet">
+
+          <!-- KOPFZEILE -->
+          <div class="flex justify-between items-start border-b-2 border-slate-900 pb-4 mb-5">
+            <div>
+              <div class="text-lg font-black tracking-tight text-slate-900">
+                WIRTSCHAFTLICHE RENTABILITÄTSANALYSE &amp; SCHWELLENWERT-DOKUMENTATION
+              </div>
+              <div class="text-[9pt] text-slate-600 font-medium">
+                Prüfung der Kleinunternehmerregelung 2026 gem. EU-Kleinunternehmer-RL &amp; nationalem Steuerrecht
+              </div>
+            </div>
+            <div class="text-right text-[8pt] text-slate-500 font-mono">
+              DACH DIGITALWERK B2B<br>
+              Erstellt am: <span id="print-doc-date">23.10.2026</span>
+            </div>
+          </div>
+
+          <!-- STAMMDATEN -->
+          <div class="grid grid-cols-2 gap-4 bg-slate-50 p-3.5 rounded-lg border border-slate-200 text-[8.5pt] mb-5">
+            <div>
+              <span class="text-slate-500 block text-[7.5pt] uppercase font-bold">Steuerpflichtiger / Unternehmen:</span>
+              <strong id="print-company-name" class="text-slate-900 font-bold">Musterfirma / Max Mustermann</strong>
+              <div class="text-slate-600" id="print-company-taxid">123/456/78901 (Finanzamt Musterstadt)</div>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[7.5pt] uppercase font-bold">Prüfungsmaßstab &amp; Wirtschaftsraum:</span>
+              <strong id="print-country-basis" class="text-slate-900 font-bold">Deutschland (§ 19 UStG n.F. 2026)</strong>
+              <div class="text-slate-600" id="print-exam-period">Wirtschaftsjahr 2026 (Prognose)</div>
+            </div>
+          </div>
+
+          <!-- SCHWELLENWERT-STATUS -->
+          <div class="mb-5">
+            <div class="text-[9.5pt] font-extrabold text-slate-900 uppercase tracking-wide border-b border-slate-300 pb-1 mb-2">
+              1. Amtlicher Schwellenwert-Status
+            </div>
+            <table class="w-full text-[8.5pt] border-collapse">
+              <tbody>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Umsatz vorangegangenes Kalenderjahr:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="print-val-prev-turnover">18.500,00 €</td>
+                  <td class="py-1 text-slate-500 text-right text-[8pt]" id="print-limit-prev-hint">Max. 25.000,00 € zulässig</td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Prognostizierter Umsatz laufendes Jahr 2026:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="print-val-curr-turnover">23.800,00 €</td>
+                  <td class="py-1 text-slate-500 text-right text-[8pt]" id="print-limit-curr-hint">Max. 25.000,00 € national</td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Schwellenauslastung &amp; Puffer:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="print-val-utilization">95.2 %</td>
+                  <td class="py-1 text-emerald-700 font-bold text-right text-[8pt]" id="print-val-buffer">Puffer: 1.200,00 €</td>
+                </tr>
+                <tr class="bg-slate-100 font-bold">
+                  <td class="py-1.5 px-2 text-slate-900">Gesetzlicher Status gem. BMF:</td>
+                  <td colspan="2" class="py-1.5 px-2 text-right text-emerald-800" id="print-val-status-text">
+                    ✓ Kleinunternehmerregelung rechtlich zulässig
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- RENTABILITÄTS-MATRIX -->
+          <div class="mb-5">
+            <div class="text-[9.5pt] font-extrabold text-slate-900 uppercase tracking-wide border-b border-slate-300 pb-1 mb-2">
+              2. Gegenüberstellung: Kleinunternehmer vs. Regelbesteuerung
+            </div>
+            <table class="w-full text-[8pt] border border-slate-300">
+              <thead class="bg-slate-200 text-slate-800 font-bold text-[7.5pt]">
+                <tr>
+                  <th class="p-1.5 text-left border-r border-slate-300">Wirtschaftlicher Posten</th>
+                  <th class="p-1.5 text-right border-r border-slate-300">Kleinunternehmer (§ 19)</th>
+                  <th class="p-1.5 text-right border-r border-slate-300">Regelbesteuerung (USt)</th>
+                  <th class="p-1.5 text-right">Differenzvorteil</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-mono">
+                <tr>
+                  <td class="p-1.5 font-sans border-r border-slate-300">Gesamtumsatz (Brutto)</td>
+                  <td class="p-1.5 text-right border-r border-slate-300" id="p-ku-rev">23.800,00 €</td>
+                  <td class="p-1.5 text-right border-r border-slate-300" id="p-std-rev">23.800,00 €</td>
+                  <td class="p-1.5 text-right font-bold text-slate-700">0,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans border-r border-slate-300">Abzuführende Umsatzsteuer (B2C)</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-emerald-700 font-bold">0,00 €</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-rose-700" id="p-std-tax">-2.660,17 €</td>
+                  <td class="p-1.5 text-right text-emerald-700 font-bold" id="p-diff-tax">+2.660,17 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans border-r border-slate-300">Vorsteuer-Rückerstattung auf Ausgaben</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-slate-400">0,00 € (Verlust)</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-emerald-700 font-bold" id="p-std-vorsteuer">+1.083,00 €</td>
+                  <td class="p-1.5 text-right text-rose-700 font-bold" id="p-diff-vorsteuer">-1.083,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans border-r border-slate-300">Betriebsausgaben &amp; Investitionen</td>
+                  <td class="p-1.5 text-right border-r border-slate-300" id="p-ku-exp">-6.783,00 €</td>
+                  <td class="p-1.5 text-right border-r border-slate-300" id="p-std-exp">-5.700,00 €</td>
+                  <td class="p-1.5 text-right text-rose-700" id="p-diff-exp">-1.083,00 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1.5 font-sans border-r border-slate-300">Bürokratie- &amp; Voranmeldungsaufwand</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-emerald-700 font-bold">0,00 €</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-rose-700" id="p-std-admin">-400,00 €</td>
+                  <td class="p-1.5 text-right text-emerald-700 font-bold" id="p-diff-admin">+400,00 €</td>
+                </tr>
+                <tr class="bg-slate-100 font-bold text-[8.5pt]">
+                  <td class="p-2 font-sans text-slate-900 border-r border-slate-300">Netto-Verfügungsbetrag / Liquidität:</td>
+                  <td class="p-2 text-right border-r border-slate-300 text-emerald-800" id="p-ku-final">17.017,00 €</td>
+                  <td class="p-2 text-right border-r border-slate-300 text-slate-900" id="p-std-final">15.039,83 €</td>
+                  <td class="p-2 text-right text-emerald-800" id="p-diff-final">+1.977,17 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- FAZIT & KIPP-PUNKTE -->
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg text-[8pt] space-y-1.5 mb-6">
+            <strong class="text-slate-900 block font-bold">Empfehlungsergebnis &amp; Sensitivitätsanalyse:</strong>
+            <p class="text-slate-700 leading-relaxed" id="print-recommendation-paragraph">
+              Die Inanspruchnahme der Kleinunternehmerregelung verschafft dem Unternehmen im Wirtschaftsjahr 2026 einen rechnerischen Netto-Vorteil von <strong>+1.977,17 €</strong>. Ein Wechsel zur Regelbesteuerung würde sich erst bei Investitionen über <strong>12.906,00 €</strong> oder einem B2B-Kundenanteil von über <strong>84,5 %</strong> wirtschaftlich amortisieren.
+            </p>
+          </div>
+
+          <!-- UNTERSCHRIFTEN & BESTÄTIGUNG -->
+          <div class="grid grid-cols-2 gap-8 pt-6 border-t border-slate-300 text-[8pt]">
+            <div>
+              <div class="border-b border-slate-400 h-10 mb-1"></div>
+              <span class="text-slate-600 block">Ort, Datum &amp; Unterschrift Steuerpflichtiger</span>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 h-10 mb-1"></div>
+              <span class="text-slate-600 block">Vermerk Steuerberater / Buchhaltung / Bank</span>
+            </div>
+          </div>
+
+          <!-- FOOTER DER DRUCKANSICHT -->
+          <div class="absolute bottom-4 left-6 right-6 text-center text-[7pt] text-slate-400 border-t border-slate-200 pt-2">
+            Erstellt mit dem DACH Kleinunternehmer- &amp; USt-Vorsteuer-Rechner 2026 • https://dach-digitalwerk.netlify.app/kleinunternehmer-vorsteuer-rechner/ • Keine Steuerberatung gem. § 2 RDG / § 5 StBerG.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein mathematisches und deskriptives Hilfsmittel zur Schwellenwertprüfung und Rentabilitätsberechnung nach § 19 UStG n.F., der EU-Kleinunternehmer-Richtlinie RL (EU) 2020/285, § 6 Abs. 1 Z 27 UStG n.F. (Österreich) sowie Art. 10 MWSTG (Schweiz). Es wird ausdrücklich <strong>keine individuelle Steuer- oder Rechtsberatung</strong> erbracht. Die Nutzung und Auswertung erfolgt in alleiniger Verantwortung des Anwenders. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">Allgemeinen Geschäftsbedingungen</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD B2B PAKET CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+      
+      <div class="text-center space-y-2 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white flex items-center justify-center text-xl font-bold mx-auto shadow-md shadow-emerald-500/20">
+          ⭐
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">DACH Kleinunternehmer B2B-Paket 2026</h3>
+        <p class="text-xs text-slate-500">
+          Einmalig 4,90 € / CHF • Vollständige Excel-Vorsteuer-Matrix, § 19 UStG Rechnungsvorlagen &amp; BMF-Prüfliste
+        </p>
+      </div>
+
+      <div class="space-y-3 mb-6 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Excel-Vorsteuer-Matrix 2026:</strong> Automatisierte Berechnung von 7%/19% Vorsteuer für EÜR.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Rechnungsvorlagen 2026:</strong> Mit allen Pflichtangaben und rechtssicheren Hinweisen auf § 19 UStG.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>100% DSGVO-Sicherheit:</strong> Keine Cloud-Speicherung, lebenslange Offline-Nutzung.</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <a id="modal-gumroad-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Auf Gumroad freischalten (4,90 €)</span>
+          <span>→</span>
+        </a>
+
+        <div class="text-center">
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Oder Gutscheincode einlösen</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="z. B. PRO2026" class="flex-1 px-4 py-2.5 bg-slate-100 border border-slate-300 rounded-xl text-xs uppercase font-mono text-slate-900 focus:bg-white focus:border-emerald-600 transition">
+          <button onclick="redeemVoucher()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition">
+            Einlösen
+          </button>
+        </div>
+        <div id="voucher-error" class="text-rose-600 text-xs font-semibold text-center hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // State
+    let currentCountry = 'DE'; // 'DE', 'AT', 'CH'
+    let isProUnlocked = false;
+
+    // Amtliche Grenzwerte 2026
+    const CONFIG = {
+      DE: {
+        name: 'Deutschland',
+        currency: 'EUR',
+        sym: '€',
+        limitPrevYear: 25000,
+        limitCurrYear: 25000,
+        limitEu: 100000,
+        standardVat: 0.19,
+        legalBasis: '§ 19 UStG n.F. & RL (EU) 2020/285',
+        title: 'Amtliche Grenzwerte 2026 (Deutschland)',
+        prevHint: 'Vorjahresschwelle: max. 25.000 € (angehoben von 22.000 €)',
+        currHint: 'Nationale Schwelle: max. 25.000 € (EU-weit bis 100.000 €)'
+      },
+      AT: {
+        name: 'Österreich',
+        currency: 'EUR',
+        sym: '€',
+        limitPrevYear: 42000,
+        limitCurrYear: 42000,
+        toleranceLimit: 55000,
+        standardVat: 0.20,
+        legalBasis: '§ 6 Abs. 1 Z 27 UStG n.F. (EU-AbgÄG)',
+        title: 'Amtliche Grenzwerte 2026 (Österreich)',
+        prevHint: 'Vorjahresschwelle: max. 42.000 € Netto (angehoben von 35.000 €)',
+        currHint: 'Toleranzgrenze: bis zu 55.000 € (1x in 5 Jahren zulässig)'
+      },
+      CH: {
+        name: 'Schweiz',
+        currency: 'CHF',
+        sym: 'CHF',
+        limitPrevYear: 100000,
+        limitCurrYear: 100000,
+        standardVat: 0.081,
+        legalBasis: 'Art. 10 & Art. 37 MWSTG',
+        title: 'MWST-Befreiungsgrenze 2026 (Schweiz)',
+        prevHint: 'Befreiungsgrenze: 100.000 CHF weltweiter Umsatz',
+        currHint: 'Gemeinnützige Sport-/Kulturvereine: bis 150.000 CHF'
+      }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(code => {
+        const btn = document.getElementById(`btn-country-${code}`);
+        if (code === c) {
+          btn.className = "country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-600/20";
+        } else {
+          btn.className = "country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700";
+        }
+      });
+
+      // Update Currency symbols in DOM
+      const sym = CONFIG[c].sym;
+      document.querySelectorAll('.currency-sym').forEach(el => el.textContent = sym);
+
+      // Set default inputs according to country typicals
+      if (c === 'DE') {
+        document.getElementById('input-prev-turnover').value = 18500;
+        document.getElementById('input-curr-turnover').value = 23800;
+        document.getElementById('select-vat-rate').value = "0.19";
+      } else if (c === 'AT') {
+        document.getElementById('input-prev-turnover').value = 32000;
+        document.getElementById('input-curr-turnover').value = 39500;
+        document.getElementById('select-vat-rate').value = "0.20";
+      } else if (c === 'CH') {
+        document.getElementById('input-prev-turnover').value = 75000;
+        document.getElementById('input-curr-turnover').value = 88000;
+        document.getElementById('select-vat-rate').value = "0.081";
+      }
+
+      document.getElementById('threshold-box-title').textContent = CONFIG[c].title;
+      document.getElementById('prev-turnover-hint').textContent = CONFIG[c].prevHint;
+      document.getElementById('curr-turnover-hint').textContent = CONFIG[c].currHint;
+      document.getElementById('limit-label').textContent = `${CONFIG[c].limitCurrYear.toLocaleString('de-DE')} ${sym} Grenze`;
+
+      runAllCalculations();
+    }
+
+    function syncRevenueAndCalculate(val) {
+      runAllCalculations();
+    }
+
+    function updateB2BSlider(val) {
+      const b2b = parseFloat(val);
+      const b2c = 100 - b2b;
+      document.getElementById('b2b-pct-label').textContent = `${b2b} % B2B`;
+      document.getElementById('b2c-pct-label').textContent = `${b2c} % B2C`;
+      runAllCalculations();
+    }
+
+    function formatNumber(num, sym) {
+      return num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + sym;
+    }
+
+    function runAllCalculations() {
+      const cfg = CONFIG[currentCountry];
+      const sym = cfg.sym;
+
+      const prevTurnover = Math.max(0, parseFloat(document.getElementById('input-prev-turnover').value) || 0);
+      const currTurnover = Math.max(0, parseFloat(document.getElementById('input-curr-turnover').value) || 0);
+      const b2bPct = Math.max(0, Math.min(100, parseFloat(document.getElementById('input-b2b-slider').value) || 0));
+      const b2cPct = 100 - b2bPct;
+
+      const operatingExp = Math.max(0, parseFloat(document.getElementById('input-operating-expenses').value) || 0);
+      const investments = Math.max(0, parseFloat(document.getElementById('input-investments').value) || 0);
+      const totalExpensesNet = operatingExp + investments;
+
+      const vatRate = parseFloat(document.getElementById('select-vat-rate').value) || cfg.standardVat;
+      const adminCost = Math.max(0, parseFloat(document.getElementById('input-admin-cost').value) || 0);
+
+      // 1. Schwellenwert-Logik
+      const limit = cfg.limitCurrYear;
+      const utilization = limit > 0 ? (currTurnover / limit) * 100 : 0;
+      const buffer = limit - currTurnover;
+
+      document.getElementById('progress-pct').textContent = utilization.toFixed(1) + ' %';
+      const fillBar = document.getElementById('progress-bar-fill');
+      fillBar.style.width = Math.min(100, utilization) + '%';
+
+      const alertBox = document.getElementById('threshold-alert-box');
+      const alertText = document.getElementById('threshold-alert-text');
+      const badge = document.getElementById('status-badge');
+
+      if (currentCountry === 'DE') {
+        if (prevTurnover > 25000) {
+          fillBar.className = "bg-rose-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>✕</span><span>Ausgeschlossen (Vorjahr > 25.000 €)</span>";
+          alertBox.className = "p-4 rounded-2xl bg-rose-950/50 border border-rose-800 text-xs text-rose-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Ausschluss der Kleinunternehmerregelung:</strong> Ihr Vorjahresumsatz (${formatNumber(prevTurnover, sym)}) übersteigt die gesetzliche Grenze von 25.000 €. Sie müssen im Jahr 2026 zwingend regelbesteuert abrechnen und 19 % / 7 % USt in Rechnung stellen.`;
+        } else if (currTurnover > 25000) {
+          fillBar.className = "bg-rose-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>⚠️</span><span>Grenzübertritt 2026</span>";
+          alertBox.className = "p-4 rounded-2xl bg-rose-950/50 border border-rose-800 text-xs text-rose-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Achtung Grenzübertritt:</strong> Ihr geplanter Umsatz (${formatNumber(currTurnover, sym)}) übersteigt die nationale Schwelle von 25.000 €. <em>Maßnahme:</em> Rechnungsstellung umstellen, USt-IdNr. beantragen und Vorsteuer-Belege sichern!`;
+        } else if (utilization >= 80) {
+          fillBar.className = "bg-amber-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>⚠️</span><span>Schwellennähe (Puffer beachten)</span>";
+          alertBox.className = "p-4 rounded-2xl bg-amber-950/40 border border-amber-800/60 text-xs text-amber-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Warnstufe Schwellennähe:</strong> Sie erreichen ${utilization.toFixed(1)} % der Grenze. Restlicher Puffer bis zum Wegfall: <strong>${formatNumber(buffer, sym)}</strong>. Monatliche Überwachung dringend empfohlen.`;
+        } else {
+          fillBar.className = "bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>✓</span><span>Zulässig im Rahmen § 19 UStG</span>";
+          alertBox.className = "p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 text-xs text-emerald-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Schwellenwert-Status:</strong> Ihr Umsatz (${formatNumber(currTurnover, sym)}) liegt sicher unter der 25.000 €-Grenze. Puffer: <strong>${formatNumber(buffer, sym)}</strong>. Keine Umsatzsteuerpflicht.`;
+        }
+      } else if (currentCountry === 'AT') {
+        const tolerance = cfg.toleranceLimit;
+        if (currTurnover > tolerance) {
+          fillBar.className = "bg-rose-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>✕</span><span>Toleranz überschritten (> 55.000 €)</span>";
+          alertBox.className = "p-4 rounded-2xl bg-rose-950/50 border border-rose-800 text-xs text-rose-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Toleranzgrenze überschritten:</strong> Ihr Umsatz liegt über 55.000 €. Die Befreiung gem. § 6 Abs. 1 Z 27 UStG entfällt zwingend.`;
+        } else if (currTurnover > 42000) {
+          fillBar.className = "bg-amber-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>⚠️</span><span>Toleranzzone (42k - 55k €)</span>";
+          alertBox.className = "p-4 rounded-2xl bg-amber-950/40 border border-amber-800/60 text-xs text-amber-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Toleranzregelung aktiv:</strong> Regelschwelle 42.000 € überschritten, liegt jedoch unter 55.000 €. Nur zulässig, wenn in den letzten 4 Wirtschaftsjahren nicht genutzt!`;
+        } else {
+          fillBar.className = "bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>✓</span><span>Österreichische Befreiung erfüllt</span>";
+          alertBox.className = "p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 text-xs text-emerald-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Schwellenwert-Status:</strong> Ihr Umsatz (${formatNumber(currTurnover, sym)}) liegt innerhalb der österreichischen 42.000 € Grenze.`;
+        }
+      } else { // CH
+        if (currTurnover > 100000) {
+          fillBar.className = "bg-rose-500 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>⚠️</span><span>Obligatorische MWST-Pflicht</span>";
+          alertBox.className = "p-4 rounded-2xl bg-rose-950/50 border border-rose-800 text-xs text-rose-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Obligatorische Steuerpflicht:</strong> Bei über 100.000 CHF Umsatz müssen Sie sich bei der Eidgenössischen Steuerverwaltung (ESTV) registrieren.`;
+        } else {
+          fillBar.className = "bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-300";
+          badge.className = "px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5";
+          badge.innerHTML = "<span>✓</span><span>Von MWST-Pflicht befreit</span>";
+          alertBox.className = "p-4 rounded-2xl bg-emerald-950/40 border border-emerald-800/60 text-xs text-emerald-300 leading-relaxed flex items-start gap-3";
+          alertText.innerHTML = `<strong>Befreit:</strong> Ihr Umsatz von ${formatNumber(currTurnover, sym)} liegt unter 100.000 CHF. Freiwillige Unterstellung für Vorsteuerabzug möglich.`;
+        }
+      }
+
+      // 2. Rentabilitäts-Berechnung
+      const b2bRevenue = currTurnover * (b2bPct / 100);
+      const b2cRevenue = currTurnover * (b2cPct / 100);
+
+      // Bei Privatkunden (B2C) ist der Preis brutto fixiert. Bei Regelbesteuerung muss die USt herausgerechnet & abgeführt werden:
+      // USt = B2C_Revenue * (vatRate / (1 + vatRate))
+      const outputTaxB2C = b2cRevenue * (vatRate / (1 + vatRate));
+
+      // Vorsteuer-Abzug bei Regelbesteuerung auf Ausgaben & Investitionen:
+      const inputTaxDeductible = totalExpensesNet * vatRate;
+
+      // Verwaltungsmehrkosten bei Regelbesteuerung
+      const adminDiff = adminCost;
+
+      // Netto-Vorteil Kleinunternehmer:
+      // Vorteil = gesparte USt bei B2C + gesparte Admin-Kosten - entgangener Vorsteuerabzug
+      const netAdvantage = (outputTaxB2C + adminDiff) - inputTaxDeductible;
+
+      // Liquidität Kleinunternehmer:
+      // Einnahmen Brutto - Ausgaben Brutto (inkl. nicht abziehbarer USt)
+      const kuExpensesGross = totalExpensesNet * (1 + vatRate);
+      const kuProfit = currTurnover - kuExpensesGross;
+
+      // Liquidität Regelbesteuerung:
+      // Einnahmen Netto (B2C Netto + B2B Netto) - Ausgaben Netto - Admin
+      const stdRevenueNet = (currTurnover - outputTaxB2C);
+      const stdProfit = stdRevenueNet - totalExpensesNet - adminDiff;
+
+      // Break-Even Investitionen:
+      // (operatingExp + BE_Invest) * vatRate = outputTaxB2C + adminDiff
+      const neededTotalExp = vatRate > 0 ? (outputTaxB2C + adminDiff) / vatRate : 0;
+      const beInvest = Math.max(0, neededTotalExp - operatingExp);
+
+      // Break-Even B2B-Anteil:
+      const taxFactor = (vatRate / (1 + vatRate));
+      let beB2B = 50.0;
+      if (currTurnover > 0 && taxFactor > 0) {
+        const targetB2C = (inputTaxDeductible - adminDiff) / (currTurnover * taxFactor);
+        beB2B = Math.max(0, Math.min(100, (1 - targetB2C) * 100));
+      }
+
+      // Update DOM Matrix
+      document.getElementById('matrix-ku-revenue').textContent = formatNumber(currTurnover, sym);
+      document.getElementById('matrix-std-revenue').textContent = formatNumber(currTurnover, sym);
+
+      document.getElementById('matrix-std-tax').textContent = '-' + formatNumber(outputTaxB2C, sym);
+      document.getElementById('matrix-diff-tax').textContent = '+' + formatNumber(outputTaxB2C, sym);
+
+      document.getElementById('matrix-std-vorsteuer').textContent = '+' + formatNumber(inputTaxDeductible, sym);
+      document.getElementById('matrix-diff-vorsteuer').textContent = '-' + formatNumber(inputTaxDeductible, sym);
+
+      document.getElementById('matrix-ku-expenses').textContent = '-' + formatNumber(kuExpensesGross, sym) + ' (Brutto)';
+      document.getElementById('matrix-std-expenses').textContent = '-' + formatNumber(totalExpensesNet, sym) + ' (Netto)';
+      document.getElementById('matrix-diff-expenses').textContent = '-' + formatNumber(inputTaxDeductible, sym);
+
+      document.getElementById('matrix-std-admin').textContent = '-' + formatNumber(adminDiff, sym);
+      document.getElementById('matrix-diff-admin').textContent = '+' + formatNumber(adminDiff, sym);
+
+      document.getElementById('matrix-ku-final').textContent = formatNumber(kuProfit, sym);
+      document.getElementById('matrix-std-final').textContent = formatNumber(stdProfit, sym);
+      
+      const diffFinal = document.getElementById('matrix-diff-final');
+      if (netAdvantage >= 0) {
+        diffFinal.textContent = '+' + formatNumber(netAdvantage, sym);
+        diffFinal.className = "py-3 px-4 text-right text-emerald-400 font-bold";
+      } else {
+        diffFinal.textContent = '-' + formatNumber(Math.abs(netAdvantage), sym);
+        diffFinal.className = "py-3 px-4 text-right text-sky-400 font-bold";
+      }
+
+      // Update Recommendation Card
+      const recCard = document.getElementById('recommendation-card');
+      const recBadge = document.getElementById('rec-badge');
+      const recIcon = document.getElementById('rec-icon');
+      const recTitle = document.getElementById('rec-title');
+      const recDesc = document.getElementById('rec-description');
+      const recVal = document.getElementById('rec-net-val');
+      const recList = document.getElementById('rec-reasons-list');
+
+      if (netAdvantage > 150) {
+        recCard.className = "rounded-3xl p-6 sm:p-8 border-2 transition-all duration-300 bg-gradient-to-br from-emerald-950/80 to-slate-900 border-emerald-500 shadow-2xl shadow-emerald-500/10 space-y-5";
+        recBadge.className = "text-xs font-black uppercase tracking-wider text-emerald-400 bg-emerald-950/90 border border-emerald-700/80 px-3 py-1 rounded-full";
+        recBadge.textContent = "✓ Kleinunternehmer empfohlen";
+        recIcon.textContent = "🟢";
+        recTitle.textContent = "Kleinunternehmerregelung lohnt sich!";
+        recDesc.textContent = `Durch Ihren hohen B2C-Kundenanteil (${b2cPct.toFixed(0)} %) übersteigt die gesparte Umsatzsteuer den entgangenen Vorsteuerabzug deutlich.`;
+        recVal.textContent = '+' + formatNumber(netAdvantage, sym);
+        recVal.className = "text-3xl sm:text-4xl font-black font-mono text-emerald-400";
+        recList.innerHTML = `
+          <li class="flex items-start gap-2"><span class="text-emerald-400 font-bold">✓</span><span><strong>B2C-Margenvorteil:</strong> +${formatNumber(outputTaxB2C, sym)} verbleiben vollständig in Ihrer Kasse.</span></li>
+          <li class="flex items-start gap-2"><span class="text-emerald-400 font-bold">✓</span><span><strong>Bürokratie-Ersparnis:</strong> ca. +${formatNumber(adminDiff, sym)} gespart durch Verzicht auf Voranmeldungen.</span></li>
+          <li class="flex items-start gap-2"><span class="text-rose-400 font-bold">✕</span><span><strong>Entgangener Vorsteuerabzug:</strong> -${formatNumber(inputTaxDeductible, sym)} auf Ihre Ausgaben & Investitionen.</span></li>
+        `;
+      } else if (netAdvantage < -150) {
+        recCard.className = "rounded-3xl p-6 sm:p-8 border-2 transition-all duration-300 bg-gradient-to-br from-sky-950/80 to-slate-900 border-sky-500 shadow-2xl shadow-sky-500/10 space-y-5";
+        recBadge.className = "text-xs font-black uppercase tracking-wider text-sky-400 bg-sky-950/90 border border-sky-700/80 px-3 py-1 rounded-full";
+        recBadge.textContent = "★ Regelbesteuerung lukrativer!";
+        recIcon.textContent = "🔵";
+        recTitle.textContent = "Regelbesteuerung / Vorsteuerabzug empfohlen";
+        recDesc.textContent = `Aufgrund hoher Investitionen (${formatNumber(investments, sym)}) und eines B2B-Kundenanteils von ${b2bPct.toFixed(0)} % ist der Vorsteuerabzug lukrativer als die Kleinunternehmerregelung.`;
+        recVal.textContent = '+' + formatNumber(Math.abs(netAdvantage), sym);
+        recVal.className = "text-3xl sm:text-4xl font-black font-mono text-sky-400";
+        recList.innerHTML = `
+          <li class="flex items-start gap-2"><span class="text-sky-400 font-bold">✓</span><span><strong>Hohe Vorsteuer-Erstattung:</strong> +${formatNumber(inputTaxDeductible, sym)} Erstattung vom Finanzamt auf Ihre Ausgaben.</span></li>
+          <li class="flex items-start gap-2"><span class="text-sky-400 font-bold">✓</span><span><strong>Voller Vorsteuerabzug für B2B-Kunden:</strong> ${formatNumber(b2bRevenue, sym)} B2B-Umsatz ohne Margenverlust.</span></li>
+          <li class="flex items-start gap-2"><span class="text-amber-400 font-bold">!</span><span><strong>5-jährige Bindungsfrist:</strong> Verzicht gem. § 19 Abs. 2 UStG bindet Sie für mindestens 5 Kalenderjahre.</span></li>
+        `;
+      } else {
+        recCard.className = "rounded-3xl p-6 sm:p-8 border-2 transition-all duration-300 bg-gradient-to-br from-amber-950/80 to-slate-900 border-amber-500 shadow-2xl shadow-amber-500/10 space-y-5";
+        recBadge.className = "text-xs font-black uppercase tracking-wider text-amber-400 bg-amber-950/90 border border-amber-700/80 px-3 py-1 rounded-full";
+        recBadge.textContent = "⚖️ Wirtschaftlich ausgeglichen";
+        recIcon.textContent = "🟡";
+        recTitle.textContent = "Grenzbereich (Gleichstand)";
+        recDesc.textContent = "Vorsteuerabzug und B2C-Margenersparnis halten sich nahezu die Waage. Entscheiden Sie nach bürokratischem Arbeitsaufwand.";
+        recVal.textContent = formatNumber(netAdvantage, sym);
+        recVal.className = "text-3xl sm:text-4xl font-black font-mono text-amber-400";
+        recList.innerHTML = `
+          <li class="flex items-start gap-2"><span class="text-amber-400 font-bold">•</span><span>Vorsteuer (${formatNumber(inputTaxDeductible, sym)}) deckt B2C-Vorteil (${formatNumber(outputTaxB2C, sym)}) fast 1:1.</span></li>
+          <li class="flex items-start gap-2"><span class="text-emerald-400 font-bold">✓</span><span>Kleinunternehmer spart Arbeitszeit für Steuerbürokratie.</span></li>
+        `;
+      }
+
+      document.getElementById('be-invest-val').textContent = `ab ${formatNumber(beInvest, sym)}`;
+      document.getElementById('be-b2b-val').textContent = `ab ${beB2B.toFixed(1)} % B2B`;
+
+      // Update Print View Sheet
+      updatePrintSheetValues(prevTurnover, currTurnover, utilization, buffer, b2cPct, b2bPct, outputTaxB2C, inputTaxDeductible, totalExpensesNet, adminDiff, netAdvantage, kuProfit, stdProfit, beInvest, beB2B, sym, cfg);
+    }
+
+    function updatePrintSheetValues(prevTurnover, currTurnover, utilization, buffer, b2cPct, b2bPct, outputTaxB2C, inputTaxDeductible, totalExpensesNet, adminDiff, netAdvantage, kuProfit, stdProfit, beInvest, beB2B, sym, cfg) {
+      document.getElementById('print-country-basis').textContent = `${cfg.name} (${cfg.legalBasis})`;
+      document.getElementById('print-val-prev-turnover').textContent = formatNumber(prevTurnover, sym);
+      document.getElementById('print-val-curr-turnover').textContent = formatNumber(currTurnover, sym);
+      document.getElementById('print-val-utilization').textContent = `${utilization.toFixed(1)} %`;
+      document.getElementById('print-val-buffer').textContent = `Puffer: ${formatNumber(buffer, sym)}`;
+      
+      const statusText = document.getElementById('print-val-status-text');
+      if (currTurnover <= cfg.limitCurrYear && prevTurnover <= cfg.limitPrevYear) {
+        statusText.textContent = `✓ Kleinunternehmerregelung rechtlich zulässig (${cfg.legalBasis})`;
+        statusText.className = "py-1.5 px-2 text-right text-emerald-800 font-bold";
+      } else {
+        statusText.textContent = `✕ Schwellenwert überschritten – Pflicht zur Regelbesteuerung`;
+        statusText.className = "py-1.5 px-2 text-right text-rose-800 font-bold";
+      }
+
+      // Matrix in print view
+      document.getElementById('p-ku-rev').textContent = formatNumber(currTurnover, sym);
+      document.getElementById('p-std-rev').textContent = formatNumber(currTurnover, sym);
+
+      document.getElementById('p-std-tax').textContent = '-' + formatNumber(outputTaxB2C, sym);
+      document.getElementById('p-diff-tax').textContent = '+' + formatNumber(outputTaxB2C, sym);
+
+      document.getElementById('p-std-vorsteuer').textContent = '+' + formatNumber(inputTaxDeductible, sym);
+      document.getElementById('p-diff-vorsteuer').textContent = '-' + formatNumber(inputTaxDeductible, sym);
+
+      document.getElementById('p-ku-exp').textContent = '-' + formatNumber(currTurnover - kuProfit, sym);
+      document.getElementById('p-std-exp').textContent = '-' + formatNumber(totalExpensesNet, sym);
+      document.getElementById('p-diff-exp').textContent = '-' + formatNumber(inputTaxDeductible, sym);
+
+      document.getElementById('p-std-admin').textContent = '-' + formatNumber(adminDiff, sym);
+      document.getElementById('p-diff-admin').textContent = '+' + formatNumber(adminDiff, sym);
+
+      document.getElementById('p-ku-final').textContent = formatNumber(kuProfit, sym);
+      document.getElementById('p-std-final').textContent = formatNumber(stdProfit, sym);
+      document.getElementById('p-diff-final').textContent = (netAdvantage >= 0 ? '+' : '-') + formatNumber(Math.abs(netAdvantage), sym);
+
+      // Paragraph
+      const pPara = document.getElementById('print-recommendation-paragraph');
+      if (netAdvantage >= 0) {
+        pPara.innerHTML = `Die Inanspruchnahme der Kleinunternehmerregelung verschafft dem Unternehmen im Wirtschaftsjahr 2026 einen rechnerischen Netto-Vorteil von <strong>+${formatNumber(netAdvantage, sym)}</strong>. Ein Wechsel zur Regelbesteuerung amortisiert sich erst bei Investitionen über <strong>${formatNumber(beInvest, sym)}</strong> oder einem B2B-Kundenanteil von über <strong>${beB2B.toFixed(1)} %</strong>.`;
+      } else {
+        pPara.innerHTML = `Die Inanspruchnahme der Regelbesteuerung (Vorsteuerabzug) verschafft dem Unternehmen einen rechnerischen Netto-Vorteil von <strong>+${formatNumber(Math.abs(netAdvantage), sym)}</strong>. Durch hohe Vorsteuern auf Investitionen (${formatNumber(inputTaxDeductible, sym)}) wird die USt-Ersparnis übertroffen.`;
+      }
+    }
+
+    function updatePrintValues() {
+      document.getElementById('print-company-name').textContent = document.getElementById('print-input-company').value || 'Musterfirma';
+      document.getElementById('print-company-taxid').textContent = document.getElementById('print-input-taxid').value || '-';
+      document.getElementById('print-exam-period').textContent = document.getElementById('print-input-date').value || '2026';
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckansicht').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal Logic
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'VORSTEUER2026', 'KLEIN2026', 'BMF2026', 'GUMROAD'];
+      if (validCodes.includes(val)) {
+        isProUnlocked = true;
+        closeCheckoutModal();
+        alert("B2B Kleinunternehmer Pro-Paket 2026 erfolgreich freigeschaltet!");
+        const btn = document.getElementById('header-unlock-btn');
+        if (btn) {
+          btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+          btn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+          btn.onclick = null;
+        }
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Gutscheincode. Bitte Code prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Init on load
+    window.addEventListener('DOMContentLoaded', () => {
+      runAllCalculations();
+      updatePrintValues();
+    });
+  </script>
+</body>
+</html>

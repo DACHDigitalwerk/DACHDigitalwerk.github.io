@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schweizer QR-Rechnung kostenlos online & aus Excel erstellen (SIX-Standard ohne Abo) | DACH Digitalwerk</title>
+  <meta name="description" content="Erstellen Sie druckfertige Schweizer QR-Rechnungen nach offiziellem SIX-Standard v2.2 kostenlos im Browser. Einzelrechnung oder CSV/Excel-Stapel mit QR-IBAN, SCOR & QRR – 100% client-side." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/schweizer-qr-rechnung-kostenlos-erstellen.html" />
+  <meta property="og:title" content="Schweizer QR-Rechnung kostenlos online & aus Excel erstellen (SIX-Standard)" />
+  <meta property="og:description" content="Kostenloser Browser-Generator für die Schweizer QR-Rechnung. Konform mit SIX Guidelines, sofort druckbar als PDF auf DIN A4." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/schweizer-qr-rechnung-kostenlos-erstellen.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_CH" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org SoftwareApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DACH Swiss QR-Rechnung Express Generator",
+    "operatingSystem": "All modern browsers (Chrome, Safari, Firefox, Edge)",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF"
+    },
+    "description": "Erstellung von Schweizer QR-Zahlteilen nach SIX Swiss Payment Standards v2.2 direkt im Webbrowser ohne Abo oder Cloud-Speicherung."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist die erstellte QR-Rechnung konform mit den offiziellen SIX-Vorgaben?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Unser Generator hält sich strikt an die 'Schweizer Implementation Guidelines QR-bill v2.2' der SIX. Der Zahlteil hat exakt 210 x 105 mm, enthält das Schweizer Kreuz im QR-Code und verwendet die vorgeschriebenen Schriftgrößen und Perforationsmarkierungen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Muss ich meine Kundendaten auf einen externen Server hochladen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. DACH Digitalwerk arbeitet zu 100% Client-Side. Der QR-Code und die druckfertigen Belege werden ausschließlich in Ihrem Browser via JavaScript berechnet. Keine Bankdaten oder Adressen verlassen Ihr Gerät."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen QR-IBAN und regulärer IBAN?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine QR-IBAN (Erkennungsmerkmal: IID zwischen 30000 und 31999) wird zwingend in Kombination mit einer 27-stelligen QR-Referenz (QRR) verwendet, ähnlich dem früheren ESR-Verfahren. Eine normale IBAN wird mit der ISO-11649-Referenz (SCOR) oder ganz ohne Referenz (NON) genutzt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">Schweizer Datenschutz (revDSG) & Zero-Server-Speicherung</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-emerald-300">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-900 via-slate-900 to-teal-700 text-white flex items-center justify-center font-extrabold tracking-tight">
+          QR
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Finanzen & Swiss QR-Standards</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./qr-suite/" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/20 transition flex items-center gap-1.5">
+          <span>🧾 Swiss QR Generator öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-emerald-600">Home</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">Schweizer QR-Rechnung kostenlos erstellen</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+        <span>🇨🇭 Offizieller SIX-Standard v2.2</span>
+        <span>•</span>
+        <span>Kostenlos & Ohne Abo</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Schweizer QR-Rechnung kostenlos online & aus Excel erstellen
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Seit dem endgültigen Aus für die roten und orangen Einzahlungsscheine (ESR) ist die <strong>Schweizer QR-Rechnung</strong> für alle Unternehmen, Vereine und Selbstständigen in der Schweiz verpflichtend. Mit unserer Browser-Suite generieren Sie normgerechte Zahlteile einzeln oder im Stapel aus Excel – ohne teure ERP-Software und ohne monatliche Abogebühren.
+      </p>
+    </header>
+
+    <!-- CTA HERO BOX -->
+    <section class="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-800/40">
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Sofort einsatzbereit</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">QR-Rechnung in unter 60 Sekunden erstellen</h2>
+        <p class="text-sm text-slate-300 max-w-xl">
+          Geben Sie einfach IBAN, Betrag und Empfängerdaten ein – unser Schweizer QR-Generator zeichnet den normkonformen SIX Swiss QR Code in Echtzeit und stellt das druckfertige DIN-A4 PDF bereit.
+        </p>
+      </div>
+      <a href="./qr-suite/" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition">
+        Kostenlos QR-Rechnung erstellen →
+      </a>
+    </section>
+
+    <!-- ANFORDERUNGEN NACH SIX GUIDELINES -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900">Die offiziellen SIX-Vorgaben für den QR-Zahlteil</h2>
+      <p class="text-sm text-slate-600 leading-relaxed">
+        Damit Schweizer Banken (UBS, PostFinance, Raiffeisen, Kantonalbanken) die QR-Rechnung fehlerfrei scannen und verarbeiten, müssen strenge geometrische und inhaltliche Vorgaben erfüllt sein:
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="text-2xl">📐</div>
+          <h3 class="font-bold text-slate-900 text-base">210 × 105 mm Format</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Der Zahlteil befindet sich am unteren Rand einer DIN-A4-Seite. Er teilt sich in den Empfangsschein (links, 62 mm) und den Zahlteil (rechts, 148 mm).
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="text-2xl">🇨🇭</div>
+          <h3 class="font-bold text-slate-900 text-base">Swiss Cross & Kontrast</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Im Zentrum des 46 × 46 mm großen QR-Codes muss exakt das weiße Schweizer Kreuz auf schwarzem Quadrat platziert sein. Das verhindert Verwechslungen mit generischen QR-Codes.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="text-2xl">✂️</div>
+          <h3 class="font-bold text-slate-900 text-base">Perforationslinie</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Wird die Rechnung auf weißem Papier gedruckt, muss über dem Zahlteil eine Trennlinie mit Scherensymbol oder Perforationshinweis abgebildet sein.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENZARTEN TABELLE -->
+    <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Die 3 Verfahren der Schweizer QR-Rechnung</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-100 text-xs font-bold uppercase text-slate-600">
+            <tr>
+              <th class="p-3">Verfahren</th>
+              <th class="p-3">IBAN-Typ</th>
+              <th class="p-3">Referenznummer</th>
+              <th class="p-3">Typischer Anwendungsbereich</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-xs">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900">QR-Rechnung mit QR-IBAN (QRR)</td>
+              <td class="p-3">Spezielle QR-IBAN Ihrer Schweizer Bank</td>
+              <td class="p-3 font-mono">27-stellige numerische QR-Referenz mit Prüfziffer Modulo 10</td>
+              <td class="p-3 text-slate-600">Ersetzt das alte ESR-Verfahren. Automatischer OP-Abgleich bei KMU und Vereinen.</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900">QR-Rechnung mit SCOR (Creditor Reference)</td>
+              <td class="p-3">Normale IBAN (z. B. CHxx...)</td>
+              <td class="p-3 font-mono">ISO 11649 Referenz (beginnt mit „RF“)</td>
+              <td class="p-3 text-slate-600">Internationaler SEPA-Standard, grenzüberschreitende Rechnungen in CHF oder EUR.</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3 font-bold text-slate-900">QR-Rechnung ohne Referenz (NON)</td>
+              <td class="p-3">Normale IBAN</td>
+              <td class="p-3 text-slate-400">Keine (nur unstrukturierter Text / Verwendungszweck)</td>
+              <td class="p-3 text-slate-600">Ersetzt den alten roten Einzahlungsschein. Ideal für Kleinbeträge, Spenden und Handwerker.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- EXCEL & CSV SERIENDRUCK -->
+    <section class="bg-emerald-50 p-6 sm:p-8 rounded-2xl border border-emerald-200 space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold text-lg">📊</span>
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Massenverarbeitung aus Excel & CSV</h2>
+          <p class="text-xs text-slate-600">Ideal für Vereine, Genossenschaften, Stiftungen und Hausverwaltungen</p>
+        </div>
+      </div>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Sie müssen hunderte Mitgliederbeiträge oder Nebenkostenabrechnungen verschicken? Anstatt jede QR-Rechnung einzeln zu tippen, laden Sie einfach Ihre Excel-Tabelle als CSV-Datei in unsere QR-Suite. Die Anwendung berechnet alle Zahlteile im Browser und erzeugt ein einziges mehrseitiges Druck-PDF.
+      </p>
+      <div class="pt-2">
+        <a href="./vereinsbeitraege-qr-rechnung-serienbrief.html" class="text-xs font-bold text-emerald-800 hover:text-emerald-900 underline flex items-center gap-1">
+          <span>Ausführliche Anleitung zum Serienbrief für Vereinsbeiträge lesen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ)</h2>
+
+      <div class="space-y-3">
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Auf welchem Papier muss die Schweizer QR-Rechnung gedruckt werden?</span>
+            <span class="text-emerald-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Für Rechnungen, die per Post versendet werden und am Postschalter bar bezahlt werden könnten, empfiehlt sich spezielles perforiertes weißes Papier (80–100 g/m²). Für den rein digitalen Versand per E-Mail genügt das normale A4-PDF.
+          </p>
+        </details>
+
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Werden Schweizer Franken (CHF) und Euro (EUR) unterstützt?</span>
+            <span class="text-emerald-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Ja. Gemäß den SIX Swiss Payment Guidelines sind die beiden Währungen CHF und EUR zulässig. Sie können die Währung in unserem Generator mit einem Klick umschalten.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- BOTTOM LINKS -->
+    <section class="bg-slate-900 text-white p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <h4 class="text-xl font-bold">Jetzt eigene QR-Rechnung erstellen</h4>
+        <p class="text-xs text-slate-400 mt-1">Kein Login, keine Gebühren, 100% Datenschutzkonform.</p>
+      </div>
+      <a href="./qr-suite/" class="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition">
+        Zur QR-Suite wechseln →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-sm font-extrabold text-white">DACH Digitalwerk – Ratgeber & Tools</div>
+        <p class="text-slate-500 mt-1">100% DSGVO- & revDSG-konforme Client-Side Browser-Applikationen.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 text-slate-300">
+        <a href="./qr-suite/" class="hover:text-emerald-400">Swiss QR-Suite</a>
+        <a href="./arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+        <a href="./rechner/" class="hover:text-amber-400">Handwerker-Rechner</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vereinsbeiträge mit Schweizer QR-Rechnung als CSV-Stapel drucken | DACH Digitalwerk</title>
+  <meta name="description" content="Anleitung & kostenlose Lösung für Schweizer Vereine: Mitgliederbeiträge per Excel/CSV als Serien-QR-Rechnung (SIX-Standard) drucken. Ohne teure Vereinssoftware, 100% kostenlos." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/vereinsbeitraege-qr-rechnung-serienbrief.html" />
+  <meta property="og:title" content="Vereinsbeiträge mit Schweizer QR-Rechnung als CSV-Stapel drucken" />
+  <meta property="og:description" content="Praxis-Ratgeber für Kassiere und Vereinsvorstände in der Schweiz: Serienbrief für Mitgliederbeiträge mit Schweizer QR-Code kostenlos erstellen." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/vereinsbeitraege-qr-rechnung-serienbrief.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_CH" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org HowTo & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Schweizer Vereinsbeiträge per CSV als QR-Rechnungs-Stapel drucken",
+    "description": "Schritt-für-Schritt-Anleitung für Vereins-Kassiere zur Erstellung von Serienbrief-Zahlteilen mit Schweizer QR-Code ohne teure Buchhaltungssoftware.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Mitgliederliste in Excel vorbereiten",
+        "text": "Spalten für Mitgliedsname, Adresse, PLZ, Ort und den fälligen Jahresbeitrag anlegen."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Als CSV-Datei exportieren",
+        "text": "Tabelle als Standard-CSV mit Semikolon oder Kommatrennung abspeichern."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "In DACH Digitalwerk QR-Suite importieren",
+        "text": "Datei in die Schweizer QR-Suite laden und alle Zahlteile in einem Durchgang als DIN-A4 PDF drucken."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Braucht unser Verein eine teure Buchhaltungssoftware für QR-Rechnungen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Mit unserer kostenlosen QR-Suite können Sie unbegrenzt viele QR-Zahlteile direkt aus Ihrer gewohnten Excel-Mitgliederliste erzeugen und drucken – ohne jährliche Software-Abos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Können wir das vereinsinterne Bankkonto mit normaler IBAN nutzen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Sie können entweder die normale Vereins-IBAN nutzen (dann mit Verwendungszweck wie 'Mitgliedsbeitrag 2026') oder die spezielle QR-IBAN Ihrer Bank für automatischen Zahlungsabgleich mit strukturierter QR-Referenz (QRR)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Sind die Mitgliederadressen nach dem revDSG geschützt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, zu 100 %. Die gesamte Stapelverarbeitung läuft lokal im JavaScript-Speicher Ihres Rechners. Es werden keine Adressen oder Namen über das Internet an Server übertragen."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">Schweizer revDSG (Kein Mitgliederdaten-Upload)</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-emerald-300">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-900 via-slate-900 to-teal-700 text-white flex items-center justify-center font-extrabold tracking-tight">
+          QR
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Vereinsmanagement & Finanzen Schweiz</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./qr-suite/" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/20 transition flex items-center gap-1.5">
+          <span>🧾 Serien-Druck in QR-Suite starten</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-emerald-600">Home</a>
+      <span>/</span>
+      <a href="./schweizer-qr-rechnung-kostenlos-erstellen.html" class="hover:text-emerald-600">Schweizer QR-Rechnung</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">Vereinsbeiträge CSV-Stapel</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold">
+        <span>🏆 Praxis-Leitfaden für Kassiere</span>
+        <span>•</span>
+        <span>Sportvereine, Kulturclubs & Genossenschaften</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Vereinsbeiträge mit Schweizer QR-Rechnung als CSV-Stapel drucken
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Jedes Jahr stehen ehrenamtliche Kassiererinnen und Kassierer vor der gleichen Herausforderung: Dutzende oder Hunderte <strong>Mitgliederbeiträge</strong> müssen mit dem neuen Schweizer QR-Zahlteil verschickt werden. Kommerzielle Vereinssoftware verlangt oft hunderte Franken Lizenzgebühren. Mit unserer <strong>DACH Digitalwerk QR-Suite</strong> drucken Sie den gesamten Beitrags-Lauf kostenlos in wenigen Minuten direkt aus Ihrer Excel-Tabelle.
+      </p>
+    </header>
+
+    <!-- CTA HERO BOX -->
+    <section class="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-emerald-800/40">
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Massenverarbeitung</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">Mitgliederliste sofort als QR-Rechnungen drucken</h2>
+        <p class="text-sm text-slate-300 max-w-xl">
+          Laden Sie Ihre CSV-Datei hoch oder nutzen Sie unsere Vorlage. Alle QR-Zahlteile werden normkonform nach SIX Guidelines mit Schweizer Kreuz generiert und als mehrseitiges Druck-PDF bereitgestellt.
+        </p>
+      </div>
+      <a href="./qr-suite/" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition">
+        Stapelverarbeitung öffnen →
+      </a>
+    </section>
+
+    <!-- 4 SCHRITTE ANLEITUNG -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900">In 4 Schritten zum fertigen Serienbrief</h2>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">1</div>
+          <h3 class="font-bold text-slate-900 text-base">Excel-Spalten prüfen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Ihre Tabelle benötigt lediglich die Standardfelder: Name, Adresse, PLZ, Ort, Betrag (z. B. 120.00 CHF) und die Mitgliedsnummer als Referenz.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">2</div>
+          <h3 class="font-bold text-slate-900 text-base">Als CSV speichern</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Wählen Sie in Excel <em>„Speichern unter“ → Dateityp: „CSV (Trennzeichen-getrennt) (*.csv)“</em>. Das funktioniert sowohl auf Windows als auch auf dem Mac einwandfrei.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">3</div>
+          <h3 class="font-bold text-slate-900 text-base">In QR-Suite laden</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Öffnen Sie unsere Browser-Suite, wählen Sie den Reiter <em>„Excel / CSV Stapel“</em> und ziehen Sie die Datei per Drag & Drop in das Upload-Feld.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-2">
+          <div class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">4</div>
+          <h3 class="font-bold text-slate-900 text-base">Drucken & Versenden</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Klicken Sie auf <em>„Alle Zahlteile drucken“</em>: Sie erhalten ein einziges DIN-A4 PDF mit allen Zahlteilen, sauber getrennt für jeden Briefumschlag.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSTER CSV STRUKTUR -->
+    <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-slate-900">Beispiel: CSV-Struktur für Vereinsmitglieder</h2>
+          <p class="text-xs text-slate-500 mt-1">Kopieren Sie dieses Schema für Ihren Import.</p>
+        </div>
+        <button onclick="copyCsv()" id="csvCopyBtn" class="shrink-0 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+          <span>📋 Beispiel kopieren</span>
+        </button>
+      </div>
+
+      <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-all" id="csvExample">Name;Strasse;PLZ;Ort;Betrag;Waehrung;Zweck;Referenz
+Beat Muster;Bahnhofstrasse 12;8001;Zürich;150.00;CHF;Mitgliederbeitrag 2026;M-1001
+Corinne Meier;Postgasse 4;3011;Bern;150.00;CHF;Mitgliederbeitrag 2026;M-1002
+Sandro Keller;Lindenweg 8;4051;Basel;80.00;CHF;Gönnerbeitrag 2026;M-1003
+Elena Rossi;Via Cantonale 15;6900;Lugano;150.00;CHF;Mitgliederbeitrag 2026;M-1004</div>
+    </section>
+
+    <!-- DATENSCHUTZ revDSG -->
+    <section class="bg-slate-900 text-white p-6 sm:p-8 rounded-2xl space-y-3">
+      <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+        <span>🔒 100% Konformität mit dem Schweizer Datenschutzgesetz (revDSG)</span>
+      </div>
+      <h3 class="text-xl font-bold">Kein Cloud-Risiko für Ihren Vereinsvorstand</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">
+        Nach dem neuen Schweizer Datenschutzgesetz (revDSG) haftet der Vereinsvorstand für die sorgsame Verwahrung von Personendaten. Wenn Sie Mitgliederlisten auf unbekannte Cloud-Dienste im Ausland hochladen, riskieren Sie Datenschutzverletzungen. Die DACH Digitalwerk QR-Suite läuft <strong>zu 100 % im Arbeitsspeicher Ihres Browsers</strong> – keine Zeile Ihrer Mitgliederliste verlässt Ihren Computer!
+      </p>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ) für Vereine</h2>
+
+      <div class="space-y-3">
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Wie viele Rechnungen kann man auf einmal generieren?</span>
+            <span class="text-emerald-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Da die Erstellung direkt in der JavaScript-Engine Ihres Browsers stattfindet, können Sie mühelos 200 bis 500 QR-Rechnungen in wenigen Sekunden berechnen und drucken.
+          </p>
+        </details>
+
+        <details class="group bg-white p-5 rounded-2xl border border-slate-200">
+          <summary class="font-bold text-slate-900 cursor-pointer list-none flex items-center justify-between">
+            <span>Können wir den Mitgliedern die QR-Rechnung auch per Mail schicken?</span>
+            <span class="text-emerald-600 font-bold group-open:rotate-180 transition">↓</span>
+          </summary>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            Ja. Sie können das erzeugte PDF entweder ausdrucken oder über Ihren PDF-Viewer als Einzelseiten speichern und den Mitgliedern als PDF per E-Mail zustellen.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- BOTTOM LINKS -->
+    <section class="bg-indigo-50 p-6 rounded-2xl border border-indigo-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <h4 class="font-bold text-indigo-950">Weitere Werkzeuge im DACH Digitalwerk Hub</h4>
+        <p class="text-xs text-slate-600">Entdecken Sie alle kostenlosen Self-Serve Tools für die Schweiz, Deutschland und Österreich.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./schweizer-qr-rechnung-kostenlos-erstellen.html" class="px-4 py-2 bg-white text-indigo-700 border border-indigo-300 rounded-xl text-xs font-bold hover:bg-indigo-50 transition">QR-Guidelines Ratgeber</a>
+        <a href="./qr-suite/" class="px-4 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-500 transition">Zur QR-Suite →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-sm font-extrabold text-white">DACH Digitalwerk – Ratgeber & Tools</div>
+        <p class="text-slate-500 mt-1">100% DSGVO- & revDSG-konforme Client-Side Browser-Applikationen.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 text-slate-300">
+        <a href="./qr-suite/" class="hover:text-emerald-400">Swiss QR & E-Rechnung</a>
+        <a href="./arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+        <a href="./rechner/" class="hover:text-amber-400">Handwerker-Rechner</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyCsv() {
+      const text = document.getElementById('csvExample').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('csvCopyBtn');
+        btn.innerHTML = '<span>✅ Kopiert!</span>';
+        setTimeout(() => {
+          btn.innerHTML = '<span>📋 Beispiel kopieren</span>';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH AfA-Rechner &amp; Abschreibungs-Optimierer 2026 | Lineare &amp; Degressive AfA (DE, AT, CH)</title>
+  <meta name="description" content="Kostenloser AfA-Rechner 2026 für Deutschland, Österreich und Schweiz: Lineare &amp; degressive Abschreibung nach Wachstumschancengesetz, BMF-Tabellen, GWG-Grenzen &amp; druckfertiger DIN-A4 Anlagenspiegel." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/afa-abschreibungs-rechner/" />
+  
+  <meta property="og:title" content="DACH AfA-Rechner 2026: Lineare &amp; Degressive Abschreibung berechnen" />
+  <meta property="og:description" content="Abschreibung optimieren nach BMF-Tabelle, Wachstumschancengesetz (max. 20% degressiv), § 7g Sonder-AfA und GWG-Grenzen für DE, AT und CH." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/afa-abschreibungs-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @media print {
+      body * { visibility: hidden; }
+      .a4-sheet-wrapper, .a4-sheet-wrapper * { visibility: visible; }
+      .a4-sheet-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .no-print { display: none !important; }
+      .a4-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        padding: 15mm 20mm !important;
+      }
+    }
+    .a4-sheet {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 20mm;
+      box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+  </style>
+
+  <!-- Schema.org SoftwareApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DACH AfA-Rechner & Abschreibungs-Optimierer 2026",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "description": "Kaufmännischer AfA-Rechner für Deutschland (§ 7 EStG / Wachstumschancengesetz), Österreich (§ 7 / § 13 EStG) und Schweiz (Art. 960a OR). Lineare und degressive AfA mit automatischem Wechseljahr.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../" class="text-white font-bold hover:text-indigo-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser (Zero Server-Speicherung)
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300 text-[11px]">
+          Wachstumschancengesetz 2026 • BMF-Tabellen • EStG • Art. 960a OR
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200/80 sticky top-0 z-30 backdrop-blur-md bg-white/95 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-700 via-blue-700 to-indigo-950 text-white flex items-center justify-center text-2xl font-black shadow-lg shadow-indigo-600/20">
+          📉
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-slate-900">AfA-Rechner &amp; Anlagenspiegel 2026</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">
+              DE • AT • CH
+            </span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium block">
+            Lineare &amp; degressive AfA, optimaler Wechselzeitpunkt, § 7g Sonder-AfA &amp; GWG-Check
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="scrollToPrintView()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 transition">
+          <span>🖨️</span>
+          <span>Druckvorschau</span>
+        </button>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md shadow-indigo-600/20 transition">
+          <span>⚡</span>
+          <span>Pro Freischalten (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+    <!-- COUNTRY SELECTOR TABS -->
+    <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-3 no-print">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold uppercase text-slate-500 mr-2 tracking-wider">Rechtsraum:</span>
+        <button onclick="setCountry('DE')" id="btn-country-DE" class="country-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow-sm">
+          <span>🇩🇪 Deutschland</span>
+          <span class="text-[10px] opacity-75">(§ 7 EStG / BMF)</span>
+        </button>
+        <button onclick="setCountry('AT')" id="btn-country-AT" class="country-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200">
+          <span>🇦🇹 Österreich</span>
+          <span class="text-[10px] opacity-75">(§ 7 / § 13 EStG)</span>
+        </button>
+        <button onclick="setCountry('CH')" id="btn-country-CH" class="country-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200">
+          <span>🇨🇭 Schweiz</span>
+          <span class="text-[10px] opacity-75">(Art. 960a OR / ESTV)</span>
+        </button>
+      </div>
+      <div class="text-[11px] text-slate-500 flex items-center gap-2">
+        <span>Aktive Besteuerung:</span>
+        <span id="active-tax-badge" class="font-bold text-slate-900 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
+          DE: Max. 20% degressiv • GWG 800 € / Pool 1.000 €
+        </span>
+      </div>
+    </div>
+
+    <!-- MAIN GRID: INPUTS & KPIS -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start no-print">
+      
+      <!-- LEFT COLUMN: INPUT FORM (5 COLS) -->
+      <div class="lg:col-span-5 bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <h2 class="text-lg font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>⚙️</span>
+            <span>1. Anlagegut &amp; Anschaffungsdaten</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Wählen Sie ein Standardgut aus der BMF-AfA-Tabelle oder geben Sie eigene Werte ein.
+          </p>
+        </div>
+
+        <div class="space-y-4 text-xs">
+          <!-- CATEGORY PRESET SELECTOR -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Anlagegut-Kategorie (BMF/ESTV Vorlage):</label>
+            <select id="sel-preset" onchange="applyPreset()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-800 font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="custom">✏️ Eigene Eingabe / Benutzerdefiniert</option>
+              <option value="computer" selected>💻 Computer &amp; Notebooks (BMF 1–3 Jahre)</option>
+              <option value="smartphone">📱 Smartphones &amp; Tablets (3 Jahre)</option>
+              <option value="car">🚗 Pkw &amp; Firmenfahrzeuge (6 Jahre DE/CH, 8 Jahre AT)</option>
+              <option value="furniture">🪑 Büromöbel &amp; Schreibtische (13 Jahre)</option>
+              <option value="server">🖥️ Server &amp; Netzwerktechnik (3 Jahre)</option>
+              <option value="software">💾 Standard-Software &amp; ERP-Lizenzen (3 Jahre)</option>
+              <option value="machine">⚙️ Maschinen &amp; Produktionsanlagen (10 Jahre)</option>
+              <option value="tools">🔧 Werkzeuge &amp; Handwerksgeräte (5 Jahre)</option>
+              <option value="pv">☀️ Photovoltaikanlage / Speicher (20 Jahre)</option>
+              <option value="heatpump">♨️ Wärmepumpe / Klimatechnik (10 Jahre)</option>
+              <option value="gwg">📦 GWG (Geringwertiges Wirtschaftsgut bis 800/1.000 €)</option>
+            </select>
+          </div>
+
+          <!-- ASSET NAME -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Bezeichnung des Wirtschaftsguts:</label>
+            <input type="text" id="inp-asset-name" value="Entwicklungs-Notebook &amp; Workstation" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="z. B. MacBook Pro M3 oder CNC-Fräse" />
+          </div>
+
+          <!-- COST (NETTO) & CURRENCY -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Anschaffungskosten (Netto):</label>
+              <div class="relative">
+                <input type="number" id="inp-cost" value="3500.00" step="50" min="1" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                <span id="cur-symbol-1" class="absolute right-3 top-2.5 text-slate-400 font-bold">€</span>
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Nutzungsdauer (Jahre):</label>
+              <input type="number" id="inp-years" value="3" min="1" max="50" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            </div>
+          </div>
+
+          <!-- ACQUISITION DATE -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Anschaffungsmonat:</label>
+              <select id="inp-month" onchange="runCalculation()" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 font-semibold text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option value="1">Januar (1)</option>
+                <option value="2">Februar (2)</option>
+                <option value="3">März (3)</option>
+                <option value="4" selected>April (4)</option>
+                <option value="5">Mai (5)</option>
+                <option value="6">Juni (6)</option>
+                <option value="7">Juli (7)</option>
+                <option value="8">August (8)</option>
+                <option value="9">September (9)</option>
+                <option value="10">Oktober (10)</option>
+                <option value="11">November (11)</option>
+                <option value="12">Dezember (12)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-700 mb-1">Anschaffungsjahr:</label>
+              <input type="number" id="inp-year" value="2026" min="2020" max="2035" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+            </div>
+          </div>
+
+          <!-- METHOD SELECTION -->
+          <div class="pt-2 border-t border-slate-100">
+            <label class="block font-bold text-slate-700 mb-1.5">Abschreibungsmethode:</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition">
+                <input type="radio" name="afa-method" value="linear" onchange="runCalculation()" class="text-indigo-600 focus:ring-indigo-500" />
+                <div>
+                  <span class="font-bold text-slate-900 block">Lineare AfA (§ 7 Abs. 1 EStG)</span>
+                  <span class="text-[11px] text-slate-500 block">Gleichmäßige Verteilung über die Nutzungsdauer</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border-2 border-indigo-500/40 bg-indigo-50/40 cursor-pointer hover:bg-indigo-50 transition">
+                <input type="radio" name="afa-method" value="degressiv-opt" checked onchange="runCalculation()" class="text-indigo-600 focus:ring-indigo-500" />
+                <div>
+                  <span class="font-bold text-indigo-950 block">Degressiv mit optimalem Wechsel zu Linear (Empfohlen)</span>
+                  <span class="text-[11px] text-indigo-800 block">Maximale Sofort-Entlastung mit Wechseljahr-Optimierung</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-slate-200 bg-slate-50/60 cursor-pointer hover:bg-slate-100 transition">
+                <input type="radio" name="afa-method" value="degressiv" onchange="runCalculation()" class="text-indigo-600 focus:ring-indigo-500" />
+                <div>
+                  <span class="font-bold text-slate-900 block">Reine degressive AfA</span>
+                  <span class="text-[11px] text-slate-500 block">Abschreibung vom Restbuchwert (ohne linearen Wechsel)</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- SPECIAL DEPRECIATION (§ 7g EStG DE) -->
+          <div id="box-sonderafa" class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" id="chk-sonderafa" onchange="runCalculation()" class="rounded text-amber-600 focus:ring-amber-500" />
+                <span class="font-bold text-amber-950 text-xs">§ 7g Abs. 5 EStG Sonderabschreibung (KMU)</span>
+              </label>
+              <span class="text-[10px] font-mono font-bold bg-amber-200 text-amber-900 px-2 py-0.5 rounded">bis 40 %</span>
+            </div>
+            <p class="text-[11px] text-amber-800 leading-relaxed">
+              Für Betriebe mit Vorjahresgewinn ≤ 200.000 €: Zusätzliche Sonder-AfA im Anschaffungsjahr neben der regulären AfA.
+            </p>
+            <div id="sonderafa-rate-wrapper" class="flex items-center gap-2 pt-1 hidden">
+              <span class="text-[11px] text-amber-900 font-semibold">Satz:</span>
+              <input type="number" id="inp-sonderafa-rate" value="20" min="1" max="40" oninput="runCalculation()" class="w-16 px-2 py-1 rounded-lg border border-amber-300 font-mono text-xs font-bold" />
+              <span class="text-xs text-amber-900 font-bold">%</span>
+            </div>
+          </div>
+
+          <!-- SALVAGE VALUE -->
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Restwert / Erinnerungswert am Ende:</label>
+            <div class="relative">
+              <input type="number" id="inp-salvage" value="1.00" step="1" min="0" oninput="runCalculation()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 font-mono font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+              <span id="cur-symbol-2" class="absolute right-3 top-2.5 text-slate-400 font-bold">€</span>
+            </div>
+            <span class="text-[10px] text-slate-500 mt-1 block">Üblicherweise 1,00 € Erinnerungswert bei Verbleib im Betrieb oder 0,00 €.</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: RESULTS & SUMMARY (7 COLS) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- TOP KPI BANNER -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">AfA im Anschaffungsjahr</span>
+            <div class="text-2xl font-black text-indigo-700 font-mono" id="kpi-first-year-afa">0,00 €</div>
+            <span class="text-[10px] text-slate-500 block" id="kpi-first-year-sub">inkl. zeitanteiliger Monate</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Max. AfA-Satz p.a.</span>
+            <div class="text-2xl font-black text-slate-900 font-mono" id="kpi-rate-pct">0,0 %</div>
+            <span class="text-[10px] text-emerald-600 font-semibold block" id="kpi-rate-sub">degressiv</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">Optimales Wechseljahr</span>
+            <div class="text-2xl font-black text-teal-700 font-mono" id="kpi-switch-year">Jahr --</div>
+            <span class="text-[10px] text-slate-500 block" id="kpi-switch-sub">Wechsel zu Linear</span>
+          </div>
+        </div>
+
+        <!-- GWG NOTICE BOX -->
+        <div id="gwg-alert-box" class="p-4 rounded-2xl border hidden">
+          <!-- Dynamically filled with GWG / Sammelposten rules -->
+        </div>
+
+        <!-- DEPRECIATION SCHEDULE TABLE -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-slate-100 flex flex-wrap justify-between items-center gap-3">
+            <div>
+              <h3 class="font-extrabold text-slate-900 text-base">Abschreibungsplan (Anlagenspiegel)</h3>
+              <p class="text-xs text-slate-500">Jahresgenaue Progression von Restbuchwert &amp; Aufwand</p>
+            </div>
+            <button onclick="exportCSV()" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 transition flex items-center gap-1.5">
+              <span>📥</span>
+              <span>CSV-Export</span>
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900 text-white font-semibold">
+                <tr>
+                  <th class="p-3">Jahr</th>
+                  <th class="p-3">Buchwert Beginn</th>
+                  <th class="p-3">AfA-Satz</th>
+                  <th class="p-3">Jahres-AfA</th>
+                  <th class="p-3">Kumulierte AfA</th>
+                  <th class="p-3">Restbuchwert (31.12.)</th>
+                </tr>
+              </thead>
+              <tbody id="afa-table-body" class="divide-y divide-slate-100 font-mono">
+                <!-- Dynamically generated rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- VISUAL BOOK VALUE PROGRESSION -->
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-extrabold text-slate-900 text-sm">Visualisierung: Buchwert-Abbau im Zeitverlauf</h3>
+          <div id="progress-container" class="space-y-3">
+            <!-- Dynamic visual bars -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DIN-A4 ANLAGENSPIEGEL & BESCHEINIGUNG (PRINTABLE) -->
+    <section id="druckansicht" class="pt-6">
+      <div class="text-center max-w-2xl mx-auto mb-6 no-print">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+          Revisions- &amp; prüffähige Dokumentation
+        </span>
+        <h2 class="text-2xl font-black text-slate-900 mt-2">
+          DIN-A4 Anlagenspiegel &amp; AfA-Nachweis 2026
+        </h2>
+        <p class="text-xs text-slate-500 mt-1">
+          Erstellen Sie mit einem Klick eine saubere Anlage für Ihre Steuererklärung, Buchhaltung oder Betriebsprüfung.
+        </p>
+        <button onclick="window.print()" class="mt-4 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-2xl text-xs shadow-lg shadow-indigo-600/20 transition inline-flex items-center gap-2">
+          <span>🖨️</span>
+          <span>Drucken / Als PDF speichern</span>
+        </button>
+      </div>
+
+      <!-- A4 SHEET WRAPPER -->
+      <div class="a4-sheet-wrapper">
+        <div class="a4-sheet">
+          <!-- Document Header -->
+          <div class="border-b-2 border-slate-900 pb-4 mb-4 flex justify-between items-start">
+            <div>
+              <div class="text-[10px] font-bold text-indigo-800 tracking-wider uppercase">Betriebliche Anlagenbuchhaltung &amp; Steuernachweis</div>
+              <h1 class="text-xl font-black text-slate-900 mt-0.5">ANLAGENSPIEGEL &amp; AFA-BESCHEINIGUNG</h1>
+              <div class="text-[10px] text-slate-600">Erstellt nach den amtlichen Vorschriften des EStG / UGB / OR</div>
+            </div>
+            <div class="text-right">
+              <span id="print-country-badge" class="inline-block bg-slate-900 text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                DEUTSCHLAND (§ 7 EStG)
+              </span>
+              <div class="text-[9px] text-slate-500 mt-1" id="print-date">Datum: --</div>
+            </div>
+          </div>
+
+          <!-- Parameter Box -->
+          <div class="grid grid-cols-2 gap-4 mb-4 text-[10px]">
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">1. Stammdaten des Wirtschaftsguts</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Bezeichnung:</span>
+                  <span id="p-asset-name" class="font-mono font-bold text-slate-900">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Anschaffungskosten (Netto):</span>
+                  <span id="p-cost" class="font-mono font-bold text-slate-900">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Anschaffungsdatum:</span>
+                  <span id="p-acq-date" class="font-mono">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Betriebsgewöhnliche ND:</span>
+                  <span id="p-years" class="font-mono font-bold">-- Jahre</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50">
+              <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5 border-b border-slate-200 pb-1">2. AfA-Methode &amp; Parameter</div>
+              <div class="space-y-1 text-slate-700">
+                <div class="flex justify-between">
+                  <span>Abschreibungsmethode:</span>
+                  <span id="p-method" class="font-bold text-indigo-900">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>AfA-Satz (Start):</span>
+                  <span id="p-rate" class="font-mono font-bold">-- %</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Optimales Wechseljahr:</span>
+                  <span id="p-switch-year" class="font-mono">--</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Rest- / Erinnerungswert:</span>
+                  <span id="p-salvage" class="font-mono">--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Print Table -->
+          <div class="mb-4">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[9px] mb-1.5">3. Vollständiger Abschreibungsverlauf (Anlagenspiegel)</div>
+            <table class="w-full text-left text-[9px] border border-slate-200 rounded">
+              <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-1.5">Jahr</th>
+                  <th class="p-1.5">Buchwert Beginn</th>
+                  <th class="p-1.5">Methode / Satz</th>
+                  <th class="p-1.5 text-right">Jahres-AfA</th>
+                  <th class="p-1.5 text-right">Kumulierte AfA</th>
+                  <th class="p-1.5 text-right">Buchwert (31.12.)</th>
+                </tr>
+              </thead>
+              <tbody id="p-table-body" class="divide-y divide-slate-100 font-mono">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Legal & Compliance Confirmation -->
+          <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/40 text-[9px] text-slate-600 mb-6 space-y-1">
+            <div class="font-bold text-slate-800 uppercase tracking-wider text-[8.5px]">4. Buchhalterische &amp; Steuerliche Würdigung</div>
+            <p id="p-legal-text" class="leading-relaxed">
+              Die Abschreibung wurde nach § 7 EStG ermittelt. Im Anschaffungsjahr erfolgte die AfA monatsgenau pro rata temporis (§ 7 Abs. 1 Satz 4 EStG).
+            </p>
+          </div>
+
+          <!-- Signatures -->
+          <div class="grid grid-cols-2 gap-8 pt-4 border-t border-slate-200 text-[10px]">
+            <div>
+              <div class="border-b border-slate-400 pb-6 mb-1"></div>
+              <div class="text-slate-500">Ort, Datum / Erstellt durch Anlagenbuchhaltung</div>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 pb-6 mb-1"></div>
+              <div class="text-slate-500">Prüfung &amp; Freigabe Geschäftsleitung / Steuerberatung</div>
+            </div>
+          </div>
+
+          <!-- Footer in Sheet -->
+          <div class="mt-8 pt-3 border-t border-slate-100 text-[8px] text-slate-400 flex justify-between">
+            <span>DACH Digitalwerk AfA-Engine 2026 • 100% Client-Side Generator</span>
+            <span>Seite 1 von 1 • Revisionssicher archivieren</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ & RATGEBER LINKS SECTION -->
+    <section class="space-y-6 pt-10 border-t border-slate-200 no-print">
+      <div>
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
+          Häufig gestellte Fragen zu AfA, degressiver Abschreibung &amp; GWG 2026
+        </h2>
+        <p class="text-sm text-slate-600 mb-6 max-w-2xl">
+          Wissenswertes für Selbstständige, Einkäufer, Steuerabteilungen und Unternehmer.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center font-bold text-lg">
+              📈
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Degressive AfA 2026</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Durch das <strong>Wachstumschancengesetz</strong> können bewegliche Wirtschaftsgüter des Anlagevermögens degressiv mit bis zu <strong>20 %</strong> (maximal das Zweifache der linearen AfA) abgeschrieben werden. Das bringt in den ersten Jahren deutlich höhere Betriebsausgaben.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold text-lg">
+              🔄
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">Optimaler Wechselzeitpunkt</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Gemäß § 7 Abs. 3 EStG ist der Wechsel von der degressiven zur linearen AfA jederzeit zulässig. Wirtschaftlich optimal ist der Wechsel genau in dem Jahr, in dem die lineare AfA auf den Restbuchwert höher ist als die degressive AfA. Unser Tool berechnet dieses Jahr automatisch!
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-lg">
+              📦
+            </div>
+            <h3 class="font-bold text-slate-900 text-base">GWG-Grenzen im DACH-Raum</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In <strong>Deutschland</strong> liegt die GWG-Grenze bei <strong>800 € netto</strong> (oder Sammelposten bis 1.000 € über 5 Jahre). In <strong>Österreich</strong> beträgt die Grenze <strong>1.000 € netto</strong> (§ 13 EStG). In der <strong>Schweiz</strong> werden Gegenstände bis meist 1.000–2.000 CHF direkt als Aufwand verbucht.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO LINKS -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8">
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <span>📚</span>
+          <span>Vertiefende B2B-Ratgeber zu Abschreibungen &amp; Anlagevermögen</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-6 max-w-2xl">
+          Lesen Sie unsere detaillierten Fachleitfäden zur steueroptimalen Aktivierung:
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="../afa-tabelle-abschreibung-nutzungsdauer-2026.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-indigo-400 group-hover:underline block mb-1">Ratgeber 1:</span>
+            <div class="text-sm font-bold text-slate-100">Amtliche AfA-Tabelle 2026 &amp; Nutzungsdauern</div>
+            <p class="text-[11px] text-slate-400 mt-2">BMF-Vorgaben für IT, Büromöbel, Pkw, Maschinen &amp; 1-Jahres-AfA für Hardware.</p>
+          </a>
+
+          <a href="../degressive-afa-wachstumschancengesetz-2026-rechner.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-indigo-400 group-hover:underline block mb-1">Ratgeber 2:</span>
+            <div class="text-sm font-bold text-slate-100">Degressive AfA &amp; Wachstumschancengesetz</div>
+            <p class="text-[11px] text-slate-400 mt-2">Formel, 20%-Grenze, Wechselzeitpunkt &amp; Vergleich mit linearer Abschreibung.</p>
+          </a>
+
+          <a href="../gwg-grenzen-deutschland-oesterreich-schweiz-vergleich.html" class="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-indigo-400 group-hover:underline block mb-1">Ratgeber 3:</span>
+            <div class="text-sm font-bold text-slate-100">GWG-Grenzen 2026: DE vs. AT vs. CH</div>
+            <p class="text-[11px] text-slate-400 mt-2">800 € vs. 1.000 € Sammelposten, 1.000 € in Österreich &amp; Schweizer OR-Praxis.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / § 5 StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein technisches und mathematisches Berechnungswerkzeug zur Simulation von Abschreibungsverläufen nach EStG, UGB und Schweizer OR. Es wird ausdrücklich <strong>keine Steuer- oder Rechtsberatung</strong> erbracht. Für die steuerrechtliche Anerkennung und Bilanzierung ist allein der Anwender bzw. dessen bevollmächtigter Steuerberater verantwortlich. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">AGB</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD PRO CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+
+      <div class="text-center space-y-3">
+        <div class="w-14 h-14 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-2xl flex items-center justify-center text-3xl mx-auto shadow-sm">
+          ⚡
+        </div>
+        <h3 class="text-xl font-black text-slate-900">DACH AfA &amp; Anlagenbuchhaltung Pro-Paket 2026</h3>
+        <p class="text-xs text-slate-600 leading-relaxed">
+          Schalten Sie alle erweiterten Exportfunktionen frei: Unbegrenzter Excel/CSV-Export, anpassbare Firmen-Briefköpfe für den DIN-A4 Anlagenspiegel und DATEV-Kontenmatrix.
+        </p>
+      </div>
+
+      <div class="mt-6 space-y-3">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-500 hover:to-blue-600 text-white font-black py-3.5 px-6 rounded-2xl shadow-xl shadow-indigo-600/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Jetzt Pro freischalten (4,90 € / CHF)</span>
+          <span>→</span>
+        </a>
+
+        <div class="pt-4 border-t border-slate-100 space-y-2">
+          <label class="block text-xs font-bold text-slate-700">Bereits Lizenzcode oder Gutschein vorhanden?</label>
+          <div class="flex gap-2">
+            <input type="text" id="voucher-input" placeholder="Gutscheincode (z. B. PRO2026, AFA2026)" class="flex-1 px-3 py-2 border border-slate-300 rounded-xl text-xs uppercase font-mono font-bold" />
+            <button onclick="redeemVoucher()" class="px-4 py-2 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800 transition">
+              Einlösen
+            </button>
+          </div>
+          <div id="voucher-error" class="text-rose-600 text-[11px] hidden font-semibold"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORE JAVASCRIPT LOGIC -->
+  <script>
+    let currentCountry = 'DE';
+    let isProUnlocked = false;
+
+    const PRESETS = {
+      computer: { name: 'Entwicklungs-Notebook & Workstation', cost: 3500, years: 3 },
+      smartphone: { name: 'Geschäfts-Smartphone (Flaggschiff)', cost: 1200, years: 3 },
+      car: { name: 'Geschäfts-Pkw (Elektro / Verbrenner)', cost: 45000, years: 6 },
+      furniture: { name: 'Elektrisch verstellbarer Schreibtisch & Bürostuhl', cost: 1800, years: 13 },
+      server: { name: 'Rack-Server & SAN Storage', cost: 12500, years: 3 },
+      software: { name: 'ERP- & Buchhaltungssoftware-Lizenz', cost: 6000, years: 3 },
+      machine: { name: 'CNC-Fräsmaschine / Produktionsanlage', cost: 85000, years: 10 },
+      tools: { name: 'Akku-Werkzeugsatz & Messgeräte', cost: 2400, years: 5 },
+      pv: { name: 'Gewerbliche Photovoltaikanlage 25 kWp', cost: 28000, years: 20 },
+      heatpump: { name: 'Wärmepumpe & Klimatechnik Gewerbebau', cost: 22000, years: 10 },
+      gwg: { name: 'Ergonomischer Monitor (GWG)', cost: 450, years: 1 }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      document.querySelectorAll('.country-btn').forEach(btn => {
+        btn.className = 'country-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200';
+      });
+      const activeBtn = document.getElementById('btn-country-' + c);
+      if (activeBtn) {
+        activeBtn.className = 'country-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow-sm';
+      }
+
+      const sym = c === 'CH' ? 'CHF' : '€';
+      document.getElementById('cur-symbol-1').textContent = sym;
+      document.getElementById('cur-symbol-2').textContent = sym;
+
+      const badge = document.getElementById('active-tax-badge');
+      const sonderBox = document.getElementById('box-sonderafa');
+      if (c === 'DE') {
+        badge.textContent = "DE: Max. 20% degressiv • GWG 800 € / Pool 1.000 € • § 7g Sonder-AfA";
+        sonderBox.classList.remove('hidden');
+      } else if (c === 'AT') {
+        badge.textContent = "AT: Bis zu 30% degressiv (§ 7 Abs. 1a EStG) • GWG 1.000 € (§ 13 EStG) • Halbjahres-AfA";
+        sonderBox.classList.add('hidden');
+      } else {
+        badge.textContent = "CH: Bis zu 40% degressiv (ESTV-Merkblatt / Art. 960a OR) • Sofortabschreibung Praxis";
+        sonderBox.classList.add('hidden');
+      }
+
+      // Adjust car useful life preset for AT
+      if (c === 'AT') {
+        PRESETS.car.years = 8;
+      } else {
+        PRESETS.car.years = 6;
+      }
+
+      runCalculation();
+    }
+
+    function applyPreset() {
+      const val = document.getElementById('sel-preset').value;
+      if (val === 'custom') return;
+      const p = PRESETS[val];
+      if (p) {
+        document.getElementById('inp-asset-name').value = p.name;
+        document.getElementById('inp-cost').value = p.cost.toFixed(2);
+        document.getElementById('inp-years').value = p.years;
+        runCalculation();
+      }
+    }
+
+    function toggleSonderafa() {
+      const chk = document.getElementById('chk-sonderafa').checked;
+      const wrap = document.getElementById('sonderafa-rate-wrapper');
+      if (chk) wrap.classList.remove('hidden');
+      else wrap.classList.add('hidden');
+    }
+
+    document.getElementById('chk-sonderafa').addEventListener('change', toggleSonderafa);
+
+    function formatNumber(num, cur) {
+      const formatted = num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return `${formatted} ${cur}`;
+    }
+
+    function runCalculation() {
+      const cost = parseFloat(document.getElementById('inp-cost').value) || 0;
+      const years = parseInt(document.getElementById('inp-years').value) || 1;
+      const month = parseInt(document.getElementById('inp-month').value) || 1;
+      const startYear = parseInt(document.getElementById('inp-year').value) || 2026;
+      const salvage = parseFloat(document.getElementById('inp-salvage').value) || 0;
+      const assetName = document.getElementById('inp-asset-name').value || 'Wirtschaftsgut';
+      const cur = currentCountry === 'CH' ? 'CHF' : '€';
+
+      const methodEl = document.querySelector('input[name="afa-method"]:checked');
+      const method = methodEl ? methodEl.value : 'degressiv-opt';
+
+      const hasSonderafa = currentCountry === 'DE' && document.getElementById('chk-sonderafa').checked;
+      const sonderafaRate = hasSonderafa ? (parseFloat(document.getElementById('inp-sonderafa-rate').value) || 20) : 0;
+
+      // Determine Allowed Degressive Rate
+      // DE: 2x linear, capped at 20%
+      // AT: up to 30%
+      // CH: up to 2x linear (e.g. 40% for IT/Pkw)
+      const linearRate = (100.0 / years);
+      let maxDegressivRate = 0;
+      if (currentCountry === 'DE') {
+        maxDegressivRate = Math.min(linearRate * 2, 20.0);
+      } else if (currentCountry === 'AT') {
+        maxDegressivRate = Math.min(linearRate * 2, 30.0);
+      } else {
+        maxDegressivRate = Math.min(linearRate * 2, 40.0);
+      }
+
+      // Check GWG threshold
+      const gwgBox = document.getElementById('gwg-alert-box');
+      let isGwg = false;
+      let gwgMsg = '';
+      if (currentCountry === 'DE') {
+        if (cost <= 800) {
+          isGwg = true;
+          gwgMsg = `<strong>Sofortabschreibung als GWG möglich!</strong> Anschaffungskosten von ${formatNumber(cost, cur)} liegen unter der 800-€-Grenze (§ 6 Abs. 2 EStG). Vollständiger Aufwand im Jahr ${startYear} möglich.`;
+        } else if (cost <= 1000) {
+          gwgMsg = `<strong>Hinweis Sammelposten:</strong> Anschaffungskosten bis 1.000 € können alternativ über 5 Jahre (20 % p.a.) in einem Jahrespool (§ 6 Abs. 2a EStG) abgeschrieben werden.`;
+        }
+      } else if (currentCountry === 'AT') {
+        if (cost <= 1000) {
+          isGwg = true;
+          gwgMsg = `<strong>Sofortabschreibung als GWG (§ 13 EStG)!</strong> Anschaffungskosten liegen unter der österreichischen 1.000-€-Grenze. Voller Betriebsausgabenabzug im Jahr ${startYear}.`;
+        }
+      } else if (currentCountry === 'CH') {
+        if (cost <= 1500) {
+          isGwg = true;
+          gwgMsg = `<strong>Schweizer Praxis:</strong> Anschaffungskosten von ${formatNumber(cost, cur)} qualifizieren in vielen Kantonen für direkte Verbuchung als Betriebsaufwand (Art. 960a OR).`;
+        }
+      }
+
+      if (gwgMsg) {
+        gwgBox.innerHTML = gwgMsg;
+        gwgBox.className = `p-4 rounded-2xl border text-xs leading-relaxed ${isGwg ? 'bg-emerald-50 border-emerald-300 text-emerald-900' : 'bg-blue-50 border-blue-200 text-blue-900'}`;
+        gwgBox.classList.remove('hidden');
+      } else {
+        gwgBox.classList.add('hidden');
+      }
+
+      // Build Schedule
+      let schedule = [];
+      let currentBookValue = cost;
+      let cumulatedAfa = 0;
+      let switchYearFound = null;
+
+      // Calculate first year fraction:
+      // DE: pro rata temporis (13 - month) / 12
+      // AT: if month <= 6 => 1.0 (full year), if month > 6 => 0.5 (half year)
+      // CH: pro rata temporis or full year
+      let firstYearFraction = 1.0;
+      if (currentCountry === 'DE') {
+        firstYearFraction = (13 - month) / 12.0;
+      } else if (currentCountry === 'AT') {
+        firstYearFraction = month <= 6 ? 1.0 : 0.5;
+      } else {
+        firstYearFraction = (13 - month) / 12.0;
+      }
+
+      // Check Sonder-AfA in year 1
+      let sonderAfaAmount = 0;
+      if (hasSonderafa && sonderafaRate > 0) {
+        sonderAfaAmount = Math.round((cost * (sonderafaRate / 100.0)) * 100) / 100;
+      }
+
+      let activeMethod = (method === 'linear') ? 'linear' : 'degressiv';
+
+      for (let y = 1; y <= years; y++) {
+        let yr = startYear + y - 1;
+        let startVal = currentBookValue;
+        let fraction = (y === 1) ? firstYearFraction : 1.0;
+        let appliedRate = 0;
+        let afaAmount = 0;
+
+        let remYears = years - y + 1;
+
+        if (method === 'linear') {
+          appliedRate = linearRate;
+          afaAmount = (cost / years) * fraction;
+        } else if (method === 'degressiv') {
+          appliedRate = maxDegressivRate;
+          afaAmount = (startVal * (maxDegressivRate / 100.0)) * fraction;
+        } else if (method === 'degressiv-opt') {
+          // Check if switching to linear on remaining book value is better
+          let linearRemAfa = (startVal / remYears);
+          let degressivCurrentAfa = (startVal * (maxDegressivRate / 100.0)) * fraction;
+
+          if (activeMethod === 'degressiv' && linearRemAfa > degressivCurrentAfa && y > 1) {
+            activeMethod = 'linear';
+            if (!switchYearFound) switchYearFound = y;
+          }
+
+          if (activeMethod === 'linear') {
+            appliedRate = (100.0 / remYears);
+            afaAmount = linearRemAfa;
+          } else {
+            appliedRate = maxDegressivRate;
+            afaAmount = degressivCurrentAfa;
+          }
+        }
+
+        // Add Year 1 Sonder-AfA if applicable
+        let totalYearAfa = afaAmount;
+        if (y === 1 && sonderAfaAmount > 0) {
+          totalYearAfa += sonderAfaAmount;
+        }
+
+        // Don't reduce below salvage value
+        if (startVal - totalYearAfa < salvage) {
+          totalYearAfa = Math.max(0, startVal - salvage);
+        }
+
+        totalYearAfa = Math.round(totalYearAfa * 100) / 100;
+        cumulatedAfa += totalYearAfa;
+        let endVal = Math.round((startVal - totalYearAfa) * 100) / 100;
+        currentBookValue = endVal;
+
+        schedule.push({
+          yearIndex: y,
+          calendarYear: yr,
+          startValue: startVal,
+          methodUsed: activeMethod,
+          appliedRate: appliedRate,
+          regularAfa: afaAmount,
+          sonderAfa: (y === 1 ? sonderAfaAmount : 0),
+          totalAfa: totalYearAfa,
+          cumulatedAfa: cumulatedAfa,
+          endValue: endVal,
+          isSwitched: (y === switchYearFound)
+        });
+
+        if (endVal <= salvage) break;
+      }
+
+      // Update KPIs
+      const firstAfa = schedule.length > 0 ? schedule[0].totalAfa : 0;
+      document.getElementById('kpi-first-year-afa').textContent = formatNumber(firstAfa, cur);
+      document.getElementById('kpi-first-year-sub').textContent = (currentCountry === 'DE' ? `${(13 - month)} / 12 Monate` : (currentCountry === 'AT' ? (month <= 6 ? 'Ganzjahres-AfA' : 'Halbjahres-AfA') : 'Zeitanteilig'));
+
+      const topRate = (method === 'linear') ? linearRate : maxDegressivRate;
+      document.getElementById('kpi-rate-pct').textContent = `${topRate.toFixed(1).replace('.', ',')} %`;
+      document.getElementById('kpi-rate-sub').textContent = method === 'linear' ? 'linear p.a.' : `degressiv (max. ${maxDegressivRate.toFixed(0)}%)`;
+
+      const switchEl = document.getElementById('kpi-switch-year');
+      const switchSub = document.getElementById('kpi-switch-sub');
+      if (method === 'degressiv-opt' && switchYearFound) {
+        switchEl.textContent = `Jahr ${switchYearFound} (${startYear + switchYearFound - 1})`;
+        switchSub.textContent = `Optimaler Wechsel zu Linear`;
+      } else if (method === 'linear') {
+        switchEl.textContent = 'Entfällt';
+        switchSub.textContent = 'Rein lineare AfA';
+      } else {
+        switchEl.textContent = 'Kein Wechsel';
+        switchSub.textContent = 'Rein degressiv bis Restwert';
+      }
+
+      // Render App Table
+      const tb = document.getElementById('afa-table-body');
+      tb.innerHTML = '';
+      schedule.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.className = `hover:bg-slate-50 transition ${row.isSwitched ? 'bg-indigo-50/70 font-semibold' : ''}`;
+        tr.innerHTML = `
+          <td class="p-3 text-slate-900">
+            ${row.calendarYear} <span class="text-slate-400 text-[10px]">(J${row.yearIndex})</span>
+            ${row.isSwitched ? '<span class="ml-1 text-[9px] bg-indigo-600 text-white px-1.5 py-0.5 rounded font-sans">Wechsel</span>' : ''}
+          </td>
+          <td class="p-3 text-slate-700">${formatNumber(row.startValue, cur)}</td>
+          <td class="p-3 text-indigo-700">${row.appliedRate.toFixed(1).replace('.', ',')} %</td>
+          <td class="p-3 text-slate-900 font-bold">
+            ${formatNumber(row.totalAfa, cur)}
+            ${row.sonderAfa > 0 ? `<div class="text-[9px] text-amber-700 font-normal">inkl. ${formatNumber(row.sonderAfa, cur)} Sonder-AfA</div>` : ''}
+          </td>
+          <td class="p-3 text-slate-600">${formatNumber(row.cumulatedAfa, cur)}</td>
+          <td class="p-3 text-slate-900 font-bold">${formatNumber(row.endValue, cur)}</td>
+        `;
+        tb.appendChild(tr);
+      });
+
+      // Render Visual Progress Bars
+      const pContainer = document.getElementById('progress-container');
+      pContainer.innerHTML = '';
+      schedule.forEach(row => {
+        const pct = Math.max(0, Math.min(100, (row.endValue / cost) * 100));
+        const div = document.createElement('div');
+        div.className = 'space-y-1';
+        div.innerHTML = `
+          <div class="flex justify-between text-xs">
+            <span class="font-bold text-slate-800">${row.calendarYear} (Rest: ${formatNumber(row.endValue, cur)})</span>
+            <span class="font-mono text-slate-500">${pct.toFixed(0)} %</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+            <div class="h-2.5 rounded-full transition-all duration-500 ${pct > 50 ? 'bg-indigo-600' : (pct > 20 ? 'bg-teal-500' : 'bg-emerald-500')}" style="width: ${pct}%"></div>
+          </div>
+        `;
+        pContainer.appendChild(div);
+      });
+
+      // Update Print Sheet
+      document.getElementById('print-date').textContent = 'Erstellt am: ' + new Date().toLocaleDateString('de-DE');
+      const printBadge = document.getElementById('print-country-badge');
+      if (currentCountry === 'DE') printBadge.textContent = 'DEUTSCHLAND (§ 7 EStG)';
+      else if (currentCountry === 'AT') printBadge.textContent = 'ÖSTERREICH (§ 7 / § 13 EStG)';
+      else printBadge.textContent = 'SCHWEIZ (Art. 960a OR)';
+
+      document.getElementById('p-asset-name').textContent = assetName;
+      document.getElementById('p-cost').textContent = formatNumber(cost, cur);
+      document.getElementById('p-acq-date').textContent = `${month.toString().padStart(2, '0')}/${startYear}`;
+      document.getElementById('p-years').textContent = `${years} Jahre`;
+      document.getElementById('p-method').textContent = method === 'linear' ? 'Lineare AfA' : (method === 'degressiv' ? 'Reine degressive AfA' : 'Degressiv mit linearem Wechsel');
+      document.getElementById('p-rate').textContent = `${topRate.toFixed(1).replace('.', ',')} %`;
+      document.getElementById('p-switch-year').textContent = switchYearFound ? `Jahr ${switchYearFound} (${startYear + switchYearFound - 1})` : 'Entfällt';
+      document.getElementById('p-salvage').textContent = formatNumber(salvage, cur);
+
+      const ptb = document.getElementById('p-table-body');
+      ptb.innerHTML = '';
+      schedule.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="p-1 font-bold text-slate-900">${row.calendarYear}</td>
+          <td class="p-1">${formatNumber(row.startValue, cur)}</td>
+          <td class="p-1">${row.methodUsed} (${row.appliedRate.toFixed(1).replace('.', ',')} %)</td>
+          <td class="p-1 text-right font-bold">${formatNumber(row.totalAfa, cur)}</td>
+          <td class="p-1 text-right text-slate-600">${formatNumber(row.cumulatedAfa, cur)}</td>
+          <td class="p-1 text-right font-bold text-slate-900">${formatNumber(row.endValue, cur)}</td>
+        `;
+        ptb.appendChild(tr);
+      });
+
+      // Legal text in print sheet
+      const legalP = document.getElementById('p-legal-text');
+      if (currentCountry === 'DE') {
+        legalP.innerHTML = `Die Abschreibung wurde nach <strong>§ 7 Abs. 1 bzw. Abs. 2 EStG</strong> (Wachstumschancengesetz 2026) berechnet. Im Anschaffungsjahr erfolgte die AfA monatsgenau pro rata temporis (§ 7 Abs. 1 Satz 4 EStG). ${hasSonderafa ? `Zusätzlich wurde eine Sonderabschreibung nach § 7g Abs. 5 EStG in Höhe von ${sonderafaRate} % geltend gemacht.` : ''}`;
+      } else if (currentCountry === 'AT') {
+        legalP.innerHTML = `Die Berechnung berücksichtigt die österreichische Halbjahres-AfA-Regelung (§ 7 Abs. 2 EStG 1988) sowie die degressive Abschreibung nach § 7 Abs. 1a EStG bis zu 30 %.`;
+      } else {
+        legalP.innerHTML = `Abschreibung ermittelt gemäß Art. 960a Schweizer Obligationenrecht (OR) unter Beachtung der Merkblätter der Eidgenössischen Steuerverwaltung (ESTV).`;
+      }
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckansicht').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function exportCSV() {
+      const cur = currentCountry === 'CH' ? 'CHF' : 'EUR';
+      let csv = 'Jahr;Buchwert_Beginn;AfA_Satz;Jahres_AfA;Kumulierte_AfA;Restbuchwert_Ende;Waehrung\n';
+      const rows = document.querySelectorAll('#afa-table-body tr');
+      rows.forEach(r => {
+        const cols = r.querySelectorAll('td');
+        if (cols.length >= 6) {
+          const yr = cols[0].innerText.split(' ')[0].trim();
+          const bBegin = cols[1].innerText.replace(cur, '').trim();
+          const rSatz = cols[2].innerText.replace('%', '').trim();
+          const jAfa = cols[3].innerText.replace(cur, '').split('\n')[0].trim();
+          const kAfa = cols[4].innerText.replace(cur, '').trim();
+          const bEnd = cols[5].innerText.replace(cur, '').trim();
+          csv += `${yr};${bBegin};${rSatz};${jAfa};${kAfa};${bEnd};${cur}\n`;
+        }
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `anlagenspiegel_afa_${new Date().toISOString().split('T')[0]}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Modal & Voucher
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'AFA2026', 'STEUER2026', 'GUMROAD'];
+      if (validCodes.includes(val)) {
+        isProUnlocked = true;
+        closeCheckoutModal();
+        alert("DACH AfA & Anlagenbuchhaltung Pro-Paket erfolgreich aktiviert!");
+        const btn = document.getElementById('header-unlock-btn');
+        if (btn) {
+          btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+          btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+          btn.onclick = null;
+        }
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Gutscheincode. Bitte prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runCalculation();
+    });
+  </script>
+</body>
+</html>

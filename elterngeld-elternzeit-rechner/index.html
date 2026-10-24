@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Elterngeld-, Mutterschutz- &amp; Elternzeit-Planer 2026 | BEEG, MSchG &amp; Schweizer EO / VAEg</title>
+  <meta name="description" content="Kostenloser, 100% DSGVO-konformer Elterngeld- und Elternzeit-Planer 2026 für Deutschland (BEEG, 175.000 € Einkommensgrenze), Österreich (Wochengeld, ea KBG &amp; Pauschale) und die Schweiz (MSE &amp; VAEg). Mit 24-Monats-Timeline und DIN-A4 Arbeitgeber-Fahrplan." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/elterngeld-elternzeit-rechner/" />
+  <meta property="og:title" content="DACH Elterngeld-, Mutterschutz- &amp; Elternzeit-Planer 2026" />
+  <meta property="og:description" content="Berechne Basiselterngeld, ElterngeldPlus, Partnerschaftsbonus, österr. Wochengeld &amp; KBG sowie Schweizer MSE. Inklusive 24-Monats-Timeline und druckfertigem DIN-A4 Elternzeitantrag nach § 16 BEEG." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/elterngeld-elternzeit-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-card { border: 1px solid #94a3b8 !important; box-shadow: none !important; background: white !important; color: black !important; page-break-inside: avoid; }
+      .print-table { width: 100% !important; border-collapse: collapse !important; font-size: 10px !important; }
+      .print-table th, .print-table td { border: 1px solid #475569 !important; color: black !important; padding: 4px 6px !important; text-align: left; }
+      .print-table th { background-color: #f1f5f9 !important; font-weight: bold !important; }
+      .print-break-inside-avoid { page-break-inside: avoid !important; }
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm 15mm 15mm;
+      }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org WebApplication JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Elterngeld-, Mutterschutz- & Elternzeit-Planer 2026",
+    "url": "https://dachdigitalwerk.github.io/elterngeld-elternzeit-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Präziser Elterngeldrechner 2026 nach BEEG (DE), Wochengeld & KBGG (AT) und Schweizer EOG/VAEg. Mit interaktivem 24-Monats-Timeline-Planer, Haushaltsbegleitgesetz 175k zvE Grenze und druckfertigem § 16 BEEG Elternzeitantrag.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-rose-500 selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/30 text-rose-400 font-semibold text-[10px]">
+          <span>⚡ BEEG REFORM 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">175.000 € Einkommensgrenze (§ 1 Abs. 8 BEEG) &amp; Gleichzeitigkeits-Regelung aktiv</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Serverübertragung sensibler Familiendaten)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 Basiselterngeld 300–1.800 €</span>
+        <span>•</span>
+        <span>🇦🇹 ea KBG max. 73,88 €/Tag</span>
+        <span>•</span>
+        <span>🇨🇭 MSE max. 220 CHF/Tag</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-rose-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-rose-400 ml-2 px-1.5 py-0.5 rounded bg-rose-950/80 border border-rose-800">Tool #24</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>📥 CSV</span>
+        </button>
+        <button onclick="exportJSON()" class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5">
+          <span>💾 Backup</span>
+        </button>
+        <label class="hidden sm:flex text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition items-center gap-1.5 cursor-pointer">
+          <span>📂 Laden</span>
+          <input type="file" id="jsonFileInput" accept=".json" class="hidden" onchange="importJSON(event)" />
+        </label>
+        <button onclick="switchToTab('fahrplan'); setTimeout(() => window.print(), 250);" class="text-xs font-semibold bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-rose-500/20 transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Fahrplan</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="no-print pt-8 pb-6 px-4 sm:px-6 max-w-7xl mx-auto w-full">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold mb-3">
+          <span>👶 BEEG, MSchG &amp; Schweizer EO / VAEg 2026</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+          <span>100% Client-Side &amp; Privat</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          DACH Elterngeld-, Mutterschutz- &amp; Elternzeit-Planer 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+          Ermittle präzise deinen Anspruch auf Basiselterngeld, ElterngeldPlus und Partnerschaftsbonus in Deutschland, das österreichische Wochengeld &amp; KBG sowie die Schweizer Mutterschafts- und Vaterschaftsentschädigung (MSE &amp; VAEg).
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="text-xs bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/30 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 font-medium shadow-sm">
+          <span>⭐ Enterprise-Support &amp; HR-Suite</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB NAVIGATION -->
+    <div class="flex flex-wrap items-center gap-2 mt-6">
+      <button onclick="switchToTab('de')" id="tabBtn-de" class="tab-btn px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-rose-500 text-slate-950 shadow-lg shadow-rose-500/20">
+        <span>🇩🇪 Deutschland (BEEG)</span>
+      </button>
+      <button onclick="switchToTab('at')" id="tabBtn-at" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇦🇹 Österreich (MSchG / KBGG)</span>
+      </button>
+      <button onclick="switchToTab('ch')" id="tabBtn-ch" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>🇨🇭 Schweiz (EOG / VAEg)</span>
+      </button>
+      <button onclick="switchToTab('timeline')" id="tabBtn-timeline" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📅 24-Monats-Timeline</span>
+      </button>
+      <button onclick="switchToTab('fahrplan')" id="tabBtn-fahrplan" class="tab-btn px-4 py-2.5 rounded-xl font-semibold text-xs sm:text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition flex items-center gap-2">
+        <span>📋 AG-Fahrplan &amp; Fristen</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 w-full pb-16">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: DEUTSCHLAND (BEEG & MuSchG 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-de" class="tab-content block space-y-6">
+      
+      <!-- Einkommensgrenzen Alert Box (175k) -->
+      <div id="de-zve-warning" class="hidden p-4 rounded-2xl bg-red-950/70 border border-red-700 text-red-200 text-xs sm:text-sm flex items-start gap-3">
+        <span class="text-xl">⚠️</span>
+        <div>
+          <strong class="font-bold block text-red-100">Gesetzliche Einkommensgrenze überschritten (§ 1 Abs. 8 BEEG 2025/2026)</strong>
+          <span>Dein zu versteuerndes Einkommen (zvE) übersteigt die Schwelle von 175.000 € gem. Haushaltsbegleitgesetz. Es besteht gesetzlich kein Anspruch auf Basiselterngeld oder ElterngeldPlus.</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- LINKER BEREICH: PARAMETER & SCHIEBEREGLER (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 shadow-xl backdrop-blur-sm space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                <span>💰</span>
+                <span>Voreinkommen &amp; Elterngeld-Netto</span>
+              </h2>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">§ 2b BEEG</span>
+            </div>
+
+            <!-- Monatliches Nettoeinkommen vor Geburt -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="de_netto" class="text-xs font-semibold text-slate-300">
+                  Durchschnittliches Monats-Netto der letzten 12 Monate vor Geburt:
+                </label>
+                <div class="flex items-center gap-1 font-mono text-sm font-bold text-rose-400">
+                  <input type="number" id="de_netto_num" min="0" max="10000" step="50" value="2400" class="w-24 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-right text-white focus:outline-none focus:border-rose-500" oninput="syncDeNetto(this.value)" />
+                  <span>€</span>
+                </div>
+              </div>
+              <input type="range" id="de_netto_range" min="0" max="6000" step="50" value="2400" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500" oninput="syncDeNetto(this.value)" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>0 € (Mindestsatz 300 €)</span>
+                <span>1.000 € (Geringverdienergrenze)</span>
+                <span>1.200 € (Degressionsgrenze)</span>
+                <span>6.000 €+</span>
+              </div>
+            </div>
+
+            <!-- Zu versteuerndes Einkommen (zvE) -->
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="de_zve" class="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                  <span>Zu versteuerndes Jahreseinkommen (zvE) im Vorjahr:</span>
+                  <span class="text-[10px] text-slate-400" title="Im letzten Steuerbescheid ausgewiesenes zvE">(Ehepaare / Alleinerziehende)</span>
+                </label>
+                <div class="flex items-center gap-1 font-mono text-xs font-bold text-slate-200">
+                  <input type="number" id="de_zve" min="0" max="500000" step="5000" value="55000" class="w-24 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-right text-white focus:outline-none focus:border-rose-500" oninput="calculateDE()" />
+                  <span>€</span>
+                </div>
+              </div>
+              <span class="text-[11px] text-slate-500 block">
+                Grenzwert 2025/2026: Maximal <strong>175.000 € zvE</strong> für Geburten ab 01.04.2024 (§ 1 Abs. 8 BEEG).
+              </span>
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-4 space-y-4">
+              <h3 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span>👨‍👩‍👧‍👦</span>
+                <span>Zuschläge &amp; Sonderkonditionen</span>
+              </h3>
+
+              <!-- Geschwisterbonus -->
+              <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <input type="checkbox" id="de_geschwisterbonus" class="mt-1 w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" onchange="calculateDE()" />
+                <label for="de_geschwisterbonus" class="text-xs text-slate-300 cursor-pointer">
+                  <span class="font-bold text-white block">Geschwisterbonus aktivieren (+10 %, mind. 75 € Basis / 37,50 € Plus)</span>
+                  <span class="text-slate-400">Voraussetzung: Mind. ein Geschwisterkind unter 3 Jahren oder mind. zwei Kinder unter 6 Jahren (oder Kind mit Behinderung unter 14 Jahren).</span>
+                </label>
+              </div>
+
+              <!-- Mehrlingsgeburt -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                <div>
+                  <span class="font-bold text-xs text-white block">Mehrlingsgeburt (§ 2a Abs. 4 BEEG)</span>
+                  <span class="text-[11px] text-slate-400">Pauschal +300 € Basis bzw. +150 € Plus je weiterem Mehrling</span>
+                </div>
+                <select id="de_mehrlinge" class="bg-slate-950 border border-slate-700 text-xs font-semibold rounded-lg px-3 py-1.5 text-white focus:outline-none focus:border-rose-500" onchange="calculateDE()">
+                  <option value="1">1 Kind (Einling)</option>
+                  <option value="2">2 Kinder (Zwillinge: +300 €)</option>
+                  <option value="3">3 Kinder (Drillinge: +600 €)</option>
+                  <option value="4">4 Kinder (Vierlinge: +900 €)</option>
+                </select>
+              </div>
+
+              <!-- Teilzeit im Elterngeldbezug -->
+              <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <input type="checkbox" id="de_teilzeit_aktiv" class="w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" onchange="toggleDeTeilzeit()" />
+                    <label for="de_teilzeit_aktiv" class="font-bold text-xs text-white cursor-pointer">
+                      Teilzeit während Elternzeit (bis zu 32 Wochenstunden)
+                    </label>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800">§ 1 Abs. 6 BEEG</span>
+                </div>
+
+                <div id="de_teilzeit_fields" class="hidden space-y-3 pt-2 border-t border-slate-800">
+                  <div>
+                    <div class="flex justify-between text-xs mb-1">
+                      <span class="text-slate-400">Wöchentliche Arbeitszeit:</span>
+                      <span id="de_tz_stunden_label" class="font-mono font-bold text-white">20 Stunden/Woche</span>
+                    </div>
+                    <input type="range" id="de_tz_stunden" min="0" max="40" step="1" value="20" class="w-full h-1.5 bg-slate-800 rounded appearance-none accent-rose-500" oninput="updateTzStundenLabel(this.value); calculateDE();" />
+                    <span id="de_tz_warning" class="hidden text-[11px] text-amber-400 font-semibold block mt-1">⚠️ Über 32 Stunden: Kein Elterngeldanspruch in diesem Monat!</span>
+                  </div>
+
+                  <div>
+                    <div class="flex justify-between text-xs mb-1">
+                      <span class="text-slate-400">Geplantes Teilzeit-Netto:</span>
+                      <span id="de_tz_netto_label" class="font-mono font-bold text-white">1.000 € / Monat</span>
+                    </div>
+                    <input type="range" id="de_tz_netto" min="0" max="4000" step="50" value="1000" class="w-full h-1.5 bg-slate-800 rounded appearance-none accent-rose-500" oninput="updateTzNettoLabel(this.value); calculateDE();" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mutterschaftsgeld-Anrechnung (Schutzfrist 8 Wochen) -->
+              <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
+                <input type="checkbox" id="de_mutter_schutzfrist" class="mt-1 w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" checked onchange="calculateDE()" />
+                <div>
+                  <label for="de_mutter_schutzfrist" class="text-xs font-bold text-white cursor-pointer block">
+                    Mutterschaftsgeld während der 8-wöchigen Schutzfrist nach Geburt anrechnen
+                  </label>
+                  <span class="text-[11px] text-slate-400 block mt-0.5">
+                    Gesetzliche Krankenkasse (13 €/Tag) + AG-Zuschuss ersetzen in den ersten 2 Lebensmonaten das volle Netto. Diese Monate gelten als verbrauchte Basiselterngeld-Monate der Mutter (§ 3 BEEG).
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- RECHTER BEREICH: AUSZAHLUNGS-ERGEBNISSE & VERGLEICHSKARTE (5 COLS) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Berechnungsergebnis DE</span>
+                <h3 class="text-lg font-extrabold text-white">Monatlicher Elterngeldanspruch</h3>
+              </div>
+              <span id="de_ersatzrate_badge" class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                65,0 % Rate
+              </span>
+            </div>
+
+            <!-- Basiselterngeld Highlight Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-semibold text-slate-300 block">Basiselterngeld</span>
+                <span class="text-[11px] text-slate-400">Maximal 12 bzw. 14 Monate (300 € bis 1.800 €)</span>
+              </div>
+              <div class="text-right">
+                <span id="de_res_basis" class="font-display text-2xl sm:text-3xl font-black text-rose-400">1.560,00 €</span>
+                <span class="block text-[10px] font-mono text-slate-400">pro Monat</span>
+              </div>
+            </div>
+
+            <!-- ElterngeldPlus Highlight Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-semibold text-slate-300 block">ElterngeldPlus</span>
+                <span class="text-[11px] text-slate-400">Doppelte Bezugszeit (150 € bis 900 €)</span>
+              </div>
+              <div class="text-right">
+                <span id="de_res_plus" class="font-display text-2xl sm:text-3xl font-black text-amber-400">780,00 €</span>
+                <span class="block text-[10px] font-mono text-slate-400">pro Monat</span>
+              </div>
+            </div>
+
+            <!-- Detail-Aufschlüsselung -->
+            <div class="space-y-2 text-xs border-t border-slate-800/80 pt-3 text-slate-300">
+              <div class="flex justify-between">
+                <span class="text-slate-400">Gesetzliche Ersatzrate:</span>
+                <span id="de_detail_rate" class="font-mono font-bold text-white">65,0 %</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Ermitteltes Voreinkommen:</span>
+                <span id="de_detail_netto" class="font-mono text-slate-200">2.400,00 €</span>
+              </div>
+              <div class="flex justify-between" id="de_detail_tz_row">
+                <span class="text-slate-400">Anrechenbarer Einkommensverlust:</span>
+                <span id="de_detail_loss" class="font-mono text-slate-200">2.400,00 €</span>
+              </div>
+              <div class="flex justify-between" id="de_detail_geschwister_row">
+                <span class="text-slate-400">Inkl. Geschwisterbonus (+10 %):</span>
+                <span id="de_detail_geschwister" class="font-mono text-emerald-400">+0,00 €</span>
+              </div>
+              <div class="flex justify-between" id="de_detail_mehrling_row">
+                <span class="text-slate-400">Inkl. Mehrlingszuschlag:</span>
+                <span id="de_detail_mehrling" class="font-mono text-cyan-400">+0,00 €</span>
+              </div>
+              <div class="flex justify-between border-t border-slate-800 pt-2 font-semibold">
+                <span class="text-slate-200">Gesamtpotenzial (14 Basismonate):</span>
+                <span id="de_total_potential" class="font-mono text-white font-extrabold">21.840,00 €</span>
+              </div>
+            </div>
+
+            <!-- Info-Box Gesetzliche Formel -->
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+              <div class="font-semibold text-slate-300 flex items-center gap-1.5">
+                <span>ℹ️</span>
+                <span>BEEG Degressions- &amp; Geringverdiener-Formel:</span>
+              </div>
+              <p id="de_formel_erklaerung">
+                Bei Netto > 1.200 € sinkt die Ersatzrate von 67 % um je 0,1 %-Punkte pro 20 € über 1.200 € bis zum Mindestsatz von 65 % (erreicht ab 1.600 €).
+              </p>
+            </div>
+
+            <!-- Call to Actions -->
+            <div class="pt-2">
+              <button onclick="switchToTab('timeline')" class="w-full py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-slate-950 shadow-lg shadow-rose-500/25 transition flex items-center justify-center gap-2">
+                <span>🗓️ In der 24-Monats-Timeline planen</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: ÖSTERREICH (MSchG / KBGG 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-at" class="tab-content hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Parameter AT -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                <span>🇦🇹</span>
+                <span>Österreich: Wochengeld &amp; Kinderbetreuungsgeld 2026</span>
+              </h2>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">§ 162 ASVG &amp; KBGG</span>
+            </div>
+
+            <!-- Monatliches Nettoeinkommen AT -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="at_netto" class="text-xs font-semibold text-slate-300">
+                  Durchschnittliches Monatsnetto der letzten 3 Monate vor Mutterschutz:
+                </label>
+                <div class="flex items-center gap-1 font-mono text-sm font-bold text-rose-400">
+                  <input type="number" id="at_netto_num" min="0" max="10000" step="50" value="2300" class="w-24 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-right text-white focus:outline-none focus:border-rose-500" oninput="syncAtNetto(this.value)" />
+                  <span>€</span>
+                </div>
+              </div>
+              <input type="range" id="at_netto_range" min="500" max="6000" step="50" value="2300" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500" oninput="syncAtNetto(this.value)" />
+            </div>
+
+            <!-- Sonderzahlungen berücksichtigen -->
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <input type="checkbox" id="at_sonderzahlungen" class="mt-1 w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" checked onchange="calculateAT()" />
+              <label for="at_sonderzahlungen" class="text-xs text-slate-300 cursor-pointer">
+                <span class="font-bold text-white block">13. &amp; 14. Monatsgehalt berücksichtigen (Sonderzahlungs-Zuschlag)</span>
+                <span class="text-slate-400">Beim Wochengeld wird gesetzlich ein pauschaler Aufschlag von ca. 17 % hinzugerechnet, da Urlaubs- und Weihnachtsgeld anteilig mit einfließen.</span>
+              </label>
+            </div>
+
+            <!-- Kaiserschnitt / Mehrlinge / Frühgeburt -->
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <input type="checkbox" id="at_kaiserschnitt" class="mt-1 w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" onchange="calculateAT()" />
+              <label for="at_kaiserschnitt" class="text-xs text-slate-300 cursor-pointer">
+                <span class="font-bold text-white block">Kaiserschnitt, Frühgeburt oder Mehrlinge</span>
+                <span class="text-slate-400">Verlängert die Schutzfrist nach der Entbindung von 8 Wochen auf 12 Wochen (insgesamt 20 Wochen Wochengeld).</span>
+              </label>
+            </div>
+
+            <!-- Pauschales KBG-Konto Tage-Schieberegler -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-3">
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="font-bold text-xs text-white block">Pauschales KBG-Konto (Flexible Bezugsdauer)</span>
+                  <span class="text-[11px] text-slate-400">Wähle die gewünschte Bezugsdauer in Tagen:</span>
+                </div>
+                <span id="at_tage_label" class="font-mono text-sm font-bold text-amber-400">365 Tage</span>
+              </div>
+              <input type="range" id="at_tage_range" min="365" max="1063" step="1" value="365" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500" oninput="updateAtTage(this.value)" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+                <span>365 Tage (max. 39,12 €/Tag)</span>
+                <span>610 Tage</span>
+                <span>1.063 Tage (~16,93 €/Tag)</span>
+              </div>
+            </div>
+
+            <!-- Aufteilung auf beide Elternteile -->
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <input type="checkbox" id="at_beide_eltern" class="mt-1 w-4 h-4 rounded text-rose-600 bg-slate-800 border-slate-700 focus:ring-rose-500" onchange="calculateAT()" />
+              <label for="at_beide_eltern" class="text-xs text-slate-300 cursor-pointer">
+                <span class="font-bold text-white block">Aufteilung auf beide Elternteile (Partnerschaftsbonus Österreich)</span>
+                <span class="text-slate-400">Verlängert den Bezug beim ea KBG auf bis zu 426 Tage (14 Monate) bzw. beim Pauschalkonto auf bis zu 1.063 Tage (inkl. 500 € Partnerschaftsbonus-Zuschuss bei 50:50 Teilung).</span>
+              </label>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Ergebnisse AT -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl space-y-5">
+            <div class="border-b border-slate-800 pb-3">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Österreich Übersicht</span>
+              <h3 class="text-lg font-extrabold text-white">Wochengeld vs. KBG-Optionen 2026</h3>
+            </div>
+
+            <!-- Wochengeld Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-rose-300">1. Wochengeld (Mutterschutz)</span>
+                <span id="at_res_wg_dauer" class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">16 Wochen</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Tagessatz (100% Netto):</span>
+                <span id="at_res_wg_tag" class="font-mono text-base font-bold text-white">89,70 € / Tag</span>
+              </div>
+              <div class="flex justify-between items-baseline border-t border-slate-700/50 pt-1.5">
+                <span class="text-xs text-slate-300 font-semibold">Gesamtanspruch Wochengeld:</span>
+                <span id="at_res_wg_gesamt" class="font-display text-xl font-black text-rose-400">10.046,40 €</span>
+              </div>
+            </div>
+
+            <!-- Ea KBG Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-emerald-300">2. Einkommensabhängiges KBG (80 %)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">Max. 73,88 €/Tag</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Monatlich (30 Tage):</span>
+                <span id="at_res_ea_monat" class="font-mono text-base font-bold text-white">1.815,00 €</span>
+              </div>
+              <div class="flex justify-between items-baseline border-t border-slate-700/50 pt-1.5">
+                <span class="text-xs text-slate-300 font-semibold">Gesamtanspruch ea KBG:</span>
+                <span id="at_res_ea_gesamt" class="font-display text-xl font-black text-emerald-400">22.077,50 €</span>
+              </div>
+              <span class="text-[11px] text-slate-400 block">Zuverdienstgrenze: <strong>8.600 € / Jahr</strong></span>
+            </div>
+
+            <!-- Pauschales KBG-Konto Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-amber-300">3. Pauschales KBG-Konto</span>
+                <span id="at_res_p_tage_badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">365 Tage</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Tagessatz:</span>
+                <span id="at_res_p_tag" class="font-mono text-base font-bold text-white">39,12 € / Tag</span>
+              </div>
+              <div class="flex justify-between items-baseline border-t border-slate-700/50 pt-1.5">
+                <span class="text-xs text-slate-300 font-semibold">Gesamtauszahlung Konto:</span>
+                <span id="at_res_p_gesamt" class="font-display text-xl font-black text-amber-400">14.278,80 €</span>
+              </div>
+              <span class="text-[11px] text-slate-400 block">Zuverdienstgrenze: <strong>18.000 € / Jahr</strong></span>
+            </div>
+
+            <!-- Empfehlungsbox AT -->
+            <div id="at_empfehlung_box" class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 text-xs space-y-1">
+              <span class="font-bold text-slate-200 block">💡 System-Empfehlung für Österreich:</span>
+              <p id="at_empfehlung_text" class="text-slate-400 text-[11px]">
+                Bei einem Netto von 2.300 € lohnt sich das <strong>einkommensabhängige KBG</strong> finanziell deutlich gegenüber der Pauschale (+7.798 € Mehrertrag).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: SCHWEIZ (EOG & VAEg 2026) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-ch" class="tab-content hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Parameter CH -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="text-lg font-bold text-white flex items-center gap-2">
+                <span>🇨🇭</span>
+                <span>Schweiz: Mutterschafts- &amp; Vaterschaftsurlaub 2026</span>
+              </h2>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">Art. 16b ff. EOG &amp; VAEg</span>
+            </div>
+
+            <!-- Monatslohn CH -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="ch_lohn" class="text-xs font-semibold text-slate-300">
+                  Massgebender AHV-Monatslohn vor Niederkunft:
+                </label>
+                <div class="flex items-center gap-1 font-mono text-sm font-bold text-rose-400">
+                  <input type="number" id="ch_lohn_num" min="0" max="25000" step="100" value="7500" class="w-28 bg-slate-900 border border-slate-700 rounded-lg px-2 py-1 text-right text-white focus:outline-none focus:border-rose-500" oninput="syncChLohn(this.value)" />
+                  <span>CHF</span>
+                </div>
+              </div>
+              <input type="range" id="ch_lohn_range" min="1000" max="15000" step="100" value="7500" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-500" oninput="syncChLohn(this.value)" />
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono mt-1">
+                <span>1.000 CHF</span>
+                <span>8.250 CHF (Gesetzlicher Höchstsatz 220 CHF/Tag)</span>
+                <span>15.000 CHF</span>
+              </div>
+            </div>
+
+            <!-- Kantonale Sonderregelung -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <label for="ch_kanton" class="text-xs font-bold text-white block">Kantonale Mindeststandards &amp; Besserstellung:</label>
+              <select id="ch_kanton" class="w-full bg-slate-950 border border-slate-700 text-xs font-semibold rounded-lg px-3 py-2 text-white focus:outline-none focus:border-rose-500" onchange="calculateCH()">
+                <option value="bund">Bundesrecht: 14 Wochen (98 Tage Mutterschaft / 2 Wochen Vaterschaft)</option>
+                <option value="ge">Kanton Genf: 16 Wochen Mutterschaftsurlaub (Kantonale Kasse)</option>
+                <option value="privat">Arbeitgeber-/GAV-Lohnfortzahlung 100% (z.B. Banken/Chemie 16–20 Wochen)</option>
+              </select>
+            </div>
+
+            <!-- Voraussetzungen Checkliste -->
+            <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2">
+              <span class="text-xs font-bold text-slate-300 block">Gesetzliche Anspruchsvoraussetzungen (Art. 16b EOG):</span>
+              <ul class="text-[11px] text-slate-400 space-y-1 list-disc list-inside">
+                <li>Mindestens 9 Monate unmittelbar vor der Geburt im Sinne des AHVG versichert.</li>
+                <li>In dieser Zeit mindestens 5 Monate lang eine Erwerbstätigkeit ausgeübt.</li>
+                <li>Am Tag der Niederkunft Arbeitnehmerin oder Selbstständigerwerbende.</li>
+                <li>Kündigungsschutz: Während der Schwangerschaft und 16 Wochen nach der Niederkunft (Art. 336c OR).</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Ergebnisse CH -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 shadow-2xl space-y-5">
+            <div class="border-b border-slate-800 pb-3">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400">Schweiz Übersicht</span>
+              <h3 class="text-lg font-extrabold text-white">EOG-Entschädigungen 2026</h3>
+            </div>
+
+            <!-- Mutterschaftsentschädigung Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-rose-300">Mutterschaftsentschädigung (MSE)</span>
+                <span id="ch_res_mse_dauer" class="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800">14 Wochen (98 Tage)</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Taggeld (80 %, max. 220 CHF):</span>
+                <span id="ch_res_mse_tag" class="font-mono text-base font-bold text-white">200.00 CHF / Tag</span>
+              </div>
+              <div class="flex justify-between items-baseline border-t border-slate-700/50 pt-1.5">
+                <span class="text-xs text-slate-300 font-semibold">Gesamtanspruch MSE:</span>
+                <span id="ch_res_mse_gesamt" class="font-display text-xl font-black text-rose-400">19'600.00 CHF</span>
+              </div>
+            </div>
+
+            <!-- Vaterschaftsurlaub Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-cyan-300">Urlaub für den anderen Elternteil (VAEg)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">2 Wochen (14 Taggelder)</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Taggeld (80 %, max. 220 CHF):</span>
+                <span id="ch_res_vat_tag" class="font-mono text-base font-bold text-white">200.00 CHF / Tag</span>
+              </div>
+              <div class="flex justify-between items-baseline border-t border-slate-700/50 pt-1.5">
+                <span class="text-xs text-slate-300 font-semibold">Gesamtanspruch Urlaub:</span>
+                <span id="ch_res_vat_gesamt" class="font-display text-xl font-black text-cyan-400">2'800.00 CHF</span>
+              </div>
+              <span class="text-[11px] text-slate-400 block">Flexibel beziehbar innerhalb von 6 Monaten (tageweise oder am Stück = 10 Arbeitstage).</span>
+            </div>
+
+            <!-- Betreuungsentschädigung Card -->
+            <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700/80 space-y-2">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-amber-300">Betreuungsentschädigung (Art. 16n EOG)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">Bis 14 Wochen</span>
+              </div>
+              <span class="text-[11px] text-slate-400 block">Für erwerbstätige Eltern schwer gesundheitlich beeinträchtigter Kinder. Bis zu 98 Taggelder innerhalb einer Rahmenfrist von 18 Monaten.</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 4: 24-MONATS-TIMELINE PLANER -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-timeline" class="tab-content hidden space-y-6">
+      
+      <!-- Presets & Kontrollen -->
+      <div class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>📅</span>
+              <span>Interaktiver 24-Monats-Timeline-Planer für Elternpaare</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Plane Monat 1 bis 24 für Elternteil 1 &amp; Elternteil 2. Der integrierte BEEG-Regelwächter prüft gleichzeitig genommene Basismonate, Gesamtkontingente und Partnerschaftsbonus.
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold text-slate-400">Schnellvorlagen:</span>
+            <button onclick="applyPreset('klassisch')" class="text-xs bg-slate-800 hover:bg-slate-700 text-rose-300 border border-slate-700 px-3 py-1.5 rounded-lg transition font-medium">
+              12 + 2 Klassisch
+            </button>
+            <button onclick="applyPreset('teilzeit')" class="text-xs bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 px-3 py-1.5 rounded-lg transition font-medium">
+              Plus &amp; Teilzeit
+            </button>
+            <button onclick="applyPreset('partnerbonus')" class="text-xs bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 px-3 py-1.5 rounded-lg transition font-medium">
+              Partnerschaftsbonus
+            </button>
+          </div>
+        </div>
+
+        <!-- Warnhinweis / Rule Validator Banner -->
+        <div id="timeline_warning_banner" class="hidden p-3.5 rounded-xl bg-amber-950/70 border border-amber-700 text-amber-200 text-xs flex items-start gap-2.5">
+          <span class="text-lg">⚠️</span>
+          <div id="timeline_warning_text"></div>
+        </div>
+
+        <!-- Live Status Kennzahlen -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-mono block">Genutzte Basismonate</span>
+            <span id="tl_stat_basis" class="text-lg font-extrabold text-white">14 / 14</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-mono block">Gleichzeitig Basis (J1)</span>
+            <span id="tl_stat_simul" class="text-lg font-extrabold text-emerald-400">0 / 1 max</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-mono block">Partnerschaftsbonus</span>
+            <span id="tl_stat_bonus" class="text-lg font-extrabold text-amber-400">0 Monate</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span class="text-[10px] text-slate-400 uppercase font-mono block">Haushalts-Gesamtauszahlung</span>
+            <span id="tl_stat_total" class="text-lg font-extrabold text-rose-400">21.840,00 €</span>
+          </div>
+        </div>
+
+        <!-- 24-Monats-Matrix Tabelle (Horizontal scrollbar) -->
+        <div class="overflow-x-auto border border-slate-800 rounded-xl bg-slate-950">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-900 border-b border-slate-800 text-slate-400 font-mono text-[11px]">
+                <th class="p-2.5 sticky left-0 bg-slate-900 z-10 w-28">Elternteil</th>
+                <!-- Monat 1 bis 24 Spalten -->
+                <script>
+                  for (let i = 1; i <= 24; i++) {
+                    document.write(`<th class="p-2 text-center min-w-[70px] border-l border-slate-800/60">M${i}</th>`);
+                  }
+                </script>
+              </tr>
+            </thead>
+            <tbody id="timeline_table_body" class="divide-y divide-slate-800/60">
+              <!-- Dynamisch per JS befüllt -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Legende -->
+        <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400 pt-2 border-t border-slate-800/80">
+          <span class="font-semibold text-slate-300">Legende:</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-500"></span> Basiselterngeld</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-amber-500"></span> ElterngeldPlus</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-500"></span> Partnerschaftsbonus (24–32h)</span>
+          <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-slate-700"></span> Vollzeit / Arbeit</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 5: AG-FAHRPLAN & ANTRAGSFRISTEN (§ 16 BEEG MUSTERANTRAG) -->
+    <!-- ========================================================================= -->
+    <section id="tabContent-fahrplan" class="tab-content hidden space-y-6">
+      
+      <div class="p-6 rounded-2xl bg-slate-950/60 border border-slate-800 shadow-xl space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>📋</span>
+              <span>Arbeitgeber-Fahrplan &amp; Gesetzliche Antragsfristen 2026</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">
+              Automatische Berechnung aller rechtlichen Stichtage (§ 16 BEEG Fristen &amp; Kündigungsschutz) inklusive druckfertigem Elternzeit-Musterantrag.
+            </p>
+          </div>
+          <button onclick="window.print()" class="no-print bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-lg shadow-rose-500/20 transition flex items-center gap-2">
+            <span>🖨️ DIN-A4 Dokument drucken</span>
+          </button>
+        </div>
+
+        <!-- Geburtsdatum Picker -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div>
+            <label for="fp_geburtsdatum" class="text-xs font-semibold text-slate-300 block mb-1.5">
+              Errechneter / tatsächlicher Geburtstermin:
+            </label>
+            <input type="date" id="fp_geburtsdatum" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-rose-500" value="2026-06-01" onchange="calculateFahrplan()" />
+          </div>
+          <div>
+            <label for="fp_elternzeit_monate" class="text-xs font-semibold text-slate-300 block mb-1.5">
+              Geplante Elternzeitdauer (Monate):
+            </label>
+            <input type="number" id="fp_elternzeit_monate" min="1" max="36" value="12" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-rose-500" onchange="calculateFahrplan()" />
+          </div>
+          <div>
+            <label for="fp_antragsteller_name" class="text-xs font-semibold text-slate-300 block mb-1.5">
+              Name des antragstellenden Elternteils:
+            </label>
+            <input type="text" id="fp_antragsteller_name" value="Max Mustermann" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-rose-500" oninput="updateAntragText()" />
+          </div>
+        </div>
+
+        <!-- Interaktiver Zeitstrahl der Stichtage -->
+        <div class="space-y-3">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2">
+            <span>⏱️</span>
+            <span>Wichtige rechtliche Stichtage im Überblick:</span>
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-[10px] font-mono text-rose-400 block mb-1">6 WOCHEN VOR ET</span>
+              <strong class="text-white block" id="fp_date_muschutz">20.04.2026</strong>
+              <span class="text-slate-400 text-[11px]">Beginn Mutterschutzfrist (§ 3 MuSchG)</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-[10px] font-mono text-amber-400 block mb-1">7 WOCHEN VOR BEGINN</span>
+              <strong class="text-white block" id="fp_date_frist">13.04.2026</strong>
+              <span class="text-slate-400 text-[11px]">Frist Elternzeit-Anmeldung (§ 16 BEEG)</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-[10px] font-mono text-emerald-400 block mb-1">8 WOCHEN VOR BEGINN</span>
+              <strong class="text-white block" id="fp_date_kschutz">06.04.2026</strong>
+              <span class="text-slate-400 text-[11px]">Beginn Kündigungsschutz (§ 18 BEEG)</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-[10px] font-mono text-cyan-400 block mb-1">3 MONATE NACH GEBURT</span>
+              <strong class="text-white block" id="fp_date_antrag_ende">01.09.2026</strong>
+              <span class="text-slate-400 text-[11px]">Frist rückwirkendes Elterngeld</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= DRUCKFERTIGER MUSTERANTRAG ================= -->
+        <div class="print-card p-6 sm:p-8 rounded-2xl bg-white text-slate-950 shadow-xl border border-slate-200 space-y-4">
+          <div class="border-b border-slate-300 pb-4 flex justify-between items-start">
+            <div>
+              <h3 class="text-lg font-black tracking-tight text-slate-900">VERBINDLICHE ANMELDUNG VON ELTERNZEIT</h3>
+              <p class="text-xs text-slate-600 font-mono">Gemäß § 16 Abs. 1 Bundeselterngeld- und Elternzeitgesetz (BEEG)</p>
+            </div>
+            <span class="print-only text-[10px] font-mono text-slate-500">DACH Digitalwerk Tool #24</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 text-xs">
+            <div>
+              <span class="text-slate-500 block">Arbeitnehmer/in:</span>
+              <strong id="antrag_display_name" class="text-slate-900 text-sm">Max Mustermann</strong>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Datum der Mitteilung:</span>
+              <strong id="antrag_display_today" class="text-slate-900 text-sm">24.10.2026</strong>
+            </div>
+          </div>
+
+          <div class="text-xs leading-relaxed space-y-3 text-slate-800 pt-2">
+            <p>
+              Sehr geehrte Damen und Herren,
+            </p>
+            <p>
+              hiermit nehme ich für mein Kind (errechneter/tatsächlicher Geburtstermin: <strong id="antrag_display_et">01.06.2026</strong>) Elternzeit gemäß § 16 BEEG in Anspruch.
+            </p>
+            <p>
+              Ich beantrage die Elternzeit für folgenden Zeitraum verbindlich für die kommenden zwei Lebensjahre:
+            </p>
+            <div class="p-3 bg-slate-100 rounded-lg border border-slate-300 font-mono text-xs">
+              <strong>Beginn der Elternzeit:</strong> <span id="antrag_display_start">01.06.2026</span><br />
+              <strong>Ende der Elternzeit:</strong> <span id="antrag_display_ende">31.05.2027</span> (<span id="antrag_display_dauer">12</span> Monate)
+            </div>
+            <p>
+              Gemäß § 16 Abs. 1 Satz 2 BEEG erkläre ich verbindlich, für welche Zeiten innerhalb von zwei Jahren ab Beginn der Elternzeit ich Elternzeit nehme. Während der Elternzeit beabsichtige ich <span id="antrag_display_tz_intent">keine Teilzeittätigkeit</span> auszuüben.
+            </p>
+            <p>
+              Ich bitte Sie höflich, mir den Erhalt dieser Anmeldung sowie die genauen Daten der Elternzeit gemäß § 16 Abs. 1 Satz 5 BEEG schriftlich zu bestätigen.
+            </p>
+          </div>
+
+          <!-- Unterschriftenblock Arbeitnehmer -->
+          <div class="pt-6 grid grid-cols-2 gap-8 text-xs">
+            <div>
+              <div class="border-b border-slate-400 pb-1 mb-1"></div>
+              <span class="text-slate-600 block">Ort, Datum &amp; Unterschrift Arbeitnehmer/in</span>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 pb-1 mb-1"></div>
+              <span class="text-slate-600 block">Unterschrift des anderen Elternteils (optional)</span>
+            </div>
+          </div>
+
+          <!-- AG Empfangsbestätigung Vermerk -->
+          <div class="border-t border-slate-300 pt-4 mt-6 text-xs text-slate-700 bg-slate-50 p-4 rounded-xl border">
+            <strong class="block text-slate-900 mb-2 font-bold">Bestätigung des Arbeitgebers gem. § 16 Abs. 1 Satz 5 BEEG:</strong>
+            <p class="text-[11px] text-slate-600 mb-4">
+              Der Eingang dieser schriftlichen Elternzeitanmeldung wird hiermit unter Einhaltung der gesetzlichen 7-Wochen-Frist bestätigt. Die Elternzeit wird für den oben genannten Zeitraum verbindlich gewährt.
+            </p>
+            <div class="grid grid-cols-2 gap-8">
+              <div>
+                <div class="border-b border-slate-400 pb-1 mb-1"></div>
+                <span class="text-[10px] text-slate-500">Ort, Datum (Eingangsdatum Arbeitgeber)</span>
+              </div>
+              <div>
+                <div class="border-b border-slate-400 pb-1 mb-1"></div>
+                <span class="text-[10px] text-slate-500">Unterschrift &amp; Firmenstempel Arbeitgeber</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SEO & RATGEBER LINKS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-12 p-6 sm:p-8 rounded-2xl bg-slate-950/40 border border-slate-800 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white flex items-center gap-2">
+          <span>📚</span>
+          <span>Fachratgeber &amp; Vertiefungen für Deutschland, Österreich &amp; Schweiz</span>
+        </h3>
+        <span class="text-xs text-slate-500 font-mono">pSEO Fachartikel</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <a href="./elterngeld-berechnen-formel-einkommensgrenze-2026.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-rose-400 font-bold block mb-1 group-hover:text-rose-300">Formel &amp; 175.000 € Einkommensgrenze</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Detaillierte Analyse des Haushaltsbegleitgesetzes 2025/2026, Geringverdiener-Staffelung und degressiver Ersatzratenverlauf.
+          </p>
+        </a>
+        <a href="./elterngeldplus-partnerschaftsbonus-teilzeit-rechner.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-amber-400 font-bold block mb-1 group-hover:text-amber-300">ElterngeldPlus &amp; Partnerschaftsbonus</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Teilzeit-Zuverdienst im Bezug (bis 32 h), Deckelungsbetrags-Berechnung und 4 Bonusmonate für Paare.
+          </p>
+        </a>
+        <a href="./mutterschaftsgeld-wochengeld-schweiz-mse-vergleich-dach.html" class="p-4 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 transition block group">
+          <span class="text-cyan-400 font-bold block mb-1 group-hover:text-cyan-300">Wochengeld vs. MSE vs. Mutterschutz</span>
+          <p class="text-slate-400 text-[11px] leading-relaxed">
+            Dreiländervergleich: 100 % Wochengeld (AT) vs. 80 % MSE (CH, 220 CHF Plafond) vs. deutsches Mutterschaftsgeld.
+          </p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- BGH SMARTLAW RECHTS-DISCLAIMER & FOOTER INFOS -->
+    <!-- ========================================================================= -->
+    <section class="no-print mt-8 p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800/80 text-[11px] text-slate-400 space-y-2">
+      <div class="flex items-center gap-2 font-bold text-slate-300">
+        <span>⚖️</span>
+        <span>Rechtlicher Hinweis nach BGH Smartlaw-Standard (§ 2 RDG / § 5 StBerG):</span>
+      </div>
+      <p class="leading-relaxed">
+        Dieser Rechner stellt eine automatisierte, unverbindliche Orientierungs- und Berechnungshilfe auf Basis des Bundeselterngeld- und Elternzeitgesetzes (BEEG), des Mutterschutzgesetzes (MuSchG/MSchG), des Kinderbetreuungsgeldgesetzes (KBGG) sowie der Schweizer Erwerbsersatzordnung (EOG/VAEg) im Rechtsstand 2026 dar. Er ersetzt keine individuelle Rechts-, Steuer- oder Sozialberatung durch zuständige Elterngeldstellen, Krankenkassen oder Rechtsanwälte. Es werden keinerlei Parteienstreitigkeiten intermediiert. Sämtliche Berechnungen erfolgen zu 100 % lokal in Ihrem Browser (Client-Side).
+      </p>
+      <div class="flex flex-wrap gap-4 pt-1 text-slate-500 font-mono">
+        <a href="../agb/" class="hover:text-rose-400 underline">Allgemeine Geschäftsbedingungen (AGB)</a>
+        <span>•</span>
+        <a href="../haftungsausschluss/" class="hover:text-rose-400 underline">Haftungsausschluss</a>
+        <span>•</span>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-rose-400 underline">Datenschutz &amp; Impressum</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= JAVASCRIPT APPLICATION LOGIC ================= -->
+  <script>
+    // --- STATE MANAGEMENT ---
+    const state = {
+      activeTab: 'de',
+      de: {
+        netto: 2400,
+        zve: 55000,
+        geschwisterbonus: false,
+        mehrlinge: 1,
+        teilzeitAktiv: false,
+        tzStunden: 20,
+        tzNetto: 1000,
+        mutterSchutz: true,
+      },
+      at: {
+        netto: 2300,
+        sonderzahlungen: true,
+        kaiserschnitt: false,
+        tage: 365,
+        beideEltern: false,
+      },
+      ch: {
+        lohn: 7500,
+        kanton: 'bund',
+      },
+      timeline: {
+        et1: ['basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'],
+        et2: ['arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'basis', 'basis', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'],
+      },
+      fahrplan: {
+        et: '2026-06-01',
+        monate: 12,
+        name: 'Max Mustermann'
+      }
+    };
+
+    // --- TAB SWITCHING ---
+    function switchToTab(tabId) {
+      state.activeTab = tabId;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-rose-500', 'text-slate-950', 'shadow-lg', 'shadow-rose-500/20');
+        btn.classList.add('text-slate-400');
+      });
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+      });
+
+      const currentBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (currentBtn) {
+        currentBtn.classList.add('bg-rose-500', 'text-slate-950', 'shadow-lg', 'shadow-rose-500/20');
+        currentBtn.classList.remove('text-slate-400');
+      }
+      const currentContent = document.getElementById(`tabContent-${tabId}`);
+      if (currentContent) {
+        currentContent.classList.remove('hidden');
+        currentContent.classList.add('block');
+      }
+
+      if (tabId === 'timeline') renderTimeline();
+      if (tabId === 'fahrplan') calculateFahrplan();
+    }
+
+    // --- DEUTSCHLAND LOGIC (BEEG 2026) ---
+    function calculateErsatzrate(netto) {
+      if (netto <= 0) return 1.0;
+      if (netto < 1000) {
+        const diff = 1000 - netto;
+        const steps = diff / 2.0;
+        return Math.min(1.0, 0.67 + (steps * 0.001));
+      }
+      if (netto <= 1200) return 0.67;
+      const diff = netto - 1200;
+      const steps = Math.floor(diff / 20.0);
+      return Math.max(0.65, 0.67 - (steps * 0.001));
+    }
+
+    function syncDeNetto(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.de.netto = val;
+      document.getElementById('de_netto_num').value = val;
+      document.getElementById('de_netto_range').value = Math.min(6000, val);
+      calculateDE();
+    }
+
+    function toggleDeTeilzeit() {
+      const active = document.getElementById('de_teilzeit_aktiv').checked;
+      state.de.teilzeitAktiv = active;
+      document.getElementById('de_teilzeit_fields').classList.toggle('hidden', !active);
+      calculateDE();
+    }
+
+    function updateTzStundenLabel(val) {
+      state.de.tzStunden = parseFloat(val) || 0;
+      document.getElementById('de_tz_stunden_label').innerText = `${val} Stunden/Woche`;
+      const isOver = state.de.tzStunden > 32;
+      document.getElementById('de_tz_warning').classList.toggle('hidden', !isOver);
+    }
+
+    function updateTzNettoLabel(val) {
+      state.de.tzNetto = parseFloat(val) || 0;
+      document.getElementById('de_tz_netto_label').innerText = `${Number(val).toLocaleString('de-DE')} € / Monat`;
+    }
+
+    function calculateDE() {
+      const netto = state.de.netto;
+      const zve = parseFloat(document.getElementById('de_zve').value) || 0;
+      state.de.zve = zve;
+      const geschwister = document.getElementById('de_geschwisterbonus').checked;
+      state.de.geschwisterbonus = geschwister;
+      const mehrlinge = parseInt(document.getElementById('de_mehrlinge').value) || 1;
+      state.de.mehrlinge = mehrlinge;
+
+      // 175k Limit Check
+      const isOverLimit = zve > 175000;
+      document.getElementById('de-zve-warning').classList.toggle('hidden', !isOverLimit);
+
+      const ersatzrate = calculateErsatzrate(netto);
+      const ersatzratePct = (ersatzrate * 100).toFixed(1);
+
+      let basisNominal = Math.min(1800, Math.max(300, netto * ersatzrate));
+      let deckelungsbetrag = Math.round(basisNominal / 2 * 100) / 100;
+
+      let anrechenbarerVerlust = netto;
+      let basisMitTz = basisNominal;
+      let plusNominal = deckelungsbetrag;
+
+      if (state.de.teilzeitAktiv) {
+        if (state.de.tzStunden > 32) {
+          basisMitTz = 0;
+          plusNominal = 0;
+        } else {
+          anrechenbarerVerlust = Math.max(0, netto - state.de.tzNetto);
+          const rawBasisTz = anrechenbarerVerlust * ersatzrate;
+          basisMitTz = Math.min(1800, Math.max(300, rawBasisTz));
+          const rawPlus = Math.max(150, rawBasisTz);
+          plusNominal = Math.min(deckelungsbetrag, rawPlus);
+        }
+      }
+
+      // Geschwisterbonus
+      let bonusBasis = 0;
+      let bonusPlus = 0;
+      if (geschwister && basisMitTz > 0) {
+        bonusBasis = Math.max(75, Math.round(basisMitTz * 0.10 * 100) / 100);
+        bonusPlus = Math.max(37.50, Math.round(plusNominal * 0.10 * 100) / 100);
+      }
+
+      // Mehrlingszuschlag (+300 Basis / +150 Plus je weiterem Mehrling)
+      const additional = Math.max(0, mehrlinge - 1);
+      const mehrlingBasis = additional * 300;
+      const mehrlingPlus = additional * 150;
+
+      let finalBasis = isOverLimit ? 0 : Math.round((basisMitTz + bonusBasis + mehrlingBasis) * 100) / 100;
+      let finalPlus = isOverLimit ? 0 : Math.round((plusNominal + bonusPlus + mehrlingPlus) * 100) / 100;
+
+      // Update UI
+      document.getElementById('de_ersatzrate_badge').innerText = `${ersatzratePct} % Rate`;
+      document.getElementById('de_res_basis').innerText = `${finalBasis.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('de_res_plus').innerText = `${finalPlus.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+
+      document.getElementById('de_detail_rate').innerText = `${ersatzratePct} %`;
+      document.getElementById('de_detail_netto').innerText = `${netto.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_detail_loss').innerText = `${anrechenbarerVerlust.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      
+      document.getElementById('de_detail_geschwister').innerText = `+${bonusBasis.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_detail_geschwister_row').classList.toggle('hidden', !geschwister);
+
+      document.getElementById('de_detail_mehrling').innerText = `+${mehrlingBasis.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+      document.getElementById('de_detail_mehrling_row').classList.toggle('hidden', additional === 0);
+
+      const totalPot = finalBasis * 14;
+      document.getElementById('de_total_potential').innerText = `${totalPot.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+
+      // Erklärung
+      let erklaerung = "";
+      if (netto < 1000) {
+        erklaerung = `Geringverdiener-Bonus aktiv: Bei ${netto} € erhöht sich die Ersatzrate von 67 % um je 0,1 %-Punkte pro 2 € unter 1.000 € auf ${ersatzratePct} %.`;
+      } else if (netto <= 1200) {
+        erklaerung = `Standard-Ersatzrate: Im Einkommenskorridor zwischen 1.000 € und 1.200 € gilt der gesetzliche Regelsatz von genau 67,0 %.`;
+      } else {
+        erklaerung = `Degressive Ersatzrate: Für Einkommen über 1.200 € sinkt der Satz um je 0,1 %-Punkte pro 20 € über 1.200 € auf ${ersatzratePct} % (Mindestsatz 65 % ab 1.600 €).`;
+      }
+      document.getElementById('de_formel_erklaerung').innerText = erklaerung;
+    }
+
+    // --- ÖSTERREICH LOGIC (MSchG / KBGG 2026) ---
+    function syncAtNetto(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.at.netto = val;
+      document.getElementById('at_netto_num').value = val;
+      document.getElementById('at_netto_range').value = Math.min(6000, val);
+      calculateAT();
+    }
+
+    function updateAtTage(val) {
+      state.at.tage = parseInt(val) || 365;
+      document.getElementById('at_tage_label').innerText = `${val} Tage`;
+      calculateAT();
+    }
+
+    function calculateAT() {
+      const netto = state.at.netto;
+      const sz = document.getElementById('at_sonderzahlungen').checked;
+      const ks = document.getElementById('at_kaiserschnitt').checked;
+      const tage = state.at.tage;
+      const beide = document.getElementById('at_beide_eltern').checked;
+
+      // Wochengeld
+      const szFactor = sz ? 1.17 : 1.0;
+      const nettoMitSz = netto * szFactor;
+      const wgTag = Math.round((nettoMitSz / 30) * 100) / 100;
+      const wochen = ks ? 20 : 16;
+      const wgGesamt = Math.round(wgTag * (wochen * 7) * 100) / 100;
+
+      // ea KBG (80 % des Letztgehalts, max 73,88 €/Tag)
+      const rawEaTag = (netto * 12 / 365) * 0.80;
+      const eaTag = Math.min(73.88, Math.round(rawEaTag * 100) / 100);
+      const eaMonat = Math.round(eaTag * 30 * 100) / 100;
+      const eaTage = beide ? 426 : 365;
+      const eaGesamt = Math.round(eaTag * eaTage * 100) / 100;
+
+      // Pauschales KBG-Konto (Gesamttopf ca. 14.355,20 € Einzel / 17.850 € beide)
+      const topf = beide ? 17850.0 : 14355.20;
+      let rawPauschalTag = topf / tage;
+      let pauschalTag = Math.min(39.12, Math.max(16.93, Math.round(rawPauschalTag * 100) / 100));
+      let pauschalGesamt = Math.round(pauschalTag * tage * 100) / 100;
+
+      // UI Updates
+      document.getElementById('at_res_wg_dauer').innerText = `${wochen} Wochen Schutzfrist`;
+      document.getElementById('at_res_wg_tag').innerText = `${wgTag.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € / Tag`;
+      document.getElementById('at_res_wg_gesamt').innerText = `${wgGesamt.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+
+      document.getElementById('at_res_ea_monat').innerText = `${eaMonat.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € (~${eaTag.toFixed(2)} €/Tag)`;
+      document.getElementById('at_res_ea_gesamt').innerText = `${eaGesamt.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € (${eaTage} Tage)`;
+
+      document.getElementById('at_res_p_tage_badge').innerText = `${tage} Tage Bezug`;
+      document.getElementById('at_res_p_tag').innerText = `${pauschalTag.toLocaleString('de-DE', { minimumFractionDigits: 2 })} € / Tag`;
+      document.getElementById('at_res_p_gesamt').innerText = `${pauschalGesamt.toLocaleString('de-DE', { minimumFractionDigits: 2 })} €`;
+
+      // Empfehlung
+      const diff = eaGesamt - pauschalGesamt;
+      let text = "";
+      if (diff > 500) {
+        text = `Bei deinem Nettoeinkommen von ${netto.toLocaleString('de-DE')} € bringt das <strong>einkommensabhängige KBG</strong> einen finanziellen Mehrwert von ca. <strong>+${diff.toLocaleString('de-DE', { maximumFractionDigits: 0 })} €</strong> gegenüber der Pauschale.`;
+      } else {
+        text = `Bei deinem Nettoeinkommen von ${netto.toLocaleString('de-DE')} € ist das <strong>pauschale KBG-Konto</strong> empfehlenswert, insbesondere falls du mehr als 8.600 € im Jahr dazuverdienen möchtest (Pauschale erlaubt bis zu 18.000 € Zuverdienst).`;
+      }
+      document.getElementById('at_empfehlung_text').innerHTML = text;
+    }
+
+    // --- SCHWEIZ LOGIC (EOG & VAEg 2026) ---
+    function syncChLohn(val) {
+      val = Math.max(0, parseFloat(val) || 0);
+      state.ch.lohn = val;
+      document.getElementById('ch_lohn_num').value = val;
+      document.getElementById('ch_lohn_range').value = Math.min(15000, val);
+      calculateCH();
+    }
+
+    function calculateCH() {
+      const lohn = state.ch.lohn;
+      const kanton = document.getElementById('ch_kanton').value;
+
+      const rawTaggeld = (lohn / 30) * 0.80;
+      let taggeld = Math.min(220, Math.round(rawTaggeld * 100) / 100);
+
+      let mseTage = 98; // 14 Wochen
+      if (kanton === 'ge') mseTage = 112; // 16 Wochen in Genf
+      if (kanton === 'privat') taggeld = Math.round((lohn / 30) * 100) / 100; // 100% Lohnfortzahlung
+
+      const mseGesamt = Math.round(taggeld * mseTage * 100) / 100;
+      const vatTage = 14; // 2 Wochen
+      const vatGesamt = Math.round(taggeld * vatTage * 100) / 100;
+
+      document.getElementById('ch_res_mse_dauer').innerText = `${mseTage / 7} Wochen (${mseTage} Tage)`;
+      document.getElementById('ch_res_mse_tag').innerText = `${taggeld.toFixed(2)} CHF / Tag`;
+      document.getElementById('ch_res_mse_gesamt').innerText = `${mseGesamt.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+
+      document.getElementById('ch_res_vat_tag').innerText = `${taggeld.toFixed(2)} CHF / Tag`;
+      document.getElementById('ch_res_vat_gesamt').innerText = `${vatGesamt.toLocaleString('de-CH', { minimumFractionDigits: 2 })} CHF`;
+    }
+
+    // --- TIMELINE MATRIX LOGIC ---
+    function renderTimeline() {
+      const tbody = document.getElementById('timeline_table_body');
+      tbody.innerHTML = '';
+
+      const roles = [
+        { id: 'et1', label: 'Elternteil 1 (Mutter)', color: 'rose' },
+        { id: 'et2', label: 'Elternteil 2 (Partner)', color: 'amber' }
+      ];
+
+      roles.forEach(role => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-900/50 transition';
+
+        let html = `<td class="p-2.5 font-bold text-white sticky left-0 bg-slate-950 border-r border-slate-800 text-[11px] whitespace-nowrap">${role.label}</td>`;
+
+        for (let m = 0; m < 24; m++) {
+          const currentMode = state.timeline[role.id][m];
+          let colorClass = 'bg-slate-800 text-slate-300';
+          if (currentMode === 'basis') colorClass = 'bg-rose-500/20 text-rose-300 border-rose-500/40';
+          if (currentMode === 'plus') colorClass = 'bg-amber-500/20 text-amber-300 border-amber-500/40';
+          if (currentMode === 'bonus') colorClass = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+
+          html += `
+            <td class="p-1 text-center border-l border-slate-800/60">
+              <select onchange="updateTimelineMonth('${role.id}', ${m}, this.value)" class="text-[10px] font-bold rounded px-1 py-1 border border-slate-700 bg-slate-900 focus:outline-none ${colorClass}">
+                <option value="basis" ${currentMode === 'basis' ? 'selected' : ''}>Basis</option>
+                <option value="plus" ${currentMode === 'plus' ? 'selected' : ''}>Plus</option>
+                <option value="bonus" ${currentMode === 'bonus' ? 'selected' : ''}>Bonus</option>
+                <option value="arbeit" ${currentMode === 'arbeit' ? 'selected' : ''}>Arbeit</option>
+              </select>
+            </td>
+          `;
+        }
+        tr.innerHTML = html;
+        tbody.appendChild(tr);
+      });
+
+      validateAndSummarizeTimeline();
+    }
+
+    function updateTimelineMonth(roleId, monthIdx, value) {
+      state.timeline[roleId][monthIdx] = value;
+      renderTimeline();
+    }
+
+    function applyPreset(preset) {
+      if (preset === 'klassisch') {
+        state.timeline.et1 = ['basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+        state.timeline.et2 = ['arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'basis', 'basis', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+      } else if (preset === 'teilzeit') {
+        state.timeline.et1 = ['basis', 'basis', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+        state.timeline.et2 = ['arbeit', 'arbeit', 'arbeit', 'arbeit', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'plus', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+      } else if (preset === 'partnerbonus') {
+        state.timeline.et1 = ['basis', 'basis', 'basis', 'basis', 'basis', 'basis', 'plus', 'plus', 'bonus', 'bonus', 'bonus', 'bonus', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+        state.timeline.et2 = ['arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'plus', 'plus', 'bonus', 'bonus', 'bonus', 'bonus', 'basis', 'basis', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit', 'arbeit'];
+      }
+      renderTimeline();
+    }
+
+    function validateAndSummarizeTimeline() {
+      let et1Basis = 0, et1Plus = 0, et1Bonus = 0;
+      let et2Basis = 0, et2Plus = 0, et2Bonus = 0;
+      let simulBasisJ1 = 0;
+      const warnings = [];
+
+      for (let m = 0; m < 24; m++) {
+        const m1 = state.timeline.et1[m];
+        const m2 = state.timeline.et2[m];
+
+        if (m1 === 'basis') et1Basis++;
+        if (m1 === 'plus') et1Plus++;
+        if (m1 === 'bonus') et1Bonus++;
+
+        if (m2 === 'basis') et2Basis++;
+        if (m2 === 'plus') et2Plus++;
+        if (m2 === 'bonus') et2Bonus++;
+
+        if (m < 12 && m1 === 'basis' && m2 === 'basis') {
+          simulBasisJ1++;
+        }
+      }
+
+      // 1 Basis = 1, 1 Plus = 0.5
+      const totalEquiv = (et1Basis + et1Plus * 0.5) + (et2Basis + et2Plus * 0.5);
+
+      if (totalEquiv > 14) {
+        warnings.push(`Gesamtanspruch von 14 Basismonaten ist überschritten (aktuell: ${totalEquiv.toFixed(1)} Monatsäquivalente).`);
+      }
+      if (simulBasisJ1 > 1) {
+        warnings.push(`Verstoß gegen § 4 Abs. 6 BEEG: Gleichzeitiger Basiselterngeldbezug im 1. Lebensjahr ist für maximal 1 Monat zulässig (aktuell: ${simulBasisJ1} Monate).`);
+      }
+      if ((et1Bonus > 0 || et2Bonus > 0) && (et1Bonus !== et2Bonus || et1Bonus < 2 || et1Bonus > 4)) {
+        warnings.push(`Partnerschaftsbonus muss für beide Elternteile synchron für 2 bis 4 Monate beantragt werden.`);
+      }
+
+      const warningBanner = document.getElementById('timeline_warning_banner');
+      if (warnings.length > 0) {
+        warningBanner.classList.remove('hidden');
+        document.getElementById('timeline_warning_text').innerHTML = warnings.map(w => `<p>• ${w}</p>`).join('');
+      } else {
+        warningBanner.classList.add('hidden');
+      }
+
+      // Beträge schätzen basierend auf Tab DE Netto
+      const basisRate = state.de.netto ? calculateErsatzrate(state.de.netto) : 0.65;
+      const basisAmt = Math.min(1800, Math.max(300, state.de.netto * basisRate));
+      const plusAmt = basisAmt / 2;
+
+      const totalPayout = (et1Basis * basisAmt) + (et1Plus * plusAmt) + (et1Bonus * plusAmt) +
+                          (et2Basis * basisAmt) + (et2Plus * plusAmt) + (et2Bonus * plusAmt);
+
+      document.getElementById('tl_stat_basis').innerText = `${totalEquiv.toFixed(1)} / 14 max`;
+      document.getElementById('tl_stat_simul').innerText = `${simulBasisJ1} / 1 max`;
+      document.getElementById('tl_stat_bonus').innerText = `${Math.max(et1Bonus, et2Bonus)} Monate`;
+      document.getElementById('tl_stat_total').innerText = `${totalPayout.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+    }
+
+    // --- FAHRPLAN & ANTRAGSFRISTEN LOGIC (§ 16 BEEG) ---
+    function calculateFahrplan() {
+      const etStr = document.getElementById('fp_geburtsdatum').value;
+      if (!etStr) return;
+      const et = new Date(etStr);
+      state.fahrplan.et = etStr;
+      state.fahrplan.monate = parseInt(document.getElementById('fp_elternzeit_monate').value) || 12;
+
+      // 1. Mutterschutz Beginn (6 Wochen = 42 Tage vor ET)
+      const muschutzDate = new Date(et);
+      muschutzDate.setDate(muschutzDate.getDate() - 42);
+
+      // 2. 7-Wochen Frist für Arbeitgeber (§ 16 Abs. 1 BEEG: 49 Tage vor Beginn)
+      const fristDate = new Date(et);
+      fristDate.setDate(fristDate.getDate() - 49);
+
+      // 3. Beginn Kündigungsschutz (§ 18 BEEG: 8 Wochen vor Elternzeit = 56 Tage)
+      const kschutzDate = new Date(et);
+      kschutzDate.setDate(kschutzDate.getDate() - 56);
+
+      // 4. Frist Elterngeldstelle (rückwirkend max 3 Monate ab Geburt)
+      const antragEnde = new Date(et);
+      antragEnde.setMonth(antragEnde.getMonth() + 3);
+
+      const fmt = d => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+      document.getElementById('fp_date_muschutz').innerText = fmt(muschutzDate);
+      document.getElementById('fp_date_frist').innerText = fmt(fristDate);
+      document.getElementById('fp_date_kschutz').innerText = fmt(kschutzDate);
+      document.getElementById('fp_date_antrag_ende').innerText = fmt(antragEnde);
+
+      updateAntragText();
+    }
+
+    function updateAntragText() {
+      const name = document.getElementById('fp_antragsteller_name').value || 'Max Mustermann';
+      const et = new Date(state.fahrplan.et);
+      const start = new Date(et);
+      const ende = new Date(et);
+      ende.setMonth(ende.getMonth() + state.fahrplan.monate);
+      ende.setDate(ende.getDate() - 1);
+
+      const fmt = d => d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+      document.getElementById('antrag_display_name').innerText = name;
+      document.getElementById('antrag_display_today').innerText = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      document.getElementById('antrag_display_et').innerText = fmt(et);
+      document.getElementById('antrag_display_start').innerText = fmt(start);
+      document.getElementById('antrag_display_ende').innerText = fmt(ende);
+      document.getElementById('antrag_display_dauer').innerText = state.fahrplan.monate;
+    }
+
+    // --- EXPORT & IMPORT ---
+    function exportCSV() {
+      let csv = "Monat;Elternteil 1;Elternteil 2\n";
+      for (let m = 0; m < 24; m++) {
+        csv += `Lebensmonat ${m + 1};${state.timeline.et1[m]};${state.timeline.et2[m]}\n`;
+      }
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Elternzeit_Plan_2026_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    }
+
+    function exportJSON() {
+      const data = JSON.stringify(state, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `DACH_Elternzeit_Backup_2026_${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+    }
+
+    function importJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported.de) Object.assign(state.de, imported.de);
+          if (imported.at) Object.assign(state.at, imported.at);
+          if (imported.ch) Object.assign(state.ch, imported.ch);
+          if (imported.timeline) Object.assign(state.timeline, imported.timeline);
+          calculateDE();
+          calculateAT();
+          calculateCH();
+          renderTimeline();
+          alert("Backup erfolgreich wiederhergestellt!");
+        } catch (err) {
+          alert("Fehler beim Laden der Backup-Datei.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // Initialisierung beim Seitenaufruf
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateDE();
+      calculateAT();
+      calculateCH();
+      renderTimeline();
+      calculateFahrplan();
+    });
+  </script>
+
+</body>
+</html>

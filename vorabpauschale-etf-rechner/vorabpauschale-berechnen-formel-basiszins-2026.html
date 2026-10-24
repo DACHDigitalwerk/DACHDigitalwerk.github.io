@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vorabpauschale 2026 berechnen: Formel, Basiszins (2,55 %) &amp; Rechenbeispiele (§ 18 InvStG) | DACH Digitalwerk</title>
+  <meta name="description" content="Vorabpauschale 2026 für thesaurierende ETFs exakt berechnen: Amtlicher Basiszins 2,55 %, gesetzliche Formel gem. § 18 InvStG, Deckelung auf Wertzuwachs, Teilfreistellung &amp; Rechner." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/vorabpauschale-berechnen-formel-basiszins-2026.html" />
+  <meta property="og:title" content="Vorabpauschale 2026 berechnen: Formel, Basiszins (2,55 %) &amp; Rechenbeispiele (§ 18 InvStG)" />
+  <meta property="og:description" content="Berechne die Vorabpauschale 2026 für deinen ETF: Basiszins 2,55 %, 70 % Basisertrag, Deckelung bei Verlustjahren, Sparerpauschbetrag &amp; Liquiditätsbedarf." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/vorabpauschale-berechnen-formel-basiszins-2026.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vorabpauschale 2026 berechnen: Formel, Basiszins (2,55 %) & Rechenbeispiele (§ 18 InvStG)",
+    "description": "Ausführliche Erklärung zur Berechnung der Vorabpauschale für Investmentfonds und ETFs 2026 nach § 18 InvStG mit Basiszins 2,55 %, Teilfreistellung und Deckelung.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Vorabpauschale-Schnellrechner 2026 Widget",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dachdigitalwerk.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Vorabpauschale- & ETF-Rechner",
+        "item": "https://dachdigitalwerk.github.io/vorabpauschale-etf-rechner/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Vorabpauschale Formel & Basiszins 2026",
+        "item": "https://dachdigitalwerk.github.io/vorabpauschale-berechnen-formel-basiszins-2026.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist der Basiszins für die Vorabpauschale 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für das Steuerjahr 2026 beträgt der von der Deutschen Bundesbank und dem Bundesfinanzministerium (BMF) veröffentlichte Basiszins 2,55 % (nach 2,29 % im Vorjahr 2025)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lautet die gesetzliche Formel für den Basisertrag?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemäß § 18 Abs. 1 Satz 2 InvStG errechnet sich der Basisertrag durch Multiplikation des ersten Rücknahmepreises zu Jahresbeginn mit 70 % des Basiszinses: Basisertrag = Depotwert (01.01.) × Basiszins × 0,7. Bei unterjährigem Erwerb mindert sich der Betrag um ein Zwölftel für jeden vollen Monat vor dem Kauf."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Fällt bei einem Kursverlust Vorabpauschale an?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein! Gemäß § 18 Abs. 1 Satz 3 InvStG ist die Vorabpauschale auf die tatsächliche Wertsteigerung des Fonds im Kalenderjahr zuzüglich der Ausschüttungen begrenzt. Hat der ETF im Jahr an Wert verloren oder stagniert, beträgt die Vorabpauschale exakt 0,00 Euro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann wird die Steuer auf die Vorabpauschale fällig?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Vorabpauschale gilt gem. § 18 Abs. 3 InvStG am ersten Werktag des folgenden Kalenderjahres als zugeflossen. Für das Steuerjahr 2026 erfolgt der automatische Steuerabzug vom Verrechnungskonto am ersten Bankarbeitstag im Januar 2027 (02.01.2027)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-emerald-400 ml-2 px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-800">Ratgeber</span>
+        </div>
+      </a>
+      <a href="./" class="text-xs font-semibold bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-500/20 transition flex items-center gap-1.5">
+        <span>Zum Voll-Rechner 2026 →</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 w-full text-xs text-slate-400 font-mono flex items-center gap-2">
+    <a href="../" class="hover:text-slate-200">Startseite</a>
+    <span>/</span>
+    <a href="./" class="hover:text-slate-200">Vorabpauschale &amp; ETF-Rechner</a>
+    <span>/</span>
+    <span class="text-emerald-400">Formel &amp; Basiszins 2026</span>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+        <span>Gesetzlicher Leitfaden • § 18 InvStG</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span>Rechtsstand 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Vorabpauschale 2026 berechnen: Formel, Basiszins (2,55 %) &amp; Rechenbeispiele
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+        Seit der Investmentsteuerreform 2018 müssen Anleger auch auf thesaurierende Investmentfonds und ETFs eine jährliche Mindestbesteuerung entrichten. Erfahre hier, wie sich die Vorabpauschale für 2026 mit dem <strong>amtlichen Basiszins von 2,55 %</strong> berechnet, welche Deckelungsregeln gelten und wie du dein Verrechnungskonto vor bösen Überraschungen schützt.
+      </p>
+    </div>
+
+    <!-- INTERACTIVE MINI-WIDGET -->
+    <div class="p-6 rounded-3xl bg-slate-950 border border-emerald-500/30 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <span>⚡</span>
+          <span>Interaktiver Vorabpauschale-Schnellrechner 2026</span>
+        </h3>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">Basiszins: 2,55 %</span>
+      </div>
+
+      <div class="space-y-2">
+        <div class="flex justify-between items-center text-xs">
+          <label for="w_depot_slider" class="font-semibold text-slate-300">Depotwert zu Jahresbeginn (01.01.2026):</label>
+          <span id="w_depot_val" class="font-mono font-bold text-white text-sm">15.000 €</span>
+        </div>
+        <input type="range" id="w_depot_slider" min="1000" max="100000" step="1000" value="15000" oninput="calcWidget(this.value)" class="w-full accent-emerald-500 cursor-pointer" />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Basisertrag (70 %)</span>
+          <span class="text-lg font-mono font-bold text-slate-200" id="w_res_base">267,75 €</span>
+          <span class="text-[10px] text-slate-500 block">vor Teilfreistellung</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Steuerbar (30 % TFS)</span>
+          <span class="text-lg font-mono font-bold text-emerald-400" id="w_res_taxable">187,43 €</span>
+          <span class="text-[10px] text-slate-500 block">nach Aktien-TFS</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Steuerlast (ohne FSA)</span>
+          <span class="text-lg font-mono font-bold text-amber-400" id="w_res_tax">49,43 €</span>
+          <span class="text-[10px] text-slate-500 block">26,375 % Abzug am 02.01.</span>
+        </div>
+      </div>
+
+      <div class="text-center pt-1">
+        <a href="./" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 transition">
+          <span>Vollständige Berechnung mit Ausschüttungen, Kirchensteuer &amp; Sparplan öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <article class="prose prose-invert max-w-none space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+
+      <h2 class="text-2xl font-bold text-white pt-4">1. Was ist die Vorabpauschale gem. § 18 InvStG?</h2>
+      <p>
+        Vor dem 1. Januar 2018 waren thesaurierende Investmentfonds in Deutschland steuerlich oft unattraktiv oder führten bei ausländischen Fonds zu bürokratischem Mehraufwand ("ausschüttungsgleiche Erträge"). Mit dem <strong>Investmentsteuergesetz (InvStG 2018)</strong> hat der deutsche Gesetzgeber ein einheitliches, stark vereinfachtes System eingeführt: die <strong>Vorabpauschale</strong>.
+      </p>
+      <p>
+        Die Vorabpauschale ist ein fiktiver Mindestertrag, der einmal jährlich zu versteuern ist. Sie stellt sicher, dass Anleger mit wiederanlegenden (thesaurierenden) Fonds nicht über Jahrzehnte hinweg die Steuer stunden, während Anleger von ausschüttenden ETFs jährlich auf ihre Dividenden Steuern zahlen müssen.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white pt-6">2. Die mathematische Formel im Detail</h2>
+      <p>
+        Die Ermittlung der Vorabpauschale folgt einer dreistufigen gesetzlichen Prüfkette nach § 18 InvStG:
+      </p>
+
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4 font-mono text-xs sm:text-sm">
+        <div class="text-emerald-400 font-bold text-center text-base">
+          Basisertrag = Rücknahmepreis (01.01.) × Basiszins × 0,70
+        </div>
+        <div class="text-slate-400 font-sans text-xs border-t border-slate-800 pt-3 space-y-1">
+          <div>• <strong>Rücknahmepreis zum ersten Börsentag des Kalenderjahres:</strong> Der Depotwert aller Anteile am 01.01.</div>
+          <div>• <strong>Basiszins:</strong> Der amtliche Zinssatz der Deutschen Bundesbank für risikofreie Anleihen (für 2026: <strong>2,55 %</strong>).</div>
+          <div>• <strong>Faktor 0,70 (70 %):</strong> Gesetzlicher Abschlag nach § 18 Abs. 1 Satz 2 InvStG.</div>
+        </div>
+      </div>
+
+      <h3 class="text-xl font-bold text-white pt-3">Schritt 2: Gesetzliche Deckelung auf die tatsächliche Wertsteigerung</h3>
+      <p>
+        Um eine Besteuerung von Scheinrenditen zu verhindern, hat der Gesetzgeber in <strong>§ 18 Abs. 1 Satz 3 InvStG</strong> eine zwingende Schutzgrenze eingezogen:
+      </p>
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-slate-200">
+        Tatsächlicher Wertzuwachs = (Depotwert zum 31.12. - Depotwert zum 01.01.) + Ausschüttungen im Jahr
+      </div>
+      <ul class="list-disc list-inside space-y-1 pl-2 text-slate-300">
+        <li><strong>Fall A (Normales Gewinnjahr):</strong> Ist der tatsächliche Wertzuwachs größer als der Basisertrag, bleibt es beim Basisertrag als Obergrenze.</li>
+        <li><strong>Fall B (Geringer Gewinn):</strong> Ist der Wertzuwachs positiv, aber kleiner als der Basisertrag, wird die Vorabpauschale auf diesen tatsächlichen Gewinn gedeckelt.</li>
+        <li><strong>Fall C (Verlustjahr / Baisse):</strong> War die Wertentwicklung negativ, beträgt die Vorabpauschale <strong>exakt 0,00 Euro</strong>. Bei fallenden Kursen fällt niemals Vorabpauschale an!</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white pt-3">Schritt 3: Abzug der tatsächlichen Ausschüttungen</h3>
+      <p>
+        Gemäß § 18 Abs. 1 Satz 1 InvStG werden Ausschüttungen, die der Anleger im abgelaufenen Kalenderjahr bereits erhalten und versteuert hat, vollständig von der Vorabpauschale abgezogen:
+      </p>
+      <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-emerald-400 font-bold text-center">
+        Vorabpauschale = max( 0,00 € ; min(Basisertrag, Wertzuwachs) - Ausschüttungen )
+      </div>
+
+      <!-- TABLE: VERGLEICH 2024 - 2026 -->
+      <h2 class="text-2xl font-bold text-white pt-6">3. Die Entwicklung des Basiszinses (2021 bis 2026)</h2>
+      <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+        <table class="w-full text-left text-xs sm:text-sm font-mono">
+          <thead class="bg-slate-950 text-slate-300 border-b border-slate-800">
+            <tr>
+              <th class="p-3">Steuerjahr</th>
+              <th class="p-3">Amtlicher Basiszins</th>
+              <th class="p-3">Basisertrag je 10.000 €</th>
+              <th class="p-3">Status</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="p-3 font-bold text-white">2026</td>
+              <td class="p-3 text-emerald-400 font-bold">2,55 %</td>
+              <td class="p-3 font-bold text-white">178,50 €</td>
+              <td class="p-3 text-emerald-400">Aktiv (Steuerabzug Jan. 2027)</td>
+            </tr>
+            <tr>
+              <td class="p-3">2025</td>
+              <td class="p-3">2,29 %</td>
+              <td class="p-3">160,30 €</td>
+              <td class="p-3 text-slate-400">Veranlagungsjahr 2025</td>
+            </tr>
+            <tr>
+              <td class="p-3">2024</td>
+              <td class="p-3">2,29 %</td>
+              <td class="p-3">160,30 €</td>
+              <td class="p-3 text-slate-400">Historisch</td>
+            </tr>
+            <tr>
+              <td class="p-3">2023</td>
+              <td class="p-3">2,55 %</td>
+              <td class="p-3">178,50 €</td>
+              <td class="p-3 text-slate-400">Zinswende nach Nullzins</td>
+            </tr>
+            <tr>
+              <td class="p-3">2022</td>
+              <td class="p-3 text-rose-400">-0,05 %</td>
+              <td class="p-3">0,00 €</td>
+              <td class="p-3 text-slate-500">Negativzins → Keine Vorabpauschale</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white pt-6">4. Anrechnung beim Verkauf: Keine Doppelbesteuerung (§ 19 InvStG)</h2>
+      <p>
+        Ein wesentliches Element des Gesetzes: Wer heute Vorabpauschale zahlt, wird beim späteren Verkauf <strong>nicht doppelt besteuert</strong>. Nach § 19 Abs. 1 Satz 3 InvStG werden sämtliche während der gesamten Haltedauer bereits versteuerten Vorabpauschalen vom tatsächlichen Veräußerungsgewinn abgezogen.
+      </p>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
+        <strong class="text-white block font-bold text-sm">Beispiel für das steuerliche Step-Up:</strong>
+        <p class="text-slate-300">
+          Kauf für 10.000 €. In den Folgejahren wurden in Summe 600 € Vorabpauschale versteuert. Verkauf erfolgt für 15.000 € (Bruttogewinn: 5.000 €). Zu versteuern sind beim Verkauf nur <strong>4.400 €</strong> (5.000 € abzüglich 600 €).
+        </p>
+      </div>
+
+    </article>
+
+    <!-- Call to action -->
+    <div class="p-6 rounded-3xl bg-gradient-to-r from-emerald-950/60 to-slate-950 border border-emerald-500/40 text-center space-y-3">
+      <h3 class="text-xl font-bold text-white">Berechne jetzt dein individuelles Portfolio</h3>
+      <p class="text-xs text-slate-300 max-w-xl mx-auto">
+        Nutze den DACH Vorabpauschale-Rechner mit vollständiger Berücksichtigung von Sparerpauschbetrag, Teilfreistellung und druckfertigem Liquiditätsbericht.
+      </p>
+      <a href="./" class="inline-block bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black px-6 py-3 rounded-xl text-sm shadow-lg shadow-emerald-500/20 hover:from-emerald-400 transition">
+        Zum vollständigen Rechner 2026 →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 text-slate-500 text-xs py-8 px-4 text-center">
+    <p>© 2026 DACH Digitalwerk • BGH Smartlaw konform gem. § 2 RDG / § 5 StBerG.</p>
+  </footer>
+
+  <script>
+    function calcWidget(val) {
+      val = parseFloat(val) || 0;
+      document.getElementById('w_depot_val').innerText = `${val.toLocaleString('de-DE')} €`;
+      const base = val * 0.0255 * 0.70;
+      const taxable = base * 0.70; // 30% TFS
+      const tax = taxable * 0.26375;
+      document.getElementById('w_res_base').innerText = `${base.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('w_res_taxable').innerText = `${taxable.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('w_res_tax').innerText = `${tax.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+    }
+    calcWidget(15000);
+  </script>
+</body>
+</html>

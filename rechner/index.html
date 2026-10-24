@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Müller Solar & Haustechnik AG | Ihr Meisterbetrieb in Zürich</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: 'var(--brand-50)',
+              100: 'var(--brand-100)',
+              500: 'var(--brand-500)',
+              600: 'var(--brand-600)',
+              700: 'var(--brand-700)',
+              900: 'var(--brand-900)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --brand-50: #ecfdf5;
+      --brand-100: #d1fae5;
+      --brand-500: #10b981;
+      --brand-600: #059669;
+      --brand-700: #047857;
+      --brand-900: #064e3b;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .option-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .option-card:hover {
+      transform: translateY(-2px);
+    }
+    .option-card.selected {
+      border-color: var(--brand-600);
+      background-color: var(--brand-50);
+      box-shadow: 0 0 0 2px var(--brand-600);
+    }
+    input[type="range"] {
+      accent-color: var(--brand-600);
+    }
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- FLOATING SWARM PERSONALIZER BUTTON -->
+  <div id="admin-toggle-wrapper" class="fixed top-20 right-4 z-50 flex flex-col items-end gap-2">
+    <button onclick="toggleAdminDrawer()" class="group flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2.5 rounded-full shadow-2xl border border-slate-700 text-xs font-semibold tracking-wide transition-all">
+      <span class="text-base">⚙️</span>
+      <span>Schwarm-Personalisierer</span>
+      <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full text-[10px]">Sales Mode</span>
+    </button>
+  </div>
+
+  <!-- SWARM PERSONALIZER ADMIN DRAWER -->
+  <div id="admin-drawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-slate-900 text-white shadow-2xl border-l border-slate-800 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/50">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Done-Before-You-Buy Engine</span>
+        </div>
+        <h3 class="text-lg font-bold mt-0.5">⚙️ B2B Pitch-Personalisierer</h3>
+      </div>
+      <button onclick="toggleAdminDrawer()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">
+        ✕
+      </button>
+    </div>
+
+    <div class="p-5 overflow-y-auto flex-1 space-y-5 text-sm">
+      <div class="bg-slate-800/70 border border-slate-700 rounded-xl p-3.5 text-xs text-slate-300 leading-relaxed">
+        <strong class="text-white">Vertriebs-Hebel:</strong> Gib hier die Daten deines Ziel-Handwerkers ein. Die komplette Website inkl. Angebotsrechner passt sich sofort an. Kopiere danach den personalisierten Link für deine Kaltakquise-Mail oder WhatsApp!
+      </div>
+
+      <!-- Preset Selector -->
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">1. Branchen-Preset wählen</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button onclick="setAdminBranche('solar')" id="btn-preset-solar" class="p-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-center transition flex flex-col items-center gap-1">
+            <span class="text-lg">☀️</span>
+            <span class="text-xs font-semibold">Solar & PV</span>
+          </button>
+          <button onclick="setAdminBranche('wp')" id="btn-preset-wp" class="p-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-center transition flex flex-col items-center gap-1">
+            <span class="text-lg">🔥</span>
+            <span class="text-xs font-semibold">Wärmepumpe</span>
+          </button>
+          <button onclick="setAdminBranche('handwerk')" id="btn-preset-handwerk" class="p-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-center transition flex flex-col items-center gap-1">
+            <span class="text-lg">🛠️</span>
+            <span class="text-xs font-semibold">Bad & Maler</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Inputs -->
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Firmenname des Wunschkunden</label>
+          <input type="text" id="adm-firma" oninput="applyPersonalizationFromInputs()" placeholder="z.B. Müller Solar AG" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Ort / Region</label>
+            <input type="text" id="adm-ort" oninput="applyPersonalizationFromInputs()" placeholder="z.B. Zürich" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Währung / Markt</label>
+            <select id="adm-waehrung" onchange="applyPersonalizationFromInputs()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-emerald-500">
+              <option value="CHF">🇨🇭 Schweiz (CHF)</option>
+              <option value="EUR">🇩🇪/🇦🇹 DE/AT (€)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Telefonnummer (für Anruf & WhatsApp-CTA)</label>
+          <input type="text" id="adm-tel" oninput="applyPersonalizationFromInputs()" placeholder="z.B. 044 123 45 67" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+      </div>
+
+      <!-- Quick Sample Profiles -->
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Schnell-Beispiele laden</label>
+        <div class="flex flex-wrap gap-1.5">
+          <button onclick="loadSample('Müller Solar AG', 'Zürich', '044 580 12 90', 'solar', 'CHF')" class="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 px-2.5 py-1 rounded-md">🇨🇭 Müller Solar AG (ZH)</button>
+          <button onclick="loadSample('Brunner Haustechnik GmbH', 'Winterthur', '052 212 44 88', 'wp', 'CHF')" class="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 px-2.5 py-1 rounded-md">🇨🇭 Brunner Wärmepumpen</button>
+          <button onclick="loadSample('Meisterbetrieb Weber', 'München', '089 412 99 10', 'handwerk', 'EUR')" class="text-xs bg-slate-800 hover:bg-slate-700 border border-slate-700 px-2.5 py-1 rounded-md">🇩🇪 Weber Bad & Sanierung</button>
+        </div>
+      </div>
+
+      <!-- Generated URL -->
+      <div class="pt-2 border-t border-slate-800">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-1.5">Fertiger Kunden-Vorschau-Link</label>
+        <div class="flex gap-2">
+          <input type="text" id="adm-share-url" readonly class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-300 font-mono select-all" />
+          <button onclick="copyShareUrl()" id="btn-copy-url" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 rounded-lg text-xs font-bold whitespace-nowrap transition">
+            Link kopieren
+          </button>
+        </div>
+        <div class="mt-2 flex items-center gap-2">
+          <input type="checkbox" id="adm-hide-badge" onchange="updateShareUrl()" class="rounded bg-slate-800 border-slate-700 text-emerald-500" />
+          <label for="adm-hide-badge" class="text-xs text-slate-400">Im Kunden-Link den "⚙️ Schwarm-Personalisierer"-Button ausblenden (`&kunde=1`)</label>
+        </div>
+      </div>
+
+      <!-- Generated Cold Pitch -->
+      <div class="pt-2 border-t border-slate-800">
+        <div class="flex items-center justify-between mb-1.5">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-amber-400">Passende WhatsApp / E-Mail Akquise-Nachricht</label>
+          <button onclick="copyPitchText()" id="btn-copy-pitch" class="text-xs bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-md font-semibold transition">
+            Pitch kopieren
+          </button>
+        </div>
+        <textarea id="adm-pitch-text" rows="5" readonly class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-300 leading-relaxed font-sans"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP URGENCY / TRUST BAR -->
+  <div class="bg-slate-900 text-slate-200 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5 font-medium">
+          <span class="text-emerald-400">✓</span> Geprüfter Meister- & Fachbetrieb in <strong class="text-white dyn-ort">Zürich</strong> & Umgebung
+        </span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-slate-400">
+          <span>⭐ 4.9/5.0</span> (140+ regionale Kundenbewertungen)
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Quick Industry Switcher in Topbar for Instant Demo -->
+        <div class="hidden md:flex items-center gap-1 bg-slate-800 px-2 py-0.5 rounded-md border border-slate-700">
+          <span class="text-[11px] text-slate-400 mr-1">Branchen-Demo:</span>
+          <button onclick="setAdminBranche('solar')" class="text-[11px] px-1.5 py-0.5 rounded hover:bg-slate-700 transition" id="top-btn-solar">☀️ Solar</button>
+          <button onclick="setAdminBranche('wp')" class="text-[11px] px-1.5 py-0.5 rounded hover:bg-slate-700 transition" id="top-btn-wp">🔥 Wärmepumpe</button>
+          <button onclick="setAdminBranche('handwerk')" class="text-[11px] px-1.5 py-0.5 rounded hover:bg-slate-700 transition" id="top-btn-handwerk">🛠️ Bad/Maler</button>
+        </div>
+        <a href="#rechner" class="text-emerald-400 hover:underline font-semibold">⚡ Fördergelder 2026 sichern →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between gap-4">
+      <!-- Dynamic Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-brand-600 text-white flex items-center justify-center text-2xl font-bold shadow-md shadow-brand-600/20" id="dyn-logo-icon">
+          ☀️
+        </div>
+        <div>
+          <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 block leading-none dyn-firma">Müller Solar AG</span>
+          <span class="text-xs font-medium text-slate-500 flex items-center gap-1 mt-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+            <span id="dyn-subline">Photovoltaik & Speicher</span> • <span class="dyn-ort">Zürich</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#rechner" class="hover:text-brand-600 transition">Online-Rechner</a>
+        <a href="#vorteile" class="hover:text-brand-600 transition">Unsere Leistungen</a>
+        <a href="#referenzen" class="hover:text-brand-600 transition">Projekte in <span class="dyn-ort">Zürich</span></a>
+        <a href="#faq" class="hover:text-brand-600 transition">Häufige Fragen</a>
+      </nav>
+
+      <!-- Direct Call & Calculator CTA -->
+      <div class="flex items-center gap-2.5">
+        <a href="tel:0441234567" class="dyn-tel-link hidden sm:flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-slate-50 hover:bg-slate-100 text-slate-800 text-xs font-bold transition">
+          <span class="text-base">📞</span>
+          <div class="text-left">
+            <span class="block text-[10px] font-medium text-slate-400 leading-none">Direkt-Beratung</span>
+            <span class="dyn-tel text-xs font-bold">044 123 45 67</span>
+          </div>
+        </a>
+        <a href="#rechner" class="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-brand-600/25 transition flex items-center gap-1.5">
+          <span>Angebot in 60 Sek.</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH SPLIT LAYOUT -->
+  <section class="relative overflow-hidden pt-10 pb-16 lg:pt-16 lg:pb-24 bg-gradient-to-b from-white via-slate-50 to-slate-100 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Column: Value Proposition -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold">
+            <span id="dyn-hero-badge-icon">⚡</span>
+            <span id="dyn-hero-badge">Jetzt bis zu 35% Fördergelder & Steuerabzüge in Zürich sichern</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.12]" id="dyn-hero-title">
+            Ihre neue Solaranlage in <span class="text-brand-600 underline decoration-brand-500/30">Zürich</span> – schlüsselfertig vom Meisterbetrieb.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed" id="dyn-hero-desc">
+            Schluss mit explodierenden Strompreisen und monatelangen Wartezeiten: <strong>Müller Solar AG</strong> plant und installiert Ihre massgeschneiderte Photovoltaik-Anlage inkl. Fördergeld-Abwicklung zum Festpreis.
+          </p>
+
+          <!-- Key Bullet Points -->
+          <div class="grid sm:grid-cols-2 gap-3 pt-1" id="dyn-hero-bullets">
+            <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Festpreis-Garantie</div>
+                <div class="text-[11px] text-slate-500">Keine versteckten Nachforderungen</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+              <div>
+                <div class="text-xs font-bold text-slate-900">100% Eigene Monteure</div>
+                <div class="text-[11px] text-slate-500">Kein Subunternehmer-Chaos</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Inkl. Förder-Service</div>
+                <div class="text-[11px] text-slate-500">Wir erledigen alle Anträge für Sie</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2.5 bg-white p-3 rounded-xl border border-slate-200/80 shadow-sm">
+              <span class="w-6 h-6 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">✓</span>
+              <div>
+                <div class="text-xs font-bold text-slate-900">Vor-Ort in <span class="dyn-ort">Zürich</span></div>
+                <div class="text-[11px] text-slate-500">Persönlicher Ansprechpartner</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Proof Mini Card -->
+          <div class="flex items-center gap-4 pt-2">
+            <div class="flex -space-x-2">
+              <div class="w-9 h-9 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center ring-2 ring-white">MK</div>
+              <div class="w-9 h-9 rounded-full bg-sky-600 text-white font-bold text-xs flex items-center justify-center ring-2 ring-white">SB</div>
+              <div class="w-9 h-9 rounded-full bg-amber-600 text-white font-bold text-xs flex items-center justify-center ring-2 ring-white">TH</div>
+              <div class="w-9 h-9 rounded-full bg-slate-800 text-white font-bold text-[10px] flex items-center justify-center ring-2 ring-white">+140</div>
+            </div>
+            <div class="text-xs text-slate-600">
+              <div class="font-bold text-slate-900">⭐⭐⭐⭐⭐ 4.9 von 5 Sternen</div>
+              <div>Über 140 erfolgreich umgesetzte Projekte in der Region <span class="dyn-ort font-semibold">Zürich</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: INTERACTIVE 4-STEP LEAD & SUBSIDY CALCULATOR -->
+        <div class="lg:col-span-6" id="rechner">
+          <div class="bg-white rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-200/90 overflow-hidden">
+            
+            <!-- Calculator Header -->
+            <div class="bg-slate-900 text-white p-5 sm:p-6">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  Interaktiver Sofort-Rechner 2026
+                </span>
+                <span class="text-xs text-slate-400" id="calc-step-indicator">Schritt 1 von 4</span>
+              </div>
+              <h2 class="text-lg sm:text-xl font-bold" id="dyn-calc-title">Solar- & Fördergeld-Rechner für Zürich</h2>
+              <!-- Progress Bar -->
+              <div class="w-full h-2 bg-slate-800 rounded-full mt-3 overflow-hidden">
+                <div id="calc-progress-bar" class="h-full bg-brand-500 transition-all duration-300" style="width: 25%"></div>
+              </div>
+            </div>
+
+            <!-- Calculator Body -->
+            <div class="p-5 sm:p-6">
+              
+              <!-- STEP 1: Immobilie / Ausgangslage -->
+              <div id="step-1" class="space-y-5">
+                <div>
+                  <label class="block text-sm font-bold text-slate-900 mb-1" id="lbl-step1-q">1. Um welche Art von Gebäude handelt es sich?</label>
+                  <p class="text-xs text-slate-500 mb-3">Wählen Sie die passende Kategorie für Ihre Kostenschätzung:</p>
+                  <div class="grid grid-cols-2 gap-3" id="step1-options">
+                    <!-- Populated dynamically by JS based on preset -->
+                  </div>
+                </div>
+
+                <!-- Area / Size Slider -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+                  <div class="flex justify-between items-center mb-2">
+                    <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" id="lbl-slider-title">Geschätzte Fläche / Grösse</label>
+                    <span class="text-base font-extrabold text-brand-600 bg-brand-50 px-3 py-1 rounded-lg border border-brand-100" id="slider-value-display">140 m²</span>
+                  </div>
+                  <input type="range" id="calc-slider" min="50" max="350" step="10" value="140" oninput="updateSliderDisplay()" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" />
+                  <div class="flex justify-between text-[11px] text-slate-400 mt-1" id="slider-minmax-labels">
+                    <span>Klein (50 m²)</span>
+                    <span>Mittel (150 m²)</span>
+                    <span>Gross (350+ m²)</span>
+                  </div>
+                </div>
+
+                <button onclick="goToStep(2)" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-600/20 transition flex items-center justify-center gap-2 text-sm">
+                  <span>Weiter zu Ausstattung & Förderung</span>
+                  <span>→</span>
+                </button>
+              </div>
+
+              <!-- STEP 2: Zusatzoptionen & Wünsche -->
+              <div id="step-2" class="space-y-5 hidden">
+                <div>
+                  <label class="block text-sm font-bold text-slate-900 mb-1" id="lbl-step2-q">2. Welche Zusatzoptionen sind Ihnen wichtig?</label>
+                  <p class="text-xs text-slate-500 mb-3">Mehrfachauswahl möglich – beeinflusst Ihre Förderung & Amortisation:</p>
+                  <div class="space-y-2.5" id="step2-options">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                  <button onclick="goToStep(1)" class="px-4 py-3 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 font-semibold text-xs transition">
+                    ← Zurück
+                  </button>
+                  <button onclick="goToStep(3)" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-600/20 transition flex items-center justify-center gap-2 text-sm">
+                    <span>Weiter zum Zeitplan</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 3: Zeitplan & Bestands-Situation -->
+              <div id="step-3" class="space-y-5 hidden">
+                <div>
+                  <label class="block text-sm font-bold text-slate-900 mb-1">3. Wann soll das Projekt idealerweise umgesetzt werden?</label>
+                  <p class="text-xs text-slate-500 mb-3">Damit wir unsere Montage-Kapazitäten in <span class="dyn-ort font-medium">Zürich</span> prüfen können:</p>
+                  <div class="grid grid-cols-2 gap-3" id="step3-options">
+                    <button type="button" onclick="selectTimeline('Sofort / In 1-2 Monaten', 1.0)" class="timeline-card option-card selected p-3.5 rounded-xl border border-slate-200 text-left">
+                      <div class="text-base mb-1">🚀</div>
+                      <div class="text-xs font-bold text-slate-900">So schnell wie möglich</div>
+                      <div class="text-[11px] text-slate-500">In den nächsten 1–2 Monaten</div>
+                    </button>
+                    <button type="button" onclick="selectTimeline('In 3-6 Monaten', 1.0)" class="timeline-card option-card p-3.5 rounded-xl border border-slate-200 text-left">
+                      <div class="text-base mb-1">📅</div>
+                      <div class="text-xs font-bold text-slate-900">In 3 bis 6 Monaten</div>
+                      <div class="text-[11px] text-slate-500">Feste Planung für dieses Jahr</div>
+                    </button>
+                    <button type="button" onclick="selectTimeline('Erstmal Förderhöhe prüfen', 1.0)" class="timeline-card option-card p-3.5 rounded-xl border border-slate-200 text-left">
+                      <div class="text-base mb-1">💰</div>
+                      <div class="text-xs font-bold text-slate-900">Förderung & Kosten prüfen</div>
+                      <div class="text-[11px] text-slate-500">Unverbindliche Orientierung</div>
+                    </button>
+                    <button type="button" onclick="selectTimeline('Notfall / Sanierungspflicht', 1.05)" class="timeline-card option-card p-3.5 rounded-xl border border-slate-200 text-left">
+                      <div class="text-base mb-1">⚡</div>
+                      <div class="text-xs font-bold text-slate-900">Dringender Ersatz</div>
+                      <div class="text-[11px] text-slate-500">Bestehende Anlage/Bauteil defekt</div>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                  <button onclick="goToStep(2)" class="px-4 py-3 rounded-xl border border-slate-200 hover:bg-slate-100 text-slate-600 font-semibold text-xs transition">
+                    ← Zurück
+                  </button>
+                  <button onclick="goToStep(4)" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-600/20 transition flex items-center justify-center gap-2 text-sm">
+                    <span>Jetzt Auswertung & Förderung berechnen</span>
+                    <span>✨</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- STEP 4: SOFORT-ERGEBNIS & LEAD CAPTURE -->
+              <div id="step-4" class="space-y-4 hidden">
+                <!-- Live Result Box -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-4 sm:p-5 rounded-2xl border border-slate-700 shadow-inner">
+                  <div class="flex items-center justify-between text-xs text-emerald-400 font-bold uppercase tracking-wider mb-2">
+                    <span>✓ Vorläufige Kostenschätzung (<span class="dyn-ort">Zürich</span>)</span>
+                    <button onclick="goToStep(1)" class="text-slate-400 hover:text-white underline font-normal">Neu berechnen</button>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-3 my-3">
+                    <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-700/80">
+                      <div class="text-[11px] text-slate-400">Geschätzte Netto-Investition</div>
+                      <div class="text-lg sm:text-xl font-extrabold text-white mt-0.5" id="res-price-range">CHF 18'400 – 22'900</div>
+                      <div class="text-[10px] text-emerald-400 mt-0.5">inkl. Montage & Inbetriebnahme</div>
+                    </div>
+                    <div class="bg-emerald-950/50 p-3 rounded-xl border border-emerald-500/30">
+                      <div class="text-[11px] text-emerald-300" id="res-benefit-label">Est. Förderung & Ersparnis / Jahr</div>
+                      <div class="text-lg sm:text-xl font-extrabold text-emerald-400 mt-0.5" id="res-subsidy-amount">bis CHF 6'800</div>
+                      <div class="text-[10px] text-emerald-200/80 mt-0.5" id="res-amort-text">Amortisation in ca. 6.5 Jahren</div>
+                    </div>
+                  </div>
+
+                  <div class="text-[11px] text-slate-300 flex items-center justify-between pt-2 border-t border-slate-700/80">
+                    <span id="res-summary-badges">140 m² • Einfamilienhaus • Inkl. Speicher</span>
+                    <span class="text-amber-300 font-semibold">Freie Termine in <span class="dyn-ort">Zürich</span> verfügbar</span>
+                  </div>
+                </div>
+
+                <!-- Lead Form -->
+                <form onsubmit="submitLeadForm(event)" id="lead-form" class="space-y-3 pt-1">
+                  <div class="text-xs font-bold text-slate-800">
+                    Wohin dürfen wir Ihre detaillierte Offerte & Förderberechnung senden?
+                  </div>
+                  <div class="grid sm:grid-cols-2 gap-2.5">
+                    <input type="text" id="lead-name" required placeholder="Ihr Vor- und Nachname *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-600" />
+                    <input type="tel" id="lead-phone" required placeholder="Telefonnummer für Rückfragen *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-600" />
+                  </div>
+                  <div class="grid sm:grid-cols-2 gap-2.5">
+                    <input type="email" id="lead-email" required placeholder="Ihre E-Mail-Adresse *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-600" />
+                    <input type="text" id="lead-plz" required placeholder="PLZ / Ort *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-brand-600" />
+                  </div>
+                  <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-600/25 transition flex items-center justify-center gap-2 text-sm animate-pulse-subtle">
+                    <span>📄 Kostenlose Festpreis-Offerte & Fördercheck anfordern</span>
+                  </button>
+                  <p class="text-[11px] text-center text-slate-400">
+                    🔒 100% kostenlos & unverbindlich. Direkt von <strong class="dyn-firma text-slate-600">Müller Solar AG</strong> aus <span class="dyn-ort">Zürich</span> (kein Callcenter!).
+                  </p>
+                </form>
+
+                <!-- Success Message (Hidden initially) -->
+                <div id="lead-success" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-center space-y-3">
+                  <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center text-2xl mx-auto font-bold">✓</div>
+                  <h4 class="text-base font-extrabold text-slate-900">Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt.</h4>
+                  <p class="text-xs text-slate-600 leading-relaxed">
+                    Unser Projektleiter von <strong class="dyn-firma">Müller Solar AG</strong> prüft Ihre Angaben für <strong class="dyn-ort">Zürich</strong> und meldet sich innerhalb von 24 Stunden mit Ihrer persönlichen Berechnung.
+                  </p>
+                  <div class="pt-2">
+                    <a href="#" id="lead-whatsapp-direct" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow">
+                      <span>💬 Berechnung jetzt direkt per WhatsApp erhalten</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Calculator Footer Trust -->
+            <div class="bg-slate-50 px-6 py-3 border-t border-slate-200/80 flex items-center justify-between text-[11px] text-slate-500">
+              <span>✓ Geprüfte Berechnung nach aktuellen Richtlinien 2026</span>
+              <span class="font-semibold text-slate-700">⏱️ Dauer: ~45 Sek.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONAL SERVICES & BENEFITS SECTION -->
+  <section id="vorteile" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Warum Kunden in <span class="dyn-ort">Zürich</span> uns wählen</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+          Qualität vom regionalen Meisterbetrieb statt anonymer Massenabfertigung
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600 mt-3">
+          Bei <strong class="dyn-firma">Müller Solar AG</strong> erhalten Sie von der ersten Beratung vor Ort in <span class="dyn-ort">Zürich</span> bis zur schlüsselfertigen Übergabe alles aus einer Hand.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6" id="dyn-services-grid">
+        <!-- Populated dynamically by preset -->
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONAL PROJECTS & SOCIAL PROOF -->
+  <section id="referenzen" class="py-16 bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Echte Ergebnisse aus der Region</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Aktuelle Referenzprojekte rund um <span class="dyn-ort text-emerald-400">Zürich</span></h2>
+        </div>
+        <a href="#rechner" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition self-start">
+          <span>Eigenes Projekt in <span class="dyn-ort">Zürich</span> berechnen</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6" id="dyn-reviews-grid">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="faq" class="py-16 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Häufige Fragen unserer Kunden aus <span class="dyn-ort">Zürich</span></h2>
+        <p class="text-sm text-slate-600 mt-2">Klare Antworten vorab – für alles Weitere stehen wir Ihnen persönlich zur Verfügung.</p>
+      </div>
+
+      <div class="space-y-3" id="dyn-faq-list">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs">
+    <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-3 gap-8">
+      <div>
+        <div class="text-base font-extrabold text-white dyn-firma mb-2">Müller Solar AG</div>
+        <p class="leading-relaxed">
+          Ihr zertifizierter Fachbetrieb für <span id="dyn-footer-service">Photovoltaik, Batteriespeicher & Energiemanagement</span> in <span class="dyn-ort text-white font-semibold">Zürich</span> und der gesamten Region.
+        </p>
+      </div>
+      <div>
+        <div class="text-white font-bold uppercase tracking-wider mb-2">Direktkontakt</div>
+        <p class="mb-1">📍 Einsatzgebiet: <span class="dyn-ort text-slate-200">Zürich</span> & Umgebung (35 km Radius)</p>
+        <p class="mb-1">📞 Telefon: <a href="tel:0441234567" class="dyn-tel-link dyn-tel text-emerald-400 hover:underline font-semibold">044 123 45 67</a></p>
+        <p>🕒 Erreichbarkeit: Mo – Fr: 07:30 – 18:00 Uhr</p>
+      </div>
+      <div>
+        <div class="text-white font-bold uppercase tracking-wider mb-2">Online-Sofortauskunft</div>
+        <p class="mb-3">Nutzen Sie unseren kostenlosen Online-Rechner für eine unverbindliche Kostenschätzung inkl. Fördercheck.</p>
+        <a href="#rechner" class="inline-block bg-slate-800 hover:bg-slate-700 text-white font-bold px-4 py-2 rounded-lg border border-slate-700 transition">
+          Zum Angebots-Rechner ↑
+        </a>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 mt-8 pt-6 border-t border-slate-900 flex flex-wrap justify-between items-center gap-4 text-[11px] text-slate-600">
+      <span>© 2026 <span class="dyn-firma">Müller Solar AG</span>, <span class="dyn-ort">Zürich</span>. Alle Rechte vorbehalten.</span>
+      <span>Impressum • Datenschutz • AGB</span>
+    </div>
+  </footer>
+
+  <!-- STICKY WHATSAPP & CALL FLOATING ACTION BUTTON -->
+  <div class="fixed bottom-4 right-4 z-40 flex items-center gap-2">
+    <a id="sticky-whatsapp" href="https://wa.me/41441234567" target="_blank" class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-4 py-3 rounded-full shadow-xl transition transform hover:scale-105 text-xs sm:text-sm">
+      <span class="text-base">💬</span>
+      <span>WhatsApp Direktkontakt</span>
+    </a>
+  </div>
+
+  <!-- APPLICATION LOGIC -->
+  <script>
+    // INDUSTRY PRESETS DATA
+    const PRESETS = {
+      solar: {
+        name: "Solar & Photovoltaik",
+        icon: "☀️",
+        subline: "Photovoltaik, Speicher & Wallbox",
+        theme: {
+          50: '#ecfdf5', 100: '#d1fae5', 500: '#10b981', 600: '#059669', 700: '#047857', 900: '#064e3b'
+        },
+        heroBadge: "Jetzt bis zu 35% Einmalvergütung (EIV) & Steuerabzüge in {ORT} sichern",
+        heroTitle: 'Ihre neue Solaranlage in <span class="text-brand-600 underline decoration-brand-500/30">{ORT}</span> – schlüsselfertig zum Festpreis.',
+        heroDesc: "Machen Sie sich unabhängig von steigenden Strompreisen: <strong>{FIRMA}</strong> plant und montiert Ihre massgeschneiderte Photovoltaik-Anlage in {ORT} und Umgebung innerhalb weniger Wochen – inklusive kompletter Förderabwicklung.",
+        calcTitle: "Solar- & Fördergeld-Rechner für {ORT}",
+        step1Question: "1. Auf welchem Gebäudetyp in {ORT} soll die Anlage installiert werden?",
+        step1Options: [
+          { id: 'efh', icon: '🏡', title: 'Einfamilienhaus', desc: 'Klassisches Schräg- oder Flachdach', factor: 1.0 },
+          { id: 'mfh', icon: '🏢', title: 'Mehrfamilienhaus', desc: 'Hoher Eigenverbrauch / ZEV', factor: 1.12 },
+          { id: 'gewerbe', icon: '🏭', title: 'Gewerbe / Halle', desc: 'Grossfläche mit Top-Rendite', factor: 0.92 },
+          { id: 'neubau', icon: '🏗️', title: 'Neubau / Sanierung', desc: 'Direkte Gerüst-Mitnutzung', factor: 0.95 }
+        ],
+        sliderTitle: "Verfügbare Dachfläche (ca.)",
+        sliderMin: 40, sliderMax: 300, sliderStep: 10, sliderDefault: 90, sliderUnit: "m² Dachfläche",
+        step2Question: "2. Welche Komponenten wünschen Sie für maximale Autarkie?",
+        step2Options: [
+          { id: 'speicher', icon: '🔋', title: 'Hochleistungs-Batteriespeicher (10–15 kWh)', desc: 'Solarstrom auch abends & nachts nutzen (bis 80% Autarkie)', addPrice: 6800, addSub: 1200, checked: true },
+          { id: 'wallbox', icon: '🚗', title: 'E-Auto Wallbox (11/22 kW Überschussladen)', desc: 'Eigenes Elektroauto mit 100% Gratis-Sonnenstrom laden', addPrice: 2100, addSub: 400, checked: false },
+          { id: 'notstrom', icon: '🛡️', title: 'Notstrom- / Ersatzstrom-Funktion', desc: 'Volle Versorgungssicherheit bei Stromausfall', addPrice: 1600, addSub: 0, checked: false },
+          { id: 'optimierer', icon: '✨', title: 'Full-Black Ästhetik & Leistungsoptimierer', desc: 'Maximale Ausbeute auch bei Teilverschattung / Kamin', addPrice: 1200, addSub: 300, checked: true }
+        ],
+        basePricePerUnit: 210, // per m2
+        baseSubsidyRate: 0.24,
+        amortText: "Amortisation durch Stromersparnis in ca. 6.5 – 8 Jahren",
+        services: [
+          { icon: "📐", title: "3D-Drohnenplanung & Wirtschaftlichkeits-Check", desc: "Wir vermessen Ihr Dach in {ORT} millimetergenau und berechnen Ihren exakten Jahresertrag sowie Ihre Amortisationsdauer." },
+          { icon: "🔋", title: "Hochleistungs-Module & Speicher (25 J. Garantie)", desc: "Wir verbauen ausschliesslich geprüfte Tier-1 Glas-Glas-Module und sichere LiFePO4-Speicher führender Hersteller." },
+          { icon: "📄", title: "Kompletter Förder- & Bewilligungs-Service", desc: "Von der Netzanmeldung beim lokalen Energieversorger bis zur Einmalvergütung (Pronovo / KfW) übernehmen wir den gesamten Papierkram." }
+        ],
+        reviews: [
+          { name: "Familie Kälin", loc: "{ORT}", metric: "14.2 kWp + 12 kWh Speicher", text: "Von der ersten Offerte über den Online-Rechner bis zur Inbetriebnahme vergingen nur 5 Wochen. Unser Stromzukauf ist um 78% gesunken!" },
+          { name: "Thomas & Karin M.", loc: "Region {ORT}", metric: "11.5 kWp + Wallbox", text: "Endlich ein Handwerksbetrieb, der Termine pünktlich einhält. Sehr saubere Kabelverlegung im Keller und kompetente Einweisung in die App." },
+          { name: "Gewerbepark Süd", loc: "{ORT}", metric: "45 kWp Flachdach-Anlage", text: "Top Beratung bezüglich Fördergeldern und Steuerabzügen. Die Anlage produziert sogar noch mehr als in der Prognose berechnet." }
+        ],
+        faqs: [
+          { q: "Wie hoch sind die aktuellen Fördergelder in {ORT}?", a: "Je nach Anlagengrösse profitieren Sie 2026 von der direkten Einmalvergütung sowie dem 100%-Steuerabzug bei bestehenden Liegenschaften (bzw. 0% MwSt. in DE). Insgesamt reduziert sich Ihre Netto-Investition oft um 25% bis 35%." },
+          { q: "Lohnt sich ein Batteriespeicher finanziell?", a: "Ja: Durch den Speicher erhöhen Sie Ihren Eigenverbrauch von ca. 30% auf bis zu 80%. Da selbst produzierter Solarstrom nur einen Bruchteil des Netzstroms kostet, rechnet sich die Kombination besonders schnell." }
+        ]
+      },
+      wp: {
+        name: "Wärmepumpe & Haustechnik",
+        icon: "🔥",
+        subline: "Wärmepumpen, Heizungsersatz & Klima",
+        theme: {
+          50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 900: '#0c4a6e'
+        },
+        heroBadge: "Bis zu 40% Kantons-/Staats-Förderung beim Heizungsersatz in {ORT}",
+        heroTitle: 'Moderne Wärmepumpe in <span class="text-brand-600 underline decoration-brand-500/30">{ORT}</span> – bis zu 55% Heizkosten sparen.',
+        heroDesc: "Tauschen Sie Ihre alte Öl-, Gas- oder Elektroheizung jetzt gegen eine flüsterleise Hochleistungs-Wärmepumpe: <strong>{FIRMA}</strong> ist Ihr zertifizierter Fachpartner in {ORT} inkl. Fördergeld-Garantie.",
+        calcTitle: "Wärmepumpen- & Förder-Rechner für {ORT}",
+        step1Question: "1. Welche Heizung ist aktuell in Ihrem Gebäude in {ORT} verbaut?",
+        step1Options: [
+          { id: 'oel', icon: '🛢️', title: 'Ölheizung ablösen', desc: 'Höchster Förderbeitrag + Platzgewinn', factor: 1.05 },
+          { id: 'gas', icon: '🔥', title: 'Gasheizung ablösen', desc: 'Schneller Umstieg ohne CO2-Abgabe', factor: 1.0 },
+          { id: 'elektro', icon: '⚡', title: 'Elektroheizung ersetzen', desc: 'Stromverbrauch sofort dritteln', factor: 1.08 },
+          { id: 'neubau', icon: '🏡', title: 'Neubau / Komplettsanierung', desc: 'Effiziente Fussbodenheizung', factor: 0.92 }
+        ],
+        sliderTitle: "Beheizte Wohnfläche (ca.)",
+        sliderMin: 80, sliderMax: 400, sliderStep: 10, sliderDefault: 160, sliderUnit: "m² Wohnfläche",
+        step2Question: "2. Welche Ausführung & Zusatzleistungen wünschen Sie?",
+        step2Options: [
+          { id: 'demontage', icon: '♻️', title: 'Fachgerechte Demontage & Öltank-/Altgerät-Entsorgung', desc: 'Kompletter Rückbau der Altanlage durch unser Team', addPrice: 3200, addSub: 1500, checked: true },
+          { id: 'boiler', icon: '🚿', title: 'Integrierter Warmwasser-Speicher (300–400L)', desc: 'Hygienische Trinkwassererwärmung über die Wärmepumpe', addPrice: 2800, addSub: 800, checked: true },
+          { id: 'schall', icon: '🔇', title: 'Flüster-Paket (Schalloptimierte Aufstellung)', desc: 'Garantiert unter allen Lärmschutz-Grenzwerten in {ORT}', addPrice: 1400, addSub: 400, checked: false },
+          { id: 'smart', icon: '📱', title: 'Smart-Home Einzelraumregelung & PV-Kopplung', desc: 'Steuerung per App & vorbereitet für Solarstrom', addPrice: 1100, addSub: 300, checked: false }
+        ],
+        basePricePerUnit: 175, // per m2 Wohnfläche
+        baseSubsidyRate: 0.32,
+        amortText: "Heizkosten-Ersparnis bis zu 3'200 / Jahr ab Tag 1",
+        services: [
+          { icon: "🌡️", title: "Exakte Heizlastberechnung vor Ort in {ORT}", desc: "Keine überdimensionierten Standard-Anlagen: Wir prüfen Vorlauftemperaturen, Heizkörper und Dämmung für maximale Effizienz (JAZ > 4.5)." },
+          { icon: "🔇", title: "Flüsterleise Premium-Geräte (auch für Heizkörper)", desc: "Moderne Propan-Wärmepumpen (R290) erreichen problemlos bis zu 70°C Vorlauftemperatur – ideal auch für Bestandsbauten ohne Fussbodenheizung." },
+          { icon: "💰", title: "Maximale Förderung garantiert", desc: "Wir stellen den Förderantrag vor Baubeginn für Sie und holen das Maximum an kantonalen/staatlichen Fördergeldern heraus." }
+        ],
+        reviews: [
+          { name: "Peter & Ursula W.", loc: "{ORT}", metric: "Luft-Wasser-WP statt 28J. Ölheizung", text: "Der alte Tankraum ist jetzt unser Hobbykeller! Der Umbau dauerte nur 4 Tage und wir erhielten über 11'000 an Fördergeldern." },
+          { name: "Dr. M. Baumann", loc: "Region {ORT}", metric: "Altbau mit Radiatoren (Bj. 1984)", text: "Viele sagten, im Altbau bräuchte man erst neue Heizkörper. {FIRMA} hat alles sauber berechnet – das Haus wird wunderbar warm bei halbierten Kosten." },
+          { name: "Hausverwaltung Kern", loc: "{ORT}", metric: "6-Familienhaus Sanierung", text: "Verlässliche Offerte über den Rechner, pünktliche Umsetzung und alle Mieter sind begeistert." }
+        ],
+        faqs: [
+          { q: "Funktioniert eine Wärmepumpe auch mit bestehenden Heizkörpern (Radiatoren)?", a: "Ja, absolut! Moderne Hochtemperatur-Wärmepumpen der neuesten Generation arbeiten mit bis zu 70°C Vorlauftemperatur und sind speziell für die Sanierung von Bestandsgebäuden in {ORT} konzipiert." },
+          { q: "Wie lange dauert der Austausch der alten Heizung?", a: "In der Regel dauert der komplette Wechsel inklusive Demontage der alten Heizung und Inbetriebnahme nur 3 bis 5 Arbeitstage." }
+        ]
+      },
+      handwerk: {
+        name: "Badsanierung, Maler & Ausbau",
+        icon: "🛠️",
+        subline: "Komplettbäder, Renovierung & Malerarbeiten",
+        theme: {
+          50: '#fffbeb', 100: '#fef3c7', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 900: '#78350f'
+        },
+        heroBadge: "Staubfreie Ausführung & Fixtermin-Garantie in {ORT}",
+        heroTitle: 'Ihre Sanierung & Renovierung in <span class="text-brand-600 underline decoration-brand-500/30">{ORT}</span> – sauber, pünktlich, zum Festpreis.',
+        heroDesc: "Ob modernes Traumbad, hochwertige Malerarbeiten oder Komplett-Renovierung: <strong>{FIRMA}</strong> verwandelt Ihre Immobilie in {ORT} termingerecht und mit 100% Sauberkeits-Garantie.",
+        calcTitle: "Sanierungs- & Kosten-Rechner für {ORT}",
+        step1Question: "1. Welches Projekt planen Sie in {ORT}?",
+        step1Options: [
+          { id: 'bad', icon: '🚿', title: 'Komplett-Badsanierung', desc: 'Schlüsselfertig inkl. Platten & Sanitär', factor: 1.35 },
+          { id: 'maler', icon: '🎨', title: 'Maler- & Gipserarbeiten', desc: 'Innenräume, Fassade oder Umbau', factor: 0.65 },
+          { id: 'umbau', icon: '🏠', title: 'Wohnungs- / Haussanierung', desc: 'Komplettumbau aus einer Hand', factor: 1.15 },
+          { id: 'barrierefrei', icon: '♿', title: 'Barrierefreier Umbau', desc: 'Bodengleiche Dusche (förderfähig!)', factor: 1.25 }
+        ],
+        sliderTitle: "Projektgrösse / Fläche (ca.)",
+        sliderMin: 8, sliderMax: 180, sliderStep: 4, sliderDefault: 32, sliderUnit: "m² Projektfläche",
+        step2Question: "2. Welchen Qualitäts- & Service-Standard wünschen Sie?",
+        step2Options: [
+          { id: 'staubfrei', icon: '✨', title: '100% Staubfrei-Paket (AirClean-Absaugung & Schutzvlies)', desc: 'Ihre restliche Wohnung bleibt während des Umbaus klinisch sauber', addPrice: 650, addSub: 0, checked: true },
+          { id: 'design', icon: '💎', title: 'Grossformat-Fugenlos / Design-Ausführung', desc: 'Pflegeleichte Oberflächen, Regendusche & Marken-Armaturen', addPrice: 3400, addSub: 600, checked: true },
+          { id: 'koordination', icon: '🤝', title: 'Alle Gewerke aus einer Hand (Ein Ansprechpartner)', desc: 'Wir koordinieren Sanitär, Plattenleger, Elektriker & Maler nahtlos', addPrice: 1200, addSub: 400, checked: true },
+          { id: '3d', icon: '🖥️', title: 'Vorab 3D-Visualisierung & Bemusterung', desc: 'Sehen Sie Ihr fertiges Projekt schon vor dem ersten Hammerschlag', addPrice: 450, addSub: 200, checked: false }
+        ],
+        basePricePerUnit: 290,
+        baseSubsidyRate: 0.15,
+        amortText: "Steuerlich absetzbar (Werterhalt / Altersgerechter Umbau)",
+        services: [
+          { icon: "✨", title: "100% Sauberkeits- & Staubschutz-Garantie", desc: "Wir arbeiten mit modernsten Unterdruck-Staubschutzwänden und verlassen Ihre Immobilie in {ORT} besenrein." },
+          { icon: "⏱️", title: "Verbindlicher Fixtermin & Festpreis", desc: "Kein monatelanger Baustellen-Stillstand: Sie erhalten vorab einen verbindlichen Ablaufplan und eine transparente Festpreis-Offerte." },
+          { icon: "🏆", title: "Meisterhafte Handwerksqualität", desc: "Ob fugenlose Bäder, edle Spachteltechniken oder energetische Fassadensanierung – ausgeführt von ausgebildeten Fachkräften." }
+        ],
+        reviews: [
+          { name: "Sandra & Marc L.", loc: "{ORT}", metric: "Komplett-Badsanierung in 10 Tagen", text: "Wir hatten grosse Sorge vor dem Baustaub im bewohnten Haus. Dank dem Staubschutz-System von {FIRMA} blieb alles blitzsauber – und das neue Bad ist ein Traum!" },
+          { name: "Eigentümergemeinschaft R.", loc: "Region {ORT}", metric: "Fassade & Treppenhaus", text: "Sehr freundliche Mitarbeiter, transparente Offerte ohne Nachträge und ein perfektes Ergebnis." },
+          { name: "H. Zimmermann", loc: "{ORT}", metric: "Umbau Badewanne zu Walk-In Dusche", text: "Innerhalb von 4 Tagen erledigt! Auch bei den Unterlagen für den Steuerabzug wurde uns sofort geholfen." }
+        ],
+        faqs: [
+          { q: "Bleibt meine Wohnung während der Sanierung bewohnbar?", a: "Ja! Wir setzen spezielle Luftreiniger und Staubschutztüren ein, sodass kein Baustaub in Ihre Wohnräume gelangt." },
+          { q: "Sind die Handwerkerleistungen steuerlich absetzbar?", a: "Ja, werterhaltende Renovationsarbeiten sowie barrierefreie Umbauten können in der Steuererklärung abgezogen werden bzw. erhalten attraktive Zuschüsse." }
+        ]
+      }
+    };
+
+    // CURRENT STATE
+    let state = {
+      firma: "Müller Solar AG",
+      ort: "Zürich",
+      tel: "044 123 45 67",
+      branche: "solar",
+      waehrung: "CHF",
+      kundeMode: false,
+      // Calculator selections
+      step1Factor: 1.0,
+      step1Title: "Einfamilienhaus",
+      sliderVal: 90,
+      selectedAddons: new Set(['speicher', 'optimierer']),
+      timelineTitle: "So schnell wie möglich",
+      timelineFactor: 1.0
+    };
+
+    // INIT ON LOAD
+    window.addEventListener('DOMContentLoaded', () => {
+      parseUrlParams();
+      syncAdminInputs();
+      renderEverything();
+    });
+
+    function parseUrlParams() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('firma')) state.firma = params.get('firma');
+      if (params.get('ort')) state.ort = params.get('ort');
+      if (params.get('tel')) state.tel = params.get('tel');
+      if (params.get('branche') && PRESETS[params.get('branche')]) {
+        state.branche = params.get('branche');
+      }
+      if (params.get('waehrung')) {
+        state.waehrung = params.get('waehrung').toUpperCase() === 'EUR' ? 'EUR' : 'CHF';
+      }
+      if (params.get('kunde') === '1') {
+        state.kundeMode = true;
+        document.getElementById('admin-toggle-wrapper').classList.add('hidden');
+      }
+      // Set default slider and addons for chosen branche
+      const p = PRESETS[state.branche];
+      state.sliderVal = p.sliderDefault;
+      state.step1Title = p.step1Options[0].title;
+      state.step1Factor = p.step1Options[0].factor;
+      state.selectedAddons = new Set(p.step2Options.filter(o => o.checked).map(o => o.id));
+    }
+
+    function syncAdminInputs() {
+      document.getElementById('adm-firma').value = state.firma;
+      document.getElementById('adm-ort').value = state.ort;
+      document.getElementById('adm-tel').value = state.tel;
+      document.getElementById('adm-waehrung').value = state.waehrung;
+    }
+
+    function toggleAdminDrawer() {
+      const drawer = document.getElementById('admin-drawer');
+      drawer.classList.toggle('translate-x-full');
+    }
+
+    function setAdminBranche(brancheKey) {
+      if (!PRESETS[brancheKey]) return;
+      state.branche = brancheKey;
+      const p = PRESETS[brancheKey];
+      state.sliderVal = p.sliderDefault;
+      state.step1Title = p.step1Options[0].title;
+      state.step1Factor = p.step1Options[0].factor;
+      state.selectedAddons = new Set(p.step2Options.filter(o => o.checked).map(o => o.id));
+      renderEverything();
+      goToStep(1);
+    }
+
+    function loadSample(firma, ort, tel, branche, waehrung) {
+      state.firma = firma;
+      state.ort = ort;
+      state.tel = tel;
+      state.waehrung = waehrung;
+      syncAdminInputs();
+      setAdminBranche(branche);
+    }
+
+    function applyPersonalizationFromInputs() {
+      state.firma = document.getElementById('adm-firma').value.trim() || "Ihr Meisterbetrieb";
+      state.ort = document.getElementById('adm-ort').value.trim() || "Zürich";
+      state.tel = document.getElementById('adm-tel').value.trim() || "044 123 45 67";
+      state.waehrung = document.getElementById('adm-waehrung').value;
+      renderEverything();
+    }
+
+    function replaceTokens(str) {
+      return str.replaceAll('{FIRMA}', state.firma).replaceAll('{ORT}', state.ort);
+    }
+
+    function formatCurrency(num) {
+      const rounded = Math.round(num / 100) * 100;
+      if (state.waehrung === 'CHF') {
+        return 'CHF ' + rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+      } else {
+        return rounded.toLocaleString('de-DE') + ' €';
+      }
+    }
+
+    function renderEverything() {
+      const p = PRESETS[state.branche];
+
+      // 1. Apply CSS Theme Variables
+      const root = document.documentElement;
+      Object.entries(p.theme).forEach(([k, v]) => {
+        root.style.setProperty(`--brand-${k}`, v);
+      });
+
+      // 2. Highlight active preset buttons
+      ['solar', 'wp', 'handwerk'].forEach(key => {
+        const admBtn = document.getElementById(`btn-preset-${key}`);
+        const topBtn = document.getElementById(`top-btn-${key}`);
+        if (key === state.branche) {
+          admBtn.className = "p-2.5 rounded-lg border-2 border-emerald-400 bg-emerald-950/60 text-white text-center transition flex flex-col items-center gap-1";
+          topBtn.className = "text-[11px] px-2 py-0.5 rounded bg-emerald-600 text-white font-bold transition";
+        } else {
+          admBtn.className = "p-2.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-center transition flex flex-col items-center gap-1";
+          topBtn.className = "text-[11px] px-1.5 py-0.5 rounded hover:bg-slate-700 text-slate-300 transition";
+        }
+      });
+
+      // 3. Update Title & Generic Classes
+      document.getElementById('page-title').textContent = `${state.firma} | ${p.name} in ${state.ort}`;
+      document.getElementById('dyn-logo-icon').textContent = p.icon;
+      document.getElementById('dyn-subline').textContent = p.subline;
+      document.getElementById('dyn-footer-service').textContent = p.subline;
+
+      document.querySelectorAll('.dyn-firma').forEach(el => el.textContent = state.firma);
+      document.querySelectorAll('.dyn-ort').forEach(el => el.textContent = state.ort);
+      document.querySelectorAll('.dyn-tel').forEach(el => el.textContent = state.tel);
+      const cleanTel = state.tel.replace(/[^0-9+]/g, '');
+      document.querySelectorAll('.dyn-tel-link').forEach(el => el.href = `tel:${cleanTel}`);
+
+      // WhatsApp links
+      const waNumber = cleanTel.startsWith('0') ? (state.waehrung === 'CHF' ? '41' + cleanTel.slice(1) : '49' + cleanTel.slice(1)) : cleanTel;
+      const waMsg = encodeURIComponent(`Grüezi / Hallo ${state.firma}, ich habe gerade Ihren Online-Rechner für ${state.ort} genutzt und hätte gerne eine unverbindliche Beratung.`);
+      document.getElementById('sticky-whatsapp').href = `https://wa.me/${waNumber}?text=${waMsg}`;
+
+      // 4. Hero Content
+      document.getElementById('dyn-hero-badge').textContent = replaceTokens(p.heroBadge);
+      document.getElementById('dyn-hero-title').innerHTML = replaceTokens(p.heroTitle);
+      document.getElementById('dyn-hero-desc').innerHTML = replaceTokens(p.heroDesc);
+      document.getElementById('dyn-calc-title').textContent = replaceTokens(p.calcTitle);
+
+      // 5. Calculator Step 1
+      document.getElementById('lbl-step1-q').textContent = replaceTokens(p.step1Question);
+      const step1Container = document.getElementById('step1-options');
+      step1Container.innerHTML = p.step1Options.map((opt, idx) => `
+        <button type="button" onclick="selectStep1('${opt.title}', ${opt.factor}, this)" class="step1-card option-card ${opt.title === state.step1Title ? 'selected' : ''} p-3.5 rounded-xl border border-slate-200 text-left">
+          <div class="text-xl mb-1">${opt.icon}</div>
+          <div class="text-xs font-bold text-slate-900">${opt.title}</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">${opt.desc}</div>
+        </button>
+      `).join('');
+
+      // Slider Setup
+      const slider = document.getElementById('calc-slider');
+      slider.min = p.sliderMin;
+      slider.max = p.sliderMax;
+      slider.step = p.sliderStep;
+      slider.value = state.sliderVal;
+      document.getElementById('lbl-slider-title').textContent = p.sliderTitle;
+      document.getElementById('slider-minmax-labels').innerHTML = `
+        <span>Klein (${p.sliderMin} m²)</span>
+        <span>Mittel (${Math.round((p.sliderMin + p.sliderMax)/2)} m²)</span>
+        <span>Gross (${p.sliderMax}+ m²)</span>
+      `;
+      updateSliderDisplay();
+
+      // 6. Calculator Step 2
+      document.getElementById('lbl-step2-q').textContent = replaceTokens(p.step2Question);
+      const step2Container = document.getElementById('step2-options');
+      step2Container.innerHTML = p.step2Options.map(opt => {
+        const isSel = state.selectedAddons.has(opt.id);
+        return `
+          <div onclick="toggleAddon('${opt.id}', this)" class="option-card ${isSel ? 'selected' : ''} cursor-pointer p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">${opt.icon}</span>
+              <div>
+                <div class="text-xs font-bold text-slate-900">${replaceTokens(opt.title)}</div>
+                <div class="text-[11px] text-slate-500">${replaceTokens(opt.desc)}</div>
+              </div>
+            </div>
+            <div class="w-5 h-5 rounded-md border ${isSel ? 'bg-brand-600 border-brand-600 text-white' : 'border-slate-300 bg-white'} flex items-center justify-center text-xs font-bold shrink-0 check-indicator">
+              ${isSel ? '✓' : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // 7. Services Section
+      document.getElementById('dyn-services-grid').innerHTML = p.services.map(s => `
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 hover:shadow-lg transition">
+          <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center text-2xl mb-4 shadow-sm">
+            ${s.icon}
+          </div>
+          <h3 class="text-base font-extrabold text-slate-900 mb-2">${replaceTokens(s.title)}</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${replaceTokens(s.desc)}</p>
+        </div>
+      `).join('');
+
+      // 8. Reviews Section
+      document.getElementById('dyn-reviews-grid').innerHTML = p.reviews.map(r => `
+        <div class="bg-slate-800/90 border border-slate-700 p-6 rounded-2xl flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs mb-3">
+              <span class="text-amber-400 font-bold">⭐⭐⭐⭐⭐ 5.0</span>
+              <span class="bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full text-[11px] font-semibold">${r.metric}</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 italic leading-relaxed">"${replaceTokens(r.text)}"</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/80 flex items-center justify-between text-xs">
+            <span class="font-bold text-white">${r.name}</span>
+            <span class="text-slate-400">📍 ${replaceTokens(r.loc)}</span>
+          </div>
+        </div>
+      `).join('');
+
+      // 9. FAQs
+      document.getElementById('dyn-faq-list').innerHTML = p.faqs.map(f => `
+        <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm">
+          <h4 class="text-sm font-extrabold text-slate-900 mb-1.5 flex items-center gap-2">
+            <span class="text-brand-600">?</span>
+            <span>${replaceTokens(f.q)}</span>
+          </h4>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-5">${replaceTokens(f.a)}</p>
+        </div>
+      `).join('');
+
+      // 10. Calculate numbers & update Share URL + Cold Pitch
+      calculateResultNumbers();
+      updateShareUrl();
+    }
+
+    function updateSliderDisplay() {
+      const p = PRESETS[state.branche];
+      const val = parseInt(document.getElementById('calc-slider').value, 10);
+      state.sliderVal = val;
+      document.getElementById('slider-value-display').textContent = `${val} ${p.sliderUnit}`;
+      calculateResultNumbers();
+    }
+
+    function selectStep1(title, factor, btnEl) {
+      state.step1Title = title;
+      state.step1Factor = factor;
+      document.querySelectorAll('.step1-card').forEach(el => el.classList.remove('selected'));
+      btnEl.classList.add('selected');
+      calculateResultNumbers();
+    }
+
+    function toggleAddon(id, cardEl) {
+      if (state.selectedAddons.has(id)) {
+        state.selectedAddons.delete(id);
+        cardEl.classList.remove('selected');
+        const ind = cardEl.querySelector('.check-indicator');
+        ind.className = "w-5 h-5 rounded-md border border-slate-300 bg-white flex items-center justify-center text-xs font-bold shrink-0 check-indicator";
+        ind.textContent = "";
+      } else {
+        state.selectedAddons.add(id);
+        cardEl.classList.add('selected');
+        const ind = cardEl.querySelector('.check-indicator');
+        ind.className = "w-5 h-5 rounded-md border bg-brand-600 border-brand-600 text-white flex items-center justify-center text-xs font-bold shrink-0 check-indicator";
+        ind.textContent = "✓";
+      }
+      calculateResultNumbers();
+    }
+
+    function selectTimeline(title, factor) {
+      state.timelineTitle = title;
+      state.timelineFactor = factor;
+      document.querySelectorAll('.timeline-card').forEach(el => el.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      calculateResultNumbers();
+    }
+
+    function goToStep(stepNum) {
+      [1, 2, 3, 4].forEach(n => {
+        document.getElementById(`step-${n}`).classList.toggle('hidden', n !== stepNum);
+      });
+      document.getElementById('calc-step-indicator').textContent = `Schritt ${stepNum} von 4`;
+      document.getElementById('calc-progress-bar').style.width = `${stepNum * 25}%`;
+      if (stepNum === 4) {
+        calculateResultNumbers();
+      }
+    }
+
+    function calculateResultNumbers() {
+      const p = PRESETS[state.branche];
+      let gross = state.sliderVal * p.basePricePerUnit * state.step1Factor * state.timelineFactor;
+      let extraSub = 0;
+
+      p.step2Options.forEach(opt => {
+        if (state.selectedAddons.has(opt.id)) {
+          gross += opt.addPrice;
+          extraSub += opt.addSub;
+        }
+      });
+
+      const subsidy = Math.round((gross * p.baseSubsidyRate) + extraSub);
+      const netLow = Math.max(2500, Math.round((gross - subsidy) * 0.92));
+      const netHigh = Math.round((gross - subsidy) * 1.08);
+
+      document.getElementById('res-price-range').textContent = `${formatCurrency(netLow)} – ${formatCurrency(netHigh)}`;
+      document.getElementById('res-subsidy-amount').textContent = `bis ${formatCurrency(subsidy)}`;
+      document.getElementById('res-amort-text').textContent = p.amortText;
+      document.getElementById('res-summary-badges').textContent = `${state.sliderVal} m² • ${state.step1Title} • ${state.selectedAddons.size} Optionen`;
+    }
+
+    function submitLeadForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('lead-name').value;
+      const phone = document.getElementById('lead-phone').value;
+      const plz = document.getElementById('lead-plz').value;
+      const priceText = document.getElementById('res-price-range').textContent;
+
+      document.getElementById('lead-form').classList.add('hidden');
+      document.getElementById('lead-success').classList.remove('hidden');
+
+      const cleanTel = state.tel.replace(/[^0-9+]/g, '');
+      const waNumber = cleanTel.startsWith('0') ? (state.waehrung === 'CHF' ? '41' + cleanTel.slice(1) : '49' + cleanTel.slice(1)) : cleanTel;
+      const waText = encodeURIComponent(
+        `Hallo ${state.firma}, hier ist ${name} aus ${plz} (${phone}). Ich habe eben im Online-Rechner folgendes Projekt berechnet: ${state.step1Title}, ${state.sliderVal} m², Richtpreis ${priceText}. Bitte um kurze Kontaktaufnahme!`
+      );
+      document.getElementById('lead-whatsapp-direct').href = `https://wa.me/${waNumber}?text=${waText}`;
+    }
+
+    function updateShareUrl() {
+      const baseUrl = window.location.origin + window.location.pathname;
+      const params = new URLSearchParams();
+      params.set('firma', state.firma);
+      params.set('ort', state.ort);
+      params.set('tel', state.tel);
+      params.set('branche', state.branche);
+      params.set('waehrung', state.waehrung);
+      if (document.getElementById('adm-hide-badge').checked) {
+        params.set('kunde', '1');
+      }
+      const fullUrl = `${baseUrl}?${params.toString()}`;
+      document.getElementById('adm-share-url').value = fullUrl;
+
+      // Update Cold Outreach Pitch Text
+      const pName = PRESETS[state.branche].name;
+      const salutation = state.waehrung === 'CHF' ? 'Grüezi' : 'Hallo';
+      const pitch = `${salutation} Team von ${state.firma},\n\nmir ist aufgefallen, dass Interessenten aus ${state.ort} auf Ihrer aktuellen Website noch keinen interaktiven Sofort-Rechner für ${pName} & Fördergelder nutzen können.\n\nIch habe Ihnen deshalb vorab einen fertigen, auf "${state.firma}" in ${state.ort} gebrandeten Prototypen gebaut – probieren Sie ihn hier direkt aus:\n👉 ${fullUrl}\n\nSolche Rechner verdoppeln erfahrungsgemäss die qualifizierten Kundenanfragen (inkl. Vorqualifizierung & WhatsApp-Übergabe). Sollen wir das diese Woche kurz in 5 Minuten für Ihre bestehende Seite freischalten?`;
+      document.getElementById('adm-pitch-text').value = pitch;
+    }
+
+    function copyShareUrl() {
+      const input = document.getElementById('adm-share-url');
+      input.select();
+      navigator.clipboard.writeText(input.value);
+      const btn = document.getElementById('btn-copy-url');
+      btn.textContent = "✓ Kopiert!";
+      setTimeout(() => btn.textContent = "Link kopieren", 2000);
+    }
+
+    function copyPitchText() {
+      const area = document.getElementById('adm-pitch-text');
+      area.select();
+      navigator.clipboard.writeText(area.value);
+      const btn = document.getElementById('btn-copy-pitch');
+      btn.textContent = "✓ Pitch kopiert!";
+      setTimeout(() => btn.textContent = "Pitch kopieren", 2000);
+    }
+  </script>
+</body>
+</html>

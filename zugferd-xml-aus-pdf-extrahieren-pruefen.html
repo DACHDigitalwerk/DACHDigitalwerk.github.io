@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZUGFeRD XML aus PDF extrahieren & prüfen (2026): Factur-X Anleitung | DACH Digitalwerk</title>
+  <meta name="description" content="ZUGFeRD & Factur-X XML-Datei aus PDF/A-3 extrahieren und auf Gültigkeit nach EN 16931 prüfen. Anleitung für Adobe Reader, Python & kostenlosen Online-Validator." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/zugferd-xml-aus-pdf-extrahieren-pruefen.html" />
+  <meta property="og:title" content="ZUGFeRD XML aus PDF extrahieren & prüfen: Factur-X Guide 2026" />
+  <meta property="og:description" content="So extrahieren Sie die factur-x.xml aus hybriden PDF-Rechnungen und validieren Pflichtangaben & Profile nach § 14 UStG." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/zugferd-xml-aus-pdf-extrahieren-pruefen.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ZUGFeRD XML aus PDF extrahieren & prüfen: Factur-X Anleitung 2026",
+    "description": "Schritt-für-Schritt Anleitung zur Extraktion und Validierung eingebetteter XML-Dateien aus hybriden PDF/A-3 E-Rechnungen.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie heißt die eingebettete XML-Datei in einer ZUGFeRD-Rechnung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In ZUGFeRD 2.0, 2.1 und 2.2 bzw. Factur-X heißt der Dateianhang standardmäßig 'factur-x.xml' (in älteren ZUGFeRD 1.x Versionen hieß er 'zugferd-invoice.xml'). Er ist als valides PDF-Attachment in den PDF/A-3 Container eingebettet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie kann ich die XML ohne Spezialsoftware aus dem PDF speichern?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Öffnen Sie das PDF im kostenlosen Adobe Acrobat Reader. Klicken Sie in der linken Seitenleiste auf das Büroklammer-Symbol ('Dateianlagen'). Dort sehen Sie die Datei 'factur-x.xml'. Klicken Sie mit der rechten Maustaste darauf und wählen Sie 'Anlage speichern'. Die gespeicherte XML-Datei können Sie anschließend direkt in unseren Validator hochladen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Erfüllt jedes ZUGFeRD-Profil die gesetzliche E-Rechnungspflicht ab 2025/2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein! Nur die Profile COMFORT (vollständig EN 16931 konform) und EXTENDED erfüllen die Vorgaben des § 14 UStG für den B2B-Vorsteuerabzug. Die Profile MINIMUM und BASIC-WL enthalten keine vollständigen Positions- und Steuerdaten in der XML und sind ab 2026 nicht als E-Rechnung anerkannt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="./" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-emerald-400 transition">
+        <span>←</span>
+        <span>DACH Digitalwerk Hub</span>
+      </a>
+      <span class="text-slate-400">ZUGFeRD 2.2 & Factur-X Praxiswissen</span>
+    </div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
+        <span>📎</span>
+        <span>Hybrid-Rechnungen & Factur-X</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+        ZUGFeRD XML aus PDF extrahieren & prüfen: Factur-X Leitfaden & Konformitäts-Check 2026
+      </h1>
+      <p class="text-base text-slate-600 leading-relaxed">
+        ZUGFeRD-Rechnungen kombinieren das Beste aus zwei Welten: ein menschenlesbares PDF-Dokument und maschinenlesbaren XML-Quelltext. Doch wie gelangt man an die eingebetteten XML-Daten, welches Profil ist rechtssicher und wie prüft man die Konformität nach § 14 UStG?
+      </p>
+      <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 pt-2 border-t border-slate-100">
+        <span>Stand: Wirtschaftsjahr 2026</span>
+        <span>•</span>
+        <span>ZUGFeRD 2.2 & Factur-X 1.0</span>
+        <span>•</span>
+        <span>Lesezeit: 6 Minuten</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- CTA BANNER TO VALIDATOR -->
+    <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center sm:text-left">
+        <span class="text-xs uppercase font-extrabold tracking-wider bg-white/20 px-3 py-1 rounded-full">Kostenloses Prüfwerkzeug</span>
+        <h2 class="text-xl sm:text-2xl font-black">Extrahierte XML sofort online validieren</h2>
+        <p class="text-xs sm:text-sm text-emerald-100 max-w-xl">
+          Laden Sie die extrahierte <code class="text-white font-mono bg-white/20 px-1 py-0.5 rounded">factur-x.xml</code> in unseren Validator. Sie erhalten binnen Sekunden die Auswertung aller Pflichtfelder und den EN 16931 Prüfbericht.
+        </p>
+      </div>
+      <a href="./e-rechnung-validator/" class="shrink-0 px-6 py-3.5 bg-white text-emerald-800 hover:bg-slate-100 font-extrabold rounded-2xl shadow-lg transition text-xs sm:text-sm flex items-center gap-2">
+        <span>Zum E-Rechnung Validator</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- SECTION 1: WAS IST ZUGFERD UND WIE FUNKTIONIERT ES? -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-extrabold text-slate-900">
+        1. Die Architektur hybrider E-Rechnungen (PDF/A-3 + XML)
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        <strong>ZUGFeRD</strong> (Zentraler User Guide des Forums elektronische Rechnung Deutschland) ist technisch identisch mit dem deutsch-französischen Standard <strong>Factur-X</strong>. Die Datei basiert auf dem ISO-Standard PDF/A-3 (ISO 19005-3), der es gestattet, strukturierte Dateianhänge beliebiger Formate in ein archivierungsfähiges PDF einzubetten.
+      </p>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Im Anhang der PDF-Datei liegt die Datei <code class="font-mono text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">factur-x.xml</code>. Sie folgt der internationalen UN/CEFACT CII Syntax (Cross Industry Invoice) und enthält sämtliche abrechnungsrelevanten Daten strukturiert in XML-Tags.
+      </p>
+    </section>
+
+    <!-- SECTION 2: 3 WEGE ZUR EXTRAKTION DER FACTUR-X.XML -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-extrabold text-slate-900">
+        2. Drei einfache Wege zur Extraktion der XML-Datei
+      </h2>
+
+      <div class="space-y-4">
+        <!-- Weg 1: Acrobat Reader -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 space-y-2">
+          <div class="text-xs font-bold text-emerald-600 uppercase">Methode 1: Manuell im Adobe Reader</div>
+          <h3 class="text-base font-bold text-slate-900">Über das Büroklammer-Menü (Dateianlagen)</h3>
+          <ol class="list-decimal pl-5 text-xs text-slate-600 space-y-1.5 leading-relaxed">
+            <li>Öffnen Sie die ZUGFeRD-Rechnung im Adobe Acrobat Reader.</li>
+            <li>Klicken Sie auf das Büroklammer-Symbol in der linken Werkzeugleiste.</li>
+            <li>Wählen Sie die Datei <strong>factur-x.xml</strong> aus.</li>
+            <li>Rechtsklick → <strong>"Anlage speichern..."</strong> und an beliebigem Ort ablegen.</li>
+            <li>Die gespeicherte Datei in den <a href="./e-rechnung-validator/" class="text-emerald-700 underline font-semibold">DACH E-Rechnung Validator</a> laden.</li>
+          </ol>
+        </div>
+
+        <!-- Weg 2: Python Script -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 space-y-2">
+          <div class="text-xs font-bold text-blue-600 uppercase">Methode 2: Automatisiert mit Python</div>
+          <h3 class="text-base font-bold text-slate-900">Extraktion per Skript mit pypdf / PyMuPDF</h3>
+          <p class="text-xs text-slate-600">
+            Für Entwickler und ERP-Pipelines lässt sich der XML-Anhang in wenigen Zeilen Python-Code auslesen:
+          </p>
+          <pre class="bg-slate-900 text-blue-300 p-4 rounded-xl font-mono text-xs overflow-x-auto leading-relaxed"><code>from pypdf import PdfReader
+
+reader = PdfReader("muster_zugferd_rechnung.pdf")
+for name, content in reader.attachments.items():
+    if "xml" in name.lower():
+        with open("extrahierte_" + name, "wb") as f:
+            f.write(content[0])
+        print(f"Erfolgreich extrahiert: {name}")</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: DIE PROFILE VON ZUGFERD -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-extrabold text-slate-900">
+        3. Die ZUGFeRD-Profile: Welches erfüllt die E-Rechnungspflicht?
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        ZUGFeRD 2.2 ist in verschiedene semantische Profile unterteilt. <strong>Vorsicht: Nicht jedes Profil gilt rechtlich als E-Rechnung!</strong>
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse bg-white rounded-2xl border border-slate-200 overflow-hidden">
+          <thead class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+            <tr>
+              <th class="p-3">Profil</th>
+              <th class="p-3">Umfang</th>
+              <th class="p-3">Gilt als E-Rechnung ab 2026?</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-3 font-bold text-rose-700">MINIMUM</td>
+              <td class="p-3 text-slate-600">Nur Kopfdaten & Gesamtsummen, keine Positionen.</td>
+              <td class="p-3 text-rose-600 font-bold">❌ Nein (Keine Vorsteuerberechtigung)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-rose-700">BASIC WL</td>
+              <td class="p-3 text-slate-600">Without Lines (ohne Positionen).</td>
+              <td class="p-3 text-rose-600 font-bold">❌ Nein (Nur für Buchungsanzeigen)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-amber-700">BASIC</td>
+              <td class="p-3 text-slate-600">Einfache Positionen, reduzierte Steuerdaten.</td>
+              <td class="p-3 text-amber-600 font-semibold">⚠️ Eingeschränkt</td>
+            </tr>
+            <tr class="bg-emerald-50/50">
+              <td class="p-3 font-bold text-emerald-700">COMFORT (EN 16931)</td>
+              <td class="p-3 text-slate-900 font-medium">Vollständige Erfüllung aller EN 16931 Pflichtangaben.</td>
+              <td class="p-3 text-emerald-700 font-extrabold">✅ JA – Standard für deutsches B2B</td>
+            </tr>
+            <tr class="bg-emerald-50/50">
+              <td class="p-3 font-bold text-emerald-700">EXTENDED</td>
+              <td class="p-3 text-slate-900 font-medium">Erweiterte branchenspezifische Angaben.</td>
+              <td class="p-3 text-emerald-700 font-extrabold">✅ JA – 100% Konform</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GUMROAD B2B SUITE -->
+    <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 space-y-4 border border-slate-700">
+      <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold">
+        <span>⭐</span>
+        <span>DACH Digitalwerk B2B E-Rechnung Paket</span>
+      </div>
+      <h3 class="text-xl font-bold">Automatisieren Sie die ZUGFeRD-Erstellung in Ihrem Unternehmen</h3>
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+        Unser <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="text-emerald-400 underline font-semibold">B2B Software-Paket</a> enthält gebrauchsfertige Python- und CLI-Skripte zum automatischen Einbetten und Extrahieren von <code class="text-white font-mono">factur-x.xml</code> in bestehende PDF-Dateien sowie Vorlagen für COMFORT- und XRechnung-Profile.
+      </p>
+      <div>
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition">
+          <span>B2B Suite auf Gumroad öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- BACKLINK GRID -->
+    <div class="pt-6 border-t border-slate-200">
+      <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">Weiterführende Leitfäden & Tools:</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <a href="./e-rechnung-validator/" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold">
+          🧾 E-Rechnung Validator 2026
+        </a>
+        <a href="./e-rechnung-validieren-kostenlos-online.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold">
+          📖 Leitfaden E-Rechnungspflicht
+        </a>
+        <a href="./xrechnung-syntax-fehler-beheben-leitweg-id.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 transition font-semibold">
+          🔧 Leitweg-ID Fehler beheben
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 px-4 border-t border-slate-800 text-xs">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div class="flex justify-between items-center">
+        <span class="text-white font-bold">DACH Digitalwerk</span>
+        <a href="./e-rechnung-validator/" class="text-emerald-400 hover:underline">Zum Validator</a>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed">
+        <strong>Rechtlicher Hinweis (RDG & BGH Smartlaw):</strong> Technischer Fachartikel zur Information über ZUGFeRD 2.2 / Factur-X. Keine Rechts- oder Steuerberatung. Für verbindliche steuerrechtliche Beurteilungen konsultieren Sie Ihren Steuerberater.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

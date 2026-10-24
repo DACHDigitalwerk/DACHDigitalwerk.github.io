@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Firmenwagen-, 1%-Regelung- &amp; Fahrtenbuch-Vergleichsrechner 2026 (DE, AT, CH) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser DACH Firmenwagenrechner 2026: 1%-Regel vs. Fahrtenbuch für Deutschland (0,25 % Elektro bis 70k €), Österreich (0 % Sachbezug Elektro, 1,5 % / 2,0 %) &amp; Schweiz (0,9 %). Mit DIN-A4 Auswertung." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/firmenwagen-1-prozent-fahrtenbuch-rechner/" />
+  <meta property="og:title" content="DACH Firmenwagen-, 1%-Regelung- &amp; Fahrtenbuch-Vergleichsrechner 2026 (DE, AT, CH)" />
+  <meta property="og:description" content="Pauschale oder Fahrtenbuch? Berechnen Sie den geldwerten Vorteil, Sachbezug und exakte Steuerersparnis 2026 100% lokal im Browser." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/firmenwagen-1-prozent-fahrtenbuch-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 16mm 18mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 8.5pt;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Firmenwagen-, 1%-Regelung- & Fahrtenbuch-Vergleichsrechner 2026",
+    "url": "https://dach-digitalwerk.netlify.app/firmenwagen-1-prozent-fahrtenbuch-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Amtliche Dienstwagen-Besteuerung 2026 für Deutschland (§ 6 Abs. 1 Nr. 4 EStG, 0,25% Elektro bis 70k €), Österreich (§ 4 SachbezugswerteVO, 0% Elektro, 1,5%/2,0%) und die Schweiz (0,9% ESTV). Vergleichsrechner 1%-Pauschale vs. Fahrtenbuch mit DIN-A4 Auswertung.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wann lohnt sich das Fahrtenbuch im Vergleich zur 1%-Regelung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Das Fahrtenbuch lohnt sich vor allem bei geringem Privatanteil (unter 20-30 % der Gesamtfahrleistung), bei hohem Bruttolistenpreis des Dienstwagens oder bei älteren/abgeschriebenen Fahrzeugen mit niedrigen tatsächlichen Gesamtkosten. Bei hoher privater Nutzung oder reinen E-Autos ist die Pauschale steuerlich und vom Dokumentationsaufwand meist überlegen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Erleichterungen gelten 2026 für Elektro-Dienstwagen in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mit dem Wachstumschancengesetz wurde die Bruttolistenpreisgrenze für die 0,25%-Besteuerung von reinen Elektrofahrzeugen auf 70.000 Euro angehoben. Liegt der Listenpreis darüber, greift die 0,5%-Halbierungsregelung. Auch für die Fahrten zwischen Wohnung und erster Tätigkeitsstätte wird der Satz entsprechend von 0,03 % auf 0,0075 % (bis 70k €) bzw. 0,015 % (über 70k €) pro Entfernungskilometer reduziert."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist der Sachbezug für Firmenwagen 2026 in Österreich und der Schweiz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Österreich sind reine Elektroautos mit 0g CO2-Ausstoß vollständig sachbezugsfrei (0 %). Bei Verbrennern gilt ein Satz von 1,5 % (max. 720 €/Monat) bei höchstens 121 g CO2/km und 2,0 % (max. 960 €/Monat) darüber. Bei unter 500 km monatlicher Privatfahrt halbiert sich der Satz. In der Schweiz gilt nach ESTV-Praxis eine Pauschale von 0,9 % des Fahrzeugkaufpreises pro Monat (10,8 % p.a.), womit auch der Arbeitsweg vollständig abgegolten ist."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-40 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../" class="flex items-center gap-2 group">
+          <span class="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-black text-sm flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition">DW</span>
+          <span class="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-2.5 py-0.5 rounded-full hidden sm:inline">Tool #15: Firmenwagen 2026</span>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="#druckansicht" onclick="scrollToPrintView()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1.5">
+          <span>🖨️</span>
+          <span class="hidden md:inline">DIN-A4 Auswertung</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 shadow-md shadow-amber-500/20 transition">
+          <span>⭐</span>
+          <span>B2B Fuhrpark-Paket</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="py-10 sm:py-14 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-bold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Wachstumschancengesetz 2026 • BMF, SachbezugswerteVO &amp; ESTV</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          DACH Firmenwagen-, 1%-Regelung- &amp; Fahrtenbuch-Rechner 2026
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Vergleichen Sie die pauschale Dienstwagenbesteuerung (1%-Methode / Sachbezug) mit dem Einzelnachweis per Fahrtenbuch. Amtliche Sätze für <strong>Deutschland (0,25 % / 0,5 % / 1,0 %)</strong>, <strong>Österreich (0 % / 1,5 % / 2,0 %)</strong> und die <strong>Schweiz (0,9 %)</strong>. 100% lokal, kostenlos &amp; DSGVO-sicher.
+        </p>
+
+        <!-- COUNTRY SWITCHER -->
+        <div class="pt-4 flex flex-wrap items-center gap-2">
+          <span class="text-xs font-bold text-slate-400 mr-2">Wirtschaftsraum wählen:</span>
+          <button type="button" onclick="setCountry('DE')" id="btn-country-DE" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-600/20">
+            <span>🇩🇪</span>
+            <span>Deutschland (§ 6 Abs. 1 Nr. 4 EStG)</span>
+          </button>
+          <button type="button" onclick="setCountry('AT')" id="btn-country-AT" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+            <span>🇦🇹</span>
+            <span>Österreich (§ 4 SachbezugswerteVO)</span>
+          </button>
+          <button type="button" onclick="setCountry('CH')" id="btn-country-CH" class="country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700">
+            <span>🇨🇭</span>
+            <span>Schweiz (0,9 % ESTV Lohnausweis)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK PRESETS BAR -->
+  <section class="bg-slate-950/60 border-b border-slate-800/80 py-3.5 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div class="flex items-center gap-2 text-slate-400">
+        <span class="font-bold text-slate-300">⚡ Schnell-Szenarien 2026:</span>
+        <span>Laden Sie typische Praxis-Modelle mit 1 Klick:</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="applyPreset('bev_below_70k')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 font-medium transition">
+          🔋 E-Auto &lt; 70k € (0,25%)
+        </button>
+        <button onclick="applyPreset('bev_above_70k')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700 font-medium transition">
+          ⚡ Luxus-Elektro &gt; 70k € (0,5%)
+        </button>
+        <button onclick="applyPreset('phev')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-blue-400 border border-slate-700 font-medium transition">
+          🔌 Plug-in-Hybrid (0,5%)
+        </button>
+        <button onclick="applyPreset('combustion_standard')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 font-medium transition">
+          ⛽ Verbrenner Standard (1,0%)
+        </button>
+        <button onclick="applyPreset('little_private')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700 font-medium transition">
+          📉 Wenigfahrer (Fahrtenbuch-Favorit)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN INTERACTIVE APP -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10 no-print">
+
+    <!-- TOP VERGLEICHS-KARTE (ENTCHEIDUNGS-BANNER) -->
+    <div id="decision-banner" class="rounded-3xl border p-6 sm:p-8 backdrop-blur shadow-2xl transition-all duration-300 bg-emerald-950/40 border-emerald-500/40">
+      <div class="grid lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-8 space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span id="decision-badge" class="px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+              ✓ Fahrtenbuch spart Steuern
+            </span>
+            <span id="decision-subline" class="text-xs text-slate-400">Amtlicher Steuerabzugsvergleich für das Jahr 2026</span>
+          </div>
+          <h2 id="decision-headline" class="text-2xl sm:text-3xl font-extrabold text-white">
+            Mit Fahrtenbuch sparen Sie ca. 1.842 € Steuern pro Jahr!
+          </h2>
+          <p id="decision-description" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Aufgrund Ihres geringen Privatanteils von 20,0 % und 25.000 km Jahresgesamtfahrleistung führt der Einzelnachweis zu einem deutlich niedrigeren geldwerten Vorteil als die 1%-Pauschale.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 bg-slate-900/80 rounded-2xl border border-slate-700/80 p-5 space-y-3">
+          <div class="flex justify-between items-center text-xs text-slate-400">
+            <span>Jährlicher Steuervorteil:</span>
+            <span id="stat-tax-rate-hint" class="font-mono text-slate-300">Grenzsteuersatz 42%</span>
+          </div>
+          <div class="text-3xl sm:text-4xl font-extrabold font-mono text-emerald-400" id="decision-diff-annual">
+            +1.842,00 €
+          </div>
+          <div class="flex justify-between items-center text-[11px] text-slate-400 pt-2 border-t border-slate-800">
+            <span>Monatliche Entlastung netto:</span>
+            <strong class="text-white font-mono text-xs" id="decision-diff-monthly">+153,50 € / Mon.</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-COL CONFIGURATION & MATRIX -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT: EINGABEFELDER (7 COLUMNS) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- CARD 1: FAHRZEUGDATEN & ANKAUF -->
+        <div class="bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 sm:p-8 backdrop-blur shadow-xl space-y-5">
+          <div class="border-b border-slate-700 pb-3 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Schritt 1 • Fahrzeug &amp; Antrieb</span>
+              <h3 class="text-lg font-extrabold text-white mt-0.5">Fahrzeugdaten &amp; Anschaffungswert</h3>
+            </div>
+            <span class="text-2xl">🚗</span>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-xs">
+            <!-- Fahrzeugbezeichnung -->
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-car-model">Fahrzeugmodell / Bezeichnung</label>
+              <input type="text" id="input-car-model" value="Tesla Model Y / VW ID.4" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-medium focus:border-emerald-500 focus:outline-none transition">
+            </div>
+
+            <!-- Kennzeichen -->
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-car-plate">Amtliches Kennzeichen (optional)</label>
+              <input type="text" id="input-car-plate" value="B-DW 2026" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-medium focus:border-emerald-500 focus:outline-none transition">
+            </div>
+
+            <!-- Bruttolistenpreis / Anschaffungspreis -->
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-list-price">
+                <span id="label-price-name">Bruttolistenpreis (BLP)</span> (<span class="currency-sym">€</span>)
+              </label>
+              <input type="number" id="input-list-price" value="58000" min="5000" step="500" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block" id="price-hint">Inkl. Sonderausstattung &amp; USt zum Zeitpunkt Erstzulassung</span>
+            </div>
+
+            <!-- Antriebsart & Steuersatz-Logik -->
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="select-powertrain">Antriebsart &amp; Emissionsklasse</label>
+              <select id="select-powertrain" onchange="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-medium text-xs focus:border-emerald-500 focus:outline-none transition">
+                <option value="bev_below_70k" selected>Reines E-Auto bis 70.000 € (0,25 % DE / 0 % AT)</option>
+                <option value="bev_above_70k">Reines E-Auto über 70.000 € (0,5 % DE / 0 % AT)</option>
+                <option value="phev">Plug-in-Hybrid (≥80km E-Reichweite: 0,5 % DE)</option>
+                <option value="combustion_low">Verbrenner sparsam (CO2 ≤ 121g/km: 1,0 % DE / 1,5 % AT)</option>
+                <option value="combustion_high">Verbrenner standard (CO2 &gt; 121g/km: 1,0 % DE / 2,0 % AT)</option>
+              </select>
+              <span class="text-[11px] text-emerald-400 mt-1 block" id="powertrain-rule-hint">DE: 0,25 % Regelung gem. § 6 Abs. 1 Nr. 4 EStG aktiv.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: FAHRLEISTUNG & NUTZUNGSPROFIL -->
+        <div class="bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 sm:p-8 backdrop-blur shadow-xl space-y-5">
+          <div class="border-b border-slate-700 pb-3 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Schritt 2 • Kilometer &amp; Arbeitsweg</span>
+              <h3 class="text-lg font-extrabold text-white mt-0.5">Fahrleistung &amp; Streckenprofil</h3>
+            </div>
+            <span class="text-2xl">🗺️</span>
+          </div>
+
+          <!-- SLIDER: PRIVATANTEIL -->
+          <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-700/60 space-y-2">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-slate-200">Privater Fahrtenanteil:</span>
+              <span id="slider-private-pct-label" class="font-mono text-sm font-extrabold text-emerald-400">20.0 % Privat</span>
+            </div>
+            <input type="range" id="slider-private-pct" min="2" max="95" value="20" step="1" oninput="onPrivateSliderChange(this.value)" class="w-full accent-emerald-500 cursor-pointer">
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Wenig privat (z.B. Außendienst 10%)</span>
+              <span>Ausgeglichen (50%)</span>
+              <span>Fast nur privat (80%)</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-total-km">Gesamtkilometer p.a.</label>
+              <input type="number" id="input-total-km" value="25000" min="1000" step="1000" oninput="syncKmInputs('total')" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Gesamte Jahreslaufleistung</span>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-private-km">Reine Privat-km p.a.</label>
+              <input type="number" id="input-private-km" value="5000" min="0" step="500" oninput="syncKmInputs('private')" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block" id="private-km-hint">Urlaub, Einkäufe, Freizeit</span>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-work-distance">
+                Wohnung - Arbeitsstätte (km)
+              </label>
+              <input type="number" id="input-work-distance" value="22" min="0" step="1" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block" id="distance-hint">Einfache Entfernung in km</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-work-days">Arbeitstage im Büro p.a.</label>
+              <input type="number" id="input-work-days" value="210" min="0" max="300" step="5" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Regulär ca. 210-230 Tage</span>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-tax-rate">Persönlicher Grenzsteuersatz (%)</label>
+              <input type="number" id="input-tax-rate" value="42" min="0" max="60" step="1" oninput="runAllCalculations()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Inkl. Soli &amp; KiSt (z.B. 42% in DE, 48% AT)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: TATSÄCHLICHE KFZ-GESAMTKOSTEN (FÜR FAHRTENBUCH) -->
+        <div class="bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 sm:p-8 backdrop-blur shadow-xl space-y-5">
+          <div class="border-b border-slate-700 pb-3 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Schritt 3 • Tatsächliche Gesamtkosten</span>
+              <h3 class="text-lg font-extrabold text-white mt-0.5">Kfz-Gesamtkosten für Fahrtenbuch</h3>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="estimateCostsFromListPrice()" class="text-[11px] font-bold text-emerald-400 hover:text-emerald-300 underline">
+                Automatisch schätzen (ADAC-Index)
+              </button>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 text-xs">
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-cost-deprec">AfA / Leasing p.a. (<span class="currency-sym">€</span>)</label>
+              <input type="number" id="input-cost-deprec" value="8200" min="0" step="200" oninput="sumTotalCosts()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Wertverlust / Leasingrate</span>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-cost-fuel">Strom / Treibstoff p.a. (<span class="currency-sym">€</span>)</label>
+              <input type="number" id="input-cost-fuel" value="1900" min="0" step="100" oninput="sumTotalCosts()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Ladekosten / Benzin / Diesel</span>
+            </div>
+
+            <div>
+              <label class="block font-bold text-slate-300 mb-1" for="input-cost-other">Versicherung, Steuer &amp; Wartung (<span class="currency-sym">€</span>)</label>
+              <input type="number" id="input-cost-other" value="2300" min="0" step="100" oninput="sumTotalCosts()" class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-600 rounded-xl text-white font-mono text-sm focus:border-emerald-500 focus:outline-none transition">
+              <span class="text-[11px] text-slate-400 mt-1 block">Inspektion, Reifen, Garage</span>
+            </div>
+          </div>
+
+          <!-- SUMME TATSÄCHLICHE KOSTEN & KM-SATZ -->
+          <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-700/60 flex flex-wrap items-center justify-between gap-4 text-xs">
+            <div>
+              <span class="text-slate-400 block">Kfz-Gesamtkosten p.a.:</span>
+              <span class="text-lg font-mono font-extrabold text-white" id="val-total-costs">12.400,00 €</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Rechnerischer Kilometersatz:</span>
+              <span class="text-lg font-mono font-extrabold text-teal-400" id="val-cost-per-km">0,496 € / km</span>
+            </div>
+            <div class="text-right">
+              <span class="text-slate-400 block">Dienstlicher Anteil:</span>
+              <span class="text-xs font-mono font-bold text-slate-300" id="val-business-pct">80.0 % (20.000 km)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: VERGLEICHS-ERGEBNIS & MATRIX (5 COLUMNS) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- GEGENÜBERSTELLUNG-TABELLE -->
+        <div class="bg-slate-800/80 rounded-3xl border border-slate-700/80 p-6 backdrop-blur shadow-xl space-y-5">
+          <div class="border-b border-slate-700 pb-3 flex items-center justify-between">
+            <h3 class="text-lg font-extrabold text-white">Vergleichs-Matrix 2026</h3>
+            <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-slate-700 text-slate-300" id="matrix-country-tag">DE • 2026</span>
+          </div>
+
+          <div class="space-y-4">
+            <!-- PAUSCHALMETHODE (1% / SACHBEZUG) -->
+            <div class="p-4 rounded-2xl border transition-all" id="card-pauschale">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-xs font-bold text-slate-300" id="title-pauschale">1%-Pauschale (§ 6 EStG)</span>
+                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="badge-pauschale-rate">0,25 % Satz</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Geldwerter Vorteil (GWV) p.a.:</span>
+                <span class="text-base font-extrabold font-mono text-white" id="val-pauschale-gwv-annual">2.887,20 €</span>
+              </div>
+              <div class="flex justify-between items-baseline mt-1 text-xs">
+                <span class="text-slate-400">Monatlicher GWV:</span>
+                <span class="font-mono text-slate-300" id="val-pauschale-gwv-monthly">240,60 € / Mon.</span>
+              </div>
+              <div class="flex justify-between items-baseline mt-2 pt-2 border-t border-slate-700/60">
+                <span class="text-xs font-bold text-amber-400">Steuerlast p.a. (netto):</span>
+                <span class="text-lg font-extrabold font-mono text-amber-400" id="val-pauschale-tax-annual">1.212,62 €</span>
+              </div>
+            </div>
+
+            <!-- FAHRTENBUCHMETHODE -->
+            <div class="p-4 rounded-2xl border transition-all" id="card-fahrtenbuch">
+              <div class="flex justify-between items-center mb-1.5">
+                <span class="text-xs font-bold text-slate-300">Fahrtenbuch-Methode (Ist-Kosten)</span>
+                <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-800 text-slate-400" id="badge-fahrtenbuch-share">20.0 % Privat</span>
+              </div>
+              <div class="flex justify-between items-baseline">
+                <span class="text-xs text-slate-400">Geldwerter Vorteil (GWV) p.a.:</span>
+                <span class="text-base font-extrabold font-mono text-white" id="val-fahrtenbuch-gwv-annual">2.480,00 €</span>
+              </div>
+              <div class="flex justify-between items-baseline mt-1 text-xs">
+                <span class="text-slate-400">Monatlicher GWV:</span>
+                <span class="font-mono text-slate-300" id="val-fahrtenbuch-gwv-monthly">206,67 € / Mon.</span>
+              </div>
+              <div class="flex justify-between items-baseline mt-2 pt-2 border-t border-slate-700/60">
+                <span class="text-xs font-bold text-emerald-400">Steuerlast p.a. (netto):</span>
+                <span class="text-lg font-extrabold font-mono text-emerald-400" id="val-fahrtenbuch-tax-annual">1.041,60 €</span>
+              </div>
+            </div>
+
+            <!-- BREAK-EVEN-ANALYSE BOX -->
+            <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-700 text-xs space-y-2">
+              <div class="flex justify-between items-center text-slate-300 font-bold">
+                <span>🎯 Kipp-Punkt (Break-Even):</span>
+                <span id="val-breakeven-km" class="font-mono text-teal-400 font-extrabold">ca. 5.821 Privat-km</span>
+              </div>
+              <p class="text-slate-400 text-[11px] leading-relaxed" id="breakeven-explanation">
+                Fahren Sie <strong>weniger als 5.821 km</strong> im Jahr privat, spart das Fahrtenbuch Steuern. Fahren Sie mehr, ist die Pauschale wirtschaftlicher.
+              </p>
+            </div>
+
+            <!-- JÄHRLICHE NETTO-ERSPARNIS -->
+            <div class="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/70 to-teal-950/70 border border-emerald-500/50 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold uppercase text-emerald-400 tracking-wider">Ersparnis-Differenz</span>
+                <div class="text-xl font-mono font-extrabold text-white" id="val-savings-diff-card">+171,02 € / Jahr</div>
+              </div>
+              <a href="#druckansicht" onclick="scrollToPrintView()" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-md shadow-emerald-600/30 transition flex items-center gap-1.5">
+                <span>📄 DIN-A4</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- B2B PACK CTA WIDGET -->
+        <div class="bg-gradient-to-br from-amber-500/10 via-slate-800 to-slate-900 border border-amber-500/30 rounded-3xl p-6 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 text-slate-950 flex items-center justify-center font-black text-lg shadow-md shadow-amber-500/20">
+              ⭐
+            </div>
+            <div>
+              <h4 class="font-bold text-white text-sm">B2B Firmenwagen &amp; Fuhrpark-Paket 2026</h4>
+              <p class="text-[11px] text-slate-400">Excel-Fahrtenbuch (GoBD-konform), Car-Policy Vorlage &amp; BMF-Checkliste</p>
+            </div>
+          </div>
+          <button onclick="openCheckoutModal()" class="w-full py-2.5 px-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold text-xs rounded-xl shadow-md shadow-amber-500/20 transition flex items-center justify-center gap-2">
+            <span>B2B Vorlagen sichern (4,90 € / CHF)</span>
+            <span>→</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- DRUCKANSICHT & PRÜFBERICHT SECTION (DIN-A4) -->
+  <section id="druckansicht" class="py-12 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      
+      <!-- CONTROLS DER DRUCKANSICHT -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6 no-print">
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Offizieller Dokumentennachweis</span>
+          <h2 class="text-2xl font-extrabold text-white">DIN-A4 Vergleichs- &amp; Prüfprotokoll Firmenwagen 2026</h2>
+          <p class="text-xs text-slate-400 mt-1">Druckfertige Vorlage zur Vorlage bei der Personalabteilung, Steuerberater oder dem Finanzamt.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
+            <span>🖨️</span>
+            <span>Als PDF drucken / exportieren</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PERSONALISIERUNG DES AUSDRUCKS -->
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 mb-8 grid sm:grid-cols-3 gap-4 text-xs no-print">
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-company">Arbeitgeber / Unternehmen</label>
+          <input type="text" id="print-input-company" value="Muster GmbH / Fuhrparkmanagement" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-employee">Mitarbeiter / Fahrer(in)</label>
+          <input type="text" id="print-input-employee" value="Max Mustermann (Personalnr. 1042)" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+        <div>
+          <label class="block font-bold text-slate-300 mb-1" for="print-input-period">Gültigkeitszeitraum / Steuerjahr</label>
+          <input type="text" id="print-input-period" value="Veranlagungsjahr 2026" oninput="updatePrintValues()" class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-lg text-white">
+        </div>
+      </div>
+
+      <!-- DAS TATSÄCHLICHE DIN-A4 BLATT -->
+      <div class="a4-sheet-wrapper">
+        <div class="a4-sheet" id="print-a4-sheet">
+
+          <!-- KOPFZEILE -->
+          <div class="flex justify-between items-start border-b-2 border-slate-900 pb-3 mb-4">
+            <div>
+              <div class="text-base font-black tracking-tight text-slate-900">
+                VERGLEICHSANALYSE &amp; NACHWEIS PROTOKOLL: FIRMENWAGENBESTEUERUNG 2026
+              </div>
+              <div class="text-[8pt] text-slate-600 font-medium">
+                Pauschalbesteuerung (1%-Regelung / Sachbezug) vs. Fahrtenbuch (Einzelkostennachweis)
+              </div>
+            </div>
+            <div class="text-right text-[7.5pt] text-slate-500 font-mono">
+              DACH DIGITALWERK B2B<br>
+              Erstellt am: <span id="print-doc-date">23.10.2026</span>
+            </div>
+          </div>
+
+          <!-- STAMMDATEN -->
+          <div class="grid grid-cols-2 gap-3 bg-slate-50 p-2.5 rounded border border-slate-200 text-[8pt] mb-4">
+            <div>
+              <span class="text-slate-500 block text-[7pt] uppercase font-bold">Fahrer &amp; Arbeitgeber:</span>
+              <strong id="print-company-name" class="text-slate-900 font-bold">Muster GmbH / Fuhrparkmanagement</strong>
+              <div class="text-slate-600" id="print-employee-name">Max Mustermann (Personalnr. 1042)</div>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[7pt] uppercase font-bold">Fahrzeug &amp; Bemessungsgrundlage:</span>
+              <strong id="print-car-desc" class="text-slate-900 font-bold">Tesla Model Y (B-DW 2026)</strong>
+              <div class="text-slate-600" id="print-car-price">BLP: 58.000,00 € • Antrieb: Elektro (0,25%)</div>
+            </div>
+          </div>
+
+          <!-- FAHRLEISTUNG & ECKDATEN -->
+          <div class="mb-4">
+            <div class="text-[8.5pt] font-extrabold text-slate-900 uppercase tracking-wide border-b border-slate-300 pb-1 mb-1.5">
+              1. Fahrleistung, Streckenprofil &amp; tatsächliche Fahrzeugkosten
+            </div>
+            <table class="w-full text-[8pt] border-collapse">
+              <tbody>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Jahresgesamtfahrleistung:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-total-km">25.000 km</td>
+                  <td class="py-1 text-slate-600 pl-4">Entfernung Wohnung-Arbeit:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-work-distance">22 km (210 Tage)</td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Reine Privatkilometer p.a.:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-private-km">5.000 km (20.0 %)</td>
+                  <td class="py-1 text-slate-600 pl-4">Dienstlicher Fahrtenanteil:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-business-km">20.000 km (80.0 %)</td>
+                </tr>
+                <tr class="border-b border-slate-200">
+                  <td class="py-1 text-slate-600">Tatsächliche Gesamtkosten Kfz:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-total-costs">12.400,00 €</td>
+                  <td class="py-1 text-slate-600 pl-4">Rechnerischer Kilometersatz:</td>
+                  <td class="py-1 font-mono font-bold text-slate-900 text-right" id="p-val-cost-km">0,496 € / km</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- VERGLEICHSMATRIX -->
+          <div class="mb-4">
+            <div class="text-[8.5pt] font-extrabold text-slate-900 uppercase tracking-wide border-b border-slate-300 pb-1 mb-1.5">
+              2. Gegenüberstellung der steuerlichen Bemessungsgrundlagen &amp; Steuerabzüge
+            </div>
+            <table class="w-full text-[7.5pt] border border-slate-300">
+              <thead class="bg-slate-200 text-slate-800 font-bold">
+                <tr>
+                  <th class="p-1 text-left border-r border-slate-300">Berechnungsposten</th>
+                  <th class="p-1 text-right border-r border-slate-300" id="p-col-pauschale-title">Pauschalmethode (1% / SB)</th>
+                  <th class="p-1 text-right border-r border-slate-300">Fahrtenbuch (Einzelnachweis)</th>
+                  <th class="p-1 text-right">Differenzvorteil</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-mono">
+                <tr>
+                  <td class="p-1 font-sans border-r border-slate-300">Geldwerter Vorteil Privatnutzung monatlich</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-gwv-priv-m">145,00 €</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-fb-priv-m">206,67 €</td>
+                  <td class="p-1 text-right font-bold" id="p-row-diff-priv-m">-61,67 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1 font-sans border-r border-slate-300">Geldwerter Vorteil Arbeitsweg monatlich</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-gwv-work-m">95,60 €</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-fb-work-m">0,00 €</td>
+                  <td class="p-1 text-right font-bold" id="p-row-diff-work-m">+95,60 €</td>
+                </tr>
+                <tr class="bg-slate-50 font-bold">
+                  <td class="p-1 font-sans border-r border-slate-300">Geldwerter Vorteil Gesamt (GWV p.a.)</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-gwv-tot-a">2.887,20 €</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-fb-tot-a">2.480,00 €</td>
+                  <td class="p-1 text-right font-bold text-emerald-700" id="p-row-diff-tot-a">+407,20 €</td>
+                </tr>
+                <tr>
+                  <td class="p-1 font-sans border-r border-slate-300">Angesetzter Grenzsteuersatz</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-taxrate-1">42,0 %</td>
+                  <td class="p-1 text-right border-r border-slate-300" id="p-row-taxrate-2">42,0 %</td>
+                  <td class="p-1 text-right text-slate-500">-</td>
+                </tr>
+                <tr class="bg-slate-100 font-bold text-[8pt]">
+                  <td class="p-1.5 font-sans text-slate-900 border-r border-slate-300">Netto-Steuerbelastung Arbeitnehmer p.a.:</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-amber-900" id="p-row-tax-pauschale">1.212,62 €</td>
+                  <td class="p-1.5 text-right border-r border-slate-300 text-emerald-900" id="p-row-tax-fb">1.041,60 €</td>
+                  <td class="p-1.5 text-right text-emerald-800" id="p-row-tax-diff">+171,02 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- EMPFEHLUNG & KIPP-PUNKT ANALYSE -->
+          <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[7.5pt] space-y-1 mb-4">
+            <strong class="text-slate-900 block font-bold">Wirtschaftliches Prüfergebnis &amp; Empfehlung:</strong>
+            <p class="text-slate-700 leading-relaxed" id="print-recommendation-text">
+              Die Inanspruchnahme der Fahrtenbuchmethode verschafft dem Arbeitnehmer im Veranlagungsjahr 2026 eine rechnerische Steuerersparnis von <strong>+171,02 € p.a.</strong> (entspricht <strong>14,25 € monatlich</strong>). Die Vorteilhaftigkeit kippt bei einer jährlichen Privatnutzung von über <strong>5.821 km</strong>. Unter Berücksichtigung des administrativen Aufwands für die lückenlose Fahrtenbuchführung wird die gewählte Methode zur Genehmigung vorgelegt.
+            </p>
+          </div>
+
+          <!-- UNTERSCHRIFTEN & VORLAGE -->
+          <div class="grid grid-cols-2 gap-8 pt-4 border-t border-slate-300 text-[7.5pt]">
+            <div>
+              <div class="border-b border-slate-400 h-8 mb-1"></div>
+              <span class="text-slate-600 block">Datum, Unterschrift Arbeitnehmer / Fahrer(in)</span>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 h-8 mb-1"></div>
+              <span class="text-slate-600 block">Genehmigung Fuhrparkleitung / Personalabteilung / Steuerberater</span>
+            </div>
+          </div>
+
+          <!-- FOOTER DER DRUCKANSICHT -->
+          <div class="absolute bottom-3 left-6 right-6 text-center text-[6.5pt] text-slate-400 border-t border-slate-200 pt-1.5">
+            Erstellt mit dem DACH Firmenwagen-, 1%-Regelung- &amp; Fahrtenbuch-Rechner 2026 • https://dach-digitalwerk.netlify.app/firmenwagen-1-prozent-fahrtenbuch-rechner/ • Reines technisches Hilfsmittel ohne Steuerberatung gem. § 2 RDG / § 5 StBerG.
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATGEBER & VERWANDTE THEMEN SECTION -->
+  <section class="py-12 bg-slate-900 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Wissen &amp; Steuerleitfäden 2026</span>
+          <h3 class="text-xl font-extrabold text-white">Ratgeber zur Dienstwagenbesteuerung im DACH-Raum</h3>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-6 text-xs">
+        <a href="../firmenwagen-1-prozent-regelung-fahrtenbuch-vergleich.html" class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-emerald-500 transition block group space-y-2">
+          <div class="text-emerald-400 font-bold">1%-Regelung vs. Fahrtenbuch 2026</div>
+          <div class="text-slate-200 font-extrabold text-sm group-hover:text-emerald-300 transition">Vergleich &amp; Faustformel für Arbeitnehmer</div>
+          <p class="text-slate-400 text-[11px] leading-relaxed">Wann lohnt sich das Fahrtenbuch wirklich? Berechnung mit Praxisbeispielen, Break-Even-Formeln und typischen Fallstricken beim Finanzamt.</p>
+          <span class="text-emerald-400 font-bold inline-flex items-center gap-1 pt-1">Ratgeber lesen →</span>
+        </a>
+
+        <a href="../elektroauto-dienstwagen-besteuerung-025-prozent-2026.html" class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-emerald-500 transition block group space-y-2">
+          <div class="text-teal-400 font-bold">0,25 % Besteuerung 2026</div>
+          <div class="text-slate-200 font-extrabold text-sm group-hover:text-teal-300 transition">Elektroauto-Dienstwagen bis 70.000 € BLP</div>
+          <p class="text-slate-400 text-[11px] leading-relaxed">Alles zum Wachstumschancengesetz 2026: Anhebung der Bruttolistenpreisgrenze auf 70.000 €, Plug-in-Hybride (0,5%) und Heimlade-Pauschalen.</p>
+          <span class="text-teal-400 font-bold inline-flex items-center gap-1 pt-1">Ratgeber lesen →</span>
+        </a>
+
+        <a href="../sachbezug-firmenwagen-oesterreich-schweiz-berechnen.html" class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 hover:border-emerald-500 transition block group space-y-2">
+          <div class="text-blue-400 font-bold">Österreich &amp; Schweiz 2026</div>
+          <div class="text-slate-200 font-extrabold text-sm group-hover:text-blue-300 transition">Sachbezugswerte &amp; ESTV Praxisfestlegung</div>
+          <p class="text-slate-400 text-[11px] leading-relaxed">0 % Sachbezug für E-Autos in Österreich, 1,5% / 2,0% Regel und Mini-Sachbezug (<500 km) sowie 0,9% Pauschale im Schweizer Lohnausweis.</p>
+          <span class="text-blue-400 font-bold inline-flex items-center gap-1 pt-1">Ratgeber lesen →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / § 5 StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein mathematisches und deskriptives Hilfswerkzeug zur Gegenüberstellung steuerlicher Firmenwagenpauschalen und tatsächlicher Fahrzeugselbstkosten nach deutschem (§ 6 Abs. 1 Nr. 4 EStG, Wachstumschancengesetz), österreichischem (§ 4 SachbezugswerteVO) und Schweizer Steuerrecht (ESTV Lohnausweis-Wegleitung). Es wird ausdrücklich <strong>keine individuelle Steuer- oder Rechtsberatung</strong> erbracht. Die Nutzung und steuerliche Einordnung erfolgt in alleiniger Verantwortung des Anwenders. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">Allgemeinen Geschäftsbedingungen</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD B2B PAKET CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+      
+      <div class="text-center space-y-2 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 text-white flex items-center justify-center text-xl font-bold mx-auto shadow-md shadow-amber-500/20">
+          ⭐
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">DACH Fuhrpark &amp; Firmenwagen B2B-Paket 2026</h3>
+        <p class="text-xs text-slate-500">
+          Einmalig 4,90 € / CHF • GoBD-Fahrtenbuch Excel-Vorlage, Car-Policy Muster &amp; BMF-Prüfliste
+        </p>
+      </div>
+
+      <div class="space-y-3 mb-6 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>GoBD-konforme Excel-Fahrtenbuchvorlage 2026:</strong> Formeln geschützt, automatische km-Berechnung &amp; Prüfsummen.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Muster-Dienstwagenüberlassungsvertrag:</strong> Rechtssichere Regelung von Privatnutzung, Tankkarten &amp; Familiennutzung.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>100% DSGVO-Sicherheit:</strong> Lebenslange Offline-Nutzung ohne Abonnement.</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <a id="modal-gumroad-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full py-3.5 px-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Auf Gumroad freischalten (4,90 €)</span>
+          <span>→</span>
+        </a>
+
+        <div class="text-center">
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Oder Gutscheincode einlösen</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="Gutscheincode eingeben..." class="flex-1 px-3 py-2 bg-slate-100 border border-slate-300 rounded-lg text-slate-900 text-xs uppercase font-mono focus:outline-none focus:border-amber-500">
+          <button onclick="redeemVoucher()" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition">Einlösen</button>
+        </div>
+        <p id="voucher-error" class="text-rose-600 text-[11px] text-center hidden font-bold"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT ENGINE -->
+  <script>
+    let currentCountry = 'DE'; // 'DE' | 'AT' | 'CH'
+    let isProUnlocked = false;
+
+    const COUNTRY_CONFIGS = {
+      DE: {
+        name: 'Deutschland',
+        currency: '€',
+        legalBasis: '§ 6 Abs. 1 Nr. 4 EStG (Wachstumschancengesetz 2026)',
+        pauschaleTitle: '1%-Methode (§ 6 EStG)',
+        priceName: 'Bruttolistenpreis (BLP)'
+      },
+      AT: {
+        name: 'Österreich',
+        currency: '€',
+        legalBasis: '§ 4 SachbezugswerteVO (BMF 2026)',
+        pauschaleTitle: 'Sachbezug (§ 4 SBV)',
+        priceName: 'Tatsächliche Anschaffungskosten (inkl. USt/NoVA)'
+      },
+      CH: {
+        name: 'Schweiz',
+        currency: 'CHF',
+        legalBasis: 'ESTV Praxisfestlegung Lohnausweis (0,9% p.M.)',
+        pauschaleTitle: 'Pauschale 0,9% p.M. (ESTV)',
+        priceName: 'Fahrzeugkaufpreis (exkl. MwSt)'
+      }
+    };
+
+    function setCountry(code) {
+      currentCountry = code;
+
+      // Update UI button pills
+      ['DE', 'AT', 'CH'].forEach(c => {
+        const btn = document.getElementById(`btn-country-${c}`);
+        if (c === code) {
+          btn.className = "country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-600/20";
+        } else {
+          btn.className = "country-pill px-4 py-2 rounded-xl text-xs font-extrabold border transition flex items-center gap-2 bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700";
+        }
+      });
+
+      // Update labels & currency symbols
+      const cfg = COUNTRY_CONFIGS[code];
+      document.querySelectorAll('.currency-sym').forEach(el => el.textContent = cfg.currency);
+      document.getElementById('label-price-name').textContent = cfg.priceName;
+      document.getElementById('matrix-country-tag').textContent = `${code} • 2026`;
+      document.getElementById('title-pauschale').textContent = cfg.pauschaleTitle;
+
+      // Adjust default tax rate & powertrain options
+      const taxRateInput = document.getElementById('input-tax-rate');
+      if (code === 'DE' && (taxRateInput.value === '48' || taxRateInput.value === '28')) taxRateInput.value = '42';
+      if (code === 'AT' && (taxRateInput.value === '42' || taxRateInput.value === '28')) taxRateInput.value = '48';
+      if (code === 'CH' && (taxRateInput.value === '42' || taxRateInput.value === '48')) taxRateInput.value = '28';
+
+      // Distance hint
+      const distHint = document.getElementById('distance-hint');
+      if (code === 'CH') {
+        distHint.textContent = 'Mit 0,9 % Pauschale vollumfänglich abgegolten!';
+      } else {
+        distHint.textContent = 'Einfache Entfernung in km';
+      }
+
+      runAllCalculations();
+    }
+
+    function applyPreset(presetName) {
+      if (presetName === 'bev_below_70k') {
+        document.getElementById('input-car-model').value = 'Tesla Model Y Long Range';
+        document.getElementById('input-list-price').value = 58000;
+        document.getElementById('select-powertrain').value = 'bev_below_70k';
+        document.getElementById('input-total-km').value = 25000;
+        document.getElementById('input-private-km').value = 5000;
+        document.getElementById('input-work-distance').value = 20;
+        document.getElementById('slider-private-pct').value = 20;
+        document.getElementById('input-cost-deprec').value = 7500;
+        document.getElementById('input-cost-fuel').value = 1400;
+        document.getElementById('input-cost-other').value = 2100;
+      } else if (presetName === 'bev_above_70k') {
+        document.getElementById('input-car-model').value = 'Porsche Taycan / Audi e-tron GT';
+        document.getElementById('input-list-price').value = 95000;
+        document.getElementById('select-powertrain').value = 'bev_above_70k';
+        document.getElementById('input-total-km').value = 28000;
+        document.getElementById('input-private-km').value = 8400;
+        document.getElementById('input-work-distance').value = 25;
+        document.getElementById('slider-private-pct').value = 30;
+        document.getElementById('input-cost-deprec').value = 14500;
+        document.getElementById('input-cost-fuel').value = 2200;
+        document.getElementById('input-cost-other').value = 3200;
+      } else if (presetName === 'phev') {
+        document.getElementById('input-car-model').value = 'BMW 330e Touring (PHEV)';
+        document.getElementById('input-list-price').value = 62000;
+        document.getElementById('select-powertrain').value = 'phev';
+        document.getElementById('input-total-km').value = 22000;
+        document.getElementById('input-private-km').value = 5500;
+        document.getElementById('input-work-distance').value = 18;
+        document.getElementById('slider-private-pct').value = 25;
+        document.getElementById('input-cost-deprec').value = 8800;
+        document.getElementById('input-cost-fuel').value = 2200;
+        document.getElementById('input-cost-other').value = 2400;
+      } else if (presetName === 'combustion_standard') {
+        document.getElementById('input-car-model').value = 'VW Passat 2.0 TDI';
+        document.getElementById('input-list-price').value = 49000;
+        document.getElementById('select-powertrain').value = 'combustion_high';
+        document.getElementById('input-total-km').value = 30000;
+        document.getElementById('input-private-km').value = 9000;
+        document.getElementById('input-work-distance').value = 25;
+        document.getElementById('slider-private-pct').value = 30;
+        document.getElementById('input-cost-deprec').value = 7200;
+        document.getElementById('input-cost-fuel').value = 2800;
+        document.getElementById('input-cost-other').value = 2200;
+      } else if (presetName === 'little_private') {
+        document.getElementById('input-car-model').value = 'Skoda Octavia Combi';
+        document.getElementById('input-list-price').value = 42000;
+        document.getElementById('select-powertrain').value = 'combustion_low';
+        document.getElementById('input-total-km').value = 35000;
+        document.getElementById('input-private-km').value = 3500;
+        document.getElementById('input-work-distance').value = 15;
+        document.getElementById('slider-private-pct').value = 10;
+        document.getElementById('input-cost-deprec').value = 6500;
+        document.getElementById('input-cost-fuel').value = 3100;
+        document.getElementById('input-cost-other').value = 2000;
+      }
+      runAllCalculations();
+    }
+
+    function estimateCostsFromListPrice() {
+      const price = parseFloat(document.getElementById('input-list-price').value) || 50000;
+      const totalKm = parseFloat(document.getElementById('input-total-km').value) || 25000;
+      const powertrain = document.getElementById('select-powertrain').value;
+
+      // Estimate depreciation: approx 15% per year
+      const deprec = Math.round(price * 0.145);
+      // Estimate fuel/power per 100km
+      let fuelPer100 = 8.5; // € per 100km for electric
+      if (powertrain === 'combustion_low') fuelPer100 = 11.0;
+      if (powertrain === 'combustion_high') fuelPer100 = 13.5;
+      if (powertrain === 'phev') fuelPer100 = 10.0;
+
+      const fuel = Math.round((totalKm / 100) * fuelPer100);
+      const other = Math.round(1400 + price * 0.015);
+
+      document.getElementById('input-cost-deprec').value = deprec;
+      document.getElementById('input-cost-fuel').value = fuel;
+      document.getElementById('input-cost-other').value = other;
+
+      runAllCalculations();
+    }
+
+    function onPrivateSliderChange(val) {
+      const pct = parseFloat(val);
+      const totalKm = parseFloat(document.getElementById('input-total-km').value) || 25000;
+      const privateKm = Math.round((totalKm * pct) / 100);
+      document.getElementById('input-private-km').value = privateKm;
+      document.getElementById('slider-private-pct-label').textContent = `${pct.toFixed(1)} % Privat`;
+      runAllCalculations();
+    }
+
+    function syncKmInputs(changedField) {
+      const totalKm = parseFloat(document.getElementById('input-total-km').value) || 1;
+      let privateKm = parseFloat(document.getElementById('input-private-km').value) || 0;
+
+      if (privateKm > totalKm) {
+        privateKm = totalKm;
+        document.getElementById('input-private-km').value = privateKm;
+      }
+
+      const pct = Math.min(100, Math.max(0, (privateKm / totalKm) * 100));
+      document.getElementById('slider-private-pct').value = Math.round(pct);
+      document.getElementById('slider-private-pct-label').textContent = `${pct.toFixed(1)} % Privat`;
+
+      runAllCalculations();
+    }
+
+    function sumTotalCosts() {
+      runAllCalculations();
+    }
+
+    function formatNumber(num, sym) {
+      return num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + sym;
+    }
+
+    function runAllCalculations() {
+      const cfg = COUNTRY_CONFIGS[currentCountry];
+      const sym = cfg.currency;
+
+      const price = parseFloat(document.getElementById('input-list-price').value) || 0;
+      const powertrain = document.getElementById('select-powertrain').value;
+      const totalKm = Math.max(1, parseFloat(document.getElementById('input-total-km').value) || 1);
+      const privateKm = parseFloat(document.getElementById('input-private-km').value) || 0;
+      const workDist = parseFloat(document.getElementById('input-work-distance').value) || 0;
+      const workDays = parseFloat(document.getElementById('input-work-days').value) || 210;
+      const taxRate = (parseFloat(document.getElementById('input-tax-rate').value) || 42) / 100;
+
+      // Actual costs
+      const costDeprec = parseFloat(document.getElementById('input-cost-deprec').value) || 0;
+      const costFuel = parseFloat(document.getElementById('input-cost-fuel').value) || 0;
+      const costOther = parseFloat(document.getElementById('input-cost-other').value) || 0;
+      const totalCostsAnnual = costDeprec + costFuel + costOther;
+      const costPerKm = totalCostsAnnual / totalKm;
+
+      // Business & Private shares
+      const workKmAnnual = workDist * 2 * workDays;
+      const businessKm = Math.max(0, totalKm - privateKm);
+      const privateSharePct = (privateKm / totalKm) * 100;
+
+      // Update intermediate summaries
+      document.getElementById('val-total-costs').textContent = formatNumber(totalCostsAnnual, sym);
+      document.getElementById('val-cost-per-km').textContent = (costPerKm.toFixed(3).replace('.', ',')) + ' ' + sym + ' / km';
+      document.getElementById('val-business-pct').textContent = `${(100 - privateSharePct).toFixed(1)} % (${Math.round(businessKm).toLocaleString('de-DE')} km)`;
+
+      // ==========================================
+      // 1. CALCULATION: PAUSCHALE / SACHBEZUG
+      // ==========================================
+      let pauschalePrivatMonthly = 0;
+      let pauschaleWorkMonthly = 0;
+      let pauschaleRateBadgeText = "";
+      let ruleHintText = "";
+
+      if (currentCountry === 'DE') {
+        // Deutschland (§ 6 Abs. 1 Nr. 4 EStG)
+        // BEV <= 70k: 0.25%
+        // BEV > 70k: 0.5%
+        // PHEV: 0.5%
+        // Combustion: 1.0%
+        let factor = 1.0;
+        let factorName = "1,0 %";
+
+        if (powertrain === 'bev_below_70k') {
+          // If user put price > 70000 while selecting bev_below_70k, warn or adjust
+          if (price > 70000) {
+            factor = 0.5;
+            factorName = "0,5 % (> 70k €)";
+            ruleHintText = "BLP über 70.000 €: Gilt automatisch die 0,5 % Regelung!";
+          } else {
+            factor = 0.25;
+            factorName = "0,25 %";
+            ruleHintText = "DE: 0,25 % Regelung gem. Wachstumschancengesetz 2026 aktiv (BLP ≤ 70.000 €).";
+          }
+        } else if (powertrain === 'bev_above_70k') {
+          factor = 0.5;
+          factorName = "0,5 %";
+          ruleHintText = "DE: 0,5 % Regelung für Elektrofahrzeuge über 70.000 € BLP.";
+        } else if (powertrain === 'phev') {
+          factor = 0.5;
+          factorName = "0,5 %";
+          ruleHintText = "DE: 0,5 % Regelung für Plug-in-Hybride (≥ 80 km Reichweite).";
+        } else {
+          factor = 1.0;
+          factorName = "1,0 %";
+          ruleHintText = "DE: Reguläre 1,0 % Versteuerung für Verbrenner.";
+        }
+
+        pauschalePrivatMonthly = price * (factor / 100);
+        // Commute: 0.03% * factor * distance
+        pauschaleWorkMonthly = price * ((0.03 * factor) / 100) * workDist;
+        pauschaleRateBadgeText = `${factorName} + ${(0.03 * factor).toFixed(4).replace('.', ',')}%/km`;
+
+      } else if (currentCountry === 'AT') {
+        // Österreich (§ 4 SachbezugswerteVO)
+        // E-Autos: 0 %
+        // CO2 <= 121g: 1.5% (max 720 €)
+        // CO2 > 121g: 2.0% (max 960 €)
+        // Mini-Sachbezug (<500 km privat/Monat = 6000 km/Jahr): halber Sachbezug!
+        const isMiniSachbezug = privateKm <= 6000;
+
+        if (powertrain === 'bev_below_70k' || powertrain === 'bev_above_70k') {
+          pauschalePrivatMonthly = 0;
+          pauschaleRateBadgeText = "0 % Steuerfrei";
+          ruleHintText = "AT: Reine Elektroautos (0g CO2) sind zu 100 % sachbezugsfrei (0 € Sachbezug)!";
+        } else if (powertrain === 'combustion_low' || powertrain === 'phev') {
+          let baseRate = 1.5;
+          let maxCap = 720;
+          if (isMiniSachbezug) {
+            baseRate = 0.75;
+            maxCap = 360;
+            ruleHintText = "AT: Halber Sachbezug (0,75 %, max. 360 €), da Privat-km ≤ 6.000 km p.a.";
+          } else {
+            ruleHintText = "AT: Regulärer Sachbezug 1,5 % (max. 720 €/Monat, CO2 ≤ 121g/km).";
+          }
+          pauschalePrivatMonthly = Math.min(maxCap, price * (baseRate / 100));
+          pauschaleRateBadgeText = `${baseRate}% (max ${maxCap} €)`;
+        } else {
+          // combustion_high
+          let baseRate = 2.0;
+          let maxCap = 960;
+          if (isMiniSachbezug) {
+            baseRate = 1.0;
+            maxCap = 480;
+            ruleHintText = "AT: Halber Sachbezug (1,0 %, max. 480 €), da Privat-km ≤ 6.000 km p.a.";
+          } else {
+            ruleHintText = "AT: Erhöhter Sachbezug 2,0 % (max. 960 €/Monat, CO2 > 121g/km).";
+          }
+          pauschalePrivatMonthly = Math.min(maxCap, price * (baseRate / 100));
+          pauschaleRateBadgeText = `${baseRate}% (max ${maxCap} €)`;
+        }
+        pauschaleWorkMonthly = 0; // In AT is commute covered or handled via Pendlerpauschale
+
+      } else if (currentCountry === 'CH') {
+        // Schweiz (ESTV 0,9 % p.M. = 10,8 % p.a.)
+        // Mit 0.9% ist Arbeitsweg voll abgegolten!
+        pauschalePrivatMonthly = price * 0.009;
+        pauschaleWorkMonthly = 0;
+        pauschaleRateBadgeText = "0,9 % p.M. (ESTV)";
+        ruleHintText = "CH: ESTV Praxisfestlegung Lohnausweis (0,9 % p.M. inkl. Arbeitsweg).";
+      }
+
+      document.getElementById('powertrain-rule-hint').textContent = ruleHintText;
+
+      const pauschaleGwvMonthly = pauschalePrivatMonthly + pauschaleWorkMonthly;
+      const pauschaleGwvAnnual = pauschaleGwvMonthly * 12;
+      const pauschaleTaxAnnual = pauschaleGwvAnnual * taxRate;
+
+      // ==========================================
+      // 2. CALCULATION: FAHRTENBUCH
+      // ==========================================
+      // In DE: Fahrtenbuch-GWV = (Kosten/km) * (Privat-km + Arbeitsweg-km)
+      // Bei Fahrtenbuch wird der Arbeitsweg mit den tatsächlichen km bewertet.
+      // In AT/CH: GWV = (Kosten/km) * Privat-km.
+      let fahrtenbuchTaxableKm = privateKm;
+      let fahrtenbuchPrivatGwvAnnual = costPerKm * privateKm;
+      let fahrtenbuchWorkGwvAnnual = 0;
+
+      if (currentCountry === 'DE') {
+        fahrtenbuchWorkGwvAnnual = costPerKm * workKmAnnual;
+        fahrtenbuchTaxableKm = privateKm + workKmAnnual;
+      }
+
+      const fahrtenbuchGwvAnnual = fahrtenbuchPrivatGwvAnnual + fahrtenbuchWorkGwvAnnual;
+      const fahrtenbuchGwvMonthly = fahrtenbuchGwvAnnual / 12;
+      const fahrtenbuchTaxAnnual = fahrtenbuchGwvAnnual * taxRate;
+
+      // ==========================================
+      // 3. COMPARISON & BREAK-EVEN
+      // ==========================================
+      // Difference: Pauschale - Fahrtenbuch (Positive = Fahrtenbuch saves taxes)
+      const taxSavingsWithFahrtenbuch = pauschaleTaxAnnual - fahrtenbuchTaxAnnual;
+      const gwvSavingsWithFahrtenbuch = pauschaleGwvAnnual - fahrtenbuchGwvAnnual;
+
+      // Break-even km calculation:
+      // When does costPerKm * (km_private + workKm) = pauschaleGwvAnnual?
+      let breakEvenPrivateKm = 0;
+      if (costPerKm > 0) {
+        if (currentCountry === 'DE') {
+          breakEvenPrivateKm = Math.max(0, (pauschaleGwvAnnual / costPerKm) - workKmAnnual);
+        } else {
+          breakEvenPrivateKm = Math.max(0, pauschaleGwvAnnual / costPerKm);
+        }
+      }
+
+      // ==========================================
+      // 4. UPDATE UI ELEMENTS
+      // ==========================================
+      document.getElementById('badge-pauschale-rate').textContent = pauschaleRateBadgeText;
+      document.getElementById('val-pauschale-gwv-annual').textContent = formatNumber(pauschaleGwvAnnual, sym);
+      document.getElementById('val-pauschale-gwv-monthly').textContent = formatNumber(pauschaleGwvMonthly, sym) + ' / Mon.';
+      document.getElementById('val-pauschale-tax-annual').textContent = formatNumber(pauschaleTaxAnnual, sym);
+
+      document.getElementById('badge-fahrtenbuch-share').textContent = `${privateSharePct.toFixed(1)} % Privat`;
+      document.getElementById('val-fahrtenbuch-gwv-annual').textContent = formatNumber(fahrtenbuchGwvAnnual, sym);
+      document.getElementById('val-fahrtenbuch-gwv-monthly').textContent = formatNumber(fahrtenbuchGwvMonthly, sym) + ' / Mon.';
+      document.getElementById('val-fahrtenbuch-tax-annual').textContent = formatNumber(fahrtenbuchTaxAnnual, sym);
+
+      document.getElementById('val-breakeven-km').textContent = `ca. ${Math.round(breakEvenPrivateKm).toLocaleString('de-DE')} Privat-km`;
+
+      const beExplanation = document.getElementById('breakeven-explanation');
+      beExplanation.innerHTML = `Fahren Sie <strong>weniger als ${Math.round(breakEvenPrivateKm).toLocaleString('de-DE')} km</strong> im Jahr privat, spart das Fahrtenbuch Steuern. Fahren Sie mehr, ist die Pauschale wirtschaftlicher.`;
+
+      document.getElementById('stat-tax-rate-hint').textContent = `Grenzsteuersatz ${(taxRate * 100).toFixed(0)}%`;
+
+      // Update Decision Banner & Visual Card Styles
+      const banner = document.getElementById('decision-banner');
+      const badge = document.getElementById('decision-badge');
+      const headline = document.getElementById('decision-headline');
+      const description = document.getElementById('decision-description');
+      const diffAnnual = document.getElementById('decision-diff-annual');
+      const diffMonthly = document.getElementById('decision-diff-monthly');
+      const savingsCard = document.getElementById('val-savings-diff-card');
+
+      const cardPauschale = document.getElementById('card-pauschale');
+      const cardFb = document.getElementById('card-fahrtenbuch');
+
+      if (taxSavingsWithFahrtenbuch >= 0) {
+        // GREEN: FAHRTENBUCH WINS
+        banner.className = "rounded-3xl border p-6 sm:p-8 backdrop-blur shadow-2xl transition-all duration-300 bg-emerald-950/40 border-emerald-500/40";
+        badge.className = "px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/40";
+        badge.innerHTML = "✓ Fahrtenbuch spart Steuern";
+        
+        headline.textContent = `Mit Fahrtenbuch sparen Sie ca. ${formatNumber(taxSavingsWithFahrtenbuch, sym)} pro Jahr!`;
+        description.textContent = `Aufgrund Ihres geringen Privatanteils (${privateSharePct.toFixed(1)} %) und hoher beruflicher Fahrleistung führt das lückenlose Fahrtenbuch zu einem deutlich geringeren geldwerten Vorteil als die Pauschale.`;
+
+        diffAnnual.className = "text-3xl sm:text-4xl font-extrabold font-mono text-emerald-400";
+        diffAnnual.textContent = `+${formatNumber(taxSavingsWithFahrtenbuch, sym)}`;
+        diffMonthly.textContent = `+${formatNumber(taxSavingsWithFahrtenbuch / 12, sym)} / Mon.`;
+        savingsCard.textContent = `+${formatNumber(taxSavingsWithFahrtenbuch, sym)} / Jahr`;
+
+        cardFb.className = "p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-950/20 transition-all";
+        cardPauschale.className = "p-4 rounded-2xl border border-slate-700 bg-slate-900/40 transition-all";
+      } else {
+        // BLUE: PAUSCHALE WINS
+        const absSaving = Math.abs(taxSavingsWithFahrtenbuch);
+        banner.className = "rounded-3xl border p-6 sm:p-8 backdrop-blur shadow-2xl transition-all duration-300 bg-blue-950/40 border-blue-500/40";
+        badge.className = "px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-blue-500/20 text-blue-400 border border-blue-500/40";
+        badge.innerHTML = `✓ ${cfg.pauschaleTitle} empfohlen`;
+        
+        headline.textContent = `Die Pauschale spart Ihnen ca. ${formatNumber(absSaving, sym)} Steuern & Bürokratie!`;
+        description.textContent = `Aufgrund Ihres hohen Privatanteils (${privateSharePct.toFixed(1)} %) oder der attraktiven E-Auto-Förderung ist die gesetzliche Pauschale steuerlich günstiger und erspart Ihnen das Führen eines aufwendigen Fahrtenbuchs.`;
+
+        diffAnnual.className = "text-3xl sm:text-4xl font-extrabold font-mono text-blue-400";
+        diffAnnual.textContent = `+${formatNumber(absSaving, sym)}`;
+        diffMonthly.textContent = `+${formatNumber(absSaving / 12, sym)} / Mon.`;
+        savingsCard.textContent = `+${formatNumber(absSaving, sym)} / Jahr (Pauschale)`;
+
+        cardPauschale.className = "p-4 rounded-2xl border-2 border-blue-500 bg-blue-950/20 transition-all";
+        cardFb.className = "p-4 rounded-2xl border border-slate-700 bg-slate-900/40 transition-all";
+      }
+
+      // Update Print Sheet
+      updatePrintSheetValues(
+        price, totalKm, privateKm, workDist, workDays, taxRate, totalCostsAnnual, costPerKm,
+        pauschalePrivatMonthly, pauschaleWorkMonthly, pauschaleGwvAnnual, pauschaleTaxAnnual,
+        fahrtenbuchPrivatGwvAnnual, fahrtenbuchWorkGwvAnnual, fahrtenbuchGwvAnnual, fahrtenbuchTaxAnnual,
+        taxSavingsWithFahrtenbuch, breakEvenPrivateKm, sym, cfg
+      );
+    }
+
+    function updatePrintSheetValues(
+      price, totalKm, privateKm, workDist, workDays, taxRate, totalCostsAnnual, costPerKm,
+      pauschalePrivatMonthly, pauschaleWorkMonthly, pauschaleGwvAnnual, pauschaleTaxAnnual,
+      fahrtenbuchPrivatGwvAnnual, fahrtenbuchWorkGwvAnnual, fahrtenbuchGwvAnnual, fahrtenbuchTaxAnnual,
+      taxSavingsWithFahrtenbuch, breakEvenPrivateKm, sym, cfg
+    ) {
+      document.getElementById('p-val-total-km').textContent = `${totalKm.toLocaleString('de-DE')} km`;
+      document.getElementById('p-val-work-distance').textContent = `${workDist} km (${workDays} Tage)`;
+      
+      const privPct = ((privateKm / totalKm) * 100).toFixed(1);
+      const bizKm = Math.max(0, totalKm - privateKm);
+      document.getElementById('p-val-private-km').textContent = `${privateKm.toLocaleString('de-DE')} km (${privPct} %)`;
+      document.getElementById('p-val-business-km').textContent = `${bizKm.toLocaleString('de-DE')} km (${(100 - privPct).toFixed(1)} %)`;
+
+      document.getElementById('p-val-total-costs').textContent = formatNumber(totalCostsAnnual, sym);
+      document.getElementById('p-val-cost-km').textContent = `${costPerKm.toFixed(3).replace('.', ',')} ${sym} / km`;
+
+      document.getElementById('p-col-pauschale-title').textContent = cfg.pauschaleTitle;
+
+      // Table rows
+      document.getElementById('p-row-gwv-priv-m').textContent = formatNumber(pauschalePrivatMonthly, sym);
+      document.getElementById('p-row-fb-priv-m').textContent = formatNumber(fahrtenbuchPrivatGwvAnnual / 12, sym);
+      document.getElementById('p-row-diff-priv-m').textContent = formatNumber(pauschalePrivatMonthly - (fahrtenbuchPrivatGwvAnnual / 12), sym);
+
+      document.getElementById('p-row-gwv-work-m').textContent = formatNumber(pauschaleWorkMonthly, sym);
+      document.getElementById('p-row-fb-work-m').textContent = formatNumber(fahrtenbuchWorkGwvAnnual / 12, sym);
+      document.getElementById('p-row-diff-work-m').textContent = formatNumber(pauschaleWorkMonthly - (fahrtenbuchWorkGwvAnnual / 12), sym);
+
+      document.getElementById('p-row-gwv-tot-a').textContent = formatNumber(pauschaleGwvAnnual, sym);
+      document.getElementById('p-row-fb-tot-a').textContent = formatNumber(fahrtenbuchGwvAnnual, sym);
+      document.getElementById('p-row-diff-tot-a').textContent = formatNumber(pauschaleGwvAnnual - fahrtenbuchGwvAnnual, sym);
+
+      const taxRateStr = `${(taxRate * 100).toFixed(1).replace('.', ',')} %`;
+      document.getElementById('p-row-taxrate-1').textContent = taxRateStr;
+      document.getElementById('p-row-taxrate-2').textContent = taxRateStr;
+
+      document.getElementById('p-row-tax-pauschale').textContent = formatNumber(pauschaleTaxAnnual, sym);
+      document.getElementById('p-row-tax-fb').textContent = formatNumber(fahrtenbuchTaxAnnual, sym);
+      
+      const taxDiffEl = document.getElementById('p-row-tax-diff');
+      if (taxSavingsWithFahrtenbuch >= 0) {
+        taxDiffEl.textContent = `+${formatNumber(taxSavingsWithFahrtenbuch, sym)} (FB)`;
+        taxDiffEl.className = "p-1.5 text-right text-emerald-800 font-bold";
+      } else {
+        taxDiffEl.textContent = `+${formatNumber(Math.abs(taxSavingsWithFahrtenbuch), sym)} (Pauschale)`;
+        taxDiffEl.className = "p-1.5 text-right text-blue-800 font-bold";
+      }
+
+      // Recommendation paragraph
+      const rec = document.getElementById('print-recommendation-text');
+      if (taxSavingsWithFahrtenbuch >= 0) {
+        rec.innerHTML = `Die Inanspruchnahme der Fahrtenbuchmethode verschafft dem Steuerpflichtigen im Wirtschaftsjahr 2026 eine rechnerische Steuerersparnis von <strong>+${formatNumber(taxSavingsWithFahrtenbuch, sym)} p.a.</strong> (bzw. <strong>${formatNumber(taxSavingsWithFahrtenbuch / 12, sym)} monatlich</strong>). Die wirtschaftliche Vorteilhaftigkeit kippt bei einer jährlichen Privatnutzung von über <strong>${Math.round(breakEvenPrivateKm).toLocaleString('de-DE')} km</strong>. Unter Berücksichtigung des administrativen Aufwands für die lückenlose Fahrtenbuchführung wird die Methode zur Genehmigung und Veranlagung empfohlen.`;
+      } else {
+        rec.innerHTML = `Die Inanspruchnahme der gesetzlichen Pauschale (${cfg.pauschaleTitle}) ist für das Wirtschaftsjahr 2026 steuerlich vorteilhafter und spart gegenüber dem Fahrtenbuch ca. <strong>+${formatNumber(Math.abs(taxSavingsWithFahrtenbuch), sym)} Steuerlast p.a.</strong> Zudem entfällt der erhebliche bürokratische Dokumentationsaufwand für den Einzelnachweis vollständig.`;
+      }
+    }
+
+    function updatePrintValues() {
+      const comp = document.getElementById('print-input-company').value || 'Muster GmbH / Fuhrparkmanagement';
+      const emp = document.getElementById('print-input-employee').value || 'Max Mustermann';
+      const period = document.getElementById('print-input-period').value || '2026';
+      const carModel = document.getElementById('input-car-model').value || 'Firmenwagen';
+      const plate = document.getElementById('input-car-plate').value || '';
+      const price = parseFloat(document.getElementById('input-list-price').value) || 0;
+      const cfg = COUNTRY_CONFIGS[currentCountry];
+
+      document.getElementById('print-company-name').textContent = comp;
+      document.getElementById('print-employee-name').textContent = emp;
+      document.getElementById('print-car-desc').textContent = `${carModel} ${plate ? '(' + plate + ')' : ''}`;
+      document.getElementById('print-car-price').textContent = `BLP/Kaufpreis: ${formatNumber(price, cfg.currency)} • Basis: ${cfg.legalBasis}`;
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckansicht').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal & Voucher Logic
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'FIRMA2026', 'AUTO2026', 'BMF2026', 'GUMROAD'];
+      if (validCodes.includes(val)) {
+        isProUnlocked = true;
+        closeCheckoutModal();
+        alert("B2B Fuhrpark & Firmenwagen Pro-Paket 2026 erfolgreich freigeschaltet!");
+        const btn = document.getElementById('header-unlock-btn');
+        if (btn) {
+          btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+          btn.className = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+          btn.onclick = null;
+        }
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Gutscheincode. Bitte Code prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    // Init on load
+    window.addEventListener('DOMContentLoaded', () => {
+      runAllCalculations();
+      updatePrintValues();
+    });
+  </script>
+</body>
+</html>

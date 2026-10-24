@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Handwerker-Stundensatz-, Aufmaß- & Nachtrags-Kalkulator 2026 (VOB/B, BGB, SIA 118 & ÖNORM B 2110)</title>
+  <meta name="description" content="Kalkulieren Sie kostendeckende Handwerker-Stundensätze, prüfbare Aufmaße mit VOB/C-Übermessung und rechtssichere DIN-A4 Nachtragsangebote nach VOB/B, BGB § 650b, SIA 118 & ÖNORM B 2110." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // =========================================================================
+    // KONFIGURIERBARER GUMROAD SELF-SERVE CHECKOUT LINK
+    // =========================================================================
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            craft: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 18mm 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-size: 9.5pt;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-amber-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Alle Lohn-, Kosten- & Kundendaten verbleiben in Ihrem Browser (keine Server-Speicherung).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Baurecht & Norm:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-amber-600 text-white transition">🇩🇪 DE (VOB/B & BGB)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (SIA 118)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (ÖNORM B 2110)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-amber-600/20">
+          🛠️
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Handwerker-Kalkulator & Aufmaß Pro 2026</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Stundensatzverrechnung • VOB/C-Aufmaß mit Übermessung • Nachtragsangebot DIN-A4</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../rechner/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>☀️</span>
+          <span>Solar- & Wärmepumpen-Rechner</span>
+        </a>
+        <a href="../qr-suite/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🧾</span>
+          <span>E-Rechnung (ZUGFeRD/XRechnung)</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-amber-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Vollversion (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & DEMO SELECTOR -->
+  <section class="bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/80 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="space-y-3 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-bold">
+            <span>⚡ DACH Baurechts-Update 2026: VOB/B, BGB § 650b, SIA 118 & ÖNORM B 2110</span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+            Handwerker-Stundensatz-, Aufmaß- & Nachtrags-Kalkulator
+          </h1>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Ermitteln Sie Ihren echten <strong class="text-white">kostendeckenden Netto-Stundenverrechnungssatz</strong>, erfassen Sie prüfbare Aufmaße mit automatischen <strong class="text-amber-300">VOB/C-Übermessungsregeln</strong> und generieren Sie druckfertige <strong class="text-white">DIN-A4 Nachtragsangebote & Regierapporte</strong> mit anwaltlich geprüften Behinderungsanzeigen.
+          </p>
+        </div>
+
+        <!-- 1-KLICK PRAXISBEISPIELE -->
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-4 sm:p-5 backdrop-blur-sm lg:min-w-[340px] space-y-3 shadow-xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">⚡ 1-Klick Praxisbeispiele</span>
+            <span class="text-[11px] text-slate-400">Sofort kalkuliert</span>
+          </div>
+          <div class="grid grid-cols-1 gap-2 text-xs">
+            <button onclick="loadSampleCase('shk_de')" class="text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-amber-600/20 border border-slate-700 hover:border-amber-500 transition group flex items-center justify-between">
+              <div>
+                <div class="font-bold text-white group-hover:text-amber-300">🇩🇪 SHK- / Elektro-Meisterbetrieb</div>
+                <div class="text-[11px] text-slate-400">VOB/B & BGB • 82% Lohnzusatzk. • 78,50 €/h</div>
+              </div>
+              <span class="text-slate-500 group-hover:text-amber-400">→</span>
+            </button>
+
+            <button onclick="loadSampleCase('maler_ch')" class="text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-amber-600/20 border border-slate-700 hover:border-amber-500 transition group flex items-center justify-between">
+              <div>
+                <div class="font-bold text-white group-hover:text-amber-300">🇨🇭 Gipser-, Maler- & Solarbetrieb</div>
+                <div class="text-[11px] text-slate-400">SIA 118 Regie • KBOB/Suissetec • CHF 112.-/h</div>
+              </div>
+              <span class="text-slate-500 group-hover:text-amber-400">→</span>
+            </button>
+
+            <button onclick="loadSampleCase('bau_at')" class="text-left p-2.5 rounded-xl bg-slate-800/80 hover:bg-amber-600/20 border border-slate-700 hover:border-amber-500 transition group flex items-center justify-between">
+              <div>
+                <div class="font-bold text-white group-hover:text-amber-300">🇦🇹 Bau- & Installateur-Fachbetrieb</div>
+                <div class="text-[11px] text-slate-400">ÖNORM B 2110 • BUAK/SV • 84,20 €/h</div>
+              </div>
+              <span class="text-slate-500 group-hover:text-amber-400">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- JURISDICTION LAW NOTICE BANNER -->
+      <div id="jur-law-banner" class="mt-6 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs leading-relaxed text-amber-200">
+        <span class="text-base shrink-0">⚖️</span>
+        <div id="jur-law-banner-text">
+          <strong>Geltendes Baurecht 2026:</strong> Deutschland – VOB/B (§ 2 Abs. 5 & 6 Nachtragsvergütung, § 14 prüfbare Abrechnung) & BGB-Bauvertrag (§ 650b Änderungsanordnung, § 650c tatsächliche Kosten + AGK/W&G). Inklusive Ausweis der reinen Arbeitskosten nach § 35a EStG für 20 % Steuerabzug (Handwerkerbonus bis 1.200 €/Jahr beim Privatkunden).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGATION TABS -->
+  <div class="border-b border-slate-200 bg-white sticky top-16 z-20 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <nav class="flex space-x-2 sm:space-x-8 overflow-x-auto py-2">
+        <button onclick="switchTab('stundensatz')" id="tab-nav-stundensatz" class="whitespace-nowrap py-3 px-3 border-b-2 font-bold text-xs sm:text-sm text-amber-600 border-amber-600 flex items-center gap-2">
+          <span>⏱️ 1. Stundensatz- & Gemeinkosten-Kalkulator</span>
+          <span id="badge-stundensatz-kpi" class="text-[11px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-extrabold">78,50 €/h</span>
+        </button>
+        <button onclick="switchTab('aufmass')" id="tab-nav-aufmass" class="whitespace-nowrap py-3 px-3 border-b-2 font-semibold text-xs sm:text-sm text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 flex items-center gap-2">
+          <span>📐 2. Digitales Aufmaß (VOB/C & SIA Übermessung)</span>
+          <span id="badge-aufmass-count" class="text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full font-bold">3 Pos.</span>
+        </button>
+        <button onclick="switchTab('pro-nachtrag')" id="tab-nav-pro-nachtrag" class="whitespace-nowrap py-3 px-3 border-b-2 font-semibold text-xs sm:text-sm text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 flex items-center gap-2">
+          <span>📄 3. PRO DIN-A4 Nachtragsangebot & Regierapport</span>
+          <span class="text-[10px] bg-amber-500 text-white font-extrabold px-1.5 py-0.5 rounded uppercase tracking-wider">DIN 5008</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- MAIN APP WRAPPER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: STUNDENSATZ- & GEMEINKOSTEN-KALKULATOR -->
+    <!-- =================================================================== -->
+    <div id="tab-content-stundensatz" class="space-y-8">
+      
+      <!-- TOP KPI SUMMARY ROW -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Kostendeckender Netto-Satz</div>
+          <div id="kpi-netto-rate" class="text-2xl sm:text-3xl font-extrabold text-amber-600 mt-1 font-mono">78,50 €</div>
+          <div class="text-[11px] text-slate-400 mt-1">pro Verrechnungsstunde</div>
+          <div class="absolute -right-2 -bottom-2 text-4xl opacity-10">⏱️</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Brutto inkl. MwSt. (<span class="kpi-vat-rate">19%</span>)</div>
+          <div id="kpi-brutto-rate" class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-mono">93,42 €</div>
+          <div class="text-[11px] text-slate-400 mt-1">Endkundenpreis inkl. Steuer</div>
+          <div class="absolute -right-2 -bottom-2 text-4xl opacity-10">🧾</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Produktive Jahresstunden</div>
+          <div id="kpi-prod-hours" class="text-2xl sm:text-3xl font-extrabold text-indigo-600 mt-1 font-mono">1.340 h</div>
+          <div class="text-[11px] text-slate-400 mt-1">nach Urlaub, Krankheit & Rüstzeit</div>
+          <div class="absolute -right-2 -bottom-2 text-4xl opacity-10">📅</div>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Mindest-Deckungsbeitrag / Tag</div>
+          <div id="kpi-deckungsbeitrag" class="text-2xl sm:text-3xl font-extrabold text-emerald-600 mt-1 font-mono">628,00 €</div>
+          <div class="text-[11px] text-slate-400 mt-1">je Mitarbeiter bei 8 h Einsatz</div>
+          <div class="absolute -right-2 -bottom-2 text-4xl opacity-10">📈</div>
+        </div>
+      </div>
+
+      <!-- WARNING BOX IF RATE UNDERCOVERED -->
+      <div id="undercover-warning" class="hidden p-4 rounded-2xl bg-rose-50 border border-rose-300 flex items-start gap-3">
+        <span class="w-8 h-8 rounded-xl bg-rose-600 text-white flex items-center justify-center font-extrabold text-base shrink-0">⚠️</span>
+        <div class="text-xs sm:text-sm text-rose-950 leading-relaxed">
+          <strong class="font-extrabold">Achtung: Gefährliche Unterdeckung!</strong>
+          Ihr aktuell abgerechneter Kundensatz liegt unter Ihren betriebswirtschaftlichen Selbstkosten. Sie subventionieren jede gearbeitete Stunde mit <strong id="undercover-gap" class="font-mono text-rose-700">0,00 €</strong> aus Ihrem Privatvermögen!
+        </div>
+      </div>
+
+      <!-- MAIN 2-COLUMN GRID FOR STUNDENSATZ CALCULATOR -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT COLUMN: INPUTS (7 COLS) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- BLOCK 1: QUALIFIKATION & BASISLOHN -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 text-xs">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <span>👷 1. Mitarbeiter-Lohn & Tarifstufe</span>
+                </h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Grundlage für den Mittellohn je Anwesenheitsstunde.</p>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">Schritt 1</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Qualifikationsstufe:</label>
+                <select id="inp-qual-level" onchange="applyQualPreset()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 bg-white">
+                  <option value="meister">Meister / Techniker / Bauleiter</option>
+                  <option value="geselle" selected>Geselle / Fachmonteur (Standard)</option>
+                  <option value="helfer">Bauhelfer / Fachwerker</option>
+                  <option value="azubi">Auszubildender / Lehrling</option>
+                  <option value="regie">Regiestunde Spezial (KBOB / Suissetec)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">
+                  Brutto-Stundenlohn (<span class="currency-label">€</span>/h):
+                </label>
+                <div class="relative">
+                  <input type="number" step="0.5" id="inp-brutto-lohn" value="23.50" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2.5 pr-10 font-mono font-bold text-slate-900 focus:border-amber-600">
+                  <span class="absolute right-3 top-2.5 font-bold text-slate-400 currency-label">€</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- LOHNZUSATZKOSTEN / SOZIALABGABEN -->
+            <div class="pt-2 border-t border-slate-100">
+              <div class="flex items-center justify-between mb-1">
+                <label class="font-semibold text-slate-700">
+                  Gesetzl. & tarifliche Lohnzusatzkosten (<span id="label-lohnzusatz-law">SOKA-BAU, BG Bau, SV</span>):
+                </label>
+                <span id="display-lohnzusatz-pct" class="font-bold text-amber-700 font-mono">82,0 %</span>
+              </div>
+              <input type="range" min="30" max="120" step="0.5" id="slider-lohnzusatz" value="82" oninput="updateLohnzusatzSlider(this.value)" class="w-full accent-amber-600 cursor-pointer">
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>30% (Minimal)</span>
+                <span class="text-slate-600 font-medium">🇩🇪 Schnitt Bau/SHK: 78–88% | 🇨🇭: 38–48% | 🇦🇹 BUAK: 85–105%</span>
+                <span>120% (Höchstsatz)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 2: PRODUKTIVE JAHRESARBEITSZEIT -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 text-xs">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <span>📅 2. Arbeitszeit & Unproduktive Zeiten</span>
+                </h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Von der bezahlten Jahreszeit zu den tatsächlich verrechenbaren Baustellenstunden.</p>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">Schritt 2</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Wochenstunden:</label>
+                <input type="number" step="0.5" id="inp-wochen-std" value="40.0" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2 font-mono">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Urlaubstage:</label>
+                <input type="number" id="inp-urlaub-tage" value="30" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2 font-mono">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Gesetzl. Feiertage:</label>
+                <input type="number" id="inp-feiertage" value="11" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2 font-mono">
+              </div>
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Krankheitstage:</label>
+                <input type="number" id="inp-krank-tage" value="14" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2 font-mono">
+              </div>
+            </div>
+
+            <!-- UNPRODUKTIVE RÜST- UND FAHRZEITEN -->
+            <div class="pt-2 border-t border-slate-100">
+              <div class="flex items-center justify-between mb-1">
+                <label class="font-semibold text-slate-700">
+                  Unproduktive Rüst-, Werkstatt- & Fahrzeiten (% der Anwesenheit):
+                </label>
+                <span id="display-unprod-pct" class="font-bold text-amber-700 font-mono">18,0 %</span>
+              </div>
+              <input type="range" min="5" max="35" step="0.5" id="slider-unprod" value="18" oninput="updateUnprodSlider(this.value)" class="w-full accent-amber-600 cursor-pointer">
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>5% (Extrem produktiv)</span>
+                <span class="text-slate-600 font-medium">Praxis Handwerk: 15–22% (LKW packen, Werkstatt, Leerlauf, nicht abrechenbare Fahrten)</span>
+                <span>35% (Hohe Rüstzeit)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 3: GEMEINKOSTEN & GEWINN -->
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 text-xs">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <span>🏢 3. Gemeinkosten (BGK/AGK) & Wagnis/Gewinn</span>
+                </h3>
+                <p class="text-[11px] text-slate-500 mt-0.5">Miete, Fuhrpark, Werkzeuge, Verwaltung, Versicherungen und Unternehmergewinn.</p>
+              </div>
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">Schritt 3</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">
+                  Betriebsgemeinkosten (<span class="currency-label">€</span>/h):
+                </label>
+                <div class="relative">
+                  <input type="number" step="0.5" id="inp-bgk-stunde" value="24.00" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2.5 pr-8 font-mono font-bold text-slate-900 focus:border-amber-600">
+                  <span class="absolute right-3 top-2.5 font-bold text-slate-400 currency-label">€</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-1">Miete, Kfz, Software, Büro</div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Wagnis & Gewinn (%):</label>
+                <div class="relative">
+                  <input type="number" step="0.5" id="inp-wagnis-gewinn" value="7.5" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2.5 pr-8 font-mono font-bold text-slate-900 focus:border-amber-600">
+                  <span class="absolute right-3 top-2.5 font-bold text-slate-400">%</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-1">Typisch 6% – 12%</div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-1">Ihr aktueller Marktpreis (<span class="currency-label">€</span>/h):</label>
+                <div class="relative">
+                  <input type="number" step="0.5" id="inp-aktueller-preis" value="75.00" oninput="calculateStundensatz()" class="w-full rounded-xl border border-slate-300 p-2.5 pr-8 font-mono text-slate-900 focus:border-amber-600">
+                  <span class="absolute right-3 top-2.5 font-bold text-slate-400 currency-label">€</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-1">Zur Unterdeckungs-Prüfung</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: KALKULATIONS-AUFSTELLUNG & BREAK-EVEN (5 COLS) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-slate-900 text-white p-6 rounded-3xl shadow-xl space-y-5 text-xs">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h4 class="font-bold text-sm text-amber-400 flex items-center gap-2">
+                <span>📊 Exakte Zuschlagskalkulation (1 Stunde)</span>
+              </h4>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300">Netto</span>
+            </div>
+
+            <div class="space-y-2.5 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                <span class="text-slate-400">1. Mittellohn (Grundlohn):</span>
+                <span id="res-grundlohn" class="font-mono font-semibold text-slate-200">23,50 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                <span class="text-slate-400">2. + Lohnzusatzkosten (<span id="res-zusatz-pct">82%</span>):</span>
+                <span id="res-lohnzusatz-betrag" class="font-mono font-semibold text-slate-200">+19,27 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60 font-semibold text-amber-200">
+                <span>= Lohnkosten je bezahlte Stunde:</span>
+                <span id="res-lohn-bezahlt" class="font-mono">42,77 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                <span class="text-slate-400">3. + Umlegung unproduktive Zeiten:</span>
+                <span id="res-unprod-umlage" class="font-mono font-semibold text-slate-200">+9,39 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60 font-semibold text-sky-300">
+                <span>= Fertigungslohn je Produktivstunde:</span>
+                <span id="res-fertigungslohn" class="font-mono">52,16 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                <span class="text-slate-400">4. + Betriebsgemeinkosten (BGK/AGK):</span>
+                <span id="res-bgk-betrag" class="font-mono font-semibold text-slate-200">+24,00 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60 font-bold text-amber-300">
+                <span>= Selbstkosten je Verrechnungsstunde:</span>
+                <span id="res-selbstkosten" class="font-mono">76,16 €</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/60">
+                <span class="text-slate-400">5. + Wagnis & Gewinn (<span id="res-wagnis-pct">7,5%</span>):</span>
+                <span id="res-wagnis-betrag" class="font-mono font-semibold text-emerald-400">+5,71 €</span>
+              </div>
+            </div>
+
+            <!-- RESULT BOX -->
+            <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-center space-y-1">
+              <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Kostendeckender Netto-Stundensatz:</div>
+              <div id="res-end-netto" class="text-3xl font-extrabold text-amber-300 font-mono">81,87 €</div>
+              <div class="text-[11px] text-slate-400">
+                Inkl. <span class="kpi-vat-rate">19%</span> MwSt.: <strong id="res-end-brutto" class="text-white font-mono">97,43 €</strong>
+              </div>
+            </div>
+
+            <!-- ACTION BUTTON TO ADOPT RATE TO AUFMASS -->
+            <button onclick="applyRateToAufmass()" class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs">
+              <span>📐 Stundensatz in Aufmaß- & Nachtragsrechner übernehmen</span>
+              <span>→</span>
+            </button>
+          </div>
+
+          <!-- INFO CARD: EStG 35a / HANDWERKERBONUS -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3 text-xs">
+            <h4 class="font-bold text-slate-900 flex items-center gap-2 text-sm">
+              <span>💡 Verkaufsargument für Privatkunden 2026</span>
+            </h4>
+            <div id="estg-explanation-box" class="text-slate-600 leading-relaxed space-y-2">
+              <p>
+                <strong>20 % Steuer-Ersparnis (§ 35a Abs. 3 EStG):</strong> Bei Privatkunden können 20 % der reinen Arbeits-, Maschinen- und Fahrtkosten (bis zu 6.000 € Lohnsumme = max. <strong>1.200 € direkte Steuerermäßigung</strong>) steuermindernd geltend gemacht werden!
+              </p>
+              <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-950 font-medium text-[11px]">
+                Effektiver Kundenpreis Ihres Stundensatzes nach Steuerbonus: <span id="res-effektiv-netto" class="font-bold font-mono text-emerald-800">65,50 €/h</span> netto!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: DIGITALES AUFMAß (VOB/C & SIA ÜBERMESSUNG) -->
+    <!-- =================================================================== -->
+    <div id="tab-content-aufmass" class="hidden space-y-8">
+      
+      <!-- TOP ACTION BAR -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+        <div>
+          <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+            <span>📐 Prüfbares Aufmaß mit VOB/C & SIA Übermessungsregeln</span>
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">Öffnungen ≤ 2,5 m² (Türen/Fenster) werden nach VOB/C (DIN 18363/18350) automatisch übermessen!</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="addAufmassRow()" class="bg-amber-600 hover:bg-amber-500 text-white font-bold px-3 py-2 rounded-xl text-xs transition shadow-sm flex items-center gap-1.5">
+            <span>+ Neue Aufmaß-Position</span>
+          </button>
+          <button onclick="resetAufmassToDefault()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-3 py-2 rounded-xl text-xs transition">
+            Beispiel zurücksetzen
+          </button>
+        </div>
+      </div>
+
+      <!-- TABLE CONTAINER -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200 uppercase tracking-wider text-[10px]">
+              <tr>
+                <th class="p-3 w-12 text-center">Pos.</th>
+                <th class="p-3 min-w-[200px]">Bezeichnung / Raum / Bauteil</th>
+                <th class="p-3 w-32">Aufmaß-Typ</th>
+                <th class="p-3 min-w-[170px]">Maße (L × B × H)</th>
+                <th class="p-3 min-w-[150px]">Öffnungen / Abzug</th>
+                <th class="p-3 w-24 text-right">Abrech.-Menge</th>
+                <th class="p-3 w-28 text-right">EP (<span class="currency-label">€</span>)</th>
+                <th class="p-3 w-24 text-center">Lohn %</th>
+                <th class="p-3 w-28 text-right">Gesamt (<span class="currency-label">€</span>)</th>
+                <th class="p-3 w-10 text-center"></th>
+              </tr>
+            </thead>
+            <tbody id="aufmass-tbody" class="divide-y divide-slate-100 text-slate-800">
+              <!-- Dynamically populated rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SUMMARY BLOCK -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT: EXPLANATION OF VOB/C & SIA RULES (7 COLS) -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="bg-amber-50/70 border border-amber-200 p-5 rounded-2xl space-y-3 text-xs text-amber-950">
+            <h4 class="font-bold flex items-center gap-2 text-sm text-amber-900">
+              <span>📖 VOB/C ATV & SIA 118 Übermessungsregeln im Klartext:</span>
+            </h4>
+            <ul class="space-y-1.5 list-disc pl-5 leading-relaxed">
+              <li><strong>ATV DIN 18363 (Maler/Lackierer) & DIN 18350 (Putz/Stuck):</strong> Aussparungen und Öffnungen bis zu einer Einzelgröße von <strong>≤ 2,5 m²</strong> werden übermessen (kein Flächenabzug). Dies kompensiert den Mehraufwand für Ecken, Kanten und Laibungen.</li>
+              <li><strong>Öffnungen &gt; 2,5 m²:</strong> Müssen voll von der Abrechnungsfläche abgezogen werden, dafür werden Laibungsflächen gesondert nach lfm oder m² vergütet!</li>
+              <li><strong>Schweizer SIA 118 (Art. 142):</strong> Ausmasse sind vor dem Verdecken (z.B. vor dem Verputzen oder Dämmen) gemeinsam mit der Bauleitung aufzumessen und im Ausmassprotokoll festzuhalten.</li>
+              <li><strong>Österreichische ÖNORM B 2110 (Pkt. 7):</strong> Abrechnung nach Naturmaßen, Übermessungsregeln gemäß den jeweiligen Fachnormen (z.B. ÖNORM B 2210 / B 2230).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RIGHT: TOTALS & 35a TAX BONUS (5 COLS) -->
+        <div class="lg:col-span-5 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4 text-xs">
+          <div class="border-b border-slate-100 pb-3">
+            <h4 class="font-bold text-slate-900 text-sm flex items-center justify-between">
+              <span>Gesamtabrechnung Aufmaß</span>
+              <span class="text-[11px] font-semibold text-slate-400">Prüfbar gem. § 14 VOB/B</span>
+            </h4>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="flex justify-between items-center py-1 border-b border-slate-100">
+              <span class="text-slate-500">Reine Lohn- & Arbeitskosten:</span>
+              <span id="sum-lohn-netto" class="font-mono font-semibold text-slate-900">0,00 €</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-100">
+              <span class="text-slate-500">Material- & Maschinenkosten:</span>
+              <span id="sum-material-netto" class="font-mono font-semibold text-slate-900">0,00 €</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-100 font-bold text-slate-800">
+              <span>Gesamtsumme Netto:</span>
+              <span id="sum-total-netto" class="font-mono text-base text-amber-600">0,00 €</span>
+            </div>
+            <div class="flex justify-between items-center py-1 border-b border-slate-100">
+              <span class="text-slate-500">zzgl. <span class="kpi-vat-rate">19%</span> Mehrwertsteuer:</span>
+              <span id="sum-total-vat" class="font-mono font-semibold text-slate-900">0,00 €</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-slate-200 font-extrabold text-slate-950 text-base">
+              <span>Gesamtsumme Brutto:</span>
+              <span id="sum-total-brutto" class="font-mono text-xl text-slate-950">0,00 €</span>
+            </div>
+          </div>
+
+          <!-- BONUS BOX -->
+          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 space-y-1">
+            <div class="flex items-center justify-between font-bold">
+              <span>§ 35a EStG Steuer-Bonus (Privatkunde):</span>
+              <span id="sum-steuer-bonus" class="font-mono font-extrabold text-emerald-700 text-sm">0,00 €</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-tight">
+              20% der reinen Lohnkosten (<span id="bonus-lohn-basis" class="font-mono">0,00 €</span>) können direkt von der Einkommensteuer abgezogen werden (max. 1.200 €).
+            </p>
+          </div>
+
+          <!-- ACTION BUTTON -->
+          <button onclick="transferAufmassToLetter()" class="w-full bg-slate-900 hover:bg-amber-600 text-white font-bold py-3 px-4 rounded-xl shadow transition flex items-center justify-center gap-2 text-xs">
+            <span>📄 In DIN-A4 Nachtragsangebot & Aufmaßprotokoll übernehmen</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: PRO DIN-A4 NACHTRAGSANGEBOT & REGIERAPPORT -->
+    <!-- =================================================================== -->
+    <div id="tab-content-pro-nachtrag" class="hidden space-y-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT: CONTROLS & METADATA (4 COLS) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 text-xs">
+            <div class="border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <span>✍️ Dokumenten-Auswahl & Projektdaten</span>
+              </h3>
+              <p class="text-[11px] text-slate-500 mt-0.5">DIN 5008 konform mit anwaltlicher Behinderungsanzeige.</p>
+            </div>
+
+            <!-- DOCUMENT TYPE SWITCHER -->
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Dokumenten-Typ:</label>
+              <select id="doc-type-select" onchange="renderA4Sheet()" class="w-full rounded-xl border border-slate-300 p-2.5 font-bold text-slate-900 bg-amber-50 border-amber-300">
+                <option value="nachtrag" selected>Nachtragsangebot mit Mehrkostenanzeige (§ 2 VOB/B / § 650b BGB)</option>
+                <option value="aufmass_protokoll">Prüfbares Aufmaßprotokoll & Bauaufmaß (§ 14 VOB/B / SIA 142)</option>
+                <option value="regierapport">Täglicher/Wöchentlicher Regierapport (SIA 118 / ÖNORM B 2110)</option>
+              </select>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Ihr Handwerksbetrieb (Auftragnehmer):</label>
+                <input type="text" id="let-sender-company" value="Meisterbetrieb Müller GmbH & Co. KG" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Ihre Anschrift:</label>
+                <input type="text" id="let-sender-addr" value="Handwerkerstraße 14, 80339 München" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Auftraggeber / Bauherr / Architekt:</label>
+                <input type="text" id="let-recipient-name" value="Immobilien & Projektentwicklung Schmidt GmbH" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Auftraggeber Anschrift:</label>
+                <input type="text" id="let-recipient-addr" value="Kaufingerstraße 22, 80331 München" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Bauvorhaben / BV:</label>
+                  <input type="text" id="let-project-ref" value="BV Neubau MFH Sonnenhang 4" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Hauptvertrag-Nr.:</label>
+                  <input type="text" id="let-contract-ref" value="BV-2026-089" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Nachtrags-Nr.:</label>
+                  <input type="text" id="let-doc-num" value="NT-01" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Datum:</label>
+                  <input type="date" id="let-doc-date" value="2026-10-23" onchange="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Begründung der Leistungsänderung:</label>
+                <select id="let-change-reason" onchange="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 text-xs">
+                  <option value="bauherr_anordnung">Geänderte Ausführungswünsche des Bauherrn / Architekten</option>
+                  <option value="unvorhergesehen">Unvorhersehbare Bausubstanz / geologische Hindernisse im Altbau</option>
+                  <option value="behinderung">Behinderungsbedingte Leistungsanpassung & Vorunternehmer-Verzug</option>
+                  <option value="statik">Nachträgliche behördliche / statische Auflagen</option>
+                </select>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Bauzeitverlängerung:</label>
+                  <input type="text" id="let-delay-days" value="5 Werktage" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+                <div>
+                  <label class="block font-semibold text-slate-700 mb-0.5">Bindefrist Angebot:</label>
+                  <input type="text" id="let-bind-days" value="14 Kalendertage" oninput="renderA4Sheet()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-amber-600">
+                </div>
+              </div>
+            </div>
+
+            <!-- PRO EXPORT BUTTONS -->
+            <div class="pt-4 border-t border-slate-100 space-y-2">
+              <button onclick="handleProAction('print')" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+                <span>🖨️ DIN-A4 Drucken / PDF speichern</span>
+              </button>
+
+              <button onclick="handleProAction('copy')" id="btn-copy-sheet" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2 text-xs">
+                <span>📋 In Zwischenablage kopieren</span>
+              </button>
+
+              <button onclick="handleProAction('download')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 px-4 rounded-xl transition flex items-center justify-center gap-2 text-xs">
+                <span>💾 Als Textdatei herunterladen</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: LIVE DIN-A4 PREVIEW (8 COLS) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xs font-bold text-slate-800">DIN 5008 Druck-Vorschau</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="letter-pro-tag" class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">PRO-VORSCHAU</span>
+            </div>
+          </div>
+
+          <!-- SHEET WRAPPER WITH OVERLAY IF NOT UNLOCKED -->
+          <div class="relative a4-sheet-wrapper">
+            
+            <!-- LOCKED BLUR OVERLAY -->
+            <div id="letter-locked-overlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] z-20 rounded-2xl flex items-center justify-center p-6 text-center">
+              <div class="bg-white max-w-md w-full p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200 space-y-4 text-slate-900">
+                <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mx-auto shadow-inner">
+                  🔒
+                </div>
+                <div>
+                  <span class="text-[11px] font-extrabold text-amber-600 uppercase tracking-wider">1-Klick Self-Serve Freischaltung</span>
+                  <h4 class="text-lg sm:text-xl font-extrabold mt-0.5">DIN-A4 Nachtrag & Aufmaß freischalten</h4>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Schalten Sie das anwaltlich vorstrukturierte DIN-A4 Nachtragsangebot inkl. formeller Behinderungsanzeige nach VOB/B, BGB § 650b, SIA 118 & ÖNORM B 2110 mit prüfbarem Aufmaßprotokoll, Unterschriftsfeldern und PDF-Druckfunktion sofort frei.
+                </p>
+                <div class="space-y-2 pt-1">
+                  <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <span>🔓 Jetzt freischalten (4,90 € / CHF)</span>
+                    <span>↗</span>
+                  </button>
+                  <button onclick="unlockWithCouponPrompt()" class="w-full text-slate-500 hover:text-amber-600 font-semibold py-1.5 text-xs transition">
+                    Bereits gekauft? Freischaltcode eingeben
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACTUAL DIN A4 SHEET -->
+            <div id="a4-letter-target" class="a4-sheet">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRINT ONLY CONTAINER (WINDOW.PRINT()) -->
+  <div id="print-sheet-container" class="print-only-container hidden"></div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950 text-white p-5 sm:p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">⚡ 100% Self-Serve • Sofort-Zugang</span>
+          <h3 class="text-lg font-extrabold mt-0.5">Handwerker Pro-Pass: Nachtrag & Aufmaß</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-5 text-sm">
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="font-bold text-slate-900">DACH Handwerker Pro-Lizenz 2026</div>
+            <div class="text-xs text-slate-500">Unbegrenzte Nachtragsangebote • VOB/SIA Aufmaß • PDF-Druck</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xl font-extrabold text-amber-600 price-label-inline">4,90 €</div>
+            <div class="text-[10px] text-slate-400">Einmalzahlung (kein Abo)</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">In 2 Sekunden freischalten:</div>
+
+          <!-- Step 1: Open Gumroad Checkout -->
+          <a
+            id="modal-gumroad-link"
+            href="https://dachdigital.gumroad.com/l/gthgwc"
+            target="_blank"
+            rel="noopener"
+            onclick="markGumroadClicked()"
+            class="w-full bg-[#ff90e8] hover:bg-[#ff7be5] text-slate-950 font-extrabold py-3.5 px-5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm border-2 border-slate-950"
+          >
+            <span>💳 Schritt 1: Jetzt 4,90 € / CHF via Gumroad checkout</span>
+            <span>↗</span>
+          </a>
+
+          <!-- Step 2: Instant Self-Serve Unlock Button -->
+          <div id="modal-step2-box" class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 space-y-2.5">
+            <div class="text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔓</span>
+              <span>Schritt 2: Sofort-Freischaltung aktivieren</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-relaxed">
+              Klicken Sie direkt nach dem Kauf hier, um alle Dokumente in diesem Browser sofort freizuschalten (kein Login nötig, Zero-Server-Speicherung):
+            </p>
+            <button
+              onclick="instantUnlockAfterPayment('modal')"
+              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 px-4 rounded-xl shadow transition text-xs sm:text-sm flex items-center justify-center gap-2"
+            >
+              <span>✓ Zahlung getätigt – Pro-Vollversion jetzt öffnen</span>
+            </button>
+          </div>
+
+          <!-- Coupon Unlock -->
+          <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+            <input type="text" id="coupon-input" placeholder="Gutscheincode (z.B. DW-PRO-2026)" class="flex-1 rounded-xl border border-slate-300 p-2 text-xs uppercase focus:border-amber-600">
+            <button onclick="applyCouponCode()" class="bg-slate-900 hover:bg-amber-600 text-white font-bold px-3 py-2 rounded-xl text-xs transition">
+              Einlösen
+            </button>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 text-center pt-1 border-t border-slate-100">
+          100% DSGVO- & revDSG-konform • Ihre Freischaltung bleibt in Ihrem lokalen Browser gespeichert.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs no-print mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">DACH Digitalwerk</span> • Handwerker-Stundensatz-, Aufmaß- & Nachtrags-Kalkulator 2026 (DE / AT / CH)
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="../" class="hover:text-white transition">Alle Tools</a>
+        <a href="../rechner/" class="hover:text-white transition">Solar-Rechner</a>
+        <a href="../arbeitszeugnis/" class="hover:text-white transition">Arbeitszeugnis-Radar</a>
+        <a href="../qr-suite/" class="hover:text-white transition">E-Rechnung & QR</a>
+        <button onclick="resetProStatus()" class="text-slate-600 hover:text-slate-400 transition" title="Setzt den Pro-Status zu Testzwecken zurück">Demo-Status zurücksetzen</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // =========================================================================
+    // STATE & CONFIGURATION 2026
+    // =========================================================================
+    let currentJurisdiction = 'DE'; // 'DE' | 'CH' | 'AT'
+    let isProUnlocked = false;
+    let activeTab = 'stundensatz';
+
+    const JURISDICTION_CONFIG = {
+      DE: {
+        currency: '€',
+        code: 'EUR',
+        vatRate: 0.19,
+        vatLabel: '19%',
+        lawTitle: 'Deutschland: VOB/B, BGB § 650b & § 35a EStG',
+        lawNotice: '<strong>Geltendes Baurecht 2026:</strong> Deutschland – VOB/B (§ 2 Abs. 5 & 6 Nachtragsvergütung, § 14 prüfbare Abrechnung) & BGB-Bauvertrag (§ 650b Änderungsanordnung, § 650c tatsächliche Kosten + AGK/W&G). Inklusive Ausweis der reinen Arbeitskosten nach § 35a EStG für 20 % Steuerabzug (Handwerkerbonus bis 1.200 €/Jahr beim Privatkunden).',
+        lohnzusatzDefault: 82.0,
+        lohnzusatzLabel: 'SOKA-BAU, BG Bau, KV, RV, AV, PV, Umlagen U1-U3',
+        defaultSenderCompany: 'Meisterbetrieb Müller GmbH & Co. KG',
+        defaultSenderAddr: 'Handwerkerstraße 14, 80339 München',
+        defaultRecipientName: 'Immobilien & Projektentwicklung Schmidt GmbH',
+        defaultRecipientAddr: 'Kaufingerstraße 22, 80331 München',
+        defaultDelay: '5 Werktage',
+        defaultBindefrist: '14 Kalendertage',
+        qualPresets: {
+          meister: { brutto: 28.50, bgk: 24.0, wg: 8.0 },
+          geselle: { brutto: 23.50, bgk: 24.0, wg: 7.5 },
+          helfer: { brutto: 17.00, bgk: 22.0, wg: 6.0 },
+          azubi: { brutto: 8.50, bgk: 20.0, wg: 5.0 },
+          regie: { brutto: 26.00, bgk: 25.0, wg: 9.0 }
+        }
+      },
+      CH: {
+        currency: 'CHF',
+        code: 'CHF',
+        vatRate: 0.081,
+        vatLabel: '8,1%',
+        lawTitle: 'Schweiz: SIA 118 (Art. 48 ff. Regie & Art. 84 Nachtrag)',
+        lawNotice: '<strong>Geltendes Baurecht 2026:</strong> Schweiz – SIA 118 (Art. 48 ff. Regiearbeiten nach KBOB/Suissetec/VSSM, Art. 84 ff. Bestellungsänderung & Nachtragspreise, Art. 142 gemeinsames Ausmass) & Art. 363 ff. OR (Werkvertrag).',
+        lohnzusatzDefault: 42.0,
+        lohnzusatzLabel: 'AHV, IV, EO, ALV, SUVA BU/NBU, BVG (2. Säule), FAR, Parifonds',
+        defaultSenderCompany: 'Helvetia Bau & Handwerk AG',
+        defaultSenderAddr: 'Industriestrasse 18, 8005 Zürich',
+        defaultRecipientName: 'Alpen Real Estate Bauleitung AG',
+        defaultRecipientAddr: 'Bahnhofstrasse 52, 8001 Zürich',
+        defaultDelay: '6 Werktage',
+        defaultBindefrist: '30 Kalendertage',
+        qualPresets: {
+          meister: { brutto: 52.00, bgk: 38.0, wg: 10.0 },
+          geselle: { brutto: 42.00, bgk: 38.0, wg: 9.0 },
+          helfer: { brutto: 31.00, bgk: 34.0, wg: 7.0 },
+          azubi: { brutto: 14.00, bgk: 30.0, wg: 5.0 },
+          regie: { brutto: 45.00, bgk: 40.0, wg: 10.0 }
+        }
+      },
+      AT: {
+        currency: '€',
+        code: 'EUR',
+        vatRate: 0.20,
+        vatLabel: '20%',
+        lawTitle: 'Österreich: ÖNORM B 2110 (Pkt. 7) & § 1170a ABGB',
+        lawNotice: '<strong>Geltendes Baurecht 2026:</strong> Österreich – ÖNORM B 2110 (Pkt. 7 Leistungsabweichungen, Regieleistungen & Aufmaßermittlung) & § 1170a ABGB (Kostenvoranschlag mit/ohne Gewähr) sowie Handwerkerbonus Österreich.',
+        lohnzusatzDefault: 92.0,
+        lohnzusatzLabel: 'BUAK (Bauarbeiter-Urlaubs- & Abfertigungskasse), SV, DB, DZ, KommSt',
+        defaultSenderCompany: 'Alpenmeister Bau- & Installationstechnik GmbH',
+        defaultSenderAddr: 'Triester Straße 84, 1100 Wien',
+        defaultRecipientName: 'Wiener Wohnbau & Sanierungs GmbH',
+        defaultRecipientAddr: 'Mariahilfer Straße 102, 1070 Wien',
+        defaultDelay: '5 Werktage',
+        defaultBindefrist: '21 Kalendertage',
+        qualPresets: {
+          meister: { brutto: 29.00, bgk: 26.5, wg: 9.0 },
+          geselle: { brutto: 24.00, bgk: 26.5, wg: 8.0 },
+          helfer: { brutto: 18.00, bgk: 23.0, wg: 6.5 },
+          azubi: { brutto: 9.00, bgk: 21.0, wg: 5.0 },
+          regie: { brutto: 27.50, bgk: 28.0, wg: 8.5 }
+        }
+      }
+    };
+
+    // =========================================================================
+    // AUFMAß DATA MODEL (TAB 2)
+    // =========================================================================
+    let aufmassItems = [
+      {
+        id: 1,
+        posNum: '01.01',
+        title: 'Innenputz Wände Wohnzimmer (Gips-Kalk)',
+        type: 'wall_room', // 2*(L+B)*H
+        length: 5.80,
+        width: 4.20,
+        height: 2.65,
+        pieces: 1,
+        openingArea: 3.20, // > 2.5 m2 -> Abzug!
+        openingNote: 'Fensterfront 2,00 × 1,60 m = 3,20 m² (> 2,5 m²: Abzug)',
+        unit: 'm²',
+        unitPrice: 28.50,
+        laborSharePct: 75
+      },
+      {
+        id: 2,
+        posNum: '01.02',
+        title: 'Malerarbeiten Decke & Wände Flur (2x Dispersionsanstrich)',
+        type: 'area_simple', // L*B
+        length: 6.40,
+        width: 2.20,
+        height: 1.0,
+        pieces: 1,
+        openingArea: 1.80, // <= 2.5 m2 -> VOB/C Übermessen!
+        openingNote: 'Türöffnung 0,90 × 2,00 m = 1,80 m² (VOB/C übermessen!)',
+        unit: 'm²',
+        unitPrice: 16.80,
+        laborSharePct: 80
+      },
+      {
+        id: 3,
+        posNum: '01.03',
+        title: 'Montage Fußleisten Massivholz inkl. Zuschnitt',
+        type: 'linear', // Länge
+        length: 24.50,
+        width: 0,
+        height: 0,
+        pieces: 1,
+        openingArea: 0,
+        openingNote: 'Kein Abzug',
+        unit: 'lfm',
+        unitPrice: 14.50,
+        laborSharePct: 65
+      }
+    ];
+
+    // =========================================================================
+    // INITIALIZATION & TAB SWITCHING
+    // =========================================================================
+    function switchTab(tabId) {
+      activeTab = tabId;
+      ['stundensatz', 'aufmass', 'pro-nachtrag'].forEach(t => {
+        const contentEl = document.getElementById('tab-content-' + t);
+        const navEl = document.getElementById('tab-nav-' + t);
+        if (t === tabId) {
+          contentEl.classList.remove('hidden');
+          navEl.className = 'whitespace-nowrap py-3 px-3 border-b-2 font-bold text-xs sm:text-sm text-amber-600 border-amber-600 flex items-center gap-2';
+        } else {
+          contentEl.classList.add('hidden');
+          navEl.className = 'whitespace-nowrap py-3 px-3 border-b-2 font-semibold text-xs sm:text-sm text-slate-500 border-transparent hover:text-slate-900 hover:border-slate-300 flex items-center gap-2';
+        }
+      });
+
+      if (tabId === 'pro-nachtrag') {
+        renderA4Sheet();
+      }
+    }
+
+    function setJurisdiction(jur) {
+      currentJurisdiction = jur;
+      const cfg = JURISDICTION_CONFIG[jur];
+
+      // Update Top Switcher Buttons
+      ['DE', 'CH', 'AT'].forEach(code => {
+        const btn = document.getElementById('jur-btn-' + code);
+        if (code === jur) {
+          btn.className = 'px-2 py-0.5 rounded-md text-[11px] font-bold bg-amber-600 text-white transition';
+        } else {
+          btn.className = 'px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      // Update Currency Labels & VAT
+      document.querySelectorAll('.currency-label').forEach(el => el.textContent = cfg.currency);
+      document.querySelectorAll('.kpi-vat-rate').forEach(el => el.textContent = cfg.vatLabel);
+
+      const priceStr = jur === 'CH' ? 'CHF 4.90' : '4,90 €';
+      document.querySelectorAll('.price-label-inline').forEach(el => el.textContent = priceStr);
+      document.querySelectorAll('.price-label-btn').forEach(el => el.textContent = `Pro-Vollversion (${priceStr})`);
+
+      // Update Law Notice & Lohnzusatz
+      document.getElementById('jur-law-banner-text').innerHTML = cfg.lawNotice;
+      document.getElementById('label-lohnzusatz-law').textContent = cfg.lohnzusatzLabel;
+      document.getElementById('slider-lohnzusatz').value = cfg.lohnzusatzDefault;
+      updateLohnzusatzSlider(cfg.lohnzusatzDefault);
+
+      // Update Form fields in Tab 3
+      document.getElementById('let-sender-company').value = cfg.defaultSenderCompany;
+      document.getElementById('let-sender-addr').value = cfg.defaultSenderAddr;
+      document.getElementById('let-recipient-name').value = cfg.defaultRecipientName;
+      document.getElementById('let-recipient-addr').value = cfg.defaultRecipientAddr;
+      document.getElementById('let-delay-days').value = cfg.defaultDelay;
+      document.getElementById('let-bind-days').value = cfg.defaultBindefrist;
+
+      // Apply Qual Preset
+      applyQualPreset();
+      calculateStundensatz();
+      renderAufmassTable();
+    }
+
+    function updateLohnzusatzSlider(val) {
+      document.getElementById('display-lohnzusatz-pct').textContent = parseFloat(val).toFixed(1).replace('.', ',') + ' %';
+      calculateStundensatz();
+    }
+
+    function updateUnprodSlider(val) {
+      document.getElementById('display-unprod-pct').textContent = parseFloat(val).toFixed(1).replace('.', ',') + ' %';
+      calculateStundensatz();
+    }
+
+    function applyQualPreset() {
+      const q = document.getElementById('inp-qual-level').value;
+      const cfg = JURISDICTION_CONFIG[currentJurisdiction];
+      const preset = cfg.qualPresets[q] || cfg.qualPresets.geselle;
+
+      document.getElementById('inp-brutto-lohn').value = preset.brutto.toFixed(2);
+      document.getElementById('inp-bgk-stunde').value = preset.bgk.toFixed(2);
+      document.getElementById('inp-wagnis-gewinn').value = preset.wg.toFixed(1);
+
+      calculateStundensatz();
+    }
+
+    // =========================================================================
+    // CALCULATION ENGINE: STUNDENSATZ & GEMEINKOSTEN
+    // =========================================================================
+    let lastCalculatedRate = 78.50;
+
+    function calculateStundensatz() {
+      const cfg = JURISDICTION_CONFIG[currentJurisdiction];
+      const bruttoLohn = parseFloat(document.getElementById('inp-brutto-lohn').value) || 0;
+      const lohnzusatzPct = parseFloat(document.getElementById('slider-lohnzusatz').value) || 0;
+      
+      const wochenStd = parseFloat(document.getElementById('inp-wochen-std').value) || 40;
+      const urlaubTage = parseFloat(document.getElementById('inp-urlaub-tage').value) || 30;
+      const feiertage = parseFloat(document.getElementById('inp-feiertage').value) || 11;
+      const krankTage = parseFloat(document.getElementById('inp-krank-tage').value) || 14;
+      const unprodPct = parseFloat(document.getElementById('slider-unprod').value) || 18;
+
+      const bgkStunde = parseFloat(document.getElementById('inp-bgk-stunde').value) || 0;
+      const wagnisPct = parseFloat(document.getElementById('inp-wagnis-gewinn').value) || 0;
+      const aktuellerPreis = parseFloat(document.getElementById('inp-aktueller-preis').value) || 0;
+
+      // 1. Arbeitszeitberechnung (Jahr)
+      const arbeitstageWoche = 5;
+      const wochenImJahr = 52.14;
+      const theoretischeArbeitstage = wochenImJahr * arbeitstageWoche; // ~260.7 Tage
+      const bezahlteTage = theoretischeArbeitstage; 
+      const bezahlteStunden = (theoretischeArbeitstage * (wochenStd / arbeitstageWoche)); // ~2.085 h
+
+      // Tatsächliche Anwesenheitstage
+      const abwesendeTage = urlaubTage + feiertage + krankTage; // z.B. 30 + 11 + 14 = 55 Tage
+      const anwesenheitsTage = Math.max(1, theoretischeArbeitstage - abwesendeTage); // ~205 Tage
+      const anwesenheitsStunden = anwesenheitsTage * (wochenStd / arbeitstageWoche); // ~1.640 h
+
+      // Produktive Stunden (nach Abzug unproduktiver Rüst-/Fahrzeiten)
+      const produktiveStunden = Math.max(1, anwesenheitsStunden * (1 - (unprodPct / 100))); // ~1.345 h
+
+      // 2. Kostenrechnung je Stunde
+      const lohnzusatzBetrag = bruttoLohn * (lohnzusatzPct / 100);
+      const lohnkostenBezahlt = bruttoLohn + lohnzusatzBetrag; // je bezahlte Stunde
+
+      // Fertigungslohn je produktive Stunde:
+      // Gesamte Lohnkosten im Jahr / produktive Stunden
+      const jahresLohnkosten = lohnkostenBezahlt * anwesenheitsStunden; // Lohn + Lohnzusatz für das Jahr
+      const fertigungslohnJeProdStd = jahresLohnkosten / produktiveStunden;
+      const unprodUmlage = fertigungslohnJeProdStd - lohnkostenBezahlt;
+
+      // Selbstkosten
+      const selbstkosten = fertigungslohnJeProdStd + bgkStunde;
+
+      // Netto-Stundensatz mit Wagnis & Gewinn
+      const wagnisBetrag = selbstkosten * (wagnisPct / 100);
+      const nettoStundensatz = selbstkosten + wagnisBetrag;
+      lastCalculatedRate = nettoStundensatz;
+
+      // Brutto-Stundensatz
+      const bruttoStundensatz = nettoStundensatz * (1 + cfg.vatRate);
+
+      // Deckungsbeitrag bei 8h
+      const deckungsbeitragTag = (nettoStundensatz - fertigungslohnJeProdStd) * 8;
+
+      // 3. Update DOM KPIs
+      const cur = cfg.currency;
+      document.getElementById('kpi-netto-rate').textContent = `${nettoStundensatz.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('kpi-brutto-rate').textContent = `${bruttoStundensatz.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('kpi-prod-hours').textContent = `${Math.round(produktiveStunden)} h`;
+      document.getElementById('kpi-deckungsbeitrag').textContent = `${deckungsbeitragTag.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('badge-stundensatz-kpi').textContent = `${nettoStundensatz.toFixed(2).replace('.', ',')} ${cur}/h`;
+
+      // Detailed Step by Step Breakdown
+      document.getElementById('res-grundlohn').textContent = `${bruttoLohn.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-zusatz-pct').textContent = `${lohnzusatzPct.toFixed(1).replace('.', ',')}%`;
+      document.getElementById('res-lohnzusatz-betrag').textContent = `+${lohnzusatzBetrag.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-lohn-bezahlt').textContent = `${lohnkostenBezahlt.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-unprod-umlage').textContent = `+${Math.max(0, unprodUmlage).toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-fertigungslohn').textContent = `${fertigungslohnJeProdStd.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-bgk-betrag').textContent = `+${bgkStunde.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-selbstkosten').textContent = `${selbstkosten.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-wagnis-pct').textContent = `${wagnisPct.toFixed(1).replace('.', ',')}%`;
+      document.getElementById('res-wagnis-betrag').textContent = `+${wagnisBetrag.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-end-netto').textContent = `${nettoStundensatz.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('res-end-brutto').textContent = `${bruttoStundensatz.toFixed(2).replace('.', ',')} ${cur}`;
+
+      // Steuerbonus Effektivpreis (20% auf Lohnanteil)
+      const steuerEffektiv = nettoStundensatz * 0.80;
+      document.getElementById('res-effektiv-netto').textContent = `${steuerEffektiv.toFixed(2).replace('.', ',')} ${cur}/h`;
+
+      // 4. Unterdeckungs-Warnung
+      const warnBox = document.getElementById('undercover-warning');
+      if (aktuellerPreis > 0 && aktuellerPreis < selbstkosten) {
+        warnBox.classList.remove('hidden');
+        const gap = selbstkosten - aktuellerPreis;
+        document.getElementById('undercover-gap').textContent = `${gap.toFixed(2).replace('.', ',')} ${cur}/h`;
+      } else {
+        warnBox.classList.add('hidden');
+      }
+    }
+
+    // =========================================================================
+    // AUFMAß ENGINE (TAB 2)
+    // =========================================================================
+    function renderAufmassTable() {
+      const tbody = document.getElementById('aufmass-tbody');
+      tbody.innerHTML = '';
+      const cfg = JURISDICTION_CONFIG[currentJurisdiction];
+      const cur = cfg.currency;
+
+      let sumLohnNetto = 0;
+      let sumMaterialNetto = 0;
+      let sumTotalNetto = 0;
+
+      aufmassItems.forEach((item, index) => {
+        // Calculate Quantity & VOB Übermessung
+        let rawQty = 0;
+        let qtyText = '';
+        let deduction = 0;
+        let isOvermeasured = false;
+
+        if (item.type === 'wall_room') {
+          // Raum-Wände: 2 * (L + B) * H
+          rawQty = 2 * (item.length + item.width) * item.height * item.pieces;
+          qtyText = `2×(${item.length.toFixed(2)}+${item.width.toFixed(2)})×${item.height.toFixed(2)}`;
+        } else if (item.type === 'area_simple') {
+          // Fläche: L * B
+          rawQty = item.length * item.width * item.pieces;
+          qtyText = `${item.length.toFixed(2)} × ${item.width.toFixed(2)}`;
+        } else if (item.type === 'volume') {
+          // Volumen: L * B * H
+          rawQty = item.length * item.width * item.height * item.pieces;
+          qtyText = `${item.length.toFixed(2)} × ${item.width.toFixed(2)} × ${item.height.toFixed(2)}`;
+        } else if (item.type === 'linear') {
+          // Laufende Meter: L * Stück
+          rawQty = item.length * item.pieces;
+          qtyText = `${item.length.toFixed(2)} m`;
+        } else {
+          // Pauschal / Stück
+          rawQty = item.pieces;
+          qtyText = `${item.pieces} Stk.`;
+        }
+
+        // VOB/C Übermessungsregel: Einzelöffnungen <= 2.50 m2 werden NICHT abgezogen!
+        if (item.openingArea > 0) {
+          if (item.openingArea <= 2.50) {
+            deduction = 0;
+            isOvermeasured = true;
+          } else {
+            deduction = item.openingArea;
+            isOvermeasured = false;
+          }
+        }
+
+        const netQty = Math.max(0, rawQty - deduction);
+        const itemTotal = netQty * item.unitPrice;
+        const laborShare = itemTotal * (item.laborSharePct / 100);
+        const matShare = itemTotal - laborShare;
+
+        sumLohnNetto += laborShare;
+        sumMaterialNetto += matShare;
+        sumTotalNetto += itemTotal;
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 transition border-b border-slate-100';
+        tr.innerHTML = `
+          <td class="p-3 text-center font-mono font-bold text-slate-500">${escapeHtml(item.posNum)}</td>
+          <td class="p-3">
+            <input type="text" value="${escapeHtml(item.title)}" onchange="updateAufmassField(${item.id}, 'title', this.value)" class="w-full rounded-lg border border-slate-200 p-1.5 font-medium text-slate-800">
+          </td>
+          <td class="p-3">
+            <select onchange="updateAufmassField(${item.id}, 'type', this.value)" class="w-full rounded-lg border border-slate-200 p-1.5 text-[11px] bg-slate-50">
+              <option value="wall_room" ${item.type === 'wall_room' ? 'selected' : ''}>Raum-Wände (2×(L+B)×H)</option>
+              <option value="area_simple" ${item.type === 'area_simple' ? 'selected' : ''}>Fläche (L × B)</option>
+              <option value="volume" ${item.type === 'volume' ? 'selected' : ''}>Volumen (L × B × H)</option>
+              <option value="linear" ${item.type === 'linear' ? 'selected' : ''}>Laufende Meter (lfm)</option>
+              <option value="piece" ${item.type === 'piece' ? 'selected' : ''}>Stück / Pauschal</option>
+            </select>
+          </td>
+          <td class="p-3">
+            <div class="flex items-center gap-1 font-mono text-[11px]">
+              <input type="number" step="0.1" value="${item.length}" oninput="updateAufmassField(${item.id}, 'length', this.value)" class="w-14 rounded border border-slate-200 p-1 text-center" title="Länge">
+              <span class="text-slate-400">×</span>
+              <input type="number" step="0.1" value="${item.width}" oninput="updateAufmassField(${item.id}, 'width', this.value)" class="w-14 rounded border border-slate-200 p-1 text-center" title="Breite">
+              <span class="text-slate-400">×</span>
+              <input type="number" step="0.1" value="${item.height}" oninput="updateAufmassField(${item.id}, 'height', this.value)" class="w-14 rounded border border-slate-200 p-1 text-center" title="Höhe">
+            </div>
+            <div class="text-[10px] text-slate-400 mt-0.5">${qtyText} = ${rawQty.toFixed(2)} ${item.unit}</div>
+          </td>
+          <td class="p-3">
+            <div class="flex items-center gap-1.5">
+              <input type="number" step="0.1" value="${item.openingArea}" oninput="updateAufmassField(${item.id}, 'openingArea', this.value)" class="w-16 rounded border border-slate-200 p-1 font-mono text-center" title="Öffnungsfläche m²">
+              <span class="text-[10px] text-slate-500">m²</span>
+            </div>
+            <div class="mt-0.5">
+              ${isOvermeasured 
+                ? '<span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-100 text-amber-800">VOB: Übermessen (≤2,5m²)</span>' 
+                : (item.openingArea > 2.50 ? '<span class="inline-block px-1.5 py-0.5 rounded text-[9px] font-bold bg-rose-100 text-rose-800">Abzug > 2,5 m²</span>' : '<span class="text-[10px] text-slate-400">Kein Abzug</span>')
+              }
+            </div>
+          </td>
+          <td class="p-3 text-right font-mono font-bold text-slate-900">
+            ${netQty.toFixed(2)} ${item.unit}
+          </td>
+          <td class="p-3 text-right">
+            <input type="number" step="0.5" value="${item.unitPrice.toFixed(2)}" oninput="updateAufmassField(${item.id}, 'unitPrice', this.value)" class="w-20 rounded border border-slate-200 p-1 font-mono text-right text-slate-900">
+          </td>
+          <td class="p-3 text-center">
+            <input type="number" min="0" max="100" value="${item.laborSharePct}" oninput="updateAufmassField(${item.id}, 'laborSharePct', this.value)" class="w-14 rounded border border-slate-200 p-1 font-mono text-center" title="Lohnanteil %">
+            <span class="text-[10px] text-slate-400">%</span>
+          </td>
+          <td class="p-3 text-right font-mono font-extrabold text-amber-700">
+            ${itemTotal.toFixed(2).replace('.', ',')} ${cur}
+          </td>
+          <td class="p-3 text-center">
+            <button onclick="removeAufmassRow(${item.id})" class="text-slate-400 hover:text-rose-600 transition p-1" title="Löschen">✕</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Update Summary Totals
+      const sumVat = sumTotalNetto * cfg.vatRate;
+      const sumTotalBrutto = sumTotalNetto + sumVat;
+
+      // Steuerbonus: 20% von sumLohnNetto (max. 1.200 € / CHF 0)
+      let bonusSteuer = 0;
+      if (currentJurisdiction === 'DE') {
+        bonusSteuer = Math.min(1200, sumLohnNetto * 0.20);
+      } else if (currentJurisdiction === 'AT') {
+        bonusSteuer = Math.min(2000, sumLohnNetto * 0.20);
+      } else {
+        bonusSteuer = 0; // CH hat keinen direkten Handwerkerbonus im EStG
+      }
+
+      document.getElementById('sum-lohn-netto').textContent = `${sumLohnNetto.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('sum-material-netto').textContent = `${sumMaterialNetto.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('sum-total-netto').textContent = `${sumTotalNetto.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('sum-total-vat').textContent = `${sumVat.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('sum-total-brutto').textContent = `${sumTotalBrutto.toFixed(2).replace('.', ',')} ${cur}`;
+
+      document.getElementById('sum-steuer-bonus').textContent = `${bonusSteuer.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('bonus-lohn-basis').textContent = `${sumLohnNetto.toFixed(2).replace('.', ',')} ${cur}`;
+      document.getElementById('badge-aufmass-count').textContent = `${aufmassItems.length} Pos.`;
+    }
+
+    function addAufmassRow() {
+      const nextId = aufmassItems.length > 0 ? Math.max(...aufmassItems.map(i => i.id)) + 1 : 1;
+      const nextPos = '01.' + (aufmassItems.length + 1 < 10 ? '0' : '') + (aufmassItems.length + 1);
+      aufmassItems.push({
+        id: nextId,
+        posNum: nextPos,
+        title: 'Neue Handwerksleistung / Montage',
+        type: 'area_simple',
+        length: 5.0,
+        width: 3.0,
+        height: 1.0,
+        pieces: 1,
+        openingArea: 0,
+        openingNote: '',
+        unit: 'm²',
+        unitPrice: Math.round(lastCalculatedRate * 0.8),
+        laborSharePct: 70
+      });
+      renderAufmassTable();
+    }
+
+    function removeAufmassRow(id) {
+      if (aufmassItems.length <= 1) {
+        alert('Mindestens eine Aufmaß-Position muss erhalten bleiben.');
+        return;
+      }
+      aufmassItems = aufmassItems.filter(i => i.id !== id);
+      renderAufmassTable();
+    }
+
+    function updateAufmassField(id, field, value) {
+      const item = aufmassItems.find(i => i.id === id);
+      if (!item) return;
+
+      if (['length', 'width', 'height', 'pieces', 'openingArea', 'unitPrice', 'laborSharePct'].includes(field)) {
+        item[field] = parseFloat(value) || 0;
+      } else {
+        item[field] = value;
+      }
+
+      // Unit adjustment based on type
+      if (field === 'type') {
+        if (value === 'volume') item.unit = 'm³';
+        else if (value === 'linear') item.unit = 'lfm';
+        else if (value === 'piece') item.unit = 'Stk';
+        else item.unit = 'm²';
+      }
+
+      renderAufmassTable();
+    }
+
+    function resetAufmassToDefault() {
+      loadSampleCase('shk_de');
+    }
+
+    function applyRateToAufmass() {
+      // Set the calculated rate as base for active positions
+      aufmassItems.forEach(item => {
+        item.unitPrice = Math.round(lastCalculatedRate * (item.laborSharePct / 100) + 12);
+      });
+      renderAufmassTable();
+      switchTab('aufmass');
+    }
+
+    function transferAufmassToLetter() {
+      renderA4Sheet();
+      switchTab('pro-nachtrag');
+    }
+
+    // =========================================================================
+    // 3 PRAXISBEISPIELE (1-KLICK LOADERS)
+    // =========================================================================
+    function loadSampleCase(key) {
+      if (key === 'shk_de') {
+        setJurisdiction('DE');
+        document.getElementById('inp-qual-level').value = 'geselle';
+        document.getElementById('inp-brutto-lohn').value = '23.50';
+        document.getElementById('slider-lohnzusatz').value = 82;
+        updateLohnzusatzSlider(82);
+        document.getElementById('inp-bgk-stunde').value = '24.00';
+        document.getElementById('inp-wagnis-gewinn').value = '7.5';
+        document.getElementById('inp-aktueller-preis').value = '75.00';
+        
+        aufmassItems = [
+          { id: 1, posNum: '01.01', title: 'Rohrleitungsinstallation Verbundrohr DN20 (Heizung)', type: 'linear', length: 38.5, width: 0, height: 0, pieces: 1, openingArea: 0, unit: 'lfm', unitPrice: 34.00, laborSharePct: 70 },
+          { id: 2, posNum: '01.02', title: 'Montage Fußbodenheizungs-Verteiler 8-fach inkl. Schrank', type: 'piece', length: 0, width: 0, height: 0, pieces: 2, openingArea: 0, unit: 'Stk', unitPrice: 420.00, laborSharePct: 55 },
+          { id: 3, posNum: '01.03', title: 'Dämmung Rohrleitungen EnEV / GEG 100%', type: 'linear', length: 38.5, width: 0, height: 0, pieces: 1, openingArea: 0, unit: 'lfm', unitPrice: 16.50, laborSharePct: 80 }
+        ];
+      } else if (key === 'maler_ch') {
+        setJurisdiction('CH');
+        document.getElementById('inp-qual-level').value = 'geselle';
+        document.getElementById('inp-brutto-lohn').value = '42.00';
+        document.getElementById('slider-lohnzusatz').value = 42;
+        updateLohnzusatzSlider(42);
+        document.getElementById('inp-bgk-stunde').value = '38.00';
+        document.getElementById('inp-wagnis-gewinn').value = '9.0';
+        document.getElementById('inp-aktueller-preis').value = '110.00';
+
+        aufmassItems = [
+          { id: 1, posNum: '01.01', title: 'Abrieb 1.5mm mineralisch Wandflächen Wohnen (SIA 118)', type: 'wall_room', length: 6.20, width: 4.80, height: 2.70, pieces: 1, openingArea: 4.20, unit: 'm²', unitPrice: 48.00, laborSharePct: 75 },
+          { id: 2, posNum: '01.02', title: 'Fassaden-Vollwärmeschutz EPS 160mm Vorplatz', type: 'area_simple', length: 14.50, width: 3.40, height: 1.0, pieces: 1, openingArea: 1.80, unit: 'm²', unitPrice: 95.00, laborSharePct: 65 },
+          { id: 3, posNum: '01.03', title: 'Regiearbeit Meister Vorarbeiten & Detailanschlüsse KBOB', type: 'piece', length: 0, width: 0, height: 0, pieces: 8, openingArea: 0, unit: 'h', unitPrice: 115.00, laborSharePct: 95 }
+        ];
+      } else if (key === 'bau_at') {
+        setJurisdiction('AT');
+        document.getElementById('inp-qual-level').value = 'geselle';
+        document.getElementById('inp-brutto-lohn').value = '24.00';
+        document.getElementById('slider-lohnzusatz').value = 92;
+        updateLohnzusatzSlider(92);
+        document.getElementById('inp-bgk-stunde').value = '26.50';
+        document.getElementById('inp-wagnis-gewinn').value = '8.0';
+        document.getElementById('inp-aktueller-preis').value = '82.00';
+
+        aufmassItems = [
+          { id: 1, posNum: '01.01', title: 'Zementestrich CT-C25-F4 schwimmend d=65mm (ÖNORM B 2110)', type: 'area_simple', length: 8.50, width: 6.20, height: 1.0, pieces: 1, openingArea: 0, unit: 'm²', unitPrice: 32.50, laborSharePct: 60 },
+          { id: 2, posNum: '01.02', title: 'Abdichtung Verbundabdichtung Sanitärbereich 2-lagig', type: 'area_simple', length: 3.80, width: 2.60, height: 1.0, pieces: 1, openingArea: 0, unit: 'm²', unitPrice: 44.00, laborSharePct: 75 },
+          { id: 3, posNum: '01.03', title: 'Fliesenverlegung Feinsteinzeug 60x60 kalibriert', type: 'area_simple', length: 3.80, width: 2.60, height: 1.0, pieces: 1, openingArea: 0, unit: 'm²', unitPrice: 68.00, laborSharePct: 80 }
+        ];
+      }
+      calculateStundensatz();
+      renderAufmassTable();
+    }
+
+    // =========================================================================
+    // DIN-A4 SHEET RENDERER (TAB 3)
+    // =========================================================================
+    function renderA4Sheet() {
+      const docType = document.getElementById('doc-type-select').value;
+      const target = document.getElementById('a4-letter-target');
+      const cfg = JURISDICTION_CONFIG[currentJurisdiction];
+      const cur = cfg.currency;
+
+      const senderComp = escapeHtml(document.getElementById('let-sender-company').value);
+      const senderAddr = escapeHtml(document.getElementById('let-sender-addr').value);
+      const recipName = escapeHtml(document.getElementById('let-recipient-name').value);
+      const recipAddr = escapeHtml(document.getElementById('let-recipient-addr').value);
+      const projectRef = escapeHtml(document.getElementById('let-project-ref').value);
+      const contractRef = escapeHtml(document.getElementById('let-contract-ref').value);
+      const docNum = escapeHtml(document.getElementById('let-doc-num').value);
+      const docDate = escapeHtml(document.getElementById('let-doc-date').value);
+      const changeReason = document.getElementById('let-change-reason').value;
+      const delayDays = escapeHtml(document.getElementById('let-delay-days').value);
+      const bindDays = escapeHtml(document.getElementById('let-bind-days').value);
+
+      // Calculations from Aufmaß Items
+      let sumNetto = 0;
+      let sumLabor = 0;
+      aufmassItems.forEach(i => {
+        let rawQty = 0;
+        if (i.type === 'wall_room') rawQty = 2 * (i.length + i.width) * i.height * i.pieces;
+        else if (i.type === 'area_simple') rawQty = i.length * i.width * i.pieces;
+        else if (i.type === 'volume') rawQty = i.length * i.width * i.height * i.pieces;
+        else if (i.type === 'linear') rawQty = i.length * i.pieces;
+        else rawQty = i.pieces;
+
+        const deduction = (i.openingArea > 2.50) ? i.openingArea : 0;
+        const netQty = Math.max(0, rawQty - deduction);
+        const posTotal = netQty * i.unitPrice;
+        sumNetto += posTotal;
+        sumLabor += posTotal * (i.laborSharePct / 100);
+      });
+      const sumVat = sumNetto * cfg.vatRate;
+      const sumBrutto = sumNetto + sumVat;
+
+      // Law specific clause
+      let lawClause = '';
+      let docTitle = '';
+      let subHeader = '';
+
+      if (docType === 'nachtrag') {
+        docTitle = `NACHTRAGSANGEBOT NR. ${docNum}`;
+        if (currentJurisdiction === 'DE') {
+          subHeader = 'Behinderungs- & Mehrkostenanzeige gem. § 2 Abs. 5 / § 2 Abs. 6 VOB/B & § 650b / § 650c BGB';
+          lawClause = `
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[9pt] leading-tight space-y-1">
+              <strong>Formelle Mehrkosten- & Behinderungsanzeige (§ 2 Abs. 6 VOB/B & § 650b BGB):</strong>
+              <p>Hiermit zeigen wir an, dass die nachfolgend aufgeführten Leistungen vom ursprünglichen Hauptvertrag (${contractRef}) abweichen und zusätzliche, erforderliche Leistungen darstellen. Wir fordern Sie höflich auf, dieses Nachtragsangebot vor Ausführungsbeginn schriftlich zu bestätigen. Gemäß § 650c Abs. 3 BGB behalten wir uns den gesetzlichen Anspruch auf 80 % Abschlagszahlung vor.</p>
+            </div>
+          `;
+        } else if (currentJurisdiction === 'CH') {
+          subHeader = 'Bestellungsänderung & Nachtragspreise gem. SIA 118 (Art. 84 ff.) & Art. 363 ff. OR';
+          lawClause = `
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[9pt] leading-tight space-y-1">
+              <strong>Nachtragsanzeige nach Schweizer SIA 118 (Art. 84 ff.):</strong>
+              <p>Infolge geänderter Ausführungsbestellungen verlangen wir für die geänderten Werkteile eine Vergütungsanpassung. Die Preisermittlung stützt sich auf die vertragliche Kalkulationsbasis des Werkvertrags. Für etwaige Regieleistungen gelten die Tarife der KBOB / Suissetec.</p>
+            </div>
+          `;
+        } else {
+          subHeader = 'Zusatzangebot gem. ÖNORM B 2110 (Pkt. 7) & § 1170a ABGB';
+          lawClause = `
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[9pt] leading-tight space-y-1">
+              <strong>Zusatzangebot nach ÖNORM B 2110 Pkt. 7.2 & 7.4:</strong>
+              <p>Leistungsabweichung unverzüglich angemeldet. Gemäß § 1170a ABGB wird angezeigt, dass durch die unvorhergesehenen Erfordernisse Mehrkosten entstehen, die vor Inangriffnahme freizugeben sind.</p>
+            </div>
+          `;
+        }
+      } else if (docType === 'aufmass_protokoll') {
+        docTitle = `PRÜFBARES AUFMAßPROTOKOLL & LEISTUNGSBLATT`;
+        subHeader = currentJurisdiction === 'DE' ? 'Gemeinsames Aufmaß gem. § 14 VOB/B & VOB/C ATV' : (currentJurisdiction === 'CH' ? 'Gemeinsame Ausmass-Aufnahme gem. SIA 118 Art. 142' : 'Aufmaßermittlung gem. ÖNORM B 2110');
+        lawClause = `
+          <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[9pt] leading-tight space-y-1">
+            <strong>Gemeinsame Aufmaß-Vereinbarung:</strong>
+            <p>Die nachstehenden Maße wurden an Ort und Stelle gemeinsam ermittelt und aufgemessen. Öffnungen bis 2,5 m² wurden gemäß einschlägigen Übermessungsregeln (ATV / SIA / ÖNORM) übermessen. Die Unterzeichnenden bestätigen die Richtigkeit der Flächen- und Massenermittlung.</p>
+          </div>
+        `;
+      } else {
+        docTitle = `REGIERAPPORT & TAGESBERICHT NR. ${docNum}`;
+        subHeader = currentJurisdiction === 'CH' ? 'Regierapport gem. SIA 118 (Art. 47 & 50) KBOB' : 'Regiebericht gem. VOB/B § 15 & ÖNORM B 2110';
+        lawClause = `
+          <div class="p-2.5 bg-slate-50 border border-slate-200 rounded text-[9pt] leading-tight space-y-1">
+            <strong>Anerkennung von Regiestunden:</strong>
+            <p>Die ausgeführten Regiestunden und Materialverbräuche wurden auftragsgemäß erbracht und sind binnen 6 Werktagen gegenzuzeichnen (SIA 118 Art. 50 / VOB/B § 15 Abs. 3).</p>
+          </div>
+        `;
+      }
+
+      // Reason Text
+      let reasonText = '';
+      if (changeReason === 'bauherr_anordnung') reasonText = 'Sonderwünsche / Planungsänderung durch die Bauherrschaft bzw. Bauleitung.';
+      else if (changeReason === 'unvorhergesehen') reasonText = 'Unvorhersehbare Bausubstanz & verdeckte Mängel im Altbaubestand.';
+      else if (changeReason === 'behinderung') reasonText = 'Behinderung & Bauzeitverzögerung durch Vorunternehmer-Gewerke.';
+      else reasonText = 'Nachträgliche behördliche / brandschutztechnische Auflagen.';
+
+      // Generate HTML rows for A4 Table
+      let rowsHtml = '';
+      aufmassItems.forEach((item, idx) => {
+        let rawQty = 0;
+        if (item.type === 'wall_room') rawQty = 2 * (item.length + item.width) * item.height * item.pieces;
+        else if (item.type === 'area_simple') rawQty = item.length * item.width * item.pieces;
+        else if (item.type === 'volume') rawQty = item.length * item.width * item.height * item.pieces;
+        else if (item.type === 'linear') rawQty = item.length * item.pieces;
+        else rawQty = item.pieces;
+
+        const deduction = (item.openingArea > 2.50) ? item.openingArea : 0;
+        const netQty = Math.max(0, rawQty - deduction);
+        const posTotal = netQty * item.unitPrice;
+
+        rowsHtml += `
+          <tr class="border-b border-slate-200">
+            <td class="py-1.5 px-2 text-center font-mono">${escapeHtml(item.posNum)}</td>
+            <td class="py-1.5 px-2 font-medium">
+              <div>${escapeHtml(item.title)}</div>
+              <div class="text-[8pt] text-slate-500">
+                ${item.openingArea > 0 ? (item.openingArea <= 2.5 ? `Öffnung ${item.openingArea} m² (gem. VOB/C übermessen)` : `Abzug Öffnung: -${item.openingArea} m²`) : 'Kein Abzug'}
+              </div>
+            </td>
+            <td class="py-1.5 px-2 text-right font-mono">${netQty.toFixed(2)} ${item.unit}</td>
+            <td class="py-1.5 px-2 text-right font-mono">${item.unitPrice.toFixed(2)} ${cur}</td>
+            <td class="py-1.5 px-2 text-right font-mono font-bold">${posTotal.toFixed(2)} ${cur}</td>
+          </tr>
+        `;
+      });
+
+      // Template Assembly
+      const fullHtml = `
+        <div class="space-y-4">
+          <!-- SENDER LINE (DIN 5008) -->
+          <div class="border-b border-slate-300 pb-2 text-[8pt] text-slate-500">
+            ${senderComp} • ${senderAddr}
+          </div>
+
+          <!-- RECIPIENT & METADATA -->
+          <div class="flex justify-between items-start pt-2">
+            <div class="w-1/2 space-y-0.5">
+              <div class="font-bold text-slate-900">${recipName}</div>
+              <div class="text-slate-700 whitespace-pre-line">${recipAddr}</div>
+            </div>
+
+            <div class="w-1/3 text-right space-y-1 text-[8.5pt]">
+              <div><strong>Datum:</strong> ${docDate}</div>
+              <div><strong>Projekt:</strong> ${projectRef}</div>
+              <div><strong>Hauptvertrag:</strong> ${contractRef}</div>
+              <div><strong>Vorgangs-Nr:</strong> ${docNum}</div>
+            </div>
+          </div>
+
+          <!-- DOCUMENT HEADLINE -->
+          <div class="pt-4 border-t border-slate-200">
+            <h1 class="text-[13pt] font-extrabold text-slate-900 tracking-tight">${docTitle}</h1>
+            <div class="text-[9pt] font-semibold text-amber-700">${subHeader}</div>
+          </div>
+
+          <!-- REASON & LAW CLAUSE -->
+          <div class="space-y-2 text-[9pt]">
+            <div><strong>Anlass / Begründung:</strong> ${reasonText}</div>
+            ${lawClause}
+          </div>
+
+          <!-- POSITIONS TABLE -->
+          <div class="pt-2">
+            <table class="w-full text-left text-[8.5pt] border-collapse">
+              <thead>
+                <tr class="bg-slate-100 text-slate-700 border-y border-slate-300 font-bold">
+                  <th class="py-1.5 px-2 w-12 text-center">Pos.</th>
+                  <th class="py-1.5 px-2">Leistungsbeschreibung & Aufmaß</th>
+                  <th class="py-1.5 px-2 w-24 text-right">Menge</th>
+                  <th class="py-1.5 px-2 w-24 text-right">EP (${cur})</th>
+                  <th class="py-1.5 px-2 w-28 text-right">Gesamt (${cur})</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rowsHtml}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SUMS BLOCK -->
+          <div class="flex justify-end pt-2 text-[9pt]">
+            <div class="w-72 space-y-1">
+              <div class="flex justify-between">
+                <span>Nettobetrag:</span>
+                <span class="font-mono font-semibold">${sumNetto.toFixed(2).replace('.', ',')} ${cur}</span>
+              </div>
+              <div class="flex justify-between text-slate-600">
+                <span>MwSt. (${cfg.vatLabel}):</span>
+                <span class="font-mono">${sumVat.toFixed(2).replace('.', ',')} ${cur}</span>
+              </div>
+              <div class="flex justify-between font-bold text-slate-900 border-t border-slate-300 pt-1 text-[10.5pt]">
+                <span>Gesamtbetrag Brutto:</span>
+                <span class="font-mono text-amber-700">${sumBrutto.toFixed(2).replace('.', ',')} ${cur}</span>
+              </div>
+              <div class="text-[8pt] text-slate-500 pt-0.5">
+                davon reine Lohnleistung (§ 35a EStG): <strong>${sumLabor.toFixed(2).replace('.', ',')} ${cur}</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONDITIONS & TIMELINES -->
+          <div class="pt-2 text-[8.5pt] text-slate-700 space-y-1 border-t border-slate-200">
+            <div><strong>Ausführungsfrist & Bauzeit:</strong> Durch diese Zusatzleistung verschiebt sich die vertragliche Fertigstellung um <strong>${delayDays}</strong>.</div>
+            <div><strong>Bindefrist:</strong> Wir halten uns an dieses Nachtragsangebot für <strong>${bindDays}</strong> ab Ausstellungsdatum gebunden.</div>
+            <div><strong>Zahlungsbedingungen:</strong> Zahlbar sofort nach Rechnungsstellung bzw. im nächsten Abschlagszyklus ohne Abzug.</div>
+          </div>
+
+          <!-- SIGNATURES -->
+          <div class="pt-8 grid grid-cols-2 gap-8 text-[8.5pt]">
+            <div>
+              <div class="border-b border-slate-400 pb-8"></div>
+              <div class="pt-1 font-semibold text-slate-800">Ort, Datum / Unterschrift Auftragnehmer</div>
+              <div class="text-[7.5pt] text-slate-500">${senderComp}</div>
+            </div>
+            <div>
+              <div class="border-b border-slate-400 pb-8"></div>
+              <div class="pt-1 font-semibold text-slate-800">Freigabe Auftraggeber / Bauherr / Architekt</div>
+              <div class="text-[7.5pt] text-slate-500">Kosten anerkannt & Ausführung beauftragt</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      target.innerHTML = fullHtml;
+
+      // Update Locked Overlay Status
+      const overlay = document.getElementById('letter-locked-overlay');
+      const tag = document.getElementById('letter-pro-tag');
+      if (isProUnlocked) {
+        overlay.classList.add('hidden');
+        tag.className = 'text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300';
+        tag.textContent = 'PRO-VOLLVERSION AKTIV';
+        document.getElementById('pro-status-pill').textContent = 'Pro-Vollversion';
+        document.getElementById('pro-status-pill').className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full';
+      } else {
+        overlay.classList.remove('hidden');
+        tag.className = 'text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300';
+        tag.textContent = 'PRO-VORSCHAU';
+      }
+    }
+
+    // =========================================================================
+    // PRO CHECKOUT & UNLOCK MECHANISM
+    // =========================================================================
+    function openCheckoutModal() {
+      if (isProUnlocked) {
+        switchTab('pro-nachtrag');
+        return;
+      }
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function markGumroadClicked() {
+      const box = document.getElementById('modal-step2-box');
+      box.classList.add('ring-4', 'ring-emerald-400/50');
+    }
+
+    function instantUnlockAfterPayment(src) {
+      isProUnlocked = true;
+      try {
+        localStorage.setItem('digitalwerk_handwerker_pro', '1');
+      } catch (e) {}
+      closeCheckoutModal();
+      renderA4Sheet();
+      switchTab('pro-nachtrag');
+    }
+
+    function applyCouponCode() {
+      const inp = document.getElementById('coupon-input').value.trim().toUpperCase();
+      if (inp === 'DW-PRO-2026' || inp === 'HANDWERK-2026' || inp === 'DIGITALWERK') {
+        instantUnlockAfterPayment('coupon');
+        alert('Gutscheincode erfolgreich eingelöst! Die Handwerker Pro-Vollversion ist jetzt unbegrenzt freigeschaltet.');
+      } else {
+        alert('Ungültiger Freischaltcode. Bitte prüfen Sie Ihre Eingabe oder nutzen Sie die Sofort-Freischaltung über Gumroad.');
+      }
+    }
+
+    function unlockWithCouponPrompt() {
+      const code = prompt('Bitte geben Sie Ihren Freischaltcode ein (z.B. DW-PRO-2026):');
+      if (code && (code.trim().toUpperCase() === 'DW-PRO-2026' || code.trim().toUpperCase() === 'HANDWERK-2026')) {
+        instantUnlockAfterPayment('prompt');
+        alert('Erfolgreich freigeschaltet!');
+      } else if (code) {
+        alert('Ungültiger Freischaltcode.');
+      }
+    }
+
+    function resetProStatus() {
+      isProUnlocked = false;
+      try {
+        localStorage.removeItem('digitalwerk_handwerker_pro');
+      } catch (e) {}
+      renderA4Sheet();
+      alert('Pro-Status wurde zu Testzwecken zurückgesetzt.');
+    }
+
+    function handleProAction(action) {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+
+      if (action === 'print') {
+        // Prepare Print Container
+        const targetHtml = document.getElementById('a4-letter-target').innerHTML;
+        const printCont = document.getElementById('print-sheet-container');
+        printCont.innerHTML = `<div class="a4-sheet">${targetHtml}</div>`;
+        window.print();
+      } else if (action === 'copy') {
+        const plainText = generatePlainTextDocument();
+        navigator.clipboard.writeText(plainText).then(() => {
+          const btn = document.getElementById('btn-copy-sheet');
+          const orig = btn.innerHTML;
+          btn.innerHTML = '<span>✓ Text kopiert!</span>';
+          setTimeout(() => { btn.innerHTML = orig; }, 1800);
+        });
+      } else if (action === 'download') {
+        const plainText = generatePlainTextDocument();
+        const blob = new Blob([plainText], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Nachtragsangebot_${document.getElementById('let-doc-num').value}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
+    function generatePlainTextDocument() {
+      const cfg = JURISDICTION_CONFIG[currentJurisdiction];
+      const cur = cfg.currency;
+      const docType = document.getElementById('doc-type-select').value;
+      const docNum = document.getElementById('let-doc-num').value;
+      const docDate = document.getElementById('let-doc-date').value;
+      const senderComp = document.getElementById('let-sender-company').value;
+      const senderAddr = document.getElementById('let-sender-addr').value;
+      const recipName = document.getElementById('let-recipient-name').value;
+      const recipAddr = document.getElementById('let-recipient-addr').value;
+      const projRef = document.getElementById('let-project-ref').value;
+      const contRef = document.getElementById('let-contract-ref').value;
+
+      let sumNetto = 0;
+      let lines = [
+        `========================================================================`,
+        `${docType.toUpperCase()} NR. ${docNum}`,
+        `Bauvorhaben: ${projRef} | Hauptvertrag: ${contRef}`,
+        `Datum: ${docDate}`,
+        `========================================================================`,
+        ``,
+        `Auftragnehmer: ${senderComp}, ${senderAddr}`,
+        `Auftraggeber:  ${recipName}, ${recipAddr}`,
+        ``,
+        `LEISTUNGSPOSITIONEN & AUFMAß:`,
+        `------------------------------------------------------------------------`
+      ];
+
+      aufmassItems.forEach(i => {
+        let rawQty = 0;
+        if (i.type === 'wall_room') rawQty = 2 * (i.length + i.width) * i.height * i.pieces;
+        else if (i.type === 'area_simple') rawQty = i.length * i.width * i.pieces;
+        else if (i.type === 'volume') rawQty = i.length * i.width * i.height * i.pieces;
+        else if (i.type === 'linear') rawQty = i.length * i.pieces;
+        else rawQty = i.pieces;
+
+        const deduction = (i.openingArea > 2.50) ? i.openingArea : 0;
+        const netQty = Math.max(0, rawQty - deduction);
+        const posTotal = netQty * i.unitPrice;
+        sumNetto += posTotal;
+
+        lines.push(`Pos ${i.posNum}: ${i.title}`);
+        lines.push(`  Menge: ${netQty.toFixed(2)} ${i.unit} × ${i.unitPrice.toFixed(2)} ${cur} = ${posTotal.toFixed(2)} ${cur}`);
+      });
+
+      const sumVat = sumNetto * cfg.vatRate;
+      const sumBrutto = sumNetto + sumVat;
+
+      lines.push(`------------------------------------------------------------------------`);
+      lines.push(`Zwischensumme Netto: ${sumNetto.toFixed(2)} ${cur}`);
+      lines.push(`MwSt. (${cfg.vatLabel}):       ${sumVat.toFixed(2)} ${cur}`);
+      lines.push(`Gesamtsumme Brutto:  ${sumBrutto.toFixed(2)} ${cur}`);
+      lines.push(``);
+      lines.push(`Rechtlicher Hinweis: Formelle Anzeige gem. Baurecht ${cfg.lawTitle}.`);
+      lines.push(`Freigabe Auftraggeber: __________________________ Datum/Unterschrift`);
+
+      return lines.join('\n');
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // =========================================================================
+    // WINDOW ONLOAD
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      // Check for Pro URL params
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('pro') === '1' || params.get('unlock') === '1' || params.get('paid') === '1') {
+        isProUnlocked = true;
+        try { localStorage.setItem('digitalwerk_handwerker_pro', '1'); } catch (e) {}
+      } else {
+        try {
+          if (localStorage.getItem('digitalwerk_handwerker_pro') === '1') {
+            isProUnlocked = true;
+          }
+        } catch (e) {}
+      }
+
+      // Initialize with Default Sample (DE SHK)
+      loadSampleCase('shk_de');
+    });
+  </script>
+</body>
+</html>

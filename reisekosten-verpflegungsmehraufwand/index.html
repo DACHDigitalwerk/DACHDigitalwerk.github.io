@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Reisekosten-, Verpflegungsmehraufwand- & Pendlerpauschalen-Rechner 2026 (DE, AT, CH) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser DACH Reisekosten- & Spesenrechner 2026: Verpflegungsmehraufwand nach BMF 2026 (§ 9 Abs. 4a EStG), Österreich (§ 26 Z 4 EStG) & Schweiz. Kilometergeld, Mahlzeitenabzug & druckfertige DIN-A4 Abrechnung. 100% lokal im Browser." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/reisekosten-verpflegungsmehraufwand/" />
+  <meta property="og:title" content="DACH Reisekosten- & Verpflegungsmehraufwand-Rechner 2026 (DE, AT, CH)" />
+  <meta property="og:description" content="Amtliche Spesensätze 2026, Mahlzeitenkürzung (-20% / -40%), Pendlerpauschale und Kilometerentschädigung. Druckfertige Reisekostenabrechnung nach BMF-Standard ohne Registrierung." />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/reisekosten-verpflegungsmehraufwand/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            travel: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 18mm 18mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.45;
+      position: relative;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Reisekosten-, Verpflegungsmehraufwand- & Pendlerpauschalen-Rechner 2026",
+    "url": "https://dach-digitalwerk.netlify.app/reisekosten-verpflegungsmehraufwand/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All modern web browsers",
+    "description": "Amtliche Spesensätze 2026 für Deutschland (BMF / § 9 Abs. 4a EStG), Österreich (§ 26 Z 4 EStG) und die Schweiz. Berechnet Verpflegungsmehraufwand, Mahlzeitenkürzungen, amtliches Kilometergeld und druckfertige DIN-A4 Abrechnungen 100% client-side im Browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "EUR"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dach-digitalwerk.netlify.app/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Verpflegungspauschale 2026 in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Deutschland beträgt die Verpflegungspauschale für Inlandsdienstreisen gemäß § 9 Abs. 4a EStG (BMF 2026): 28,00 € für jeden vollen Kalendertag (24 Stunden Abwesenheit) sowie 14,00 € für den An- und Abreisetag bei mehrtägigen Dienstreisen mit Übernachtung oder bei eintägigen Dienstreisen ohne Übernachtung mit mehr als 8 Stunden Abwesenheit von der Wohnung und der ersten Tätigkeitsstätte."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie werden Mahlzeiten vom Verpflegungsmehraufwand abgezogen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Erhält der Arbeitnehmer vom Arbeitgeber oder auf dessen Veranlassung von Dritten unentgeltlich Mahlzeiten gestellt (z.B. Hotelfrühstück oder Geschäftsessen), wird der Pauschbetrag gekürzt: Für ein Frühstück um 20 % des vollen Tagessatzes (-5,60 €), für ein Mittagessen um 40 % (-11,20 €) und für ein Abendessen um 40 % (-11,20 €). Die Kürzung kann den Betrag maximal auf 0,00 € senken."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Spesensätze gelten in Österreich und der Schweiz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Österreich beträgt das amtliche Tagesgeld gem. § 26 Z 4 EStG bis zu 30,00 € pro Tag (bei mehr als 11 Stunden, aliquotiert mit 2,50 € je angefangene Stunde bei mehr als 3 Stunden). Das Nächtigungsgeld beträgt pauschal 17,00 €. In der Schweiz beträgt die Pauschale für Hauptmahlzeiten je 35 CHF (Mittag 35 CHF, Abend 35 CHF, ganztags 70 CHF) und das Kilometergeld üblicherweise 0,70 CHF/km."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Kilometerpauschale 2026 für Dienstreisen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Deutschland beträgt die Reisekosten-Kilometerpauschale bei Dienstreisen mit dem Privat-Pkw 0,30 € je tatsächlich gefahrenem Kilometer (Hin- und Rückweg). In Österreich liegt das amtliche Kilometergeld für Pkw bei 0,42 €/km (Motorrad 0,24 €/km, Fahrrad 0,38 €/km). In der Schweiz gilt ein Richtwert von 0,70 CHF/km."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP PRIVACY & ZERO-ACCOUNT BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-300">DSGVO-konform (Keine Speicherung Ihrer Reisedaten auf externen Servern)</span>
+        <span class="hidden md:inline text-slate-600">•</span>
+        <span class="hidden md:inline text-slate-400">BMF 2026 & EStG Normkonform</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <span>Gültigkeitsraum:</span>
+        <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-200">🇩🇪 BMF 2026</span>
+        <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-200">🇦🇹 § 26 EStG</span>
+        <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-200">🇨🇭 Spesenreglement</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <a href="../" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-slate-900 via-emerald-900 to-emerald-600 text-white flex items-center justify-center text-base font-extrabold tracking-tighter shadow-md shadow-emerald-600/15">
+          DW
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-none">DACH Digitalwerk</span>
+            <span class="hidden sm:inline-block text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">Tool #13</span>
+          </div>
+          <span class="text-xs font-medium text-slate-500 block mt-1">
+            Reisekosten, Verpflegungsmehraufwand & Pendlerpauschale 2026
+          </span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="#druckvorschau" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition">
+          <span>📄</span>
+          <span>Druckansicht</span>
+        </a>
+        <button onclick="openCheckoutModal()" id="header-unlock-btn" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-md shadow-emerald-600/20 transition">
+          <span>⭐</span>
+          <span>B2B Paket Pro</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HAFTUNGSAUSSCHLUSS DISCLAIMER BANNER -->
+  <aside class="bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2 px-4 no-print" aria-label="Rechtlicher Hinweis">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong class="font-bold text-amber-100">RDG &amp; StBerG Hinweis:</strong>
+        Rein rechnerisches Hilfsmittel nach den amtlichen Spesensätzen 2026. Keine steuerliche oder rechtliche Beratung gemäß § 2 RDG / § 5 StBerG. Die steuerliche Anerkennung obliegt dem zuständigen Finanzamt bzw. der kantonalen Steuerbehörde.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN APPLICATION CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+
+    <!-- HERO & SELECTION SECTION -->
+    <div class="no-print space-y-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-2">
+            <span>💶 BMF 2026 / § 9 Abs. 4a EStG</span>
+            <span>•</span>
+            <span>Stand: Januar 2026</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+            DACH Reisekosten- & Spesenabrechnung 2026
+          </h1>
+          <p class="text-sm text-slate-600 max-w-3xl mt-1">
+            Berechnen Sie Verpflegungsmehraufwand, Mahlzeitenkürzungen, amtliches Kilometergeld und Pendlerpauschalen sekundenschnell. Erstellen Sie eine prüffähige DIN-A4 Abrechnung für Buchhaltung und Finanzamt.
+          </p>
+        </div>
+
+        <!-- COUNTRY SELECTOR PILLS -->
+        <div class="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-1 shrink-0">
+          <button type="button" onclick="setCountry('DE')" id="btn-country-de" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-emerald-600 text-white shadow-sm">
+            <span>🇩🇪</span>
+            <span>Deutschland</span>
+          </button>
+          <button type="button" onclick="setCountry('AT')" id="btn-country-at" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition flex items-center gap-1.5">
+            <span>🇦🇹</span>
+            <span>Österreich</span>
+          </button>
+          <button type="button" onclick="setCountry('CH')" id="btn-country-ch" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition flex items-center gap-1.5">
+            <span>🇨🇭</span>
+            <span>Schweiz</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MAIN TABS: DIENSTREISE VS PENDLERPAUSCHALE -->
+      <div class="flex border-b border-slate-200 text-sm font-bold gap-6">
+        <button type="button" onclick="setActiveTab('dienstreise')" id="tab-btn-dienstreise" class="pb-3 border-b-2 border-emerald-600 text-emerald-700 flex items-center gap-2">
+          <span>✈️</span>
+          <span>Dienstreise & Verpflegungsmehraufwand</span>
+        </button>
+        <button type="button" onclick="setActiveTab('pendler')" id="tab-btn-pendler" class="pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2">
+          <span>🚗</span>
+          <span>Pendlerpauschalen-Rechner (Wohnung – Arbeit)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TAB 1: DIENSTREISE & VERPFLEGUNGSMEHRAUFWAND -->
+    <div id="tab-dienstreise" class="space-y-8">
+      
+      <!-- STEP 1: BASISDATEN DER DIENSTREISE -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm">1</span>
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900">Mitarbeiter- &amp; Stammdaten</h2>
+              <p class="text-xs text-slate-500">Angaben für die druckfertige Reisekostenabrechnung (DIN-A4).</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="loadSampleTravel('kundentermin')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+              Beispiel: 3-Tage Kundentermin
+            </button>
+            <button type="button" onclick="loadSampleTravel('tagesreise')" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 transition">
+              Beispiel: Tagesausflug >8h
+            </button>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Mitarbeiter / Reisende(r)</label>
+            <input type="text" id="emp-name" value="Maximilian Mustermann" oninput="updateAll()" placeholder="Vor- und Nachname" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:border-emerald-600 transition" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Personal- / Mitarbeiter-Nr.</label>
+            <input type="text" id="emp-id" value="PA-84920" oninput="updateAll()" placeholder="z. B. 1042" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:border-emerald-600 transition" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Abteilung / Kostenstelle</label>
+            <input type="text" id="emp-dept" value="Vertrieb / B2B-KeyAccount" oninput="updateAll()" placeholder="z. B. IT-Consulting" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:border-emerald-600 transition" />
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Reisezweck / Anlass</label>
+            <input type="text" id="travel-purpose" value="Projekt-Kickoff & Systemprüfung vor Ort" oninput="updateAll()" placeholder="z. B. Kundenseminar" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:border-emerald-600 transition" />
+          </div>
+        </div>
+
+        <!-- AMTLICHE SÄTZE INFOKASTEN -->
+        <div id="country-rule-banner" class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-xs text-emerald-950 flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">📋</span>
+            <div>
+              <span class="font-extrabold text-sm block" id="country-rule-title">Deutschland (BMF 2026 / § 9 Abs. 4a EStG):</span>
+              <span id="country-rule-desc" class="text-slate-700">
+                Ganztag (>24h): <strong>28,00 €</strong> | An-/Abreisetag & >8h: <strong>14,00 €</strong> | Mahlzeitenkürzung: Frühstück -20% (-5,60 €), Mittag/Abend -40% (-11,20 €) | Pkw: <strong>0,30 €/km</strong>.
+              </span>
+            </div>
+          </div>
+          <span class="shrink-0 text-[11px] font-bold px-2.5 py-1 rounded bg-emerald-200 text-emerald-900" id="country-rule-badge">
+            Rechtsstand: 2026
+          </span>
+        </div>
+      </section>
+
+      <!-- STEP 2: REISETAGE MANAGER -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 font-extrabold flex items-center justify-center text-sm">2</span>
+            <div>
+              <h2 class="text-base sm:text-lg font-bold text-slate-900">Reisetag-Manager &amp; Verpflegung</h2>
+              <p class="text-xs text-slate-500">Erfassen Sie einzelne Reisetage, Mahlzeitengestellung und gefahrene Strecken.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="addTravelDay()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow-sm shadow-emerald-600/20">
+              <span>+ Reisetag hinzufügen</span>
+            </button>
+            <button type="button" onclick="clearAllDays()" class="px-3 py-2 bg-slate-100 hover:bg-rose-50 text-slate-600 hover:text-rose-600 font-bold rounded-xl text-xs transition">
+              Zurücksetzen
+            </button>
+          </div>
+        </div>
+
+        <!-- DAYS LIST CONTAINER -->
+        <div id="days-container" class="space-y-4">
+          <!-- Dynamic Days injected by JS -->
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+          <span>* Gesetzliche Mahlzeitenkürzungen werden automatisch vom Tagesgeld abgezogen (max. bis 0,00 €).</span>
+          <span id="days-count-badge" class="font-bold text-slate-700">3 Reisetage erfasst</span>
+        </div>
+      </section>
+
+      <!-- STEP 3: DYNAMISCHE SUMMENBERECHNUNG -->
+      <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Echtzeit-Berechnung</span>
+            <h2 class="text-xl sm:text-2xl font-black">Erstattungsfähige Gesamtreisekosten 2026</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="scrollToPrintView()" class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-xl text-xs transition flex items-center gap-2 shadow-lg shadow-emerald-500/20">
+              <span>🖨️ DIN-A4 Abrechnung drucken</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Verpflegungsmehraufwand -->
+          <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60">
+            <span class="text-xs text-slate-400 block mb-1">Verpflegungsmehraufwand</span>
+            <div class="text-2xl font-extrabold text-white" id="stat-per-diem">0,00 €</div>
+            <span class="text-[11px] text-emerald-400 block mt-1" id="stat-per-diem-sub">nach Abzug Mahlzeiten</span>
+          </div>
+
+          <!-- Fahrtkosten -->
+          <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60">
+            <span class="text-xs text-slate-400 block mb-1">Fahrtkosten / km-Geld</span>
+            <div class="text-2xl font-extrabold text-white" id="stat-mileage">0,00 €</div>
+            <span class="text-[11px] text-slate-400 block mt-1" id="stat-mileage-sub">0 km gesamt</span>
+          </div>
+
+          <!-- Übernachtungskosten -->
+          <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60">
+            <span class="text-xs text-slate-400 block mb-1">Übernachtung / Hotel</span>
+            <div class="text-2xl font-extrabold text-white" id="stat-hotel">0,00 €</div>
+            <span class="text-[11px] text-slate-400 block mt-1" id="stat-hotel-sub">Pauschale & Belege</span>
+          </div>
+
+          <!-- Nebenkosten -->
+          <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700/60">
+            <span class="text-xs text-slate-400 block mb-1">Reisenebenkosten</span>
+            <div class="text-2xl font-extrabold text-white" id="stat-expenses">0,00 €</div>
+            <span class="text-[11px] text-slate-400 block mt-1">Maut, Parken, Tickets</span>
+          </div>
+
+          <!-- Gesamtsumme -->
+          <div class="bg-gradient-to-br from-emerald-600 to-teal-700 p-4 rounded-2xl border border-emerald-400 shadow-md">
+            <span class="text-xs text-emerald-100 font-semibold block mb-1">Steuerfreier Erstattungsbetrag</span>
+            <div class="text-2xl sm:text-3xl font-black text-white" id="stat-total">0,00 €</div>
+            <span class="text-[11px] text-emerald-100 block mt-1" id="stat-total-currency">Auszahlungsbetrag</span>
+          </div>
+        </div>
+
+        <div class="text-xs text-slate-400 flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400">✓</span>
+            <span id="tax-exempt-notice">Steuerfreie Auszahlung gem. § 3 Nr. 13/16 EStG zulässig.</span>
+          </div>
+          <div>
+            <span>Währung: </span>
+            <strong class="text-white" id="current-currency-label">EUR (€)</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRINT-READY DIN-A4 VIEW -->
+      <section id="druckvorschau" class="pt-6">
+        <div class="flex items-center justify-between mb-4 no-print">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Druckfertige Reisekostenabrechnung (DIN-A4)</h2>
+            <p class="text-xs text-slate-500">Entspricht den behördlichen Anforderungen für Vorlage bei Personalabteilung und Finanzamt.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition flex items-center gap-2 shadow-sm">
+              <span>🖨️ Jetzt als PDF drucken</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- THE DIN-A4 SHEET -->
+        <div class="a4-sheet-wrapper">
+          <div class="a4-sheet" id="print-sheet">
+            <!-- Header -->
+            <div class="border-b-2 border-slate-900 pb-4 mb-5 flex justify-between items-start">
+              <div>
+                <h1 class="text-xl font-black tracking-tight text-slate-900 uppercase">Reisekostenabrechnung 2026</h1>
+                <div class="text-xs text-slate-600 mt-1" id="print-header-country">
+                  Nach den amtlichen Spesensätzen Deutschland (§ 9 Abs. 4a EStG / BMF)
+                </div>
+              </div>
+              <div class="text-right text-xs">
+                <div class="font-bold text-slate-900">DACH Digitalwerk Standard</div>
+                <div class="text-slate-500">Abrechnungsdatum: <span id="print-date">23.10.2026</span></div>
+                <div class="text-slate-500">Beleg-ID: <span id="print-voucher-id">RK-2026-0042</span></div>
+              </div>
+            </div>
+
+            <!-- Employee & Trip Metadata Box -->
+            <div class="grid grid-cols-2 gap-4 p-3 bg-slate-50 border border-slate-200 rounded-lg text-xs mb-5">
+              <div>
+                <table class="w-full">
+                  <tr>
+                    <td class="font-semibold text-slate-500 w-32 py-0.5">Name des Reisenden:</td>
+                    <td class="font-bold text-slate-900" id="print-emp-name">Maximilian Mustermann</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold text-slate-500 py-0.5">Personalnummer:</td>
+                    <td class="font-medium text-slate-900" id="print-emp-id">PA-84920</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold text-slate-500 py-0.5">Abteilung / KSt:</td>
+                    <td class="font-medium text-slate-900" id="print-emp-dept">Vertrieb / B2B-KeyAccount</td>
+                  </tr>
+                </table>
+              </div>
+              <div>
+                <table class="w-full">
+                  <tr>
+                    <td class="font-semibold text-slate-500 w-28 py-0.5">Anlass / Reisezweck:</td>
+                    <td class="font-bold text-slate-900" id="print-travel-purpose">Projekt-Kickoff & Systemprüfung</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold text-slate-500 py-0.5">Reisezeitraum:</td>
+                    <td class="font-medium text-slate-900" id="print-travel-period">14.01.2026 – 16.01.2026</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold text-slate-500 py-0.5">Auszahlungsart:</td>
+                    <td class="font-medium text-slate-900">Überweisung Gehaltskonto</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Detailed Days Table -->
+            <div class="mb-5">
+              <div class="font-bold text-xs text-slate-900 uppercase tracking-wider mb-2">Aufstellung der Einzeltage &amp; Verpflegung</div>
+              <table class="w-full text-[9pt] border border-slate-300 border-collapse">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-800 border-b border-slate-300">
+                    <th class="py-1.5 px-2 text-left font-bold border-r border-slate-300">Datum</th>
+                    <th class="py-1.5 px-2 text-left font-bold border-r border-slate-300">Ort & Reiseart</th>
+                    <th class="py-1.5 px-2 text-center font-bold border-r border-slate-300">Gestellte Mahlzeiten</th>
+                    <th class="py-1.5 px-2 text-right font-bold border-r border-slate-300">Verpfleg. (€)</th>
+                    <th class="py-1.5 px-2 text-right font-bold border-r border-slate-300">Fahrt (km)</th>
+                    <th class="py-1.5 px-2 text-right font-bold border-r border-slate-300">Hotel (€)</th>
+                    <th class="py-1.5 px-2 text-right font-bold">Nebenkosten</th>
+                  </tr>
+                </thead>
+                <tbody id="print-table-body" class="divide-y divide-slate-200">
+                  <!-- Injected rows -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Summary Table & Calculation Breakdown -->
+            <div class="grid grid-cols-2 gap-6 mb-6">
+              <div class="text-[8.5pt] text-slate-600 space-y-1 p-3 bg-slate-50 rounded-lg border border-slate-200">
+                <div class="font-bold text-slate-800 uppercase text-[9pt] mb-1">Gesetzliche Erstattungsgrundlagen</div>
+                <div>• Verpflegungsmehraufwand nach § 9 Abs. 4a EStG steuerfrei gem. § 3 Nr. 13/16 EStG.</div>
+                <div>• Mahlzeitenkürzung: Frühstück 20% (-5,60 €), Mittag/Abend je 40% (-11,20 €).</div>
+                <div>• Kilometerpauschale für Pkw-Fahrten (Hin- und Rückfahrt) mit Privatfahrzeug.</div>
+                <div>• Sämtliche Originalbelege für Übernachtung und Nebenkosten sind beigefügt.</div>
+              </div>
+
+              <div>
+                <table class="w-full text-xs">
+                  <tr class="border-b border-slate-200">
+                    <td class="py-1 text-slate-600">Summe Verpflegungsmehraufwand:</td>
+                    <td class="py-1 text-right font-semibold text-slate-900" id="print-sum-per-diem">0,00 €</td>
+                  </tr>
+                  <tr class="border-b border-slate-200">
+                    <td class="py-1 text-slate-600">Summe Fahrtkosten / km-Geld:</td>
+                    <td class="py-1 text-right font-semibold text-slate-900" id="print-sum-mileage">0,00 €</td>
+                  </tr>
+                  <tr class="border-b border-slate-200">
+                    <td class="py-1 text-slate-600">Summe Übernachtung / Hotel:</td>
+                    <td class="py-1 text-right font-semibold text-slate-900" id="print-sum-hotel">0,00 €</td>
+                  </tr>
+                  <tr class="border-b border-slate-200">
+                    <td class="py-1 text-slate-600">Summe Reisenebenkosten / Belege:</td>
+                    <td class="py-1 text-right font-semibold text-slate-900" id="print-sum-expenses">0,00 €</td>
+                  </tr>
+                  <tr class="border-t-2 border-slate-900 text-sm font-black bg-slate-100">
+                    <td class="py-2 px-2 text-slate-900">Steuerfreier Erstattungsbetrag:</td>
+                    <td class="py-2 px-2 text-right text-emerald-800" id="print-sum-total">0,00 €</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Signatures Section -->
+            <div class="mt-8 pt-4 border-t-2 border-slate-300">
+              <div class="grid grid-cols-3 gap-6 text-[8pt]">
+                <div>
+                  <div class="text-slate-500 mb-10">Ort, Datum &amp; Unterschrift Mitarbeiter(in):</div>
+                  <div class="border-b border-slate-900 w-full mb-1"></div>
+                  <div class="font-medium text-slate-700">Richtigkeit &amp; Vollständigkeit bestätigt</div>
+                </div>
+                <div>
+                  <div class="text-slate-500 mb-10">Sachlich &amp; rechnerisch geprüft:</div>
+                  <div class="border-b border-slate-900 w-full mb-1"></div>
+                  <div class="font-medium text-slate-700">Buchhaltung / Personal</div>
+                </div>
+                <div>
+                  <div class="text-slate-500 mb-10">Genehmigt &amp; Auszahlung angewiesen:</div>
+                  <div class="border-b border-slate-900 w-full mb-1"></div>
+                  <div class="font-medium text-slate-700">Vorgesetzte(r) / Geschäftsleitung</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Print Footer -->
+            <div class="absolute bottom-4 left-18 right-18 text-center text-[7.5pt] text-slate-400 border-t border-slate-200 pt-2">
+              Erstellt mit DACH Digitalwerk (https://dach-digitalwerk.netlify.app/reisekosten-verpflegungsmehraufwand/) • Gültig für das Veranlagungsjahr 2026.
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB 2: PENDLERPAUSCHALEN-RECHNER -->
+    <div id="tab-pendler" class="space-y-8 hidden">
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6 no-print">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+          <span class="w-8 h-8 rounded-xl bg-blue-100 text-blue-800 font-extrabold flex items-center justify-center text-sm">🚗</span>
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">Pendlerpauschalen- &amp; Entfernungspauschalen-Rechner 2026</h2>
+            <p class="text-xs text-slate-500">Berechnung für Fahrten zwischen Wohnung und erster Tätigkeitsstätte.</p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 text-xs">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Einfache Entfernung (Wohnung ↔ Arbeitsstätte)</label>
+            <div class="flex items-center">
+              <input type="number" id="pendler-distance" value="35" min="1" max="500" oninput="calculatePendler()" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-l-xl focus:bg-white focus:border-blue-600 transition" />
+              <span class="bg-slate-200 text-slate-700 font-bold px-3 py-2 rounded-r-xl border border-l-0 border-slate-300">km</span>
+            </div>
+            <span class="text-[11px] text-slate-500 mt-1 block">Nur die einfache Wegstrecke, kürzeste Straßenverbindung.</span>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Präsenztage im Betrieb / Jahr</label>
+            <div class="flex items-center">
+              <input type="number" id="pendler-days" value="210" min="1" max="365" oninput="calculatePendler()" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-l-xl focus:bg-white focus:border-blue-600 transition" />
+              <span class="bg-slate-200 text-slate-700 font-bold px-3 py-2 rounded-r-xl border border-l-0 border-slate-300">Tage</span>
+            </div>
+            <span class="text-[11px] text-slate-500 mt-1 block">Typisch: 220–230 Tage (bei 5-Tage-Woche abzüglich Urlaub & Krankheit).</span>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">Verkehrsmittel</label>
+            <select id="pendler-transport" onchange="calculatePendler()" class="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:border-blue-600 transition">
+              <option value="pkw">Eigener Pkw (unbegrenzt abziehbar)</option>
+              <option value="oepnv">Öffentliche Verkehrsmittel / Bahn</option>
+              <option value="fahrrad">Fahrrad / E-Bike / Fahrgemeinschaft</option>
+            </select>
+            <span class="text-[11px] text-slate-500 mt-1 block">Bei Nicht-Pkw greift i.d.R. der Höchstbetrag von 4.500 €/Jahr.</span>
+          </div>
+        </div>
+
+        <!-- PENDLER RESULTS BOX -->
+        <div class="bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-2xl p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Ergebnis der Pendlerpauschale 2026</span>
+              <h3 class="text-2xl font-black" id="pendler-total-sum">0,00 €</h3>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-slate-400 block">Monatlicher Werbungskostenabzug (Ø)</span>
+              <span class="text-lg font-bold text-blue-300" id="pendler-monthly-sum">0,00 € / Monat</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4 text-xs pt-4 border-t border-slate-800">
+            <div class="space-y-1">
+              <div class="font-bold text-slate-200">Staffelberechnung (Deutschland § 9 Abs. 1 Nr. 4 EStG):</div>
+              <div class="text-slate-400" id="pendler-breakdown-1">• 1. bis 20. Kilometer: 20 km × 0,30 € = 6,00 €/Tag</div>
+              <div class="text-slate-400" id="pendler-breakdown-2">• Ab dem 21. Kilometer: 15 km × 0,38 € = 5,70 €/Tag</div>
+              <div class="text-emerald-400 font-semibold" id="pendler-breakdown-daily">• Gesamtanspruch: 11,70 € pro Arbeitstag</div>
+            </div>
+            <div class="space-y-1">
+              <div class="font-bold text-slate-200">Steuerliche Auswirkung &amp; Hinweis:</div>
+              <div class="text-slate-400">• Reduziert Ihr zu versteuerndes Einkommen im Rahmen der Einkommensteuererklärung.</div>
+              <div class="text-slate-400">• Bei Pkw-Nutzung greift keine Obergrenze von 4.500 € (§ 9 Abs. 1 Satz 3 Nr. 4 EStG).</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SEO & KNOWLEDGE BASE SECTION -->
+    <section class="no-print space-y-8 pt-4">
+      
+      <!-- FAQ ACCORDION -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-4">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span>💡</span>
+          <span>Häufig gestellte Fragen zu Reisekosten &amp; Spesen 2026</span>
+        </h3>
+
+        <div class="space-y-3 text-xs">
+          <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200 open:bg-white open:border-emerald-500 transition">
+            <summary class="font-bold text-slate-900 cursor-pointer flex justify-between items-center">
+              <span>Wann darf die volle Verpflegungspauschale von 28,00 € angesetzt werden?</span>
+              <span class="text-emerald-600 font-bold group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Die volle Pauschale von 28,00 € steht dem Arbeitnehmer für jeden Kalendertag zu, an dem er volle 24 Stunden von seiner Wohnung und ersten Tätigkeitsstätte abwesend ist. Das betrifft Zwischentage bei mehrtägigen Dienstreisen. Für An- und Abreisetage gilt stets die ermäßigte Pauschale von 14,00 €, unabhängig von der tatsächlichen Stundenzahl.
+            </p>
+          </details>
+
+          <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200 open:bg-white open:border-emerald-500 transition">
+            <summary class="font-bold text-slate-900 cursor-pointer flex justify-between items-center">
+              <span>Wie funktioniert die Mahlzeitenkürzung bei Hotelübernachtung mit Frühstück?</span>
+              <summary class="font-bold text-slate-900 cursor-pointer flex justify-between items-center">
+              <span>Wie funktioniert die Mahlzeitenkürzung bei Hotelübernachtung mit Frühstück?</span>
+              <span class="text-emerald-600 font-bold group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Wird das Frühstück vom Arbeitgeber bezahlt (oder ist in der Hotelrechnung enthalten), ist die Tagespauschale um 20 % des vollen Tagessatzes (20 % von 28,00 € = 5,60 €) zu kürzen. Bei einem An- oder Abreisetag mit 14,00 € Pauschale verbleiben somit noch 8,40 € steuerfreier Verpflegungsmehraufwand.
+            </p>
+          </details>
+
+          <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200 open:bg-white open:border-emerald-500 transition">
+            <summary class="font-bold text-slate-900 cursor-pointer flex justify-between items-center">
+              <span>Was gilt bei der Dreimonatsfrist (§ 9 Abs. 4a Satz 6 EStG)?</span>
+              <span class="text-emerald-600 font-bold group-open:rotate-180 transition">▼</span>
+            </summary>
+            <p class="mt-3 text-slate-600 leading-relaxed">
+              Wird ein Arbeitnehmer an derselben Tätigkeitsstätte längerfristig eingesetzt, kann der Verpflegungsmehraufwand nur für die ersten 3 Monate steuerfrei erstattet werden. Eine Unterbrechung von mindestens vier Wochen (Urlaub, Krankheit oder anderer Einsatzort) führt zu einem Neubeginn der Dreimonatsfrist.
+            </p>
+          </details>
+        </div>
+      </div>
+
+      <!-- RATGEBER ARTICLES LINK HUB (SEO Backlinks) -->
+      <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8">
+        <h3 class="text-xl font-bold mb-3 flex items-center gap-2">
+          <span>📚</span>
+          <span>Fachratgeber zu Reisekosten, Spesen &amp; Pendlerpauschalen 2026</span>
+        </h3>
+        <p class="text-xs text-slate-400 mb-6 max-w-2xl">
+          Vertiefende Rechtsgrundlagen, BMF-Schreiben 2026 und Praxisanleitungen für Deutschland, Österreich und die Schweiz:
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+          <a href="../verpflegungsmehraufwand-2026-tabelle-pauschalen.html" class="p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 1:</span>
+            <div class="text-sm font-bold text-slate-100">Verpflegungsmehraufwand 2026 Tabelle & Pauschalen</div>
+            <p class="text-[11px] text-slate-400 mt-2">Amtliche BMF-Pauschalen, Mahlzeitenkürzung (-20% / -40%) und Auslandstagegelder.</p>
+          </a>
+
+          <a href="../reisekostenabrechnung-muster-excel-vorlage-kostenlos.html" class="p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 2:</span>
+            <div class="text-sm font-bold text-slate-100">Reisekostenabrechnung Muster & Excel-Vorlage</div>
+            <p class="text-[11px] text-slate-400 mt-2">Pflichtangaben nach BMF, Vorsteueraufteilung bei Hotelbelegen und DIN-A4 Formulare.</p>
+          </a>
+
+          <a href="../pendlerpauschale-berechnen-kilometergeld-dach.html" class="p-4 rounded-2xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700/60 transition group">
+            <span class="text-xs font-bold text-emerald-400 group-hover:underline block mb-1">Ratgeber 3:</span>
+            <div class="text-sm font-bold text-slate-100">Pendlerpauschale berechnen & Kilometergeld DACH</div>
+            <p class="text-[11px] text-slate-400 mt-2">Entfernungspauschale 0,38 € ab km 21, Homeoffice-Vergleich und amtliches Kilometergeld.</p>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 mt-20 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="../" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="../agb/" class="hover:text-white transition">AGB</a>
+          <a href="../haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / StBerG)</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Dieses Web-Tool ist ein rein mathematisches und deskriptives Hilfsmittel zur Berechnung von Pauschalbeträgen nach den amtlichen BMF-Tabellen 2026 (Deutschland), dem EStG (Österreich) und kantonalen Spesenrichtlinien (Schweiz). Es wird ausdrücklich <strong>keine individuelle Steuer- oder Rechtsberatung</strong> erbracht. Die Nutzung und Weiterverarbeitung der Daten für Lohnbuchhaltung oder Steuererklärungen erfolgt in alleiniger Verantwortung des Anwenders. Es gelten unsere <a href="../agb/" class="underline hover:text-slate-300">Allgemeinen Geschäftsbedingungen</a> und der <a href="../haftungsausschluss/" class="underline text-amber-400 hover:text-amber-300">Haftungsausschluss</a>.
+      </div>
+    </div>
+  </footer>
+
+  <!-- GUMROAD B2B PAKET CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-slate-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+      
+      <div class="text-center space-y-2 mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-600 text-white flex items-center justify-center text-xl font-bold mx-auto shadow-md shadow-emerald-500/20">
+          ⭐
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">DACH Reisekosten B2B-Paket 2026</h3>
+        <p class="text-xs text-slate-500">
+          Einmalig 4,90 € / CHF • Vollständige Excel-Vorlage, Spesenreglement & Vorsteuer-Matrix
+        </p>
+      </div>
+
+      <div class="space-y-3 mb-6 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Excel-Vorlage 2026:</strong> Mit automatischer 7%/19% Vorsteuer-Trennung für Buchhaltung.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>Spesenreglement Vorlage:</strong> Musterrichtlinie für Mitarbeiter & Freigabeprozesse.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-600 font-bold">✓</span>
+          <span><strong>100% DSGVO-Sicherheit:</strong> Keine Server-Speicherung, lebenslange Nutzung.</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <a id="modal-gumroad-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="w-full py-3.5 px-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold rounded-xl shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 text-sm text-center">
+          <span>Auf Gumroad freischalten (4,90 €)</span>
+          <span>→</span>
+        </a>
+
+        <div class="text-center">
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Oder Gutscheincode einlösen</span>
+        </div>
+
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="z. B. PRO2026" class="flex-1 px-4 py-2.5 bg-slate-100 border border-slate-300 rounded-xl text-xs uppercase font-mono text-slate-900 focus:bg-white focus:border-emerald-600 transition">
+          <button onclick="redeemVoucher()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs transition">
+            Einlösen
+          </button>
+        </div>
+        <div id="voucher-error" class="text-rose-600 text-xs font-semibold text-center hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // State
+    let currentCountry = 'DE'; // 'DE', 'AT', 'CH'
+    let travelDays = [];
+    let isProUnlocked = false;
+
+    // Rates Definitions 2026
+    const RATES = {
+      DE: {
+        currency: 'EUR',
+        symbol: '€',
+        fullDayPerDiem: 28.00,       // > 24h
+        partialDayPerDiem: 14.00,    // An-/Abreisetag oder > 8h
+        breakfastCut: 5.60,          // 20% von 28 €
+        lunchCut: 11.20,             // 40% von 28 €
+        dinnerCut: 11.20,            // 40% von 28 €
+        hotelAllowance: 20.00,       // AG Pauschale ohne Beleg
+        carRate: 0.30,               // PKW je km
+        twoWheelerRate: 0.20,        // Motorrad / Roller je km
+        bikeRate: 0.00
+      },
+      AT: {
+        currency: 'EUR',
+        symbol: '€',
+        fullDayPerDiem: 30.00,       // > 11h
+        hourlyPerDiem: 2.50,         // je angefangene Stunde ab >3h
+        breakfastCut: 4.50,          // 15%
+        lunchCut: 12.00,             // 40%
+        dinnerCut: 12.00,            // 40%
+        hotelAllowance: 17.00,       // Nächtigungsgeld Inland
+        carRate: 0.42,               // PKW je km amtliches km-Geld
+        twoWheelerRate: 0.24,        // Motorrad je km
+        bikeRate: 0.38               // Fahrrad je km
+      },
+      CH: {
+        currency: 'CHF',
+        symbol: 'CHF',
+        fullDayPerDiem: 70.00,       // Mittag 35 + Abend 35
+        lunchCut: 35.00,             // Hauptmahlzeit Mittag
+        dinnerCut: 35.00,            // Hauptmahlzeit Abend
+        breakfastCut: 15.00,         // Frühstücksabzug
+        hotelAllowance: 100.00,      // Richtwert Übernachtungspauschale
+        carRate: 0.70,               // CHF je km
+        twoWheelerRate: 0.40,
+        bikeRate: 0.00
+      }
+    };
+
+    // DOM Ready Initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set default print date
+      document.getElementById('print-date').textContent = new Date().toLocaleDateString('de-DE');
+      
+      // Load standard sample data
+      loadSampleTravel('kundentermin');
+      calculatePendler();
+
+      if (localStorage.getItem('dw_reise_pro') === 'true') {
+        unlockPro(false);
+      }
+    });
+
+    // Country Switcher
+    function setCountry(code) {
+      currentCountry = code;
+
+      // Update button styles
+      ['de', 'at', 'ch'].forEach(c => {
+        const btn = document.getElementById('btn-country-' + c);
+        if (c.toUpperCase() === code) {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-emerald-600 text-white shadow-sm";
+        } else {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition flex items-center gap-1.5";
+        }
+      });
+
+      // Update Banner Info
+      const ruleTitle = document.getElementById('country-rule-title');
+      const ruleDesc = document.getElementById('country-rule-desc');
+      const curLabel = document.getElementById('current-currency-label');
+      const printHeaderCountry = document.getElementById('print-header-country');
+      const taxNotice = document.getElementById('tax-exempt-notice');
+
+      if (code === 'DE') {
+        ruleTitle.textContent = "Deutschland (BMF 2026 / § 9 Abs. 4a EStG):";
+        ruleDesc.innerHTML = "Ganztag (>24h): <strong>28,00 €</strong> | An-/Abreisetag & >8h: <strong>14,00 €</strong> | Mahlzeitenkürzung: Frühstück -20% (-5,60 €), Mittag/Abend -40% (-11,20 €) | Pkw: <strong>0,30 €/km</strong>.";
+        curLabel.textContent = "EUR (€)";
+        printHeaderCountry.textContent = "Nach den amtlichen Spesensätzen Deutschland (§ 9 Abs. 4a EStG / BMF 2026)";
+        taxNotice.textContent = "Steuerfreie Auszahlung gem. § 3 Nr. 13/16 EStG zulässig.";
+      } else if (code === 'AT') {
+        ruleTitle.textContent = "Österreich (§ 26 Z 4 EStG):";
+        ruleDesc.innerHTML = "Tagesgeld bis <strong>30,00 €</strong> (>11h, aliquotiert 2,50 €/h ab 3h) | Nächtigungsgeld: <strong>17,00 €</strong> | Amtliches Kilometergeld: PKW <strong>0,42 €/km</strong>, Motorrad 0,24 €/km, Fahrrad 0,38 €/km.";
+        curLabel.textContent = "EUR (€)";
+        printHeaderCountry.textContent = "Nach den amtlichen Spesensätzen Österreich (§ 26 Z 4 EStG)";
+        taxNotice.textContent = "Steuerfreie Erstattung gem. § 26 Z 4 EStG zulässig.";
+      } else if (code === 'CH') {
+        ruleTitle.textContent = "Schweiz (Eidgenössische & kantonale Spesenansätze):";
+        ruleDesc.innerHTML = "Hauptmahlzeit Mittag <strong>35 CHF</strong>, Abend <strong>35 CHF</strong> (ganzer Tag 70 CHF) | Frühstücksabzug <strong>15 CHF</strong> | Kilometerentschädigung: <strong>0,70 CHF/km</strong>.";
+        curLabel.textContent = "CHF (Schweizer Franken)";
+        printHeaderCountry.textContent = "Nach den Schweizer Spesenreglementen & kantonalen Merkblättern";
+        taxNotice.textContent = "Spesenentschädigung gem. Art. 327a OR steuerfrei / deklarationspflichtig.";
+      }
+
+      renderDays();
+      updateAll();
+    }
+
+    // Tab Switcher
+    function setActiveTab(tab) {
+      const tabDienstreise = document.getElementById('tab-dienstreise');
+      const tabPendler = document.getElementById('tab-pendler');
+      const btnDienstreise = document.getElementById('tab-btn-dienstreise');
+      const btnPendler = document.getElementById('tab-btn-pendler');
+
+      if (tab === 'dienstreise') {
+        tabDienstreise.classList.remove('hidden');
+        tabPendler.classList.add('hidden');
+        btnDienstreise.className = "pb-3 border-b-2 border-emerald-600 text-emerald-700 flex items-center gap-2";
+        btnPendler.className = "pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2";
+      } else {
+        tabDienstreise.classList.add('hidden');
+        tabPendler.classList.remove('hidden');
+        btnDienstreise.className = "pb-3 border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-2";
+        btnPendler.className = "pb-3 border-b-2 border-emerald-600 text-emerald-700 flex items-center gap-2";
+        calculatePendler();
+      }
+    }
+
+    // Sample Loader
+    function loadSampleTravel(type) {
+      const today = new Date();
+      const formatDate = (d) => d.toISOString().split('T')[0];
+
+      if (type === 'kundentermin') {
+        const d1 = new Date(today);
+        d1.setDate(d1.getDate() - 2);
+        const d2 = new Date(today);
+        d2.setDate(d2.getDate() - 1);
+        const d3 = new Date(today);
+
+        travelDays = [
+          {
+            date: formatDate(d1),
+            dayType: 'departure', // Anreisetag
+            location: 'Frankfurt am Main (Anreise & Abendmeeting)',
+            breakfast: false,
+            lunch: false,
+            dinner: true,       // Abendessen vom Kunden bezahlt
+            km: 180,
+            vehicle: 'car',
+            hotelType: 'allowance', // Pauschale
+            hotelCustom: 0,
+            expenses: 15.00     // Parkticket
+          },
+          {
+            date: formatDate(d2),
+            dayType: 'full',      // Zwischentag 24h
+            location: 'Frankfurt am Main (Kundentermin & Workshop)',
+            breakfast: true,    // Frühstück im Hotel
+            lunch: true,        // Mittagessen beim Kunden
+            dinner: false,
+            km: 0,
+            vehicle: 'car',
+            hotelType: 'allowance',
+            hotelCustom: 0,
+            expenses: 0
+          },
+          {
+            date: formatDate(d3),
+            dayType: 'return',    // Abreisetag
+            location: 'Rückreise nach Hauptsitz',
+            breakfast: true,    // Hotelfrühstück
+            lunch: false,
+            dinner: false,
+            km: 180,
+            vehicle: 'car',
+            hotelType: 'none',
+            hotelCustom: 0,
+            expenses: 8.50      // Maut / Ticket
+          }
+        ];
+      } else {
+        // Tagesausflug
+        travelDays = [
+          {
+            date: formatDate(today),
+            dayType: 'single_gt8',
+            location: 'München (Tages-Vor-Ort-Audit >8h)',
+            breakfast: false,
+            lunch: true,
+            dinner: false,
+            km: 120,
+            vehicle: 'car',
+            hotelType: 'none',
+            hotelCustom: 0,
+            expenses: 12.00
+          }
+        ];
+      }
+
+      renderDays();
+      updateAll();
+    }
+
+    // Add Travel Day
+    function addTravelDay() {
+      const lastDay = travelDays[travelDays.length - 1];
+      let nextDate = new Date();
+      if (lastDay && lastDay.date) {
+        const d = new Date(lastDay.date);
+        d.setDate(d.getDate() + 1);
+        nextDate = d;
+      }
+      const formatted = nextDate.toISOString().split('T')[0];
+
+      travelDays.push({
+        date: formatted,
+        dayType: 'full',
+        location: 'Terminort / Kundensitz',
+        breakfast: false,
+        lunch: false,
+        dinner: false,
+        km: 0,
+        vehicle: 'car',
+        hotelType: 'none',
+        hotelCustom: 0,
+        expenses: 0
+      });
+
+      renderDays();
+      updateAll();
+    }
+
+    // Remove Travel Day
+    function removeTravelDay(index) {
+      if (travelDays.length <= 1) {
+        alert("Mindestens ein Reisetag muss erhalten bleiben.");
+        return;
+      }
+      travelDays.splice(index, 1);
+      renderDays();
+      updateAll();
+    }
+
+    // Clear All
+    function clearAllDays() {
+      travelDays = [{
+        date: new Date().toISOString().split('T')[0],
+        dayType: 'single_gt8',
+        location: 'Dienstreise Ort',
+        breakfast: false,
+        lunch: false,
+        dinner: false,
+        km: 0,
+        vehicle: 'car',
+        hotelType: 'none',
+        hotelCustom: 0,
+        expenses: 0
+      }];
+      renderDays();
+      updateAll();
+    }
+
+    // Render Travel Days DOM
+    function renderDays() {
+      const container = document.getElementById('days-container');
+      container.innerHTML = '';
+
+      const sym = RATES[currentCountry].symbol;
+
+      travelDays.forEach((day, idx) => {
+        const card = document.createElement('div');
+        card.className = "bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-4 hover:border-slate-300 transition";
+
+        // Day Type Options depending on country
+        let dayTypeOptions = '';
+        if (currentCountry === 'DE') {
+          dayTypeOptions = `
+            <option value="full" ${day.dayType === 'full' ? 'selected' : ''}>Ganzer Tag (24h Abwesenheit: 28,00 €)</option>
+            <option value="departure" ${day.dayType === 'departure' ? 'selected' : ''}>Anreisetag mehrtägig (14,00 €)</option>
+            <option value="return" ${day.dayType === 'return' ? 'selected' : ''}>Abreisetag mehrtägig (14,00 €)</option>
+            <option value="single_gt8" ${day.dayType === 'single_gt8' ? 'selected' : ''}>Eintägig >8h Abwesenheit (14,00 €)</option>
+            <option value="single_le8" ${day.dayType === 'single_le8' ? 'selected' : ''}>Eintägig ≤8h (0,00 €)</option>
+          `;
+        } else if (currentCountry === 'AT') {
+          dayTypeOptions = `
+            <option value="full" ${day.dayType === 'full' ? 'selected' : ''}>Ganzer Tag (>11h: 30,00 €)</option>
+            <option value="hours_8" ${day.dayType === 'hours_8' ? 'selected' : ''}>8 Stunden Abwesenheit (20,00 €)</option>
+            <option value="hours_5" ${day.dayType === 'hours_5' ? 'selected' : ''}>5 Stunden Abwesenheit (12,50 €)</option>
+            <option value="departure" ${day.dayType === 'departure' ? 'selected' : ''}>An-/Abreisetag (aliquotiert ca. 15,00 €)</option>
+            <option value="single_le8" ${day.dayType === 'single_le8' ? 'selected' : ''}>≤ 3 Stunden (0,00 €)</option>
+          `;
+        } else if (currentCountry === 'CH') {
+          dayTypeOptions = `
+            <option value="full" ${day.dayType === 'full' ? 'selected' : ''}>Ganzer Tag (Mittag & Abend: 70 CHF)</option>
+            <option value="single_gt8" ${day.dayType === 'single_gt8' ? 'selected' : ''}>Halbtag / Mittagessen (35 CHF)</option>
+            <option value="hours_8" ${day.dayType === 'hours_8' ? 'selected' : ''}>Halbtag / Abendessen (35 CHF)</option>
+            <option value="single_le8" ${day.dayType === 'single_le8' ? 'selected' : ''}>Kurzeinsatz ohne Verpflegung (0 CHF)</option>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-emerald-600 text-white font-extrabold flex items-center justify-center text-xs">
+                ${idx + 1}
+              </span>
+              <span class="font-extrabold text-sm text-slate-800">Reisetag ${idx + 1}</span>
+              <span class="text-xs text-slate-500" id="day-calc-preview-${idx}"></span>
+            </div>
+            <button type="button" onclick="removeTravelDay(${idx})" class="text-rose-500 hover:text-rose-700 text-xs font-bold transition flex items-center gap-1">
+              <span>✕ Tag löschen</span>
+            </button>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Datum</label>
+              <input type="date" value="${day.date}" onchange="updateDayField(${idx}, 'date', this.value)" class="w-full px-3 py-1.5 bg-white border border-slate-300 rounded-lg focus:border-emerald-600 transition" />
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Reiseart / Abwesenheit</label>
+              <select onchange="updateDayField(${idx}, 'dayType', this.value)" class="w-full px-3 py-1.5 bg-white border border-slate-300 rounded-lg focus:border-emerald-600 transition">
+                ${dayTypeOptions}
+              </select>
+            </div>
+            <div>
+              <label class="block font-semibold text-slate-700 mb-1">Ort & Reisezweck</label>
+              <input type="text" value="${escapeHtml(day.location)}" oninput="updateDayField(${idx}, 'location', this.value)" placeholder="Zielort / Kunde" class="w-full px-3 py-1.5 bg-white border border-slate-300 rounded-lg focus:border-emerald-600 transition" />
+            </div>
+          </div>
+
+          <!-- MEAL CUTS & EXPENSES -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs bg-white p-3.5 rounded-xl border border-slate-200">
+            <!-- Meal Checkboxes -->
+            <div class="lg:col-span-1 space-y-1.5">
+              <span class="block font-bold text-slate-700">Mahlzeitengestellung:</span>
+              <label class="flex items-center gap-2 cursor-pointer text-slate-700">
+                <input type="checkbox" ${day.breakfast ? 'checked' : ''} onchange="updateDayField(${idx}, 'breakfast', this.checked)" class="rounded text-emerald-600 focus:ring-emerald-500" />
+                <span>Frühstück ${currentCountry === 'DE' ? '(-5,60 €)' : (currentCountry === 'CH' ? '(-15 CHF)' : '(-15%)')}</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-slate-700">
+                <input type="checkbox" ${day.lunch ? 'checked' : ''} onchange="updateDayField(${idx}, 'lunch', this.checked)" class="rounded text-emerald-600 focus:ring-emerald-500" />
+                <span>Mittagessen ${currentCountry === 'DE' ? '(-11,20 €)' : (currentCountry === 'CH' ? '(-35 CHF)' : '(-40%)')}</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-slate-700">
+                <input type="checkbox" ${day.dinner ? 'checked' : ''} onchange="updateDayField(${idx}, 'dinner', this.checked)" class="rounded text-emerald-600 focus:ring-emerald-500" />
+                <span>Abendessen ${currentCountry === 'DE' ? '(-11,20 €)' : (currentCountry === 'CH' ? '(-35 CHF)' : '(-40%)')}</span>
+              </label>
+            </div>
+
+            <!-- Mileage -->
+            <div class="space-y-1.5">
+              <span class="block font-bold text-slate-700">Fahrtstrecke Privat-KFZ:</span>
+              <div class="flex items-center gap-1">
+                <input type="number" min="0" max="2500" value="${day.km || 0}" oninput="updateDayField(${idx}, 'km', parseFloat(this.value) || 0)" class="w-20 px-2 py-1 bg-slate-50 border border-slate-300 rounded text-right font-mono" />
+                <span class="text-slate-500">km</span>
+              </div>
+              <select onchange="updateDayField(${idx}, 'vehicle', this.value)" class="w-full px-2 py-1 bg-slate-50 border border-slate-300 rounded text-[11px]">
+                <option value="car" ${day.vehicle === 'car' ? 'selected' : ''}>Pkw (${currentCountry === 'DE' ? '0,30 €' : (currentCountry === 'AT' ? '0,42 €' : '0,70 CHF')})</option>
+                <option value="twowheeler" ${day.vehicle === 'twowheeler' ? 'selected' : ''}>Motorrad / Roller (${currentCountry === 'DE' ? '0,20 €' : (currentCountry === 'AT' ? '0,24 €' : '0,40 CHF')})</option>
+                ${currentCountry === 'AT' ? `<option value="bike" ${day.vehicle === 'bike' ? 'selected' : ''}>Fahrrad (0,38 €)</option>` : ''}
+              </select>
+            </div>
+
+            <!-- Hotel / Overnight -->
+            <div class="space-y-1.5">
+              <span class="block font-bold text-slate-700">Übernachtung:</span>
+              <select onchange="updateDayField(${idx}, 'hotelType', this.value)" class="w-full px-2 py-1 bg-slate-50 border border-slate-300 rounded text-[11px]">
+                <option value="none" ${day.hotelType === 'none' ? 'selected' : ''}>Keine Übernachtung (0 ${sym})</option>
+                <option value="allowance" ${day.hotelType === 'allowance' ? 'selected' : ''}>Pauschale (${currentCountry === 'DE' ? '20,00 €' : (currentCountry === 'AT' ? '17,00 €' : '100 CHF')})</option>
+                <option value="custom" ${day.hotelType === 'custom' ? 'selected' : ''}>Rechnungsbeleg eingeben</option>
+              </select>
+              ${day.hotelType === 'custom' ? `
+                <div class="flex items-center gap-1 mt-1">
+                  <input type="number" step="0.01" min="0" value="${day.hotelCustom || 0}" oninput="updateDayField(${idx}, 'hotelCustom', parseFloat(this.value) || 0)" placeholder="Betrag" class="w-24 px-2 py-1 bg-white border border-slate-300 rounded text-right font-mono" />
+                  <span class="text-slate-500 font-bold">${sym}</span>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Extra Expenses (Tolls, Parking) -->
+            <div class="space-y-1.5">
+              <span class="block font-bold text-slate-700">Reisenebenkosten (Maut, Parken):</span>
+              <div class="flex items-center gap-1">
+                <input type="number" step="0.01" min="0" value="${day.expenses || 0}" oninput="updateDayField(${idx}, 'expenses', parseFloat(this.value) || 0)" class="w-24 px-2 py-1 bg-slate-50 border border-slate-300 rounded text-right font-mono" />
+                <span class="text-slate-500 font-bold">${sym}</span>
+              </div>
+              <span class="text-[10px] text-slate-400 block">Parken, Bahn, Mauttickets</span>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(card);
+      });
+
+      document.getElementById('days-count-badge').textContent = `${travelDays.length} Reisetag${travelDays.length > 1 ? 'e' : ''} erfasst`;
+    }
+
+    function updateDayField(idx, field, value) {
+      travelDays[idx][field] = value;
+      if (field === 'hotelType') {
+        renderDays();
+      }
+      updateAll();
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // Core Calculation for One Day
+    function calculateDay(day) {
+      const rates = RATES[currentCountry];
+      let basePerDiem = 0;
+      let breakfastDeduction = 0;
+      let lunchDeduction = 0;
+      let dinnerDeduction = 0;
+
+      if (currentCountry === 'DE') {
+        if (day.dayType === 'full') {
+          basePerDiem = 28.00;
+        } else if (day.dayType === 'departure' || day.dayType === 'return' || day.dayType === 'single_gt8') {
+          basePerDiem = 14.00;
+        } else {
+          basePerDiem = 0.00;
+        }
+
+        if (day.breakfast) breakfastDeduction = 5.60;
+        if (day.lunch) lunchDeduction = 11.20;
+        if (day.dinner) dinnerDeduction = 11.20;
+
+      } else if (currentCountry === 'AT') {
+        if (day.dayType === 'full') {
+          basePerDiem = 30.00;
+        } else if (day.dayType === 'hours_8') {
+          basePerDiem = 20.00;
+        } else if (day.dayType === 'hours_5') {
+          basePerDiem = 12.50;
+        } else if (day.dayType === 'departure' || day.dayType === 'return') {
+          basePerDiem = 15.00;
+        } else {
+          basePerDiem = 0.00;
+        }
+
+        if (day.breakfast) breakfastDeduction = basePerDiem * 0.15;
+        if (day.lunch) lunchDeduction = basePerDiem * 0.40;
+        if (day.dinner) dinnerDeduction = basePerDiem * 0.40;
+
+      } else if (currentCountry === 'CH') {
+        if (day.dayType === 'full') {
+          basePerDiem = 70.00;
+        } else if (day.dayType === 'single_gt8') {
+          basePerDiem = 35.00;
+        } else if (day.dayType === 'hours_8') {
+          basePerDiem = 35.00;
+        } else {
+          basePerDiem = 0.00;
+        }
+
+        if (day.breakfast) breakfastDeduction = 15.00;
+        if (day.lunch) lunchDeduction = 35.00;
+        if (day.dinner) dinnerDeduction = 35.00;
+      }
+
+      // Per diem cannot be negative
+      const rawPerDiem = basePerDiem - (breakfastDeduction + lunchDeduction + dinnerDeduction);
+      const effectivePerDiem = Math.max(0, rawPerDiem);
+
+      // Mileage
+      let kmRate = rates.carRate;
+      if (day.vehicle === 'twowheeler') kmRate = rates.twoWheelerRate;
+      if (day.vehicle === 'bike') kmRate = rates.bikeRate;
+      const mileageCost = (parseFloat(day.km) || 0) * kmRate;
+
+      // Hotel
+      let hotelCost = 0;
+      if (day.hotelType === 'allowance') hotelCost = rates.hotelAllowance;
+      else if (day.hotelType === 'custom') hotelCost = parseFloat(day.hotelCustom) || 0;
+
+      // Expenses
+      const extraExpenses = parseFloat(day.expenses) || 0;
+
+      const dayTotal = effectivePerDiem + mileageCost + hotelCost + extraExpenses;
+
+      return {
+        basePerDiem,
+        breakfastDeduction,
+        lunchDeduction,
+        dinnerDeduction,
+        effectivePerDiem,
+        mileageCost,
+        hotelCost,
+        extraExpenses,
+        dayTotal
+      };
+    }
+
+    // Update Totals and Print View
+    function updateAll() {
+      const sym = RATES[currentCountry].symbol;
+
+      let sumPerDiem = 0;
+      let sumMileage = 0;
+      let sumHotel = 0;
+      let sumExpenses = 0;
+      let totalKm = 0;
+
+      const printTableBody = document.getElementById('print-table-body');
+      printTableBody.innerHTML = '';
+
+      travelDays.forEach((day, idx) => {
+        const res = calculateDay(day);
+
+        sumPerDiem += res.effectivePerDiem;
+        sumMileage += res.mileageCost;
+        sumHotel += res.hotelCost;
+        sumExpenses += res.extraExpenses;
+        totalKm += (parseFloat(day.km) || 0);
+
+        // Update preview pill in day card
+        const preview = document.getElementById(`day-calc-preview-${idx}`);
+        if (preview) {
+          preview.textContent = `(Tagesanspruch: ${res.dayTotal.toFixed(2)} ${sym})`;
+        }
+
+        // Build Print Row
+        let mealsText = [];
+        if (day.breakfast) mealsText.push('Frühstück (-F)');
+        if (day.lunch) mealsText.push('Mittag (-M)');
+        if (day.dinner) mealsText.push('Abend (-A)');
+        const mealsLabel = mealsText.length > 0 ? mealsText.join(', ') : 'Keine';
+
+        const row = document.createElement('tr');
+        row.className = idx % 2 === 0 ? 'bg-white' : 'bg-slate-50';
+        row.innerHTML = `
+          <td class="py-1.5 px-2 font-mono border-r border-slate-300">${day.date || '-'}</td>
+          <td class="py-1.5 px-2 border-r border-slate-300">
+            <div class="font-bold text-slate-900">${escapeHtml(day.location)}</div>
+            <div class="text-[8pt] text-slate-500">${day.dayType}</div>
+          </td>
+          <td class="py-1.5 px-2 text-center text-[8pt] border-r border-slate-300 text-slate-700">${mealsLabel}</td>
+          <td class="py-1.5 px-2 text-right font-mono border-r border-slate-300">${res.effectivePerDiem.toFixed(2)}</td>
+          <td class="py-1.5 px-2 text-right font-mono border-r border-slate-300">${day.km || 0} km (${res.mileageCost.toFixed(2)})</td>
+          <td class="py-1.5 px-2 text-right font-mono border-r border-slate-300">${res.hotelCost.toFixed(2)}</td>
+          <td class="py-1.5 px-2 text-right font-mono">${res.extraExpenses.toFixed(2)}</td>
+        `;
+        printTableBody.appendChild(row);
+      });
+
+      const grandTotal = sumPerDiem + sumMileage + sumHotel + sumExpenses;
+
+      // Update Screen Stats
+      document.getElementById('stat-per-diem').textContent = sumPerDiem.toFixed(2) + ' ' + sym;
+      document.getElementById('stat-mileage').textContent = sumMileage.toFixed(2) + ' ' + sym;
+      document.getElementById('stat-mileage-sub').textContent = `${totalKm.toLocaleString('de-DE')} km gesamt`;
+      document.getElementById('stat-hotel').textContent = sumHotel.toFixed(2) + ' ' + sym;
+      document.getElementById('stat-expenses').textContent = sumExpenses.toFixed(2) + ' ' + sym;
+      document.getElementById('stat-total').textContent = grandTotal.toFixed(2) + ' ' + sym;
+      document.getElementById('stat-total-currency').textContent = `Auszahlungsbetrag (${currentCountry})`;
+
+      // Update Print Sheet Values
+      document.getElementById('print-emp-name').textContent = document.getElementById('emp-name').value || 'Mitarbeiter';
+      document.getElementById('print-emp-id').textContent = document.getElementById('emp-id').value || '-';
+      document.getElementById('print-emp-dept').textContent = document.getElementById('emp-dept').value || '-';
+      document.getElementById('print-travel-purpose').textContent = document.getElementById('travel-purpose').value || '-';
+
+      if (travelDays.length > 0) {
+        const firstDate = travelDays[0].date;
+        const lastDate = travelDays[travelDays.length - 1].date;
+        document.getElementById('print-travel-period').textContent = `${firstDate} bis ${lastDate}`;
+      }
+
+      document.getElementById('print-sum-per-diem').textContent = sumPerDiem.toFixed(2) + ' ' + sym;
+      document.getElementById('print-sum-mileage').textContent = sumMileage.toFixed(2) + ' ' + sym;
+      document.getElementById('print-sum-hotel').textContent = sumHotel.toFixed(2) + ' ' + sym;
+      document.getElementById('print-sum-expenses').textContent = sumExpenses.toFixed(2) + ' ' + sym;
+      document.getElementById('print-sum-total').textContent = grandTotal.toFixed(2) + ' ' + sym;
+    }
+
+    // Pendlerpauschale Logic
+    function calculatePendler() {
+      const dist = Math.max(0, parseFloat(document.getElementById('pendler-distance').value) || 0);
+      const days = Math.max(0, parseFloat(document.getElementById('pendler-days').value) || 0);
+      const mode = document.getElementById('pendler-transport').value;
+
+      // German Rules 2026:
+      // First 20 km = 0.30 EUR/km
+      // From 21st km = 0.38 EUR/km
+      let dailyAmount = 0;
+      let part1 = 0;
+      let part2 = 0;
+
+      if (dist <= 20) {
+        dailyAmount = dist * 0.30;
+        part1 = dailyAmount;
+      } else {
+        part1 = 20 * 0.30; // 6.00 €
+        part2 = (dist - 20) * 0.38;
+        dailyAmount = part1 + part2;
+      }
+
+      let yearlyTotal = dailyAmount * days;
+
+      // Cap at 4500 EUR for public transit / bike unless actual costs proven
+      if (mode !== 'pkw' && yearlyTotal > 4500) {
+        yearlyTotal = 4500;
+      }
+
+      const monthly = yearlyTotal / 12;
+
+      document.getElementById('pendler-total-sum').textContent = yearlyTotal.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € / Jahr';
+      document.getElementById('pendler-monthly-sum').textContent = monthly.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' € / Monat';
+
+      document.getElementById('pendler-breakdown-1').textContent = `• 1. bis 20. Kilometer: ${Math.min(dist, 20).toFixed(0)} km × 0,30 € = ${part1.toFixed(2)} €/Tag`;
+      document.getElementById('pendler-breakdown-2').textContent = `• Ab dem 21. Kilometer: ${Math.max(0, dist - 20).toFixed(0)} km × 0,38 € = ${part2.toFixed(2)} €/Tag`;
+      document.getElementById('pendler-breakdown-daily').textContent = `• Gesamtanspruch: ${dailyAmount.toFixed(2)} € pro Arbeitstag (${days} Tage gerechnet)`;
+    }
+
+    function scrollToPrintView() {
+      document.getElementById('druckvorschau').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Gumroad Modal Logic
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['PRO2026', 'REISE2026', 'BMF2026', 'GUMROAD', 'SPESEN2026'];
+      if (validCodes.includes(val)) {
+        unlockPro(true);
+        closeCheckoutModal();
+        alert("B2B Reisekosten Pro-Paket erfolgreich freigeschaltet!");
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = "Ungültiger Code. Bitte Gutscheincode prüfen.";
+        err.classList.remove('hidden');
+      }
+    }
+
+    function unlockPro(save) {
+      isProUnlocked = true;
+      if (save) localStorage.setItem('dw_reise_pro', 'true');
+      const btn = document.getElementById('header-unlock-btn');
+      if (btn) {
+        btn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+        btn.className = 'inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold bg-emerald-700 text-white cursor-default shadow-sm';
+        btn.onclick = null;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash Conversion Cycle berechnen: Formel, DSO, DPO &amp; DIO im KMU-Leitfaden | DACH Digitalwerk</title>
+  <meta name="description" content="Cash Conversion Cycle (Geldumschlagsdauer) berechnen: Formeln für DSO (Debitoren), DPO (Kreditoren) und DIO (Lagerreichweite) &amp; wie Sie gebundene Liquidität sofort freisetzen." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/cash-conversion-cycle-berechnen-dso-dpo-dio.html" />
+  <meta property="og:title" content="Cash Conversion Cycle berechnen: Formel, DSO, DPO &amp; DIO im Praxis-Leitfaden" />
+  <meta property="og:description" content="Wie viel Liquidität ist in Ihrem operativen Geschäft gebunden? Formel, Benchmarks und Hebel zur Optimierung des Cash Conversion Cycle." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/cash-conversion-cycle-berechnen-dso-dpo-dio.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cash Conversion Cycle berechnen: Formel, DSO, DPO & DIO im KMU-Leitfaden",
+    "description": "Betriebswirtschaftliche Formel und Praxis-Hebel zur Berechnung der Geldumschlagsdauer im Working Capital Management.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was sagt der Cash Conversion Cycle (CCC) aus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der Cash Conversion Cycle (auch Geldumschlagsdauer oder Liquiditätszyklus) misst die Zeitspanne in Tagen, die vergeht, ab dem Moment, in dem ein Unternehmen Geld für Rohstoffe oder Waren ausgibt, bis zu dem Tag, an dem der Kunde für das fertige Produkt bezahlt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lautet die Formel für den Cash Conversion Cycle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Standardformel lautet: CCC = DIO (Days Inventory Outstanding) + DSO (Days Sales Outstanding) - DPO (Days Payable Outstanding). Je kleiner der CCC-Wert (oder gar negativ), desto weniger externes Working Capital wird zur Vorfinanzierung benötigt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann der Cash Conversion Cycle negativ sein?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja! Ein negativer CCC bedeutet, dass die Kunden das Unternehmen schneller bezahlen, als das Unternehmen seine Lieferanten bezahlen muss (z. B. typisch im E-Commerce oder Lebensmittel-Einzelhandel wie Amazon oder Aldi). Dadurch finanzieren die Lieferanten das operative Geschäft vollkommen zinsfrei."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="./liquiditaetsplaner-cashflow-rechner/" class="text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3.5 py-2 rounded-xl transition">
+          Zum Liquiditätsplaner →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ARTICLE CONTENT ================= -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    
+    <!-- Breadcrumb -->
+    <nav class="text-xs font-mono text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-emerald-400 transition">Home</a>
+      <span>/</span>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="hover:text-emerald-400 transition">Liquiditätsplaner</a>
+      <span>/</span>
+      <span class="text-slate-300">Cash Conversion Cycle Formel &amp; Kennzahlen</span>
+    </nav>
+
+    <!-- Header Badge -->
+    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full mb-4">
+      <span>Working Capital Management &amp; Liquiditätshebel</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight mb-6">
+      Cash Conversion Cycle berechnen: Formel für DSO, DPO &amp; DIO
+    </h1>
+
+    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+      Viele profitable mittelständische Unternehmen geraten in akute Zahlungsnot, weil ihr Geld im Umlaufvermögen feststeckt. Der <strong>Cash Conversion Cycle (CCC)</strong> ist die entscheidende Kennzahl, um zu ermitteln, wie viele Tage Betriebskapital gebunden ist und wie Geschäftsführer durch die Stellschrauben <strong>DSO, DPO und DIO</strong> hunderttausende Euro an freier Liquidität heben können.
+    </p>
+
+    <!-- Interactive Callout -->
+    <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <div class="text-xs font-mono text-emerald-400 uppercase font-bold mb-1">Interaktiver CCC-Simulator</div>
+        <div class="text-base font-bold text-white">Cash Conversion Cycle im 13-Wochen-Planer berechnen</div>
+        <div class="text-xs text-slate-400">Schieben Sie die Regler für DIO, DSO und DPO und sehen Sie sofort das freigesetzte Cash.</div>
+      </div>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="whitespace-nowrap bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl transition">
+        Rechner öffnen →
+      </a>
+    </div>
+
+    <!-- Section 1: Formel -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        1. Die zentrale Formel des Cash Conversion Cycle
+      </h2>
+      <p>
+        Der Cash Conversion Cycle (Geldumschlagsdauer) setzt sich aus drei wesentlichen Komponenten zusammen:
+      </p>
+
+      <div class="p-5 rounded-2xl bg-slate-950 border border-emerald-500/40 text-center font-mono text-base sm:text-lg text-emerald-400 font-bold">
+        CCC = DIO + DSO - DPO
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-1">1. DIO (Days Inventory)</div>
+          <div class="text-sm font-bold text-white mb-2">Vorratsreichweite</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Wie viele Tage liegen Rohstoffe, Halbzeuge und fertige Produkte im Lager, bevor sie verkauft werden?
+          </p>
+          <div class="mt-2 text-[11px] font-mono text-slate-300 bg-slate-900 p-2 rounded">
+            (Lagerbestand / Materialaufwand) &times; 365
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-1">2. DSO (Days Sales)</div>
+          <div class="text-sm font-bold text-white mb-2">Debitorenziel</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Wie viele Tage vergehen vom Rechnungsdatum bis zum tatsächlichen Zahlungseingang auf dem Bankkonto?
+          </p>
+          <div class="mt-2 text-[11px] font-mono text-slate-300 bg-slate-900 p-2 rounded">
+            (Forderungen / Bruttoumsatz) &times; 365
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="text-xs font-mono text-emerald-400 font-bold mb-1">3. DPO (Days Payable)</div>
+          <div class="text-sm font-bold text-white mb-2">Kreditorenziel</div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Wie viele Tage lässt sich das Unternehmen Zeit, um Eingangsrechnungen von Lieferanten zu bezahlen?
+          </p>
+          <div class="mt-2 text-[11px] font-mono text-slate-300 bg-slate-900 p-2 rounded">
+            (Verbindlichkeiten / Wareneinkauf) &times; 365
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Rechenbeispiel -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        2. Praxis-Rechenbeispiel &amp; Hebelwirkung
+      </h2>
+      <p>
+        Ein mittelständischer Handwerks- oder Fertigungsbetrieb weist folgende Bilanz- und GuV-Kennzahlen auf:
+      </p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Jahresumsatz brutto: <strong>2.400.000 €</strong> (ca. 6.575 € / Tag)</li>
+        <li>Durchschnittliche Vorratsdauer (DIO): <strong>45 Tage</strong></li>
+        <li>Durchschnittliches Kundenzahlungsziel (DSO): <strong>42 Tage</strong></li>
+        <li>Durchschnittliches Lieferantenziel (DPO): <strong>30 Tage</strong></li>
+      </ul>
+
+      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300">
+        <strong>Berechnung:</strong><br />
+        CCC = 45 Tage (DIO) + 42 Tage (DSO) - 30 Tage (DPO) = <strong>57 Tage</strong>.<br /><br />
+        Das Unternehmen muss seine Geschäftstätigkeit im Durchschnitt für <strong>57 Tage aus eigener Tasche oder teuren Kontokorrentkrediten vorfinanzieren</strong>!
+      </div>
+
+      <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300">
+        <strong>Die Hebelwirkung der DSO-Verkürzung:</strong> Gelingt es dem Mahnwesen, das Zahlungsziel der Kunden von 42 Tagen auf 35 Tage (Reduktion um 7 Tage) zu senken, setzt dies sofort:
+        <br />
+        <span class="font-mono font-bold text-sm">7 Tage &times; 6.575 € = 46.025 € liquide Bankmittel</span> frei! Ohne einen Cent Neuverschuldung und ohne zusätzliche Zinskosten.
+      </div>
+    </section>
+
+    <!-- Section 3: Benchmarks -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        3. Branchen-Benchmarks für den Cash Conversion Cycle
+      </h2>
+      <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 mb-6">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-900 border-b border-slate-800 text-slate-400 font-mono">
+            <tr>
+              <th class="p-3">Branche</th>
+              <th class="p-3">Typischer CCC</th>
+              <th class="p-3">Charakteristik &amp; Haupttreiber</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="p-3 font-semibold text-white">E-Commerce &amp; Großhandel</td>
+              <td class="p-3 font-mono text-emerald-400">-10 bis +15 Tage</td>
+              <td class="p-3">Sofortzahlung via PayPal/Kreditkarte, lange Zahlungsziele bei Lieferanten.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">Dienstleistung &amp; IT / Beratung</td>
+              <td class="p-3 font-mono text-emerald-400">20 bis 40 Tage</td>
+              <td class="p-3">Kein Lagerbestand (DIO = 0). Alleinige Abhängigkeit von DSO und Projekt-Meilensteinen.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">Handwerk &amp; Bauhauptgewerbe</td>
+              <td class="p-3 font-mono text-amber-400">45 bis 75 Tage</td>
+              <td class="p-3">Lange VOB/SIA-Abnahmefristen, Einbehalte (Sicherheitseinbehalt 5 %) und Vorfinanzierung von Material.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">Maschinenbau &amp; Industrie</td>
+              <td class="p-3 font-mono text-rose-400">70 bis 120+ Tage</td>
+              <td class="p-3">Monatelange Durchlaufzeiten, teure Ersatzteil- und Komponentenläger.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Bottom Rechner Banner -->
+    <div class="p-8 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-slate-900 to-teal-500/10 border border-emerald-500/30 text-center">
+      <h3 class="text-xl font-display font-bold text-white mb-2">Simulieren Sie Ihren Cash Conversion Cycle</h3>
+      <p class="text-xs text-slate-300 max-w-xl mx-auto mb-6">
+        Testen Sie unser kostenloses Analysetool mit rollierender 13-Wochen-Liquiditätsmatrix und sofortiger Hebelberechnung.
+      </p>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm px-6 py-3 rounded-xl transition shadow-lg shadow-emerald-500/20">
+        Kostenlosen Rechner starten →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk. Rein technischer Informationsleitfaden. Keine Rechts- oder Steuerberatung (§ 2 RDG / § 5 StBerG).</div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="./agb/" class="hover:text-emerald-400 transition">AGB</a>
+        <a href="./haftungsausschluss/" class="hover:text-emerald-400 transition">Haftungsausschluss</a>
+        <a href="./liquiditaetsplaner-cashflow-rechner/" class="hover:text-emerald-400 transition">Liquiditätsplaner</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

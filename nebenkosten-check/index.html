@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Nebenkostenabrechnung- & Mietminderungs-Prüfer 2026 | Digitalwerk</title>
+  <meta name="description" content="Nebenkostenabrechnung kostenlos prüfen (DE/AT/CH): Bis zu 80% fehlerhafte Abrechnungen entlarven. Verfristung, unzulässige Reparaturen, Verwaltungskosten & Heizkosten-Kürzung berechnen inkl. DIN-A4 Widerspruchsbrief." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 20mm 22mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 18mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Ihre Abrechnungsdaten werden ausschließlich lokal in Ihrem Browser verarbeitet (keine Server-Speicherung, DSGVO & revDSG konform).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsraum:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 556 BGB / BetrKV)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§§ 21–24 MRG)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (Art. 257a-b OR)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          🏢
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Nebenkosten- & Mietminderungs-Prüfer 2026</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Abrechnungs-Detektor • Mietminderungs-Rechner • DIN-A4 Widerspruch & Belegeinsicht</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../arbeitszeugnis/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🔍</span>
+          <span>Arbeitszeugnis-Radar</span>
+        </a>
+        <a href="../qr-suite/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🧾</span>
+          <span>E-Rechnung & Swiss QR</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Vollversion (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & DEMO SELECTOR -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold mb-3">
+          <span>⚡ Sofort-Prüfung ohne Registrierung</span>
+          <span>•</span>
+          <span id="hero-badge-law">Rechtsstand 2026 (§ 556 BGB / CO2KostAufG / HeizkostenV)</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          Nebenkostenabrechnung prüfen & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-sky-300 to-emerald-300">unzulässige Posten streichen</span>
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Verbraucherzentralen und Mietervereine schätzen: <strong>Bis zu 80 % aller Abrechnungen sind fehlerhaft</strong>. Häufig wälzen Vermieter unzulässige Reparaturen, Verwaltungshonorare, Leerstände oder CO₂-Kosten auf Mieter ab. Prüfen Sie Ihre Abrechnung in wenigen Minuten oder testen Sie einen Praxis-Fall:
+        </p>
+      </div>
+
+      <!-- 3 INTERACTIVE DEMO BUTTONS -->
+      <div class="mt-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+          <span>🎯 Praxis-Beispiele mit 1 Klick laden:</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <button onclick="loadSampleCase('de_typical')" id="demo-btn-de" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-amber-500/40 hover:border-amber-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇩🇪</span>
+            <div>
+              <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Deutschland • Klassischer Fehlerfall</div>
+              <div class="text-sm font-bold text-white group-hover:text-amber-200 transition">1.250 € Nachforderung wird zu 185 € Guthaben</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Enthält Verwaltungskosten (380 €), Reparatur Heizung (540 €), Hausmeister ohne Trennung (420 €) & 100% CO₂-Kosten.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleCase('at_mrg')" id="demo-btn-at" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-sky-500/40 hover:border-sky-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇦🇹</span>
+            <div>
+              <div class="text-xs font-bold text-sky-300 uppercase tracking-wider">Österreich • MRG Fristversäumnis</div>
+              <div class="text-sm font-bold text-white group-hover:text-sky-200 transition">Zustellung nach 30.06. = Präklusion</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Nachforderung von 890 € nach § 21 Abs. 3 MRG komplett verwirkt + 210 € Reparatur & Bankspesen.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleCase('ch_akonto')" id="demo-btn-ch" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇨🇭</span>
+            <div>
+              <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Schweiz • Akonto Zürich</div>
+              <div class="text-sm font-bold text-white group-hover:text-emerald-200 transition">Nicht ausgeschiedene Kosten & Reparatur</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Nachforderung CHF 1'180 gestrichen: CHF 850 Waschmaschinen-Reparatur & CHF 600 Lift-Amortisation nach Art. 257b OR unzulässig.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB NAVIGATION -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 no-print">
+    <div class="flex border-b border-slate-200 bg-white rounded-t-2xl px-2 pt-2 gap-2 shadow-sm overflow-x-auto">
+      <button onclick="switchTab('nebenkosten')" id="tab-btn-nebenkosten" class="px-5 py-3 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition">
+        <span>🏢</span>
+        <span>1. Nebenkosten- & Betriebskosten-Detektor</span>
+        <span id="badge-savings-preview" class="ml-1 px-2 py-0.5 text-[10px] rounded-full bg-emerald-100 text-emerald-800 font-extrabold hidden">0 €</span>
+      </button>
+
+      <button onclick="switchTab('mietminderung')" id="tab-btn-mietminderung" class="px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>📉</span>
+        <span>2. Mietminderungs-Rechner & Mängel-Radar</span>
+        <span id="badge-reduction-preview" class="ml-1 px-2 py-0.5 text-[10px] rounded-full bg-rose-100 text-rose-800 font-extrabold hidden">0 %</span>
+      </button>
+
+      <button onclick="switchTab('widerspruch')" id="tab-btn-widerspruch" class="px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>📄</span>
+        <span>3. DIN-A4 Widerspruchs-Generator</span>
+        <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black uppercase">PRO</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pb-16 no-print">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: NEBENKOSTEN-DETEKTOR -->
+    <!-- =================================================================== -->
+    <div id="tab-content-nebenkosten" class="pt-6 space-y-6">
+      
+      <!-- FRISTEN & BASISDATEN CARD -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span>📅 Schritt 1: Eckdaten & Frist-Radar der Abrechnung</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Prüft automatisch, ob der Vermieter die gesetzliche Ausschlussfrist (12 Monate DE / 30. Juni AT) versäumt hat.</p>
+          </div>
+          <button onclick="resetNebenkostenForm()" class="text-xs text-slate-500 hover:text-rose-600 font-medium px-2 py-1 rounded hover:bg-rose-50 transition">
+            Eingaben zurücksetzen
+          </button>
+        </div>
+
+        <!-- DEADLINE RADAR BANNER (DYNAMICALLY CALCULATED) -->
+        <div id="deadline-status-banner" class="p-4 rounded-xl border flex items-start gap-3 bg-emerald-50 border-emerald-200 text-emerald-900">
+          <span class="text-xl mt-0.5" id="deadline-icon">✓</span>
+          <div>
+            <div class="text-sm font-bold" id="deadline-title">Frist eingehalten</div>
+            <div class="text-xs mt-0.5 leading-relaxed" id="deadline-desc">
+              Die Abrechnung ging innerhalb der gesetzlichen Frist zu. Nachforderungen können jedoch wegen inhaltlicher Fehler unzulässig sein.
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Abrechnungszeitraum von:</label>
+            <input type="date" id="nk-period-start" value="2025-01-01" onchange="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Abrechnungszeitraum bis:</label>
+            <input type="date" id="nk-period-end" value="2025-12-31" onchange="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Datum Zustellung Abrechnung:</label>
+            <input type="date" id="nk-delivery-date" value="2026-02-15" onchange="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Wohnfläche Mieter (m²):</label>
+            <input type="number" id="nk-tenant-area" value="75" min="1" step="0.5" oninput="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600" placeholder="z.B. 75">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Gesamtwohnfläche Liegenschaft (m²):</label>
+            <input type="number" id="nk-total-area" value="600" min="1" step="0.5" oninput="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600" placeholder="z.B. 600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Geleistete Vorauszahlungen (<span class="currency-label">€</span>):</label>
+            <input type="number" id="nk-prepayments" value="2400" min="0" step="10" oninput="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600" placeholder="z.B. 2400">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Geforderte Nachzahlung (+) / Guthaben (-):</label>
+            <input type="number" id="nk-claimed-balance" value="1250" step="1" oninput="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-bold" placeholder="z.B. 1250">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Davon Heiz- & Warmwasserkosten (<span class="currency-label">€</span>):</label>
+            <input type="number" id="nk-heating-costs" value="1450" min="0" step="10" oninput="runNebenkostenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600" placeholder="z.B. 1450">
+          </div>
+        </div>
+      </div>
+
+      <!-- CHECKLIST OF ILLEGAL / QUESTIONABLE COSTS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT: POSITION DETECTOR (7 COLS) -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <span>🔎 Schritt 2: Posten-Prüfer (Häufige unzulässige Kosten)</span>
+                </h3>
+                <p class="text-xs text-slate-500 mt-0.5">Wählen Sie gefundene Posten in Ihrer Abrechnung an und tragen Sie den Betrag ein.</p>
+              </div>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 border border-indigo-200">10 Prüfpunkte</span>
+            </div>
+
+            <!-- CHECKLIST ITEMS -->
+            <div id="cost-items-container" class="space-y-3 pt-2">
+              <!-- Dynamically populated by JS according to DE / AT / CH -->
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: LIVE SUMMARY & POTENTIAL SAVINGS DASHBOARD (5 COLS) -->
+        <div class="lg:col-span-5 space-y-4 lg:sticky lg:top-24">
+          <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-800 space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div>
+                <div class="text-[11px] uppercase tracking-wider text-amber-300 font-bold">Live-Prüfungsergebnis</div>
+                <h4 class="text-lg font-extrabold text-white">Ihr Einsparpotenzial</h4>
+              </div>
+              <span id="status-pill-result" class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Prüfung aktiv</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-slate-800/80 rounded-xl p-3 border border-slate-700/60">
+                <div class="text-[11px] text-slate-400">Vermieter-Forderung:</div>
+                <div class="text-base font-extrabold text-slate-100 mt-0.5" id="sum-claimed">1.250,00 €</div>
+              </div>
+              <div class="bg-rose-950/40 rounded-xl p-3 border border-rose-500/30">
+                <div class="text-[11px] text-rose-300 font-semibold">Unzulässige Posten:</div>
+                <div class="text-base font-extrabold text-rose-400 mt-0.5" id="sum-disputed">- 1.435,00 €</div>
+              </div>
+            </div>
+
+            <!-- RESULT CARD -->
+            <div class="rounded-2xl p-4 bg-emerald-500/10 border border-emerald-400/30 text-center">
+              <div class="text-xs uppercase tracking-wider text-emerald-300 font-bold">Korrigiertes Abrechnungsergebnis:</div>
+              <div class="text-3xl font-extrabold text-emerald-300 mt-1" id="sum-corrected-balance">185,00 € Guthaben</div>
+              <div class="text-xs text-slate-300 mt-1 leading-snug" id="sum-explanation-text">
+                Sie müssen nichts nachzahlen – der Vermieter schuldet Ihnen stattdessen ein Guthaben!
+              </div>
+            </div>
+
+            <!-- SUMMARY LIST OF DETECTED RED FLAGS -->
+            <div class="space-y-2 text-xs">
+              <div class="font-bold text-slate-300 text-[11px] uppercase tracking-wider flex items-center justify-between">
+                <span>Gefundene Fehler & Kürzungsgründe:</span>
+                <span id="detected-flags-count" class="text-amber-400 font-bold">4 Punkte</span>
+              </div>
+              <ul id="detected-flags-list" class="space-y-1.5 text-slate-300">
+                <!-- Dynamically populated -->
+              </ul>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="pt-2 border-t border-slate-800 space-y-2">
+              <button onclick="switchTab('widerspruch')" class="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black py-3 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs uppercase tracking-wider">
+                <span>📄 DIN-A4 Widerspruch & Belegeinsicht erstellen</span>
+                <span>→</span>
+              </button>
+              <div class="text-[11px] text-center text-slate-400">
+                Übernahme aller Beträge und Gesetzesparagraphen mit 1 Klick.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: MIETMINDERUNGS-RECHNER -->
+    <!-- =================================================================== -->
+    <div id="tab-content-mietminderung" class="pt-6 hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-6">
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span>📉 Mietminderungs-Rechner & Urteilsdatenbank 2026</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-0.5">Berechnen Sie die rechtlich orientierende Mietminderung auf Basis ständiger Rechtsprechung (BGH / OGH / BG).</p>
+        </div>
+
+        <!-- IMPORTANT LEGAL WARNING BOX: UNDER RESERVATION -->
+        <div class="p-4 rounded-2xl border border-rose-300 bg-rose-50/80 text-rose-950 flex items-start gap-3.5 shadow-sm">
+          <span class="text-2xl mt-0.5">⚠️</span>
+          <div class="space-y-1.5 text-xs sm:text-sm leading-relaxed">
+            <div class="font-bold text-rose-900 text-sm sm:text-base">WICHTIGER SCHUTZHINWEIS: Niemals die Miete eigenmächtig kürzen!</div>
+            <p class="text-rose-950">
+              Wer die Miete einfach eigenmächtig kürzt, gerät bei mehr als einer bzw. zwei Monatsmieten in <strong>Zahlungsverzug</strong>. Der Vermieter kann dann die <strong>fristlose Kündigung (§ 543 BGB)</strong> aussprechen!
+            </p>
+            <div class="bg-white/90 p-3 rounded-xl border border-rose-200 font-medium text-slate-900">
+              <strong>Der rechtssichere Weg:</strong>
+              <ol class="list-decimal ml-4 mt-1 space-y-0.5 text-xs">
+                <li>Den Mangel unverzüglich schriftlich beim Vermieter anzeigen (Mängelanzeige mit Beseitigungsfrist von 7–14 Tagen).</li>
+                <li>Ausdrücklich erklären: <em>„Die künftigen Mietzahlungen erfolgen unter Vorbehalt der Rückforderung wegen der angezeigten Mängel.“</em></li>
+                <li>Nach Mängelbeseitigung den Minderungsbetrag gesammelt zurückfordern oder verrechnen. (In der Schweiz: Mietzins nach Art. 259g OR bei der Schlichtungsbehörde hinterlegen).</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- INPUT FIELDS -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs pt-2">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Monatliche Bruttowarmmiete (<span class="currency-label">€</span>):</label>
+            <input type="number" id="mm-warm-rent" value="950" min="100" step="10" oninput="runMietminderungCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-bold" placeholder="z.B. 950">
+            <span class="text-[10px] text-slate-500 mt-1 block">BGH VIII ZR 225/03: Minderung immer von Bruttowarmmiete!</span>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Dauer des Mangels im Monat:</label>
+            <select id="mm-duration-type" onchange="runMietminderungCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+              <option value="full">Voller Monat (100% der Tage)</option>
+              <option value="days">Bestimmte Anzahl an Tagen</option>
+            </select>
+          </div>
+
+          <div id="mm-days-container" class="hidden">
+            <label class="block font-semibold text-slate-700 mb-1">Anzahl Tage Beeinträchtigung:</label>
+            <input type="number" id="mm-days-count" value="10" min="1" max="31" oninput="runMietminderungCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600" placeholder="z.B. 10">
+          </div>
+        </div>
+
+        <!-- DEFECTS SELECTION -->
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <div class="text-sm font-bold text-slate-900 flex items-center justify-between">
+            <span>Mietmängel-Katalog auswählen (Mehrfachauswahl möglich):</span>
+            <span class="text-xs text-slate-500">Orientierungswerte aus DACH-Gerichtsurteilen</span>
+          </div>
+
+          <div id="defects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- RESULT BANNER -->
+        <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-white p-5 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-amber-300 font-bold">Ergebnis Mietminderung (unter Vorbehalt):</div>
+            <div class="text-2xl sm:text-3xl font-extrabold mt-0.5 flex items-center gap-3">
+              <span id="mm-result-sum">285,00 €</span>
+              <span class="text-sm font-semibold text-slate-300" id="mm-result-rate">(30 % Minderungsquote)</span>
+            </div>
+            <div class="text-xs text-slate-400 mt-1" id="mm-result-desc">
+              Berechnet auf Basis Ihrer Warmmiete für den angegebenen Zeitraum.
+            </div>
+          </div>
+
+          <button onclick="applyMietminderungToLetter()" class="bg-indigo-500 hover:bg-indigo-400 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-md flex items-center gap-2">
+            <span>📥 In Widerspruchsschreiben übernehmen</span>
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: PRO DIN-A4 WIDERSPRUCHSSCHREIBEN-GENERATOR -->
+    <!-- =================================================================== -->
+    <div id="tab-content-widerspruch" class="pt-6 hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- LEFT: LETTER DATA INPUTS (4 COLS) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 text-xs">
+            <div class="border-b border-slate-100 pb-3">
+              <h3 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                <span>✍️ Absender- & Empfänger-Angaben</span>
+              </h3>
+              <p class="text-[11px] text-slate-500 mt-0.5">Wird direkt in den DIN-5008 Briefkopf eingefügt.</p>
+            </div>
+
+            <div class="space-y-3">
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Ihr Name / Mieter:</label>
+                <input type="text" id="let-sender-name" value="Maximilian Muster" oninput="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Ihre Anschrift (Straße, PLZ, Ort):</label>
+                <input type="text" id="let-sender-addr" value="Leopoldstraße 45, 80802 München" oninput="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Vermieter / Hausverwaltung:</label>
+                <input type="text" id="let-recipient-name" value="Immobilienverwaltung Schmidt & Partner GmbH" oninput="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Vermieter Anschrift (Straße, PLZ, Ort):</label>
+                <input type="text" id="let-recipient-addr" value="Brienner Straße 18, 80333 München" oninput="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Wohnung / Mietvertrags-Nummer:</label>
+                <input type="text" id="let-contract-ref" value="Whg. 3. OG links • Mietvertrags-Nr. MV-2021-884" oninput="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+
+              <div>
+                <label class="block font-semibold text-slate-700 mb-0.5">Datum der beanstandeten Abrechnung:</label>
+                <input type="date" id="let-invoice-date" value="2026-02-15" onchange="renderLetter()" class="w-full rounded-lg border border-slate-300 p-2 focus:border-indigo-600">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 space-y-2">
+              <label class="flex items-center gap-2 cursor-pointer font-semibold text-slate-700">
+                <input type="checkbox" id="let-include-belegeinsicht" checked onchange="renderLetter()" class="rounded text-indigo-600">
+                <span>Antrag auf Belegeinsicht aufnehmen</span>
+              </label>
+
+              <label class="flex items-center gap-2 cursor-pointer font-semibold text-slate-700">
+                <input type="checkbox" id="let-include-zurueckbehalt" checked onchange="renderLetter()" class="rounded text-indigo-600">
+                <span>Zurückbehaltungsrecht bzgl. Nachforderung</span>
+              </label>
+
+              <label class="flex items-center gap-2 cursor-pointer font-semibold text-slate-700">
+                <input type="checkbox" id="let-include-mietminderung" onchange="renderLetter()" class="rounded text-indigo-600">
+                <span>Mängelanzeige / Minderung unter Vorbehalt einfügen</span>
+              </label>
+            </div>
+
+            <!-- PRO EXPORT BUTTONS -->
+            <div class="pt-4 border-t border-slate-100 space-y-2">
+              <button onclick="handleProAction('print')" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+                <span>🖨️ DIN-A4 Drucken / PDF speichern</span>
+              </button>
+
+              <button onclick="handleProAction('copy')" id="btn-copy-letter" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2 text-xs">
+                <span>📋 In Zwischenablage kopieren</span>
+              </button>
+
+              <button onclick="handleProAction('download')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2 px-4 rounded-xl transition flex items-center justify-center gap-2 text-xs">
+                <span>💾 Als Textdatei herunterladen</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: LIVE DIN-A4 PREVIEW (8 COLS) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xs font-bold text-slate-800">DIN 5008 Live-Vorschau</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span id="letter-pro-tag" class="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">PRO-VORSCHAU</span>
+            </div>
+          </div>
+
+          <!-- SHEET WRAPPER WITH OVERLAY IF NOT UNLOCKED -->
+          <div class="relative a4-sheet-wrapper">
+            
+            <!-- LOCKED BLUR OVERLAY -->
+            <div id="letter-locked-overlay" class="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] z-20 rounded-2xl flex items-center justify-center p-6 text-center">
+              <div class="bg-white max-w-md w-full p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200 space-y-4 text-slate-900">
+                <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mx-auto shadow-inner">
+                  🔒
+                </div>
+                <div>
+                  <span class="text-[11px] font-extrabold text-indigo-600 uppercase tracking-wider">1-Klick Self-Serve Freischaltung</span>
+                  <h4 class="text-lg sm:text-xl font-extrabold mt-0.5">DIN-A4 Widerspruchsbrief freischalten</h4>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Schalten Sie das anwaltlich vorstrukturierte DIN-A4 Widerspruchsschreiben inkl. detaillierter Postenaufstellung, Fristen-Einrede, Belegeinsichtsantrag und PDF-Druckfunktion sofort frei.
+                </p>
+                <div class="space-y-2 pt-1">
+                  <button onclick="openCheckoutModal()" class="w-full bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition text-xs sm:text-sm flex items-center justify-center gap-2">
+                    <span>🔓 Jetzt freischalten (4,90 € / CHF)</span>
+                    <span>↗</span>
+                  </button>
+                  <button onclick="unlockWithCouponPrompt()" class="w-full text-slate-500 hover:text-indigo-600 font-semibold py-1.5 text-xs transition">
+                    Bereits gekauft? Freischaltcode eingeben
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACTUAL DIN A4 SHEET -->
+            <div id="a4-letter-target" class="a4-sheet">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PRINT ONLY CONTAINER (WINDOW.PRINT()) -->
+  <div id="print-letter-container" class="print-only-container hidden"></div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">⚡ 100% Self-Serve • Sofort-Zugang</span>
+          <h3 class="text-lg font-extrabold mt-0.5">Pro-Vollversion & DIN-A4 Widerspruch</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-5 text-sm">
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="font-bold text-slate-900">DACH Nebenkosten-Prüfer Pro-Pass</div>
+            <div class="text-xs text-slate-500">Unbegrenzte Widerspruchsschreiben • Belegeinsicht • PDF-Export</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xl font-extrabold text-indigo-600 price-label-inline">4,90 €</div>
+            <div class="text-[10px] text-slate-400">Einmalzahlung (kein Abo)</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">In 2 Sekunden freischalten:</div>
+
+          <!-- Step 1: Open Gumroad Checkout -->
+          <a
+            id="modal-gumroad-link"
+            href="https://dachdigital.gumroad.com/l/gthgwc"
+            target="_blank"
+            rel="noopener"
+            onclick="markGumroadClicked()"
+            class="w-full bg-[#ff90e8] hover:bg-[#ff7be5] text-slate-950 font-extrabold py-3.5 px-5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm border-2 border-slate-950"
+          >
+            <span>💳 Schritt 1: Jetzt 4,90 € / CHF via Gumroad checkout</span>
+            <span>↗</span>
+          </a>
+
+          <!-- Step 2: Instant Self-Serve Unlock Button -->
+          <div id="modal-step2-box" class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 space-y-2.5">
+            <div class="text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔓</span>
+              <span>Schritt 2: Sofort-Freischaltung aktivieren</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-relaxed">
+              Klicken Sie direkt nach dem Kauf hier, um alle Dokumente in diesem Browser sofort freizuschalten (kein Account nötig, Zero-Server-Speicherung):
+            </p>
+            <button
+              onclick="instantUnlockAfterPayment('modal')"
+              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 px-4 rounded-xl shadow transition text-xs sm:text-sm flex items-center justify-center gap-2"
+            >
+              <span>✓ Zahlung getätigt – Pro-Vollversion jetzt öffnen</span>
+            </button>
+          </div>
+
+          <!-- Coupon Unlock -->
+          <div class="pt-2 border-t border-slate-100 flex items-center gap-2">
+            <input type="text" id="coupon-input" placeholder="Gutscheincode (z.B. DW-PRO-2026)" class="flex-1 rounded-xl border border-slate-300 p-2 text-xs uppercase focus:border-indigo-600">
+            <button onclick="applyCouponCode()" class="bg-slate-900 hover:bg-indigo-600 text-white font-bold px-3 py-2 rounded-xl text-xs transition">
+              Einlösen
+            </button>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 text-center pt-1 border-t border-slate-100">
+          100% DSGVO- & revDSG-konform • Ihre Freischaltung bleibt in Ihrem lokalen Browser gespeichert.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs no-print mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">DACH Digitalwerk</span> • Nebenkosten- & Mietminderungs-Prüfer 2026 (DE / AT / CH)
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="../" class="hover:text-white transition">Alle Tools</a>
+        <a href="../arbeitszeugnis/" class="hover:text-white transition">Arbeitszeugnis-Radar</a>
+        <a href="../qr-suite/" class="hover:text-white transition">E-Rechnung & Swiss QR</a>
+        <a href="../rechner/" class="hover:text-white transition">Solar- & Handwerker-Rechner</a>
+        <button onclick="resetProStatus()" class="text-slate-600 hover:text-slate-400 transition" title="Setzt den Pro-Status zu Testzwecken zurück">Demo-Status zurücksetzen</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // =========================================================================
+    // STATE & RECHTSKATALOGE 2026
+    // =========================================================================
+    let currentJurisdiction = 'DE'; // 'DE' | 'AT' | 'CH'
+    let isProUnlocked = false;
+    let activeTab = 'nebenkosten';
+
+    const JURISDICTION_CONFIG = {
+      DE: {
+        currency: '€',
+        code: 'EUR',
+        lawName: '§ 556 BGB / § 2 BetrKV / CO2KostAufG',
+        defaultSenderAddr: 'Leopoldstraße 45, 80802 München',
+        defaultRecipientName: 'Immobilienverwaltung Schmidt & Partner GmbH',
+        defaultRecipientAddr: 'Brienner Straße 18, 80333 München',
+        deadlineRule: '12-Monats-Frist nach Ende des Abrechnungszeitraums (§ 556 Abs. 3 BGB). Nach Ablauf ist jede Nachforderung gesetzlich ausgeschlossen (Präklusion). Guthaben muss trotzdem ausgezahlt werden!',
+        items: [
+          {
+            id: 'admin_costs',
+            title: 'Verwaltungskosten & Hausverwaltervergütung',
+            law: '§ 1 Abs. 2 Nr. 1 BetrKV (unzulässig)',
+            desc: 'Kosten für Hausverwaltung, WEG-Verwaltung, Buchhaltung und Bankkontoführung sind niemals auf Mieter von Wohnraum umlagefähig.',
+            defaultAmount: 380,
+            active: true
+          },
+          {
+            id: 'maintenance_reserve',
+            title: 'Instandhaltungsrücklage & Gebäude-Reparaturen',
+            law: '§ 1 Abs. 2 Nr. 2 BetrKV (unzulässig)',
+            desc: 'Reparaturen (z.B. Heizungspumpe, Dach, Elektrik, Fassade) und Zuführungen zur Instandhaltungsrücklage sind alleinige Vermietersache.',
+            defaultAmount: 540,
+            active: true
+          },
+          {
+            id: 'bank_fees',
+            title: 'Bankspesen & Kontoführungsgebühren',
+            law: 'BGH st. Rspr. / § 1 BetrKV (unzulässig)',
+            desc: 'Kontoführungsgebühren des Mietkontos oder Kautionskontos zählen zu den unzulässigen Verwaltungskosten.',
+            defaultAmount: 48,
+            active: false
+          },
+          {
+            id: 'vacancy_costs',
+            title: 'Leerstandskosten & Mietausfallwagnis',
+            law: 'BGH VIII ZR 159/05 (unzulässig)',
+            desc: 'Kosten leerstehender Wohnungen müssen zu 100 % vom Vermieter getragen werden und dürfen nicht auf die übrigen Mieter umgelegt werden.',
+            defaultAmount: 180,
+            active: false
+          },
+          {
+            id: 'caretaker_unsplit',
+            title: 'Hausmeister ohne Trennung von Instandhaltung',
+            law: 'BGH VIII ZR 27/07',
+            desc: 'Hausmeisterkosten müssen strikt aufgeteilt werden: Reine Reinigung/Pflege ist umlagefähig; Reparaturen, Botendienste und Wohnungsübergaben nicht. Ohne Nachweis ist ein pauschaler Abzug von 20–50 % vorzunehmen.',
+            defaultAmount: 420,
+            active: true
+          },
+          {
+            id: 'commercial_share',
+            title: 'Gewerbeanteile nicht vorweg abgezogen',
+            law: 'BGH VIII ZR 78/05',
+            desc: 'Befinden sich Gewerbeeinheiten (z.B. Gastronomie, Supermarkt, Arztpraxis) im Haus, die überproportional Müll, Wasser oder Heizung verbrauchen, ist ein Vorwegabzug zwingend erforderlich.',
+            defaultAmount: 160,
+            active: false
+          },
+          {
+            id: 'heating_area_only',
+            title: 'Heizkostenverordnung-Verstoß: 100 % Abrechnung nach Fläche',
+            law: '§ 12 Abs. 1 HeizkostenV (15 % Kürzungsrecht)',
+            desc: 'Wurden Heiz- und Warmwasserkosten rein nach Wohnfläche statt mindestens 50–70 % nach Verbrauch abgerechnet, hat der Mieter ein gesetzliches 15 % Kürzungsrecht auf den gesamten Heizkostenanteil.',
+            defaultAmount: 217.50, // 15% of 1450
+            active: false,
+            isHeatingCut: true
+          },
+          {
+            id: 'co2_costs_full',
+            title: 'CO₂-Kosten zu 100 % auf Mieter abgewälzt',
+            law: '§§ 5–7 CO2KostAufG (Stufenmodell)',
+            desc: 'Nach dem Kohlendioxidkostenaufteilungsgesetz muss der Vermieter je nach energetischem Gebäudezustand bis zu 95 % der CO₂-Kosten tragen. Ein 100%iger Mieteranteil ist rechtswidrig.',
+            defaultAmount: 95,
+            active: true
+          },
+          {
+            id: 'garden_new',
+            title: 'Garten-Neuanlage, Baumfällung & Pflasterarbeiten',
+            law: 'LG Berlin / AG München',
+            desc: 'Nur die laufende Gartenpflege ist umlagefähig. Einmalige Neuanlagen, Baumfällungen aus Sicherheitsgründen oder Neupflasterungen sind Instandsetzung.',
+            defaultAmount: 230,
+            active: false
+          },
+          {
+            id: 'other_costs_unspecified',
+            title: '„Sonstige Betriebskosten“ ohne Vereinbarung im Vertrag',
+            law: '§ 2 Nr. 17 BetrKV / BGH VIII ZR 167/03',
+            desc: 'Unter „Sonstige Betriebskosten“ dürfen Posten (z.B. Dachrinnenreinigung, Trinkwasserprüfung) nur umgelegt werden, wenn sie im Mietvertrag explizit und detailliert einzeln aufgeführt sind.',
+            defaultAmount: 110,
+            active: false
+          }
+        ]
+      },
+      AT: {
+        currency: '€',
+        code: 'EUR',
+        lawName: '§§ 21–24 MRG (Mietrechtsgesetz)',
+        defaultSenderAddr: 'Mariahilfer Straße 88, 1070 Wien',
+        defaultRecipientName: 'AlpenReal Hausverwaltung GmbH',
+        defaultRecipientAddr: 'Kärntner Ring 12, 1010 Wien',
+        deadlineRule: 'Abrechnungsfrist bis zum 30. Juni des Folgejahres (§ 21 Abs. 3 MRG). Bei Überschreitung verliert der Vermieter den Anspruch auf Nachzahlung (Präklusion)!',
+        items: [
+          {
+            id: 'admin_costs_at',
+            title: 'Verwaltungshonorar über gesetzlichem Höchstbetrag',
+            law: '§ 22 MRG (Katalogbegrenzung)',
+            desc: 'Im MRG-Vollanwendungsbereich ist das Verwaltungshonorar gesetzlich streng gedeckelt. Höhere Ansätze oder separate Buchhaltungsgebühren sind unzulässig.',
+            defaultAmount: 140,
+            active: false
+          },
+          {
+            id: 'maintenance_repairs_at',
+            title: 'Erhaltungs- und Reparaturarbeiten am Gebäude',
+            law: '§§ 3, 21 MRG (unzulässig)',
+            desc: 'Reparaturen an Dach, Steigleitungen, Haustüre, Lift oder Fassade fallen unter die Erhaltungspflicht des Vermieters und dürfen nicht über die Betriebskosten verrechnet werden.',
+            defaultAmount: 480,
+            active: true
+          },
+          {
+            id: 'bank_fees_at',
+            title: 'Bankspesen & Kontoführungsgebühren',
+            law: 'OGH 5 Ob 213/08p (unzulässig)',
+            desc: 'Spesen des Betriebskostenkontos oder Zinsen sind keine Betriebskosten nach § 21 MRG.',
+            defaultAmount: 65,
+            active: true
+          },
+          {
+            id: 'vacancy_costs_at',
+            title: 'Leerstehungskosten / Leerstehende Wohnungen',
+            law: '§ 17 Abs. 1 MRG',
+            desc: 'Betriebskosten sind nach dem Verhältnis der Nutzflächen aufzuteilen; Anteile leerer Einheiten hat der Vermieter selbst zu tragen.',
+            defaultAmount: 190,
+            active: false
+          },
+          {
+            id: 'unclear_cleaning_at',
+            title: 'Hausreinigung ohne Nachweis / Überhöhte Sätze',
+            law: '§ 23 MRG',
+            desc: 'Entlohnung der Hausbesorger bzw. Fremdreinigung darf nur im angemessenen ortsüblichen Rahmen verrechnet werden.',
+            defaultAmount: 120,
+            active: false
+          },
+          {
+            id: 'heating_cut_at',
+            title: 'Verstoß gegen das Heizkostenabrechnungsgesetz (HeizKG)',
+            law: '§§ 10–13 HeizKG',
+            desc: 'Verbrauchsunabhängige Abrechnung berechtigt zu Einwendungen und Neufestsetzung durch die Schlichtungsstelle.',
+            defaultAmount: 180,
+            active: false
+          }
+        ]
+      },
+      CH: {
+        currency: 'CHF',
+        code: 'CHF',
+        lawName: 'Art. 257a–257b OR / VMWG',
+        defaultSenderAddr: 'Bahnhofstrasse 40, 8001 Zürich',
+        defaultRecipientName: 'Helvetia Immobilien Management AG',
+        defaultRecipientAddr: 'Gotthardstrasse 26, 8002 Zürich',
+        deadlineRule: 'Nebenkosten sind nur geschuldet, wenn sie im Mietvertrag explizit und detailliert ausgeschieden sind! Jährliche Abrechnungspflicht bei Akontozahlungen (Art. 4 Abs. 2 VMWG) & Belegeinsichtsrecht (Art. 257b Abs. 2 OR).',
+        items: [
+          {
+            id: 'ch_not_agreed',
+            title: 'Nebenkosten nicht ausdrücklich im Mietvertrag ausgeschieden',
+            law: 'Art. 257a Abs. 2 OR (BGE 121 III 460)',
+            desc: 'In der Schweiz gilt der Grundsatz: Alle Nebenkosten, die nicht buchstabengetreu im Mietvertrag benannt sind, sind im Nettomietzins inbegriffen! Pauschale Sammelbegriffe wie „übrige Nebenkosten“ genügen nicht.',
+            defaultAmount: 420,
+            active: false
+          },
+          {
+            id: 'ch_repairs_amortisation',
+            title: 'Unterhalts-, Reparatur- & Anschaffungskosten von Anlagen',
+            law: 'Art. 257b Abs. 1 OR / BGE 106 II 250 (unzulässig)',
+            desc: 'Reparaturen (z.B. Brennerreparatur, Ersatz von Pumpen, Reparatur Waschmaschine) und Amortisationen von Anlagen dürfen niemals als Nebenkosten abgerechnet werden.',
+            defaultAmount: 850,
+            active: true
+          },
+          {
+            id: 'ch_lift_amortisation',
+            title: 'Lift-Unterhalt inklusive Amortisation & Reparaturen',
+            law: 'Art. 257b OR / BGE 119 II 347',
+            desc: 'Nur die laufenden Betriebskosten des Lifts (Strom, Serviceabonnement ohne Ersatzteile) sind umlagefähig; Instandstellung und Teileersatz sind Vermietersache.',
+            defaultAmount: 600,
+            active: true
+          },
+          {
+            id: 'ch_admin_excess',
+            title: 'Verwaltungskosten über 3–4 % der Heizkosten',
+            law: 'Art. 5 Abs. 3 VMWG',
+            desc: 'Die Verwaltungskosten für die Erstellung der Abrechnung dürfen in der Schweiz maximal 3–4 % der reinen Heiz- und Warmwasserkosten betragen. Allgemeine Liegenschaftsverwaltung ist unzulässig.',
+            defaultAmount: 180,
+            active: false
+          },
+          {
+            id: 'ch_building_insurance',
+            title: 'Gebäude- & Haftpflichtversicherung',
+            law: 'Art. 257b OR (sofern nicht explizit vereinbart)',
+            desc: 'Gebäudeversicherungen sind Sache des Eigentümers und können nur umgelegt werden, wenn dies vertraglich unmissverständlich festgelegt wurde.',
+            defaultAmount: 220,
+            active: false
+          }
+        ]
+      }
+    };
+
+    // SAMPLE CASES
+    const SAMPLE_CASES = {
+      de_typical: {
+        jur: 'DE',
+        start: '2025-01-01',
+        end: '2025-12-31',
+        delivery: '2026-02-15',
+        tenantArea: 75,
+        totalArea: 600,
+        prepayments: 2400,
+        claimed: 1250,
+        heating: 1450,
+        activeItems: {
+          admin_costs: 380,
+          maintenance_reserve: 540,
+          caretaker_unsplit: 420,
+          co2_costs_full: 95
+        }
+      },
+      at_mrg: {
+        jur: 'AT',
+        start: '2024-01-01',
+        end: '2024-12-31',
+        delivery: '2025-08-20', // LATE! After 30.06.
+        tenantArea: 68,
+        totalArea: 520,
+        prepayments: 1800,
+        claimed: 890,
+        heating: 980,
+        activeItems: {
+          maintenance_repairs_at: 480,
+          bank_fees_at: 65
+        }
+      },
+      ch_akonto: {
+        jur: 'CH',
+        start: '2024-07-01',
+        end: '2025-06-30',
+        delivery: '2025-11-10',
+        tenantArea: 85,
+        totalArea: 720,
+        prepayments: 3200,
+        claimed: 1180,
+        heating: 1850,
+        activeItems: {
+          ch_repairs_amortisation: 850,
+          ch_lift_amortisation: 600
+        }
+      }
+    };
+
+    // DEFECTS CATALOG 2026 (FOR TAB 2)
+    const DEFECTS_CATALOG = [
+      {
+        id: 'heating_winter',
+        title: 'Kompletter Heizungsausfall im Winter (Kälteperiode)',
+        rateDE: 70,
+        rateAT: 70,
+        rateCH: 60,
+        courtDE: 'LG Berlin / LG Hamburg (bis 100 % bei Unbewohnbarkeit / Frost)',
+        desc: 'Vollständiger Ausfall der Raumheizung bei winterlichen Minustemperaturen. Raumtemperaturen unter 16 °C berechtigen zu 50–100 % Mietminderung.'
+      },
+      {
+        id: 'mold_living',
+        title: 'Massiver Schimmelbefall in Schlaf- oder Wohnzimmer',
+        rateDE: 25,
+        rateAT: 25,
+        rateCH: 20,
+        courtDE: 'BGH VIII ZR 225/03 / LG München (20–30 % je nach Ausmaß)',
+        desc: 'Gesundheitsgefährdende Schimmelpilzbildung an Wänden und Decken, sofern nicht durch falsches Lüften verschuldet.'
+      },
+      {
+        id: 'construction_noise',
+        title: 'Massiver Baulärm, Presslufthammer & Fassadengerüst',
+        rateDE: 25,
+        rateAT: 20,
+        rateCH: 20,
+        courtDE: 'BGH VIII ZR 152/12 / LG Hamburg (15–35 %)',
+        desc: 'Dauerhafter Baulärm im Haus oder auf dem Nachbargrundstück, verhängte Fenster durch Gerüst und Staubbelästigung.'
+      },
+      {
+        id: 'water_damage_dryer',
+        title: 'Akuter Wasserschaden mit lautem Bautrockner-Betrieb',
+        rateDE: 50,
+        rateAT: 50,
+        rateCH: 40,
+        courtDE: 'LG Frankfurt / AG Köln (40–80 % bei Tag- und Nachteinsatz)',
+        desc: 'Feuchte Decken/Böden und ununterbrochen laufende Industrie-Bautrockner mit massiver Lärm- und Hitzeentwicklung.'
+      },
+      {
+        id: 'hot_water_out',
+        title: 'Kompletter Ausfall der Warmwasserversorgung',
+        rateDE: 15,
+        rateAT: 15,
+        rateCH: 15,
+        courtDE: 'LG Berlin / AG Schöneberg (10–25 %)',
+        desc: 'Kein fließendes warmes Wasser zum Duschen, Baden und Abwaschen über mehrere Tage.'
+      },
+      {
+        id: 'elevator_out',
+        title: 'Aufzugsausfall bei Wohnung im 4. OG oder höher',
+        rateDE: 15,
+        rateAT: 15,
+        rateCH: 10,
+        courtDE: 'AG Bremen / LG Berlin (10–20 % je nach Stockwerk)',
+        desc: 'Defekt des Personenaufzugs für Mieter in oberen Etagen (insbesondere mit Kindern, Einkäufen oder Mobilitätseinschränkung).'
+      },
+      {
+        id: 'area_discrepancy',
+        title: 'Wohnfläche um mehr als 10 % kleiner als im Mietvertrag',
+        rateDE: 12,
+        rateAT: 12,
+        rateCH: 10,
+        courtDE: 'BGH VIII ZR 144/09 (exakte Minderung um tatsächlichen %-Fehlbetrag)',
+        desc: 'Weicht die tatsächliche Wohnfläche um mehr als 10 % von der Quadratmeterangabe im Mietvertrag ab, mindert sich die Miete exakt im prozentualen Ausmaß der Abweichung!'
+      },
+      {
+        id: 'frontdoor_intercom',
+        title: 'Haustüre schließt nicht / Gegensprechanlage defekt',
+        rateDE: 7,
+        rateAT: 7,
+        rateCH: 5,
+        courtDE: 'AG Aachen / AG Hamburg (5–10 %)',
+        desc: 'Sicherheitsrisiko durch unbefugten Zutritt fremder Personen ins Treppenhaus oder defekte Klingelanlage.'
+      }
+    ];
+
+    let selectedDefects = ['mold_living'];
+
+    // =========================================================================
+    // INITIALIZATION & TAB LOGIC
+    // =========================================================================
+    function switchTab(tabId) {
+      activeTab = tabId;
+      const tabs = ['nebenkosten', 'mietminderung', 'widerspruch'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-btn-' + t);
+        const content = document.getElementById('tab-content-' + t);
+        if (t === tabId) {
+          btn.className = 'px-5 py-3 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition';
+          content.classList.remove('hidden');
+        } else {
+          btn.className = 'px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition';
+          content.classList.add('hidden');
+        }
+      });
+      if (tabId === 'widerspruch') {
+        renderLetter();
+      }
+    }
+
+    function setJurisdiction(jur) {
+      currentJurisdiction = jur;
+      ['DE', 'AT', 'CH'].forEach(code => {
+        const btn = document.getElementById('jur-btn-' + code);
+        if (code === jur) {
+          btn.className = 'px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition';
+        } else {
+          btn.className = 'px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      const conf = JURISDICTION_CONFIG[jur];
+      document.querySelectorAll('.currency-label').forEach(el => el.textContent = conf.currency);
+      
+      const priceStr = jur === 'CH' ? 'CHF 4.90' : '4,90 €';
+      document.querySelectorAll('.price-label-inline').forEach(el => el.textContent = priceStr);
+      document.querySelectorAll('.price-label-btn').forEach(el => el.textContent = `Pro-Vollversion (${priceStr})`);
+      document.getElementById('hero-badge-law').textContent = `Rechtsstand 2026 (${conf.lawName})`;
+
+      document.getElementById('let-sender-addr').value = conf.defaultSenderAddr;
+      document.getElementById('let-recipient-name').value = conf.defaultRecipientName;
+      document.getElementById('let-recipient-addr').value = conf.defaultRecipientAddr;
+
+      renderCostItemsUI();
+      renderDefectsUI();
+      runNebenkostenCheck();
+      runMietminderungCheck();
+      renderLetter();
+    }
+
+    // =========================================================================
+    // POSTEN-PRÜFER (TAB 1) UI BUILDER
+    // =========================================================================
+    function renderCostItemsUI() {
+      const container = document.getElementById('cost-items-container');
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      container.innerHTML = '';
+
+      conf.items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = `p-3.5 rounded-xl border transition ${item.active ? 'bg-indigo-50/40 border-indigo-200' : 'bg-slate-50 border-slate-200 opacity-80'}`;
+        card.id = `card-item-${item.id}`;
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="chk-${item.id}" ${item.active ? 'checked' : ''} onchange="toggleCostItem('${item.id}')" class="mt-1 rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <label for="chk-${item.id}" class="font-bold text-slate-900 text-xs sm:text-sm cursor-pointer select-none">
+                  ${escapeHtml(item.title)}
+                </label>
+                <div class="flex items-center gap-1.5">
+                  <span class="text-xs font-semibold text-slate-500">${conf.currency}</span>
+                  <input type="number" id="amt-${item.id}" value="${item.defaultAmount}" min="0" step="1" oninput="updateCostItemAmount('${item.id}')" class="w-24 rounded-lg border border-slate-300 p-1 text-right font-bold text-xs focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 bg-white">
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-rose-100 text-rose-800 font-bold">${escapeHtml(item.law)}</span>
+              </div>
+              <p class="text-[11px] text-slate-600 mt-1 leading-snug">
+                ${escapeHtml(item.desc)}
+              </p>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleCostItem(id) {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const item = conf.items.find(i => i.id === id);
+      if (!item) return;
+      const chk = document.getElementById(`chk-${id}`);
+      item.active = chk.checked;
+      const card = document.getElementById(`card-item-${id}`);
+      if (item.active) {
+        card.className = 'p-3.5 rounded-xl border transition bg-indigo-50/40 border-indigo-200';
+      } else {
+        card.className = 'p-3.5 rounded-xl border transition bg-slate-50 border-slate-200 opacity-80';
+      }
+      runNebenkostenCheck();
+    }
+
+    function updateCostItemAmount(id) {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const item = conf.items.find(i => i.id === id);
+      if (!item) return;
+      const amtInput = document.getElementById(`amt-${id}`);
+      item.defaultAmount = parseFloat(amtInput.value) || 0;
+      runNebenkostenCheck();
+    }
+
+    // =========================================================================
+    // RUN NEBENKOSTEN CHECK & CALCULATE MATH
+    // =========================================================================
+    function runNebenkostenCheck() {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const startStr = document.getElementById('nk-period-start').value;
+      const endStr = document.getElementById('nk-period-end').value;
+      const deliveryStr = document.getElementById('nk-delivery-date').value;
+      const claimedVal = parseFloat(document.getElementById('nk-claimed-balance').value) || 0;
+      const heatingVal = parseFloat(document.getElementById('nk-heating-costs').value) || 0;
+
+      // 1. Frist-Radar Check
+      const endDate = new Date(endStr);
+      const delivDate = new Date(deliveryStr);
+      let isLate = false;
+      let lateReason = '';
+
+      if (currentJurisdiction === 'DE') {
+        // § 556 Abs. 3 BGB: 12 months after the end of billing period
+        const maxDate = new Date(endDate);
+        maxDate.setFullYear(maxDate.getFullYear() + 1);
+        if (delivDate > maxDate) {
+          isLate = true;
+          lateReason = `Ausschlussfrist nach § 556 Abs. 3 Satz 3 BGB überschritten! Das Abrechnungsjahr endete am ${formatDate(endDate)}, die 12-Monats-Frist endete am ${formatDate(maxDate)}. Die Zustellung erfolgte erst am ${formatDate(delivDate)}. Die Nachforderung von ${formatCurrency(claimedVal)} ist daher gesetzlich ausgeschlossen!`;
+        }
+      } else if (currentJurisdiction === 'AT') {
+        // § 21 Abs. 3 MRG: June 30 of the following year
+        const maxDate = new Date(endDate.getFullYear() + 1, 5, 30); // 30. Juni
+        if (delivDate > maxDate) {
+          isLate = true;
+          lateReason = `Präklusionsfrist nach § 21 Abs. 3 MRG versäumt! Die Abrechnung für ${endDate.getFullYear()} hätte bis spätestens 30. Juni ${endDate.getFullYear() + 1} gelegt werden müssen. Die Nachforderung ist rechtlich verfallen.`;
+        }
+      }
+
+      const banner = document.getElementById('deadline-status-banner');
+      const bannerIcon = document.getElementById('deadline-icon');
+      const bannerTitle = document.getElementById('deadline-title');
+      const bannerDesc = document.getElementById('deadline-desc');
+
+      if (isLate) {
+        banner.className = 'p-4 rounded-xl border flex items-start gap-3 bg-rose-50 border-rose-300 text-rose-950';
+        bannerIcon.textContent = '🚨';
+        bannerTitle.textContent = 'Ausschlussfrist versäumt – Nachforderung verwirkt!';
+        bannerDesc.textContent = lateReason;
+      } else {
+        banner.className = 'p-4 rounded-xl border flex items-start gap-3 bg-emerald-50 border-emerald-200 text-emerald-900';
+        bannerIcon.textContent = '✓';
+        bannerTitle.textContent = 'Frist eingehalten';
+        bannerDesc.textContent = `Die Abrechnung wurde innerhalb der gesetzlichen Frist zugestellt (${conf.deadlineRule}). Sie können die Abrechnung nun inhaltlich anfechten.`;
+      }
+
+      // 2. Sum up disputed items
+      let totalDisputed = 0;
+      const detectedFlags = [];
+
+      if (isLate && claimedVal > 0) {
+        detectedFlags.push(`Formelle Verfristung (§ 556 BGB / § 21 MRG): Nachforderung ${formatCurrency(claimedVal)} ist verwirkt`);
+        totalDisputed += claimedVal;
+      }
+
+      conf.items.forEach(item => {
+        if (item.active) {
+          let amt = item.defaultAmount;
+          if (item.isHeatingCut) {
+            amt = Math.round(heatingVal * 0.15 * 100) / 100;
+            const inputEl = document.getElementById(`amt-${item.id}`);
+            if (inputEl) inputEl.value = amt;
+          }
+          totalDisputed += amt;
+          detectedFlags.push(`${item.title} (${formatCurrency(amt)})`);
+        }
+      });
+
+      // 3. Calculate corrected balance
+      // If landlord claimed +1250, and 1435 is disputed:
+      // Corrected = claimedVal - totalDisputed
+      // e.g. 1250 - 1435 = -185 (Guthaben for tenant!)
+      const correctedBalance = claimedVal - totalDisputed;
+
+      // Update UI
+      document.getElementById('sum-claimed').textContent = formatCurrency(claimedVal);
+      document.getElementById('sum-disputed').textContent = '- ' + formatCurrency(totalDisputed);
+
+      const balEl = document.getElementById('sum-corrected-balance');
+      const expEl = document.getElementById('sum-explanation-text');
+      const pillEl = document.getElementById('status-pill-result');
+
+      if (correctedBalance < 0) {
+        const credit = Math.abs(correctedBalance);
+        balEl.textContent = formatCurrency(credit) + ' Guthaben';
+        balEl.className = 'text-3xl font-extrabold text-emerald-300 mt-1';
+        expEl.textContent = `Sie müssen nichts nachzahlen – der Vermieter schuldet Ihnen stattdessen ein Guthaben von ${formatCurrency(credit)}!`;
+        pillEl.textContent = 'Ersparnis: ' + formatCurrency(totalDisputed);
+        pillEl.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+      } else if (correctedBalance === 0) {
+        balEl.textContent = '0,00 ' + conf.currency + ' (Ausgeglichen)';
+        balEl.className = 'text-3xl font-extrabold text-sky-300 mt-1';
+        expEl.textContent = `Die Forderung wurde vollständig auf 0 neutralisiert.`;
+        pillEl.textContent = 'Forderung neutralisiert';
+      } else {
+        balEl.textContent = formatCurrency(correctedBalance) + ' Restnachzahlung';
+        balEl.className = 'text-3xl font-extrabold text-amber-300 mt-1';
+        expEl.textContent = `Ihre Nachzahlung reduziert sich von ${formatCurrency(claimedVal)} um ${formatCurrency(totalDisputed)} auf nur noch ${formatCurrency(correctedBalance)}.`;
+        pillEl.textContent = 'Reduziert um ' + formatCurrency(totalDisputed);
+        pillEl.className = 'px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30';
+      }
+
+      // Flags list
+      document.getElementById('detected-flags-count').textContent = `${detectedFlags.length} Punkte`;
+      const flagsList = document.getElementById('detected-flags-list');
+      flagsList.innerHTML = '';
+      if (detectedFlags.length === 0) {
+        flagsList.innerHTML = '<li class="text-slate-400 italic">Keine unzulässigen Posten angewählt.</li>';
+      } else {
+        detectedFlags.forEach(f => {
+          const li = document.createElement('li');
+          li.className = 'flex items-start gap-1.5 text-slate-300';
+          li.innerHTML = `<span class="text-rose-400 font-bold shrink-0">✕</span> <span>${escapeHtml(f)}</span>`;
+          flagsList.appendChild(li);
+        });
+      }
+
+      // Update badge on tab
+      const tabBadge = document.getElementById('badge-savings-preview');
+      if (totalDisputed > 0) {
+        tabBadge.textContent = formatCurrency(totalDisputed);
+        tabBadge.classList.remove('hidden');
+      } else {
+        tabBadge.classList.add('hidden');
+      }
+
+      renderLetter();
+    }
+
+    // =========================================================================
+    // MIETMINDERUNG UI & BERECHNUNG (TAB 2)
+    // =========================================================================
+    function renderDefectsUI() {
+      const container = document.getElementById('defects-grid');
+      container.innerHTML = '';
+      const jurKey = currentJurisdiction === 'CH' ? 'rateCH' : (currentJurisdiction === 'AT' ? 'rateAT' : 'rateDE');
+
+      DEFECTS_CATALOG.forEach(d => {
+        const isSelected = selectedDefects.includes(d.id);
+        const rate = d[jurKey];
+        const card = document.createElement('div');
+        card.className = `p-3.5 rounded-xl border transition cursor-pointer select-none ${isSelected ? 'bg-indigo-50/70 border-indigo-400 shadow-sm' : 'bg-white border-slate-200 hover:border-slate-300'}`;
+        card.id = `defect-card-${d.id}`;
+        card.onclick = (e) => {
+          if (e.target.tagName !== 'INPUT') {
+            toggleDefect(d.id);
+          }
+        };
+
+        card.innerHTML = `
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="chk-defect-${d.id}" ${isSelected ? 'checked' : ''} onchange="toggleDefect('${d.id}')" class="mt-1 rounded text-indigo-600 focus:ring-indigo-500 h-4 w-4">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-bold text-slate-900 text-xs sm:text-sm">${escapeHtml(d.title)}</span>
+                <span class="text-xs font-black px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 shrink-0">bis ${rate} %</span>
+              </div>
+              <div class="text-[10px] text-slate-500 font-mono mt-0.5">${escapeHtml(d.courtDE)}</div>
+              <p class="text-[11px] text-slate-600 mt-1 leading-snug">${escapeHtml(d.desc)}</p>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleDefect(id) {
+      if (selectedDefects.includes(id)) {
+        selectedDefects = selectedDefects.filter(x => x !== id);
+      } else {
+        selectedDefects.push(id);
+      }
+      renderDefectsUI();
+      runMietminderungCheck();
+    }
+
+    function runMietminderungCheck() {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const warmRent = parseFloat(document.getElementById('mm-warm-rent').value) || 0;
+      const durationType = document.getElementById('mm-duration-type').value;
+      const daysContainer = document.getElementById('mm-days-container');
+
+      let dayFactor = 1.0;
+      if (durationType === 'days') {
+        daysContainer.classList.remove('hidden');
+        const days = parseFloat(document.getElementById('mm-days-count').value) || 1;
+        dayFactor = Math.min(Math.max(days / 30, 0.01), 1.0);
+      } else {
+        daysContainer.classList.add('hidden');
+      }
+
+      const jurKey = currentJurisdiction === 'CH' ? 'rateCH' : (currentJurisdiction === 'AT' ? 'rateAT' : 'rateDE');
+      
+      // Calculate total reduction rate (capped at 100%)
+      let totalRate = 0;
+      DEFECTS_CATALOG.forEach(d => {
+        if (selectedDefects.includes(d.id)) {
+          totalRate += d[jurKey];
+        }
+      });
+      totalRate = Math.min(totalRate, 100);
+
+      const reductionSum = Math.round((warmRent * (totalRate / 100) * dayFactor) * 100) / 100;
+
+      document.getElementById('mm-result-sum').textContent = formatCurrency(reductionSum);
+      document.getElementById('mm-result-rate').textContent = `(${totalRate} % Minderungsquote${dayFactor < 1.0 ? ' anteilig' : ''})`;
+
+      const badge = document.getElementById('badge-reduction-preview');
+      if (totalRate > 0) {
+        badge.textContent = `${totalRate} % Minderung`;
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function applyMietminderungToLetter() {
+      document.getElementById('let-include-mietminderung').checked = true;
+      switchTab('widerspruch');
+    }
+
+    // =========================================================================
+    // DIN-A4 WIDERSPRUCHSSCHREIBEN GENERATOR (TAB 3)
+    // =========================================================================
+    function renderLetter() {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const senderName = document.getElementById('let-sender-name').value || 'Maximilian Muster';
+      const senderAddr = document.getElementById('let-sender-addr').value || 'Musterstraße 1, 80331 München';
+      const recipientName = document.getElementById('let-recipient-name').value || 'Hausverwaltung';
+      const recipientAddr = document.getElementById('let-recipient-addr').value || 'Verwaltungsstraße 2, 80333 München';
+      const contractRef = document.getElementById('let-contract-ref').value || 'Mietvertrag';
+      const invoiceDate = formatDate(new Date(document.getElementById('let-invoice-date').value));
+      const periodStart = formatDate(new Date(document.getElementById('nk-period-start').value));
+      const periodEnd = formatDate(new Date(document.getElementById('nk-period-end').value));
+
+      const includeBelegeinsicht = document.getElementById('let-include-belegeinsicht').checked;
+      const includeZurueckbehalt = document.getElementById('let-include-zurueckbehalt').checked;
+      const includeMietminderung = document.getElementById('let-include-mietminderung').checked;
+
+      const claimedVal = parseFloat(document.getElementById('nk-claimed-balance').value) || 0;
+      const heatingVal = parseFloat(document.getElementById('nk-heating-costs').value) || 0;
+
+      // Collect disputed items
+      const disputedLines = [];
+      let totalDisputed = 0;
+
+      // Check deadline
+      const endDate = new Date(document.getElementById('nk-period-end').value);
+      const delivDate = new Date(document.getElementById('nk-delivery-date').value);
+      let isLate = false;
+      if (currentJurisdiction === 'DE') {
+        const maxDate = new Date(endDate);
+        maxDate.setFullYear(maxDate.getFullYear() + 1);
+        if (delivDate > maxDate) isLate = true;
+      } else if (currentJurisdiction === 'AT') {
+        const maxDate = new Date(endDate.getFullYear() + 1, 5, 30);
+        if (delivDate > maxDate) isLate = true;
+      }
+
+      if (isLate) {
+        disputedLines.push(`• <strong>Einrede der Verfristung (${currentJurisdiction === 'DE' ? '§ 556 Abs. 3 Satz 3 BGB' : '§ 21 Abs. 3 MRG'}):</strong> Die Abrechnung ging nach Ablauf der gesetzlichen Ausschlussfrist zu. Nachforderungen von ${formatCurrency(claimedVal)} sind daher gesetzlich ausgeschlossen.`);
+        totalDisputed += claimedVal;
+      }
+
+      conf.items.forEach(item => {
+        if (item.active) {
+          let amt = item.defaultAmount;
+          if (item.isHeatingCut) {
+            amt = Math.round(heatingVal * 0.15 * 100) / 100;
+          }
+          disputedLines.push(`• <strong>${escapeHtml(item.title)}:</strong> Betrag ${formatCurrency(amt)} – Rechtliche Beanstandung: <em>${escapeHtml(item.law)}</em>. ${escapeHtml(item.desc)}`);
+          totalDisputed += amt;
+        }
+      });
+
+      const correctedBalance = claimedVal - totalDisputed;
+
+      // Legal citations for inspection
+      const belegeinsichtCitation = currentJurisdiction === 'DE' 
+        ? '§ 259 BGB i.V.m. BGH VIII ZR 189/17' 
+        : (currentJurisdiction === 'AT' ? '§ 21 MRG' : 'Art. 257b Abs. 2 OR');
+
+      let mietminderungSection = '';
+      if (includeMietminderung && selectedDefects.length > 0) {
+        const warmRent = parseFloat(document.getElementById('mm-warm-rent').value) || 950;
+        const jurKey = currentJurisdiction === 'CH' ? 'rateCH' : (currentJurisdiction === 'AT' ? 'rateAT' : 'rateDE');
+        let totalRate = 0;
+        const defectTitles = [];
+        DEFECTS_CATALOG.forEach(d => {
+          if (selectedDefects.includes(d.id)) {
+            totalRate += d[jurKey];
+            defectTitles.push(d.title);
+          }
+        });
+        totalRate = Math.min(totalRate, 100);
+        const mmSum = Math.round((warmRent * (totalRate / 100)) * 100) / 100;
+
+        mietminderungSection = `
+          <div class="mt-4 pt-3 border-t border-slate-200">
+            <p class="font-bold text-slate-900">Mängelanzeige & Erklärung des Zahlungsvorbehalts gem. ${currentJurisdiction === 'DE' ? '§ 536 BGB' : (currentJurisdiction === 'AT' ? '§ 1096 ABGB' : 'Art. 259d OR')}:</p>
+            <p class="mt-1">
+              Des Weiteren weise ich vorsorglich auf folgende bestehende Mietmängel hin: <strong>${escapeHtml(defectTitles.join(', '))}</strong>.
+              Hierfür mache ich eine Mietminderungsquote von orientierend <strong>${totalRate} %</strong> (entspricht ${formatCurrency(mmSum)} / Monat) geltend.
+              Ich erkläre hiermit ausdrücklich, dass sämtliche künftigen Mietzahlungen sowie etwaige Abschlagszahlungen <strong>unter dem ausdrücklichen Vorbehalt der Rückforderung</strong> geleistet werden.
+            </p>
+          </div>
+        `;
+      }
+
+      const todayStr = formatDate(new Date());
+
+      const letterHtml = `
+        <div class="text-[10pt] text-slate-800 font-sans space-y-4">
+          <!-- SENDER SMALL LINE -->
+          <div class="text-[8pt] text-slate-500 border-b border-slate-300 pb-1">
+            ${escapeHtml(senderName)} • ${escapeHtml(senderAddr)}
+          </div>
+
+          <!-- RECIPIENT & DATE -->
+          <div class="flex justify-between items-start pt-2">
+            <div>
+              <div class="font-bold text-slate-900">${escapeHtml(recipientName)}</div>
+              <div class="text-slate-700 whitespace-pre-line">${escapeHtml(recipientAddr)}</div>
+            </div>
+            <div class="text-right text-slate-600 text-[9pt]">
+              ${todayStr}
+            </div>
+          </div>
+
+          <!-- SUBJECT -->
+          <div class="pt-4">
+            <div class="font-extrabold text-[11pt] text-slate-900 leading-snug">
+              Widerspruch gegen die Nebenkostenabrechnung vom ${invoiceDate}<br>
+              Abrechnungszeitraum: ${periodStart} bis ${periodEnd}<br>
+              Mietobjekt / Aktenzeichen: ${escapeHtml(contractRef)}
+            </div>
+          </div>
+
+          <!-- BODY -->
+          <div class="space-y-3 leading-relaxed">
+            <p>Sehr geehrte Damen und Herren,</p>
+
+            <p>
+              ich habe Ihre Nebenkostenabrechnung vom ${invoiceDate} für den Abrechnungszeitraum ${periodStart} bis ${periodEnd} erhalten. Nach sorgfältiger rechtlicher Prüfung lege ich hiermit fristgerecht
+            </p>
+
+            <p class="text-center font-bold text-slate-900 py-1 bg-slate-50 border border-slate-200 rounded">
+              WIDERSPRUCH
+            </p>
+
+            <p>
+              gegen die Abrechnung und die darin geltend gemachte Nachforderung in Höhe von <strong>${formatCurrency(claimedVal)}</strong> ein. Die Abrechnung enthält formelle und inhaltliche Fehler sowie Positionen, die nach geltendem Mietrecht nicht umlagefähig sind:
+            </p>
+
+            <div class="bg-slate-50 p-3 rounded border border-slate-200 text-[9.5pt] space-y-1.5">
+              ${disputedLines.length > 0 ? disputedLines.map(l => `<div>${l}</div>`).join('') : '<div>Keine Positionen beanstandet.</div>'}
+            </div>
+
+            <p>
+              Hieraus ergibt sich eine Gesamtdifferenz von <strong>${formatCurrency(totalDisputed)}</strong> zugunsten des Mieters.
+              ${correctedBalance < 0 
+                ? `Unter Berücksichtigung der berechtigten Abzüge entfällt Ihre Nachforderung vollständig. Stattdessen ergibt sich ein <strong>Guthaben zu meinen Gunsten in Höhe von ${formatCurrency(Math.abs(correctedBalance))}</strong>, um dessen Überweisung auf mein bekanntes Bankkonto ich bis zum <strong>${getDeadlineDate(14)}</strong> bitte.`
+                : `Die von Ihnen beanspruchte Nachforderung reduziert sich somit auf maximal <strong>${formatCurrency(correctedBalance)}</strong>.`}
+            </p>
+
+            ${includeBelegeinsicht ? `
+            <div class="pt-2">
+              <p class="font-bold text-slate-900">Aufforderung zur Belegeinsicht gem. ${belegeinsichtCitation}:</p>
+              <p class="mt-0.5">
+                Zur abschließenden Prüfung der Abrechnung fordere ich Sie hiermit auf, mir Einsicht in die Originalbelege (Rechnungen, Verträge mit Dienstleistern, Zahlungsnachweise, Ableseprotokolle sowie Aufschlüsselung der CO₂-Kosten und Verteilerschlüssel) zu gewähren.
+                Ich bitte um Terminvorschläge zur Belegeinsicht an Ihrem Geschäftssitz oder um Übersendung gut lesbarer digitaler Belegkopien (PDF) innerhalb von 14 Tagen.
+              </p>
+            </div>
+            ` : ''}
+
+            ${includeZurueckbehalt ? `
+            <div class="pt-1">
+              <p class="font-bold text-slate-900">Geltendmachung des Zurückbehaltungsrechts:</p>
+              <p class="mt-0.5">
+                Bis zur vollständigen Gewährung der Belegeinsicht und Klärung der beanstandeten Punkte mache ich hiermit von meinem gesetzlichen <strong>Zurückbehaltungsrecht</strong> bzgl. der Nachforderung Gebrauch. Eine Zahlung der Nachforderung erfolgt vor Belegeinsicht ausdrücklich nicht.
+              </p>
+            </div>
+            ` : ''}
+
+            ${mietminderungSection}
+
+            <p class="pt-2">
+              Ich bitte um schriftliche Bestätigung des Eingangs dieses Widerspruchs sowie um eine korrigierte Abrechnung bis zum <strong>${getDeadlineDate(14)}</strong>.
+            </p>
+
+            <p class="pt-2">
+              Mit freundlichen Grüßen<br><br><br>
+              <strong>${escapeHtml(senderName)}</strong>
+            </p>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('a4-letter-target').innerHTML = letterHtml;
+      document.getElementById('print-letter-container').innerHTML = letterHtml;
+    }
+
+    function getPlainTextLetter() {
+      const el = document.getElementById('a4-letter-target');
+      if (!el) return '';
+      return el.innerText || el.textContent || '';
+    }
+
+    // =========================================================================
+    // PRO UNLOCK & CHECKOUT
+    // =========================================================================
+    function openCheckoutModal() {
+      if (isProUnlocked) {
+        switchTab('widerspruch');
+        return;
+      }
+      const link = document.getElementById('modal-gumroad-link');
+      link.href = window.DIGITALWERK_GUMROAD_URL || 'https://dachdigital.gumroad.com/l/gthgwc';
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function markGumroadClicked() {
+      const box = document.getElementById('modal-step2-box');
+      box.classList.add('ring-4', 'ring-emerald-400/50');
+    }
+
+    function instantUnlockAfterPayment(source) {
+      unlockProFeatures();
+      closeCheckoutModal();
+      if (source === 'modal' || source === 'overlay') {
+        switchTab('widerspruch');
+      }
+    }
+
+    function unlockProFeatures() {
+      isProUnlocked = true;
+      try {
+        localStorage.setItem('digitalwerk_nebenkosten_pro', '1');
+      } catch (e) {}
+
+      // UI changes
+      const pill = document.getElementById('pro-status-pill');
+      if (pill) {
+        pill.textContent = 'Pro-Vollversion ✓';
+        pill.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full';
+      }
+      const headerBtn = document.getElementById('header-unlock-btn');
+      if (headerBtn) {
+        headerBtn.innerHTML = '<span>✓</span><span>Pro Aktiv</span>';
+        headerBtn.className = 'bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md transition flex items-center gap-1.5';
+      }
+      const overlay = document.getElementById('letter-locked-overlay');
+      if (overlay) overlay.classList.add('hidden');
+
+      const letTag = document.getElementById('letter-pro-tag');
+      if (letTag) {
+        letTag.textContent = 'PRO FREIGESCHALTET';
+        letTag.className = 'text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300';
+      }
+    }
+
+    function applyCouponCode() {
+      const code = (document.getElementById('coupon-input').value || '').trim().toUpperCase();
+      if (code === 'DW-PRO-2026' || code === 'NEBENKOSTEN-2026' || code === 'PRO2026' || code === 'GUMROAD') {
+        instantUnlockAfterPayment('modal');
+        alert('Glückwunsch! Ihr Pro-Zugang wurde erfolgreich aktiviert.');
+      } else {
+        alert('Der eingegebene Code ist leider ungültig. Bitte prüfen Sie Ihre Eingabe oder schalten Sie das Tool für 4,90 € / CHF via Gumroad frei.');
+      }
+    }
+
+    function unlockWithCouponPrompt() {
+      const code = prompt('Bitte geben Sie Ihren Freischaltcode ein (z.B. DW-PRO-2026):');
+      if (code) {
+        if (code.trim().toUpperCase() === 'DW-PRO-2026' || code.trim().toUpperCase() === 'NEBENKOSTEN-2026' || code.trim().toUpperCase() === 'PRO2026') {
+          unlockProFeatures();
+          alert('Pro-Vollversion erfolgreich freigeschaltet!');
+        } else {
+          alert('Ungültiger Code.');
+        }
+      }
+    }
+
+    function resetProStatus() {
+      isProUnlocked = false;
+      try {
+        localStorage.removeItem('digitalwerk_nebenkosten_pro');
+      } catch (e) {}
+      window.location.reload();
+    }
+
+    function handleProAction(actionType) {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+      if (actionType === 'print') {
+        window.print();
+      } else if (actionType === 'copy') {
+        const text = getPlainTextLetter();
+        copyText(text, document.getElementById('btn-copy-letter'));
+      } else if (actionType === 'download') {
+        const text = getPlainTextLetter();
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Widerspruch_Nebenkostenabrechnung_2026.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+
+    // =========================================================================
+    // SAMPLE CASES & UTILITIES
+    // =========================================================================
+    function loadSampleCase(key) {
+      const sample = SAMPLE_CASES[key];
+      if (!sample) return;
+
+      setJurisdiction(sample.jur);
+
+      document.getElementById('nk-period-start').value = sample.start;
+      document.getElementById('nk-period-end').value = sample.end;
+      document.getElementById('nk-delivery-date').value = sample.delivery;
+      document.getElementById('nk-tenant-area').value = sample.tenantArea;
+      document.getElementById('nk-total-area').value = sample.totalArea;
+      document.getElementById('nk-prepayments').value = sample.prepayments;
+      document.getElementById('nk-claimed-balance').value = sample.claimed;
+      document.getElementById('nk-heating-costs').value = sample.heating;
+
+      const conf = JURISDICTION_CONFIG[sample.jur];
+      conf.items.forEach(item => {
+        if (sample.activeItems[item.id] !== undefined) {
+          item.active = true;
+          item.defaultAmount = sample.activeItems[item.id];
+        } else {
+          item.active = false;
+        }
+      });
+
+      renderCostItemsUI();
+      runNebenkostenCheck();
+      switchTab('nebenkosten');
+    }
+
+    function resetNebenkostenForm() {
+      loadSampleCase('de_typical');
+    }
+
+    function formatCurrency(val) {
+      const conf = JURISDICTION_CONFIG[currentJurisdiction];
+      const sign = val < 0 ? '-' : '';
+      const absVal = Math.abs(val);
+      if (conf.currency === 'CHF') {
+        return sign + 'CHF ' + absVal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+      }
+      return sign + absVal.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
+    }
+
+    function formatDate(d) {
+      if (isNaN(d.getTime())) return '';
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}.${month}.${year}`;
+    }
+
+    function getDeadlineDate(daysFromNow) {
+      const d = new Date();
+      d.setDate(d.getDate() + daysFromNow);
+      return formatDate(d);
+    }
+
+    function copyText(text, btnEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        if (btnEl) {
+          const orig = btnEl.innerHTML;
+          btnEl.innerHTML = '✓ Kopiert!';
+          setTimeout(() => { btnEl.innerHTML = orig; }, 1800);
+        }
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // INIT
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('pro') === '1' || params.get('unlock') === '1' || params.get('paid') === '1') {
+        unlockProFeatures();
+      } else {
+        try {
+          if (localStorage.getItem('digitalwerk_nebenkosten_pro') === '1') {
+            unlockProFeatures();
+          }
+        } catch (e) {}
+      }
+
+      setJurisdiction('DE');
+      loadSampleCase('de_typical');
+    });
+  </script>
+</body>
+</html>

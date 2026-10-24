@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Abfindungs-, Kündigungsfrist- & Resturlaubs-Rechner 2026 | DE § 622 BGB / CH Art. 335c OR</title>
+  <meta name="description" content="Kostenloser Live-Rechner für Kündigungsfristen, Abfindungshöhe (§ 1a KSchG / OR 335c), Resturlaubs- & Überstundenauszahlung und Steuer-Optimierung (Fünftelregelung § 34 EStG). Inkl. DIN-A4 Verhandlungsvorlage." />
+  <link rel="canonical" href="https://dach-digitalwerk.netlify.app/abfindung-kuendigung/" />
+  <meta property="og:title" content="DACH Abfindungs-, Kündigungsfrist- & Resturlaubs-Rechner 2026" />
+  <meta property="og:description" content="Berechnen Sie Kündigungsfristen, Abfindungsanspruch, Urlaubsabgeltung & Steuern live im Browser. 100% DSGVO-konform ohne Cloud-Speicherung." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dach-digitalwerk.netlify.app/abfindung-kuendigung/" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <script>
+    // Konfigurierbarer Live Gumroad Checkout-Link
+    window.DIGITALWERK_PAYPAL_URL = window.DIGITALWERK_PAYPAL_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 20mm 22mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 18mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+
+  <!-- Schema.org SoftwareApplication & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Abfindungs-, Kündigungsfrist- & Resturlaubs-Rechner 2026",
+    "url": "https://dach-digitalwerk.netlify.app/abfindung-kuendigung/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "description": "Präzisions-Rechner für Kündigungsfristen, Abfindungshöhe, Urlaubsabgeltung und Steuerersparnis nach deutschem, Schweizer und österreichischem Arbeitsrecht.",
+    "offers": {
+      "@type": "Offer",
+      "price": "4.90",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die gesetzliche Abfindung in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Einen automatischen gesetzlichen Anspruch auf eine Abfindung gibt es im deutschen Recht nur selten (z.B. § 1a KSchG bei betriebsbedingter Kündigung mit Klageverzicht: 0,5 Bruttomonatsgehälter pro Beschäftigungsjahr). In der Praxis wird die Abfindung im Kündigungsschutzprozess oder Aufhebungsvertrag frei verhandelt und liegt meist zwischen 0,5 und 1,5 Gehältern pro Beschäftigungsjahr."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange ist die gesetzliche Kündigungsfrist nach § 622 BGB?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Grundkündigungsfrist beträgt 4 Wochen zum 15. oder zum Ende eines Monats. Bei Kündigung durch den Arbeitgeber verlängert sich die Frist nach 2 Jahren auf 1 Monat, nach 5 Jahren auf 2 Monate, nach 8 Jahren auf 3 Monate, nach 10 Jahren auf 4 Monate und nach 20 Jahren auf 7 Monate zum Monatsende."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie funktioniert die Fünftelregelung bei einer Abfindung nach § 34 EStG?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Fünftelregelung mildert die Steuerprogression für außerordentliche Einkünfte ab. Die Abfindung wird gedanklich durch fünf geteilt, auf das reguläre Jahreseinkommen aufgeschlagen, die zusätzliche Steuer ermittelt und dieser Betrag verfünffacht. Dadurch zahlt der Arbeitnehmer oft Tausende Euro weniger Steuern als bei normaler Einmalbesteuerung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie wird Resturlaub bei Beendigung des Arbeitsverhältnisses ausbezahlt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kann der Resturlaub bis zum Austrittsdatum nicht mehr genommen werden, ist er abzugelten (§ 7 Abs. 4 BUrlG). Der Tagessatz errechnet sich bei einer 5-Tage-Woche aus dem Bruttogehalt der letzten 13 Wochen geteilt durch 65 Arbeitstage (Monatsgehalt × 3 / 65)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Gehalts- & Kündigungsdaten werden ausschließlich lokal in Ihrem Browser berechnet.</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsraum:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 622 BGB / § 1a KSchG)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (Art. 335c OR)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§ 20 AngG)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      <a href="../" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-700 via-indigo-900 to-slate-950 text-white flex items-center justify-center text-lg font-extrabold shadow-md shadow-indigo-600/15">
+          ⚖️
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-none">DACH Abfindungs- & Fristen-Rechner</span>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">Recht 2026</span>
+          </div>
+          <span class="text-xs font-medium text-slate-500 block mt-1">
+            Kündigungsfristen • Abfindungshöhe • Urlaubsabgeltung • Fünftelregelung
+          </span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="#musterschreiben-section" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:bg-slate-100 transition">
+          <span>📄 Verhandlungs-Muster</span>
+        </a>
+        <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-extrabold px-4 py-2.5 rounded-xl text-xs sm:text-sm shadow-md shadow-amber-500/20 transition flex items-center gap-1.5">
+          <span>🔓 DIN-A4 Pro-Strategie (<span class="price-label-inline">4,90 €</span>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-white py-12 px-4 sm:px-6 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold">
+        <span>⚡ Sofortige Browser-Kalkulation</span>
+        <span>•</span>
+        <span id="hero-jur-badge">Geltendes Recht: Deutschland (§ 622 BGB / § 1a KSchG)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-4xl leading-tight">
+        Berechnen Sie Ihre <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-rose-300">Kündigungsfrist, Abfindung</span> & steueroptimierte Gesamtauszahlung.
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+        Erhalten Sie bei Kündigung oder Aufhebungsvertrag das Maximum: Gesetzliche Mindestfristen, marktübliche Abfindungsfaktoren (0,5 bis 1,5 Monatsgehälter), Resturlaubs- & Überstundenauszahlung sowie die <strong>Steuerersparnis durch die Fünftelregelung</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN CALCULATOR WORKSPACE -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8 no-print">
+    
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: INPUT PARAMETERS (5 COLS) -->
+      <div class="lg:col-span-5 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-7 space-y-6">
+        <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+          <div>
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">1. Eckdaten eingeben</h2>
+            <p class="text-xs text-slate-500 mt-0.5">Alle Berechnungen aktualisieren sich in Echtzeit.</p>
+          </div>
+          <button onclick="resetCalculatorDefaults()" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold">
+            Standardwerte
+          </button>
+        </div>
+
+        <!-- FORM INPUTS -->
+        <div class="space-y-4 text-xs">
+
+          <!-- 1. Bruttomonatsgehalt -->
+          <div>
+            <label class="block font-bold text-slate-800 mb-1 flex items-center justify-between">
+              <span>Aktuelles Bruttomonatsgehalt</span>
+              <span id="currency-symbol-label" class="text-slate-400 font-mono">EUR (€)</span>
+            </label>
+            <div class="relative">
+              <input type="number" id="input-salary" value="4800" min="500" max="100000" step="50" oninput="calculateAll()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none pr-12" />
+              <span class="currency-tag absolute right-3.5 top-2.5 text-xs font-bold text-slate-400">€</span>
+            </div>
+            <div class="flex items-center gap-2 mt-1.5">
+              <input type="checkbox" id="input-has13th" onchange="calculateAll()" class="rounded text-indigo-600 focus:ring-indigo-500" />
+              <label for="input-has13th" class="text-slate-600 cursor-pointer">Inkl. 13. Monatsgehalt / anteiligem Weihnachtsgeld</label>
+            </div>
+          </div>
+
+          <!-- 2. Beschäftigungsdauer / Eintrittsdatum -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Betriebszugehörigkeit</label>
+              <div class="relative">
+                <input type="number" id="input-years" value="6.5" min="0.1" max="50" step="0.5" oninput="calculateAll()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-indigo-500 outline-none pr-14" />
+                <span class="absolute right-3.5 top-2.5 text-xs text-slate-400 font-medium">Jahre</span>
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Lebensalter (Jahre)</label>
+              <input type="number" id="input-age" value="42" min="16" max="75" step="1" oninput="calculateAll()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+          </div>
+
+          <!-- 3. Kündigungszugang & Anlass -->
+          <div>
+            <label class="block font-bold text-slate-800 mb-1">Kündigungssituation / Anlass</label>
+            <select id="input-scenario" onchange="applyScenarioPreset(); calculateAll();" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold focus:ring-2 focus:ring-indigo-500 outline-none bg-white">
+              <option value="betriebsbedingt">Betriebsbedingte Kündigung (§ 1a KSchG)</option>
+              <option value="aufhebung">Angebotener Aufhebungsvertrag (Verhandlung)</option>
+              <option value="streitig">Personen-/verhaltensbedingte Kündigung (anfechtbar)</option>
+              <option value="leitend">Führungskraft / außertariflicher Angestellter</option>
+              <option value="sonder">Sonderkündigungsschutz (Schwerbeh., BR, Elternzeit)</option>
+            </select>
+          </div>
+
+          <!-- 4. Abfindungsfaktor (Slider) -->
+          <div class="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-800">Verhandlungsfaktor (pro Jahr):</span>
+              <span id="factor-display" class="font-mono text-sm font-extrabold text-indigo-700 bg-indigo-100 px-2 py-0.5 rounded-md">0,80 Gehälter</span>
+            </div>
+            <input type="range" id="input-factor" min="0.25" max="2.0" step="0.05" value="0.8" oninput="updateFactorDisplay(); calculateAll();" class="w-full accent-indigo-600 cursor-pointer" />
+            <div class="flex items-center justify-between text-[10px] text-slate-400">
+              <span>0.5 (Gesetzl. Minimum)</span>
+              <span>1.0 (Fairer Standard)</span>
+              <span>1.5+ (Sehr stark)</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="setFactor(0.5)" class="px-2 py-1 rounded bg-white border border-slate-300 text-[10px] font-semibold hover:bg-slate-100">0.5 (§ 1a)</button>
+              <button onclick="setFactor(0.75)" class="px-2 py-1 rounded bg-white border border-slate-300 text-[10px] font-semibold hover:bg-slate-100">0.75 (Mittel)</button>
+              <button onclick="setFactor(1.0)" class="px-2 py-1 rounded bg-white border border-slate-300 text-[10px] font-semibold hover:bg-slate-100">1.0 (Regel-Ziel)</button>
+              <button onclick="setFactor(1.5)" class="px-2 py-1 rounded bg-white border border-slate-300 text-[10px] font-semibold hover:bg-slate-100">1.5 (Offensiv)</button>
+            </div>
+          </div>
+
+          <!-- 5. Resturlaub & Überstunden -->
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Resturlaubstage</label>
+              <div class="relative">
+                <input type="number" id="input-vacation" value="14" min="0" max="60" step="1" oninput="calculateAll()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-indigo-500 outline-none pr-12" />
+                <span class="absolute right-3.5 top-2.5 text-xs text-slate-400 font-medium">Tage</span>
+              </div>
+            </div>
+            <div>
+              <label class="block font-bold text-slate-800 mb-1">Offene Überstunden</label>
+              <div class="relative">
+                <input type="number" id="input-overtime" value="32" min="0" max="500" step="1" oninput="calculateAll()" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm font-semibold focus:ring-2 focus:ring-indigo-500 outline-none pr-12" />
+                <span class="absolute right-3.5 top-2.5 text-xs text-slate-400 font-medium">Std.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Wochenstunden & Arbeitstage -->
+          <div class="grid grid-cols-2 gap-3 text-slate-600">
+            <div>
+              <label class="block font-semibold mb-1">Wochenstunden</label>
+              <input type="number" id="input-workhours" value="40" min="10" max="50" step="1" oninput="calculateAll()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+            <div>
+              <label class="block font-semibold mb-1">Arbeitstage / Woche</label>
+              <select id="input-workdays" onchange="calculateAll()" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-indigo-500 outline-none bg-white">
+                <option value="5" selected>5-Tage-Woche (Mo–Fr)</option>
+                <option value="6">6-Tage-Woche (Mo–Sa)</option>
+                <option value="4">4-Tage-Woche</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 7. Steuerlicher Vorjahres-Verdienst (für Fünftelregelung DE) -->
+          <div id="tax-input-box" class="p-3.5 bg-indigo-50/60 rounded-2xl border border-indigo-100 space-y-2">
+            <label class="block font-bold text-indigo-950 flex items-center justify-between">
+              <span>Reguläres Bruttojahreseinkommen im Austrittsjahr</span>
+              <span class="text-[10px] text-indigo-600 font-bold">§ 34 EStG</span>
+            </label>
+            <div class="relative">
+              <input type="number" id="input-taxincome" value="55000" min="0" max="500000" step="1000" oninput="calculateAll()" class="w-full px-3.5 py-2 rounded-xl border border-indigo-200 text-xs font-semibold focus:ring-2 focus:ring-indigo-500 outline-none pr-12" />
+              <span class="currency-tag absolute right-3.5 top-2 text-xs font-bold text-indigo-400">€</span>
+            </div>
+            <p class="text-[11px] text-slate-600 leading-snug">
+              Wird benötigt, um die <strong>Steuerersparnis durch die Fünftelregelung</strong> exakt zu simulieren.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: LIVE CALCULATION DASHBOARD (7 COLS) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- TOP SUMMARY HERO CARDS -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <!-- Card 1: Kündigungsfrist -->
+          <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white p-5 rounded-3xl shadow-lg border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-300">Gesetzliche Kündigungsfrist</span>
+              <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full border border-indigo-400/30" id="res-jur-label">§ 622 BGB</span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-extrabold text-white" id="res-notice-period">
+              2 Monate zum Monatsende
+            </div>
+            <div class="text-xs text-slate-300" id="res-notice-sub">
+              Frühester Beendigungstermin bei heutigem Zugang: <strong class="text-white" id="res-earliest-date">31.12.2026</strong>
+            </div>
+          </div>
+
+          <!-- Card 2: Abfindungs-Korridor -->
+          <div class="bg-gradient-to-br from-amber-500 to-orange-600 text-slate-950 p-5 rounded-3xl shadow-lg space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-950/80">Empfohlene Abfindungsforderung</span>
+              <span class="text-xs bg-black/15 text-slate-950 font-bold px-2 py-0.5 rounded-full" id="res-factor-badge">Faktor 0,80</span>
+            </div>
+            <div class="text-2xl sm:text-3xl font-black tracking-tight" id="res-severance-amount">
+              24.960 €
+            </div>
+            <div class="text-xs text-amber-950 font-medium" id="res-severance-range">
+              Verhandlungskorridor: 15.600 € bis 46.800 €
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAILED BREAKDOWN ACCORDION / TABLE -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-5 border-b border-slate-200 bg-slate-50 flex items-center justify-between">
+            <h3 class="font-extrabold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span>📊 Detaillierte Auszahlungs-Aufstellung (Brutto)</span>
+            </h3>
+            <span class="text-xs font-mono font-bold text-slate-500">Stand 2026</span>
+          </div>
+
+          <div class="divide-y divide-slate-100 text-xs">
+            <!-- Row 1: Abfindung -->
+            <div class="p-4 sm:px-6 flex items-center justify-between hover:bg-slate-50/60 transition">
+              <div class="space-y-0.5">
+                <div class="font-bold text-slate-900 text-sm">1. Abfindung (Entlassungsentschädigung)</div>
+                <div class="text-slate-500 text-[11px]" id="calc-detail-severance-text">
+                  6,5 Beschäftigungsjahre × 4.800 € Brutto × Faktor 0,80
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-base font-extrabold text-slate-900" id="res-item-severance">24.960 €</span>
+                <span class="block text-[10px] text-emerald-600 font-semibold">SV-beitragsfrei!</span>
+              </div>
+            </div>
+
+            <!-- Row 2: Resturlaubsabgeltung -->
+            <div class="p-4 sm:px-6 flex items-center justify-between hover:bg-slate-50/60 transition">
+              <div class="space-y-0.5">
+                <div class="font-bold text-slate-900 text-sm">2. Urlaubsabgeltung (Resturlaub)</div>
+                <div class="text-slate-500 text-[11px]" id="calc-detail-vacation-text">
+                  14 Tage × Tagessatz 221,54 € (nach § 11 BUrlG)
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-base font-extrabold text-slate-900" id="res-item-vacation">3.101,54 €</span>
+                <span class="block text-[10px] text-slate-400">Steuer- & SV-pflichtig</span>
+              </div>
+            </div>
+
+            <!-- Row 3: Überstundenauszahlung -->
+            <div class="p-4 sm:px-6 flex items-center justify-between hover:bg-slate-50/60 transition">
+              <div class="space-y-0.5">
+                <div class="font-bold text-slate-900 text-sm">3. Auszahlung offener Überstunden</div>
+                <div class="text-slate-500 text-[11px]" id="calc-detail-overtime-text">
+                  32 Stunden × Stundensatz 27,69 €
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-base font-extrabold text-slate-900" id="res-item-overtime">886,15 €</span>
+                <span class="block text-[10px] text-slate-400">Steuer- & SV-pflichtig</span>
+              </div>
+            </div>
+
+            <!-- Total Row -->
+            <div class="p-4 sm:px-6 bg-indigo-50/50 flex items-center justify-between">
+              <div>
+                <div class="font-black text-indigo-950 text-sm sm:text-base">Brutto-Gesamtauszahlung</div>
+                <div class="text-[11px] text-indigo-700">Gesamte Einmalzahlung vor Steuern</div>
+              </div>
+              <div class="text-right">
+                <span class="text-xl sm:text-2xl font-black text-indigo-900" id="res-total-gross">28.947,69 €</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAX OPTIMIZATION CARD (FÜNFTELREGELUNG / VORSORGEPRIVILEG) -->
+        <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 border border-indigo-500/30 shadow-xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+              💡 Steuer-Optimierung Live-Simulation
+            </span>
+            <span class="text-xs text-indigo-300 font-mono" id="tax-law-name">Deutschland: § 34 Abs. 1 & 2 EStG</span>
+          </div>
+
+          <div>
+            <h4 class="text-lg sm:text-xl font-extrabold text-white" id="tax-headline">
+              Steuerersparnis durch Fünftelregelung: <span class="text-emerald-400 font-black" id="res-tax-savings">ca. 3.240 €</span>
+            </h4>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed" id="tax-description">
+              Weil Abfindungen als <em>außerordentliche Einkünfte</em> gelten, verhindert die Fünftelregelung den vollen Progressionssprung.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs pt-1">
+            <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <div class="text-slate-400 text-[10px]">Normale Besteuerung (ohne § 34)</div>
+              <div class="text-sm font-bold text-rose-300 mt-0.5" id="res-tax-normal">ca. 10.480 €</div>
+            </div>
+            <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <div class="text-slate-400 text-[10px]">Mit Fünftelregelung</div>
+              <div class="text-sm font-bold text-emerald-300 mt-0.5" id="res-tax-fuenftel">ca. 7.240 €</div>
+            </div>
+            <div class="col-span-2 sm:col-span-1 bg-emerald-950/70 p-3 rounded-xl border border-emerald-700/60">
+              <div class="text-emerald-300 text-[10px] font-bold">Ihr Netto-Mehrwert</div>
+              <div class="text-sm font-black text-white mt-0.5" id="res-tax-advantage">+ 3.240 € gespart</div>
+            </div>
+          </div>
+
+          <div class="text-[11px] text-slate-400 flex items-center justify-between border-t border-slate-800 pt-3">
+            <span>ℹ️ Abfindungen sind in Deutschland <strong>vollkommen sozialversicherungsfrei</strong> (keine Renten-, Kranken-, Pflege- oder Arbeitslosenbeiträge).</span>
+          </div>
+        </div>
+
+        <!-- TACTICAL RADAR & LEVERAGE CHECKLIST -->
+        <div class="bg-white rounded-3xl border border-slate-200 p-6 space-y-4">
+          <h4 class="font-extrabold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span>⚡ Taktik-Radar: Ihre Verhandlungshebel</span>
+          </h4>
+
+          <div class="grid sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-amber-50 rounded-2xl border border-amber-200 space-y-1">
+              <div class="font-bold text-amber-900 flex items-center gap-1.5">
+                <span>⏱️ 3-Wochen-Klagefrist (§ 4 KSchG)</span>
+              </div>
+              <p class="text-[11px] text-amber-800 leading-relaxed">
+                Nach Kündigungszugang haben Sie exakt <strong>3 Wochen</strong> Zeit für eine Kündigungsschutzklage. Nach Fristablauf ist die Kündigung rechtswirksam – der Verhandlungshebel sinkt auf null!
+              </p>
+            </div>
+
+            <div class="p-3 bg-rose-50 rounded-2xl border border-rose-200 space-y-1">
+              <div class="font-bold text-rose-900 flex items-center gap-1.5">
+                <span>⚠️ Sperrzeit beim Arbeitslosengeld</span>
+              </div>
+              <p class="text-[11px] text-rose-800 leading-relaxed">
+                Bei einem unbedachten Aufhebungsvertrag drohen bis zu <strong>12 Wochen Sperrzeit</strong> bei der Bundesagentur für Arbeit. Vermeidung: Kündigungsfrist einhalten & wichtigen Grund festhalten!
+              </p>
+            </div>
+
+            <div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-200 space-y-1">
+              <div class="font-bold text-indigo-900 flex items-center gap-1.5">
+                <span>🚀 Sprinterklausel / Turboprämie</span>
+              </div>
+              <p class="text-[11px] text-indigo-800 leading-relaxed">
+                Finden Sie vor Ablauf der Freistellung einen neuen Job? Vereinbaren Sie, dass 75–100% des ersparten Restgehalts zusätzlich in Ihre Abfindung fließen!
+              </p>
+            </div>
+
+            <div class="p-3 bg-emerald-50 rounded-2xl border border-emerald-200 space-y-1">
+              <div class="font-bold text-emerald-900 flex items-center gap-1.5">
+                <span>⭐ Note-1-Zeugnis-Klausel</span>
+              </div>
+              <p class="text-[11px] text-emerald-800 leading-relaxed">
+                Lassen Sie sich den genauen Wortlaut des Arbeitszeugnisses mit Gesamtnote „Sehr Gut“ direkt als Anlage des Aufhebungsvertrags verbindlich zusichern.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- 2. PRO-FEATURE: DIN-A4 VERHANDLUNGSSCHREIBEN & GEGENVORSCHLAG         -->
+    <!-- ===================================================================== -->
+    <section id="musterschreiben-section" class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden mt-12">
+      
+      <div class="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-400/30" id="letter-lock-badge">
+              PRO-GENERATOR
+            </span>
+            <h2 class="text-lg sm:text-2xl font-extrabold">📄 DIN-A4 Verhandlungsstrategie & Gegenangebot-Musterschreiben</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl">
+            Erstellt Ihr sofort einsetzbares, juristisch formuliertes Verhandlungsschreiben für Aufhebungsverträge oder Kündigungswidersprüche inklusive aller berechneten Beträge.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button onclick="handleProAction('print')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-1.5">
+            <span>🖨️ DIN-A4 PDF drucken</span>
+          </button>
+          <button onclick="handleProAction('download')" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-bold px-3.5 py-2.5 rounded-xl transition flex items-center gap-1.5">
+            <span>⬇ Als Text / Word</span>
+          </button>
+          <button onclick="handleProAction('copy')" id="btn-copy-letter" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-bold px-3.5 py-2.5 rounded-xl transition flex items-center gap-1.5">
+            <span>📋 Kopieren</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- LETTER CUSTOMIZATION CONTROLS -->
+      <div class="p-5 sm:p-6 bg-slate-50 border-b border-slate-200 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Muster-Vorlage:</label>
+          <select id="let-template-type" onchange="renderNegotiationLetter()" class="w-full px-3 py-2 rounded-xl border border-slate-300 font-medium bg-white">
+            <option value="aufhebung">Aufhebungsvertrag Gegenangebot & Sprinterklausel</option>
+            <option value="widerspruch">Kündigungswiderspruch & Klageandrohung (§ 4 KSchG)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Ihr Name:</label>
+          <input type="text" id="let-sender-name" value="Maximilian Muster" oninput="renderNegotiationLetter()" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Ihre Anschrift:</label>
+          <input type="text" id="let-sender-addr" value="Musterweg 12, 80331 München" oninput="renderNegotiationLetter()" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white" />
+        </div>
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">Arbeitgeber / HR:</label>
+          <input type="text" id="let-company-name" value="TechDynamics GmbH – Geschäftsführung & HR" oninput="renderNegotiationLetter()" class="w-full px-3 py-2 rounded-xl border border-slate-300 bg-white" />
+        </div>
+      </div>
+
+      <!-- PAYWALL PRO-BANNER (IF NOT UNLOCKED) -->
+      <div id="pro-paywall-card" class="m-6 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white border border-indigo-500/40 shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-3xl space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+              🔓 Self-Serve Sofort-Freischaltung (Kein Abo • Kein Account)
+            </span>
+            <span class="text-xs font-mono text-indigo-200 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-700/60">
+              Einmalig <strong class="price-label-inline">4,90 €</strong>
+            </span>
+          </div>
+
+          <h3 class="text-xl sm:text-2xl font-extrabold text-white leading-snug">
+            Druckfertige DIN-A4 Verhandlungsstrategie & Gegenvorschlags-Musterschreiben freischalten
+          </h3>
+
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Unterschreiben Sie keinen Aufhebungsvertrag voreilig! Mit dem <strong>Self-Serve Pro-Pass</strong> erhalten Sie die vollständige, rechtssichere Verhandlungsstrategie zur Durchsetzung von maximaler Abfindung, Sprinterprämie, Sperrzeit-Vermeidung und Note-1-Zeugnis.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-3 text-xs pt-1">
+            <div class="flex items-start gap-2 bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <div>
+                <div class="font-bold text-white">Konkretes Gegenvorschlags-Schreiben</div>
+                <div class="text-slate-400 text-[11px]">Enthält Ihre exakt berechnete Abfindungssumme + Urlaubs- & Überstundenausgleich.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <div>
+                <div class="font-bold text-white">Sprinterklausel & Freistellung</div>
+                <div class="text-slate-400 text-[11px]">Unwiderrufliche bezahlte Freistellung mit Recht auf vorzeitiges Ausscheiden bei 100% Bar-Abfindung.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <div>
+                <div class="font-bold text-white">Sperrzeit-Schutz & Zeugnis Note 1</div>
+                <div class="text-slate-400 text-[11px]">Klauseln zur Abwendung von Sperrfristen bei der Arbeitsagentur & verbindliche Sehr-Gut-Note.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-2 bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <div>
+                <div class="font-bold text-white">DIN-A4 PDF & Word-Export</div>
+                <div class="text-slate-400 text-[11px]">1-Klick Druck oder Download für sofortigen Versand per Einschreiben oder E-Mail.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2 text-sm">
+              <span>💳 Jetzt via Gumroad freischalten (<span class="price-label-inline">4,90 €</span>)</span>
+              <span>→</span>
+            </button>
+            <button onclick="instantUnlockAfterPayment('direct-button')" class="px-4 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold transition whitespace-nowrap">
+              ✓ Bereits bezahlt? Sofort freischalten
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIN-A4 LIVE PREVIEW SHEET -->
+      <div class="p-6 sm:p-10 bg-slate-200/70 border-t border-slate-200 a4-wrapper relative">
+        <div id="pro-letter-blur-overlay" class="absolute inset-0 bg-slate-900/10 backdrop-blur-[3px] flex items-center justify-center z-20">
+          <button onclick="openCheckoutModal()" class="bg-slate-950/90 text-white font-extrabold px-6 py-3 rounded-2xl shadow-2xl border border-indigo-400/50 hover:bg-indigo-900 transition flex items-center gap-2 text-sm">
+            <span>🔒 Pro-Vollversion freischalten zum Entsperren & Drucken</span>
+          </button>
+        </div>
+
+        <div class="a4-sheet" id="letter-render-target">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- PRINT ONLY CONTAINER -->
+  <div class="hidden print:block" id="print-sheet-clone">
+    <!-- Populated during window.print() -->
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 hidden no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative">
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold w-8 h-8 rounded-full flex items-center justify-center">
+        ×
+      </button>
+
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 text-slate-950 flex items-center justify-center text-xl font-black mx-auto">
+          🔓
+        </div>
+        <h3 class="text-xl font-extrabold text-slate-900">DIN-A4 Verhandlungsstrategie freischalten</h3>
+        <p class="text-xs text-slate-500">
+          Einmalige Freischaltung für <strong class="price-label-inline">4,90 €</strong> • 100% Selbstbedienung ohne Wartezeit
+        </p>
+      </div>
+
+      <div class="space-y-4 my-6 text-xs text-slate-700">
+        <!-- Step 1 -->
+        <div class="p-4 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-between gap-3">
+          <div>
+            <div class="font-bold text-indigo-950">1. Sichere Zahlung via Gumroad / PayPal</div>
+            <div class="text-slate-500 text-[11px]">Kreditkarte, Apple Pay, PayPal oder Klarna.</div>
+          </div>
+          <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" id="modal-payment-link" onclick="markPaymentClicked()" class="shrink-0 bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold px-4 py-2.5 rounded-xl shadow transition">
+            Zur Kasse →
+          </a>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="modal-step2-box" class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 transition-all">
+          <div class="font-bold text-slate-900">2. Sofortige Aktivierung im Browser</div>
+          <p class="text-[11px] text-slate-600">
+            Klicken Sie nach Abschluss des Checkouts auf den Button, um die Dokumente direkt freizuschalten:
+          </p>
+          <button onclick="instantUnlockAfterPayment('modal')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 rounded-xl shadow transition flex items-center justify-center gap-1.5 text-xs">
+            <span>✓ Zahlung abgeschlossen – Jetzt freischalten</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="text-[11px] text-center text-slate-400">
+        🔒 Ohne Abo, ohne automatische Verlängerung. Ihr Entsperrstatus bleibt in Ihrem Browser gespeichert.
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs no-print mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+        <div>
+          <div class="text-base font-extrabold text-white">DACH Digitalwerk – Kündigungs- & Abfindungsrechner 2026</div>
+          <p class="text-slate-500 mt-1">100% Client-Side Web-Tools für Deutschland, Österreich und die Schweiz.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-slate-300">
+          <a href="../" class="hover:text-indigo-400">Digitalwerk Hub</a>
+          <a href="../arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+          <a href="../qr-suite/" class="hover:text-emerald-400">Swiss QR & E-Rechnung</a>
+          <a href="../rechner/" class="hover:text-amber-400">Solar-Rechner</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed text-center sm:text-left">
+        <strong>Rechtlicher Hinweis:</strong> Dieser Rechner dient der fundierten Orientierung, strategischen Verhandlungsvorbereitung und Veranschaulichung der gesetzlichen und tariflichen Berechnungsweisen im DACH-Raum. Er stellt keine individuelle Rechtsberatung dar. Für verbindliche juristische Vertretungen konsultieren Sie bitte einen Fachanwalt für Arbeitsrecht.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CALCULATOR & PRO LOGIC -->
+  <script>
+    let currentJurisdiction = 'DE'; // 'DE' | 'CH' | 'AT'
+    let isProUnlocked = false;
+
+    // Helper: Format Currency
+    function formatCurrency(val, jur = currentJurisdiction) {
+      const sym = jur === 'CH' ? 'CHF' : '€';
+      const formatted = new Intl.NumberFormat('de-DE', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(val || 0);
+      return jur === 'CH' ? `CHF ${formatted}` : `${formatted} €`;
+    }
+
+    // Tax calculation 2026 (Simplified Grundtarif Deutschland)
+    function calculateGermanIncomeTax(zvE) {
+      if (zvE <= 11784) return 0;
+      if (zvE <= 17005) {
+        const y = (zvE - 11784) / 10000;
+        return (995.21 * y + 1400) * y;
+      }
+      if (zvE <= 66760) {
+        const z = (zvE - 17005) / 10000;
+        return (208.85 * z + 2397) * z + 1015.51;
+      }
+      if (zvE <= 277825) {
+        return 0.42 * zvE - 10636.31;
+      }
+      return 0.45 * zvE - 18971.06;
+    }
+
+    function setJurisdiction(jur) {
+      currentJurisdiction = jur;
+      ['DE', 'CH', 'AT'].forEach(code => {
+        const btn = document.getElementById('jur-btn-' + code);
+        if (code === jur) {
+          btn.className = 'px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition';
+        } else {
+          btn.className = 'px-2.5 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      const currencySym = jur === 'CH' ? 'CHF' : '€';
+      document.querySelectorAll('.currency-tag').forEach(el => el.textContent = currencySym);
+      document.getElementById('currency-symbol-label').textContent = jur === 'CH' ? 'Schweizer Franken (CHF)' : 'Euro (€)';
+      
+      const priceStr = jur === 'CH' ? 'CHF 4.90' : '4,90 €';
+      document.querySelectorAll('.price-label-inline').forEach(el => el.textContent = priceStr);
+
+      const heroBadge = document.getElementById('hero-jur-badge');
+      const taxInputBox = document.getElementById('tax-input-box');
+      const taxLawName = document.getElementById('tax-law-name');
+
+      if (jur === 'CH') {
+        heroBadge.textContent = 'Geltendes Recht: Schweiz (Art. 335c Obligationenrecht)';
+        taxLawName.textContent = 'Schweiz: Art. 38 DBG / Art. 11 StHG (Kapitalabfindung)';
+        document.getElementById('let-sender-addr').value = 'Gotthardstrasse 26, 8002 Zürich';
+        document.getElementById('let-company-name').value = 'Helvetia Tech AG – HR & Geschäftsleitung';
+      } else if (jur === 'AT') {
+        heroBadge.textContent = 'Geltendes Recht: Österreich (§ 20 AngG / BMSVG)';
+        taxLawName.textContent = 'Österreich: § 67 Abs. 6 EStG (Abfertigung)';
+        document.getElementById('let-sender-addr').value = 'Mariahilfer Straße 45, 1060 Wien';
+        document.getElementById('let-company-name').value = 'AlpenDigital GmbH – Geschäftsführung';
+      } else {
+        heroBadge.textContent = 'Geltendes Recht: Deutschland (§ 622 BGB / § 1a KSchG)';
+        taxLawName.textContent = 'Deutschland: § 34 Abs. 1 & 2 EStG (Fünftelregelung)';
+        document.getElementById('let-sender-addr').value = 'Musterweg 12, 80331 München';
+        document.getElementById('let-company-name').value = 'TechDynamics GmbH – Geschäftsführung & HR';
+      }
+
+      calculateAll();
+    }
+
+    function updateFactorDisplay() {
+      const factor = parseFloat(document.getElementById('input-factor').value);
+      document.getElementById('factor-display').textContent = `${factor.toFixed(2).replace('.', ',')} Gehälter`;
+      document.getElementById('res-factor-badge').textContent = `Faktor ${factor.toFixed(2).replace('.', ',')}`;
+    }
+
+    function setFactor(val) {
+      document.getElementById('input-factor').value = val;
+      updateFactorDisplay();
+      calculateAll();
+    }
+
+    function applyScenarioPreset() {
+      const scenario = document.getElementById('input-scenario').value;
+      if (scenario === 'betriebsbedingt') {
+        setFactor(0.5);
+      } else if (scenario === 'aufhebung') {
+        setFactor(1.0);
+      } else if (scenario === 'streitig') {
+        setFactor(1.25);
+      } else if (scenario === 'leitend') {
+        setFactor(1.5);
+      } else if (scenario === 'sonder') {
+        setFactor(1.5);
+      }
+    }
+
+    function resetCalculatorDefaults() {
+      document.getElementById('input-salary').value = 4800;
+      document.getElementById('input-has13th').checked = false;
+      document.getElementById('input-years').value = 6.5;
+      document.getElementById('input-age').value = 42;
+      document.getElementById('input-scenario').value = 'aufhebung';
+      document.getElementById('input-factor').value = 1.0;
+      document.getElementById('input-vacation').value = 14;
+      document.getElementById('input-overtime').value = 32;
+      document.getElementById('input-workhours').value = 40;
+      document.getElementById('input-workdays').value = '5';
+      document.getElementById('input-taxincome').value = 55000;
+      updateFactorDisplay();
+      calculateAll();
+    }
+
+    function calculateNoticePeriod(years, jur) {
+      if (jur === 'CH') {
+        // Schweiz Art. 335c OR
+        if (years < 1) return { text: '1 Monat zum Monatsende', months: 1, law: 'Art. 335c Abs. 1 OR' };
+        if (years < 10) return { text: '2 Monate zum Monatsende', months: 2, law: 'Art. 335c Abs. 1 OR' };
+        return { text: '3 Monate zum Monatsende', months: 3, law: 'Art. 335c Abs. 1 OR' };
+      }
+
+      if (jur === 'AT') {
+        // Österreich § 20 AngG (Arbeitgeberkündigung)
+        if (years < 2) return { text: '6 Wochen zum Quartalsende', months: 1.5, law: '§ 20 Abs. 2 AngG' };
+        if (years < 5) return { text: '2 Monate zum Quartalsende', months: 2, law: '§ 20 Abs. 2 AngG' };
+        if (years < 15) return { text: '3 Monate zum Quartalsende', months: 3, law: '§ 20 Abs. 2 AngG' };
+        if (years < 25) return { text: '4 Monate zum Quartalsende', months: 4, law: '§ 20 Abs. 2 AngG' };
+        return { text: '5 Monate zum Quartalsende', months: 5, law: '§ 20 Abs. 2 AngG' };
+      }
+
+      // Deutschland § 622 BGB
+      if (years < 0.5) return { text: '2 Wochen (in der Probezeit)', months: 0.5, law: '§ 622 Abs. 3 BGB' };
+      if (years < 2) return { text: '4 Wochen zum 15. oder Monatsende', months: 1, law: '§ 622 Abs. 1 BGB' };
+      if (years < 5) return { text: '1 Monat zum Kalendermonatsende', months: 1, law: '§ 622 Abs. 2 Nr. 1 BGB' };
+      if (years < 8) return { text: '2 Monate zum Kalendermonatsende', months: 2, law: '§ 622 Abs. 2 Nr. 2 BGB' };
+      if (years < 10) return { text: '3 Monate zum Kalendermonatsende', months: 3, law: '§ 622 Abs. 2 Nr. 3 BGB' };
+      if (years < 12) return { text: '4 Monate zum Kalendermonatsende', months: 4, law: '§ 622 Abs. 2 Nr. 4 BGB' };
+      if (years < 15) return { text: '5 Monate zum Kalendermonatsende', months: 5, law: '§ 622 Abs. 2 Nr. 5 BGB' };
+      if (years < 20) return { text: '6 Monate zum Kalendermonatsende', months: 6, law: '§ 622 Abs. 2 Nr. 6 BGB' };
+      return { text: '7 Monate zum Kalendermonatsende', months: 7, law: '§ 622 Abs. 2 Nr. 7 BGB' };
+    }
+
+    function calculateEarliestDate(noticeMonths) {
+      const today = new Date();
+      // add noticeMonths to current date, end of month
+      const targetMonth = today.getMonth() + Math.ceil(noticeMonths);
+      const targetYear = today.getFullYear() + Math.floor(targetMonth / 12);
+      const normalizedMonth = targetMonth % 12;
+      const lastDay = new Date(targetYear, normalizedMonth + 1, 0);
+      
+      const dayStr = String(lastDay.getDate()).padStart(2, '0');
+      const monthStr = String(lastDay.getMonth() + 1).padStart(2, '0');
+      return `${dayStr}.${monthStr}.${lastDay.getFullYear()}`;
+    }
+
+    // Central Calculation Engine
+    function calculateAll() {
+      const rawSalary = parseFloat(document.getElementById('input-salary').value) || 0;
+      const has13th = document.getElementById('input-has13th').checked;
+      const baseSalary = has13th ? rawSalary * (13 / 12) : rawSalary;
+
+      const years = parseFloat(document.getElementById('input-years').value) || 0;
+      const factor = parseFloat(document.getElementById('input-factor').value) || 0.8;
+      const vacationDays = parseFloat(document.getElementById('input-vacation').value) || 0;
+      const overtimeHours = parseFloat(document.getElementById('input-overtime').value) || 0;
+      const workhours = parseFloat(document.getElementById('input-workhours').value) || 40;
+      const workdays = parseInt(document.getElementById('input-workdays').value) || 5;
+      const taxIncome = parseFloat(document.getElementById('input-taxincome').value) || 50000;
+
+      // 1. Notice Period
+      const noticeInfo = calculateNoticePeriod(years, currentJurisdiction);
+      document.getElementById('res-jur-label').textContent = noticeInfo.law;
+      document.getElementById('res-notice-period').textContent = noticeInfo.text;
+      const earliestDate = calculateEarliestDate(noticeInfo.months);
+      document.getElementById('res-earliest-date').textContent = earliestDate;
+
+      // 2. Severance Calculation
+      // Formula: years * baseSalary * factor
+      const severanceAmount = years * baseSalary * factor;
+      const minSeverance = years * baseSalary * 0.5;
+      const maxSeverance = years * baseSalary * 1.5;
+
+      document.getElementById('res-severance-amount').textContent = formatCurrency(severanceAmount);
+      document.getElementById('res-severance-range').textContent = `Verhandlungskorridor: ${formatCurrency(minSeverance)} bis ${formatCurrency(maxSeverance)}`;
+
+      // 3. Vacation payout calculation
+      // Tagessatz = Monatsgehalt * 3 / (13 Wochen * workdays)
+      const daysPerQuarter = 13 * workdays; // 65 for 5-day week
+      const dayRate = (baseSalary * 3) / daysPerQuarter;
+      const vacationPayout = vacationDays * dayRate;
+
+      // 4. Overtime payout calculation
+      // Stundensatz = Monatsgehalt / (workhours * 4.3333)
+      const hourlyRate = baseSalary / (workhours * 4.333333);
+      const overtimePayout = overtimeHours * hourlyRate;
+
+      // 5. Total Gross Payout
+      const totalGross = severanceAmount + vacationPayout + overtimePayout;
+
+      // Update Breakdown Table
+      document.getElementById('calc-detail-severance-text').textContent = 
+        `${years.toFixed(1).replace('.', ',')} Jahre × ${formatCurrency(baseSalary)} Monatsbrutto × Faktor ${factor.toFixed(2).replace('.', ',')}`;
+      document.getElementById('res-item-severance').textContent = formatCurrency(severanceAmount);
+
+      document.getElementById('calc-detail-vacation-text').textContent = 
+        `${vacationDays} Tage × Tagessatz ${formatCurrency(dayRate)} (bei ${workdays}-Tage-Woche)`;
+      document.getElementById('res-item-vacation').textContent = formatCurrency(vacationPayout);
+
+      document.getElementById('calc-detail-overtime-text').textContent = 
+        `${overtimeHours} Std. × Stundensatz ${formatCurrency(hourlyRate)}`;
+      document.getElementById('res-item-overtime').textContent = formatCurrency(overtimePayout);
+
+      document.getElementById('res-total-gross').textContent = formatCurrency(totalGross);
+
+      // 6. Tax Optimization & Fünftelregelung Simulation
+      if (currentJurisdiction === 'DE') {
+        const taxBase = taxIncome;
+        const taxWithoutSeverance = calculateGermanIncomeTax(taxBase);
+        const taxWithSeveranceFull = calculateGermanIncomeTax(taxBase + severanceAmount);
+        
+        // Fünftelregelung
+        const taxWithOneFifth = calculateGermanIncomeTax(taxBase + (severanceAmount / 5));
+        const diffOneFifth = taxWithOneFifth - taxWithoutSeverance;
+        const taxSeveranceFuenftel = diffOneFifth * 5;
+        const totalTaxFuenftel = taxWithoutSeverance + taxSeveranceFuenftel;
+
+        const taxNormalSeverance = taxWithSeveranceFull - taxWithoutSeverance;
+        const taxSavings = Math.max(0, taxNormalSeverance - taxSeveranceFuenftel);
+
+        document.getElementById('tax-headline').innerHTML = 
+          `Steuerersparnis durch Fünftelregelung: <span class="text-emerald-400 font-black">${formatCurrency(taxSavings)}</span>`;
+        document.getElementById('res-tax-normal').textContent = `ca. ${formatCurrency(taxNormalSeverance)}`;
+        document.getElementById('res-tax-fuenftel').textContent = `ca. ${formatCurrency(taxSeveranceFuenftel)}`;
+        document.getElementById('res-tax-advantage').textContent = `+ ${formatCurrency(taxSavings)} Ersparnis`;
+        document.getElementById('tax-description').textContent = 
+          `Weil Abfindungen als außerordentliche Einkünfte gelten, berechnet das Finanzamt nach § 34 EStG nur den Steuersatz auf 1/5 der Abfindung.`;
+      } else if (currentJurisdiction === 'CH') {
+        // Schweiz: Separate Rentensatz-Besteuerung (Art. 38 DBG)
+        const estimatedSavings = severanceAmount * 0.12;
+        document.getElementById('tax-headline').innerHTML = 
+          `Steuerprivileg für Kapitalabfindung: <span class="text-emerald-400 font-black">ca. ${formatCurrency(estimatedSavings)}</span>`;
+        document.getElementById('res-tax-normal').textContent = `Regulär ~ 28–35%`;
+        document.getElementById('res-tax-fuenftel').textContent = `Privilegiert ~ 10–15%`;
+        document.getElementById('res-tax-advantage').textContent = `ca. ${formatCurrency(estimatedSavings)} Vorteil`;
+        document.getElementById('tax-description').textContent = 
+          `Kapitalabfindungen mit Vorsorgecharakter werden in der Schweiz getrennt vom übrigen Einkommen zum Sondersatz besteuert (Art. 38 DBG / Art. 11 StHG).`;
+      } else {
+        // Österreich: § 67 Abs. 6 EStG (Abfertigung mit 6% Feststeuersatz)
+        const estimatedSavings = severanceAmount * 0.20;
+        document.getElementById('tax-headline').innerHTML = 
+          `Begünstigte Besteuerung mit festen 6%: <span class="text-emerald-400 font-black">ca. ${formatCurrency(estimatedSavings)}</span>`;
+        document.getElementById('res-tax-normal').textContent = `Regulär bis 50%`;
+        document.getElementById('res-tax-fuenftel').textContent = `Fester Satz: 6%`;
+        document.getElementById('res-tax-advantage').textContent = `ca. ${formatCurrency(estimatedSavings)} Vorteil`;
+        document.getElementById('tax-description').textContent = 
+          `Gesetzliche und vergleichbare Abfertigungen unterliegen in Österreich gemäss § 67 Abs. 6 EStG einem festen Steuersatz von nur 6%.`;
+      }
+
+      renderNegotiationLetter();
+    }
+
+    // Render the DIN-A4 Negotiation Letter
+    function renderNegotiationLetter() {
+      const template = document.getElementById('let-template-type').value;
+      const senderName = document.getElementById('let-sender-name').value || 'Maximilian Muster';
+      const senderAddr = document.getElementById('let-sender-addr').value || 'Musterstraße 12, 80331 München';
+      const companyName = document.getElementById('let-company-name').value || 'TechDynamics GmbH – Geschäftsführung & HR';
+      
+      const years = parseFloat(document.getElementById('input-years').value) || 6.5;
+      const factor = parseFloat(document.getElementById('input-factor').value) || 0.8;
+      const baseSalary = parseFloat(document.getElementById('input-salary').value) || 4800;
+      const severanceAmount = years * baseSalary * factor;
+      const vacationDays = parseFloat(document.getElementById('input-vacation').value) || 0;
+      const overtimeHours = parseFloat(document.getElementById('input-overtime').value) || 0;
+      
+      const workhours = parseFloat(document.getElementById('input-workhours').value) || 40;
+      const workdays = parseInt(document.getElementById('input-workdays').value) || 5;
+      const dayRate = (baseSalary * 3) / (13 * workdays);
+      const hourlyRate = baseSalary / (workhours * 4.333333);
+      const vacationPayout = vacationDays * dayRate;
+      const overtimePayout = overtimeHours * hourlyRate;
+      const totalPayout = severanceAmount + vacationPayout + overtimePayout;
+
+      const noticeInfo = calculateNoticePeriod(years, currentJurisdiction);
+      const exitDate = calculateEarliestDate(noticeInfo.months);
+
+      const target = document.getElementById('letter-render-target');
+      const todayStr = new Date().toLocaleDateString('de-DE');
+
+      let letterHtml = '';
+
+      if (template === 'aufhebung') {
+        letterHtml = `
+          <div class="space-y-5 text-slate-900 leading-relaxed text-[10pt]">
+            <!-- Header Sender / Receiver -->
+            <div class="flex justify-between items-start text-xs text-slate-500 pb-4 border-b border-slate-200">
+              <div>
+                <strong class="text-slate-900 text-sm block">${senderName}</strong>
+                <span>${senderAddr}</span>
+              </div>
+              <div class="text-right">
+                <span>Datum: <strong>${todayStr}</strong></span><br/>
+                <span>Status: <strong>Vertraulicher Gegenvorschlag</strong></span>
+              </div>
+            </div>
+
+            <!-- Receiver -->
+            <div class="pt-2 text-xs">
+              <span class="text-slate-400 block text-[9pt]">An:</span>
+              <strong class="text-slate-900 block">${companyName}</strong>
+              <span class="text-slate-600">Personalabteilung / Geschäftsführung</span>
+            </div>
+
+            <!-- Subject -->
+            <div class="pt-2">
+              <h2 class="text-base font-extrabold text-slate-950 tracking-tight">
+                Gegenangebot zur einvernehmlichen Beendigung des Arbeitsverhältnisses (Aufhebungsvertrag)
+              </h2>
+              <div class="text-xs text-indigo-700 font-semibold mt-0.5">
+                Vermeidung einer Kündigungsschutzklage • Einigungsvorschlag auf Augenhöhe
+              </div>
+            </div>
+
+            <p>Sehr geehrte Damen und Herren,</p>
+
+            <p>
+              ich beziehe mich auf Ihr Gesprächsangebot bzw. den Entwurf eines Aufhebungsvertrages zur Beendigung meines Arbeitsverhältnisses. Einer einvernehmlichen Regelung stehe ich grundsätzlich offen gegenüber – vorausgesetzt, meine ${years.toFixed(1).replace('.', ',')}-jährige Betriebszugehörigkeit und mein engagierter Beitrag zum Unternehmenserfolg werden angemessen und sozialverträglich honoriert.
+            </p>
+
+            <p>
+              Unter sorgfältiger Abwägung der arbeitsrechtlichen Rechtslage (${noticeInfo.law}) schlage ich Ihnen folgende Konditionen für eine verbindliche Aufhebungsvereinbarung vor:
+            </p>
+
+            <!-- Clauses List -->
+            <div class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+              <div>
+                <strong>§ 1 Beendigungstermin & ordentliche Kündigungsfrist:</strong><br/>
+                Das Arbeitsverhältnis endet unter strikter Einhaltung der ordentlichen Kündigungsfrist zum <strong>${exitDate}</strong>. Dies schützt vor einer Sperrzeit bei der Agentur für Arbeit (§ 159 SGB III).
+              </div>
+
+              <div>
+                <strong>§ 2 Abfindung / Entlassungsentschädigung:</strong><br/>
+                Das Unternehmen zahlt mir für den Verlust des Arbeitsplatzes eine Abfindung in Höhe von <strong>${formatCurrency(severanceAmount)}</strong> (Berechnung: ${years.toFixed(1).replace('.', ',')} Beschäftigungsjahre × ${formatCurrency(baseSalary)} × Verhandlungsfaktor ${factor.toFixed(2).replace('.', ',')}). Die Abfindung ist sozialversicherungsfrei und wird mit der Fünftelregelung nach § 34 EStG steuerlich begünstigt abgerechnet.
+              </div>
+
+              <div>
+                <strong>§ 3 Unwiderrufliche Freistellung & Sprinterklausel (Turboprämie):</strong><br/>
+                Ab Unterzeichnung werde ich unter Fortzahlung der vertraglichen Vergütung unwiderruflich von der Arbeitsleistung freigestellt. Sollte ich vor dem ${exitDate} eine neue Tätigkeit aufnehmen, bin ich berechtigt, das Arbeitsverhältnis mit einer Ankündigungsfrist von 5 Werktagen vorzeitig zu beenden. In diesem Fall erhöht sich die Abfindung um <strong>100 % der bis zum ${exitDate} ersparten Bruttomonatsbezüge</strong>.
+              </div>
+
+              <div>
+                <strong>§ 4 Auszahlung von Resturlaub & Überstunden:</strong><br/>
+                Verbleibende Resturlaubstage (${vacationDays} Tage = <strong>${formatCurrency(vacationPayout)}</strong>) sowie bestehende Überstunden (${overtimeHours} Std. = <strong>${formatCurrency(overtimePayout)}</strong>) werden mit der letzten Entgeltabrechnung vollumfänglich zur Auszahlung gebracht.
+              </div>
+
+              <div>
+                <strong>§ 5 Qualifiziertes Arbeitszeugnis (Note „Sehr Gut“):</strong><br/>
+                Das Unternehmen stellt mir unverzüglich ein wohlwollendes, qualifiziertes Arbeitszeugnis mit der Gesamtnote <strong>„Sehr Gut“ (Note 1,0)</strong> aus, das eine ausdrückliche Bedauerns-, Dankes- und Zukunftswunsch-Formel enthält.
+              </div>
+            </div>
+
+            <p>
+              Ich bitte Sie um Ihre schriftliche Rückmeldung zu diesem Gegenangebot bis spätestens zum <strong>${calculateEarliestDate(0.5)}</strong>. Sollten wir keine einvernehmliche Einigung erzielen, behalte ich mir vor, die Kündigung auf dem Klageweg beim zuständigen Arbeitsgericht überprüfen zu lassen.
+            </p>
+
+            <div class="pt-4 flex justify-between items-end">
+              <div>
+                <p>Mit freundlichen Grüßen</p>
+                <div class="h-10"></div>
+                <p class="font-bold border-t border-slate-400 pt-1 text-xs">${senderName}</p>
+              </div>
+              <div class="text-right text-[9pt] text-slate-400">
+                <span>Dokument erstellt mit DACH Digitalwerk</span>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // Musterschreiben Widerspruch gegen Kündigung
+        letterHtml = `
+          <div class="space-y-5 text-slate-900 leading-relaxed text-[10pt]">
+            <div class="flex justify-between items-start text-xs text-slate-500 pb-4 border-b border-slate-200">
+              <div>
+                <strong class="text-slate-900 text-sm block">${senderName}</strong>
+                <span>${senderAddr}</span>
+              </div>
+              <div class="text-right">
+                <span>Datum: <strong>${todayStr}</strong></span><br/>
+                <span>Per <strong>Einwurf-Einschreiben</strong></span>
+              </div>
+            </div>
+
+            <div class="pt-2 text-xs">
+              <span class="text-slate-400 block text-[9pt]">An:</span>
+              <strong class="text-slate-900 block">${companyName}</strong>
+              <span class="text-slate-600">Personalabteilung / Geschäftsführung</span>
+            </div>
+
+            <div class="pt-2">
+              <h2 class="text-base font-extrabold text-slate-950 tracking-tight">
+                Widerspruch gegen die Kündigung vom [Datum der Kündigung] & Angebot zum Abfindungsvergleich
+              </h2>
+              <div class="text-xs text-rose-700 font-semibold mt-0.5">
+                Vorsorgliche Einleitung der Kündigungsschutzklage (§ 4 KSchG)
+              </div>
+            </div>
+
+            <p>Sehr geehrte Damen und Herren,</p>
+
+            <p>
+              am [Datum Zugang] ging mir Ihr Kündigungsschreiben zu, mit welchem Sie mein Arbeitsverhältnis zum [Beendigungsdatum] kündigen möchten.
+            </p>
+
+            <p>
+              Gegen diese Kündigung lege ich hiermit <strong>form- und fristgerecht Widerspruch</strong> ein. Die Kündigung ist sozial ungerechtfertigt (§ 1 KSchG) und rechtsunwirksam. Insbesondere rüge ich die fehlerhafte Sozialauswahl sowie die nicht ordnungsgemäße Anhörung des Betriebsrats (§ 102 BetrVG).
+            </p>
+
+            <p>
+              Zur Wahrung meiner Rechte habe ich meinen Rechtsbeistand mit der Einreichung einer Kündigungsschutzklage beim Arbeitsgericht binnen der gesetzlichen 3-Wochen-Frist beauftragt.
+            </p>
+
+            <div class="bg-indigo-50/70 p-4 rounded-xl border border-indigo-200 text-xs space-y-2">
+              <strong>Vergleichsangebot zur Vermeidung eines Gerichtsverfahrens:</strong>
+              <p>
+                Um ein zeit- und kostenintensives Arbeitsgerichtsverfahren abzuwenden, bin ich bereit, das Arbeitsverhältnis zum ${exitDate} einvernehmlich zu beenden, wenn folgende Punkte erfüllt werden:
+              </p>
+              <ul class="list-disc pl-5 space-y-1">
+                <li>Zahlung einer Abfindung in Höhe von <strong>${formatCurrency(severanceAmount)}</strong>.</li>
+                <li>Vollständige Auszahlung von Resturlaub (${vacationDays} Tage = <strong>${formatCurrency(vacationPayout)}</strong>) und Überstunden (<strong>${formatCurrency(overtimePayout)}</strong>).</li>
+                <li>Ausstellung eines qualifizierten Arbeitszeugnisses mit der Gesamtnote „Sehr Gut“.</li>
+              </ul>
+            </div>
+
+            <p>
+              Bitte teilen Sie mir bis zum <strong>${calculateEarliestDate(0.3)}</strong> mit, ob Sie diesem Vergleichsvorschlag zustimmen. Andernfalls wird die Klage unverzüglich zugestellt.
+            </p>
+
+            <div class="pt-4 flex justify-between items-end">
+              <div>
+                <p>Mit freundlichen Grüßen</p>
+                <div class="h-10"></div>
+                <p class="font-bold border-t border-slate-400 pt-1 text-xs">${senderName}</p>
+              </div>
+              <div class="text-right text-[9pt] text-slate-400">
+                <span>Dokument erstellt mit DACH Digitalwerk</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      target.innerHTML = letterHtml;
+      document.getElementById('print-sheet-clone').innerHTML = `<div class="a4-sheet">${letterHtml}</div>`;
+    }
+
+    // Checkout Modal & Pro Logic
+    function openCheckoutModal() {
+      if (isProUnlocked) {
+        document.getElementById('musterschreiben-section').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function markPaymentClicked() {
+      document.getElementById('modal-step2-box').classList.add('ring-4', 'ring-emerald-400/50');
+    }
+
+    function instantUnlockAfterPayment(source) {
+      isProUnlocked = true;
+      try {
+        localStorage.setItem('digitalwerk_abfindung_pro', '1');
+      } catch (e) {}
+
+      closeCheckoutModal();
+      applyProUnlockUI();
+
+      if (source === 'modal' || source === 'direct-button') {
+        document.getElementById('musterschreiben-section').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function applyProUnlockUI() {
+      const overlay = document.getElementById('pro-letter-blur-overlay');
+      if (overlay) overlay.classList.add('hidden');
+
+      const paywallCard = document.getElementById('pro-paywall-card');
+      if (paywallCard) {
+        paywallCard.innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 text-emerald-400 font-extrabold text-sm">
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+              <span>✓ Pro-Vollversion aktiv (DIN-A4 Verhandlungsstrategie freigeschaltet)</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition">
+                🖨️ Jetzt DIN-A4 drucken
+              </button>
+            </div>
+          </div>
+        `;
+        paywallCard.className = 'm-6 p-4 rounded-2xl bg-slate-900 border border-emerald-500/40 text-white shadow-lg';
+      }
+
+      const badge = document.getElementById('letter-lock-badge');
+      if (badge) {
+        badge.textContent = 'PRO FREIGESCHALTET';
+        badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500 text-slate-950 font-black';
+      }
+    }
+
+    function handleProAction(actionType) {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+      if (actionType === 'print') {
+        window.print();
+      } else if (actionType === 'download') {
+        const text = document.getElementById('letter-render-target').innerText;
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Aufhebungsvertrag_Verhandlungsschreiben_Abfindung.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else if (actionType === 'copy') {
+        const text = document.getElementById('letter-render-target').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.getElementById('btn-copy-letter');
+          const orig = btn.innerHTML;
+          btn.innerHTML = '<span>✓ Kopiert!</span>';
+          setTimeout(() => { btn.innerHTML = orig; }, 2000);
+        });
+      }
+    }
+
+    // Init Page
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('pro') === '1' || params.get('unlock') === '1' || params.get('paid') === '1') {
+        isProUnlocked = true;
+        try { localStorage.setItem('digitalwerk_abfindung_pro', '1'); } catch (e) {}
+      } else {
+        try {
+          if (localStorage.getItem('digitalwerk_abfindung_pro') === '1') {
+            isProUnlocked = true;
+          }
+        } catch (e) {}
+      }
+
+      if (isProUnlocked) {
+        applyProUnlockUI();
+      }
+
+      calculateAll();
+    });
+  </script>
+
+</body>
+</html>
