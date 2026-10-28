@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kurzarbeitergeld-Rechner 2026 (KUG, KUA &amp; KAE) | 60% / 67% Netto-Tabelle &amp; DE, AT, CH</title>
+  <meta name="description" content="Kostenloser Kurzarbeitergeld-Rechner 2026 für Deutschland (§§ 95 ff. SGB III), Österreich (KUA) und die Schweiz (KAE). Pauschalierte Nettoentgelttabelle, Leistungssatz 60 % / 67 %, AG-Aufstockung &amp; DIN-A4 Abrechnungsnachweis." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/kurzarbeitergeld-rechner/" />
+  
+  <meta property="og:title" content="Kurzarbeitergeld-Rechner 2026 (KUG, KUA, KAE): 60% / 67% Netto-Tabelle" />
+  <meta property="og:description" content="KUG exakt berechnen nach SGB III: Pauschaliertes Netto-Soll- &amp; Istentgelt, 60 % / 67 % Leistungssatz, Arbeitgeber-Aufstockung, Progressionsvorbehalt &amp; DIN-A4 Export." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/kurzarbeitergeld-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @media print {
+      body * { visibility: hidden; }
+      .a4-sheet-wrapper, .a4-sheet-wrapper * { visibility: visible; }
+      .a4-sheet-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .no-print { display: none !important; }
+      .a4-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        padding: 15mm 20mm !important;
+      }
+    }
+    .a4-sheet {
+      background: white;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "Kurzarbeitergeld-Rechner 2026 (KUG, KUA &amp; KAE) | 60% / 67% Netto-Tabelle &amp; DE, AT, CH", "description": "Kostenloser Kurzarbeitergeld-Rechner 2026 für Deutschland (§§ 95 ff. SGB III), Österreich (KUA) und die Schweiz (KAE). Pauschalierte Nettoentgelttabelle, Leistungssatz 60 % / 67 %, AG-Aufstockung &amp; DIN-A4 Abrechnungsnachweis.", "url": "https://dach-digitalwerk.netlify.app/kurzarbeitergeld-rechner/", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "inLanguage": ["de-DE", "de-AT", "de-CH"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert Kurzarbeitergeld-Rechner 2026 (KUG, KUA &amp; KAE) f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Kostenloser Kurzarbeitergeld-Rechner 2026 für Deutschland (§§ 95 ff. SGB III), Österreich (KUA) und die Schweiz (KAE). Pauschalierte Nettoentgelttabelle, Leistungssatz 60 % / 67 %, AG-Aufstockung &amp; DIN-A4 Abrechnungsnachweis. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-amber-500 selection:text-white">
+
+  <!-- ================= TOP NOTIFICATION / HEADER ================= -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../" class="flex items-center gap-2 group">
+          <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-950 font-black text-lg shadow-lg shadow-amber-500/20 group-hover:scale-105 transition">DW</span>
+          <span class="font-display font-extrabold text-lg text-white tracking-tight group-hover:text-amber-400 transition">DACH Digitalwerk</span>
+        </a>
+        <span class="text-slate-600 hidden sm:inline">/</span>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 hidden sm:inline-flex items-center gap-1">
+          <span>⚡ Flaggschiff #19</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-slate-400 hidden md:flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          100% Client-Side &bull; DSGVO-konform
+        </span>
+        <a href="#rechner" class="text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-2 rounded-xl transition shadow-sm shadow-amber-500/25">
+          Zum KUG-Rechner ↓
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-16 lg:pt-16 lg:pb-20 border-b border-slate-800 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-500/10 via-transparent to-transparent pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 rounded-full mb-6">
+        <span>🇩🇪 SGB III §§ 95ff. • 🇦🇹 AMSG KUA • 🇨🇭 AVIG KAE</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-tight sm:leading-none mb-6">
+        Kurzarbeitergeld-Rechner <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">2026</span>
+      </h1>
+
+      <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed mb-8">
+        Berechnen Sie sekundenschnell das pauschalierte <strong>Netto-Soll- und Istentgelt</strong>, den Leistungssatz (<strong>67 % mit Kind / 60 % ohne Kind</strong>), freiwillige <strong>Arbeitgeber-Aufstockungen</strong> und die Sozialversicherungsaufwendungen nach der amtlichen KUG-Verordnung 2026 inklusive druckfertigem <strong>DIN-A4 Abrechnungsnachweis</strong>.
+      </p>
+
+      <!-- Trust Badges -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-left text-xs">
+        <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/80">
+          <div class="text-amber-400 font-bold mb-1">✓ 60 % / 67 % SGB III</div>
+          <div class="text-slate-400 text-[11px]">Erhöhter Satz für Eltern mit Kinderfreibetrag.</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/80">
+          <div class="text-amber-400 font-bold mb-1">✓ KUG-Pauschaltabelle</div>
+          <div class="text-slate-400 text-[11px]">Steuerklassen I bis VI nach KUG-Verordnung 2026.</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/80">
+          <div class="text-amber-400 font-bold mb-1">✓ AG-SV auf 80 %</div>
+          <div class="text-slate-400 text-[11px]">SV-Beitrag auf 80 % des fiktiven Entgelts (§ 166 SGB VI).</div>
+        </div>
+        <div class="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/80">
+          <div class="text-amber-400 font-bold mb-1">✓ DIN-A4 Monatsbogen</div>
+          <div class="text-slate-400 text-[11px]">Prüffähig für Bundesagentur, Lohnbuchhaltung &amp; Betriebsrat.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULATOR MAIN SECTION ================= -->
+  <main id="rechner" class="flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    
+    <!-- Länder-Auswahl Tabs -->
+    <div class="flex items-center justify-center mb-8">
+      <div class="bg-slate-950 p-1.5 rounded-2xl border border-slate-800 inline-flex shadow-inner">
+        <button id="tab-de" onclick="setCountry('DE')" class="country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md">
+          <span>🇩🇪 Deutschland</span>
+          <span class="text-[10px] bg-slate-950/20 px-1.5 py-0.5 rounded font-mono">SGB III</span>
+        </button>
+        <button id="tab-at" onclick="setCountry('AT')" class="country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition flex items-center gap-2">
+          <span>🇦🇹 Österreich</span>
+          <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded font-mono">KUA</span>
+        </button>
+        <button id="tab-ch" onclick="setCountry('CH')" class="country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition flex items-center gap-2">
+          <span>🇨🇭 Schweiz</span>
+          <span class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded font-mono">KAE</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- ================= LEFT: INPUT FORM ================= -->
+      <div class="lg:col-span-6 bg-slate-950 rounded-3xl border border-slate-800 p-6 sm:p-8 shadow-2xl space-y-6">
+        <div>
+          <h2 class="text-xl font-extrabold text-white flex items-center gap-2">
+            <span>⚙️ Parameter der Kurzarbeit</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">Geben Sie das reguläre Entgelt und den Arbeitsausfall des Monats an.</p>
+        </div>
+
+        <!-- 1. Soll-Entgelt (Reguläres Brutto) -->
+        <div>
+          <div class="flex justify-between items-center mb-1.5">
+            <label for="soll_brutto" class="text-xs font-bold uppercase tracking-wider text-slate-300">
+              Reguläres Monatsbrutto (Soll-Entgelt)
+            </label>
+            <span class="text-xs font-mono text-amber-400" id="soll_brutto_display">4.000 €</span>
+          </div>
+          <div class="relative">
+            <input type="number" id="soll_brutto" value="4000" min="0" step="50" oninput="calculateKug()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white font-mono text-base focus:outline-none focus:border-amber-400 transition" />
+            <span class="absolute right-4 top-3.5 text-slate-500 font-mono text-sm">€ / Monat</span>
+          </div>
+          <div class="flex gap-2 mt-2">
+            <button onclick="setBrutto(2500)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-lg transition">2.500 €</button>
+            <button onclick="setBrutto(3500)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-lg transition">3.500 €</button>
+            <button onclick="setBrutto(4500)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-lg transition">4.500 €</button>
+            <button onclick="setBrutto(6000)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-lg transition">6.000 €</button>
+            <button onclick="setBrutto(7550)" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-amber-400 px-2.5 py-1 rounded-lg transition">BBG 7.550 €</button>
+          </div>
+        </div>
+
+        <!-- 2. Arbeitsausfall in Prozent -->
+        <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
+          <div class="flex justify-between items-center">
+            <label for="ausfall_slider" class="text-xs font-bold uppercase tracking-wider text-slate-300">
+              Arbeitsausfall im Abrechnungsmonat
+            </label>
+            <span class="text-sm font-black text-amber-400 font-mono" id="ausfall_percent_display">50 % Ausfall</span>
+          </div>
+          <input type="range" id="ausfall_slider" min="0" max="100" value="50" step="5" oninput="updateAusfallFromSlider()" class="w-full accent-amber-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+          
+          <div class="grid grid-cols-4 gap-2 pt-1">
+            <button onclick="setAusfall(20)" class="text-xs py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition text-center">20 %</button>
+            <button onclick="setAusfall(50)" class="text-xs py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition text-center">50 % (Halb)</button>
+            <button onclick="setAusfall(80)" class="text-xs py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition text-center">80 %</button>
+            <button onclick="setAusfall(100)" class="text-xs py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 font-bold transition text-center border border-rose-500/30">100 % (KUG 0)</button>
+          </div>
+
+          <div class="text-[11px] text-slate-400 flex justify-between pt-1">
+            <span>Verbleibende Arbeitsleistung (Ist-Arbeit):</span>
+            <span class="font-mono text-slate-200 font-bold" id="ist_arbeit_display">50 % (ca. 20 Std./Wo)</span>
+          </div>
+        </div>
+
+        <!-- 3. Steuerklasse & Kinderfreibetrag (Deutschland spezifisch) -->
+        <div id="section-de-steuer" class="space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="steuerklasse" class="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-1.5">
+                Steuerklasse
+              </label>
+              <select id="steuerklasse" onchange="calculateKug()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+                <option value="1" selected>Steuerklasse I (Ledig)</option>
+                <option value="2">Steuerklasse II (Alleinerziehend)</option>
+                <option value="3">Steuerklasse III (Verheiratet, Alleinverdiener)</option>
+                <option value="4">Steuerklasse IV (Verheiratet, Gleichverdiener)</option>
+                <option value="5">Steuerklasse V (Verheiratet, Zweitverdiener)</option>
+                <option value="6">Steuerklasse VI (Zweitjob)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="belegungsgebiet" class="text-xs font-bold uppercase tracking-wider text-slate-300 block mb-1.5">
+                Beitragsgebiet (BBG 2026)
+              </label>
+              <select id="belegungsgebiet" onchange="calculateKug()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+                <option value="west" selected>Alte Bundesländer (BBG: 7.550 €)</option>
+                <option value="ost">Neue Bundesländer (BBG: 7.450 €)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Leistungssatz (Kinderfreibetrag / Kind vorhanden) -->
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-2">
+              Leistungssatz nach § 105 SGB III
+            </span>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/90 border border-slate-700 cursor-pointer hover:border-amber-400 transition">
+                <input type="radio" name="leistungssatz_kind" value="mit_kind" onchange="calculateKug()" checked class="accent-amber-500 w-4 h-4" />
+                <div>
+                  <div class="text-xs font-bold text-white">67 % (mit Kind)</div>
+                  <div class="text-[10px] text-slate-400">Kinderfreibetrag >= 0,5</div>
+                </div>
+              </label>
+              <label class="flex items-center gap-3 p-2.5 rounded-xl bg-slate-900/90 border border-slate-700 cursor-pointer hover:border-amber-400 transition">
+                <input type="radio" name="leistungssatz_kind" value="ohne_kind" onchange="calculateKug()" class="accent-amber-500 w-4 h-4" />
+                <div>
+                  <div class="text-xs font-bold text-white">60 % (ohne Kind)</div>
+                  <div class="text-[10px] text-slate-400">Allgemeiner Satz</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-slate-300">
+              <input type="checkbox" id="kirchensteuer" onchange="calculateKug()" class="accent-amber-500 rounded w-4 h-4" />
+              <span>Kirchensteuerpflicht (8 % / 9 %)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 4. Arbeitgeber-Aufstockung (Tarifvertrag / Betriebsvereinbarung) -->
+        <div class="pt-4 border-t border-slate-800">
+          <div class="flex justify-between items-center mb-1.5">
+            <label for="aufstockung_percent" class="text-xs font-bold uppercase tracking-wider text-slate-300">
+              Arbeitgeber-Aufstockung auf Netto (optional)
+            </label>
+            <span class="text-xs font-mono text-indigo-400" id="aufstockung_display">0 % (Keine)</span>
+          </div>
+          <select id="aufstockung_percent" onchange="calculateKug()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+            <option value="0" selected>Keine tarifliche Aufstockung (Gesetzliches KUG)</option>
+            <option value="80">Aufstockung auf 80 % des Nettoausfalls (z.B. Chemie/Druck)</option>
+            <option value="85">Aufstockung auf 85 % des Nettoausfalls</option>
+            <option value="90">Aufstockung auf 90 % des Nettoausfalls (z.B. IGM Metall/Elektro)</option>
+            <option value="95">Aufstockung auf 95 % des Nettoausfalls</option>
+            <option value="100">Vollständiger Ausgleich (100 % Nettoerhalt)</option>
+          </select>
+          <div class="text-[11px] text-slate-500 mt-1">
+            Tarifverträge (z.B. Metall &amp; Elektro, Chemie) sehen häufig eine Aufstockung auf 80–90 % des Nettoentgelts vor.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================= RIGHT: RESULTS & KPI DASHBOARD ================= -->
+      <div class="lg:col-span-6 space-y-6">
+
+        <!-- Result Hero Card -->
+        <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/40 rounded-3xl border-2 border-amber-500/50 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+              Monatsabrechnung Kurzarbeit 2026
+            </span>
+            <span class="text-xs font-mono text-slate-400" id="country_tag">🇩🇪 Deutschland SGB III</span>
+          </div>
+
+          <div class="space-y-1 mb-6">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider">Auszahlungsbetrag (Gesamt-Monatsnetto)</div>
+            <div class="text-4xl sm:text-5xl font-extrabold text-white font-mono flex items-baseline gap-2">
+              <span id="gesamt_netto_val">2.285,40 €</span>
+              <span class="text-sm font-normal text-emerald-400" id="netto_erhalt_percent">(88,5 % des Vollzeit-Nettos)</span>
+            </div>
+            <div class="text-xs text-slate-400 pt-1">
+              Setzt sich zusammen aus Ist-Netto (<span id="ist_netto_part" class="font-mono text-slate-200">1.390,20 €</span>) + KUG (<span id="kug_part" class="font-mono text-amber-300 font-bold">895,20 €</span>).
+            </div>
+          </div>
+
+          <!-- KPI Grid -->
+          <div class="grid grid-cols-2 gap-3 pt-4 border-t border-slate-800 text-xs">
+            <div class="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <div class="text-slate-400 text-[11px] mb-0.5">Netto-Sollentgelt (100% Vollzeit)</div>
+              <div class="text-base sm:text-lg font-mono font-extrabold text-white" id="soll_netto_kpi">2.582,00 €</div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <div class="text-slate-400 text-[11px] mb-0.5">Nettoentgeltdifferenz (Ausfall)</div>
+              <div class="text-base sm:text-lg font-mono font-extrabold text-rose-400" id="netto_diff_kpi">-1.191,80 €</div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <div class="text-slate-400 text-[11px] mb-0.5">Kurzarbeitergeld (KUG)</div>
+              <div class="text-base sm:text-lg font-mono font-extrabold text-amber-400" id="kug_betrag_kpi">+895,20 €</div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <div class="text-slate-400 text-[11px] mb-0.5">Tatsächlicher Nettoverlust</div>
+              <div class="text-base sm:text-lg font-mono font-extrabold text-amber-300" id="netto_verlust_kpi">-296,60 €</div>
+            </div>
+          </div>
+
+          <!-- Arbeitgeber Aufstockung if active -->
+          <div id="aufstockung_box" class="mt-4 p-3.5 rounded-2xl bg-indigo-950/40 border border-indigo-500/30 text-xs hidden">
+            <div class="flex justify-between items-center">
+              <span class="text-indigo-300 font-bold">Arbeitgeber-Aufstockungsbetrag:</span>
+              <span class="font-mono text-white font-extrabold text-sm" id="aufstockung_val">+0,00 €</span>
+            </div>
+            <div class="text-[11px] text-slate-400 mt-1">
+              Freiwillige oder tarifliche Zuzahlung des Arbeitgebers zur KUG-Aufstockung.
+            </div>
+          </div>
+
+          <!-- AG Sozialversicherungsaufwand Warning Box -->
+          <div class="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-300 space-y-1">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-400">AG-Sozialversicherungsbeiträge auf KUG:</span>
+              <span class="font-mono text-amber-400 font-bold" id="ag_sv_val">ca. 320,00 €</span>
+            </div>
+            <div class="text-slate-500 text-[10px] leading-relaxed">
+              Arbeitgeber tragen die KV-, PV- und RV-Beiträge allein auf 80 % des fiktiven Entgelts (§ 166 Abs. 1 Nr. 2 SGB VI). Die Arbeitslosenversicherung ist beitragsfrei.
+            </div>
+          </div>
+
+          <!-- Progressionsvorbehalt Warning -->
+          <div class="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-300 flex items-start gap-2">
+            <span>⚠️</span>
+            <span><strong>Progressionsvorbehalt (§ 32b EStG):</strong> KUG ist steuerfrei, erhöht aber den Steuersatz auf Ihr übriges Einkommen. Bei KUG-Bezug von mehr als 410 € / Kalenderjahr besteht gesetzliche Pflicht zur Abgabe einer Einkommensteuererklärung.</span>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button onclick="window.print()" class="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 px-4 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20">
+              <span>🖨️ DIN-A4 Abrechnungsbogen drucken</span>
+            </button>
+            <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 border border-slate-700">
+              <span>📥 KUG-Excel &amp; Betriebsvereinbarung (Gutschein: KUG2026)</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- ================= BREAKDOWN TABLE ================= -->
+        <div class="bg-slate-950 rounded-3xl border border-slate-800 p-6 shadow-xl">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-slate-300 mb-4 flex items-center gap-2">
+            <span>📋 Prüffähige Ermittlung nach KUG-Verordnung 2026</span>
+          </h3>
+
+          <div class="overflow-x-auto text-xs font-mono">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400 text-[11px]">
+                  <th class="py-2">Berechnungsschritt</th>
+                  <th class="py-2 text-right">Rechtsgrundlage</th>
+                  <th class="py-2 text-right">Betrag</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/60 text-slate-300">
+                <tr>
+                  <td class="py-2.5">1. Soll-Entgelt (Brutto vor KUG)</td>
+                  <td class="py-2.5 text-right text-slate-500">§ 106 Abs. 1 SGB III</td>
+                  <td class="py-2.5 text-right font-bold text-white" id="tbl_soll_brutto">4.000,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">2. Maßgebendes Soll-Entgelt (max. BBG)</td>
+                  <td class="py-2.5 text-right text-slate-500">BBG 2026 (7.550 €)</td>
+                  <td class="py-2.5 text-right" id="tbl_soll_brutto_deckel">4.000,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">3. Pauschaliertes Soll-Nettoentgelt</td>
+                  <td class="py-2.5 text-right text-slate-500">KUG-Pauschaltabelle</td>
+                  <td class="py-2.5 text-right text-emerald-400" id="tbl_soll_netto">2.582,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">4. Tatsächliches Ist-Entgelt (Brutto)</td>
+                  <td class="py-2.5 text-right text-slate-500">§ 106 Abs. 1 SGB III</td>
+                  <td class="py-2.5 text-right" id="tbl_ist_brutto">2.000,00 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">5. Pauschaliertes Ist-Nettoentgelt</td>
+                  <td class="py-2.5 text-right text-slate-500">KUG-Pauschaltabelle</td>
+                  <td class="py-2.5 text-right text-emerald-400" id="tbl_ist_netto">1.390,20 €</td>
+                </tr>
+                <tr class="bg-slate-900/40">
+                  <td class="py-2.5 font-bold text-white">6. Nettoentgeltdifferenz (Ausfall)</td>
+                  <td class="py-2.5 text-right text-slate-500">Soll-Netto minus Ist-Netto</td>
+                  <td class="py-2.5 text-right font-extrabold text-rose-400" id="tbl_netto_diff">1.191,80 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">7. Angewendeter KUG-Leistungssatz</td>
+                  <td class="py-2.5 text-right text-slate-500">§ 105 SGB III</td>
+                  <td class="py-2.5 text-right font-bold text-amber-400" id="tbl_leistungssatz">67,00 %</td>
+                </tr>
+                <tr class="bg-amber-500/10 font-bold text-white">
+                  <td class="py-2.5">8. Auszuzahlendes Kurzarbeitergeld (KUG)</td>
+                  <td class="py-2.5 text-right text-slate-400">Leistungssatz × Diff.</td>
+                  <td class="py-2.5 text-right text-amber-300 font-extrabold" id="tbl_kug_auszahlung">895,20 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5">9. Zuzüglich Ist-Netto (regulärer Lohn)</td>
+                  <td class="py-2.5 text-right text-slate-500">Arbeitgeberzahlung</td>
+                  <td class="py-2.5 text-right" id="tbl_ist_netto_add">1.390,20 €</td>
+                </tr>
+                <tr class="border-t-2 border-amber-500 text-white font-extrabold bg-slate-900">
+                  <td class="py-3 text-sm">Gesamter Monats-Auszahlungsbetrag</td>
+                  <td class="py-3 text-right text-slate-400 text-xs">Ist-Netto + KUG</td>
+                  <td class="py-3 text-right text-sm text-emerald-300" id="tbl_gesamt_netto">2.285,40 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= AUSFALL-MATRIX (20% BIS 100% AUSFALL) ================= -->
+    <section class="mt-16 bg-slate-950 rounded-3xl border border-slate-800 p-6 sm:p-8 shadow-xl">
+      <div class="max-w-3xl mb-6">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+          Szenarien-Vergleich
+        </span>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-2">
+          Netto-Einkommen bei unterschiedlichen Arbeitsausfällen
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Übersicht der Auszahlungen basierend auf Ihrem gewählten Bruttoentgelt (<span class="font-mono text-amber-300" id="matrix_brutto_ref">4.000 €</span>) und Ihrer Steuerkonstellation:
+        </p>
+      </div>
+
+      <div class="overflow-x-auto text-xs">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400 text-[11px]">
+              <th class="py-3 px-3">Arbeitsausfall</th>
+              <th class="py-3 px-3">Ist-Brutto</th>
+              <th class="py-3 px-3">Ist-Netto</th>
+              <th class="py-3 px-3">KUG (Staat)</th>
+              <th class="py-3 px-3 font-bold text-white">Gesamt-Netto</th>
+              <th class="py-3 px-3">Netto-Erhalt</th>
+              <th class="py-3 px-3">Nettoverlust</th>
+            </tr>
+          </thead>
+          <tbody id="matrix_tbody" class="divide-y divide-slate-800/60 font-mono text-slate-300">
+            <!-- Dynamisch via JavaScript gefüllt -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= RATGEBER & FAQ ACCORDION ================= -->
+    <section class="mt-16 grid lg:grid-cols-3 gap-8">
+      
+      <div class="bg-slate-950 rounded-3xl border border-slate-800 p-6 sm:p-7 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold">
+          ⚖️
+        </div>
+        <h4 class="text-base font-extrabold text-white">Voraussetzungen nach SGB III</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          KUG kann gewährt werden, wenn ein <strong>erheblicher Arbeitsausfall mit Entgeltausfall</strong> vorliegt, der auf wirtschaftlichen Gründen oder einem unabwendbaren Ereignis beruht, vorübergehend und unvermeidbar ist und mindestens <strong>10 % der Beschäftigten</strong> betrifft (§ 96 SGB III).
+        </p>
+        <a href="../kurzarbeitergeld-berechnen-formel-tabelle-2026.html" class="inline-flex items-center gap-1 text-xs text-amber-400 hover:text-amber-300 font-bold pt-2">
+          <span>KUG Formel &amp; Tabelle Ratgeber</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="bg-slate-950 rounded-3xl border border-slate-800 p-6 sm:p-7 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl font-bold">
+          📊
+        </div>
+        <h4 class="text-base font-extrabold text-white">Pauschaliertes Nettoentgelt</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Für KUG gilt nicht das individuelle Zahlstellen-Netto, sondern das <strong>gesetzlich pauschalierte Nettoentgelt</strong> nach der KUG-Pauschaltabelle der Bundesagentur für Arbeit. Hierbei werden pauschal 20 % Sozialversicherung und Lohnsteuer nach Steuerklasse abgezogen.
+        </p>
+        <a href="../kug-leistungsentgelt-pauschalierung-sgb-iii.html" class="inline-flex items-center gap-1 text-xs text-indigo-400 hover:text-indigo-300 font-bold pt-2">
+          <span>KUG Pauschalierungs-Leitfaden</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="bg-slate-950 rounded-3xl border border-slate-800 p-6 sm:p-7 space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold">
+          🌍
+        </div>
+        <h4 class="text-base font-extrabold text-white">DACH-Vergleich (AT KUA &amp; CH KAE)</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          In Österreich ersetzt die <strong>Kurzarbeitsbeihilfe (KUA)</strong> 80 % bis 90 % des bisherigen Nettoentgelts über das AMS. In der Schweiz leistet die Arbeitslosenkasse <strong>80 % des Verdienstausfalls als KAE</strong> (max. 148.200 CHF versicherter Verdienst).
+        </p>
+        <a href="../kurzarbeit-oesterreich-schweiz-kua-kae-vergleich.html" class="inline-flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300 font-bold pt-2">
+          <span>DACH Kurzarbeits-Vergleich</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= PRINTABLE DIN-A4 SHEET (HIDDEN ON SCREEN, VISIBLE ON PRINT) ================= -->
+  <div class="a4-sheet-wrapper no-print hidden">
+    <div class="a4-sheet p-10 text-slate-900 font-sans text-xs">
+      
+      <!-- Print Header -->
+      <div class="border-b-2 border-slate-900 pb-4 mb-6 flex justify-between items-start">
+        <div>
+          <h1 class="text-xl font-extrabold tracking-tight text-slate-900 uppercase">Kurzarbeitergeld (KUG) Monats-Abrechnungsnachweis</h1>
+          <p class="text-xs text-slate-600 mt-1">Prüffähige Ermittlung nach §§ 95 ff., 105, 106 SGB III &amp; KUG-Verordnung 2026</p>
+        </div>
+        <div class="text-right text-[11px] font-mono text-slate-500">
+          <div>Erstellt am: <span id="print_date"></span></div>
+          <div>DACH Digitalwerk Engine 2026</div>
+        </div>
+      </div>
+
+      <!-- Employee / Company Details Box -->
+      <div class="grid grid-cols-2 gap-4 p-4 rounded-xl border border-slate-300 bg-slate-50 mb-6 text-xs">
+        <div>
+          <span class="font-bold text-slate-700 block mb-1">Mitarbeiter- &amp; Stammdaten:</span>
+          <div>Name / Personal-Nr.: ___________________________</div>
+          <div>Steuerklasse: <strong id="print_stkl">I</strong> | Kinderfreibetrag: <strong id="print_kind">67 % (mit Kind)</strong></div>
+          <div>Beitragsgebiet: <strong id="print_gebiet">Alte Bundesländer (West)</strong></div>
+        </div>
+        <div>
+          <span class="font-bold text-slate-700 block mb-1">Abrechnungsmonat &amp; Betrieb:</span>
+          <div>Abrechnungsmonat: ____________________ 2026</div>
+          <div>Betriebsnummer: ______________________________</div>
+          <div>Arbeitsausfall: <strong id="print_ausfall">50 %</strong></div>
+        </div>
+      </div>
+
+      <!-- Calculation Steps Table -->
+      <table class="w-full text-left border-collapse border border-slate-300 mb-6 text-xs font-mono">
+        <thead>
+          <tr class="bg-slate-200 text-slate-800">
+            <th class="p-2 border border-slate-300">Pos.</th>
+            <th class="p-2 border border-slate-300">Berechnungsposition</th>
+            <th class="p-2 border border-slate-300 text-right">Gesetzesreferenz</th>
+            <th class="p-2 border border-slate-300 text-right">Betrag</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-2 border border-slate-300">1</td>
+            <td class="p-2 border border-slate-300">Soll-Entgelt (Brutto vor KUG)</td>
+            <td class="p-2 border border-slate-300 text-right">§ 106 Abs. 1 Satz 1</td>
+            <td class="p-2 border border-slate-300 text-right font-bold" id="print_soll_brutto">4.000,00 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">2</td>
+            <td class="p-2 border border-slate-300">Maßgebendes Soll-Entgelt (gedeckelt auf BBG 2026)</td>
+            <td class="p-2 border border-slate-300 text-right">§ 106 Abs. 1 Satz 2</td>
+            <td class="p-2 border border-slate-300 text-right" id="print_soll_brutto_deckel">4.000,00 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">3</td>
+            <td class="p-2 border border-slate-300">Pauschalisiertes Netto-Sollentgelt</td>
+            <td class="p-2 border border-slate-300 text-right">KUG-Pauschaltabelle</td>
+            <td class="p-2 border border-slate-300 text-right font-bold" id="print_soll_netto">2.582,00 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">4</td>
+            <td class="p-2 border border-slate-300">Ist-Entgelt (tatsächliches Brutto im Monat)</td>
+            <td class="p-2 border border-slate-300 text-right">§ 106 Abs. 1 Satz 3</td>
+            <td class="p-2 border border-slate-300 text-right" id="print_ist_brutto">2.000,00 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">5</td>
+            <td class="p-2 border border-slate-300">Pauschalisiertes Netto-Istentgelt</td>
+            <td class="p-2 border border-slate-300 text-right">KUG-Pauschaltabelle</td>
+            <td class="p-2 border border-slate-300 text-right font-bold" id="print_ist_netto">1.390,20 €</td>
+          </tr>
+          <tr class="bg-slate-100 font-bold">
+            <td class="p-2 border border-slate-300">6</td>
+            <td class="p-2 border border-slate-300">Nettoentgeltdifferenz (Ausfallbetrag)</td>
+            <td class="p-2 border border-slate-300 text-right">Pos. 3 minus Pos. 5</td>
+            <td class="p-2 border border-slate-300 text-right text-rose-700 font-extrabold" id="print_netto_diff">1.191,80 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">7</td>
+            <td class="p-2 border border-slate-300">KUG-Leistungssatz (60 % / 67 %)</td>
+            <td class="p-2 border border-slate-300 text-right">§ 105 SGB III</td>
+            <td class="p-2 border border-slate-300 text-right font-bold" id="print_leistungssatz">67,00 %</td>
+          </tr>
+          <tr class="bg-amber-100 font-bold">
+            <td class="p-2 border border-slate-300">8</td>
+            <td class="p-2 border border-slate-300">Auszuzahlendes Kurzarbeitergeld (KUG)</td>
+            <td class="p-2 border border-slate-300 text-right">Pos. 6 × Pos. 7</td>
+            <td class="p-2 border border-slate-300 text-right font-extrabold" id="print_kug_betrag">895,20 €</td>
+          </tr>
+          <tr>
+            <td class="p-2 border border-slate-300">9</td>
+            <td class="p-2 border border-slate-300">Zuzüglich Ist-Netto (Arbeitgeberlohn)</td>
+            <td class="p-2 border border-slate-300 text-right">Lohnabrechnung</td>
+            <td class="p-2 border border-slate-300 text-right" id="print_ist_netto_add">1.390,20 €</td>
+          </tr>
+          <tr class="bg-slate-200 font-extrabold text-sm">
+            <td class="p-2.5 border border-slate-300">10</td>
+            <td class="p-2.5 border border-slate-300">GESAMT-NETTOAUSZAHLUNG AN MITARBEITER</td>
+            <td class="p-2.5 border border-slate-300 text-right">Pos. 8 + Pos. 9</td>
+            <td class="p-2.5 border border-slate-300 text-right text-base text-slate-900" id="print_gesamt_netto">2.285,40 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- AG SV Notice -->
+      <div class="p-3 border border-slate-300 rounded bg-slate-50 mb-6 text-[10px] text-slate-600">
+        <strong>Arbeitgeber-Sozialversicherungsaufwand (§ 166 Abs. 1 Nr. 2 SGB VI):</strong> Der Arbeitgeber entrichtet die Beiträge zur Kranken-, Pflege- und Rentenversicherung auf 80 % des ausgefallenen fiktiven Arbeitsentgelts allein. Die Arbeitslosenversicherung ist beitragsfrei.
+      </div>
+
+      <!-- Signatures -->
+      <div class="grid grid-cols-2 gap-8 pt-8 text-xs">
+        <div>
+          <div class="border-t border-slate-400 pt-2 text-center text-slate-600">
+            Ort, Datum / Unterschrift Arbeitgeber (Lohnbüro)
+          </div>
+        </div>
+        <div>
+          <div class="border-t border-slate-400 pt-2 text-center text-slate-600">
+            Unterschrift Arbeitnehmer / Betriebsrat (zur Kenntnisnahme)
+          </div>
+        </div>
+      </div>
+
+      <div class="text-[9px] text-center text-slate-400 mt-8">
+        Reines technisches Berechnungsprotokoll nach KUG-Verordnung 2026. Erstellt via DACH Digitalwerk Hub (100% Client-Side).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-10 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="w-6 h-6 rounded bg-amber-500 flex items-center justify-center text-slate-950 font-black text-xs">DW</span>
+          <span class="font-bold text-slate-300">DACH Digitalwerk &bull; Self-Serve Web-Tools Hub</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-slate-400">
+          <a href="../agb/" class="hover:text-amber-400 transition">AGB</a>
+          <a href="../haftungsausschluss/" class="hover:text-amber-400 transition">Haftungsausschluss</a>
+          <a href="../impressum-datenschutz-generator/" class="hover:text-amber-400 transition">Impressum &amp; Datenschutz</a>
+          <a href="../" class="hover:text-amber-400 transition">Alle 19 Web-Tools</a>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800/80 leading-relaxed text-[11px] text-slate-400">
+        <strong class="text-slate-300">Rechtlicher Hinweis &amp; Haftungsausschluss:</strong> Dieses Berechnungswerkzeug ist ein rein technologisches Simulationstool und stellt <strong>keine Rechts- oder Steuerberatung</strong> im Sinne des Rechtsdienstleistungsgesetzes (§ 2 RDG) oder des Steuerberatungsgesetzes (§ 5 StBerG) dar. Es ersetzt nicht die Prüfung durch das zuständige Arbeitsamt (Bundesagentur für Arbeit, AMS oder Ausgleichskasse) oder eine fachkundige Steuer- bzw. Rechtsberatung (BGH Smartlaw-Urteil vom 27.11.2019 – I ZR 84/18).
+      </div>
+
+      <div class="text-center text-[11px] text-slate-600">
+        &copy; 2026 DACH Digitalwerk. 100 % Client-Side &bull; Keine Übertragung oder Speicherung von Mitarbeiter- oder Lohndaten.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= CALCULATION LOGIC JAVASCRIPT ================= -->
+  <script>
+    // State
+    let currentCountry = 'DE';
+
+    // Constants 2026
+    const BBG_WEST_2026 = 7550.0;
+    const BBG_OST_2026 = 7450.0;
+    const BBG_CH_2026 = 12350.0; // 148'200 CHF / 12
+
+    function setCountry(c) {
+      currentCountry = c;
+      document.querySelectorAll('.country-tab').forEach(b => {
+        b.className = 'country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition flex items-center gap-2';
+      });
+
+      const deSec = document.getElementById('section-de-steuer');
+      const countryTag = document.getElementById('country_tag');
+
+      if (c === 'DE') {
+        document.getElementById('tab-de').className = 'country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md';
+        deSec.classList.remove('hidden');
+        countryTag.innerText = '🇩🇪 Deutschland SGB III';
+      } else if (c === 'AT') {
+        document.getElementById('tab-at').className = 'country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md';
+        deSec.classList.add('hidden');
+        countryTag.innerText = '🇦🇹 Österreich KUA (AMS)';
+      } else {
+        document.getElementById('tab-ch').className = 'country-tab px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition flex items-center gap-2 bg-amber-500 text-slate-950 shadow-md';
+        deSec.classList.add('hidden');
+        countryTag.innerText = '🇨🇭 Schweiz KAE (AVIG 80%)';
+      }
+      calculateKug();
+    }
+
+    function setBrutto(val) {
+      document.getElementById('soll_brutto').value = val;
+      calculateKug();
+    }
+
+    function setAusfall(pct) {
+      document.getElementById('ausfall_slider').value = pct;
+      updateAusfallFromSlider();
+    }
+
+    function updateAusfallFromSlider() {
+      const pct = parseFloat(document.getElementById('ausfall_slider').value);
+      document.getElementById('ausfall_percent_display').innerText = `${pct} % Ausfall`;
+      const istArbeit = 100 - pct;
+      const hours = (40 * (istArbeit / 100)).toFixed(0);
+      document.getElementById('ist_arbeit_display').innerText = `${istArbeit} % (ca. ${hours} Std./Wo)`;
+      calculateKug();
+    }
+
+    // Pauschaliertes Nettoentgelt nach KUG-Verordnung 2026 (Annäherung der amtlichen Tabelle)
+    function getPauschaliertesNettoDE(brutto, stkl, hasKiSt) {
+      if (brutto <= 0) return 0;
+      // Sozialversicherungspauschale ~20%
+      const svPauschale = brutto * 0.20;
+      let taxable = Math.max(0, brutto - svPauschale);
+
+      // Steuerklassen-Faktoren für Grundfreibetrag & Progression (KUG-Tabelle)
+      let lstPauschale = 0;
+      if (stkl === '1' || stkl === '4') {
+        if (taxable > 1050) {
+          lstPauschale = Math.max(0, (taxable - 1050) * 0.26);
+        }
+      } else if (stkl === '2') { // Alleinerziehend
+        if (taxable > 1400) {
+          lstPauschale = Math.max(0, (taxable - 1400) * 0.24);
+        }
+      } else if (stkl === '3') { // Günstigste Steuerklasse
+        if (taxable > 1800) {
+          lstPauschale = Math.max(0, (taxable - 1800) * 0.17);
+        }
+      } else if (stkl === '5') { // Höchste Abzüge
+        lstPauschale = taxable * 0.35;
+      } else if (stkl === '6') { // Zweitjob
+        lstPauschale = taxable * 0.38;
+      }
+
+      if (hasKiSt) {
+        lstPauschale += lstPauschale * 0.09;
+      }
+
+      const netto = Math.max(0, brutto - svPauschale - lstPauschale);
+      return Math.round(netto * 100) / 100;
+    }
+
+    function fmt(num) {
+      return num.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+
+    function calculateKug() {
+      const rawSollBrutto = Math.max(0, parseFloat(document.getElementById('soll_brutto').value) || 0);
+      const ausfallPct = Math.min(100, Math.max(0, parseFloat(document.getElementById('ausfall_slider').value) || 0));
+      const stkl = document.getElementById('steuerklasse').value;
+      const belegungsgebiet = document.getElementById('belegungsgebiet').value;
+      const hasKiSt = document.getElementById('kirchensteuer').checked;
+      const leistungssatzKind = document.querySelector('input[name="leistungssatz_kind"]:checked').value;
+      const aufstockungPct = parseFloat(document.getElementById('aufstockung_percent').value) || 0;
+
+      document.getElementById('soll_brutto_display').innerText = fmt(rawSollBrutto);
+      document.getElementById('matrix_brutto_ref').innerText = fmt(rawSollBrutto);
+
+      let bbg = (belegungsgebiet === 'west') ? BBG_WEST_2026 : BBG_OST_2026;
+      if (currentCountry === 'CH') bbg = BBG_CH_2026;
+
+      const sollBruttoGedeckelt = Math.min(rawSollBrutto, bbg);
+
+      // Ist-Brutto
+      const istFaktor = (100 - ausfallPct) / 100.0;
+      const istBrutto = Math.round(rawSollBrutto * istFaktor * 100) / 100;
+      const istBruttoGedeckelt = Math.min(istBrutto, bbg);
+
+      let sollNetto = 0;
+      let istNetto = 0;
+      let leistungssatz = 0.67;
+      let kugBetrag = 0;
+      let gesamtNetto = 0;
+      let nettoDiff = 0;
+      let aufstockungsBetrag = 0;
+      let agSv = 0;
+
+      if (currentCountry === 'DE') {
+        leistungssatz = (leistungssatzKind === 'mit_kind') ? 0.67 : 0.60;
+        sollNetto = getPauschaliertesNettoDE(sollBruttoGedeckelt, stkl, hasKiSt);
+        istNetto = getPauschaliertesNettoDE(istBruttoGedeckelt, stkl, hasKiSt);
+        nettoDiff = Math.max(0, sollNetto - istNetto);
+        kugBetrag = Math.round(nettoDiff * leistungssatz * 100) / 100;
+
+        // Arbeitgeber Aufstockung (auf z.B. 80% des Nettoausfalls)
+        if (aufstockungPct > 0) {
+          const zielErhalt = (aufstockungPct / 100.0) * sollNetto;
+          const vorlaeufig = istNetto + kugBetrag;
+          if (zielErhalt > vorlaeufig) {
+            aufstockungsBetrag = Math.round((zielErhalt - vorlaeufig) * 100) / 100;
+          }
+        }
+
+        // AG SV-Beitrag auf 80 % des fiktiven Entgelts (KV ca. 8,1% + PV ca. 2,2% + RV ca. 9,3% = ca. 19,6% AG-Anteil)
+        const fiktivesEntgelt = Math.max(0, sollBruttoGedeckelt - istBruttoGedeckelt) * 0.80;
+        agSv = Math.round(fiktivesEntgelt * 0.196 * 100) / 100;
+
+      } else if (currentCountry === 'AT') {
+        // Österreich KUA: 80% bis 90% Nettoersatz
+        sollNetto = Math.round(sollBruttoGedeckelt * 0.65 * 100) / 100;
+        istNetto = Math.round(istBruttoGedeckelt * 0.65 * 100) / 100;
+        nettoDiff = sollNetto - istNetto;
+        // KUA Rate gestaffelt: bei Brutto bis 2.685 ca. 85%, sonst 80%
+        const rate = (sollBruttoGedeckelt <= 2685) ? 0.85 : 0.80;
+        leistungssatz = rate;
+        kugBetrag = Math.round(nettoDiff * rate * 100) / 100;
+        agSv = Math.round(nettoDiff * 0.21 * 100) / 100;
+
+      } else {
+        // Schweiz KAE: 80% des anrechenbaren Verdienstausfalls
+        sollNetto = Math.round(sollBruttoGedeckelt * 0.82 * 100) / 100;
+        istNetto = Math.round(istBruttoGedeckelt * 0.82 * 100) / 100;
+        nettoDiff = sollNetto - istNetto;
+        leistungssatz = 0.80;
+        kugBetrag = Math.round(nettoDiff * leistungssatz * 100) / 100;
+        agSv = Math.round(nettoDiff * 0.064 * 100) / 100;
+      }
+
+      gesamtNetto = Math.round((istNetto + kugBetrag + aufstockungsBetrag) * 100) / 100;
+      const nettoVerlust = Math.max(0, Math.round((sollNetto - gesamtNetto) * 100) / 100);
+      const nettoErhaltPct = sollNetto > 0 ? ((gesamtNetto / sollNetto) * 100).toFixed(1) : 0;
+
+      // Update KPIs
+      document.getElementById('gesamt_netto_val').innerText = fmt(gesamtNetto);
+      document.getElementById('netto_erhalt_percent').innerText = `(${nettoErhaltPct} % des Vollzeit-Nettos)`;
+      document.getElementById('ist_netto_part').innerText = fmt(istNetto);
+      document.getElementById('kug_part').innerText = fmt(kugBetrag);
+
+      document.getElementById('soll_netto_kpi').innerText = fmt(sollNetto);
+      document.getElementById('netto_diff_kpi').innerText = '-' + fmt(nettoDiff);
+      document.getElementById('kug_betrag_kpi').innerText = '+' + fmt(kugBetrag);
+      document.getElementById('netto_verlust_kpi').innerText = '-' + fmt(nettoVerlust);
+      document.getElementById('ag_sv_val').innerText = 'ca. ' + fmt(agSv);
+
+      // Aufstockung Box
+      const aufBox = document.getElementById('aufstockung_box');
+      if (aufstockungsBetrag > 0) {
+        aufBox.classList.remove('hidden');
+        document.getElementById('aufstockung_val').innerText = '+' + fmt(aufstockungsBetrag);
+        document.getElementById('aufstockung_display').innerText = `${aufstockungPct} % Nettoerhalt`;
+      } else {
+        aufBox.classList.add('hidden');
+        document.getElementById('aufstockung_display').innerText = aufstockungPct > 0 ? `${aufstockungPct} % Netto` : '0 % (Keine)';
+      }
+
+      // Breakdown Table
+      document.getElementById('tbl_soll_brutto').innerText = fmt(rawSollBrutto);
+      document.getElementById('tbl_soll_brutto_deckel').innerText = fmt(sollBruttoGedeckelt);
+      document.getElementById('tbl_soll_netto').innerText = fmt(sollNetto);
+      document.getElementById('tbl_ist_brutto').innerText = fmt(istBrutto);
+      document.getElementById('tbl_ist_netto').innerText = fmt(istNetto);
+      document.getElementById('tbl_netto_diff').innerText = fmt(nettoDiff);
+      document.getElementById('tbl_leistungssatz').innerText = (leistungssatz * 100).toFixed(2) + ' %';
+      document.getElementById('tbl_kug_auszahlung').innerText = fmt(kugBetrag);
+      document.getElementById('tbl_ist_netto_add').innerText = fmt(istNetto);
+      document.getElementById('tbl_gesamt_netto').innerText = fmt(gesamtNetto);
+
+      // Print Sheet
+      document.getElementById('print_date').innerText = new Date().toLocaleDateString('de-DE');
+      document.getElementById('print_stkl').innerText = stkl;
+      document.getElementById('print_kind').innerText = (leistungssatzKind === 'mit_kind') ? '67 % (Kind >= 0,5)' : '60 % (kein Kind)';
+      document.getElementById('print_gebiet').innerText = (belegungsgebiet === 'west') ? 'Alte Bundesländer (BBG: 7.550 €)' : 'Neue Bundesländer (BBG: 7.450 €)';
+      document.getElementById('print_ausfall').innerText = `${ausfallPct} %`;
+
+      document.getElementById('print_soll_brutto').innerText = fmt(rawSollBrutto);
+      document.getElementById('print_soll_brutto_deckel').innerText = fmt(sollBruttoGedeckelt);
+      document.getElementById('print_soll_netto').innerText = fmt(sollNetto);
+      document.getElementById('print_ist_brutto').innerText = fmt(istBrutto);
+      document.getElementById('print_ist_netto').innerText = fmt(istNetto);
+      document.getElementById('print_netto_diff').innerText = fmt(nettoDiff);
+      document.getElementById('print_leistungssatz').innerText = (leistungssatz * 100).toFixed(2) + ' %';
+      document.getElementById('print_kug_betrag').innerText = fmt(kugBetrag);
+      document.getElementById('print_ist_netto_add').innerText = fmt(istNetto);
+      document.getElementById('print_gesamt_netto').innerText = fmt(gesamtNetto);
+
+      // Render Matrix
+      renderMatrix(rawSollBrutto, bbg, stkl, hasKiSt, leistungssatz);
+    }
+
+    function renderMatrix(sollBrutto, bbg, stkl, hasKiSt, leistungssatz) {
+      const tbody = document.getElementById('matrix_tbody');
+      tbody.innerHTML = '';
+      const steps = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+      const cappedSoll = Math.min(sollBrutto, bbg);
+      const sollNetto = getPauschaliertesNettoDE(cappedSoll, stkl, hasKiSt);
+
+      steps.forEach(ausfall => {
+        const istFakt = (100 - ausfall) / 100.0;
+        const istBrut = Math.min(Math.round(sollBrutto * istFakt * 100) / 100, bbg);
+        const istNet = getPauschaliertesNettoDE(istBrut, stkl, hasKiSt);
+        const diff = Math.max(0, sollNetto - istNet);
+        const kug = Math.round(diff * leistungssatz * 100) / 100;
+        const totalNet = Math.round((istNet + kug) * 100) / 100;
+        const loss = Math.max(0, Math.round((sollNetto - totalNet) * 100) / 100);
+        const pctErhalt = sollNetto > 0 ? ((totalNet / sollNetto) * 100).toFixed(1) : 0;
+
+        const tr = document.createElement('tr');
+        if (ausfall === 50) tr.className = 'bg-amber-500/10 font-bold';
+        else if (ausfall === 100) tr.className = 'bg-rose-500/5 text-rose-300';
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3 font-bold">${ausfall} % ${ausfall === 100 ? '(KUG 0)' : ''}</td>
+          <td class="py-2.5 px-3 text-slate-400">${fmt(istBrut)}</td>
+          <td class="py-2.5 px-3 text-slate-300">${fmt(istNet)}</td>
+          <td class="py-2.5 px-3 text-amber-400 font-bold">+${fmt(kug)}</td>
+          <td class="py-2.5 px-3 font-extrabold text-white">${fmt(totalNet)}</td>
+          <td class="py-2.5 px-3 text-emerald-400">${pctErhalt} %</td>
+          <td class="py-2.5 px-3 text-rose-400">-${fmt(loss)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateKug();
+    });
+  </script>
+</body>
+</html>

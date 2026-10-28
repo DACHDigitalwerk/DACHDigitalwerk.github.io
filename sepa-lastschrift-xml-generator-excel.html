@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEPA Lastschrift XML aus Excel erstellen 2026: pain.008 Anleitung & Generator | DACH Digitalwerk</title>
+  <meta name="description" content="SEPA Lastschrift XML-Dateien (pain.008.001.02) direkt aus Excel & CSV erstellen. Kostenlose Schritt-für-Schritt Anleitung, Spaltenvorlage, IBAN-Prüfung & Online-Generator." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/sepa-lastschrift-xml-generator-excel.html" />
+  <meta property="og:title" content="SEPA Lastschrift XML aus Excel erstellen 2026: pain.008 Anleitung" />
+  <meta property="og:description" content="Kostenlose Konvertierung von Excel-Tabellen in bankkonforme SEPA pain.008 XML-Dateien nach ISO 20022. 100% lokal im Browser." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/sepa-lastschrift-xml-generator-excel.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SEPA Lastschrift XML aus Excel erstellen 2026: pain.008 Anleitung & Vorlage",
+    "description": "Umfassender technischer Leitfaden zur Erzeugung von SEPA pain.008.001.02 XML-Dateien aus Excel- und CSV-Listen für das Wirtschaftsjahr 2026.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie erstelle ich eine SEPA Lastschrift XML-Datei direkt aus einer Excel-Tabelle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Exportieren Sie Ihre Excel-Tabelle als CSV- oder TSV-Datei mit den Spalten Name, IBAN, BIC, Betrag, Verwendungszweck, Mandatsreferenz und Mandatsdatum. Laden Sie diese Datei in unseren kostenlosen Browser-Generator (pain.008) hoch. Das Tool prüft automatisch alle IBAN-Prüfziffern, erzeugt die normgerechte ISO 20022 XML-Datei und berechnet die Kontrollsummen (CtrlSum) – komplett lokal ohne Serverkontakt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welches XML-Format verlangen deutsche und europäische Banken für Lastschriften?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für SEPA-Lastschriften ist nach den Richtlinien der Deutschen Kreditwirtschaft (DK) und des European Payments Council (EPC) der Standard pain.008.001.02 maßgeblich. Neuere Schnittstellen unterstützen zudem pain.008.001.08 bzw. pain.008.003.02. Unsere Tools generieren standardmäßig das universell akzeptierte Format pain.008.001.02."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen CORE- und B2B-Lastschriften?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die SEPA-Basislastschrift (CORE) richtet sich vor allem an Privatkunden, Verbraucher und Vereinsmitglieder; der Zahler kann der Belastung innerhalb von 8 Wochen ohne Angabe von Gründen widersprechen. Die B2B-Firmenlastschrift ist ausschließlich im Geschäftsverkehr zwischen Unternehmern zulässig; hier hinterlegt der Zahlungspflichtige das Mandat vorab bei seiner Hausbank und hat kein Erstattungsrecht nach Ausführung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Vorlauffristen gelten für SEPA-Lastschriften im Jahr 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemäß den harmonisierten EPC-Standards beträgt die Vorlauffrist für SEPA-Lastschriften (sowohl CORE als auch B2B, Erst- und Folgelastschriften) nur noch 1 Bankarbeitstag (D-1) vor dem Fälligkeitstag. Der Fälligkeitstag muss ein TARGET2-Bankarbeitstag sein (kein Samstag, Sonntag oder offizieller Feiertag)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./" class="text-white font-bold hover:text-blue-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300">ISO 20022 Banking & FinTech Ratgeber</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./sepa-xml-generator/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-3 py-1 rounded-lg text-xs transition">
+          Zum SEPA XML Generator →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-blue-600 transition">Startseite</a>
+      <span>›</span>
+      <a href="./sepa-xml-generator/" class="hover:text-blue-600 transition">SEPA XML Generator</a>
+      <span>›</span>
+      <span class="text-slate-800 font-semibold">pain.008 Lastschrift aus Excel</span>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="space-y-4 mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold">
+        <span>📊</span>
+        <span>Praxisleitfaden für Vereine, Hausverwaltungen & B2B-Unternehmen</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        SEPA Lastschrift XML aus Excel erstellen (2026): pain.008 Anleitung & Vorlage
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        Wer Mitgliedsbeiträge, Kursgebühren oder wiederkehrende Kundenrechnungen einziehen möchte, stößt im Online-Banking schnell an Grenzen: Manuelle Einzeleingaben sind fehleranfällig und zeitraubend. Erfahren Sie hier, wie Sie Ihre Excel- oder CSV-Tabellen in eine normgerechte <strong>pain.008 XML-Datei</strong> verwandeln – schnell, kostenlos und 100 % vertraulich im Browser.
+      </p>
+    </header>
+
+    <!-- CTA HERO CARD -->
+    <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center sm:text-left">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-blue-300">Direkt loslegen ohne Software-Installation</span>
+        <h3 class="text-xl sm:text-2xl font-black">DACH SEPA Lastschrift Generator 2026</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
+          Laden Sie Ihre CSV/Excel-Tabelle hoch, prüfen Sie IBANs auf Prüfziffernfehler und laden Sie die fertige ISO 20022 Datei sekundenschnell herunter.
+        </p>
+      </div>
+      <a href="./sepa-xml-generator/" class="whitespace-nowrap px-6 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-extrabold text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+        <span>Kostenlos ausführen</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- MAIN BODY -->
+    <article class="space-y-10 text-slate-800 text-sm sm:text-base leading-relaxed">
+
+      <!-- SECTION 1 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          1. Was ist das SEPA-Dateiformat pain.008?
+        </h2>
+        <p>
+          Das Kürzel <strong>pain</strong> steht für <em>„Payment Initiation“</em>. Das Format <code>pain.008</code> ist die vom <strong>European Payments Council (EPC)</strong> und der <strong>Deutschen Kreditwirtschaft (DK)</strong> standardisierte XML-Nachricht zur Einreichung von Lastschriftaufträgen bei Kreditinstituten im SEPA-Raum.
+        </p>
+        <p>
+          Im Gegensatz zu alten DTAUS-Textdateien basiert SEPA auf dem internationalen Standard <strong>ISO 20022</strong>. Dies gewährleistet, dass Lastschriften über Landesgrenzen hinweg in allen 36 SEPA-Teilnehmerländern (inklusive Deutschland, Österreich und der Schweiz) nach denselben kryptografischen und strukturellen Regeln abgewickelt werden.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">pain.008.001.02 (Standard)</h4>
+            <p class="text-xs text-slate-600">
+              Der am weitesten verbreitete Standard bei Sparkassen, Volksbanken, Commerzbank, Deutsche Bank sowie Schweizer Großbanken (UBS, PostFinance). Wird von praktisch jedem europäischen Online-Banking-Portal akzeptiert.
+            </p>
+          </div>
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">CORE vs. B2B Instrument</h4>
+            <p class="text-xs text-slate-600">
+              Innerhalb des XML-Tags <code>&lt;LclInstrm&gt;&lt;Cd&gt;</code> wird definiert, ob es sich um eine Basislastschrift (<code>CORE</code>) oder eine Firmenlastschrift (<code>B2B</code>) handelt.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          2. Der optimale Spaltenaufbau in Excel
+        </h2>
+        <p>
+          Um aus einer Excel-Tabelle eine XML-Datei zu erzeugen, empfiehlt sich ein klarer Spaltenaufbau. Vor dem Exportieren als CSV sollten Sie sicherstellen, dass keine Formelfehler (#NV, #WERT!) in der Tabelle vorhanden sind:
+        </p>
+
+        <div class="overflow-x-auto border border-slate-200 rounded-2xl shadow-sm">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+              <tr>
+                <th class="p-3">Spalte</th>
+                <th class="p-3">Bezeichnung</th>
+                <th class="p-3">Format / Beispiel</th>
+                <th class="p-3">Pflichtangabe?</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 bg-white">
+              <tr>
+                <td class="p-3 font-mono font-bold">A</td>
+                <td class="p-3 font-semibold">Name des Zahlungspflichtigen</td>
+                <td class="p-3">Max Mustermann / Musterfirma GmbH</td>
+                <td class="p-3 text-emerald-600 font-bold">Ja</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">B</td>
+                <td class="p-3 font-semibold">IBAN</td>
+                <td class="p-3 font-mono">DE89370400440532013000</td>
+                <td class="p-3 text-emerald-600 font-bold">Ja (22 Stellen DE)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">C</td>
+                <td class="p-3 font-semibold">BIC (SWIFT-Code)</td>
+                <td class="p-3 font-mono">GENODED1STG</td>
+                <td class="p-3 text-slate-500">Optional (im EWR)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">D</td>
+                <td class="p-3 font-semibold">Betrag in EUR</td>
+                <td class="p-3 font-mono">49,90 oder 49.90</td>
+                <td class="p-3 text-emerald-600 font-bold">Ja</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">E</td>
+                <td class="p-3 font-semibold">Verwendungszweck</td>
+                <td class="p-3">Jahresbeitrag 2026 Ref 1004</td>
+                <td class="p-3 text-slate-500">Empfohlen (max. 140 Zeichen)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">F</td>
+                <td class="p-3 font-semibold">Mandatsreferenz</td>
+                <td class="p-3 font-mono">MAND-2024-001</td>
+                <td class="p-3 text-emerald-600 font-bold">Ja (eindeutige ID)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-mono font-bold">G</td>
+                <td class="p-3 font-semibold">Mandatsdatum</td>
+                <td class="p-3 font-mono">2024-01-15 (JJJJ-MM-TT)</td>
+                <td class="p-3 text-emerald-600 font-bold">Ja</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-xl text-xs text-blue-900 space-y-1">
+          <div class="font-bold text-sm">💡 Praxistipp zum CSV-Export aus Microsoft Excel:</div>
+          <p>
+            Wählen Sie in Excel unter <em>„Speichern unter“</em> den Dateityp <strong>„CSV (Trennzeichen-getrennt) (*.csv)“</strong> oder <strong>„CSV UTF-8 (*.csv)“</strong>. In der deutschsprachigen Excel-Version werden Zellen standardmäßig mit einem Semikolon (<code>;</code>) getrennt, was von unserem Generator vollautomatisch erkannt wird.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          3. Gläubiger-Identifikationsnummer & Mandatsverwaltung
+        </h2>
+        <p>
+          Um Lastschriften überhaupt einziehen zu dürfen, benötigt jeder Zahlungsempfänger (Gläubiger) eine offizielle <strong>Gläubiger-Identifikationsnummer (Creditor ID)</strong>.
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>In Deutschland:</strong> Die Gläubiger-ID wird kostenfrei online über das Portal der <em>Deutschen Bundesbank</em> beantragt (Format: <code>DE98ZZZ09999999999</code>).</li>
+          <li><strong>In Österreich:</strong> Die Vergabe erfolgt über die Hausbank in Abstimmung mit der <em>Oesterreichischen Nationalbank (OeNB)</em>.</li>
+          <li><strong>In der Schweiz:</strong> Banken vergeben im Rahmen der SEPA-Teilnahme eine entsprechende Gläubiger-Kennung.</li>
+        </ul>
+        <p>
+          Zusätzlich muss vor dem ersten Einzug ein schriftliches oder rechtlich anerkanntes digitales <strong>SEPA-Lastschriftmandat</strong> vorliegen. Das Mandat verfällt automatisch, wenn 36 Monate lang keine Lastschrift gezogen wurde.
+        </p>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          4. Schritt-für-Schritt: Von der Tabelle zum Bank-Upload
+        </h2>
+        <div class="space-y-3">
+          <div class="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">1</span>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Auftraggeberdaten hinterlegen</h4>
+              <p class="text-xs text-slate-600">Geben Sie Ihren Vereins- oder Firmennamen, Ihre Gläubiger-ID und das Belastungskonto (IBAN/BIC) in unserem Tool ein.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">2</span>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">CSV-Datei importieren oder einfügen</h4>
+              <p class="text-xs text-slate-600">Ziehen Sie Ihre CSV-Datei per Drag & Drop in das Upload-Feld oder nutzen Sie unsere Eingabematrix.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">3</span>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Automatische Validierung & Kontrollsummen</h4>
+              <p class="text-xs text-slate-600">Das Tool überprüft jede Zeile auf korrekte Modulo-97 IBAN-Prüfziffern und berechnet Gesamtsumme (<code>CtrlSum</code>) und Datensatzanzahl (<code>NbOfTxs</code>).</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">4</span>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">XML downloaden & Begleitzettel ausdrucken</h4>
+              <p class="text-xs text-slate-600">Laden Sie die <code>.xml</code>-Datei herunter und drucken Sie bei Bedarf den DIN-A4 Datenträger-Begleitschein für die Buchhaltung aus.</p>
+            </div>
+          </div>
+          <div class="flex gap-4 items-start bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">5</span>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">Upload im Online-Banking</h4>
+              <p class="text-xs text-slate-600">Navigieren Sie in Ihrem Online-Banking zum Menüpunkt <em>„Sammelaufträge / SEPA-Dateitransfer / DTA-Upload“</em> und laden Sie die Datei hoch. Nach Freigabe per TAN wird der Einzug fristgerecht verbucht.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="space-y-6 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ)</h2>
+        
+        <div class="space-y-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Was passiert bei ungültigen Sonderzeichen in Namen oder Verwendungszweck?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Die SEPA-Spezifikation schreibt einen eingeschränkten Zeichensatz vor. Unser Generator escapet HTML-/XML-kritische Zeichen wie <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code> automatisch und sorgt dafür, dass keine Syntaxfehler entstehen, die zum Abbruch beim Bank-Import führen.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Muss ich noch einen BIC für deutsche oder europäische Konten angeben?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Seit Einführung der „IBAN-only“-Regelung für den EWR ist die Angabe des BIC für inländische und grenzüberschreitende EWR-Zahlungen in Euro nicht mehr zwingend erforderlich. Unser Generator lässt das BIC-Feld daher bei Bedarf leer oder ergänzt es optional.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Wie viele Lastschriften kann ich mit dem Generator auf einmal erzeugen?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In der kostenlosen Testversion können Sie beliebig viele Datensätze in der Vorschau prüfen und bis zu 5 Posten direkt als XML exportieren. Mit unserer Pro-Freischaltung (einmalig 4,90 €) entfällt jede Beschränkung – Sie können hunderte oder tausende Datensätze in einer einzigen XML-Datei zusammenfassen.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8 text-center space-y-4 my-12">
+        <h3 class="text-2xl font-black">Jetzt SEPA-Lastschrift aus Excel erstellen</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+          Sparen Sie wertvolle Arbeitszeit in der Buchhaltung und minimieren Sie Tippfehler beim Lastschrifteinzug.
+        </p>
+        <a href="./sepa-xml-generator/" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-extrabold rounded-2xl text-sm shadow-xl shadow-blue-500/25 transition">
+          <span>Zum kostenlosen SEPA XML Generator</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- & standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex gap-4">
+          <a href="./" class="hover:text-white transition">Alle Tools</a>
+          <a href="./impressum-datenschutz-generator/" class="hover:text-white transition">Impressum & Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 pt-4 border-t border-slate-800">
+        Reines technisches Informations- und Berechnungsangebot. Keine Rechts-, Steuer- oder Finanzberatung.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

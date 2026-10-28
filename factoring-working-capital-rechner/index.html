@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH B2B Factoring-, Einkaufsfinanzierungs- &amp; Working-Capital-Rechner 2026 | Liquiditäts-, Skonto- &amp; Zinsvorteils-Kalkulator für KMU (DE / AT / CH)</title>
+  <meta name="description" content="Kostenloser 100% Client-Side B2B Factoring- &amp; Working-Capital-Rechner 2026 für KMU in Deutschland (§ 354a HGB, BaFin), Österreich (§ 1392 ABGB, UGB) &amp; Schweiz (Art. 164 ff. OR). Vergleichen Sie Echtes / Inhouse Factoring gegen Kontokorrentkredit inkl. Delkredereschutz, DSO-Freisetzung, Lieferanten-Skonto-Hebel &amp; DIN-A4 CFO-Entscheidungsblatt." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/factoring-working-capital-rechner/" />
+  <meta property="og:title" content="DACH B2B Factoring-, Einkaufsfinanzierungs- &amp; Working-Capital-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Berechnen Sie sofortigen Liquiditätszufluss, Jahreskosten Factoring vs. Kontokorrentlinie, Delkredere-Ersparnis und Skontoerträge im Einkauf." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/factoring-working-capital-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH B2B Factoring-, Einkaufsfinanzierungs- & Working-Capital-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/factoring-working-capital-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Betriebswirtschaftlicher und finanzmathematischer Vergleichsrechner für B2B-Factoring (Full-Service vs. Inhouse/Stilles Factoring), Working-Capital-Freisetzung (DSO), Kontokorrentzinsen, Delkredereschutz und Lieferanten-Skontoerträge im DACH-Raum (DE, AT, CH).",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH B2B Factoring-, Einkaufsfinanzierungs- &amp; Working-Capital-Rechner 2026 f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Kostenloser 100% Client-Side B2B Factoring- &amp; Working-Capital-Rechner 2026 für KMU in Deutschland (§ 354a HGB, BaFin), Österreich (§ 1392 ABGB, UGB) &amp; Schweiz (Art. 164 ff. OR). Vergleichen Sie Echtes / Inhouse Factoring gegen Kontokorrentkredit inkl. Delkredereschutz, DSO-Freisetzung, Lieferanten-Skonto-Hebel &amp; DIN-A4 CFO-Entscheidungsblatt. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          🏦 FLAGGSCHIFF-TOOL #31 • B2B WORKING CAPITAL &amp; FACTORING 2026
+        </span>
+        <span class="text-slate-300 font-medium">Echtes vs. Inhouse Factoring • DSO-Liquiditätshebel • DE (§ 354a HGB) • AT (§ 1392 ABGB) • CH (Art. 164 OR)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 31 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / § 32 KWG / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Dieser Rechner dient ausschließlich der unverbindlichen betriebswirtschaftlichen und finanzmathematischen Modellberechnung von Factoring-Kosten, Zinsdifferenzen, Working-Capital-Effekten und Lieferanten-Skonti. Er stellt <strong>keine Rechts-, Steuer-, Bank- oder Finanzierungsberatung</strong> und keine Kreditvermittlung dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>🏦 Flaggschiff-Applikation #31</span>
+        <span>•</span>
+        <span>100% lokal im Browser (Zero-Cloud CFO-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH B2B Factoring-, Einkaufsfinanzierungs- &amp; Working-Capital-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Vergleichen Sie <strong>Echtes Factoring (Full-Service vs. Inhouse / Stilles Factoring)</strong> präzise mit Ihrer <strong>Kontokorrent- / Betriebsmittellinie</strong>: Berechnen Sie den sofortigen <strong>Liquiditätszufluss aus Ihren Forderungen (DSO)</strong>, die gesamten Jahreskosten (Servicegebühr, Delkrederegebühr &amp; Vorfinanzierungszinsen) und stellen Sie diesen die realisierten Einsparungen (vermiedene Kontokorrentzinsen, 100 % Forderungsausfallschutz &amp; <strong>Lieferanten-Skontoerträge im Einkauf</strong>) gegenüber.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Rechtsraum, Umsatz &amp; Forderungslaufzeit (DSO)</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (€)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (€)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (CHF)</button>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="applyPreset('grosshandel')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">📦 B2B Großhandel / Produktion (2,5 Mio. • 45 Tage DSO)</button>
+          <button type="button" onclick="applyPreset('personal')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">👷 Zeitarbeit / IT-Systemhaus (1,2 Mio. • 35 Tage DSO)</button>
+          <button type="button" onclick="applyPreset('maschinenbau')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">⚙️ Mittelstand / Maschinenbau (6,0 Mio. • 60 Tage DSO)</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Factoringfähiger Jahresumsatz (<span class="curr-label">€</span>)</label>
+            <input type="number" id="annualRevenue" value="2500000" min="50000" step="50000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Brutto-Forderungsvolumen p.a. (inkl. USt/MWST)</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Zahlungsziel der Kunden / DSO (Tage)</label>
+            <input type="number" id="dsoDays" value="45" min="5" max="180" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Days Sales Outstanding (Ø Forderungslaufzeit)</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Factoring-Verfahren / Variante</label>
+            <select id="factoringType" onchange="onTypeChange()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white text-sm">
+              <option value="full">Echtes Full-Service Factoring (inkl. Mahnwesen &amp; Delkredere)</option>
+              <option value="inhouse">Echtes Inhouse- / Bulk-Factoring (eigenes Mahnwesen)</option>
+              <option value="silent">Stilles Factoring (Zession ohne Offenlegung beim Kunden)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Bevorschussungsquote (%)</label>
+            <input type="number" id="advanceRate" value="90" min="50" max="100" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Sofortauszahlung binnen 24–48h (Rest = Sicherheitseinbehalt)</span>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">2. Konditionen: Factoring vs. Kontokorrentkredit</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Factoring-Gebühr (% vom Umsatz)</label>
+              <input type="number" id="serviceFeePct" value="0.85" min="0.05" max="5.0" step="0.05" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">KMU-Richtwert: 0,40 % – 1,50 %</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Delkrederegebühr (% Ausfallschutz)</label>
+              <input type="number" id="delkredereFeePct" value="0.25" min="0" max="3.0" step="0.05" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">100 % Schutz bei Kundeninsolvenz</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Prüf- &amp; Limitgebühren p.a. (<span class="curr-label">€</span>)</label>
+              <input type="number" id="auditFeesAnnual" value="1200" min="0" step="100" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Debitorenprüfung / Jahresfixum</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Factoring-Zinssatz p.a. (%)</label>
+              <input type="number" id="factoringInterestPct" value="5.20" min="0.5" max="18.0" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Zins auf die gezogene Bevorschussung</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kontokorrent-Zinssatz Bank p.a. (%)</label>
+              <input type="number" id="overdraftInterestPct" value="8.90" min="0.5" max="22.0" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Abgelöster Betriebsmittelkredit</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Historisches Ausfallrisiko (%)</label>
+              <input type="number" id="badDebtLossPct" value="0.40" min="0" max="10.0" step="0.05" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Bisherige Forderungsausfälle p.a.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">3. Einkaufs-Skonto-Hebel (Einkaufsfinanzierung durch Sofort-Liquidität)</h3>
+          <p class="text-xs text-slate-400">
+            Durch die sofortige Auszahlung Ihrer Ausgangsrechnungen binnen 24–48 Stunden können Sie Eingangsrechnungen Ihrer Lieferanten konsequent mit Skonto begleichen:
+          </p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Skontierfähiges Einkaufsvolumen (% vom Umsatz)</label>
+              <input type="number" id="purchasingSharePct" value="35" min="0" max="90" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">z. B. 35 % Material-/Wareneinsatz mit Skonto-Option</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Lieferanten-Skontosatz im Einkauf (%)</label>
+              <input type="number" id="supplierSkontoPct" value="2.50" min="0" max="10.0" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Üblich im B2B-Einkauf: 2,0 % bis 3,0 % Skonto</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Country Legal Info Box -->
+        <div id="legal-info-box" class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 text-xs text-slate-300 space-y-1">
+          <div class="font-bold text-emerald-400" id="legal-title">🇩🇪 Rechtlicher Rahmen Deutschland (§ 354a HGB &amp; BaFin-Aufsicht)</div>
+          <p id="legal-text" class="leading-relaxed text-slate-400">
+            Nach <strong>§ 354a Abs. 1 HGB</strong> ist die Abtretung von Geldforderungen aus beiderseitigen Handelsgeschäften (B2B) selbst dann rechtswirksam, wenn der Debitor in seinen Einkaufs-AGB ein Abtretungsverbot (Zessionsverbot) vereinbart hat. Echtes Factoring führt als <em>Aktivtausch</em> (Forderung gegen Bankguthaben) zur Bilanzverkürzung und erhöht sofort die Eigenkapitalquote (Rating-Boost nach Basel III/IV).
+          </p>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Working-Capital &amp; Rentabilitäts-Bilanz</span>
+            <span id="badge-country" class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full">🇩🇪 § 354a HGB</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">Sofortige Liquidität (Ø)</div>
+              <div id="out-immediate-liquidity" class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono mt-1">281.250 €</div>
+              <div id="out-receivables-avg" class="text-[11px] text-slate-400 mt-1">aus Ø 312.500 € Forderungen</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">Netto-Ergebnisvorteil p.a.</div>
+              <div id="out-net-benefit" class="text-2xl sm:text-3xl font-black text-white font-mono mt-1">+24.672 €</div>
+              <div id="out-effective-rate" class="text-[11px] text-emerald-300 font-semibold mt-1">Effektiv: -0,99 % v. Umsatz (Gewinn)</div>
+            </div>
+          </div>
+
+          <!-- Cost Breakdown vs Savings -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-2.5 text-xs">
+            <div class="font-bold text-rose-300 uppercase tracking-wider text-[10px]">A. Jahreskosten Factoring (Brutto-Aufwand)</div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Factoring-Servicegebühr:</span>
+              <span id="out-fee-service" class="font-mono text-slate-200">21.250 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Delkredere- &amp; Prüfgebühren:</span>
+              <span id="out-fee-delkredere" class="font-mono text-slate-200">7.450 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Factoring-Vorfinanzierungszinsen:</span>
+              <span id="out-interest-factoring" class="font-mono text-slate-200">14.625 €</span>
+            </div>
+            <div class="flex justify-between border-t border-slate-800 pt-1.5 font-bold">
+              <span class="text-slate-300">Gesamtkosten Factoring p.a.:</span>
+              <span id="out-total-costs" class="font-mono text-rose-400">43.325 € (1,73 %)</span>
+            </div>
+
+            <div class="font-bold text-emerald-300 uppercase tracking-wider text-[10px] pt-3">B. Gegenrechnung: Einsparungen &amp; Erträge p.a.</div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Gesparte Kontokorrentzinsen (Bank):</span>
+              <span id="out-saved-overdraft" class="font-mono text-emerald-300">+25.031 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Vermiedene Forderungsausfälle (Delkredere):</span>
+              <span id="out-saved-baddebt" class="font-mono text-emerald-300">+10.000 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Realisierte Einkaufs-Skontoerträge:</span>
+              <span id="out-saved-skonto" class="font-mono text-emerald-300">+21.875 €</span>
+            </div>
+            <div class="flex justify-between border-t border-slate-800 pt-1.5 font-bold">
+              <span class="text-slate-300">Summe Gegenfinanzierung / Vorteile p.a.:</span>
+              <span id="out-total-savings" class="font-mono text-emerald-400">+56.906 € (2,28 %)</span>
+            </div>
+          </div>
+
+          <div class="bg-indigo-950/50 border border-indigo-500/30 rounded-2xl p-4 space-y-1.5 text-xs">
+            <div class="font-bold text-indigo-300">📊 CFO Bilanz- &amp; Rating-Effekt (Aktivtausch)</div>
+            <div class="flex justify-between">
+              <span class="text-slate-300">Sicherheitseinbehalt (Restzahlung bei Fälligkeit):</span>
+              <span id="out-retention" class="font-mono text-slate-200">31.250 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-300">DSO-Reduktion (Forderungslaufzeit):</span>
+              <span id="out-dso-reduction" class="font-mono text-emerald-300">von 45 Tage auf ~2 Tage</span>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Working-Capital-Entscheidungsblatt drucken / PDF</span>
+          </button>
+        </div>
+
+        <!-- SEO RATGEBER LINKS -->
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Vertiefende B2B-Fachratgeber 2026</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="../factoring-kosten-berechnen-formel-kmu-2026.html" class="text-emerald-400 hover:underline font-semibold">→ Factoring-Kosten berechnen 2026: Formel, Gebühren &amp; Rechenbeispiel für KMU</a></li>
+            <li><a href="../echtes-vs-unechtes-factoring-delkredere-vergleich.html" class="text-emerald-400 hover:underline font-semibold">→ Echtes vs. Unechtes Factoring: Delkredereschutz, Bilanzverkürzung &amp; § 354a HGB</a></li>
+            <li><a href="../working-capital-optimieren-dso-skonto-hebel-b2b.html" class="text-emerald-400 hover:underline font-semibold">→ Working Capital optimieren: Wie DSO-Senkung Ihren Einkaufs-Skonto finanziert</a></li>
+          </ul>
+        </div>
+
+        <!-- THEMATISCHES CROSS-LINKING WIDGET (CFO & KMU SUITE) -->
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Komplementäre DACH-Finanz- &amp; KMU-Rechner</h3>
+            <a href="../" class="text-[11px] text-slate-400 hover:text-white transition">Alle Tools →</a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-2 text-xs">
+            <a href="../leasing-kreditkauf-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>🚜 Leasing vs. Kreditkauf (NPV)</span><span>→</span>
+            </a>
+            <a href="../kredit-annuitaeten-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>🏢 Firmenkredit &amp; PAngV-Plan</span><span>→</span>
+            </a>
+            <a href="../skonto-rechner-effektivzins/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>💳 Skonto-Effektivzins-Rechner</span><span>→</span>
+            </a>
+            <a href="../liquiditaetsplaner-cashflow-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>📈 13-Wochen-Liquiditätsplaner</span><span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FACHTEXT & FORMEL-DOKUMENTATION -->
+    <section class="bg-slate-800/50 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 text-sm text-slate-300">
+      <h2 class="text-xl font-bold text-white">Finanzmathematische Methodik: Wann schlägt Factoring den Kontokorrentkredit?</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="space-y-2">
+          <h3 class="font-bold text-emerald-400">1. Gebundene Liquidität (DSO-Formel)</h3>
+          <p class="text-xs leading-relaxed text-slate-400">
+            Der durchschnittliche Forderungsbestand berechnet sich kaufmännisch nach <code>Forderungsbestand = Jahresumsatz × (DSO / 360)</code>. Bei 2,5 Mio. € Umsatz und 45 Tagen Zahlungsziel sind dauerhaft <strong>312.500 € Working Capital</strong> in offenen Kundenrechnungen gebunden. Bei 90 % Bevorschussungsquote setzt Factoring sofort <strong>281.250 €</strong> frei.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-bold text-emerald-400">2. Zins- &amp; Gebühren-Gegenrechnung</h3>
+          <p class="text-xs leading-relaxed text-slate-400">
+            Die Gesamtkosten des Factorings bestehen aus der <strong>Factoringgebühr</strong> (auf den angekauften Jahresumsatz), der <strong>Delkrederegebühr</strong> (für den 100 %-igen Ausfallschutz) sowie dem <strong>Vorfinanzierungszins</strong> auf die tatsächlich gezogene Liquidität. Dem stehen die eingesparten Kontokorrentzinsen (oft 8–11 % p.a.) gegenüber.
+          </p>
+        </div>
+        <div class="space-y-2">
+          <h3 class="font-bold text-emerald-400">3. Der Lieferanten-Skonto-Turbo</h3>
+          <p class="text-xs leading-relaxed text-slate-400">
+            Nutzt das Unternehmen die freigesetzte Liquidität, um eigene Lieferantenrechnungen innerhalb von 10 Tagen unter Abzug von 2 % bis 3 % Skonto zu begleichen, übersteigen die <strong>Skontoerträge im Einkauf</strong> häufig die gesamten Factoringgebühren – Factoring refinanziert sich dadurch in vielen Handels- und Produktionsbetrieben vollständig selbst.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRINT VIEW (DIN A4) -->
+  <section class="print-only p-6 space-y-4 text-black">
+    <h1 class="text-xl font-bold border-b pb-2">DIN-A4 Working-Capital- &amp; Factoring-Entscheidungsblatt 2026 (CFO / Bankvorlage)</h1>
+    <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/factoring-working-capital-rechner/) — Unverbindliche finanzmathematische Modellrechnung gem. § 2 RDG / § 5 StBerG.</p>
+    <div id="print-summary" class="text-sm space-y-2 font-mono"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-4">
+      <div>© 2026 DACH Digitalwerk • 100% Client-Side Web-Tools</div>
+      <div class="flex gap-4">
+        <a href="../" class="hover:text-white">Startseite (Alle Tools)</a>
+        <a href="../agb/" class="hover:text-white">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white">Haftungsausschluss</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+        <a href="https://github.com/DACHDigitalwerk/factoring-working-capital-rechner-dach" class="hover:text-emerald-400">GitHub Open-Source Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = (c === 'CH') ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+
+      if (c === 'DE') {
+        document.getElementById('factoringInterestPct').value = 5.20;
+        document.getElementById('overdraftInterestPct').value = 8.90;
+        document.getElementById('badge-country').textContent = '🇩🇪 § 354a HGB';
+        document.getElementById('legal-title').innerHTML = '🇩🇪 Rechtlicher Rahmen Deutschland (§ 354a HGB &amp; BaFin-Aufsicht)';
+        document.getElementById('legal-text').innerHTML = 'Nach <strong>§ 354a Abs. 1 HGB</strong> ist die Abtretung von Geldforderungen aus beiderseitigen Handelsgeschäften (B2B) selbst bei vereinbartem Abtretungsverbot wirksam. Echtes Factoring führt als <em>Aktivtausch</em> zur Bilanzverkürzung nach HGB und verbessert sofort die Eigenkapitalquote.';
+      } else if (c === 'AT') {
+        document.getElementById('factoringInterestPct').value = 5.40;
+        document.getElementById('overdraftInterestPct').value = 9.10;
+        document.getElementById('badge-country').textContent = '🇦🇹 § 1392 ABGB / UGB';
+        document.getElementById('legal-title').innerHTML = '🇦🇹 Rechtlicher Rahmen Österreich (§ 1392 ABGB Zession &amp; § 1396a ABGB)';
+        document.getElementById('legal-text').innerHTML = 'In Österreich regeln <strong>§§ 1392 ff. ABGB</strong> die Forderungsabtretung (Zession). Gemäß <strong>§ 1396a ABGB</strong> sind Zessionsverbote unter Unternehmern für Geldforderungen aus unternehmensbezogenen Geschäften unwirksam, sodass B2B-Factoring rechtssicher nutzbar ist.';
+      } else {
+        document.getElementById('factoringInterestPct').value = 3.60;
+        document.getElementById('overdraftInterestPct').value = 6.80;
+        document.getElementById('badge-country').textContent = '🇨🇭 Art. 164 ff. OR';
+        document.getElementById('legal-title').innerHTML = '🇨🇭 Rechtlicher Rahmen Schweiz (Art. 164 ff. OR Forderungsabtretung)';
+        document.getElementById('legal-text').innerHTML = 'In der Schweiz erfolgt die Forderungsabtretung schriftlich nach <strong>Art. 164–174 OR</strong>. Bei Vorliegen eines vertraglichen Abtretungsverbots (<em>pactum de non cedendo</em>) im Werkvertrags- oder Lieferantenvertrag wird in der Praxis häufig Stilles Factoring oder eine Debitorengenehmigung eingesetzt.';
+      }
+      recalc();
+    }
+
+    function onTypeChange() {
+      const t = document.getElementById('factoringType').value;
+      if (t === 'full') {
+        document.getElementById('serviceFeePct').value = 0.85;
+        document.getElementById('delkredereFeePct').value = 0.25;
+        document.getElementById('advanceRate').value = 90;
+      } else if (t === 'inhouse') {
+        document.getElementById('serviceFeePct').value = 0.45;
+        document.getElementById('delkredereFeePct').value = 0.25;
+        document.getElementById('advanceRate').value = 90;
+      } else {
+        document.getElementById('serviceFeePct').value = 0.95;
+        document.getElementById('delkredereFeePct').value = 0.30;
+        document.getElementById('advanceRate').value = 85;
+      }
+      recalc();
+    }
+
+    function applyPreset(p) {
+      if (p === 'grosshandel') {
+        document.getElementById('annualRevenue').value = 2500000;
+        document.getElementById('dsoDays').value = 45;
+        document.getElementById('factoringType').value = 'full';
+        document.getElementById('serviceFeePct').value = 0.80;
+        document.getElementById('delkredereFeePct').value = 0.25;
+        document.getElementById('advanceRate').value = 90;
+        document.getElementById('purchasingSharePct').value = 45;
+        document.getElementById('supplierSkontoPct').value = 2.5;
+      } else if (p === 'personal') {
+        document.getElementById('annualRevenue').value = 1200000;
+        document.getElementById('dsoDays').value = 35;
+        document.getElementById('factoringType').value = 'full';
+        document.getElementById('serviceFeePct').value = 1.15;
+        document.getElementById('delkredereFeePct').value = 0.30;
+        document.getElementById('advanceRate').value = 90;
+        document.getElementById('purchasingSharePct').value = 15;
+        document.getElementById('supplierSkontoPct').value = 2.0;
+      } else if (p === 'maschinenbau') {
+        document.getElementById('annualRevenue').value = 6000000;
+        document.getElementById('dsoDays').value = 60;
+        document.getElementById('factoringType').value = 'inhouse';
+        document.getElementById('serviceFeePct').value = 0.45;
+        document.getElementById('delkredereFeePct').value = 0.20;
+        document.getElementById('advanceRate').value = 90;
+        document.getElementById('purchasingSharePct').value = 40;
+        document.getElementById('supplierSkontoPct').value = 3.0;
+      }
+      recalc();
+    }
+
+    function fmt(val, decimals = 0) {
+      const curr = (currentCountry === 'CH') ? 'CHF' : '€';
+      return val.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' ' + curr;
+    }
+
+    function recalc() {
+      const rev = Math.max(0, parseFloat(document.getElementById('annualRevenue').value) || 0);
+      const dso = Math.max(1, parseFloat(document.getElementById('dsoDays').value) || 1);
+      const advPct = Math.min(100, Math.max(10, parseFloat(document.getElementById('advanceRate').value) || 90)) / 100;
+
+      const servicePct = Math.max(0, parseFloat(document.getElementById('serviceFeePct').value) || 0) / 100;
+      const delkPct = Math.max(0, parseFloat(document.getElementById('delkredereFeePct').value) || 0) / 100;
+      const auditFee = Math.max(0, parseFloat(document.getElementById('auditFeesAnnual').value) || 0);
+
+      const facIntPct = Math.max(0, parseFloat(document.getElementById('factoringInterestPct').value) || 0) / 100;
+      const ovdIntPct = Math.max(0, parseFloat(document.getElementById('overdraftInterestPct').value) || 0) / 100;
+      const badDebtPct = Math.max(0, parseFloat(document.getElementById('badDebtLossPct').value) || 0) / 100;
+
+      const purchSharePct = Math.max(0, parseFloat(document.getElementById('purchasingSharePct').value) || 0) / 100;
+      const skontoPct = Math.max(0, parseFloat(document.getElementById('supplierSkontoPct').value) || 0) / 100;
+
+      // 1. Working Capital / Receivables
+      const avgReceivables = rev * (dso / 360);
+      const immediateLiquidity = avgReceivables * advPct;
+      const retentionAmount = avgReceivables - immediateLiquidity;
+
+      // 2. Annual Factoring Costs
+      const serviceFeeCost = rev * servicePct;
+      const delkredereCost = rev * delkPct + auditFee;
+      const factoringInterestCost = immediateLiquidity * facIntPct;
+      const totalFactoringCosts = serviceFeeCost + delkredereCost + factoringInterestCost;
+      const totalCostPct = rev > 0 ? (totalFactoringCosts / rev) * 100 : 0;
+
+      // 3. Counter-Savings (Bank Overdraft + Bad Debt Protection + Purchasing Skonto)
+      const savedOverdraftInterest = immediateLiquidity * ovdIntPct;
+      const savedBadDebt = rev * badDebtPct;
+      const realizedSkontoGain = rev * purchSharePct * skontoPct;
+      const totalSavings = savedOverdraftInterest + savedBadDebt + realizedSkontoGain;
+      const totalSavingsPct = rev > 0 ? (totalSavings / rev) * 100 : 0;
+
+      // 4. Net Benefit
+      const netBenefit = totalSavings - totalFactoringCosts;
+      const effectiveNetCostRatioPct = rev > 0 ? ((totalFactoringCosts - totalSavings) / rev) * 100 : 0;
+
+      document.getElementById('out-immediate-liquidity').textContent = fmt(immediateLiquidity, 0);
+      document.getElementById('out-receivables-avg').textContent = 'aus Ø ' + fmt(avgReceivables, 0) + ' Forderungen';
+
+      const sign = netBenefit >= 0 ? '+' : '';
+      document.getElementById('out-net-benefit').textContent = sign + fmt(netBenefit, 0);
+      document.getElementById('out-net-benefit').className = netBenefit >= 0
+        ? 'text-2xl sm:text-3xl font-black text-emerald-400 font-mono mt-1'
+        : 'text-2xl sm:text-3xl font-black text-amber-300 font-mono mt-1';
+
+      if (netBenefit >= 0) {
+        document.getElementById('out-effective-rate').textContent = 'Netto-Überschuss: +' + Math.abs(effectiveNetCostRatioPct).toFixed(2).replace('.', ',') + ' % v. Umsatz';
+        document.getElementById('out-effective-rate').className = 'text-[11px] text-emerald-300 font-semibold mt-1';
+      } else {
+        document.getElementById('out-effective-rate').textContent = 'Effektive Netto-Kostenquote: ' + effectiveNetCostRatioPct.toFixed(2).replace('.', ',') + ' % v. Umsatz';
+        document.getElementById('out-effective-rate').className = 'text-[11px] text-amber-300 font-semibold mt-1';
+      }
+
+      document.getElementById('out-fee-service').textContent = fmt(serviceFeeCost, 0);
+      document.getElementById('out-fee-delkredere').textContent = fmt(delkredereCost, 0);
+      document.getElementById('out-interest-factoring').textContent = fmt(factoringInterestCost, 0);
+      document.getElementById('out-total-costs').textContent = fmt(totalFactoringCosts, 0) + ' (' + totalCostPct.toFixed(2).replace('.', ',') + ' %)';
+
+      document.getElementById('out-saved-overdraft').textContent = '+' + fmt(savedOverdraftInterest, 0);
+      document.getElementById('out-saved-baddebt').textContent = '+' + fmt(savedBadDebt, 0);
+      document.getElementById('out-saved-skonto').textContent = '+' + fmt(realizedSkontoGain, 0);
+      document.getElementById('out-total-savings').textContent = '+' + fmt(totalSavings, 0) + ' (' + totalSavingsPct.toFixed(2).replace('.', ',') + ' %)';
+
+      document.getElementById('out-retention').textContent = fmt(retentionAmount, 0);
+      document.getElementById('out-dso-reduction').textContent = 'von ' + dso + ' Tage auf ~2 Tage';
+
+      document.getElementById('print-summary').innerHTML =
+        '<div><strong>1. Ausgangsparameter (' + currentCountry + '):</strong> Factoring-Jahresumsatz: ' + fmt(rev, 0) + ' | Ø DSO: ' + dso + ' Tage | Bevorschussung: ' + (advPct * 100).toFixed(0) + ' %</div>' +
+        '<div><strong>2. Working-Capital-Effekt:</strong> Ø Forderungsbestand: ' + fmt(avgReceivables, 0) + ' → <strong>Sofortige Liquiditätsfreisetzung: ' + fmt(immediateLiquidity, 0) + '</strong> (Sicherheitseinbehalt: ' + fmt(retentionAmount, 0) + ')</div>' +
+        '<div><strong>3. Jahreskosten Factoring:</strong> Servicegebühr: ' + fmt(serviceFeeCost, 0) + ' + Delkredere/Prüfung: ' + fmt(delkredereCost, 0) + ' + Zinsen: ' + fmt(factoringInterestCost, 0) + ' = <strong>' + fmt(totalFactoringCosts, 0) + ' (' + totalCostPct.toFixed(2) + ' %)</strong></div>' +
+        '<div><strong>4. Einsparungen &amp; Skontoerträge:</strong> Gesparte Kontokorrentzinsen: ' + fmt(savedOverdraftInterest, 0) + ' + Ausfallschutz: ' + fmt(savedBadDebt, 0) + ' + Einkaufs-Skonto: ' + fmt(realizedSkontoGain, 0) + ' = <strong>+' + fmt(totalSavings, 0) + ' (' + totalSavingsPct.toFixed(2) + ' %)</strong></div>' +
+        '<div class="pt-2 border-t"><strong>5. Gesamtergebnis (Netto-Vorteil p.a.): ' + sign + fmt(netBenefit, 0) + '</strong></div>';
+    }
+    recalc();
+  </script>
+</body>
+</html>

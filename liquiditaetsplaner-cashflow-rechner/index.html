@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Liquiditätsplaner &amp; Cashflow-Forecaster 2026: 13-Wochen-Planung &amp; StaRUG-Frühwarnung | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser rollierender 13-Wochen-Liquiditätsplaner für KMU &amp; B2B: Cash Conversion Cycle (DSO/DPO/DIO), StaRUG § 1 Frühwarnsystem, Kontokorrent-Auslastung &amp; DIN-A4 Bankenbericht." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/liquiditaetsplaner-cashflow-rechner/" />
+  <meta property="og:title" content="DACH Liquiditätsplaner &amp; Cashflow-Forecaster 2026" />
+  <meta property="og:description" content="Rollierende 13-Wochen-Liquiditätsplanung für Unternehmen: Cash Conversion Cycle, StaRUG § 1 Frühwarnung, Art. 725a OR &amp; DIN-A4 PDF-Export." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/liquiditaetsplaner-cashflow-rechner/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; background: white !important; color: black !important; page-break-inside: avoid; }
+      .print-table th, .print-table td { border: 1px solid #cbd5e1 !important; color: black !important; padding: 4px 6px !important; }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Liquiditätsplaner & Cashflow-Forecaster 2026",
+    "url": "https://dachdigitalwerk.github.io/liquiditaetsplaner-cashflow-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Rollierender 13-Wochen-Liquiditätsplaner nach IDW S11 und StaRUG § 1 für KMU in Deutschland, Österreich und der Schweiz mit Cash Conversion Cycle und DIN-A4 Export.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH Liquiditätsplaner &amp; Cashflow-Forecaster 2026: 13-Wochen-Planung &amp; StaRUG-Frühwarnung f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Kostenloser rollierender 13-Wochen-Liquiditätsplaner für KMU &amp; B2B: Cash Conversion Cycle (DSO/DPO/DIO), StaRUG § 1 Frühwarnsystem, Kontokorrent-Auslastung &amp; DIN-A4 Bankenbericht. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- ================= TOP NOTIFICATION BAR ================= -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-1.5 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          <span>⚡ NEU 2026</span>
+        </span>
+        <span class="text-slate-300 font-medium">StaRUG § 1 &amp; IDW S11 Konform</span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="hidden sm:inline text-slate-400">100% Client-Side im Browser (Keine Bank- oder Umsatzdaten in fremden Clouds)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <span>🇩🇪 StaRUG § 1</span>
+        <span>•</span>
+        <span>🇨🇭 Art. 725a OR</span>
+        <span>•</span>
+        <span>🇦🇹 URG Reorganisation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-emerald-400 ml-2 px-1.5 py-0.5 rounded bg-emerald-950 border border-emerald-800">Tool #21</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="window.print()" class="text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3.5 py-2 rounded-xl transition flex items-center gap-1.5">
+          <span>🖨️ DIN-A4 Druck</span>
+        </button>
+        <button onclick="exportCSV()" class="text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-2 rounded-xl transition flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
+          <span>📥 CSV Export</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full">
+
+    <!-- HERO TITLE AREA -->
+    <div class="no-print mb-8 space-y-3">
+      <nav class="text-xs font-mono text-slate-500 flex items-center gap-2">
+        <a href="../" class="hover:text-emerald-400 transition">Home</a>
+        <span>/</span>
+        <span class="text-slate-300">Tool #21: Liquiditätsplaner &amp; Cashflow-Forecaster</span>
+      </nav>
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="text-2xl sm:text-4xl font-display font-extrabold text-white tracking-tight">
+          DACH Liquiditätsplaner &amp; Cashflow-Forecaster 2026
+        </h1>
+        <span class="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          Rollierende 13-Wochen-Planung
+        </span>
+      </div>
+      <p class="text-sm text-slate-400 max-w-4xl leading-relaxed">
+        Erstellen Sie eine <strong>banken- und insolvenzrechtlich geprüfte 13-Wochen-Liquiditätsprognose</strong> nach IDW S11 / StaRUG § 1 (Deutschland), Art. 725a OR (Schweiz) und URG (Österreich). Simulieren Sie <strong>Debitorenlaufzeiten (DSO)</strong>, <strong>Lieferantenziele (DPO)</strong>, den <strong>Cash Conversion Cycle (CCC)</strong> sowie Ihre <strong>Kontokorrent-Linienauslastung</strong> in Echtzeit.
+      </p>
+    </div>
+
+    <!-- KPI SUMMARY CARDS (Top Bar) -->
+    <div class="grid grid-cols-2 lg:grid-cols-5 gap-3.5 mb-8">
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Liquidität Start (W0)</div>
+        <div id="card-start-liq" class="text-lg sm:text-xl font-extrabold text-white font-mono">150.000 €</div>
+        <div class="text-[10px] text-slate-500 mt-0.5">Bankguthaben &amp; Kasse</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Freie Kreditlinie</div>
+        <div id="card-credit-line" class="text-lg sm:text-xl font-extrabold text-emerald-400 font-mono">100.000 €</div>
+        <div class="text-[10px] text-slate-500 mt-0.5">Kontokorrentrahmen</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Min. Stand (13 Wo.)</div>
+        <div id="card-min-liq" class="text-lg sm:text-xl font-extrabold text-white font-mono">82.400 €</div>
+        <div id="card-min-week" class="text-[10px] text-slate-500 mt-0.5">Tiefststand in Woche 8</div>
+      </div>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">Endstand (Woche 13)</div>
+        <div id="card-end-liq" class="text-lg sm:text-xl font-extrabold text-white font-mono">194.200 €</div>
+        <div id="card-liq-delta" class="text-[10px] text-emerald-400 mt-0.5 font-bold">+44.200 € Netto-Delta</div>
+      </div>
+      <div class="col-span-2 lg:col-span-1 p-4 rounded-2xl bg-slate-950 border border-slate-800">
+        <div class="text-[10px] font-mono uppercase text-slate-400 font-bold mb-1">StaRUG / OR Status</div>
+        <div id="card-starug-status" class="text-sm sm:text-base font-extrabold text-emerald-400 flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Liquidität gesichert</span>
+        </div>
+        <div class="text-[10px] text-slate-500 mt-0.5">Keine Deckungslücke</div>
+      </div>
+    </div>
+
+    <!-- VISUAL CHART: 13-WEEKS CASHFLOW BARS -->
+    <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 mb-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
+        <div>
+          <h2 class="text-base font-display font-extrabold text-white">13-Wochen Liquiditätsverlauf (Endbestand je Woche)</h2>
+          <p class="text-xs text-slate-400">Verfolgen Sie Überdeckung, Unterdeckung und Nutzung des Kontokorrentrahmens.</p>
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <div class="flex items-center gap-1.5 text-slate-300">
+            <span class="w-3 h-3 rounded bg-emerald-500"></span>
+            <span>Überdeckung (&gt; Mindestliquidität)</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-slate-300">
+            <span class="w-3 h-3 rounded bg-amber-500"></span>
+            <span>Kontokorrent beansprucht</span>
+          </div>
+          <div class="flex items-center gap-1.5 text-slate-300">
+            <span class="w-3 h-3 rounded bg-rose-500"></span>
+            <span>Deckungslücke / Insolvenzrisiko</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SVG / Bar Graph Container -->
+      <div id="chart-bars-container" class="grid grid-cols-13 gap-1.5 h-44 items-end pt-4 pb-2 border-b border-slate-800">
+        <!-- Generated dynamically via JS -->
+      </div>
+      <div id="chart-labels-container" class="grid grid-cols-13 gap-1.5 pt-2 text-[10px] font-mono text-center text-slate-500">
+        <!-- W1 to W13 labels -->
+      </div>
+    </div>
+
+    <!-- CASH CONVERSION CYCLE & CONTROLS SECTION -->
+    <div class="grid lg:grid-cols-12 gap-8 mb-8">
+      
+      <!-- Left Column: Base Parameters & CCC Calculator (4 Cols) -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <!-- Base Parameters Card -->
+        <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <h3 class="text-sm font-display font-bold uppercase tracking-wider text-emerald-400">1. Basisparameter &amp; Kreditlinien</h3>
+          
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Anfangsbestand liquide Mittel (€ / CHF)</label>
+            <input type="number" id="in-start-cash" value="150000" step="1000" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono focus:border-emerald-500 outline-none" />
+            <span class="text-[10px] text-slate-500">Girokonto, Tagesgeld, Kassenbestand zu Beginn von Woche 1</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Freier Kontokorrentkredit / Kreditlinie (€ / CHF)</label>
+            <input type="number" id="in-credit-limit" value="100000" step="1000" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono focus:border-emerald-500 outline-none" />
+            <span class="text-[10px] text-slate-500">Vereinbarte Überziehungslinie bei der Hausbank</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Sicherheits-Puffer / Mindestliquidität (€)</label>
+            <input type="number" id="in-safety-buffer" value="30000" step="1000" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white font-mono focus:border-emerald-500 outline-none" />
+            <span class="text-[10px] text-slate-500">Notgroschen für unvorhergesehene Ausgaben</span>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Länder-Modus &amp; Rechtsraum</label>
+            <select id="sel-country" onchange="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:border-emerald-500 outline-none">
+              <option value="DE" selected>🇩🇪 Deutschland (StaRUG § 1 &amp; IDW S11)</option>
+              <option value="AT">🇦🇹 Österreich (URG Reorganisationsbedarf)</option>
+              <option value="CH">🇨🇭 Schweiz (Art. 725a OR Zahlungsunfähigkeit)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Cash Conversion Cycle (CCC) Widget -->
+        <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-display font-bold uppercase tracking-wider text-emerald-400">2. Cash Conversion Cycle (CCC)</h3>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Liquiditätshebel</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Der Geldumschlagszyklus zeigt, wie viele Tage liquide Mittel im operativen Kreislauf gebunden sind: <strong>CCC = DIO + DSO - DPO</strong>.
+          </p>
+
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 mb-1">
+                <span>Vorratsreichweite (DIO - Days Inventory)</span>
+                <span id="label-dio" class="font-mono text-emerald-400">45 Tage</span>
+              </div>
+              <input type="range" id="range-dio" min="10" max="120" value="45" oninput="updateCCC()" class="w-full accent-emerald-500" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 mb-1">
+                <span>Debitorenlaufzeit (DSO - Days Sales)</span>
+                <span id="label-dso" class="font-mono text-emerald-400">35 Tage</span>
+              </div>
+              <input type="range" id="range-dso" min="10" max="90" value="35" oninput="updateCCC()" class="w-full accent-emerald-500" />
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs text-slate-300 mb-1">
+                <span>Lieferantenziel (DPO - Days Payable)</span>
+                <span id="label-dpo" class="font-mono text-emerald-400">30 Tage</span>
+              </div>
+              <input type="range" id="range-dpo" min="10" max="90" value="30" oninput="updateCCC()" class="w-full accent-emerald-500" />
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+            <div>
+              <div class="text-[10px] font-mono text-slate-400 uppercase">Cash Conversion Cycle</div>
+              <div id="ccc-val" class="text-xl font-extrabold text-white font-mono">50 Tage</div>
+            </div>
+            <div id="ccc-badge" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              Moderat (30-60 T.)
+            </div>
+          </div>
+
+          <div id="ccc-freed-cash" class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300">
+            💡 <strong>Liquiditäts-Tipp:</strong> Eine Verkürzung des DSO um nur 5 Tage setzt bei 1,2 Mio. € Jahresumsatz rund <strong>16.438 €</strong> sofortige freie Liquidität frei!
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive 13-Week Cashflow Grid Table (8 Cols) -->
+      <div class="lg:col-span-8 space-y-6">
+        
+        <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-4">
+            <div>
+              <h3 class="text-base font-display font-extrabold text-white">3. Rollierende 13-Wochen-Matrix (Einnahmen &amp; Ausgaben)</h3>
+              <p class="text-xs text-slate-400">Editieren Sie die Wochentranchen oder nutzen Sie die Schnell-Ausfüllhilfe.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="fillSampleData()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 px-3 py-1.5 rounded-lg transition">
+                Demo-Daten laden
+              </button>
+              <button onclick="resetZeros()" class="text-xs bg-slate-900 hover:bg-slate-800 text-slate-400 border border-slate-800 px-3 py-1.5 rounded-lg transition">
+                Nullen
+              </button>
+            </div>
+          </div>
+
+          <!-- Horizontal Scrolling Cashflow Table -->
+          <div class="overflow-x-auto border border-slate-800 rounded-2xl max-h-[580px]">
+            <table class="w-full text-left text-xs whitespace-nowrap print-table">
+              <thead class="bg-slate-900 text-slate-400 font-mono sticky top-0 z-10 border-b border-slate-800">
+                <tr>
+                  <th class="p-2.5 w-48 bg-slate-900 sticky left-0 z-20">Wochen / Positionen</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W1</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W2</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W3</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W4</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W5</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W6</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W7</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W8</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W9</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W10</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W11</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W12</th>
+                  <th class="p-2 text-center" style="min-width: 90px;">W13</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/80 text-slate-300">
+                
+                <!-- ROW: Anfangsbestand -->
+                <tr class="bg-slate-950 font-bold text-white">
+                  <td class="p-2.5 bg-slate-950 sticky left-0 font-mono">1. Anfangsbestand</td>
+                  <!-- Dynamically populated W1..W13 -->
+                  <td id="start-w1" class="p-2 text-right font-mono text-slate-300">150.000 €</td>
+                  <td id="start-w2" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w3" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w4" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w5" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w6" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w7" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w8" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w9" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w10" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w11" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w12" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                  <td id="start-w13" class="p-2 text-right font-mono text-slate-300">0 €</td>
+                </tr>
+
+                <!-- SECTION HEADER: EINZAHLUNGEN -->
+                <tr class="bg-emerald-950/40 text-emerald-400 font-bold text-[11px] uppercase">
+                  <td colspan="14" class="p-2 sticky left-0">＋ EINZAHLUNGEN (Cash Inflows)</td>
+                </tr>
+
+                <!-- INPUT ROW: Umsatzerlöse / Kundenzahlungen -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-300">Kundenforderungen (Debitoren)</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td><input type="number" id="in-rev-${i}" value="25000" step="500" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-white font-mono focus:border-emerald-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Sonstige Einnahmen (z. B. USt-Erstattung) -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-400">Sonstige Einzahlungen</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      const defaultVal = (i === 4 || i === 8 || i === 12) ? "3000" : "0";
+                      document.write(`<td><input type="number" id="in-other-in-${i}" value="${defaultVal}" step="500" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-slate-300 font-mono focus:border-emerald-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- TOTAL ROW: Summe Einzahlungen -->
+                <tr class="bg-slate-900/60 font-semibold text-emerald-400">
+                  <td class="p-2 bg-slate-950 sticky left-0">Summe Einzahlungen</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td id="tot-in-${i}" class="p-2 text-right font-mono">0 €</td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- SECTION HEADER: AUSZAHLUNGEN -->
+                <tr class="bg-rose-950/40 text-rose-400 font-bold text-[11px] uppercase">
+                  <td colspan="14" class="p-2 sticky left-0">－ AUSZAHLUNGEN (Cash Outflows)</td>
+                </tr>
+
+                <!-- INPUT ROW: Wareneinsatz / Lieferanten (Kreditoren) -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-300">Material &amp; Lieferanten (DPO)</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td><input type="number" id="out-mat-${i}" value="10000" step="500" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-white font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Personalaufwand (Löhne & Gehälter & SV) -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-300">Personal &amp; Sozialabgaben</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      // Gehälter meist in Woche 4, 8, 12 fällig
+                      const defaultSal = (i === 4 || i === 8 || i === 12) ? "35000" : "0";
+                      document.write(`<td><input type="number" id="out-sal-${i}" value="${defaultSal}" step="500" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-white font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Miete & Raumkosten -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-400">Miete, Pacht &amp; Leasing</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      const defaultRent = (i === 1 || i === 5 || i === 9) ? "6000" : "0";
+                      document.write(`<td><input type="number" id="out-rent-${i}" value="${defaultRent}" step="200" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-slate-300 font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Steuern (Umsatzsteuer / Ertragsteuer) -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-400">Steuern (USt, GewSt, KSt)</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      // USt meist am 10. des Folgemonats (Woche 2, 6, 10)
+                      const defaultTax = (i === 2 || i === 6 || i === 10) ? "8000" : "0";
+                      document.write(`<td><input type="number" id="out-tax-${i}" value="${defaultTax}" step="500" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-slate-300 font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Zins & Tilgung (Darlehen) -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-400">Zins &amp; Darlehenstilgung</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      const defaultDebt = (i === 1 || i === 5 || i === 9 || i === 13) ? "2500" : "0";
+                      document.write(`<td><input type="number" id="out-debt-${i}" value="${defaultDebt}" step="100" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-slate-300 font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- INPUT ROW: Sonstige betriebliche Ausgaben / CapEx -->
+                <tr>
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-slate-400">Sonstige Kosten &amp; CapEx</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td><input type="number" id="out-other-${i}" value="1500" step="100" oninput="recalculate()" class="w-full bg-slate-900 border border-slate-700 rounded px-1.5 py-1 text-right text-xs text-slate-300 font-mono focus:border-rose-500 outline-none" /></td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- TOTAL ROW: Summe Auszahlungen -->
+                <tr class="bg-slate-900/60 font-semibold text-rose-400">
+                  <td class="p-2 bg-slate-950 sticky left-0">Summe Auszahlungen</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td id="tot-out-${i}" class="p-2 text-right font-mono">0 €</td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- SUMMARY ROW: Netto Cashflow (Ein - Aus) -->
+                <tr class="bg-slate-900 border-t-2 border-slate-700 font-bold">
+                  <td class="p-2.5 bg-slate-900 sticky left-0 text-white">Netto-Cashflow der Woche</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td id="net-cf-${i}" class="p-2 text-right font-mono">0 €</td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- SUMMARY ROW: Endbestand liquide Mittel -->
+                <tr class="bg-slate-950 border-t-2 border-emerald-500/50 font-black text-sm">
+                  <td class="p-2.5 bg-slate-950 sticky left-0 text-emerald-400">Kumulierter Endbestand</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td id="end-liq-${i}" class="p-2 text-right font-mono text-white">0 €</td>`);
+                    }
+                  </script>
+                </tr>
+
+                <!-- STATUS ROW: Kontokorrent-Auslastung -->
+                <tr class="bg-slate-950 text-[11px] text-slate-400">
+                  <td class="p-2.5 bg-slate-950 sticky left-0">Linien-Auslastung / Status</td>
+                  <script>
+                    for(let i=1; i<=13; i++) {
+                      document.write(`<td id="status-col-${i}" class="p-2 text-right font-mono">OK</td>`);
+                    }
+                  </script>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- STARUG & LEGAL COMPLIANCE ADVISORY SECTION -->
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+        <div class="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
+          <span>🇩🇪 Deutschland: StaRUG § 1</span>
+        </div>
+        <h4 class="text-base font-bold text-white">Krisenfrühwarnsystem &amp; Pflichten</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Nach <strong>§ 1 StaRUG</strong> müssen Geschäftsführer von Kapitalgesellschaften (GmbH, UG, AG) fortlaufend über Entwicklungen wachen, welche den Fortbestand der Gesellschaft gefährden können. Eine rollierende 13-Wochen-Liquiditätsplanung ist der von Gerichten geforderte Mindeststandard zur Abwehr von Geschäftsführerhaftung nach <strong>§ 15b InsO</strong>.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+        <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+          <span>🇨🇭 Schweiz: Art. 725a OR</span>
+        </div>
+        <h4 class="text-base font-bold text-white">Drohende Zahlungsunfähigkeit</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Das Schweizer Aktienrecht verpflichtet den Verwaltungsrat nach <strong>Art. 725a OR</strong> bei drohender Zahlungsunfähigkeit unverzüglich Sanierungsmaßnahmen einzuleiten. Der Cash-Flow-Plan muss eine Frist von mindestens <strong>6 bis 12 Monaten</strong> abdecken, wobei die ersten 13 Wochen rollierend auf Wochenbasis zu steuern sind.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+        <div class="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-wider">
+          <span>🇦🇹 Österreich: URG Reorganisation</span>
+        </div>
+        <h4 class="text-base font-bold text-white">Reorganisationsbedarf &amp; Kennzahlen</h4>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Nach dem österreichischen <strong>Unternehmensreorganisationsgesetz (URG)</strong> liegt ein Reorganisationsbedarf vor, wenn die Eigenmittelquote unter 8 % sinkt und die fiktive Schuldentilgungsdauer 15 Jahre übersteigt. Eine fundierte Liquiditätsvorschau dient als Nachweis gegenüber Banken und KSV1870.
+        </p>
+      </div>
+    </div>
+
+    <!-- SEO RATGEBER QUER-VERWEISE -->
+    <div class="no-print p-6 rounded-3xl bg-slate-950 border border-slate-800 mb-12">
+      <h3 class="text-xs font-mono uppercase font-bold text-emerald-400 mb-3">Fachartikel &amp; Vertiefungs-Ratgeber zur Liquiditätssteuerung</h3>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a href="../13-wochen-liquiditaetsplanung-muster-vorlage.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-emerald-400 transition mb-1">13-Wochen-Liquiditätsplanung Muster</div>
+          <div class="text-[11px] text-slate-400">IDW S11 Standard, Aufbau, Excel-Muster und Vorlagen für das Bankengespräch.</div>
+        </a>
+        <a href="../cash-conversion-cycle-berechnen-dso-dpo-dio.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-emerald-400 transition mb-1">Cash Conversion Cycle berechnen</div>
+          <div class="text-[11px] text-slate-400">Formeln für DSO, DPO und DIO: So setzen Sie gebundenes Betriebskapital frei.</div>
+        </a>
+        <a href="../starug-fruehwarnsystem-drohende-zahlungsunfaehigkeit-kmu.html" class="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition group block">
+          <div class="text-xs font-bold text-white group-hover:text-emerald-400 transition mb-1">StaRUG § 1 Frühwarnsystem für KMU</div>
+          <div class="text-[11px] text-slate-400">Pflichten der Geschäftsführung zur Vermeidung von Haftung nach § 15b InsO.</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- PRINT-ONLY SIGNATURE SECTION -->
+    <div class="print-only mt-12 pt-8 border-t border-slate-400 text-xs">
+      <div class="grid grid-cols-3 gap-8">
+        <div>
+          <div class="border-b border-black h-12 mb-2"></div>
+          <div>Datum &amp; Unterschrift Geschäftsführung</div>
+        </div>
+        <div>
+          <div class="border-b border-black h-12 mb-2"></div>
+          <div>Geprüft / Freigegeben durch Controlling</div>
+        </div>
+        <div>
+          <div class="border-b border-black h-12 mb-2"></div>
+          <div>Eingereicht bei Hausbank / Steuerberater</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="no-print mt-auto border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        &copy; 2026 DACH Digitalwerk. Rein technisches B2B-Kalkulationswerkzeug. Keine Rechts- oder Steuerberatung (§ 2 RDG / § 5 StBerG). BGH-konforme Modellierungslogik (Az. I ZR 226/20).
+      </div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="../agb/" class="hover:text-emerald-400 transition">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-emerald-400 transition">Haftungsausschluss</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-emerald-400 transition">Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ENGINE ================= -->
+  <script>
+    function fmtCur(num) {
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(num);
+    }
+
+    function updateCCC() {
+      const dio = parseInt(document.getElementById('range-dio').value);
+      const dso = parseInt(document.getElementById('range-dso').value);
+      const dpo = parseInt(document.getElementById('range-dpo').value);
+
+      document.getElementById('label-dio').innerText = dio + " Tage";
+      document.getElementById('label-dso').innerText = dso + " Tage";
+      document.getElementById('label-dpo').innerText = dpo + " Tage";
+
+      const ccc = dio + dso - dpo;
+      document.getElementById('ccc-val').innerText = ccc + " Tage";
+
+      const badge = document.getElementById('ccc-badge');
+      if (ccc < 30) {
+        badge.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+        badge.innerText = "Exzellent (< 30 T.)";
+      } else if (ccc <= 60) {
+        badge.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30";
+        badge.innerText = "Moderat (30-60 T.)";
+      } else {
+        badge.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
+        badge.innerText = "Kritisch (> 60 T.)";
+      }
+
+      // Calculation of working capital impact (assume approx annual rev from inputs)
+      let totRev = 0;
+      for (let i = 1; i <= 13; i++) {
+        totRev += parseFloat(document.getElementById(`in-rev-${i}`).value || 0);
+      }
+      const annualRevEst = totRev * 4; // approx annual
+      const dailyRev = annualRevEst / 365;
+      const freedCash = Math.round(dailyRev * 5);
+      document.getElementById('ccc-freed-cash').innerHTML = `💡 <strong>Liquiditäts-Tipp:</strong> Eine Verkürzung des DSO um nur 5 Tage setzt bei ${fmtCur(annualRevEst)} Jahresumsatz rund <strong>${fmtCur(freedCash)}</strong> sofortige freie Liquidität frei!`;
+    }
+
+    function recalculate() {
+      const startCash = parseFloat(document.getElementById('in-start-cash').value) || 0;
+      const creditLimit = parseFloat(document.getElementById('in-credit-limit').value) || 0;
+      const safetyBuffer = parseFloat(document.getElementById('in-safety-buffer').value) || 0;
+
+      document.getElementById('card-start-liq').innerText = fmtCur(startCash);
+      document.getElementById('card-credit-line').innerText = fmtCur(creditLimit);
+
+      let currentBalance = startCash;
+      let minBalance = startCash;
+      let minWeek = 1;
+      let weeklyBalances = [];
+      let starugFlag = false;
+
+      for (let i = 1; i <= 13; i++) {
+        // Update Starting row
+        document.getElementById(`start-w${i}`).innerText = fmtCur(currentBalance);
+
+        // Sum Inflows
+        const rev = parseFloat(document.getElementById(`in-rev-${i}`).value) || 0;
+        const otherIn = parseFloat(document.getElementById(`in-other-in-${i}`).value) || 0;
+        const totIn = rev + otherIn;
+        document.getElementById(`tot-in-${i}`).innerText = fmtCur(totIn);
+
+        // Sum Outflows
+        const mat = parseFloat(document.getElementById(`out-mat-${i}`).value) || 0;
+        const sal = parseFloat(document.getElementById(`out-sal-${i}`).value) || 0;
+        const rent = parseFloat(document.getElementById(`out-rent-${i}`).value) || 0;
+        const tax = parseFloat(document.getElementById(`out-tax-${i}`).value) || 0;
+        const debt = parseFloat(document.getElementById(`out-debt-${i}`).value) || 0;
+        const otherOut = parseFloat(document.getElementById(`out-other-${i}`).value) || 0;
+        const totOut = mat + sal + rent + tax + debt + otherOut;
+        document.getElementById(`tot-out-${i}`).innerText = fmtCur(totOut);
+
+        // Net Cashflow
+        const netCF = totIn - totOut;
+        const netEl = document.getElementById(`net-cf-${i}`);
+        netEl.innerText = fmtCur(netCF);
+        if (netCF >= 0) {
+          netEl.className = "p-2 text-right font-mono text-emerald-400";
+        } else {
+          netEl.className = "p-2 text-right font-mono text-rose-400";
+        }
+
+        // End Liquidity
+        currentBalance += netCF;
+        weeklyBalances.push(currentBalance);
+
+        const endEl = document.getElementById(`end-liq-${i}`);
+        endEl.innerText = fmtCur(currentBalance);
+
+        // Status Column
+        const statusEl = document.getElementById(`status-col-${i}`);
+        if (currentBalance >= safetyBuffer) {
+          endEl.className = "p-2 text-right font-mono text-white";
+          statusEl.innerHTML = `<span class="text-emerald-400">Überschuss</span>`;
+        } else if (currentBalance >= -creditLimit) {
+          endEl.className = "p-2 text-right font-mono text-amber-400";
+          const utilPct = Math.round(Math.abs(Math.min(0, currentBalance)) / creditLimit * 100);
+          statusEl.innerHTML = `<span class="text-amber-400">Kredit: ${utilPct}%</span>`;
+        } else {
+          endEl.className = "p-2 text-right font-mono text-rose-500 font-black";
+          const shortfall = Math.abs(currentBalance + creditLimit);
+          statusEl.innerHTML = `<span class="text-rose-400 font-bold">Lücke -${fmtCur(shortfall)}</span>`;
+          starugFlag = true;
+        }
+
+        if (currentBalance < minBalance) {
+          minBalance = currentBalance;
+          minWeek = i;
+        }
+      }
+
+      // Update Top Summary Cards
+      document.getElementById('card-min-liq').innerText = fmtCur(minBalance);
+      document.getElementById('card-min-week').innerText = `Tiefststand in Woche ${minWeek}`;
+
+      const endLiq = weeklyBalances[12];
+      document.getElementById('card-end-liq').innerText = fmtCur(endLiq);
+      const delta = endLiq - startCash;
+      const deltaEl = document.getElementById('card-liq-delta');
+      if (delta >= 0) {
+        deltaEl.className = "text-[10px] text-emerald-400 mt-0.5 font-bold";
+        deltaEl.innerText = `+${fmtCur(delta)} Netto-Delta`;
+      } else {
+        deltaEl.className = "text-[10px] text-rose-400 mt-0.5 font-bold";
+        deltaEl.innerText = `-${fmtCur(Math.abs(delta))} Netto-Delta`;
+      }
+
+      const starugEl = document.getElementById('card-starug-status');
+      if (starugFlag) {
+        starugEl.className = "text-sm sm:text-base font-extrabold text-rose-400 flex items-center gap-1.5";
+        starugEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span><span>StaRUG-Warnung!</span>`;
+      } else if (minBalance < safetyBuffer) {
+        starugEl.className = "text-sm sm:text-base font-extrabold text-amber-400 flex items-center gap-1.5";
+        starugEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span>Puffer beansprucht</span>`;
+      } else {
+        starugEl.className = "text-sm sm:text-base font-extrabold text-emerald-400 flex items-center gap-1.5";
+        starugEl.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span>Liquidität gesichert</span>`;
+      }
+
+      // Render Visual Chart
+      renderChart(weeklyBalances, creditLimit, safetyBuffer);
+      updateCCC();
+    }
+
+    function renderChart(balances, creditLimit, safetyBuffer) {
+      const barsContainer = document.getElementById('chart-bars-container');
+      const labelsContainer = document.getElementById('chart-labels-container');
+      barsContainer.innerHTML = '';
+      labelsContainer.innerHTML = '';
+
+      const maxVal = Math.max(...balances.map(Math.abs), creditLimit, safetyBuffer, 100000);
+
+      balances.forEach((bal, idx) => {
+        const weekNum = idx + 1;
+        const heightPct = Math.min(100, Math.max(15, Math.round(Math.abs(bal) / maxVal * 100)));
+
+        let barColor = "bg-emerald-500";
+        if (bal < -creditLimit) {
+          barColor = "bg-rose-500";
+        } else if (bal < safetyBuffer) {
+          barColor = "bg-amber-500";
+        }
+
+        const barCol = document.createElement('div');
+        barCol.className = "flex flex-col items-center justify-end h-full group relative";
+        barCol.innerHTML = `
+          <div class="opacity-0 group-hover:opacity-100 transition absolute -top-8 bg-slate-900 border border-slate-700 text-white text-[10px] px-2 py-0.5 rounded shadow pointer-events-none whitespace-nowrap z-20 font-mono">
+            W${weekNum}: ${fmtCur(bal)}
+          </div>
+          <div style="height: ${heightPct}%;" class="w-full ${barColor} rounded-t transition-all duration-300"></div>
+        `;
+        barsContainer.appendChild(barCol);
+
+        const lblCol = document.createElement('div');
+        lblCol.innerText = `W${weekNum}`;
+        labelsContainer.appendChild(lblCol);
+      });
+    }
+
+    function fillSampleData() {
+      document.getElementById('in-start-cash').value = "150000";
+      document.getElementById('in-credit-limit').value = "100000";
+      document.getElementById('in-safety-buffer').value = "30000";
+
+      for (let i = 1; i <= 13; i++) {
+        document.getElementById(`in-rev-${i}`).value = (22000 + (i % 3) * 5000);
+        document.getElementById(`in-other-in-${i}`).value = (i === 4 || i === 8 || i === 12) ? "3000" : "0";
+        document.getElementById(`out-mat-${i}`).value = "9000";
+        document.getElementById(`out-sal-${i}`).value = (i === 4 || i === 8 || i === 12) ? "35000" : "0";
+        document.getElementById(`out-rent-${i}`).value = (i === 1 || i === 5 || i === 9) ? "6000" : "0";
+        document.getElementById(`out-tax-${i}`).value = (i === 2 || i === 6 || i === 10) ? "7500" : "0";
+        document.getElementById(`out-debt-${i}`).value = (i === 1 || i === 5 || i === 9 || i === 13) ? "2500" : "0";
+        document.getElementById(`out-other-${i}`).value = "1200";
+      }
+      recalculate();
+    }
+
+    function resetZeros() {
+      for (let i = 1; i <= 13; i++) {
+        document.getElementById(`in-rev-${i}`).value = "0";
+        document.getElementById(`in-other-in-${i}`).value = "0";
+        document.getElementById(`out-mat-${i}`).value = "0";
+        document.getElementById(`out-sal-${i}`).value = "0";
+        document.getElementById(`out-rent-${i}`).value = "0";
+        document.getElementById(`out-tax-${i}`).value = "0";
+        document.getElementById(`out-debt-${i}`).value = "0";
+        document.getElementById(`out-other-${i}`).value = "0";
+      }
+      recalculate();
+    }
+
+    function exportCSV() {
+      let csv = "Woche;Anfangsbestand;Kunden_Einzahlungen;Sonstige_Einzahlungen;Summe_Einzahlungen;Material_Lieferanten;Personal_Loehne;Miete_Pacht;Steuern;Zins_Tilgung;Sonstige_Kosten;Summe_Auszahlungen;Netto_Cashflow;Kumulierter_Endbestand\n";
+      
+      for (let i = 1; i <= 13; i++) {
+        const start = document.getElementById(`start-w${i}`).innerText.replace(/[^\d,-]/g, '');
+        const rev = document.getElementById(`in-rev-${i}`).value;
+        const otherIn = document.getElementById(`in-other-in-${i}`).value;
+        const totIn = document.getElementById(`tot-in-${i}`).innerText.replace(/[^\d,-]/g, '');
+        const mat = document.getElementById(`out-mat-${i}`).value;
+        const sal = document.getElementById(`out-sal-${i}`).value;
+        const rent = document.getElementById(`out-rent-${i}`).value;
+        const tax = document.getElementById(`out-tax-${i}`).value;
+        const debt = document.getElementById(`out-debt-${i}`).value;
+        const otherOut = document.getElementById(`out-other-${i}`).value;
+        const totOut = document.getElementById(`tot-out-${i}`).innerText.replace(/[^\d,-]/g, '');
+        const net = document.getElementById(`net-cf-${i}`).innerText.replace(/[^\d,-]/g, '');
+        const end = document.getElementById(`end-liq-${i}`).innerText.replace(/[^\d,-]/g, '');
+
+        csv += `W${i};${start};${rev};${otherIn};${totIn};${mat};${sal};${rent};${tax};${debt};${otherOut};${totOut};${net};${end}\n`;
+      }
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "DACH_Liquiditaetsplan_13_Wochen_2026.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      recalculate();
+    });
+  </script>
+
+</body>
+</html>

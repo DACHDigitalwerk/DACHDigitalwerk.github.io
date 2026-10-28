@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LTV:CAC Ratio &amp; CAC Payback Period berechnen 2026: B2B SaaS Unit Economics &amp; Bruttomarge (COGS)</title>
+  <meta name="description" content="Praxisleitfaden &amp; Rechner 2026 für B2B-SaaS Unit Economics: Customer Lifetime Value (LTV) mit Bruttomarge (COGS) &amp; Churn-Deckelung, Fully-Loaded CAC, 3,0x LTV:CAC Benchmark und CAC Payback Period." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/ltv-cac-ratio-berechnen-saas-unit-economics-cac-payback-period.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "LTV:CAC Ratio & CAC Payback Period berechnen 2026: B2B SaaS Unit Economics",
+    "description": "Berechnung von Customer Lifetime Value (LTV), Customer Acquisition Cost (CAC), LTV:CAC Ratio und CAC Payback Period unter Berücksichtigung der SaaS-Bruttomarge.",
+    "url": "https://dachdigitalwerk.github.io/ltv-cac-ratio-berechnen-saas-unit-economics-cac-payback-period.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Warum muss die SaaS-Bruttomarge (Gross Margin) zwingend in LTV und CAC Payback eingerechnet werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cloud-Hosting (AWS/Azure/Hetzner), KI-/LLM-Token-Kosten, Drittanbieter-APIs, Payment-Gebühren und Customer-Support-Personal sind direkt umsatzabhängige Herstellungskosten (COGS). Nur der verbleibende Bruttogewinn (ARPA × Gross Margin, im B2B-SaaS typischerweise 75 % bis 88 %) steht zur Amortisation der Kundenakquisekosten (CAC) zur Verfügung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welches LTV:CAC Verhältnis gilt im DACH-Markt 2026 als gesund?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein LTV:CAC unter 3,0x signalisiert zu hohe Akquisekosten oder ein Churn-Problem. Der gesunde Zielkorridor für skalierende SaaS-Unternehmen liegt zwischen 3,0x und 5,0x bei einer CAC Payback Period von unter 12 bis 18 Monaten. Werte deutlich über 5,0x deuten auf exzellente Effizienz, mitunter aber auf eine Unterinvestition in Vertrieb und Marketing hin."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-6">
+    <div class="flex flex-wrap gap-3">
+      <a href="saas-metrics-churn-ltv-cac-rechner/" class="inline-flex items-center px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition">
+        → Direkt zum interaktiven DACH B2B SaaS-Metrics-Rechner 2026
+      </a>
+      <a href="index.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+        ← Alle DACH-Steuer- &amp; Finanz-Tools
+      </a>
+    </div>
+
+    <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-5">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white">LTV:CAC Ratio &amp; CAC Payback Period berechnen 2026: B2B SaaS Unit Economics, Bruttomarge (COGS) &amp; 3x-Benchmark</h1>
+      <p class="text-sm text-indigo-300 font-medium">Institutionelle Berechnungsstandards für Customer Lifetime Value, Fully-Loaded CAC und Amortisationsdauer in Due-Diligence-Prüfungen.</p>
+
+      <h2 class="text-xl font-bold text-white mt-6">1. Die 4 Kernformeln der SaaS Unit Economics</h2>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Im professionellen SaaS-Controlling werden sämtliche Kundenwert- und Amortisationskennzahlen auf <strong>Bruttogewinnbasis (Gross Profit)</strong> nach Abzug von Hosting, LLM/API-Kosten, Payment-Processing und Customer-Success-Support (COGS) ermittelt:
+      </p>
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs md:text-sm text-indigo-200 space-y-1.5">
+        <div>ARPA = Starting MRR / Aktive Kunden</div>
+        <div>LTV = (ARPA × Gross Margin %) / Monatliche Revenue-Churn-Rate</div>
+        <div>Fully-Loaded CAC = (Marketing-Ausgaben + Vertriebsgehälter &amp; Provisionen) / Gewonnene Neukunden</div>
+        <div>CAC Payback Period (Monate) = CAC / (ARPA × Gross Margin %)</div>
+      </div>
+
+      <h2 class="text-xl font-bold text-white mt-6">2. Umgang mit Negative Churn bei der LTV-Berechnung</h2>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Liegt die Net Revenue Retention über 100 % (<em>Negative Net Churn</em>), würde ein ungefiltertes Einsetzen der negativen Netto-Churn-Rate zu einem rechnerisch unendlichen oder negativen LTV führen. In Venture-Capital- und Private-Equity-Modellen nutzt man daher entweder den konservativen <strong>Gross Revenue Churn</strong> oder deckelt die maximale Kundenlebensdauer auf <strong>84 bis 120 Monate</strong> (entspricht einer Untergrenze von `0,83 %` bis `1,00 %` monatlichem Churn im Nenner).
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-6">3. Ampel-Interpretation von LTV:CAC &amp; CAC Payback</h2>
+      <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+        <li><strong class="text-rose-300">LTV:CAC &lt; 3,0x oder Payback &gt; 24 Monate:</strong> Unskalierbare Go-To-Market-Maschine; vor weiterer Erhöhung des Ad-Spends oder Sales-Headcounts müssen Onboarding, Pricing oder Churn optimiert werden.</li>
+        <li><strong class="text-emerald-300">LTV:CAC 3,0x – 5,0x &amp; Payback 8 – 16 Monate:</strong> Idealer Wachstums-Sweetspot für DACH B2B SaaS.</li>
+        <li><strong class="text-indigo-300">LTV:CAC &gt; 5,0x &amp; Payback &lt; 8 Monate:</strong> Herausragende Kapitaleffizienz — häufig ein Signal, zusätzliche Vertriebskanäle aggressiver auszubauen, um Marktanteile schneller zu besetzen.</li>
+      </ul>
+
+      <div class="pt-6 border-t border-slate-800 flex flex-wrap gap-3">
+        <a href="saas-metrics-churn-ltv-cac-rechner/" class="inline-block px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition">
+          Jetzt LTV:CAC &amp; CAC Payback im interaktiven SaaS-Rechner prüfen →
+        </a>
+        <a href="rule-of-40-berechnen-saas-magic-number-burn-multiple-unternehmensbewertung-2026.html" class="inline-block px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+          Weiter zu: Rule of 40 &amp; Burn Multiple →
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <p>
+      <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Regelbasiertes Informations- und Kalkulationswerkzeug ohne individuelle Rechts-, Steuer- oder Anlageberatung.
+      <a href="agb/" class="underline hover:text-white ml-2">AGB</a> • <a href="haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss &amp; Impressum</a>
+    </p>
+  </footer>
+</body>
+</html>

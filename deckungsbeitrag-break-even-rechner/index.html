@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Mehrstufiger Deckungsbeitrags-, Break-Even-Point-, Cash-Point- &amp; Preiselastizitäts-Rechner 2026 | DB I–IV</title>
+  <meta name="description" content="Kostenloser 100% Client-Side Deckungsbeitrags- (DB I bis DB IV), Break-Even-Point- (Gewinnschwelle), Cash-Point- und Rabatt-/Preiserhöhungs-Rechner 2026 für KMU in Deutschland, Österreich und der Schweiz inklusive Sicherheitskoeffizient, Operating Leverage und DIN-A4 Controlling-Blatt." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/deckungsbeitrag-break-even-rechner/" />
+  <meta property="og:title" content="DACH Mehrstufiger Deckungsbeitrags-, Break-Even- &amp; Preiselastizitäts-Rechner 2026" />
+  <meta property="og:description" content="Berechnen Sie Stückdeckungsbeitrag, mehrstufige Fixkostendeckung (DB I–IV), Break-Even-Menge, Cash-Point, Margin of Safety und den notwendigen Mehrabsatz bei Rabatten." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/deckungsbeitrag-break-even-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DACH Mehrstufiger Deckungsbeitrags-, Break-Even-Point-, Cash-Point- & Preiselastizitäts-Rechner 2026",
+      "url": "https://dachdigitalwerk.github.io/deckungsbeitrag-break-even-rechner/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "description": "Interaktiver Controlling-Rechner für Stückdeckungsbeitrag, mehrstufige Deckungsbeitragsrechnung (DB I bis DB IV), Break-Even-Point, Cash-Point, Sicherheitskoeffizient und Preiselastizität (Rabatt vs. Preiserhöhung) in DE, AT & CH.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DACH Digitalwerk",
+        "url": "https://dachdigitalwerk.github.io/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie berechnet man den Stückdeckungsbeitrag und den Break-Even-Point (Gewinnschwelle)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Stückdeckungsbeitrag (db) ergibt sich aus Netto-Verkaufspreis (p) abzüglich variabler Stückkosten (kv): db = p - kv. Der Break-Even-Point in Stück (Gewinnschwelle) wird berechnet, indem die gesamten Fixkosten (Kf) durch den Stückdeckungsbeitrag geteilt und auf volle Einheiten aufgerundet werden: x_BEP = Aufrunden(Kf / db)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen Break-Even-Point und Cash-Point (Liquiditätsschwelle)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Während beim Break-Even-Point sämtliche Fixkosten gedeckt sind (EBIT = 0), werden beim Cash-Point (Liquiditätsschwelle) die zahlungsunwirksamen Fixkosten wie Abschreibungen (AfA) herausgerechnet: x_Cash = (Fixkosten gesamt - Abschreibungen) / Stückdeckungsbeitrag. Ab dem Cash-Point deckt das Produkt alle laufenden Auszahlungen (EBITDA = 0)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie viel Mehrabsatz ist bei einem Preisnachlass (Rabatt) nötig, um denselben Deckungsbeitrag zu halten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei einer Deckungsbeitragsquote (DB-Quote) von q_DB und einem prozentualen Rabatt r berechnet sich der notwendige prozentuale Mehrabsatz nach der Formel: Notwendiger Mehrabsatz (%) = r / (q_DB - r) × 100. Beträgt die DB-Quote 30 % und wird ein Rabatt von 10 % gewährt, muss der Absatz um 10 % / (30 % - 10 %) = +50 % steigen, nur um denselben Gesamt-Deckungsbeitrag wie zuvor zu erzielen."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          📈 FLAGGSCHIFF-TOOL #36 • DECKUNGSBEITRAG (DB I–IV), BREAK-EVEN &amp; PREISELASTIZITÄT 2026
+        </span>
+        <span class="text-slate-300 font-medium">Stück-DB • Mehrstufige Fixkostendeckung • Break-Even &amp; Cash-Point • Margin of Safety • Rabatt-Mehrabsatz-Simulator</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 37 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS (BGH SMARTLAW) -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / § 43 WPO / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Rein finanzmathematisches und betriebswirtschaftliches Kalkulationsmodell zur unverbindlichen Kostenträger-, Break-Even- und Preissimulation. Dieses Tool stellt <strong>keine Steuer-, Rechts-, Wirtschaftsprüfungs- oder Unternehmensberatung</strong> dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>📈 Flaggschiff-Applikation #36</span>
+        <span>•</span>
+        <span>100% lokal im Browser (CFO-, Pricing- &amp; Controlling-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH Mehrstufiger Deckungsbeitrags-, Break-Even-Point-, Cash-Point- &amp; Preiselastizitäts-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Kalkulieren Sie Ihre Produkte, Dienstleistungen und Preisstrategien nach den Grundsätzen der modernen Kostenträgerrechnung in Deutschland, Österreich und der Schweiz: Berechnen Sie in Echtzeit den <strong>Stückdeckungsbeitrag ($db$)</strong>, die <strong>mehrstufige Fixkostendeckungsrechnung (DB I bis DB IV / EBIT)</strong>, den <strong>Break-Even-Point (Gewinnschwelle)</strong>, den <strong>Cash-Point (Liquiditätsschwelle vor AfA)</strong>, den <strong>Sicherheitskoeffizienten (Margin of Safety)</strong> sowie die <strong>Rabatt-Falle vs. Preiserhöhungs-Hebel</strong>.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Währungsraum &amp; Branchen-Kalkulations-Preset</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (€ • HGB / BWA)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (€ • UGB)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (CHF • OR)</button>
+          </div>
+        </div>
+
+        <!-- 5 Presets -->
+        <div class="space-y-1.5">
+          <div class="text-xs font-semibold text-slate-400">Branchen-Preset laden:</div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="applyPreset('industrie')" class="text-xs bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">⚙️ Industrie / Maschinenbau-Komponente (p = 240 €)</button>
+            <button type="button" onclick="applyPreset('saas')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">💻 B2B SaaS / Software-Abo (p = 149 €)</button>
+            <button type="button" onclick="applyPreset('ecommerce')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">📦 E-Commerce / Handel (p = 79 €)</button>
+            <button type="button" onclick="applyPreset('gastro')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🍽️ Gastronomie / Hotellerie (p = 32 €)</button>
+            <button type="button" onclick="applyPreset('beratung')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🤝 Beratung / Handwerks-Tagessatz (p = 1.150 €)</button>
+          </div>
+        </div>
+
+        <!-- Section 2: Stückkalkulation (p & kv) -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">2. Stückkalkulation (Netto-Verkaufspreis &amp; Variable Stückkosten)</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Netto-Verkaufspreis pro Einheit $p$ (<span class="curr-label">€</span>)</label>
+              <input type="number" id="unitPrice" value="240" min="0.1" step="5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Geplante / Ist-Absatzmenge $x_{\text{Ist}}$ (Stück p.a.)</label>
+              <input type="number" id="currentVolume" value="8500" min="1" step="100" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Material / Wareneinsatz (<span class="curr-label">€</span>/Stk.)</label>
+              <input type="number" id="varMaterial" value="68" min="0" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Fertigung / Fulfillment (<span class="curr-label">€</span>/Stk.)</label>
+              <input type="number" id="varFulfillment" value="22" min="0" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Provision / Payment / Fracht (<span class="curr-label">€</span>/Stk.)</label>
+              <input type="number" id="varCommission" value="10" min="0" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Mehrstufige Fixkostenblöcke (DB I bis DB IV) -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">3. Mehrstufige Fixkostenblöcke p.a. (DB I → DB II → DB III → DB IV)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Produktfixkosten $K_{f,\text{Prod}}$ (<span class="curr-label">€</span>)</label>
+              <input type="number" id="fixedProduct" value="220000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">F&amp;E, Werkzeuge, Produktmarketing</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Bereichsfixkosten $K_{f,\text{Bereich}}$ (<span class="curr-label">€</span>)</label>
+              <input type="number" id="fixedDivision" value="310000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Werkshalle, Vertriebsteam, IT</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Unternehmensfixkosten $K_{f,\text{Unt}}$ (<span class="curr-label">€</span>)</label>
+              <input type="number" id="fixedCompany" value="280000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Geschäftsführung, Verwaltung, Miete</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Darin enthaltene Abschreibungen / AfA (<span class="curr-label">€</span>)</label>
+              <input type="number" id="depreciationFixed" value="130000" min="0" step="5000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Zahlungsunwirksam → bestimmt den Cash-Point</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Gewünschter Zielgewinn / Ziel-EBIT $G_{\text{Ziel}}$ (<span class="curr-label">€</span>)</label>
+              <input type="number" id="targetProfit" value="250000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Berechnet den nötigen Ziel-Absatz</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Preiselastizitäts-Simulator (Rabatt vs. Preiserhöhung) -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-3">
+          <h3 class="text-sm font-bold text-indigo-300 uppercase tracking-wider">4. Rabatt-Falle vs. Preiserhöhungs-Hebel (Preiselastizitäts-Simulator)</h3>
+          <div class="grid sm:grid-cols-2 gap-4 bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+            <div>
+              <label class="block text-xs font-semibold text-rose-300 mb-1">Geplanter Preisnachlass / Rabatt (%)</label>
+              <input type="number" id="discountPct" value="10" min="1" max="50" step="1" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-1.5 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Zeigt nötigen Mehrabsatz für gleichen DB I</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-emerald-300 mb-1">Geplante Preiserhöhung (%)</label>
+              <input type="number" id="priceIncreasePct" value="8" min="1" max="50" step="1" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-3 py-1.5 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Zeigt max. verkraftbaren Mengenverlust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Main Break-Even & Stück-DB Card -->
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Break-Even-Point &amp; Stück-Deckungsbeitrag</span>
+            <span id="out-db-quote-badge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold font-mono">DB-Quote: 58,3 %</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <div class="text-xs text-slate-400">Break-Even-Menge ($x_{\text{BEP}}$):</div>
+              <div id="out-bep-units" class="text-2xl sm:text-3xl font-black text-white font-mono mt-0.5">5.786 Stk.</div>
+              <div id="out-bep-rev" class="text-xs text-emerald-300 font-mono mt-1">Umsatz: 1.388.571 €</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400">Stückdeckungsbeitrag ($db$):</div>
+              <div id="out-unit-db" class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">140,00 € / Stk.</div>
+              <div id="out-cash-point" class="text-[11px] text-slate-300 font-mono mt-1">Cash-Point: 4.858 Stk.</div>
+            </div>
+          </div>
+
+          <!-- Mehrstufige DB I bis DB IV Treppe -->
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-xs">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Mehrstufige Deckungsbeitragsrechnung (Ist-Menge):</div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Netto-Umsatz ($x_{\text{Ist}} \times p$):</span>
+              <span id="out-total-rev" class="font-mono font-bold text-white">2.040.000 €</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="font-semibold text-emerald-300">Deckungsbeitrag I (DB I nach var. Kosten):</span>
+              <span id="out-db1" class="font-mono font-extrabold text-emerald-400">1.190.000 €</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Deckungsbeitrag II (nach Produktfixkosten):</span>
+              <span id="out-db2" class="font-mono font-bold text-white">970.000 €</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Deckungsbeitrag III (nach Bereichsfixkosten):</span>
+              <span id="out-db3" class="font-mono font-bold text-white">660.000 €</span>
+            </div>
+            <div class="flex justify-between items-center bg-emerald-950/70 border border-emerald-500/40 rounded-xl px-3.5 py-2.5">
+              <span class="font-bold text-white">DB IV / Betriebsergebnis (EBIT):</span>
+              <span id="out-db4" class="font-mono font-extrabold text-sm text-emerald-300">380.000 € (18,6 %)</span>
+            </div>
+          </div>
+
+          <!-- Margin of Safety & Operating Leverage -->
+          <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">Sicherheitskoeffizient</div>
+              <div id="out-mos" class="font-mono font-bold text-emerald-400 text-sm mt-0.5">+31,9 %</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">Operating Leverage</div>
+              <div id="out-dol" class="font-mono font-bold text-white text-sm mt-0.5">3,13x</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">Zielgewinn-Absatz</div>
+              <div id="out-target-units" class="font-mono font-bold text-amber-300 text-sm mt-0.5">7.572 Stk.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rabatt-Falle & Preiserhöhungs-Box -->
+        <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white">Preiselastizitäts-Analyse: Rabatt-Falle vs. Preiserhöhung</h3>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div class="bg-rose-950/50 border border-rose-500/40 rounded-2xl p-3.5 space-y-1">
+              <div id="out-disc-title" class="font-bold text-rose-300">🚨 Bei 10 % Rabatt:</div>
+              <div class="text-[11px] text-slate-300">Neuer Stück-DB: <span id="out-disc-db" class="font-mono font-bold text-white">116,00 €</span></div>
+              <div class="text-[11px] text-slate-300">Nötiger Mehrabsatz:</div>
+              <div id="out-disc-vol" class="text-base font-mono font-extrabold text-rose-400">+20,7 % (+1.759 Stk.)</div>
+            </div>
+            <div class="bg-emerald-950/50 border border-emerald-500/40 rounded-2xl p-3.5 space-y-1">
+              <div id="out-inc-title" class="font-bold text-emerald-300">🚀 Bei +8 % Preiserhöhung:</div>
+              <div class="text-[11px] text-slate-300">Neuer Stück-DB: <span id="out-inc-db" class="font-mono font-bold text-white">159,20 €</span></div>
+              <div class="text-[11px] text-slate-300">Verkraftbarer Absatzverlust:</div>
+              <div id="out-inc-vol" class="text-base font-mono font-extrabold text-emerald-400">−12,1 % (−1.025 Stk.)</div>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Deckungsbeitrags- &amp; Break-Even-Dossier drucken / PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & FACHWISSEN SECTION -->
+    <section class="bg-slate-800/60 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">
+        Controlling-Wissen 2026: Mehrstufige Deckungsbeitragsrechnung, Break-Even-Point &amp; Rabatt-Mathematik
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">1. DB I bis DB IV (Fixkostendeckung)</h3>
+          <p>
+            Während die einstufige Deckungsbeitragsrechnung (Direct Costing) alle Fixkosten als Block abzieht, teilt die <strong>mehrstufige Deckungsbeitragsrechnung</strong> die Fixkosten verursachungsgerecht in Produkt-, Bereichs- und Unternehmensfixkosten auf. So erkennen Sie sofort, welche Produktlinie ihre eigenen Fixkosten trägt.
+          </p>
+          <a href="./deckungsbeitrag-berechnen-formel-db1-db2-stueckdeckungsbeitrag-2026.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Deckungsbeitrag (DB I–IV) Formel &amp; Anleitung</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">2. Break-Even-Point vs. Cash-Point</h3>
+          <p>
+            Der <strong>Break-Even-Point</strong> markiert die Gewinnschwelle ($\text{EBIT} = 0$). In Krisen- oder Anlaufphasen ist jedoch der <strong>Cash-Point (Liquiditätsschwelle)</strong> entscheidend: Da Abschreibungen (AfA) keine laufenden Auszahlungen darstellen, liegt der Cash-Point deutlich unterhalb des Break-Even-Points.
+          </p>
+          <a href="./break-even-point-gewinnschwelle-berechnen-formel-cash-point-beispiel.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Break-Even &amp; Cash-Point mit Beispiel</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">3. Warum 10 % Rabatt oft 50 % Mehrabsatz frisst</h3>
+          <p>
+            Ein Preisnachlass schmälert zu 100 % direkt den Stückdeckungsbeitrag, während die variablen Stückkosten unverändert bleiben. Unsere Preiselastizitäts-Tabelle zeigt schwarz auf weiß, warum kleine Preiserhöhungen im B2B-Geschäft den Gewinn weitaus stärker hebeln als Mengenrabatte.
+          </p>
+          <a href="./rabatt-mehrabsatz-rechner-preiserhoehung-deckungsbeitrag-tabelle-b2b.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Rabatt-Mehrabsatz-Tabelle &amp; Formel</a>
+        </div>
+      </div>
+
+      <!-- CFO Cross-Linking -->
+      <div class="border-t border-slate-700 pt-5">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Passende CFO- &amp; Controlling-Werkzeuge im DACH Digitalwerk:</div>
+        <div class="flex flex-wrap gap-2.5 text-xs">
+          <a href="../bwa-kennzahlen-working-capital-analyse/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-semibold transition">📊 BWA-Kennzahlen &amp; Kralicek-Quicktest (#35)</a>
+          <a href="../unternehmenswert-ebit-multiple-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">🏛️ KMU-Unternehmenswert &amp; EBIT-Multiple (#34)</a>
+          <a href="../arbeitgeber-gesamtkosten-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">👥 Arbeitgeber-Gesamtkosten &amp; Personalbudget (#33)</a>
+          <a href="../freelancer-stundensatz-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">💼 Freelancer- &amp; Agentur-Stundensatz (#30)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-6 px-4 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk • 100% Client-Side • Keine Rechts-, Steuer- oder Unternehmensberatung (§ 2 RDG / § 5 StBerG)</div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="../" class="hover:text-white">Alle 37 Tools</a>
+        <a href="../haftungsausschluss/" class="hover:text-amber-400">Haftungsausschluss</a>
+        <a href="../agb/" class="hover:text-indigo-400">AGB</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRINT-ONLY DIN-A4 DOSSIER -->
+  <section class="print-only p-4 space-y-4 text-black">
+    <div class="border-b-2 border-black pb-3 flex justify-between items-start">
+      <div>
+        <h1 class="text-lg font-extrabold uppercase">DIN-A4 Deckungsbeitrags- (DB I–IV), Break-Even- &amp; Preiselastizitäts-Dossier 2026</h1>
+        <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/deckungsbeitrag-break-even-rechner/)</p>
+      </div>
+      <div id="print-date" class="text-xs font-mono"></div>
+    </div>
+    <div id="print-summary" class="space-y-3 text-xs"></div>
+    <div class="border-t border-gray-400 pt-3 text-[10px] text-gray-600">
+      <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH Smartlaw-Urteil):</strong> Unverbindliche finanzmathematische Modellrechnung zu internen Controlling- und Kalkulationszwecken.
+    </div>
+  </section>
+
+  <script>
+    let currentCountry = 'DE';
+
+    const PRESETS = {
+      industrie: { p: 240, vol: 8500,  mat: 68, ful: 22, com: 10, fp: 220000, fd: 310000, fc: 280000, dep: 130000, target: 250000 },
+      saas:      { p: 149, vol: 12000, mat: 8,  ful: 11, com: 10, fp: 380000, fd: 420000, fc: 310000, dep: 85000,  target: 350000 },
+      ecommerce: { p: 79,  vol: 28000, mat: 29, ful: 9,  com: 7,  fp: 140000, fd: 290000, fc: 240000, dep: 60000,  target: 180000 },
+      gastro:    { p: 32,  vol: 34000, mat: 9,  ful: 3,  com: 1,  fp: 95000,  fd: 280000, fc: 165000, dep: 45000,  target: 110000 },
+      beratung:  { p: 1150,vol: 1400,  mat: 40, ful: 160,com: 50, fp: 180000, fd: 420000, fc: 320000, dep: 50000,  target: 280000 }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = c === 'CH' ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+      recalc();
+    }
+
+    function applyPreset(key) {
+      const pr = PRESETS[key];
+      if (!pr) return;
+      document.getElementById('unitPrice').value = pr.p;
+      document.getElementById('currentVolume').value = pr.vol;
+      document.getElementById('varMaterial').value = pr.mat;
+      document.getElementById('varFulfillment').value = pr.ful;
+      document.getElementById('varCommission').value = pr.com;
+      document.getElementById('fixedProduct').value = pr.fp;
+      document.getElementById('fixedDivision').value = pr.fd;
+      document.getElementById('fixedCompany').value = pr.fc;
+      document.getElementById('depreciationFixed').value = pr.dep;
+      document.getElementById('targetProfit').value = pr.target;
+      recalc();
+    }
+
+    function fmtCurr(val, curr) {
+      return Math.round(val).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const p = Math.max(0.01, parseFloat(document.getElementById('unitPrice').value) || 0);
+      const vol = Math.max(1, parseFloat(document.getElementById('currentVolume').value) || 0);
+      const mat = Math.max(0, parseFloat(document.getElementById('varMaterial').value) || 0);
+      const ful = Math.max(0, parseFloat(document.getElementById('varFulfillment').value) || 0);
+      const com = Math.max(0, parseFloat(document.getElementById('varCommission').value) || 0);
+      const kv = mat + ful + com;
+
+      const fp = Math.max(0, parseFloat(document.getElementById('fixedProduct').value) || 0);
+      const fd = Math.max(0, parseFloat(document.getElementById('fixedDivision').value) || 0);
+      const fc = Math.max(0, parseFloat(document.getElementById('fixedCompany').value) || 0);
+      const totalFixed = fp + fd + fc;
+
+      const dep = Math.min(totalFixed, Math.max(0, parseFloat(document.getElementById('depreciationFixed').value) || 0));
+      const targetProfit = Math.max(0, parseFloat(document.getElementById('targetProfit').value) || 0);
+
+      const discPct = Math.max(0.5, parseFloat(document.getElementById('discountPct').value) || 0);
+      const incPct = Math.max(0.5, parseFloat(document.getElementById('priceIncreasePct').value) || 0);
+
+      const unitDb = p - kv;
+      const dbQuotePct = (unitDb / p) * 100.0;
+
+      const totalRev = vol * p;
+      const db1 = vol * unitDb;
+      const db2 = db1 - fp;
+      const db3 = db2 - fd;
+      const db4 = db3 - fc;
+      const ebitMarginPct = totalRev > 0 ? (db4 / totalRev) * 100.0 : 0.0;
+
+      const bepUnits = unitDb > 0 ? Math.ceil(totalFixed / unitDb) : 0;
+      const bepRev = unitDb > 0 ? (totalFixed / (unitDb / p)) : 0;
+      const cashFixed = Math.max(0, totalFixed - dep);
+      const cashPointUnits = unitDb > 0 ? Math.ceil(cashFixed / unitDb) : 0;
+      const targetUnits = unitDb > 0 ? Math.ceil((totalFixed + targetProfit) / unitDb) : 0;
+
+      const mosPct = totalRev > 0 ? ((totalRev - bepRev) / totalRev) * 100.0 : -100.0;
+      const dol = db4 > 0 ? (db1 / db4) : 0.0;
+
+      // Price elasticity
+      const newPriceDisc = p * (1.0 - discPct / 100.0);
+      const newDbDisc = newPriceDisc - kv;
+      let reqVolIncreasePct = 999.0;
+      let reqExtraUnits = 0;
+      if (newDbDisc > 0 && unitDb > 0) {
+        reqVolIncreasePct = ((unitDb / newDbDisc) - 1.0) * 100.0;
+        reqExtraUnits = Math.ceil(vol * (reqVolIncreasePct / 100.0));
+      }
+
+      const newPriceInc = p * (1.0 + incPct / 100.0);
+      const newDbInc = newPriceInc - kv;
+      let maxVolLossPct = 0.0;
+      let maxLostUnits = 0;
+      if (newDbInc > 0 && unitDb > 0) {
+        maxVolLossPct = (1.0 - (unitDb / newDbInc)) * 100.0;
+        maxLostUnits = Math.floor(vol * (maxVolLossPct / 100.0));
+      }
+
+      // Update UI
+      document.getElementById('out-db-quote-badge').textContent = `DB-Quote: ${dbQuotePct.toFixed(1).replace('.', ',')} %`;
+      document.getElementById('out-bep-units').textContent = unitDb > 0 ? `${bepUnits.toLocaleString('de-DE')} Stk.` : 'Kein BEP (db ≤ 0)';
+      document.getElementById('out-bep-rev').textContent = `Break-Even-Umsatz: ${fmtCurr(bepRev, curr)}`;
+      document.getElementById('out-unit-db').textContent = `${unitDb.toFixed(2).replace('.', ',')} ${curr} / Stk.`;
+      document.getElementById('out-cash-point').textContent = `Cash-Point: ${cashPointUnits.toLocaleString('de-DE')} Stk.`;
+
+      document.getElementById('out-total-rev').textContent = fmtCurr(totalRev, curr);
+      document.getElementById('out-db1').textContent = fmtCurr(db1, curr);
+      document.getElementById('out-db2').textContent = fmtCurr(db2, curr);
+      document.getElementById('out-db3').textContent = fmtCurr(db3, curr);
+      document.getElementById('out-db4').textContent = `${fmtCurr(db4, curr)} (${ebitMarginPct.toFixed(1).replace('.', ',')} %)`;
+
+      document.getElementById('out-mos').textContent = `${mosPct >= 0 ? '+' : ''}${mosPct.toFixed(1).replace('.', ',')} %`;
+      document.getElementById('out-dol').textContent = dol > 0 ? `${dol.toFixed(2).replace('.', ',')}x` : 'n.v.';
+      document.getElementById('out-target-units').textContent = `${targetUnits.toLocaleString('de-DE')} Stk.`;
+
+      document.getElementById('out-disc-title').textContent = `🚨 Bei −${discPct} % Rabatt:`;
+      document.getElementById('out-disc-db').textContent = `${newDbDisc.toFixed(2).replace('.', ',')} ${curr}`;
+      document.getElementById('out-disc-vol').textContent = newDbDisc > 0
+        ? `+${reqVolIncreasePct.toFixed(1).replace('.', ',')} % (+${reqExtraUnits.toLocaleString('de-DE')} Stk.)`
+        : 'Verlustgeschäft (db ≤ 0)!';
+
+      document.getElementById('out-inc-title').textContent = `🚀 Bei +${incPct} % Preiserhöhung:`;
+      document.getElementById('out-inc-db').textContent = `${newDbInc.toFixed(2).replace('.', ',')} ${curr}`;
+      document.getElementById('out-inc-vol').textContent = `−${maxVolLossPct.toFixed(1).replace('.', ',')} % (−${maxLostUnits.toLocaleString('de-DE')} Stk.)`;
+
+      // Print sheet
+      document.getElementById('print-date').textContent = 'Datum: ' + new Date().toLocaleDateString('de-DE') + ' | Währung: ' + curr;
+      document.getElementById('print-summary').innerHTML = `
+        <table class="w-full border-collapse border border-gray-400 text-left">
+          <tr class="bg-gray-100"><th class="border border-gray-400 p-1.5">Kalkulationsstufe / Kennzahl</th><th class="border border-gray-400 p-1.5">Ergebnis</th><th class="border border-gray-400 p-1.5">Erläuterung / Quote</th></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Stückdeckungsbeitrag (db = p − kv)</td><td class="border border-gray-400 p-1.5 font-bold">${unitDb.toFixed(2).replace('.', ',')} ${curr} / Stk.</td><td class="border border-gray-400 p-1.5">DB-Quote: ${dbQuotePct.toFixed(1).replace('.', ',')} % (p = ${p} ${curr}, kv = ${kv} ${curr})</td></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Break-Even-Point (Gewinnschwelle)</td><td class="border border-gray-400 p-1.5 font-bold">${bepUnits.toLocaleString('de-DE')} Stück</td><td class="border border-gray-400 p-1.5">Break-Even-Umsatz: ${fmtCurr(bepRev, curr)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Cash-Point (Liquiditätsschwelle vor AfA)</td><td class="border border-gray-400 p-1.5">${cashPointUnits.toLocaleString('de-DE')} Stück</td><td class="border border-gray-400 p-1.5">Zahlungswirksame Fixkosten: ${fmtCurr(cashFixed, curr)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">DB I → DB II → DB III → DB IV (EBIT)</td><td class="border border-gray-400 p-1.5 font-bold">${fmtCurr(db4, curr)} EBIT</td><td class="border border-gray-400 p-1.5">DB I: ${fmtCurr(db1, curr)} | Sicherheitskoeffizient: ${mosPct.toFixed(1)} %</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Preiselastizität (−${discPct} % Rabatt vs. +${incPct} % Preis)</td><td class="border border-gray-400 p-1.5">+${reqVolIncreasePct.toFixed(1)} % Mehrabsatz nötig</td><td class="border border-gray-400 p-1.5">Verkraftbarer Mengenrückgang bei +${incPct}% Preis: −${maxVolLossPct.toFixed(1)} %</td></tr>
+        </table>
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

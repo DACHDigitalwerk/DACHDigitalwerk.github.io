@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Net Revenue Retention (NRR) &amp; GRR berechnen 2026: SaaS Churn-Formel, Negative Churn &amp; DACH-Benchmarks</title>
+  <meta name="description" content="So berechnen B2B-SaaS-Unternehmen 2026 Gross Revenue Retention (GRR), Net Revenue Retention (NRR), Negative Net Churn und annualisierten Revenue- vs. Logo-Churn inkl. DACH-Benchmarks." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/saas-metrics-churn-ltv-cac-rechner/net-revenue-retention-nrr-berechnen-saas-churn-formel-benchmark-2026.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Net Revenue Retention (NRR) & GRR berechnen 2026: SaaS Churn-Formel & Benchmarks",
+    "description": "Leitfaden und Rechner zur Berechnung von Net Revenue Retention (NRR), Gross Revenue Retention (GRR), MRR Waterfall Bridge und annualisiertem SaaS-Churn im DACH-Raum.",
+    "url": "https://dachdigitalwerk.github.io/saas-metrics-churn-ltv-cac-rechner/net-revenue-retention-nrr-berechnen-saas-churn-formel-benchmark-2026.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie lautet die exakte Formel für Net Revenue Retention (NRR) und Gross Revenue Retention (GRR)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ausgehend vom Starting MRR einer Bestandskohorte (ohne Neukunden der laufenden Periode) lautet die Gross Revenue Retention GRR = (Starting MRR - Contraction MRR - Churned MRR) / Starting MRR und ist maximal 100 %. Die Net Revenue Retention lautet NRR = (Starting MRR + Expansion MRR - Contraction MRR - Churned MRR) / Starting MRR und steigt bei starkem Upselling über 100 % (Negative Net Churn)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie rechnet man monatlichen SaaS-Churn korrekt in jährlichen (annualisierten) Churn um?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Monatlicher Churn darf aufgrund des Zinseszinseffekts auf die schrumpfende Kohorte nicht einfach mit 12 multipliziert werden. Die finanzmathematisch exakte Formel lautet: Jährlicher Churn = 1 - (1 - monatlicher Churn)^12. Bei 2,0 % monatlichem Churn beträgt der Jahres-Churn somit 21,53 % (statt 24 %)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-6">
+    <div class="flex flex-wrap gap-3">
+      <a href="index.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition">
+        → Direkt zum interaktiven DACH B2B SaaS-Metrics-Rechner 2026
+      </a>
+      <a href="../index.html" class="inline-flex items-center px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+        ← Alle DACH-Steuer- &amp; Finanz-Tools
+      </a>
+    </div>
+
+    <article class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-5">
+      <h1 class="text-2xl md:text-3xl font-extrabold text-white">Net Revenue Retention (NRR) &amp; Gross Revenue Retention (GRR) berechnen 2026: SaaS Churn-Formel, Negative Churn &amp; DACH-Benchmarks</h1>
+      <p class="text-sm text-indigo-300 font-medium">Warum eine Net Revenue Retention über 110 % p.a. der stärkste Bewertungshebel für B2B-SaaS-Unternehmen in Deutschland, Österreich und der Schweiz ist.</p>
+
+      <h2 class="text-xl font-bold text-white mt-6">1. MRR Waterfall Bridge &amp; Abgrenzung GRR vs. NRR</h2>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Um die wahre Bestandskunden-Qualität eines SaaS-Geschäftsmodells zu messen, müssen Neukundenumsätze (<em>New Business MRR</em>) strikt von der bestehenden Kundenkohorte (<em>Starting MRR</em>) getrennt werden:
+      </p>
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs md:text-sm text-indigo-200 space-y-1.5">
+        <div>GRR = min(100 %, (Starting MRR − Contraction MRR − Churned MRR) / Starting MRR)</div>
+        <div>NRR = (Starting MRR + Expansion MRR − Contraction MRR − Churned MRR) / Starting MRR</div>
+        <div>Ending MRR = Starting MRR + New Business MRR + Expansion MRR − Contraction MRR − Churned MRR</div>
+      </div>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Übersteigt das monatliche <strong>Expansion MRR</strong> (durch zusätzliche Lizenzen/Seats, Nutzungs-Volumen oder Modul-Upgrades) die Summe aus Downgrades (<em>Contraction</em>) und Kündigungen (<em>Churn</em>), entsteht <strong>Negative Net Churn (NRR &gt; 100 %)</strong>: Selbst ohne einen einzigen Neukunden wächst der ARR des Unternehmens jedes Jahr weiter.
+      </p>
+
+      <h2 class="text-xl font-bold text-white mt-6">2. Monatlichen Churn exakt auf 12 Monate annualisieren</h2>
+      <p class="text-slate-300 text-sm leading-relaxed">
+        Ein häufiger Fehler in Pitch-Decks ist die lineare Multiplikation (`12 × Monats-Churn`). Finanzmathematisch korrekt gilt die exponentielle Kohortenformel:
+      </p>
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs md:text-sm text-emerald-300 space-y-1">
+        <div>Annualisierter Churn (12M) = 1 − (1 − Monatlicher Churn)^12</div>
+        <div>Annualisierte NRR (12M) = (NRR_Monat)^12</div>
+      </div>
+
+      <h2 class="text-xl font-bold text-white mt-6">3. DACH B2B SaaS Retention-Benchmarks 2026</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse border border-slate-800">
+          <thead class="bg-slate-950 text-slate-300">
+            <tr>
+              <th class="p-3 border-b border-slate-800">Kundensegment (ARPA)</th>
+              <th class="p-3 border-b border-slate-800">Ziel-GRR (12M p.a.)</th>
+              <th class="p-3 border-b border-slate-800">Ziel-NRR (12M p.a.)</th>
+              <th class="p-3 border-b border-slate-800">Max. Monats-Logo-Churn</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="p-3 font-semibold text-white">SMB / Handwerk / KMU (&lt; 300 € ARPA)</td>
+              <td class="p-3">78 % – 86 %</td>
+              <td class="p-3 text-amber-300">92 % – 103 %</td>
+              <td class="p-3">1,5 % – 2,5 % / Monat</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">Mid-Market DACH (500 € – 3.000 € ARPA)</td>
+              <td class="p-3">86 % – 92 %</td>
+              <td class="p-3 text-emerald-300">105 % – 115 %</td>
+              <td class="p-3">0,6 % – 1,2 % / Monat</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">Enterprise DE/AT/CH (&gt; 5.000 € / CHF ARPA)</td>
+              <td class="p-3">91 % – 96 %</td>
+              <td class="p-3 text-emerald-400 font-bold">115 % – 130 %+</td>
+              <td class="p-3">&lt; 0,5 % / Monat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800 flex flex-wrap gap-3">
+        <a href="index.html" class="inline-block px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition">
+          Jetzt eigene NRR, GRR &amp; 24-Monats-Kohorte im SaaS-Rechner simulieren →
+        </a>
+        <a href="ltv-cac-ratio-berechnen-saas-unit-economics-cac-payback-period.html" class="inline-block px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">
+          Weiter zu: LTV:CAC &amp; CAC Payback →
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="max-w-4xl mx-auto px-4 py-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <p>
+      <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Regelbasiertes Informations- und Kalkulationswerkzeug ohne individuelle Rechts-, Steuer- oder Anlageberatung.
+      <a href="../agb/" class="underline hover:text-white ml-2">AGB</a> • <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss &amp; Impressum</a>
+    </p>
+  </footer>
+</body>
+</html>

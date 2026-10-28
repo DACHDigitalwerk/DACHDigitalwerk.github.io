@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tantieme berechnen: Formel, BFH 50%-Deckelung &amp; 75%-Grenze | DACH Digitalwerk</title>
+  <meta name="description" content="Tantieme berechnen nach BFH-Rechtsprechung: Formel vor Steuern, 50%-Regel der Gesamtausstattung, 75%-Gewinngrenze, Verlustverrechnung &amp; Rückwirkungsverbot." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/tantieme-berechnen-formel-50-prozent-deckelung.html" />
+  <meta property="og:title" content="Tantieme berechnen: Formel &amp; BFH 50%-Deckelung für Geschäftsführer" />
+  <meta property="og:description" content="Rechtssichere Tantiemeberechnung: Wie die 50%- und 75%-Deckelungen des BFH funktionieren und wie Sie vGA-Fallen bei der Betriebsprüfung vermeiden." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/tantieme-berechnen-formel-50-prozent-deckelung.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Tantieme berechnen: Formel, BFH 50%-Deckelung & 75%-Grenze",
+    "description": "Leitfaden zur finanzmathematischen und steuerrechtlichen Berechnung von Gewinntantiemen für Gesellschafter-Geschäftsführer.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was besagt die BFH 50%-Regel bei Tantiemen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nach dem BFH-Urteil vom 05.10.1994 (Az. I R 50/94) darf die variable Tantieme im Regelfall höchstens 50 Prozent der gesamten Vergütung (Festgehalt + Tantieme + Sachbezüge) eines Gesellschafter-Geschäftsführers ausmachen. Übersteigende Beträge gelten steuerlich als verdeckte Gewinnausschüttung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist die BFH 75%-Gewinngrenze?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Tantiemen aller Geschäftsführer einer GmbH zusammen dürfen im Regelfall nicht mehr als 50 bis 75 Prozent des maßgeblichen Vorsteuergewinns abschöpfen. Der GmbH muss ein angemessener Gewinn zur Eigenkapitalstärkung verbleiben."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Darf einem Gesellschafter-Geschäftsführer eine Umsatztantieme gezahlt werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Grundsätzlich nein! Der BFH sieht in einer reinen Umsatztantieme bei beherrschenden Gesellschaftern regelmäßig eine vGA, da sie das Verlustrisiko auf die GmbH abwälzt. Ausnahmen gelten nur in der Gründungs- oder Aufbauphase (bis zu 3 Jahre)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-amber-400 transition">DACH Digitalwerk</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="./geschaeftsfuehrer-tantieme-vga-rechner/" class="text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 px-3.5 py-2 rounded-xl transition">
+          Zum VGA-Rechner →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ARTICLE CONTENT ================= -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    
+    <!-- Breadcrumb -->
+    <nav class="text-xs font-mono text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-amber-400 transition">Home</a>
+      <span>/</span>
+      <a href="./geschaeftsfuehrer-tantieme-vga-rechner/" class="hover:text-amber-400 transition">Tantieme- &amp; VGA-Rechner</a>
+      <span>/</span>
+      <span class="text-slate-300">Tantieme berechnen &amp; BFH 50%-Regel</span>
+    </nav>
+
+    <!-- Header Badge -->
+    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full mb-4">
+      <span>BFH Urteil vom 05.10.1994 – I R 50/94</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight mb-6">
+      Tantieme berechnen: Formel, BFH 50%-Deckelung &amp; 75%-Gewinngrenze
+    </h1>
+
+    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+      Eine Gewinntantieme ist für Gesellschafter-Geschäftsführer das beliebteste Instrument zur erfolgsabhängigen Gewinnabschöpfung. Doch die steuerlichen Fallstricke sind enorm: Wer die <strong>BFH 50%-Deckelung</strong> missachtet oder das <strong>strikte Rückwirkungsverbot</strong> verletzt, riskiert massive Steuernachzahlungen für die GmbH.
+    </p>
+
+    <!-- Interactive Callout -->
+    <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <div class="text-xs font-mono text-amber-400 uppercase font-bold mb-1">Live BFH-Deckelungsprüfung</div>
+        <div class="text-base font-bold text-white">Tantieme &amp; vGA-Grenzwerte online berechnen</div>
+        <div class="text-xs text-slate-400">Prüfen Sie Festgehalt, Gewinntantieme und Nachzahlungsrisiko in Sekunden.</div>
+      </div>
+      <a href="./geschaeftsfuehrer-tantieme-vga-rechner/" class="whitespace-nowrap bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl transition">
+        Rechner öffnen →
+      </a>
+    </div>
+
+    <!-- Section 1: Formel -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        1. Die Berechnungsformel der Gewinntantieme
+      </h2>
+      <p>
+        Maßgebliche Bemessungsgrundlage für eine steuerlich anerkannte Tantieme ist der <strong>handelsrechtliche Jahresüberschuss vor Abzug der Ertragsteuern (Körperschaftsteuer, Gewerbesteuer) und vor Abzug der Tantieme selbst</strong>.
+      </p>
+
+      <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/40 text-xs font-mono text-amber-300">
+        <strong>Standard-Formel:</strong><br />
+        Tantieme = Handelsbilanzgewinn vor Ertragsteuern &times; Tantiemesatz (%)<br /><br />
+        <em>Beispiel:</em> Bei 300.000 € Gewinn vor Steuern und einem Satz von 15 % beträgt die Tantieme:<br />
+        300.000 € &times; 0,15 = <strong>45.000 Euro brutto</strong>.
+      </div>
+      <p>
+        Wird im Vertrag vereinbart, dass die Tantieme <em>vom Gewinn nach Abzug der Tantieme</em> berechnet werden soll, lautet die mathematische Formel:
+        <br />
+        <code>Tantieme = (Gewinn vor Tantieme &times; Satz) / (1 + Satz)</code>.
+      </p>
+    </section>
+
+    <!-- Section 2: Die BFH 50%-Regel -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        2. Die BFH 50%-Regel (Verhältnis zur Gesamtvergütung)
+      </h2>
+      <p>
+        Der Bundesfinanzhof hat in ständiger Rechtsprechung (u. a. BFH-Urteil vom 05.10.1994 – I R 50/94) entschieden:
+      </p>
+      <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+        <strong>Der Grundsatz:</strong> Die Tantieme eines Gesellschafter-Geschäftsführers darf im Regelfall <strong>nicht mehr als 50 % seiner gesamten Vergütung</strong> ausmachen. Die feste Grundvergütung muss den überwiegenden Teil der Gesamtbezüge bilden.
+      </div>
+      
+      <p><strong>Die mathematische Bedingung:</strong></p>
+      <div class="p-3 rounded-lg bg-slate-900 border border-slate-700 font-mono text-center text-xs text-white">
+        Tantieme &le; Festgehalt + Sachbezüge (Firmenwagen) + betriebliche Altersvorsorge
+      </div>
+
+      <p>
+        <strong>Rechenbeispiel für vGA:</strong><br />
+        Ein Geschäftsführer erhält ein Festgehalt von 100.000 € und eine Tantieme von 140.000 € (Gesamtausstattung: 240.000 €). Die Tantieme-Quote liegt bei 58,3 %.<br />
+        Ergebnis: Maximal zulässige Tantieme = 100.000 €. Der übersteigende Betrag von <strong>40.000 € wird als verdeckte Gewinnausschüttung</strong> eingestuft!
+      </p>
+    </section>
+
+    <!-- Section 3: Die 75%-Gewinnabschöpfung -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        3. Die BFH 75%-Grenze (Gewinnabschöpfung)
+      </h2>
+      <p>
+        Neben dem Verhältnis zum Gehalt prüft das Finanzamt auch, wie viel vom GmbH-Gewinn durch Tantiemen abgeschöpft wird:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Die Tantiemen aller Geschäftsführer zusammen dürfen im Regelfall <strong>höchstens 50 % bis 75 % des Jahresüberschusses</strong> vor Tantieme und Steuern betragen.</li>
+        <li>Werden mehr als 75 % des Gewinns ausgeschüttet, argumentiert die Finanzverwaltung, dass ein fremder Dritter kein Unternehmen führen würde, bei dem fast der gesamte Gewinn an die Geschäftsleitung abfließt und dem Unternehmen kein Spielraum zur Bildung von Eigenkapital verbleibt.</li>
+      </ul>
+    </section>
+
+    <!-- Section 4: Die 3 goldenen Regeln für den Vertrag -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        4. Die drei goldenen Regeln für den Tantiemevertrag
+      </h2>
+      <ol class="list-decimal pl-5 space-y-3">
+        <li><strong>Strikte Vorabvereinbarung (Rückwirkungsverbot):</strong> Die Tantiemevereinbarung muss <em>vor Beginn des Geschäftsjahres</em> schriftlich von der Gesellschafterversammlung beschlossen und unterzeichnet sein. Eine nachträgliche Vereinbarung im laufenden Jahr führt zwingend zur vollen vGA!</li>
+        <li><strong>Zwingende Verlustverrechnungsklausel:</strong> Der Vertrag muss ausdrücklich regeln, dass ein Verlust in einem Geschäftsjahr mit den Tantiemebemessungsgrundlagen der Folgejahre verrechnet wird (Verlustvortrag).</li>
+        <li><strong>Fälligkeitsregelung:</strong> Die Tantieme darf erst nach Feststellung des Jahresabschlusses durch die Gesellschafterversammlung fällig werden. Vorzeitige Abschlagszahlungen stellen ein zinsloses Darlehen der GmbH dar und sind ebenfalls vGA-verdächtig.</li>
+      </ol>
+    </section>
+
+    <!-- Bottom Rechner Banner -->
+    <div class="p-8 rounded-2xl bg-gradient-to-r from-amber-500/20 via-slate-900 to-yellow-500/10 border border-amber-500/30 text-center">
+      <h3 class="text-xl font-display font-bold text-white mb-2">Tantieme- &amp; Vergütungsplan jetzt rechtssicher berechnen</h3>
+      <p class="text-xs text-slate-300 max-w-xl mx-auto mb-6">
+        Prüfen Sie Ihre Verträge gegen die BFH 50%- und 75%-Deckelungen und sichern Sie sich gegen böse Überraschungen bei der nächsten Betriebsprüfung ab.
+      </p>
+      <a href="./geschaeftsfuehrer-tantieme-vga-rechner/" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm px-6 py-3 rounded-xl transition shadow-lg shadow-amber-500/20">
+        Kostenlosen Rechner starten →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk. Rein technischer Informationsleitfaden. Keine Rechts- oder Steuerberatung (§ 2 RDG / § 5 StBerG).</div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="./agb/" class="hover:text-amber-400 transition">AGB</a>
+        <a href="./haftungsausschluss/" class="hover:text-amber-400 transition">Haftungsausschluss</a>
+        <a href="./geschaeftsfuehrer-tantieme-vga-rechner/" class="hover:text-amber-400 transition">VGA-Rechner</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

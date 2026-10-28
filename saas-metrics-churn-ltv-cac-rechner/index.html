@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH B2B SaaS-Metrics-, Net Revenue Retention (NRR)-, LTV:CAC-, CAC-Payback- &amp; Rule-of-40-Rechner 2026 | MRR/ARR Waterfall, Burn Multiple &amp; SaaS-Bewertung (DE/AT/CH)</title>
+  <meta name="description" content="Interaktiver B2B SaaS-Metrics- &amp; Investor-KPI-Rechner 2026 für DE, AT &amp; CH: MRR/ARR Waterfall Bridge, Gross &amp; Net Revenue Retention (GRR/NRR), Logo- vs. Revenue-Churn, LTV:CAC Ratio, CAC Payback Period, Rule of 40, SaaS Magic Number, Burn Multiple &amp; 24-Monats-Projektion inkl. CSV/JSON-Export." />
+  <meta name="keywords" content="SaaS Metrics Rechner 2026, Net Revenue Retention NRR berechnen, LTV CAC Ratio Rechner SaaS, CAC Payback Period Formel, Rule of 40 Rechner SaaS, Burn Multiple David Sacks, SaaS Magic Number berechnen, MRR ARR Waterfall Churn Rechner DACH" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/saas-metrics-churn-ltv-cac-rechner/" />
+  <meta property="og:title" content="DACH B2B SaaS-Metrics-, NRR-, LTV:CAC-, CAC-Payback- &amp; Rule-of-40-Rechner 2026" />
+  <meta property="og:description" content="MRR/ARR Waterfall, GRR &amp; NRR, LTV:CAC Ampel, CAC Payback, Rule of 40, SaaS Magic Number, Burn Multiple, ARR-Bewertungs-Multiples &amp; 24-Monats-Forecast für DE, AT &amp; CH." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/saas-metrics-churn-ltv-cac-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH B2B SaaS-Metrics-, Net Revenue Retention (NRR)-, LTV:CAC-, CAC-Payback- & Rule-of-40-Rechner 2026",
+    "description": "Finanzmathematischer B2B-SaaS-Unit-Economics-, Retention-, Cashflow- und Venture-KPI-Simulator 2026 für Softwareunternehmen, CFOs und Investoren in Deutschland, Österreich und der Schweiz.",
+    "url": "https://dachdigitalwerk.github.io/saas-metrics-churn-ltv-cac-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen Gross Revenue Retention (GRR) und Net Revenue Retention (NRR) im B2B SaaS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Gross Revenue Retention (GRR = (Starting MRR - Contraction MRR - Churned MRR) / Starting MRR) misst die reine Bestandserhaltung ohne Upsells und ist mathematisch auf maximal 100 % gedeckelt. Die Net Revenue Retention (NRR = (Starting MRR + Expansion MRR - Contraction MRR - Churned MRR) / Starting MRR) bezieht zusätzlich Expansion-Umsätze (Upselling, Cross-Selling, Seat-Upgrades) der Bestandskohorte ein. Übersteigt das Expansion MRR die Summe aus Contraction und Churn, liegt die NRR über 100 % (sog. Negative Net Churn)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie werden LTV:CAC Ratio und CAC Payback Period korrekt mit Bruttomarge (Gross Margin) berechnet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Im institutionellen SaaS-Controlling darf der Customer Lifetime Value (LTV) niemals auf reinem Umsatz, sondern zwingend auf dem Bruttogewinn (ARPA × Gross Margin nach Abzug von Cloud-Hosting, API/LLM-Kosten, Payment-Gebühren und Customer-Support-COGS) berechnet werden: LTV = (ARPA × Gross Margin) / monatliche Churn-Rate (mit institutioneller Deckelung bei Negativ-Churn). Teilt man den LTV durch die Customer Acquisition Cost (CAC = Sales- & Marketing-Kosten / Neukunden), ergibt sich die LTV:CAC Ratio (Zielkorridor: 3,0x bis 5,0x). Die CAC Payback Period in Monaten lautet CAC / (ARPA × Gross Margin)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was sagen Rule of 40, SaaS Magic Number und Burn Multiple für DACH-Investoren aus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Rule of 40 addiert die jährliche ARR-Wachstumsrate (YoY ARR Growth %) und die Free-Cash-Flow-Marge (FCF Margin %); Werte ab 40 % gelten als Venture- und PE-Benchmark für hochgradig effizientes Wachstum. Die SaaS Magic Number setzt den im Quartal gewonnenen Net New ARR ins Verhältnis zu den Sales- & Marketing-Ausgaben des Vorquartals (ab > 0,75x effizient, > 1,0x exzellent). Der Burn Multiple nach David Sacks teilt den Netto-Cash-Burn durch den generierten Net New ARR (unter 1,5x sehr kapitaleffizient, über 2,5x kritischer Kapitalverbrauch)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser SaaS-Metrics- und Bewertungsrechner eine Rechts-, Steuer- oder Anlageberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – I ZR 226/20 (Smartlaw) ohne individuelle Rechts-, Steuer- oder Finanz-/Anlageberatung i.S.d. § 2 RDG bzw. § 5 StBerG."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #42 • B2B SaaS Metrics, NRR, LTV:CAC, Rule of 40 &amp; Burn Multiple 2026</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="exportCSV()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white transition">
+          📥 CSV (24M-Forecast)
+        </button>
+        <button onclick="exportJSON()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          { } JSON
+        </button>
+        <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+          🖨️ DIN-A4 Board-Dossier drucken
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 DE GmbH (EUR) • 🇦🇹 AT FlexCo/GmbH (EUR) • 🇨🇭 CH AG (CHF)
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          📈 MRR/ARR Waterfall • GRR vs. NRR • LTV:CAC &amp; Payback
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          🚀 Rule of 40 • SaaS Magic Number • Burn Multiple
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH B2B SaaS-Metrics-, Net Revenue Retention (NRR)-, LTV:CAC-, CAC-Payback- &amp; Rule-of-40-Rechner 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Institutionelles SaaS-Controlling- &amp; Venture-Reporting-Cockpit für Gründer, CFOs und Investoren in Deutschland, Österreich und der Schweiz: Simulieren Sie Ihre <strong>MRR / ARR Waterfall Bridge</strong>, <strong>Gross &amp; Net Revenue Retention (GRR / NRR)</strong>, <strong>Logo- vs. Revenue-Churn</strong>, <strong>Bruttomargen-bereinigten LTV:CAC &amp; CAC Payback</strong>, <strong>Rule of 40</strong>, <strong>SaaS Magic Number</strong>, <strong>Burn Multiple (David Sacks)</strong> sowie indikative <strong>ARR-Bewertungs-Multiples &amp; 24-Monats-Cashflow-Projektion</strong>.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Jurisdiktion / Währung:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 DE (EUR €)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 AT (EUR €)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 CH (CHF)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">SaaS-Stage Presets:</span>
+          <button onclick="loadPreset('series_a_dach')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🚀 Series-A Mid-Market (NRR &gt; 110 %)</button>
+          <button onclick="loadPreset('seed_plg')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">🌱 Seed / PLG SaaS (45k MRR)</button>
+          <button onclick="loadPreset('bootstrapped_kmu')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">💎 Bootstrapped Vertical (Profitabel)</button>
+          <button onclick="loadPreset('enterprise_ch')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-cyan-200 border border-slate-700 transition">🇨🇭 Swiss Enterprise AG (420k CHF)</button>
+          <button onclick="loadPreset('high_churn_warn')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-rose-200 border border-slate-700 transition">⚠️ High-Churn Turnaround</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Inputs -->
+      <div class="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Monats-MRR Waterfall &amp; Kundenkohorte</span>
+          <span id="badge-curr" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-start-mrr" class="block text-xs font-semibold text-slate-300 mb-1">Starting MRR (Monatsbeginn)</label>
+            <input id="in-start-mrr" type="number" value="180000" min="100" step="1000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-start-cust" class="block text-xs font-semibold text-slate-300 mb-1">Aktive Kunden (Start)</label>
+            <input id="in-start-cust" type="number" value="120" min="1" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-new-mrr" class="block text-xs font-semibold text-emerald-300 mb-1">+ New Business MRR (Monat)</label>
+            <input id="in-new-mrr" type="number" value="15000" min="0" step="500" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-exp-mrr" class="block text-xs font-semibold text-emerald-300 mb-1">+ Expansion / Upsell MRR</label>
+            <input id="in-exp-mrr" type="number" value="4500" min="0" step="250" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-contr-mrr" class="block text-xs font-semibold text-amber-300 mb-1">− Contraction / Downgrade MRR</label>
+            <input id="in-contr-mrr" type="number" value="900" min="0" step="100" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-churn-mrr" class="block text-xs font-semibold text-rose-300 mb-1">− Churned MRR (Kündigungen)</label>
+            <input id="in-churn-mrr" type="number" value="1800" min="0" step="100" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-new-cust" class="block text-xs font-semibold text-slate-300 mb-1">Gewonnene Neukunden / Monat</label>
+            <input id="in-new-cust" type="number" value="10" min="0" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-churn-cust" class="block text-xs font-semibold text-slate-300 mb-1">Gekündigte Kunden (Logos / M.)</label>
+            <input id="in-churn-cust" type="number" value="1" min="0" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300">2. Unit Economics (COGS / Gross Margin &amp; Go-To-Market CAC)</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-gm-pct" class="block text-xs font-semibold text-slate-300 mb-1">Bruttomarge / Gross Margin (%)</label>
+              <input id="in-gm-pct" type="number" value="82.0" min="5" max="99" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-sm-month" class="block text-xs font-semibold text-slate-300 mb-1">Sales &amp; Marketing / Monat</label>
+              <input id="in-sm-month" type="number" value="52000" min="0" step="1000" oninput="syncPrevQuarterSM(); recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-sm-prev-q" class="block text-xs font-semibold text-slate-300 mb-1">S&amp;M Spend Vorquartal (3M)</label>
+              <input id="in-sm-prev-q" type="number" value="150000" min="0" step="5000" oninput="userEditedPrevQ = true; recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-ltv-basis" class="block text-xs font-semibold text-slate-300 mb-1">LTV Churn-Berechnungsbasis</label>
+              <select id="in-ltv-basis" onchange="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-xs">
+                <option value="gross">Konservativ (Gross Churn, VC-Standard)</option>
+                <option value="net">Net Churn (gedeckelt bei ≥ 1,0 %/M.)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-amber-300">3. R&amp;D / G&amp;A Fixkosten, Cashflow &amp; Runway-Reserve</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-rd-ga" class="block text-xs font-semibold text-slate-300 mb-1">R&amp;D + G&amp;A OpEx / Monat</label>
+              <input id="in-rd-ga" type="number" value="118000" min="0" step="2000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-cash-bank" class="block text-xs font-semibold text-slate-300 mb-1">Cash-Bestand (Bank / Liquidität)</label>
+              <input id="in-cash-bank" type="number" value="1450000" min="0" step="50000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            <em>Hinweis:</em> Aus <strong>Gross Profit − S&amp;M − (R&amp;D + G&amp;A)</strong> berechnet die Engine automatisch Ihren monatlichen <strong>Free Cash Flow / Net Burn</strong>, die <strong>FCF-Marge (%)</strong>, die <strong>Rule of 40</strong> sowie den <strong>Burn Multiple</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Results -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Traffic Light Banner: LTV:CAC + Rule of 40 -->
+        <div id="box-health-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span id="out-health-title" class="text-xs font-extrabold text-emerald-300">🟢 Gesundes Venture-SaaS-Profil (LTV:CAC ≥ 3,0x &amp; NRR &gt; 100 %)</span>
+            <span id="out-health-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200">LTV:CAC: 4,73x • Payback: 14,1 Mon. • Rule of 40: 51,2 %</span>
+          </div>
+          <p id="out-health-desc" class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+            Ihre Bestandskohorte wächst durch Upselling schneller als Churn &amp; Downgrades (Negative Net Churn). Gleichzeitig amortisieren sich die Kundenakquisekosten (CAC) in unter 18 Monaten aus dem Bruttogewinn.
+          </p>
+        </div>
+
+        <!-- Top 6 KPI Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Ending ARR (Ending MRR × 12)</span>
+            <div id="out-arr" class="text-2xl font-extrabold text-white mt-1">2.361.600 €</div>
+            <p id="out-mrr-sub" class="text-[11px] text-indigo-300 mt-1">Ending MRR: 196.800 € (+16.800 €)</p>
+          </div>
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Net Revenue Retention (NRR)</span>
+            <div id="out-nrr-12m" class="text-2xl font-extrabold text-emerald-400 mt-1">112,7 % p.a.</div>
+            <p id="out-grr-sub" class="text-[11px] text-slate-300 mt-1">Monat: 101,0 % • GRR (12M): 83,4 %</p>
+          </div>
+          <div class="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">LTV : CAC &amp; Payback</span>
+            <div id="out-ltv-cac" class="text-2xl font-extrabold text-white mt-1">4,73x</div>
+            <p id="out-payback-sub" class="text-[11px] text-indigo-200 mt-1">CAC Payback: 14,1 Monate</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">LTV vs. CAC (pro Kunde)</span>
+            <div id="out-ltv" class="text-xl font-extrabold text-white mt-1">82.000 €</div>
+            <p id="out-cac-sub" class="text-[11px] text-slate-300 mt-1">CAC: 5.200 € • ARPA: 1.500 €</p>
+          </div>
+          <div class="bg-slate-900/90 border border-amber-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Rule of 40 &amp; Magic Number</span>
+            <div id="out-rule40" class="text-xl font-extrabold text-amber-300 mt-1">+51,2 %</div>
+            <p id="out-magic-sub" class="text-[11px] text-slate-300 mt-1">Magic Number: 1,21x (Go-To-Market)</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Burn Multiple &amp; Cashflow</span>
+            <div id="out-burn-mult" class="text-xl font-extrabold text-white mt-1">0,43x</div>
+            <p id="out-fcf-sub" class="text-[11px] text-slate-300 mt-1">FCF: -8.624 €/M. • Runway: 168 M.</p>
+          </div>
+        </div>
+
+        <!-- MRR Waterfall Bridge & Retention Breakdown -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h3 class="text-sm font-bold text-white">
+              MRR / ARR Waterfall Bridge, Retention &amp; Churn-Matrix (Monat vs. 12M annualisiert)
+            </h3>
+            <span id="out-val-badge" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-200 border border-indigo-500/30">
+              Indikative SaaS-Bewertung: 16,5 Mio. € – 23,6 Mio. €
+            </span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">SaaS-Kennzahl / Waterfall-Stufe</th>
+                  <th class="py-2 px-3 text-right">Monatswert (MRR / Rate)</th>
+                  <th class="py-2 pl-3 text-right text-indigo-300">Annualisiert (ARR / 12M p.a.)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2 pr-3 text-slate-300">1. Starting MRR / Starting ARR (Bestandskohorte Start)</td>
+                  <td id="tbl-start-mrr" class="py-2 px-3 text-right font-mono">180.000 €</td>
+                  <td id="tbl-start-arr" class="py-2 pl-3 text-right font-mono text-slate-300">2.160.000 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-emerald-300">2. + New Business MRR (Neukunden-Akquise)</td>
+                  <td id="tbl-new-mrr" class="py-2 px-3 text-right font-mono text-emerald-300">+15.000 €</td>
+                  <td id="tbl-new-arr" class="py-2 pl-3 text-right font-mono text-emerald-300">+180.000 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-emerald-300">3. + Expansion / Upsell MRR (Seat- &amp; Tier-Upgrades)</td>
+                  <td id="tbl-exp-mrr" class="py-2 px-3 text-right font-mono text-emerald-300">+4.500 €</td>
+                  <td id="tbl-exp-arr" class="py-2 pl-3 text-right font-mono text-emerald-300">+54.000 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-amber-300">4. − Contraction / Downgrade MRR</td>
+                  <td id="tbl-contr-mrr" class="py-2 px-3 text-right font-mono text-amber-300">-900 €</td>
+                  <td id="tbl-contr-arr" class="py-2 pl-3 text-right font-mono text-amber-300">-10.800 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-rose-300">5. − Churned MRR (Verlorene Kundenverträge)</td>
+                  <td id="tbl-churn-mrr" class="py-2 px-3 text-right font-mono text-rose-300">-1.800 €</td>
+                  <td id="tbl-churn-arr" class="py-2 pl-3 text-right font-mono text-rose-300">-21.600 €</td>
+                </tr>
+                <tr class="bg-slate-800/50 font-bold text-white">
+                  <td class="py-2.5 pr-3">6. Ending MRR / Ending ARR (Net New MRR / ARR)</td>
+                  <td id="tbl-end-mrr" class="py-2.5 px-3 text-right font-mono text-white">196.800 € (+16.800 €)</td>
+                  <td id="tbl-end-arr" class="py-2.5 pl-3 text-right font-mono text-indigo-300">2.361.600 € (+201.600 €)</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-slate-300">7. Gross Revenue Retention (GRR, max. 100 %)</td>
+                  <td id="tbl-grr-m" class="py-2 px-3 text-right font-mono">98,50 %</td>
+                  <td id="tbl-grr-y" class="py-2 pl-3 text-right font-mono text-indigo-200">83,42 % p.a.</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-slate-300">8. Net Revenue Retention (NRR inkl. Expansion)</td>
+                  <td id="tbl-nrr-m" class="py-2 px-3 text-right font-mono text-emerald-300">101,00 %</td>
+                  <td id="tbl-nrr-y" class="py-2 pl-3 text-right font-mono text-emerald-300 font-bold">112,68 % p.a.</td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-3 text-slate-300">9. Gross Revenue Churn vs. Logo-Churn (`1 - (1 - c)^12`)</td>
+                  <td id="tbl-churn-rates-m" class="py-2 px-3 text-right font-mono text-rose-300">1,50 % Rev. / 0,83 % Logo</td>
+                  <td id="tbl-churn-rates-y" class="py-2 pl-3 text-right font-mono text-rose-300">16,58 % Rev. / 9,55 % Logo</td>
+                </tr>
+                <tr class="bg-indigo-950/40 font-semibold text-white">
+                  <td class="py-2.5 pr-3">10. Indikative B2B-SaaS Unternehmensbewertung (EV / ARR)</td>
+                  <td id="tbl-val-boot" class="py-2.5 px-3 text-right font-mono text-amber-200">PE / Bootstrap: 4,8x ARR</td>
+                  <td id="tbl-val-vc" class="py-2.5 pl-3 text-right font-mono text-emerald-300">Venture-Grade: 8,2x ARR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24-Month Projection Table -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 print-card">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white">24-Monats-MRR-, ARR-, Kunden- &amp; Cashflow-Projektion (Kohorten-Simulation)</h2>
+          <p class="text-xs text-slate-400 mt-0.5">
+            Dynamische Fortschreibung der monatlichen Expansions-, Contraction- und Churn-Quoten zuzüglich konstanter Neukunden-Kohorten. Alle 24 Monate sind per Klick als CSV (Excel) oder JSON exportierbar.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 no-print">
+          <button onclick="toggleFullForecast()" id="btn-toggle-forecast" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+            Alle 24 Monate einzeln einblenden
+          </button>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-xs text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 text-slate-400">
+              <th class="py-2 pr-3">Monat</th>
+              <th class="py-2 px-2 text-right">Kunden</th>
+              <th class="py-2 px-2 text-right">Starting MRR</th>
+              <th class="py-2 px-2 text-right text-emerald-300">+ New &amp; Exp.</th>
+              <th class="py-2 px-2 text-right text-rose-300">− Churn &amp; Contr.</th>
+              <th class="py-2 px-2 text-right font-bold text-white">Ending MRR</th>
+              <th class="py-2 px-2 text-right text-indigo-300">Ending ARR</th>
+              <th class="py-2 px-2 text-right">FCF / Monat</th>
+              <th class="py-2 pl-2 text-right">Cash-Bestand</th>
+            </tr>
+          </thead>
+          <tbody id="tbl-forecast-body" class="divide-y divide-slate-800/60 font-mono">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: B2B SaaS Unit Economics, Net Revenue Retention (NRR), LTV:CAC &amp; Rule of 40 im DACH-Markt
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        Seit der Zinswende bewerten DACH-Venture-Capital-Fonds, Private-Equity-Käufer und Banken Softwareunternehmen nicht mehr allein nach reinem Top-Line-ARR-Wachstum, sondern nach <strong>Kapitaleffizienz und Kohorten-Retention</strong>. Während eine <strong>Net Revenue Retention (NRR) &gt; 110 % p.a.</strong> beweist, dass das Unternehmen selbst ohne Neukunden organisch weiterwächst (<em>Negative Net Churn</em>), sichern eine <strong>Bruttomargen-bereinigte LTV:CAC Ratio ≥ 3,0x</strong>, eine <strong>CAC Payback Period ≤ 12–18 Monate</strong>, ein <strong>Burn Multiple &lt; 1,5x</strong> und das Erreichen der <strong>Rule of 40</strong> signifikante Bewertungsaufschläge beim Exit oder der nächsten Finanzierungsrunde.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="net-revenue-retention-nrr-berechnen-saas-churn-formel-benchmark-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • Retention &amp; Churn</div>
+          <div class="text-sm font-bold text-white">Net Revenue Retention (NRR) &amp; GRR berechnen: Negative Churn &amp; 12M-Formel 2026</div>
+        </a>
+        <a href="ltv-cac-ratio-berechnen-saas-unit-economics-cac-payback-period.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-emerald-300 mb-1">Vertiefung 2 • Unit Economics</div>
+          <div class="text-sm font-bold text-white">LTV:CAC Ratio &amp; CAC Payback Period mit Bruttomarge (COGS) richtig kalkulieren</div>
+        </a>
+        <a href="rule-of-40-berechnen-saas-magic-number-burn-multiple-unternehmensbewertung-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • Venture &amp; Valuation</div>
+          <div class="text-sm font-bold text-white">Rule of 40, SaaS Magic Number, Burn Multiple &amp; DACH ARR-Multiples 2026</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Dieser DACH B2B SaaS-Metrics-, LTV:CAC-, Rule-of-40- und Bewertungsrechner ist ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug für betriebswirtschaftliche Simulationen. Er erbringt keine individuelle Rechts-, Steuer-, Wirtschaftsprüfungs- oder Anlageberatung i.S.d. § 2 RDG bzw. § 5 StBerG. Indikative ARR-Bewertungsmultiples stellen kein verbindliches Kauf- oder Finanzierungsangebot dar. 100 % Client-Side (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    let showAllMonths = false;
+    let userEditedPrevQ = false;
+    let lastState = null;
+
+    function fmtInt(val, curr) {
+      const sign = val < 0 ? '-' : '';
+      return sign + Math.round(Math.abs(val)).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function fmtPct(val, digits = 1) {
+      return val.toLocaleString('de-DE', { minimumFractionDigits: digits, maximumFractionDigits: digits }) + ' %';
+    }
+
+    function syncPrevQuarterSM() {
+      if (!userEditedPrevQ) {
+        const smM = Math.max(0, parseFloat(document.getElementById('in-sm-month').value) || 0);
+        document.getElementById('in-sm-prev-q').value = Math.round(smM * 3);
+      }
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        btn.className = (k === c)
+          ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400'
+          : 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+      });
+      document.getElementById('badge-curr').textContent = (c === 'CH') ? 'CHF' : 'EUR (€)';
+      recalc();
+    }
+
+    function loadPreset(p) {
+      userEditedPrevQ = true;
+      if (p === 'series_a_dach') {
+        setCountry('DE');
+        document.getElementById('in-start-mrr').value = 180000;
+        document.getElementById('in-start-cust').value = 120;
+        document.getElementById('in-new-mrr').value = 15000;
+        document.getElementById('in-exp-mrr').value = 4500;
+        document.getElementById('in-contr-mrr').value = 900;
+        document.getElementById('in-churn-mrr').value = 1800;
+        document.getElementById('in-new-cust').value = 10;
+        document.getElementById('in-churn-cust').value = 1;
+        document.getElementById('in-gm-pct').value = 82.0;
+        document.getElementById('in-sm-month').value = 52000;
+        document.getElementById('in-sm-prev-q').value = 150000;
+        document.getElementById('in-rd-ga').value = 118000;
+        document.getElementById('in-cash-bank').value = 1450000;
+      } else if (p === 'seed_plg') {
+        setCountry('DE');
+        document.getElementById('in-start-mrr').value = 45000;
+        document.getElementById('in-start-cust').value = 150;
+        document.getElementById('in-new-mrr').value = 6000;
+        document.getElementById('in-exp-mrr').value = 1350;
+        document.getElementById('in-contr-mrr').value = 450;
+        document.getElementById('in-churn-mrr').value = 1125;
+        document.getElementById('in-new-cust').value = 20;
+        document.getElementById('in-churn-cust').value = 4;
+        document.getElementById('in-gm-pct').value = 80.0;
+        document.getElementById('in-sm-month').value = 18000;
+        document.getElementById('in-sm-prev-q').value = 51000;
+        document.getElementById('in-rd-ga').value = 38000;
+        document.getElementById('in-cash-bank').value = 620000;
+      } else if (p === 'bootstrapped_kmu') {
+        setCountry('AT');
+        document.getElementById('in-start-mrr').value = 85000;
+        document.getElementById('in-start-cust').value = 425;
+        document.getElementById('in-new-mrr').value = 4400;
+        document.getElementById('in-exp-mrr').value = 1700;
+        document.getElementById('in-contr-mrr').value = 425;
+        document.getElementById('in-churn-mrr').value = 1275;
+        document.getElementById('in-new-cust').value = 22;
+        document.getElementById('in-churn-cust').value = 6;
+        document.getElementById('in-gm-pct').value = 86.0;
+        document.getElementById('in-sm-month').value = 11000;
+        document.getElementById('in-sm-prev-q').value = 33000;
+        document.getElementById('in-rd-ga').value = 39000;
+        document.getElementById('in-cash-bank').value = 380000;
+      } else if (p === 'enterprise_ch') {
+        setCountry('CH');
+        document.getElementById('in-start-mrr').value = 420000;
+        document.getElementById('in-start-cust').value = 70;
+        document.getElementById('in-new-mrr').value = 30000;
+        document.getElementById('in-exp-mrr').value = 12600;
+        document.getElementById('in-contr-mrr').value = 2100;
+        document.getElementById('in-churn-mrr').value = 4200;
+        document.getElementById('in-new-cust').value = 5;
+        document.getElementById('in-churn-cust').value = 1;
+        document.getElementById('in-gm-pct').value = 85.0;
+        document.getElementById('in-sm-month').value = 75000;
+        document.getElementById('in-sm-prev-q').value = 210000;
+        document.getElementById('in-rd-ga').value = 220000;
+        document.getElementById('in-cash-bank').value = 3200000;
+      } else if (p === 'high_churn_warn') {
+        setCountry('DE');
+        document.getElementById('in-start-mrr').value = 90000;
+        document.getElementById('in-start-cust').value = 300;
+        document.getElementById('in-new-mrr').value = 7500;
+        document.getElementById('in-exp-mrr').value = 900;
+        document.getElementById('in-contr-mrr').value = 1800;
+        document.getElementById('in-churn-mrr').value = 4950;
+        document.getElementById('in-new-cust').value = 25;
+        document.getElementById('in-churn-cust').value = 17;
+        document.getElementById('in-gm-pct').value = 72.0;
+        document.getElementById('in-sm-month').value = 35000;
+        document.getElementById('in-sm-prev-q').value = 105000;
+        document.getElementById('in-rd-ga').value = 65000;
+        document.getElementById('in-cash-bank').value = 420000;
+      }
+      recalc();
+    }
+
+    function toggleFullForecast() {
+      showAllMonths = !showAllMonths;
+      document.getElementById('btn-toggle-forecast').textContent = showAllMonths
+        ? 'Kompaktansicht (Schlüsselmonate)'
+        : 'Alle 24 Monate einzeln einblenden';
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const startMrr = Math.max(1, parseFloat(document.getElementById('in-start-mrr').value) || 1);
+      const startCust = Math.max(1, parseInt(document.getElementById('in-start-cust').value) || 1);
+      const newMrr = Math.max(0, parseFloat(document.getElementById('in-new-mrr').value) || 0);
+      const expMrr = Math.max(0, parseFloat(document.getElementById('in-exp-mrr').value) || 0);
+      const contrMrr = Math.max(0, parseFloat(document.getElementById('in-contr-mrr').value) || 0);
+      const churnMrr = Math.max(0, parseFloat(document.getElementById('in-churn-mrr').value) || 0);
+      const newCust = Math.max(0, parseInt(document.getElementById('in-new-cust').value) || 0);
+      const churnCust = Math.min(startCust, Math.max(0, parseInt(document.getElementById('in-churn-cust').value) || 0));
+      const gmPct = Math.min(99.9, Math.max(1, parseFloat(document.getElementById('in-gm-pct').value) || 80));
+      const smMonth = Math.max(0, parseFloat(document.getElementById('in-sm-month').value) || 0);
+      const smPrevQ = Math.max(0, parseFloat(document.getElementById('in-sm-prev-q').value) || 0);
+      const ltvBasis = document.getElementById('in-ltv-basis').value;
+      const rdGa = Math.max(0, parseFloat(document.getElementById('in-rd-ga').value) || 0);
+      const cashBank = Math.max(0, parseFloat(document.getElementById('in-cash-bank').value) || 0);
+
+      const gm = gmPct / 100.0;
+
+      // 1. MRR & ARR Waterfall Bridge
+      const netNewMrr = newMrr + expMrr - contrMrr - churnMrr;
+      const endMrr = Math.max(0, startMrr + netNewMrr);
+      const startArr = startMrr * 12.0;
+      const endArr = endMrr * 12.0;
+      const netNewArrRunRate = netNewMrr * 12.0;
+
+      // 2. Retention & Churn
+      const grrM = Math.min(1.0, Math.max(0.0, (startMrr - contrMrr - churnMrr) / startMrr));
+      const grr12M = Math.min(1.0, Math.pow(grrM, 12));
+      const nrrM = Math.max(0.0, (startMrr + expMrr - contrMrr - churnMrr) / startMrr);
+      const nrr12M = Math.pow(nrrM, 12);
+
+      const mGrossRevChurn = Math.min(1.0, Math.max(0.0, (contrMrr + churnMrr) / startMrr));
+      const annualGrossRevChurn = 1.0 - Math.pow(1.0 - mGrossRevChurn, 12);
+
+      const mNetRevChurn = (contrMrr + churnMrr - expMrr) / startMrr; // can be negative
+      const mLogoChurn = Math.min(1.0, Math.max(0.0, churnCust / startCust));
+      const annualLogoChurn = 1.0 - Math.pow(1.0 - mLogoChurn, 12);
+
+      // 3. Unit Economics: ARPA, LTV, CAC, LTV:CAC, CAC Payback
+      const arpa = startMrr / startCust;
+      const grossProfitPerCustMonth = arpa * gm;
+
+      // LTV with institutional cap (min 0.8333%/m = 120 months for gross churn, min 1.0%/m = 100 months for net churn)
+      const effChurnForLtv = (ltvBasis === 'net')
+        ? Math.max(0.01, mNetRevChurn)
+        : Math.max(1.0 / 120.0, mGrossRevChurn);
+
+      const ltv = grossProfitPerCustMonth / effChurnForLtv;
+      const cac = newCust > 0 ? (smMonth / newCust) : 0.0;
+      const ltvCac = cac > 0 ? (ltv / cac) : 99.9;
+      const cacPaybackMonths = grossProfitPerCustMonth > 0 ? (cac / grossProfitPerCustMonth) : 0.0;
+
+      // 4. Cashflow, Rule of 40, SaaS Magic Number & Burn Multiple
+      const monthlyGrossProfit = endMrr * gm;
+      const monthlyFcf = monthlyGrossProfit - smMonth - rdGa;
+      const fcfMarginPct = endMrr > 0 ? ((monthlyFcf / endMrr) * 100.0) : 0.0;
+      const mGrowthRate = (endMrr / startMrr) - 1.0;
+      const annualArrGrowthPct = (Math.pow(Math.max(0.01, 1.0 + mGrowthRate), 12) - 1.0) * 100.0;
+      const ruleOf40 = annualArrGrowthPct + fcfMarginPct;
+
+      // Quarterly Net New ARR = 3 * netNewMrr * 12
+      const quarterlyNetNewArr = 3.0 * netNewMrr * 12.0;
+      const magicNumber = smPrevQ > 0 ? (quarterlyNetNewArr / smPrevQ) : 0.0;
+
+      const monthlyNetBurn = Math.max(0.0, -monthlyFcf);
+      let burnMultiple = 0.0;
+      let burnMultLabel = '0,00x (Cashflow-positiv)';
+      if (monthlyNetBurn > 0) {
+        if (netNewArrRunRate > 0) {
+          burnMultiple = monthlyNetBurn / netNewArrRunRate;
+          burnMultLabel = burnMultiple.toFixed(2).replace('.', ',') + 'x';
+        } else {
+          burnMultiple = 99.9;
+          burnMultLabel = '∞ (Kein Net New ARR)';
+        }
+      }
+
+      const runwayMonths = monthlyNetBurn > 0 ? (cashBank / monthlyNetBurn) : Infinity;
+
+      // 5. Indicative B2B SaaS ARR Valuation Multiples (Bootstrapped/PE vs. Venture-Grade)
+      let multBoot = 3.8;
+      if (nrr12M >= 1.05) multBoot += 0.8;
+      if (ruleOf40 >= 40) multBoot += 1.0;
+      else if (ruleOf40 < 15) multBoot -= 0.9;
+      if (gmPct >= 80) multBoot += 0.4;
+      multBoot = Math.min(8.5, Math.max(2.0, multBoot));
+
+      let multVc = 5.5;
+      if (nrr12M >= 1.15) multVc += 2.5;
+      else if (nrr12M >= 1.05) multVc += 1.4;
+      else if (nrr12M < 0.95) multVc -= 1.5;
+      if (ruleOf40 >= 50) multVc += 2.0;
+      else if (ruleOf40 >= 40) multVc += 1.2;
+      else if (ruleOf40 < 20) multVc -= 1.5;
+      if (ltvCac >= 3.0) multVc += 0.6;
+      multVc = Math.min(14.0, Math.max(2.5, multVc));
+
+      const evLow = endArr * multBoot;
+      const evHigh = endArr * Math.max(multBoot, multVc);
+
+      // 6. 24-Month Cohort Projection
+      const expRate = expMrr / startMrr;
+      const contrRate = contrMrr / startMrr;
+      const churnRate = churnMrr / startMrr;
+      const forecast = [];
+      let curMrr = startMrr;
+      let curCust = startCust;
+      let curCash = cashBank;
+
+      for (let m = 1; m <= 24; m++) {
+        const mStart = curMrr;
+        const mExp = mStart * expRate;
+        const mContr = mStart * contrRate;
+        const mChurn = mStart * churnRate;
+        const mNew = newMrr;
+        const mEnd = Math.max(0, mStart + mNew + mExp - mContr - mChurn);
+        const cChurn = Math.min(curCust, Math.round(curCust * mLogoChurn));
+        const cEnd = Math.max(0, curCust + newCust - cChurn);
+        const mGp = mEnd * gm;
+        const mFcf = mGp - smMonth - rdGa;
+        curCash = curCash + mFcf;
+
+        forecast.push({
+          month: m,
+          customers: cEnd,
+          startingMrr: Math.round(mStart),
+          addMrr: Math.round(mNew + mExp),
+          lossMrr: Math.round(mContr + mChurn),
+          endingMrr: Math.round(mEnd),
+          endingArr: Math.round(mEnd * 12),
+          fcf: Math.round(mFcf),
+          cashBalance: Math.round(curCash)
+        });
+
+        curMrr = mEnd;
+        curCust = cEnd;
+      }
+
+      lastState = {
+        country: currentCountry,
+        currency: curr,
+        waterfall: {
+          startingMrr: startMrr,
+          newBusinessMrr: newMrr,
+          expansionMrr: expMrr,
+          contractionMrr: contrMrr,
+          churnedMrr: churnMrr,
+          netNewMrr: netNewMrr,
+          endingMrr: endMrr,
+          endingArr: endArr
+        },
+        retention: {
+          grrMonthlyPct: +(grrM * 100).toFixed(2),
+          grrAnnualizedPct: +(grr12M * 100).toFixed(2),
+          nrrMonthlyPct: +(nrrM * 100).toFixed(2),
+          nrrAnnualizedPct: +(nrr12M * 100).toFixed(2),
+          monthlyGrossRevenueChurnPct: +(mGrossRevChurn * 100).toFixed(2),
+          annualGrossRevenueChurnPct: +(annualGrossRevChurn * 100).toFixed(2),
+          monthlyLogoChurnPct: +(mLogoChurn * 100).toFixed(2),
+          annualLogoChurnPct: +(annualLogoChurn * 100).toFixed(2)
+        },
+        unitEconomics: {
+          arpa: +arpa.toFixed(2),
+          grossMarginPct: gmPct,
+          ltv: +ltv.toFixed(2),
+          cac: +cac.toFixed(2),
+          ltvToCacRatio: +ltvCac.toFixed(2),
+          cacPaybackMonths: +cacPaybackMonths.toFixed(2)
+        },
+        ventureKpis: {
+          annualizedArrGrowthPct: +annualArrGrowthPct.toFixed(2),
+          fcfMarginPct: +fcfMarginPct.toFixed(2),
+          ruleOf40Pct: +ruleOf40.toFixed(2),
+          saasMagicNumber: +magicNumber.toFixed(2),
+          burnMultiple: monthlyNetBurn > 0 ? +burnMultiple.toFixed(2) : 0,
+          monthlyFcf: +monthlyFcf.toFixed(2),
+          bootstrappedArrMultiple: +multBoot.toFixed(1),
+          ventureArrMultiple: +multVc.toFixed(1)
+        },
+        forecast24M: forecast
+      };
+
+      // Update Traffic Light Box
+      const box = document.getElementById('box-health-status');
+      const titleEl = document.getElementById('out-health-title');
+      const badgeEl = document.getElementById('out-health-badge');
+      const descEl = document.getElementById('out-health-desc');
+
+      const ltvCacTxt = cac > 0 ? (ltvCac.toFixed(2).replace('.', ',') + 'x') : '∞ (0 CAC)';
+      badgeEl.textContent = `LTV:CAC: ${ltvCacTxt} • Payback: ${cacPaybackMonths.toFixed(1).replace('.', ',')} Mon. • Rule of 40: ${fmtPct(ruleOf40, 1)}`;
+
+      if (cac > 0 && ltvCac < 3.0) {
+        box.className = 'bg-rose-950/60 border border-rose-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-rose-300';
+        titleEl.textContent = '🔴 Kritische Unit Economics (LTV:CAC < 3,0x — Churn senken oder Go-To-Market optimieren!)';
+        descEl.textContent = `Mit einem LTV:CAC von ${ltvCacTxt} und ${cacPaybackMonths.toFixed(1).replace('.', ',')} Monaten CAC-Payback verbrennt das Wachstum zu viel Akquisekapital relativ zum Kundenlebenswert. Zielwert im B2B-SaaS: mindestens 3,0x LTV:CAC und < 18 Monate Payback.`;
+      } else if (cac > 0 && ltvCac > 5.0) {
+        box.className = 'bg-indigo-950/70 border border-indigo-400/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-indigo-300';
+        titleEl.textContent = '🔵 Exzellente Unit Economics (LTV:CAC > 5,0x — potenzielle Go-To-Market-Unterinvestition prüfen)';
+        descEl.textContent = `Ihre Akquise-Effizienz ist herausragend (${ltvCacTxt} LTV:CAC, nur ${cacPaybackMonths.toFixed(1).replace('.', ',')} Monate Payback). Prüfen Sie, ob eine kontrollierte Erhöhung des Sales- & Marketing-Budgets das ARR-Wachstum bei weiterhin > 3,5x LTV:CAC beschleunigen kann.`;
+      } else {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Gesunder Venture-SaaS-Korridor (LTV:CAC 3,0x – 5,0x & skalierbare Unit Economics)';
+        descEl.textContent = `LTV:CAC (${ltvCacTxt}) und CAC-Payback (${cacPaybackMonths.toFixed(1).replace('.', ',')} Monate) liegen exakt im institutionellen B2B-SaaS-Zielkorridor. Annualisierte NRR: ${fmtPct(nrr12M * 100, 1)}.`;
+      }
+
+      // Update Top Cards
+      document.getElementById('out-arr').textContent = fmtInt(endArr, curr);
+      document.getElementById('out-mrr-sub').textContent = `Ending MRR: ${fmtInt(endMrr, curr)} (${netNewMrr >= 0 ? '+' : ''}${fmtInt(netNewMrr, curr)})`;
+
+      document.getElementById('out-nrr-12m').textContent = fmtPct(nrr12M * 100, 1) + ' p.a.';
+      document.getElementById('out-nrr-12m').className = nrr12M >= 1.0
+        ? 'text-2xl font-extrabold text-emerald-400 mt-1'
+        : 'text-2xl font-extrabold text-amber-300 mt-1';
+      document.getElementById('out-grr-sub').textContent = `Monat: ${fmtPct(nrrM * 100, 1)} • GRR (12M): ${fmtPct(grr12M * 100, 1)}`;
+
+      document.getElementById('out-ltv-cac').textContent = ltvCacTxt;
+      document.getElementById('out-payback-sub').textContent = `CAC Payback: ${cacPaybackMonths.toFixed(1).replace('.', ',')} Monate`;
+
+      document.getElementById('out-ltv').textContent = fmtInt(ltv, curr);
+      document.getElementById('out-cac-sub').textContent = `CAC: ${fmtInt(cac, curr)} • ARPA: ${fmtInt(arpa, curr)}`;
+
+      document.getElementById('out-rule40').textContent = (ruleOf40 >= 0 ? '+' : '') + fmtPct(ruleOf40, 1);
+      document.getElementById('out-rule40').className = ruleOf40 >= 40
+        ? 'text-xl font-extrabold text-emerald-400 mt-1'
+        : (ruleOf40 >= 20 ? 'text-xl font-extrabold text-amber-300 mt-1' : 'text-xl font-extrabold text-rose-400 mt-1');
+      document.getElementById('out-magic-sub').textContent = `Magic Number: ${magicNumber.toFixed(2).replace('.', ',')}x • Growth: ${fmtPct(annualArrGrowthPct, 1)}`;
+
+      document.getElementById('out-burn-mult').textContent = burnMultLabel;
+      const runwayTxt = runwayMonths === Infinity ? '∞ (Profitabel)' : Math.round(runwayMonths) + ' Mon.';
+      document.getElementById('out-fcf-sub').textContent = `FCF: ${monthlyFcf >= 0 ? '+' : ''}${fmtInt(monthlyFcf, curr)}/M. • Runway: ${runwayTxt}`;
+
+      // Update Waterfall & Retention Table
+      document.getElementById('out-val-badge').textContent = `Indikative SaaS-Bewertung: ${fmtInt(evLow, curr)} – ${fmtInt(evHigh, curr)}`;
+      document.getElementById('tbl-start-mrr').textContent = fmtInt(startMrr, curr);
+      document.getElementById('tbl-start-arr').textContent = fmtInt(startArr, curr);
+      document.getElementById('tbl-new-mrr').textContent = '+' + fmtInt(newMrr, curr);
+      document.getElementById('tbl-new-arr').textContent = '+' + fmtInt(newMrr * 12, curr);
+      document.getElementById('tbl-exp-mrr').textContent = '+' + fmtInt(expMrr, curr);
+      document.getElementById('tbl-exp-arr').textContent = '+' + fmtInt(expMrr * 12, curr);
+      document.getElementById('tbl-contr-mrr').textContent = '-' + fmtInt(contrMrr, curr);
+      document.getElementById('tbl-contr-arr').textContent = '-' + fmtInt(contrMrr * 12, curr);
+      document.getElementById('tbl-churn-mrr').textContent = '-' + fmtInt(churnMrr, curr);
+      document.getElementById('tbl-churn-arr').textContent = '-' + fmtInt(churnMrr * 12, curr);
+      document.getElementById('tbl-end-mrr').textContent = `${fmtInt(endMrr, curr)} (${netNewMrr >= 0 ? '+' : ''}${fmtInt(netNewMrr, curr)})`;
+      document.getElementById('tbl-end-arr').textContent = `${fmtInt(endArr, curr)} (${netNewArrRunRate >= 0 ? '+' : ''}${fmtInt(netNewArrRunRate, curr)})`;
+
+      document.getElementById('tbl-grr-m').textContent = fmtPct(grrM * 100, 2);
+      document.getElementById('tbl-grr-y').textContent = fmtPct(grr12M * 100, 2) + ' p.a.';
+      document.getElementById('tbl-nrr-m').textContent = fmtPct(nrrM * 100, 2);
+      document.getElementById('tbl-nrr-y').textContent = fmtPct(nrr12M * 100, 2) + ' p.a.';
+
+      document.getElementById('tbl-churn-rates-m').textContent = `${fmtPct(mGrossRevChurn * 100, 2)} Rev. / ${fmtPct(mLogoChurn * 100, 2)} Logo`;
+      document.getElementById('tbl-churn-rates-y').textContent = `${fmtPct(annualGrossRevChurn * 100, 2)} Rev. / ${fmtPct(annualLogoChurn * 100, 2)} Logo`;
+
+      document.getElementById('tbl-val-boot').textContent = `PE / Bootstrap: ${multBoot.toFixed(1).replace('.', ',')}x ARR (${fmtInt(evLow, curr)})`;
+      document.getElementById('tbl-val-vc').textContent = `Venture-Grade: ${multVc.toFixed(1).replace('.', ',')}x ARR (${fmtInt(endArr * multVc, curr)})`;
+
+      // Render 24-Month Projection Table
+      const keyMonths = [1, 2, 3, 6, 9, 12, 15, 18, 21, 24];
+      const rowsToRender = showAllMonths ? forecast : forecast.filter(r => keyMonths.includes(r.month));
+      const tbody = document.getElementById('tbl-forecast-body');
+      tbody.innerHTML = rowsToRender.map(r => `
+        <tr class="${r.month === 12 || r.month === 24 ? 'bg-indigo-950/40 font-bold text-white' : 'text-slate-300'}">
+          <td class="py-2 pr-3">M${r.month}${r.month === 12 ? ' (Jahr 1)' : (r.month === 24 ? ' (Jahr 2)' : '')}</td>
+          <td class="py-2 px-2 text-right">${r.customers.toLocaleString('de-DE')}</td>
+          <td class="py-2 px-2 text-right">${fmtInt(r.startingMrr, curr)}</td>
+          <td class="py-2 px-2 text-right text-emerald-300">+${fmtInt(r.addMrr, curr)}</td>
+          <td class="py-2 px-2 text-right text-rose-300">-${fmtInt(r.lossMrr, curr)}</td>
+          <td class="py-2 px-2 text-right font-semibold text-white">${fmtInt(r.endingMrr, curr)}</td>
+          <td class="py-2 px-2 text-right text-indigo-300">${fmtInt(r.endingArr, curr)}</td>
+          <td class="py-2 px-2 text-right ${r.fcf >= 0 ? 'text-emerald-300' : 'text-rose-300'}">${r.fcf >= 0 ? '+' : ''}${fmtInt(r.fcf, curr)}</td>
+          <td class="py-2 pl-2 text-right ${r.cashBalance >= 0 ? 'text-slate-200' : 'text-rose-400 font-bold'}">${fmtInt(r.cashBalance, curr)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function exportCSV() {
+      if (!lastState) recalc();
+      const lines = [
+        'Monat;Aktive_Kunden;Starting_MRR;New_plus_Expansion_MRR;Contraction_plus_Churn_MRR;Ending_MRR;Ending_ARR;Monthly_FCF;Cash_Bestand;Waehrung'
+      ];
+      lastState.forecast24M.forEach(r => {
+        lines.push([
+          'M' + r.month,
+          r.customers,
+          r.startingMrr,
+          r.addMrr,
+          r.lossMrr,
+          r.endingMrr,
+          r.endingArr,
+          r.fcf,
+          r.cashBalance,
+          lastState.currency
+        ].join(';'));
+      });
+      const blob = new Blob(['\uFEFF' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dach_saas_metrics_24m_forecast_${lastState.country.toLowerCase()}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportJSON() {
+      if (!lastState) recalc();
+      const blob = new Blob([JSON.stringify(lastState, null, 2)], { type: 'application/json;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dach_saas_metrics_dossier_${lastState.country.toLowerCase()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

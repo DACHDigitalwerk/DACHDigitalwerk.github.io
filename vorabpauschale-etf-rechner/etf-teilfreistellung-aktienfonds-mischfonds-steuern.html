@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETF-Teilfreistellung 2026: 30 %, 15 %, 60 % &amp; 80 % im Vergleich (§ 20 InvStG) | DACH Digitalwerk</title>
+  <meta name="description" content="Gesetzliche Teilfreistellung nach § 20 InvStG 2026: 30 % für Aktienfonds, 15 % für Mischfonds, 60 % für Betriebsvermögen und 80 % für vermögensverwaltende GmbHs. Berechnungsbeispiele &amp; Rechner." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/etf-teilfreistellung-aktienfonds-mischfonds-steuern.html" />
+  <meta property="og:title" content="ETF-Teilfreistellung 2026: 30 %, 15 %, 60 % &amp; 80 % im Vergleich (§ 20 InvStG)" />
+  <meta property="og:description" content="Wie die Teilfreistellung (§ 20 InvStG) Steuern auf Vorabpauschale, Ausschüttungen und ETF-Verkäufe senkt: Privatvermögen vs. Betriebsvermögen vs. Holding GmbH." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/etf-teilfreistellung-aktienfonds-mischfonds-steuern.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ETF-Teilfreistellung 2026: 30 %, 15 %, 60 % & 80 % im Vergleich (§ 20 InvStG)",
+    "description": "Umfassender Ratgeber zur Teilfreistellung bei Investmentfonds nach § 20 InvStG für Privatanleger, Betriebsvermögen und GmbHs mit Formeln und Beispielen.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-24",
+    "dateModified": "2026-10-24"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ETF-Teilfreistellungs-Rechner 2026 Widget",
+    "operatingSystem": "All",
+    "applicationCategory": "FinanceApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dachdigitalwerk.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Vorabpauschale & ETF-Rechner",
+        "item": "https://dachdigitalwerk.github.io/vorabpauschale-etf-rechner/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ETF-Teilfreistellung (§ 20 InvStG)",
+        "item": "https://dachdigitalwerk.github.io/etf-teilfreistellung-aktienfonds-mischfonds-steuern.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Warum gibt es die Teilfreistellung beim ETF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Teilfreistellung nach § 20 InvStG kompensiert die Steuerbelastung auf Fondsebene. Seit 2018 müssen in- und ausländische Fonds auf inländische Dividenden und Mieteinnahmen pauschal 15 % Körperschaftsteuer abführen (§ 6 InvStG). Um eine Doppelbesteuerung beim Privatanleger zu verhindern, werden Teile der Erträge steuerfrei gestellt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Teilfreistellung für Privatanleger bei Aktien-ETFs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei Aktienfonds mit einer fortlaufenden physischen Kapitalbeteiligungsquote von mindestens 51 % (wie MSCI World, S&P 500, DAX) beträgt die Teilfreistellung für Privatanleger 30 %. Es müssen lediglich 70 % der Erträge (Ausschüttungen, Vorabpauschale, Verkaufsgewinne) versteuert werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Welche Teilfreistellung gilt für eine Holding GmbH?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für Körperschaften und vermögensverwaltende GmbHs beträgt die Teilfreistellung gem. § 20 Abs. 1 Satz 3 InvStG bei Aktienfonds 80 %. Lediglich 20 % der Gewinne unterliegen der Körperschaft- und Gewerbesteuer (ca. 30 % Steuersatz), wodurch die effektive Steuerlast bei nur rund 6,0 % liegt."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt die Teilfreistellung auch für den Verkaufsgewinn?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja! Die gesetzliche Teilfreistellung gem. § 20 InvStG gilt universell für laufende Ausschüttungen, die jährliche Vorabpauschale (§ 18 InvStG) und den endgültigen Veräußerungsgewinn beim Verkauf der Anteile (§ 19 InvStG)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-teal-500 selection:text-white">
+
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="../" class="flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <div>
+          <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-teal-400 transition">DACH Digitalwerk</span>
+          <span class="hidden sm:inline-block text-[10px] font-mono text-teal-400 ml-2 px-1.5 py-0.5 rounded bg-teal-950/80 border border-teal-800">Ratgeber</span>
+        </div>
+      </a>
+      <a href="./" class="text-xs font-semibold bg-gradient-to-r from-teal-500 to-emerald-400 hover:from-teal-400 hover:to-emerald-300 text-slate-950 font-extrabold px-3.5 py-2 rounded-xl shadow-lg shadow-teal-500/20 transition flex items-center gap-1.5">
+        <span>Zum Voll-Rechner 2026 →</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="max-w-4xl mx-auto px-4 sm:px-6 pt-6 w-full text-xs text-slate-400 font-mono flex items-center gap-2">
+    <a href="../" class="hover:text-slate-200">Startseite</a>
+    <span>/</span>
+    <a href="./" class="hover:text-slate-200">Vorabpauschale &amp; ETF-Rechner</a>
+    <span>/</span>
+    <span class="text-teal-400">Teilfreistellung (§ 20 InvStG)</span>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-8 w-full space-y-8">
+
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold">
+        <span>Steuer-Leitfaden • § 20 InvStG</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+        <span>Rechtsstand 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        ETF-Teilfreistellung 2026: 30 %, 15 %, 60 % &amp; 80 % im Vergleich (§ 20 InvStG)
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+        Wer in ETFs investiert, zahlt nicht auf den vollen Ertrag 26,375 % Abgeltungsteuer. Über die gesetzliche <strong>Teilfreistellung nach § 20 InvStG</strong> stellt der Staat erhebliche Teile der Erträge steuerfrei. Wir zeigen die Quoten für Privatanleger, Einzelunternehmer und vermögensverwaltende GmbHs im Vergleich.
+      </p>
+    </div>
+
+    <!-- INTERACTIVE MINI-WIDGET -->
+    <div class="p-6 rounded-3xl bg-slate-950 border border-teal-500/30 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-bold text-white text-base flex items-center gap-2">
+          <span>⚡</span>
+          <span>Interaktiver Teilfreistellungs-Rechner</span>
+        </h3>
+        <span class="text-xs font-mono text-teal-400 bg-teal-950/80 px-2 py-0.5 rounded border border-teal-800">§ 20 InvStG</span>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 text-xs">
+        <div>
+          <label for="w_tfs_fund" class="block font-semibold text-slate-300 mb-1">Fonds-Kategorie:</label>
+          <select id="w_tfs_fund" onchange="calcTfsWidget()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white">
+            <option value="equity">Aktienfonds (mind. 51 % Aktien)</option>
+            <option value="mixed">Mischfonds (mind. 25 % Aktien)</option>
+            <option value="real_estate_de">Immobilienfonds Inland (60 %)</option>
+            <option value="real_estate_foreign">Immobilienfonds Ausland (80 %)</option>
+            <option value="other">Sonstige Fonds (0 %)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="w_tfs_investor" class="block font-semibold text-slate-300 mb-1">Anlegertyp / Rechtsform:</label>
+          <select id="w_tfs_investor" onchange="calcTfsWidget()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white">
+            <option value="private">Privatanleger (EStG / KapESt)</option>
+            <option value="business">Betriebsvermögen (Einzelunternehmen)</option>
+            <option value="gmbh">Vermögensverwaltende GmbH / AG</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="flex justify-between items-center text-xs">
+          <label for="w_tfs_gain" class="font-semibold text-slate-300">Ertrag / Gewinn in € (Ausschüttung, Vorabpauschale oder Verkaufsgewinn):</label>
+          <span id="w_tfs_gain_val" class="font-mono font-bold text-white text-sm">2.000 €</span>
+        </div>
+        <input type="range" id="w_tfs_gain" min="100" max="20000" step="100" value="2000" oninput="calcTfsWidget()" class="w-full accent-teal-500 cursor-pointer" />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Teilfreistellung Quote</span>
+          <span class="text-xl font-mono font-bold text-teal-400" id="w_res_tfs_pct">30 %</span>
+          <span class="text-[10px] text-slate-500 block" id="w_res_tfs_saved">Steuerfrei: 600,00 €</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Steuerpflichtiger Anteil</span>
+          <span class="text-xl font-mono font-bold text-slate-200" id="w_res_tfs_taxable">1.400,00 €</span>
+          <span class="text-[10px] text-slate-500 block">Bemessungsgrundlage</span>
+        </div>
+        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+          <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Effektive Steuerlast</span>
+          <span class="text-xl font-mono font-bold text-emerald-400" id="w_res_tfs_tax">369,25 €</span>
+          <span class="text-[10px] text-slate-500 block" id="w_res_tfs_eff_rate">Effektive Quote: 18,46 %</span>
+        </div>
+      </div>
+
+      <div class="text-center pt-1">
+        <a href="./" class="inline-flex items-center gap-1.5 text-xs font-bold text-teal-400 hover:text-teal-300 transition">
+          <span>Gesamten Vorabpauschale-Rechner mit Verrechnungskonto-Planer öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <article class="prose prose-invert max-w-none space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed">
+
+      <h2 class="text-2xl font-bold text-white pt-4">1. Der Sinn der Teilfreistellung: Vorbelastungsausgleich</h2>
+      <p>
+        Vor 2018 waren Investmentfonds auf Fondsebene in Deutschland weitgehend steuerbefreit. Dies wurde durch den Europäischen Gerichtshof (EuGH) als unionsrechtswidrig eingestuft, da ausländische Fonds schlechter gestellt wurden als inländische.
+      </p>
+      <p>
+        Mit der Reform 2018 führte der Gesetzgeber eine <strong>pauschale Körperschaftsteuer von 15 % auf Fondsebene (§ 6 InvStG)</strong> ein. Wenn eine deutsche Aktie eine Dividende an den Fonds ausschüttet, behält der deutsche Fiskus 15 % direkt ein.
+      </p>
+      <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 text-xs sm:text-sm text-slate-300">
+        <strong class="text-white block font-bold mb-1">Das verfassungsrechtliche Dilemma &amp; die Lösung:</strong>
+        Würde der Privatanleger seine Ausschüttungen anschließend nochmals mit vollen 25 % Abgeltungsteuer plus Soli versteuern, läge eine unzulässige Doppelbesteuerung vor. Daher stellt <strong>§ 20 InvStG</strong> pauschale Anteile der Erträge auf Anlegerebene steuerfrei.
+      </div>
+
+      <h2 class="text-2xl font-bold text-white pt-6">2. Übersicht aller Teilfreistellungsquoten 2026</h2>
+      <div class="overflow-x-auto border border-slate-800 rounded-2xl">
+        <table class="w-full text-left text-xs sm:text-sm font-mono">
+          <thead class="bg-slate-950 text-slate-300 border-b border-slate-800">
+            <tr>
+              <th class="p-3">Fondsart (§ 2 Abs. 6–9 InvStG)</th>
+              <th class="p-3">Privatanleger</th>
+              <th class="p-3">Betriebsvermögen</th>
+              <th class="p-3">GmbH / Holding</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="p-3 font-bold text-white">Aktienfonds (mind. 51 % Aktien)</td>
+              <td class="p-3 text-emerald-400 font-bold">30 %</td>
+              <td class="p-3 text-teal-400 font-bold">60 %</td>
+              <td class="p-3 text-cyan-400 font-bold">80 %</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Mischfonds (mind. 25 % Aktien)</td>
+              <td class="p-3 text-emerald-400 font-bold">15 %</td>
+              <td class="p-3 text-teal-400 font-bold">30 %</td>
+              <td class="p-3 text-cyan-400 font-bold">40 %</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Immobilienfonds (Inland)</td>
+              <td class="p-3 text-emerald-400 font-bold">60 %</td>
+              <td class="p-3 text-teal-400 font-bold">60 %</td>
+              <td class="p-3 text-cyan-400 font-bold">60 %</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Immobilienfonds (Auslandsschwerpunkt)</td>
+              <td class="p-3 text-emerald-400 font-bold">80 %</td>
+              <td class="p-3 text-teal-400 font-bold">80 %</td>
+              <td class="p-3 text-cyan-400 font-bold">80 %</td>
+            </tr>
+            <tr>
+              <td class="p-3 text-slate-400">Sonstige (Renten, Geldmarkt, Rohstoffe)</td>
+              <td class="p-3 text-slate-500">0 %</td>
+              <td class="p-3 text-slate-500">0 %</td>
+              <td class="p-3 text-slate-500">0 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white pt-6">3. Warum die Holding GmbH (80 % TFS) so attraktiv ist</h2>
+      <p>
+        Besonders im Rahmen der Vermögensstrukturierung über eine vermögensverwaltende GmbH (Holding) entfaltet die 80 %ige Teilfreistellung gem. § 20 Abs. 1 Satz 3 InvStG enorme Hebelwirkung:
+      </p>
+      <ul class="list-disc list-inside space-y-1.5 pl-2 text-slate-300">
+        <li>Bei einem Gewinn von 10.000 € sind <strong>8.000 € vollkommen steuerfrei</strong>.</li>
+        <li>Nur 2.000 € werden dem GmbH-Gewinn hinzugerechnet.</li>
+        <li>Bei einem typischen Ertragsteuersatz der GmbH von ca. 30 % (15 % KSt + Soli + ca. 14 % GewSt) beträgt die tatsächliche Gesamtsteuerbelastung <strong>nur rund 600 € (6,0 %)</strong>!</li>
+        <li>Gegenüber den 18,46 % beim Privatanleger verbleiben 94 % des Gewinns in der GmbH für den Zinseszins-Reinvest.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white pt-6">4. Worauf müssen Anleger achten?</h2>
+      <p>
+        Damit ein Fonds als Aktienfonds qualifiziert wird, müssen die <strong>Anlagebedingungen</strong> des Fonds zwingend festschreiben, dass fortlaufend mindestens 51 % des Wertes in Kapitalbeteiligungen (physische Aktien) angelegt werden. Die meisten gängigen ETFs (MSCI World, S&amp;P 500, FTSE All-World) erfüllen diese Kriterien automatisch. Synthetische Swap-ETFs haben ihre Prospekte in den letzten Jahren ebenfalls so angepasst, dass sie die 51-%-Quote vertraglich garantieren.
+      </p>
+
+    </article>
+
+    <!-- Call to action -->
+    <div class="p-6 rounded-3xl bg-gradient-to-r from-teal-950/60 to-slate-950 border border-teal-500/40 text-center space-y-3">
+      <h3 class="text-xl font-bold text-white">Ermittle deine Vorabpauschale mit Teilfreistellung</h3>
+      <p class="text-xs text-slate-300 max-w-xl mx-auto">
+        Berechne die exakte Steuerlast für dein Depot und erstelle einen druckfertigen DIN-A4 Liquiditätsbericht für deine Bank.
+      </p>
+      <a href="./" class="inline-block bg-gradient-to-r from-teal-500 to-emerald-400 text-slate-950 font-black px-6 py-3 rounded-xl text-sm shadow-lg shadow-teal-500/20 hover:from-teal-400 transition">
+        Zum vollständigen Rechner 2026 →
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 text-slate-500 text-xs py-8 px-4 text-center">
+    <p>© 2026 DACH Digitalwerk • BGH Smartlaw konform gem. § 2 RDG / § 5 StBerG.</p>
+  </footer>
+
+  <script>
+    function calcTfsWidget() {
+      const fund = document.getElementById('w_tfs_fund').value;
+      const investor = document.getElementById('w_tfs_investor').value;
+      const gain = parseFloat(document.getElementById('w_tfs_gain').value) || 0;
+      document.getElementById('w_tfs_gain_val').innerText = `${gain.toLocaleString('de-DE')} €`;
+
+      let tfs = 0.0;
+      if (investor === 'gmbh') {
+        if (fund === 'equity') tfs = 80;
+        else if (fund === 'mixed') tfs = 40;
+        else if (fund === 'real_estate_de') tfs = 60;
+        else if (fund === 'real_estate_foreign') tfs = 80;
+      } else if (investor === 'business') {
+        if (fund === 'equity') tfs = 60;
+        else if (fund === 'mixed') tfs = 30;
+        else if (fund === 'real_estate_de') tfs = 60;
+        else if (fund === 'real_estate_foreign') tfs = 80;
+      } else {
+        if (fund === 'equity') tfs = 30;
+        else if (fund === 'mixed') tfs = 15;
+        else if (fund === 'real_estate_de') tfs = 60;
+        else if (fund === 'real_estate_foreign') tfs = 80;
+      }
+
+      const savedAmount = gain * (tfs / 100.0);
+      const taxable = gain - savedAmount;
+      const taxRate = investor === 'gmbh' ? 0.30 : (investor === 'business' ? 0.35 : 0.26375);
+      const tax = taxable * taxRate;
+      const effQuote = gain > 0 ? (tax / gain * 100) : 0;
+
+      document.getElementById('w_res_tfs_pct').innerText = `${tfs.toFixed(0)} %`;
+      document.getElementById('w_res_tfs_saved').innerText = `Steuerfrei: ${savedAmount.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('w_res_tfs_taxable').innerText = `${taxable.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('w_res_tfs_tax').innerText = `${tax.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+      document.getElementById('w_res_tfs_eff_rate').innerText = `Effektive Quote: ${effQuote.toFixed(2)} %`;
+    }
+    calcTfsWidget();
+  </script>
+</body>
+</html>

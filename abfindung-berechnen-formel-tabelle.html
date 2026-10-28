@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abfindung berechnen: Formel, Tabelle & Fünftelregelung 2026 (DE § 1a KSchG & CH) | DACH Digitalwerk</title>
+  <meta name="description" content="Wie viel Abfindung steht Ihnen zu? Faustformel, Berechnungsbeispiele nach Beschäftigungsjahren & Gehalt, Steuer-Optimierung per Fünftelregelung (§ 34 EStG) und Verhandlungstipps." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/abfindung-berechnen-formel-tabelle.html" />
+  <meta property="og:title" content="Abfindung berechnen: Formel, Tabelle & Fünftelregelung 2026" />
+  <meta property="og:description" content="Kostenlose Richtwert-Tabelle für Abfindungen (DE & CH). Formel: Beschäftigungsjahre × Bruttogehalt × Faktor. Inkl. Fünftelregelung-Rechner." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/abfindung-berechnen-formel-tabelle.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org HowTo & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Abfindung bei Kündigung oder Aufhebungsvertrag berechnen",
+    "description": "Schritt-für-Schritt-Anleitung zur Ermittlung Ihrer Abfindungshöhe und steuerlichen Optimierung mittels Fünftelregelung.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Dauer der Betriebszugehörigkeit ermitteln",
+        "text": "Ermitteln Sie Ihre vollen Beschäftigungsjahre ab dem Eintrittsdatum. Zeiträume über 6 Monaten werden in der Regel aufgerundet."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Monatliches Bruttoentgelt bestimmen",
+        "text": "Nehmen Sie Ihr regelmäßiges Monatsbrutto. Wurden 13. Gehälter oder variable Boni bezahlt, teilen Sie das Jahresbrutto durch 12."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Verhandlungsfaktor anwenden",
+        "text": "Multiplizieren Sie die Jahre und das Monatsgehalt mit dem Verhandlungsfaktor (0,5 bei Standard § 1a KSchG bis 1,0–1,5 bei Kündigungsschutzprozessen)."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Fünftelregelung beim Finanzamt geltend machen",
+        "text": "Nutzen Sie § 34 EStG in Ihrer Einkommensteuererklärung, um den Progressionssprung abzufedern und Steuern zu sparen."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie lautet die Faustformel zur Berechnung einer Abfindung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die anerkannte Regelformel lautet: 0,5 × Bruttomonatsgehalt × Anzahl der Beschäftigungsjahre (§ 1a KSchG). Bei Kündigungsschutzklagen oder formellen Fehlern des Arbeitgebers liegt der Faktor in der Verhandlungspraxis häufig zwischen 0,75 und 1,5 Monatsgehältern."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Sind Abfindungen sozialabgabenfrei?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. In Deutschland sind echte Abfindungen, die als Entschädigung für den Verlust des Arbeitsplatzes gezahlt werden, vollständig beitragsfrei in der gesetzlichen Sozialversicherung (keine Renten-, Kranken-, Pflege- oder Arbeitslosenversicherungsbeiträge)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gibt es in der Schweiz einen gesetzlichen Abfindungsanspruch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine gesetzliche Abgangsentschädigung (Art. 339b OR) besteht nur für Arbeitnehmer ab 50 Jahren mit mindestens 20 Dienstjahren, entfällt aber meist bei bestehender Pensionskassenabsicherung. In der Praxis werden Abfindungen im Rahmen von Sozialplänen oder Aufhebungsvereinbarungen frei ausgehandelt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">DSGVO & revDSG (Keine Server-Speicherung)</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-indigo-300">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 via-indigo-900 to-indigo-600 text-white flex items-center justify-center font-extrabold tracking-tight">
+          DW
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Arbeitsrecht & Finanzen</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./abfindung-kuendigung/" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>⚖️ Live Abfindungs-Rechner öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-indigo-600">Home</a>
+      <span>/</span>
+      <a href="./abfindung-kuendigung/" class="hover:text-indigo-600">Abfindungs- & Fristenrechner</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">Abfindung berechnen: Formel & Tabelle</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold">
+        <span>📊 Arbeitsrecht 2026</span>
+        <span>•</span>
+        <span>Deutschland (§ 1a KSchG) & Schweiz</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Abfindung berechnen: Formel, Richtwert-Tabelle & Fünftelregelung
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Wer seinen Arbeitsplatz verliert, steht vor der entscheidenden Frage: Wie viel Geld steht mir zu? In diesem Leitfaden erfahren Sie, nach welcher Formel Gerichte und HR-Abteilungen rechnen, welche Faktoren verhandelbar sind und wie viel Netto Ihnen dank der <strong>Fünftelregelung</strong> bleibt.
+      </p>
+    </header>
+
+    <!-- CTA BANNER -->
+    <section class="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-indigo-800/50">
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Live-Browser-Berechnung</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">Möchten Sie Ihren Anspruch jetzt exakt berechnen?</h2>
+        <p class="text-sm text-slate-300 max-w-xl">
+          Nutzen Sie unseren kostenlosen <strong>DACH Abfindungs- & Fristen-Rechner</strong>: Berechnet automatisch Abfindungshöhe, Kündigungsfristen, Resturlaubsabgeltung und Steuerersparnis in Sekunden.
+        </p>
+      </div>
+      <a href="./abfindung-kuendigung/" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition">
+        Zum Abfindungs-Rechner →
+      </a>
+    </section>
+
+    <!-- FORMEL ERKLÄRUNG -->
+    <section class="space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Die anerkannte Regelformel für Abfindungen</h2>
+      <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+        Zwar gibt es im deutschen Arbeitsrecht keinen automatischen Rechtsanspruch auf eine Abfindung (außer bei speziellen Sozialplänen oder Kündigung nach § 1a KSchG). Dennoch orientieren sich Arbeitsrichter, Gewerkschaften und Fachanwälte an einer festen Faustformel:
+      </p>
+
+      <div class="p-6 bg-slate-900 text-white rounded-2xl border border-indigo-500/40 text-center space-y-2 shadow-lg">
+        <span class="text-xs font-mono uppercase tracking-wider text-amber-300">Die KSchG-Standardformel</span>
+        <div class="text-xl sm:text-3xl font-black font-mono text-emerald-400 py-1">
+          Abfindung = Beschäftigungsjahre × Bruttomonatsgehalt × Faktor
+        </div>
+        <p class="text-xs text-slate-300">
+          Standardfaktor nach § 1a KSchG = <strong>0,5</strong>. In Verhandlungen liegt der Faktor oft bei <strong>0,8 bis 1,5</strong>.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 text-xs pt-2">
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1.5">
+          <div class="font-bold text-slate-900 text-sm">Faktor 0,5 (Mindeststandard)</div>
+          <p class="text-slate-600">
+            Gesetzlicher Mindestwert bei betriebsbedingter Kündigung mit Klageverzicht (§ 1a KSchG). Wird meist bei schwachen Erfolgsaussichten akzeptiert.
+          </p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1.5">
+          <div class="font-bold text-slate-900 text-sm">Faktor 0,8 – 1,0 (Verhandlungsziel)</div>
+          <p class="text-slate-600">
+            Regelmäßiges Vergleichsergebnis vor deutschen Arbeitsgerichten, wenn formelle Kündigungsmängel oder eine fehlerhafte Sozialauswahl vorliegen.
+          </p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1.5">
+          <div class="font-bold text-slate-900 text-sm">Faktor 1,2 – 1,5+ (Offensiv)</div>
+          <p class="text-slate-600">
+            Erreichbar bei Führungskräften, langer Betriebszugehörigkeit, Sonderkündigungsschutz (Elternzeit, Behinderung) oder massiven Verfahrensfehlern des Arbeitgebers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RICHTWERT-TABELLE -->
+    <section class="space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Abfindungs-Tabelle 2026: Richtwerte im Überblick</h2>
+      <p class="text-sm text-slate-600">
+        Die folgende Tabelle zeigt die durchschnittliche Abfindungshöhe bei einem Standardfaktor von <strong>0,5</strong> (gesetzlich) gegenüber dem optimierten Verhandlungsfaktor <strong>1,0</strong>:
+      </p>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-3.5 sm:px-6">Betriebszugehörigkeit</th>
+              <th class="p-3.5 sm:px-6">Monatsbrutto 3.000 €</th>
+              <th class="p-3.5 sm:px-6">Monatsbrutto 4.500 €</th>
+              <th class="p-3.5 sm:px-6">Monatsbrutto 6.000 €</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">2 Jahre</td>
+              <td class="p-3.5 sm:px-6">3.000 € <span class="text-indigo-600 font-semibold">(Opt: 6.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">4.500 € <span class="text-indigo-600 font-semibold">(Opt: 9.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">6.000 € <span class="text-indigo-600 font-semibold">(Opt: 12.000 €)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">5 Jahre</td>
+              <td class="p-3.5 sm:px-6">7.500 € <span class="text-indigo-600 font-semibold">(Opt: 15.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">11.250 € <span class="text-indigo-600 font-semibold">(Opt: 22.500 €)</span></td>
+              <td class="p-3.5 sm:px-6">15.000 € <span class="text-indigo-600 font-semibold">(Opt: 30.000 €)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">8 Jahre</td>
+              <td class="p-3.5 sm:px-6">12.000 € <span class="text-indigo-600 font-semibold">(Opt: 24.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">18.000 € <span class="text-indigo-600 font-semibold">(Opt: 36.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">24.000 € <span class="text-indigo-600 font-semibold">(Opt: 48.000 €)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">12 Jahre</td>
+              <td class="p-3.5 sm:px-6">18.000 € <span class="text-indigo-600 font-semibold">(Opt: 36.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">27.000 € <span class="text-indigo-600 font-semibold">(Opt: 54.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">36.000 € <span class="text-indigo-600 font-semibold">(Opt: 72.000 €)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">15 Jahre</td>
+              <td class="p-3.5 sm:px-6">22.500 € <span class="text-indigo-600 font-semibold">(Opt: 45.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">33.750 € <span class="text-indigo-600 font-semibold">(Opt: 67.500 €)</span></td>
+              <td class="p-3.5 sm:px-6">45.000 € <span class="text-indigo-600 font-semibold">(Opt: 90.000 €)</span></td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">20 Jahre</td>
+              <td class="p-3.5 sm:px-6">30.000 € <span class="text-indigo-600 font-semibold">(Opt: 60.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">45.000 € <span class="text-indigo-600 font-semibold">(Opt: 90.000 €)</span></td>
+              <td class="p-3.5 sm:px-6">60.000 € <span class="text-indigo-600 font-semibold">(Opt: 120.000 €)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[11px] text-slate-500">
+        *Hinweis: Angezeigt wird der Bruttobetrag vor Steuern. In Deutschland sind Abfindungen von Beiträgen zur Kranken-, Pflege-, Renten- und Arbeitslosenversicherung vollständig befreit.
+      </p>
+    </section>
+
+    <!-- FÜNFTELREGELUNG STEUER-OPTIMIERUNG -->
+    <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-bold">
+        <span>💡 § 34 Abs. 1 EStG</span>
+        <span>•</span>
+        <span>Steuern sparen</span>
+      </div>
+      <h2 class="text-2xl font-bold text-slate-900">So rettet Ihnen die Fünftelregelung Tausende Euro</h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Würde eine hohe Abfindung ganz regulär als Einkommen in einem einzigen Monat versteuert, würde der progressive Steuertarif (bis 42% oder 45% Spitzensteuersatz) einen Großteil Ihres Geldes vernichten. Die gesetzliche <strong>Fünftelregelung</strong> dämpft diesen Spitzensteuersatz ab.
+      </p>
+
+      <div class="p-5 bg-indigo-50/60 rounded-2xl border border-indigo-100 space-y-2 text-xs">
+        <strong class="text-indigo-950 font-bold block text-sm">Berechnungslogik in 3 Schritten:</strong>
+        <ol class="list-decimal pl-5 space-y-1 text-slate-700">
+          <li>Das Finanzamt berechnet die reguläre Einkommensteuer auf Ihr normales Jahreseinkommen ohne die Abfindung.</li>
+          <li>Anschließend wird die Steuer berechnet, wenn man <strong>nur ein Fünftel (1/5)</strong> der Abfindung zum regulären Einkommen hinzurechnet.</li>
+          <li>Der so ermittelte Steuerunterschied wird mit <strong>5 multipliziert</strong>.</li>
+        </ol>
+      </div>
+
+      <p class="text-xs text-slate-600 leading-relaxed">
+        <strong>Beispiel:</strong> Bei einem regulären Jahresgehalt von 50.000 € und einer Abfindung von 30.000 € beträgt die Steuerersparnis durch die Fünftelregelung je nach Familienstand <strong>ca. 3.000 € bis 4.500 € Netto-Plus</strong> gegenüber einer regulären Einmalbesteuerung!
+      </p>
+    </section>
+
+    <!-- UNTERSCHIEDE DE VS CH -->
+    <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Vergleich: Abfindung in Deutschland vs. Schweiz</h2>
+      <div class="grid sm:grid-cols-2 gap-4 text-xs text-slate-700">
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+          <strong class="text-slate-900 text-sm block">🇩🇪 Deutschland</strong>
+          <ul class="space-y-1.5 list-disc pl-4 text-slate-600">
+            <li>Abfindung im Kündigungsschutzprozess oder Aufhebungsvertrag frei verhandelbar.</li>
+            <li>Keine Sozialversicherungsbeiträge auf die Abfindung.</li>
+            <li>Fünftelregelung nach § 34 EStG für ermäßigte Einkommensteuer.</li>
+            <li>Achtung vor 12 Wochen Sperrzeit beim Arbeitslosengeld bei unüberlegtem Aufhebungsvertrag!</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+          <strong class="text-slate-900 text-sm block">🇨🇭 Schweiz</strong>
+          <ul class="space-y-1.5 list-disc pl-4 text-slate-600">
+            <li>Abgangsentschädigung nach Art. 339b OR greift nur selten (50 Jahre alt, 20 Dienstjahre).</li>
+            <li>In der Praxis: Sozialpläne oder Entschädigung bei missbräuchlicher Kündigung (Art. 336a OR, bis zu 6 Monatslöhne).</li>
+            <li>Kapitalabfindungen mit Vorsorgecharakter werden getrennt vom übrigen Einkommen zum Rentensatz privilegiert besteuert (Art. 38 DBG).</li>
+            <li>Einstelltage bei der Arbeitslosenkasse (RAV) prüfen!</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSTER UND CHECKOUT VERLINKUNG -->
+    <section class="bg-gradient-to-br from-indigo-950 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-extrabold text-white">DIN-A4 Verhandlungsstrategie & Gegenvorschlags-Schreiben</h3>
+          <p class="text-xs text-slate-300 mt-1 max-w-xl">
+            Möchten Sie Ihrem Arbeitgeber ein druckfertiges, rechtssicheres Gegenangebot mit Sprinterklausel, Urlaubsabgeltung und Note-1-Zeugnis vorlegen?
+          </p>
+        </div>
+        <a href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" class="shrink-0 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-5 py-3 rounded-xl text-xs transition shadow-lg">
+          Pro-Muster freischalten (4,90 €) →
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="space-y-4 pt-4">
+      <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ)</h2>
+      <div class="space-y-3 text-xs">
+        <details class="bg-white p-4 rounded-xl border border-slate-200 cursor-pointer">
+          <summary class="font-bold text-slate-900">Muss der Arbeitgeber mir zwingend eine Abfindung zahlen?</summary>
+          <p class="mt-2 text-slate-600 leading-relaxed">
+            Nein. Außer bei einem Sozialplan mit dem Betriebsrat oder einer Kündigung nach § 1a KSchG existiert in Deutschland kein automatischer Anspruch. Allerdings zahlen die meisten Arbeitgeber freiwillig eine Abfindung, um das erhebliche Prozessrisiko einer Kündigungsschutzklage abzuwenden.
+          </p>
+        </details>
+        <details class="bg-white p-4 rounded-xl border border-slate-200 cursor-pointer">
+          <summary class="font-bold text-slate-900">Wie lange habe ich nach Zugang der Kündigung Zeit?</summary>
+          <p class="mt-2 text-slate-600 leading-relaxed">
+            Exakt 3 Wochen ab Zugang (§ 4 KSchG). Verpassen Sie diese Frist, gilt die Kündigung als wirksam und die Chance auf eine Abfindung ist in der Regel vertan!
+          </p>
+        </details>
+        <details class="bg-white p-4 rounded-xl border border-slate-200 cursor-pointer">
+          <summary class="font-bold text-slate-900">Wann wird die Abfindung ausgezahlt?</summary>
+          <p class="mt-2 text-slate-600 leading-relaxed">
+            In der Regel mit der letzten regulären Gehaltsabrechnung zum Austrittstermin. Bei einer Sprinterklausel wird die Restabfindung bei vorzeitigem Austritt sofort fällig.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-sm font-extrabold text-white">DACH Digitalwerk – Ratgeber & Tools</div>
+        <p class="text-slate-500 mt-1">100% DSGVO-konforme Client-Side Browser-Applikationen.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 text-slate-300">
+        <a href="./abfindung-kuendigung/" class="hover:text-indigo-400">Abfindungs-Rechner</a>
+        <a href="./arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+        <a href="./qr-suite/" class="hover:text-emerald-400">Swiss QR & E-Rechnung</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

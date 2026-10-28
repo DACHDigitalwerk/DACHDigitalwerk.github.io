@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Holding-Steuervorteil-, § 8b KStG Schachtelprivileg- (95 % steuerfrei), § 10 KStG (AT) &amp; CH-Beteiligungsabzug-Rechner 2026 | Operative GmbH + Holding vs. Privatentnahme</title>
+  <meta name="description" content="Interaktiver Holding-Steuervorteil- &amp; Dividenden-Simulator 2026 für Deutschland (§ 8b KStG 95 % steuerfrei / ~1,54 % Effektsteuer), Österreich (§ 10 KStG 100 % steuerfrei) und Schweiz (Art. 69/70 DBG Beteiligungsabzug). Inkl. Exit-Veräußerungsgewinn &amp; Zinseszins-Vermögensvergleich." />
+  <meta name="keywords" content="Holding Rechner 2026, § 8b KStG Rechner, Schachtelprivileg GmbH Holding, Holding Steuervorteil berechnen, GmbH Verkauf Holding 1,5 Prozent Steuer, § 10 KStG Österreich Holding, Beteiligungsabzug Schweiz Art 69 DBG, Holding vs Privatvermögen Zinseszins" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/holding-dividenden-steuer-rechner/" />
+  <meta property="og:title" content="DACH Holding-Steuervorteil- &amp; § 8b KStG Schachtelprivileg-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Operative GmbH + Mutter-Holding vs. Privatentnahme: § 8b KStG (95 % steuerfrei DE), § 10 KStG (100 % steuerfrei AT) &amp; Art. 69 DBG Beteiligungsabzug (CH) inkl. Exit- &amp; Zinseszins-Simulator." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/holding-dividenden-steuer-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Holding-Steuervorteil-, § 8b KStG Schachtelprivileg-, § 10 KStG (AT) & CH-Beteiligungsabzug-Rechner 2026",
+    "description": "Mehrjähriger Holding-Dividenden-, Reinvestitions- und Exit-Steuerrechner 2026 für Deutschland (§ 8b Abs. 1, 2, 5 KStG), Österreich (§ 10 KStG) und die Schweiz (Art. 69/70 DBG).",
+    "url": "https://dachdigitalwerk.github.io/holding-dividenden-steuer-rechner/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Steuerlast auf Gewinnausschüttungen und GmbH-Verkäufe in einer deutschen Holding nach § 8b KStG?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nach § 8b Abs. 1 und Abs. 5 KStG (Dividenden ab 10 % KSt- bzw. 15 % GewSt-Mindestbeteiligung nach § 9 Nr. 2a GewStG) sowie § 8b Abs. 2 und Abs. 3 KStG (Anteilsveräußerungsgewinne beim Exit) sind 95 % der Bezüge steuerfrei. Lediglich 5 % gelten als pauschal nicht abziehbare Betriebsausgaben und unterliegen der Körperschaftsteuer (15 % zzgl. 5,5 % Soli = 15,825 %) sowie ggf. der Gewerbesteuer (~14 %), sodass die effektive Steuerlast in der Holding nur ca. 1,54 % beträgt und 98,46 % zur Reinvestition bereitstehen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie werden Dividenden in einer österreichischen Holding (§ 10 KStG) und Schweizer Holding (Art. 69 DBG) besteuert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Österreich sind nationale Beteiligungserträge nach § 10 Abs. 1 Z 1 KStG (unabhängig vom Beteiligungsausmaß bei inländischen Kapitalgesellschaften; international ab 10 %) zu 100 % von der Körperschaftsteuer (23 % KÖSt) befreit (0,00 % Holding-Steuer). In der Schweiz reduziert der Beteiligungsabzug nach Art. 69 und Art. 70 DBG (ab 10 % Beteiligung oder 1 Mio. CHF Verkehrswert) die Gewinnsteuer im Verhältnis des Nettobeteiligungsertrags zum gesamten Reingewinn um nahezu 100 %."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser Holding-Rechner eine Steuer- oder Rechtsberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <!-- Top Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #38 • Rechtsstand 2026 (DE § 8b KStG / AT § 10 KStG / CH Art. 69 DBG)</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+          🖨️ DIN-A4 Holding-Dossier drucken
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 § 8b Abs. 1, 2 &amp; 5 KStG (95 % steuerfrei / ~1,54 % Steuer)
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          🇦🇹 § 10 KStG (100 % Schachtelprivileg / 0,00 % Steuer)
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          🇨🇭 Art. 69 &amp; 70 DBG Beteiligungsabzug (~100 % Ermäßigung)
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH Holding-Steuervorteil-, § 8b KStG Schachtelprivileg- &amp; Exit-Simulator 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Vergleichen Sie mathematisch präzise die direkte Gewinnausschüttung an das Privatvermögen (26,375 % Abgeltungsteuer DE / 27,5 % KESt AT / Teilbesteuerung CH) mit einer <strong>Mutter-Holding (GmbH / UG / AG)</strong>. Inklusive Mindestbeteiligungs-Prüfung (10 % KStG / 15 % GewStG), laufender Holding-Strukturkosten, mehrjährigem Zinseszins-Simulator und <strong>Unternehmensverkauf (Exit nach § 8b Abs. 2 KStG)</strong>.
+      </p>
+
+      <!-- Country Switch & Presets -->
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Rechtsraum:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 Deutschland (§ 8b KStG)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 Österreich (§ 10 KStG)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 Schweiz (Art. 69 DBG)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">Praxis-Szenarien:</span>
+          <button onclick="loadPreset('it_agency')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">💻 IT-/Beratungs-GmbH (150k Gewinn)</button>
+          <button onclick="loadPreset('saas_exit')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">🚀 SaaS-Scaleup + 3 Mio. € Exit</button>
+          <button onclick="loadPreset('minor_share')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">⚠️ Co-Founder 12 % (KSt vs. GewSt-Falle)</button>
+          <button onclick="loadPreset('at_holding')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🇦🇹 Wien Holding GmbH (0 % KESt)</button>
+          <button onclick="loadPreset('ch_zug')" class="text-xs px-2.5 py-1.5 rounded-lg text-amber-200 bg-slate-800 hover:bg-indigo-900/60 border border-slate-700 transition">🇨🇭 Zug AG Holding (500k CHF)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Column: Inputs -->
+      <div class="lg:col-span-5 space-y-6 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Parameter Operative Gesellschaft &amp; Holding</span>
+          <span id="badge-currency" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="space-y-4">
+          <div>
+            <label for="in-ebt" class="block text-xs font-semibold text-slate-300 mb-1">
+              Jährlicher Gewinn Operative GmbH/AG vor Ertragsteuern (EBT nach GF-Gehalt)
+            </label>
+            <input id="in-ebt" type="number" value="180000" min="0" step="5000" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-op-tax" class="block text-xs font-semibold text-slate-300 mb-1">
+                Ertragsteuersatz Operative GmbH (%)
+              </label>
+              <input id="in-op-tax" type="number" value="29.83" min="5" max="50" step="0.1" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              <span class="text-[11px] text-slate-400">DE ~29,83 % • AT 23 % • CH ~13,5 %</span>
+            </div>
+            <div>
+              <label for="in-share-pct" class="block text-xs font-semibold text-slate-300 mb-1">
+                Beteiligungsquote der Holding (%)
+              </label>
+              <input id="in-share-pct" type="number" value="100" min="1" max="100" step="1" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              <span class="text-[11px] text-slate-400">Schwellen: 10 % KStG / 15 % GewStG</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-hold-tax" class="block text-xs font-semibold text-slate-300 mb-1">
+                Nominaler Steuersatz Sitz Holding (%)
+              </label>
+              <input id="in-hold-tax" type="number" value="30.80" min="5" max="50" step="0.1" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              <span class="text-[11px] text-slate-400">5 % × Satz = ~1,54 % eff. in DE</span>
+            </div>
+            <div>
+              <label for="in-priv-tax" class="block text-xs font-semibold text-slate-300 mb-1">
+                Privater Ausschüttungssteuersatz (%)
+              </label>
+              <input id="in-priv-tax" type="number" value="26.375" min="5" max="55" step="0.125" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              <span class="text-[11px] text-slate-400">DE 26,375 % • AT 27,5 % • CH ~22 %</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3">2. Zinseszins-Reinvestition &amp; Exit-Verkauf</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="in-years" class="block text-xs font-semibold text-slate-300 mb-1">
+                  Anlagehorizont (Jahre)
+                </label>
+                <input id="in-years" type="number" value="15" min="1" max="40" step="1" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              </div>
+              <div>
+                <label for="in-return" class="block text-xs font-semibold text-slate-300 mb-1">
+                  Rendite Reinvestition p.a. (%)
+                </label>
+                <input id="in-return" type="number" value="7.5" min="0" max="25" step="0.5" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-hold-cost" class="block text-xs font-semibold text-slate-300 mb-1">
+                Lfd. Holding-Kosten p.a. (Bilanz/IHK)
+              </label>
+              <input id="in-hold-cost" type="number" value="2200" min="0" step="200" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+            </div>
+            <div>
+              <label for="in-exit-gain" class="block text-xs font-semibold text-slate-300 mb-1">
+                Optionaler Exit-Veräußerungsgewinn
+              </label>
+              <input id="in-exit-gain" type="number" value="500000" min="0" step="50000" oninput="recalc()" class="w-full px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm focus:border-indigo-500 focus:outline-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Results & Comparison -->
+      <div class="lg:col-span-7 space-y-6">
+        <!-- Schachtelprivileg Status Banner -->
+        <div id="box-privilege-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex items-center justify-between">
+            <span id="out-privilege-title" class="text-xs font-extrabold text-emerald-300">
+              🟢 Volles Schachtelprivileg aktiv (§ 8b Abs. 1 &amp; 5 KStG + § 9 Nr. 2a GewStG)
+            </span>
+            <span id="out-eff-hold-rate" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200">
+              Effektive Holding-Steuer: 1,54 %
+            </span>
+          </div>
+          <p id="out-privilege-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Bei 100 % Beteiligung (≥ 15 % Mindestbeteiligung) sind 95 % der Gewinnausschüttung von Körperschaft- und Gewerbesteuer befreit. Nur 5 % gelten als nicht abziehbare Betriebsausgaben.
+          </p>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Jährl. Reinvestitions-Plus (Holding)</span>
+            <div id="out-annual-adv" class="text-2xl font-extrabold text-emerald-400 mt-1">+31.412 €</div>
+            <p id="out-annual-sub" class="text-[11px] text-slate-400 mt-1">Mehr Liquidität p.a. vs. Privatentnahme</p>
+          </div>
+          <div class="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">Exit-Steuerersparnis (§ 8b Abs. 2 KStG)</span>
+            <div id="out-exit-adv" class="text-2xl font-extrabold text-indigo-300 mt-1">+134.813 €</div>
+            <p id="out-exit-sub" class="text-[11px] text-slate-400 mt-1">Holding-Exit (~1,54 %) vs. Teileinkünfte (~28,5 %)</p>
+          </div>
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Holding-Vermögensvorsprung (Endwert)</span>
+            <div id="out-wealth-adv-gross" class="text-2xl font-extrabold text-white mt-1">+892.450 €</div>
+            <p id="out-wealth-adv-net" class="text-[11px] text-emerald-300 mt-1">Nach finaler Privatausschüttung: +241.320 €</p>
+          </div>
+        </div>
+
+        <!-- Detailed Step-by-Step Comparison Table -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-4">
+            Stufen-Vergleich pro Jahr: Pfad A (Direkt Privat) vs. Pfad B (Mutter-Holding)
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">Berechnungsstufe (Anteil Gesellschafter)</th>
+                  <th class="py-2 px-3 text-right">Pfad A: Direkt Privat</th>
+                  <th class="py-2 pl-3 text-right text-indigo-300">Pfad B: Mutter-Holding</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">1. Anteiliger Gewinn vor Steuern (Operative GmbH/AG)</td>
+                  <td id="tbl-ebt-a" class="py-2.5 px-3 text-right font-mono">180.000 €</td>
+                  <td id="tbl-ebt-b" class="py-2.5 pl-3 text-right font-mono text-indigo-200">180.000 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">2. Ertragsteuern Operative Gesellschaft (KSt/KÖSt/GewSt)</td>
+                  <td id="tbl-optax-a" class="py-2.5 px-3 text-right font-mono text-rose-300">-53.694 €</td>
+                  <td id="tbl-optax-b" class="py-2.5 pl-3 text-right font-mono text-rose-300">-53.694 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 font-semibold text-white">3. Brutto-Dividende aus Operativer Gesellschaft</td>
+                  <td id="tbl-div-a" class="py-2.5 px-3 text-right font-mono font-semibold">126.306 €</td>
+                  <td id="tbl-div-b" class="py-2.5 pl-3 text-right font-mono font-semibold text-indigo-200">126.306 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">4. Ausschüttungssteuer (KapESt/KESt vs. § 8b / § 10 KStG)</td>
+                  <td id="tbl-divtax-a" class="py-2.5 px-3 text-right font-mono text-rose-300">-33.313 €</td>
+                  <td id="tbl-divtax-b" class="py-2.5 pl-3 text-right font-mono text-emerald-300">-1.945 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">5. Laufende Holding-Verwaltungskosten (nach Steuerabzug)</td>
+                  <td class="py-2.5 px-3 text-right font-mono text-slate-500">0 €</td>
+                  <td id="tbl-cost-b" class="py-2.5 pl-3 text-right font-mono text-amber-300">-1.522 €</td>
+                </tr>
+                <tr class="bg-slate-800/40 font-bold text-white">
+                  <td class="py-3 pr-3">6. Verfügbares Reinvestitionskapital pro Jahr</td>
+                  <td id="tbl-reinv-a" class="py-3 px-3 text-right font-mono">92.993 €</td>
+                  <td id="tbl-reinv-b" class="py-3 pl-3 text-right font-mono text-emerald-400">122.839 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">7. Netto-Erlös aus Exit-Verkauf nach Steuern</td>
+                  <td id="tbl-exit-a" class="py-2.5 px-3 text-right font-mono">357.500 €</td>
+                  <td id="tbl-exit-b" class="py-2.5 pl-3 text-right font-mono text-indigo-300">492.300 €</td>
+                </tr>
+                <tr class="bg-indigo-950/40 font-extrabold text-white">
+                  <td class="py-3 pr-3">8. Kumuliertes Endvermögen nach Zinseszins (Brutto im Vehikel)</td>
+                  <td id="tbl-end-a" class="py-3 px-3 text-right font-mono">2.412.000 €</td>
+                  <td id="tbl-end-b" class="py-3 pl-3 text-right font-mono text-indigo-300">3.304.450 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: Holding-Struktur in Deutschland (§ 8b KStG), Österreich (§ 10 KStG) &amp; Schweiz (Art. 69 DBG)
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        Eine doppelstöckige Kapitalgesellschaftsstruktur (Operative Tochter-GmbH + geschäftsleitende oder vermögensverwaltende Mutter-Holding) nutzt das körperschaftsteuerliche <strong>Schachtelprivileg</strong>: Während Privatpersonen bei jeder Gewinnausschüttung sofort 26,375 % Abgeltungsteuer inkl. Soli (DE) bzw. 27,5 % KESt (AT) verlieren, versteuert eine deutsche Holding ab <strong>15 % Beteiligung</strong> (§ 8b Abs. 1, 5 KStG i.V.m. § 9 Nr. 2a GewStG) effektiv nur ca. <strong>1,54 %</strong> der Dividende. Beim späteren Verkauf der operativen Tochtergesellschaft (§ 8b Abs. 2 KStG) gilt die 95-%-Steuerbefreiung sogar unabhängig von einer Mindestbeteiligungsquote!
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="holding-gruenden-steuervorteil-8b-kstg-95-prozent-rechner-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • § 8b KStG</div>
+          <div class="text-sm font-bold text-white">Holding gründen 2026: 95 % Steuerbefreiung &amp; 10 % / 15 % Mindestbeteiligung</div>
+        </a>
+        <a href="veraeusserungsgewinn-gmbh-verkauf-holding-exit-steuer-1-5-prozent.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-emerald-300 mb-1">Vertiefung 2 • GmbH-Exit &amp; § 21 UmwStG</div>
+          <div class="text-sm font-bold text-white">GmbH-Verkauf über Holding: 1,54 % Exit-Steuer &amp; 7-jährige Sperrfrist</div>
+        </a>
+        <a href="holding-oesterreich-10-kstg-schweiz-beteiligungsabzug-vergleich-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • DACH-Standortvergleich</div>
+          <div class="text-sm font-bold text-white">Holding Österreich (§ 10 KStG 0 %) vs. Schweiz (Art. 69 DBG Beteiligungsabzug)</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Dieser DACH Holding- &amp; Schachtelprivileg-Simulator ist ein automatisiertes, regelbasiertes Informations- und Rechenwerkzeug. Er erbringt keine individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG. Insbesondere bei Anteilsübertragungen (§ 21 UmwStG, 7-jährige Sperrfrist nach § 22 Abs. 2 UmwStG) und Wegzugsbesteuerung (§ 6 AStG) ist eine Prüfung durch Steuerberater unerlässlich. 100 % Client-Side (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+
+    function fmtMoney(val, curr) {
+      const sign = val < 0 ? '-' : '';
+      const absVal = Math.round(Math.abs(val));
+      return sign + absVal.toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        if (k === c) {
+          btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400';
+        } else {
+          btn.className = 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+        }
+      });
+      if (c === 'DE') {
+        document.getElementById('in-op-tax').value = 29.83;
+        document.getElementById('in-hold-tax').value = 30.80;
+        document.getElementById('in-priv-tax').value = 26.375;
+        document.getElementById('badge-currency').textContent = 'EUR (€)';
+      } else if (c === 'AT') {
+        document.getElementById('in-op-tax').value = 23.00;
+        document.getElementById('in-hold-tax').value = 23.00;
+        document.getElementById('in-priv-tax').value = 27.50;
+        document.getElementById('badge-currency').textContent = 'EUR (€)';
+      } else if (c === 'CH') {
+        document.getElementById('in-op-tax').value = 13.50;
+        document.getElementById('in-hold-tax').value = 11.85;
+        document.getElementById('in-priv-tax').value = 21.00;
+        document.getElementById('badge-currency').textContent = 'CHF';
+      }
+      recalc();
+    }
+
+    function loadPreset(name) {
+      if (name === 'it_agency') {
+        setCountry('DE');
+        document.getElementById('in-ebt').value = 150000;
+        document.getElementById('in-share-pct').value = 100;
+        document.getElementById('in-years').value = 15;
+        document.getElementById('in-return').value = 7.0;
+        document.getElementById('in-hold-cost').value = 2000;
+        document.getElementById('in-exit-gain').value = 0;
+      } else if (name === 'saas_exit') {
+        setCountry('DE');
+        document.getElementById('in-ebt').value = 250000;
+        document.getElementById('in-share-pct').value = 100;
+        document.getElementById('in-years').value = 10;
+        document.getElementById('in-return').value = 8.0;
+        document.getElementById('in-hold-cost').value = 2500;
+        document.getElementById('in-exit-gain').value = 3000000;
+      } else if (name === 'minor_share') {
+        setCountry('DE');
+        document.getElementById('in-ebt').value = 400000;
+        document.getElementById('in-share-pct').value = 12;
+        document.getElementById('in-years').value = 12;
+        document.getElementById('in-return').value = 7.5;
+        document.getElementById('in-hold-cost').value = 1800;
+        document.getElementById('in-exit-gain').value = 600000;
+      } else if (name === 'at_holding') {
+        setCountry('AT');
+        document.getElementById('in-ebt').value = 220000;
+        document.getElementById('in-share-pct').value = 100;
+        document.getElementById('in-years').value = 15;
+        document.getElementById('in-return').value = 7.5;
+        document.getElementById('in-hold-cost').value = 2400;
+        document.getElementById('in-exit-gain').value = 800000;
+      } else if (name === 'ch_zug') {
+        setCountry('CH');
+        document.getElementById('in-ebt').value = 500000;
+        document.getElementById('in-share-pct').value = 100;
+        document.getElementById('in-years').value = 15;
+        document.getElementById('in-return').value = 7.0;
+        document.getElementById('in-hold-cost').value = 3500;
+        document.getElementById('in-exit-gain').value = 1500000;
+      }
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const ebtTotal = Math.max(0, parseFloat(document.getElementById('in-ebt').value) || 0);
+      const opTaxPct = Math.max(0, parseFloat(document.getElementById('in-op-tax').value) || 0);
+      const sharePct = Math.min(100, Math.max(0.1, parseFloat(document.getElementById('in-share-pct').value) || 100));
+      const holdNominalTaxPct = Math.max(0, parseFloat(document.getElementById('in-hold-tax').value) || 0);
+      const privTaxPct = Math.max(0, parseFloat(document.getElementById('in-priv-tax').value) || 0);
+      const years = Math.max(1, Math.min(50, parseInt(document.getElementById('in-years').value) || 15));
+      const returnPct = Math.max(0, parseFloat(document.getElementById('in-return').value) || 0);
+      const holdCostGross = Math.max(0, parseFloat(document.getElementById('in-hold-cost').value) || 0);
+      const exitGain = Math.max(0, parseFloat(document.getElementById('in-exit-gain').value) || 0);
+
+      const ebtShare = ebtTotal * (sharePct / 100.0);
+      const opTaxAmount = ebtShare * (opTaxPct / 100.0);
+      const grossDividend = ebtShare - opTaxAmount;
+
+      // Determine effective Holding Dividend Tax Rate & Exit Tax Rate by country and shareholding
+      let effDivHoldRatePct = 0;
+      let effExitHoldRatePct = 0;
+      let privExitTaxRatePct = privTaxPct;
+
+      const box = document.getElementById('box-privilege-status');
+      const titleEl = document.getElementById('out-privilege-title');
+      const rateBadge = document.getElementById('out-eff-hold-rate');
+      const descEl = document.getElementById('out-privilege-desc');
+
+      if (currentCountry === 'DE') {
+        // Exit under § 8b Abs. 2 & 3 KStG is always 95% exempt regardless of sharePct!
+        effExitHoldRatePct = 0.05 * holdNominalTaxPct;
+        // Private Exit under § 17 EStG Teileinkünfteverfahren (60% taxable * ~45% ESt+Soli = ~27-28.5%)
+        privExitTaxRatePct = 28.5;
+
+        if (sharePct >= 15.0) {
+          effDivHoldRatePct = 0.05 * holdNominalTaxPct;
+          box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+          titleEl.className = 'text-xs font-extrabold text-emerald-300';
+          titleEl.textContent = '🟢 Volles Schachtelprivileg aktiv (§ 8b Abs. 1 & 5 KStG + § 9 Nr. 2a GewStG)';
+          descEl.textContent = `Beteiligung (${sharePct.toFixed(1)} % ≥ 15 %): 95 % der Dividende sind von Körperschaftsteuer UND Gewerbesteuer befreit. Nur 5 % gelten als nicht abziehbare Betriebsausgaben.`;
+        } else if (sharePct >= 10.0) {
+          // KSt exempt (95%), but GewSt applies because < 15%!
+          const kstPart = 0.05 * 15.825;
+          const gewstPart = Math.max(0, holdNominalTaxPct - 15.825);
+          effDivHoldRatePct = kstPart + gewstPart;
+          box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+          titleEl.className = 'text-xs font-extrabold text-amber-300';
+          titleEl.textContent = '🟡 Teil-Schachtelprivileg (10 % ≤ Quote < 15 %): KSt-frei, aber Gewerbesteuerpflicht!';
+          descEl.textContent = `Achtung Gewerbesteuer-Falle (§ 9 Nr. 2a GewStG): Zwischen 10 % und 14,99 % greift zwar § 8b Abs. 4 KStG (KSt-Befreiung), aber noch nicht das gewerbesteuerliche Schachtelprivileg (ab 15 %).`;
+        } else {
+          // Streubesitz < 10%: Full KSt + GewSt on dividends!
+          effDivHoldRatePct = holdNominalTaxPct;
+          box.className = 'bg-rose-950/60 border border-rose-500/40 rounded-2xl p-4';
+          titleEl.className = 'text-xs font-extrabold text-rose-300';
+          titleEl.textContent = '🔴 Streubesitzdividende (< 10 % Beteiligung gem. § 8b Abs. 4 KStG)!';
+          descEl.textContent = `Unter 10 % Beteiligung entfällt die Dividendenbefreiung nach § 8b Abs. 4 KStG vollständig. Hinweis: Ein späterer Exit-Verkauf (§ 8b Abs. 2 KStG) bleibt dennoch zu 95 % steuerfrei!`;
+        }
+      } else if (currentCountry === 'AT') {
+        // Austria § 10 Abs. 1 Z 1 KStG: domestic dividends 100% exempt regardless of share; international >= 10%
+        effDivHoldRatePct = 0.0;
+        effExitHoldRatePct = sharePct >= 10.0 ? 0.0 : holdNominalTaxPct;
+        privExitTaxRatePct = 27.5;
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Österreichisches Beteiligungsertragsprivileg (§ 10 Abs. 1 KStG: 100 % steuerfrei)';
+        descEl.textContent = 'Inländische Gewinnanteile sind nach § 10 Abs. 1 Z 1 KStG zu 100 % von der 23 % Körperschaftsteuer (KÖSt) befreit — ohne 5-%-Hinzurechnung wie in Deutschland!';
+      } else {
+        // Switzerland Art. 69 & 70 DBG Beteiligungsabzug (>= 10% or >= 1M CHF)
+        if (sharePct >= 10.0) {
+          effDivHoldRatePct = 0.25;
+          effExitHoldRatePct = 0.25;
+          box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+          titleEl.className = 'text-xs font-extrabold text-emerald-300';
+          titleEl.textContent = '🟢 Schweizer Beteiligungsabzug aktiv (Art. 69 & 70 DBG)';
+          descEl.textContent = `Ab 10 % Beteiligung (oder 1 Mio. CHF Verkehrswert) ermäßigt sich die Gewinnsteuer im Verhältnis des Nettobeteiligungsertrags zum gesamten Reingewinn auf nahezu 0 %.`;
+        } else {
+          effDivHoldRatePct = holdNominalTaxPct;
+          effExitHoldRatePct = holdNominalTaxPct;
+          box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+          titleEl.className = 'text-xs font-extrabold text-amber-300';
+          titleEl.textContent = '🟡 Unter 10 % Beteiligungsquote (Art. 69 DBG Schwelle beachten)';
+          descEl.textContent = 'Unter 10 % Beteiligung greift der Beteiligungsabzug für Dividenden nur, wenn der Verkehrswert der Beteiligung mindestens 1 Mio. CHF beträgt.';
+        }
+        privExitTaxRatePct = 0.0; // Private capital gains tax-free in CH (Art. 16 Abs. 3 DBG unless transposition/indirect partial liquidation)
+      }
+
+      rateBadge.textContent = `Effektive Holding-Steuer: ${effDivHoldRatePct.toFixed(2).replace('.', ',')} %`;
+
+      // Path A (Private)
+      const divTaxA = grossDividend * (privTaxPct / 100.0);
+      const annualReinvA = Math.max(0, grossDividend - divTaxA);
+      const exitTaxA = exitGain * (privExitTaxRatePct / 100.0);
+      const netExitA = exitGain - exitTaxA;
+
+      // Path B (Holding)
+      const divTaxB = grossDividend * (effDivHoldRatePct / 100.0);
+      const netHoldCost = holdCostGross * (1.0 - (holdNominalTaxPct / 100.0));
+      const annualReinvB = Math.max(0, grossDividend - divTaxB - netHoldCost);
+      const exitTaxB = exitGain * (effExitHoldRatePct / 100.0);
+      const netExitB = exitGain - exitTaxB;
+
+      // Multi-year compounding
+      // Private portfolio after-tax return vs Holding reinvestment after-tax return (assume mixed equity ETF / participation privilege)
+      const rGross = returnPct / 100.0;
+      const rNetPriv = rGross * (1.0 - (privTaxPct / 100.0) * 0.7); // 30% Teilfreistellung / deferred gain proxy
+      const rNetHold = rGross * (1.0 - (holdNominalTaxPct / 100.0) * 0.25); // Holding participation / ETF privilege proxy
+
+      let wealthA = 0;
+      let wealthBGross = 0;
+      for (let y = 1; y <= years; y++) {
+        wealthA = (wealthA + annualReinvA) * (1.0 + rNetPriv);
+        wealthBGross = (wealthBGross + annualReinvB) * (1.0 + rNetHold);
+      }
+      wealthA += netExitA;
+      wealthBGross += netExitB;
+
+      const wealthBNetAfterPrivPayout = wealthBGross * (1.0 - (privTaxPct / 100.0));
+
+      const annualAdv = annualReinvB - annualReinvA;
+      const exitAdv = netExitB - netExitA;
+      const wealthAdvGross = wealthBGross - wealthA;
+      const wealthAdvNet = wealthBNetAfterPrivPayout - wealthA;
+
+      // Update UI
+      document.getElementById('out-annual-adv').textContent = (annualAdv >= 0 ? '+' : '') + fmtMoney(annualAdv, curr);
+      document.getElementById('out-exit-adv').textContent = (exitAdv >= 0 ? '+' : '') + fmtMoney(exitAdv, curr);
+      document.getElementById('out-wealth-adv-gross').textContent = (wealthAdvGross >= 0 ? '+' : '') + fmtMoney(wealthAdvGross, curr);
+      document.getElementById('out-wealth-adv-net').textContent = `Nach finaler Privatausschüttung: ${(wealthAdvNet >= 0 ? '+' : '') + fmtMoney(wealthAdvNet, curr)}`;
+
+      document.getElementById('tbl-ebt-a').textContent = fmtMoney(ebtShare, curr);
+      document.getElementById('tbl-ebt-b').textContent = fmtMoney(ebtShare, curr);
+      document.getElementById('tbl-optax-a').textContent = '-' + fmtMoney(opTaxAmount, curr);
+      document.getElementById('tbl-optax-b').textContent = '-' + fmtMoney(opTaxAmount, curr);
+      document.getElementById('tbl-div-a').textContent = fmtMoney(grossDividend, curr);
+      document.getElementById('tbl-div-b').textContent = fmtMoney(grossDividend, curr);
+      document.getElementById('tbl-divtax-a').textContent = '-' + fmtMoney(divTaxA, curr);
+      document.getElementById('tbl-divtax-b').textContent = '-' + fmtMoney(divTaxB, curr);
+      document.getElementById('tbl-cost-b').textContent = '-' + fmtMoney(netHoldCost, curr);
+      document.getElementById('tbl-reinv-a').textContent = fmtMoney(annualReinvA, curr);
+      document.getElementById('tbl-reinv-b').textContent = fmtMoney(annualReinvB, curr);
+      document.getElementById('tbl-exit-a').textContent = fmtMoney(netExitA, curr);
+      document.getElementById('tbl-exit-b').textContent = fmtMoney(netExitB, curr);
+      document.getElementById('tbl-end-a').textContent = fmtMoney(wealthA, curr);
+      document.getElementById('tbl-end-b').textContent = fmtMoney(wealthBGross, curr);
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>
