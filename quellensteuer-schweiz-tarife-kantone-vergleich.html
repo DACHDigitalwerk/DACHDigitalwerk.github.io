@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quellensteuer Schweiz 2026: Tarife & Kantonsvergleich (ZH, BS, AG, ZG, SG) & NOV | DACH Digitalwerk</title>
+  <meta name="description" content="Quellensteuertarife Schweiz 2026 im großen Kantonsvergleich: Zürich, Basel-Stadt, Zug, Aargau & St. Gallen. Tarife A, B, C, H sowie die Nachträgliche ordentliche Veranlagung (NOV)." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/quellensteuer-schweiz-tarife-kantone-vergleich.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Quellensteuer Schweiz 2026: Tarife, Kantonsvergleich & NOV" />
+  <meta property="og:description" content="Wie hoch ist die Quellensteuer in Zürich, Basel oder Zug? Alle Tarife (A, B, C, H), NOV-Fristen bis 31. März und Rechner für Grenzgänger & Aufenthalter." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/quellensteuer-schweiz-tarife-kantone-vergleich.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was bedeuten die Tarife A, B, C und H bei der Schweizer Quellensteuer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tarif A gilt für alleinstehende Personen (ledig, geschieden, verwitwet ohne Kinder). Tarif B gilt für verheiratete Alleinverdiener. Tarif C gilt für verheiratete Doppelverdiener (beide Ehepartner sind erwerbstätig). Tarif H gilt für Alleinerziehende mit minderjährigen oder unterstützungsbedürftigen Kindern."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Warum unterscheiden sich die Quellensteuersätze zwischen den Kantonen so stark?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In der Schweiz bestimmen die Kantone und Gemeinden ihre Steuersätze selbständig (Steuerföderalismus). In Tiefsteuerkantonen wie Zug (ZG) oder Schwyz (SZ) liegt die Quellensteuerbelastung oft nur bei 6 % bis 9 %, während Hochsteuerkantone wie Genf (GE), Neuenburg oder Basel-Stadt (BS) bei höheren Einkommen 15 % bis über 20 % Quellensteuer erheben."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist die Nachträgliche ordentliche Veranlagung (NOV) und wann lohnt sie sich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mit dem Antrag auf NOV (Frist: 31. März des Folgejahres, nicht verlängerbar) können quellenbesteuerte Arbeitnehmer freiwillig eine reguläre Steuererklärung einreichen. Dies lohnt sich besonders, wenn man zusätzliche Abzüge geltend machen kann, die im Pauschaltarif nicht enthalten sind – etwa Einzahlungen in die Säule 3a, Einkäufe in die Pensionskasse (BVG), hohe Krankheitskosten, Wochenaufenthaltskosten (Zweitwohnung) oder Weiterbildungskosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt der reguläre Schweizer Quellensteuertarif auch für deutsche Grenzgänger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Echte Grenzgänger nach Art. 15a DBA CH-DE unterliegen einem Pauschalsteuersatz von maximal 4,5 % in der Schweiz und versteuern ihr Einkommen regulär in Deutschland. Der kantonale Quellensteuertarif (Tarif A/B/C) greift jedoch sofort, wenn der Arbeitnehmer mehr als 60 Nichtrückkehrtage nachweist (60-Tage-Regel Formular Gre-3) oder als Wochenaufenthalter in der Schweiz tätig ist."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Schweizer Steuerrecht 2026
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">Quellensteuerverordnung (QStV) & Bundesgesetz über die direkte Bundessteuer (DBG)</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-indigo-300">← DACH Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-rose-600 text-white flex items-center justify-center font-extrabold tracking-tight">
+          🇨🇭
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Schweizer Steuerpraxis</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./brutto-netto-grenzgaenger/" class="bg-gradient-to-r from-indigo-600 to-rose-600 hover:from-indigo-500 hover:to-rose-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🧮 Schweizer Netto-Rechner öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="bg-white border-b border-slate-200 text-xs py-2 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 text-slate-500">
+      <a href="./" class="hover:text-indigo-600">Digitalwerk</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Quellensteuer Schweiz 2026 Kantonsvergleich</span>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-white py-12 sm:py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold mb-4">
+        <span>🇨🇭 Steueranalyse 2026: Zürich, Basel, Zug, Aargau & St. Gallen</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+        Quellensteuer Schweiz 2026: Tarife, Kantonsvergleich & NOV
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 mt-4 leading-relaxed">
+        Wie viel Prozent Quellensteuer zieht der Schweizer Arbeitgeber ab? Der komplette Vergleich aller Kantone, die Tarife A, B, C und H sowie der lukrative Antrag auf nachträgliche ordentliche Veranlagung (NOV).
+      </p>
+
+      <!-- CTA IN HERO -->
+      <div class="mt-8 flex flex-wrap gap-4 items-center">
+        <a href="./brutto-netto-grenzgaenger/" class="bg-gradient-to-r from-indigo-500 to-rose-500 hover:from-indigo-400 hover:to-rose-400 text-white font-extrabold px-6 py-3 rounded-2xl shadow-lg transition flex items-center gap-2 text-sm">
+          <span>🧮 Kantonsvergleich im Live-Rechner simulieren</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ARTICLE -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-12">
+
+    <!-- DIE QUELLENSTEUERTARIFE IM ÜBERBLICK -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+        Die 4 zentralen Quellensteuertarife in der Schweiz
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Die Quellensteuer wird in der Schweiz direkt monatlich vom Arbeitgeber einbehalten. Sie deckt die <strong>direkte Bundessteuer</strong>, die <strong>Kantonssteuer</strong> sowie die <strong>Gemeindesteuer</strong> ab. Maßgeblich für den Steuertarif sind Familienstand, Kinderzahl und Erwerbstätigkeit des Partners:
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-indigo-700 uppercase">Tarif A</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">Alleinstehende</span>
+          </div>
+          <div class="text-sm font-bold text-slate-900">Ledig, geschieden, getrennt lebend</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Für Alleinstehende ohne unterstützungsbedürftige Kinder (A0 = ohne Kirchensteuer, A1 = mit Kirchensteuer).
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-700 uppercase">Tarif B</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">Verheiratet Alleinverdiener</span>
+          </div>
+          <div class="text-sm font-bold text-slate-900">Ehepartner erzielt kein Einkommen</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Berücksichtigt den günstigen Splitting-Vorteil für Einverdiener-Ehen (z. B. B0, B1 bei 1 Kind, B2 bei 2 Kindern).
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-700 uppercase">Tarif C</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">Verheiratet Doppelverdiener</span>
+          </div>
+          <div class="text-sm font-bold text-slate-900">Beide Ehepartner arbeiten</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Pauschaler Ausgleichstarif für Paare mit zwei Erwerbseinkommen. Hier lohnt sich die NOV besonders häufig!
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-rose-700 uppercase">Tarif H</span>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold">Alleinerziehende</span>
+          </div>
+          <div class="text-sm font-bold text-slate-900">Einelternfamilien mit Kindern</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Entlastungstarif für Alleinerziehende, die mit minderjährigen Kindern im gleichen Haushalt leben.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DER GROSSE KANTONSVERGLEICH 2026 -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+        Kantonsvergleich 2026: Wo zahlen Sie am wenigsten Steuern?
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Weil die 26 Schweizer Kantone ihre Steuergesetze autonom festlegen, unterscheidet sich der Quellensteuerabzug bei identischem Bruttolohn massiv. Die folgende Tabelle vergleicht typische Jahresbruttogehälter von <strong>100.000 CHF</strong> und <strong>150.000 CHF</strong> (Tarif A0, ledig, ohne Kirchensteuer):
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <thead>
+            <tr class="bg-slate-900 text-white text-[11px] uppercase tracking-wider">
+              <th class="p-3.5 font-bold">Kanton</th>
+              <th class="p-3.5 font-bold text-right">Quellensteuer bei 100k CHF</th>
+              <th class="p-3.5 font-bold text-right">Quellensteuer bei 150k CHF</th>
+              <th class="p-3.5 font-bold">Steuerprofil & Charakteristik</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            <tr class="bg-emerald-50/50 hover:bg-emerald-50">
+              <td class="p-3.5 font-bold text-emerald-950 flex items-center gap-1.5">
+                <span>🏆</span>
+                <span>Zug (ZG)</span>
+              </td>
+              <td class="p-3.5 font-mono text-right font-bold text-emerald-700">ca. 6.800 CHF (6,8 %)</td>
+              <td class="p-3.5 font-mono text-right font-bold text-emerald-700">ca. 12.300 CHF (8,2 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Niedrigste Steuerbelastung im DACH-Raum. Tech- & Krypto-Hub.</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-slate-900">Thurgau (TG)</td>
+              <td class="p-3.5 font-mono text-right">ca. 10.400 CHF (10,4 %)</td>
+              <td class="p-3.5 font-mono text-right">ca. 18.200 CHF (12,1 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Sehr beliebter Bodensee-Kanton für Grenzgänger aus Konstanz/Singen.</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-slate-900">Aargau (AG)</td>
+              <td class="p-3.5 font-mono text-right">ca. 11.200 CHF (11,2 %)</td>
+              <td class="p-3.5 font-mono text-right">ca. 19.300 CHF (12,9 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Industrie- & Logistik-Kanton, direkt an der deutschen Grenze (Waldshut/Laufenburg).</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-slate-900">St. Gallen (SG)</td>
+              <td class="p-3.5 font-mono text-right">ca. 11.800 CHF (11,8 %)</td>
+              <td class="p-3.5 font-mono text-right">ca. 20.100 CHF (13,4 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Zentraler Arbeitskanton für Grenzgänger aus Vorarlberg (AT) und Lindau (DE).</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-slate-900">Zürich (ZH)</td>
+              <td class="p-3.5 font-mono text-right">ca. 12.100 CHF (12,1 %)</td>
+              <td class="p-3.5 font-mono text-right">ca. 21.400 CHF (14,3 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Wirtschaftsmotor der Schweiz. Hohe Löhne, moderates Mittelfeld bei Steuern.</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 font-bold text-slate-900">Basel-Stadt (BS)</td>
+              <td class="p-3.5 font-mono text-right">ca. 13.500 CHF (13,5 %)</td>
+              <td class="p-3.5 font-mono text-right font-bold text-rose-700">ca. 24.200 CHF (16,1 %)</td>
+              <td class="p-3.5 text-xs text-slate-600">Pharma-Hotspot (Roche, Novartis). Höherer Tarif als in Basel-Land.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- DIE NACHTRÄGLICHE ORDENTLICHE VERANLAGUNG (NOV) -->
+    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-bold">
+        <span>📅 Wichtige Stichtags-Regelung</span>
+      </div>
+      <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">
+        Nachträgliche ordentliche Veranlagung (NOV): Frist 31. März!
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Seit der Quellensteuer-Reform haben in der Schweiz ansässige Personen mit B- oder L-Bewilligung sowie Grenzgänger mit Quasi-Ansässigkeit das Recht, eine <strong>Nachträgliche ordentliche Veranlagung (NOV)</strong> zu beantragen (Art. 89a / 89b DBG).
+      </p>
+
+      <div class="p-4 bg-amber-50 border border-amber-200 rounded-2xl text-xs sm:text-sm text-amber-950 space-y-2">
+        <div class="font-bold">⚠️ Ausschlussfrist bis 31. März des Folgejahres:</div>
+        <p class="leading-relaxed">
+          Der Antrag auf NOV muss zwingend bis zum <strong>31. März</strong> (z. B. 31. März 2027 für das Steuerjahr 2026) beim zuständigen kantonalen Steueramt eingereicht werden. Diese Frist ist gesetzlich festgelegt und kann <strong>unter keinen Umständen verlängert</strong> werden!
+        </p>
+      </div>
+
+      <div class="space-y-3 pt-2">
+        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider">Wann lohnt sich der Antrag auf NOV besonders?</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-1">🏦 Säule 3a & BVG-Einkäufe:</span>
+            Einzahlungen in die gebundene Selbstvorsorge (Säule 3a bis zum Maximalbetrag) sowie freiwillige Einkäufe in die Pensionskasse reduzieren das steuerbare Einkommen 1:1.
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-1">🏠 Wochenaufenthaltskosten:</span>
+            Wer als Wochenaufenthalter in der Schweiz lebt, kann die Miete des Zimmers/Studios, Reisekosten und Mehraufwand für Verpflegung steuerlich absetzen.
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-1">📚 Weiterbildungskosten:</span>
+            Berufsorientierte Aus- und Weiterbildungskosten können bis zu kantonalen Höchstgrenzen (oft bis 12.000 CHF) geltend gemacht werden.
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <span class="font-bold text-indigo-900 block mb-1">💳 Schuldzinsen & Unterhalt:</span>
+            Private Schuldzinsen (Konsumkredite) sowie Alimente und Unterhaltsbeiträge an geschiedene Partner/Kinder sind voll abzugsfähig.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA INTERAKTIVER RECHNER -->
+    <div class="bg-gradient-to-br from-indigo-900 via-slate-900 to-rose-950 rounded-3xl p-8 text-white text-center space-y-4 shadow-xl">
+      <h3 class="text-2xl font-extrabold">Simulieren Sie jetzt Ihre kantonale Steuerbelastung</h3>
+      <p class="text-sm text-slate-300 max-w-xl mx-auto">
+        Prüfen Sie im Live-Rechner, wie viel Quellensteuer in Ihrem Arbeitgeberkanton abgezogen wird und wie viel Netto Ihnen nach Steuern verbleibt.
+      </p>
+      <div class="pt-2">
+        <a href="./brutto-netto-grenzgaenger/" class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-500 to-indigo-500 hover:from-rose-400 hover:to-indigo-400 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition text-sm">
+          <span>🚀 Zum Schweizer Quellensteuer- & Brutto-Netto-Rechner</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2026 DACH Digitalwerk • B2B- & Grenzgänger-Tools für die DACH-Region</div>
+      <div class="flex gap-4">
+        <a href="./brutto-netto-grenzgaenger/" class="hover:text-white">Grenzgänger-Rechner</a>
+        <a href="./grenzgaenger-schweiz-deutschland-steuerrechner.html" class="hover:text-white">Grenzgänger Steuern 2026</a>
+        <a href="./wochenaufenthalter-schweiz-steuern-abzuege.html" class="hover:text-white">Wochenaufenthalter</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

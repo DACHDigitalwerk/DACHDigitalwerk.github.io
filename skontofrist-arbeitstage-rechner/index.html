@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="de" class="h-full bg-slate-900 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skontofrist- & Arbeitstage-Rechner 2026 | § 193 BGB & Art. 78 OR</title>
+  <meta name="description" content="Kostenloser Skontofrist- und Fälligkeitsrechner 2026 nach § 193 BGB, § 903 ABGB und Art. 78 OR. Fristverschiebung bei Samstagen, Sonntagen & Feiertagen aller Bundesländer und Kantone.">
+  <meta name="keywords" content="Skontofrist berechnen, Zahlungsziel Rechner, BGB 193 Samstag, Fristenberechnung Feiertage, Skonto Rechner 2026, Spätester Überweisungstermin, Bankarbeitstage Target2, OR Art 78">
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/skontofrist-arbeitstage-rechner/">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Skontofrist- & Arbeitstage-Rechner 2026 | DACH Digitalwerk">
+  <meta property="og:description" content="Rechtswirksame Fristberechnung nach § 193 BGB, § 903 ABGB und Art. 78 OR. Wochenend- & Feiertagsverschiebung, spätester Überweisungstermin und Effektivzins.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/skontofrist-arbeitstage-rechner/">
+  <meta property="og:site_name" content="DACH Digitalwerk">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      .print-border { border: 1px solid #cbd5e1 !important; }
+      .card-shadow { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+    }
+    .print-only { display: none; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Skontofrist- & Arbeitstage-Rechner 2026",
+        "url": "https://dachdigitalwerk.github.io/skontofrist-arbeitstage-rechner/",
+        "description": "Präzisionsrechner für Zahlungsziele und Skontofristen nach § 193 BGB, § 903 ABGB und Art. 78 OR mit Berücksichtigung von Wochenenden und Feiertagen aller Bundesländer und Kantone.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "author": {
+          "@type": "Organization",
+          "name": "DACH Digitalwerk",
+          "url": "https://dachdigitalwerk.github.io/"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Gilt § 193 BGB auch für vertragliche Skontofristen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Nach gefestigter Rechtsprechung des Bundesgerichtshofs (BGH) findet § 193 BGB uneingeschränkt auch auf vertraglich vereinbarte Skontofristen Anwendung. Endet die Skontofrist an einem Samstag, Sonntag oder gesetzlichen Feiertag, darf der Skontoabzug noch am darauffolgenden ersten Werktag vorgenommen werden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welcher Tag zählt für die Rechtzeitigkeit: Überweisungsauftrag oder Zahlungseingang?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Grundsätzlich muss die Zahlung am Fälligkeitstag auf dem Konto des Gläubigers gutgeschrieben sein. Bei Skontofristen reicht es nach der BGH-Rechtsprechung (u. a. BGH X ZR 113/97) jedoch aus, wenn der Schuldner die Überweisung am letzten Tag der Frist bei ausreichender Kontodeckung so bei seiner Bank einreicht, dass die Ausführung noch banküblich am selben Tag erfolgt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie berechnet sich der effektive Jahreszins von Skonto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Formel lautet: Effektivzins = (Skontosatz / (100 - Skontosatz)) * (360 / (Nettoziel in Tagen - Skontoziel in Tagen)) * 100. Bei 3 % Skonto innerhalb von 14 Tagen und 30 Tagen Nettoziel ergibt sich ein extrem attraktiver Jahreszins von ca. 69,59 % p.a."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased">
+
+  <!-- Header -->
+  <header class="no-print border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="/" class="flex items-center space-x-2 text-slate-300 hover:text-white transition">
+          <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white shadow-lg shadow-emerald-500/30">
+            D
+          </div>
+          <span class="font-bold tracking-tight text-lg">DACH<span class="text-emerald-400">Digitalwerk</span></span>
+        </a>
+        <span class="text-slate-600 text-sm">/</span>
+        <span class="text-xs sm:text-sm font-medium text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700/60">
+          Tool #25: Skontofristen &amp; Arbeitstage
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <a href="#ratgeber" class="text-xs sm:text-sm text-slate-300 hover:text-white transition hidden md:inline">
+          Rechtsratgeber § 193 BGB
+        </a>
+        <a href="https://github.com/DACHDigitalwerk/skontofrist-arbeitstage-rechner-dach" target="_blank" rel="noopener" class="flex items-center space-x-2 text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span class="hidden sm:inline">GitHub Magnet-Repo #24</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <div class="no-print mb-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center space-x-2 text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-3 py-1 rounded-full mb-3">
+            <span>🇩🇪 § 193 BGB • 🇦🇹 § 903 ABGB • 🇨🇭 Art. 78 OR</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            <span>Target2 Bankarbeitstage</span>
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Skontofrist- &amp; Arbeitstage-Rechner 2026
+          </h1>
+          <p class="text-sm sm:text-base text-slate-400 mt-2 max-w-3xl">
+            Präzise Berechnung gesetzlicher Fristverschiebungen bei Samstagen, Sonntagen und regionalen Feiertagen für alle Bundesländer und Kantone. Inklusive spätestem SEPA-Überweisungstermin und Effektivzins-Analyse.
+          </p>
+        </div>
+
+        <!-- Privacy & Client-side Badge -->
+        <div class="flex items-center space-x-2 bg-emerald-950/50 border border-emerald-800/60 px-3 py-2 rounded-xl text-emerald-400 text-xs">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <div>
+            <span class="font-bold">100% Client-Side Privacy:</span>
+            <span class="text-emerald-300">Keine Serverübertragung. Ihre Rechnungsdaten verbleiben sicher im Browser.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Print Header (Visible on DIN-A4 Print) -->
+    <div class="print-only mb-6">
+      <div class="border-b-2 border-slate-900 pb-4 mb-4 flex justify-between items-start">
+        <div>
+          <h1 class="text-2xl font-bold text-slate-900">ZAHLUNGSAVIS &amp; SKONTOFRIST-NACHWEIS</h1>
+          <p class="text-xs text-slate-600">Rechtswirksame Fristenermittlung gem. § 193 BGB / Art. 78 OR | DACH Digitalwerk</p>
+        </div>
+        <div class="text-right text-xs text-slate-600">
+          <p>Erstellt am: <span id="printCurrentDate">24.10.2026</span></p>
+          <p>Status: Rechtskonform geprüft</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 text-xs mb-4 p-3 bg-slate-50 border border-slate-300 rounded">
+        <div>
+          <p><strong>Lieferant / Kreditor:</strong> <span id="printCreditor">Lieferant GmbH</span></p>
+          <p><strong>Rechnungsnummer:</strong> <span id="printInvNumber">RE-2026-9921</span></p>
+        </div>
+        <div>
+          <p><strong>Rechnungsdatum:</strong> <span id="printInvoiceDate">15.05.2026</span></p>
+          <p><strong>Bruttorechnungsbetrag:</strong> <span id="printGrossAmount">10.000,00 €</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+      <!-- Left Column: Form Inputs & Settings (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Card: Parameters -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <h2 class="text-base font-semibold text-white flex items-center space-x-2">
+              <span class="text-emerald-400">1.</span>
+              <span>Rechnungsdaten &amp; Rechtsregime</span>
+            </h2>
+            <div class="inline-flex p-1 bg-slate-950 rounded-xl border border-slate-800 no-print">
+              <button id="btnRegimeDE" onclick="setCountry('DE')" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 text-white shadow transition">
+                🇩🇪 Deutschland (§ 193 BGB)
+              </button>
+              <button id="btnRegimeAT" onclick="setCountry('AT')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">
+                🇦🇹 Österreich (§ 903 ABGB)
+              </button>
+              <button id="btnRegimeCH" onclick="setCountry('CH')" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-400 hover:text-white transition">
+                🇨🇭 Schweiz (Art. 78 OR)
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Rechnungsdatum</label>
+              <input type="date" id="inputDate" onchange="calculate()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 font-mono focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Rechnungsbetrag brutto (€ / CHF)</label>
+              <input type="number" id="inputAmount" step="0.01" value="10000.00" oninput="calculate()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 font-mono focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Bundesland / Kanton (Feiertagskalender)</label>
+              <select id="selectState" onchange="calculate()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500 font-sans">
+                <!-- Dynamically populated based on country -->
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Netto-Zahlungsziel (Tage)</label>
+              <input type="number" id="inputNetDays" value="30" oninput="calculate()" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 font-mono focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t border-slate-800/80 no-print">
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Rechnungsnummer (optional)</label>
+              <input type="text" id="inputInvNum" value="RE-2026-9921" oninput="updatePrintMeta()" placeholder="z.B. RE-1049" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-400 mb-1">Lieferant / Empfänger (optional)</label>
+              <input type="text" id="inputCreditor" value="Muster-Lieferant GmbH" oninput="updatePrintMeta()" placeholder="Name des Gläubigers" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Skonto Tiers -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <h2 class="text-base font-semibold text-white flex items-center space-x-2 mb-4">
+            <span class="text-emerald-400">2.</span>
+            <span>Skonto-Vereinbarungen</span>
+          </h2>
+
+          <div class="space-y-4">
+            <!-- Skonto Tier 1 -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3.5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Skontostufe 1 (Hauptskonto)</span>
+                <span class="text-[11px] text-slate-400">Üblich: 14 Tage 3 % oder 10 Tage 2 %</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs text-slate-400 mb-1">Frist (Tage ab Rechnungsdatum)</label>
+                  <input type="number" id="inputSkonto1Days" value="14" oninput="calculate()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-sm text-slate-200 font-mono focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-1">Skontosatz (%)</label>
+                  <input type="number" id="inputSkonto1Pct" step="0.1" value="3.0" oninput="calculate()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-sm text-slate-200 font-mono focus:outline-none focus:border-emerald-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- Skonto Tier 2 (Optional) -->
+            <div class="bg-slate-950/70 border border-slate-800 rounded-xl p-3.5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Skontostufe 2 (Optional)</span>
+                <label class="inline-flex items-center space-x-1.5 cursor-pointer no-print">
+                  <input type="checkbox" id="checkSkonto2" onchange="toggleSkonto2()" class="rounded bg-slate-900 border-slate-700 text-blue-600 focus:ring-0">
+                  <span class="text-xs text-slate-300">Aktivieren</span>
+                </label>
+              </div>
+              <div id="skonto2Inputs" class="grid grid-cols-2 gap-4 opacity-50 pointer-events-none transition">
+                <div>
+                  <label class="block text-xs text-slate-400 mb-1">Frist (Tage ab Rechnungsdatum)</label>
+                  <input type="number" id="inputSkonto2Days" value="7" oninput="calculate()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-sm text-slate-200 font-mono focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                  <label class="block text-xs text-slate-400 mb-1">Skontosatz (%)</label>
+                  <input type="number" id="inputSkonto2Pct" step="0.1" value="2.0" oninput="calculate()" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-sm text-slate-200 font-mono focus:outline-none focus:border-blue-500">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule / Calendar Timeline Card -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <h2 class="text-base font-semibold text-white flex items-center space-x-2 mb-3">
+            <span class="text-emerald-400">3.</span>
+            <span>Fristen-Zeitachse &amp; Verschiebungsanalyse</span>
+          </h2>
+          <div id="timelineContainer" class="space-y-3">
+            <!-- Timeline details injected by JavaScript -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Results & Financial Evaluation (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Financial Summary Card -->
+        <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-emerald-900/40 rounded-2xl p-6 shadow-2xl relative overflow-hidden card-shadow">
+          <div class="absolute -right-8 -top-8 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+
+          <div class="flex items-center justify-between border-b border-slate-800/80 pb-4 mb-5">
+            <div>
+              <span class="text-xs uppercase tracking-wider font-semibold text-emerald-400">Fristen- &amp; Zinsanalyse</span>
+              <h3 class="text-lg font-bold text-white">Rechtswirksame Termine</h3>
+            </div>
+            <span id="badgeLaw" class="text-xs font-mono bg-emerald-950 border border-emerald-800 text-emerald-300 px-2.5 py-1 rounded-full">
+              § 193 BGB
+            </span>
+          </div>
+
+          <!-- Highlight: Max Savings -->
+          <div class="bg-slate-950/90 border border-emerald-500/30 rounded-xl p-4 mb-5 text-center shadow-inner">
+            <div class="text-xs text-slate-400 font-medium">MAXIMALER SKONTO-VORTEIL</div>
+            <div id="dispMaxSavings" class="text-3xl sm:text-4xl font-extrabold text-emerald-400 tracking-tight my-1">
+              0,00 €
+            </div>
+            <div id="dispEffInterest" class="text-xs text-emerald-300 font-semibold font-mono">
+              Effektiver Jahreszins: 0,00 % p.a.
+            </div>
+          </div>
+
+          <!-- Results Details -->
+          <div class="space-y-4 text-xs">
+            <!-- Net Term Box -->
+            <div class="p-3 bg-slate-950/60 border border-slate-800 rounded-xl">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-slate-200">Netto-Fälligkeit (Zahlungsziel):</span>
+                <span id="dispNetDate" class="font-bold font-mono text-white text-sm">--.--.----</span>
+              </div>
+              <div id="dispNetShift" class="text-[11px] text-slate-400">Regulärer Werktag</div>
+              <div class="mt-2 pt-2 border-t border-slate-800 flex justify-between text-[11px]">
+                <span class="text-slate-400">Spätester Überweisungstermin:</span>
+                <strong id="dispNetTransfer" class="text-amber-400 font-mono">--.--.----</strong>
+              </div>
+            </div>
+
+            <!-- Skonto 1 Box -->
+            <div class="p-3 bg-emerald-950/20 border border-emerald-800/60 rounded-xl">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-emerald-300">Skonto 1 Stichtag (<span id="dispSkonto1Pct">3.0%</span>):</span>
+                <span id="dispSkonto1Date" class="font-bold font-mono text-emerald-400 text-sm">--.--.----</span>
+              </div>
+              <div id="dispSkonto1Shift" class="text-[11px] text-emerald-300/80">Regulärer Werktag</div>
+              <div class="mt-2 pt-2 border-t border-emerald-900/50 flex justify-between text-[11px]">
+                <span class="text-slate-400">Zahlbetrag abzüglich Skonto:</span>
+                <strong id="dispSkonto1Payable" class="text-white font-mono font-bold">0,00 €</strong>
+              </div>
+              <div class="flex justify-between text-[11px] mt-1">
+                <span class="text-slate-400">Spätester Überweisungstermin:</span>
+                <strong id="dispSkonto1Transfer" class="text-amber-400 font-mono">--.--.----</strong>
+              </div>
+            </div>
+
+            <!-- Skonto 2 Box (if active) -->
+            <div id="boxSkonto2" class="p-3 bg-blue-950/20 border border-blue-800/60 rounded-xl hidden">
+              <div class="flex justify-between items-center mb-1">
+                <span class="font-bold text-blue-300">Skonto 2 Stichtag (<span id="dispSkonto2Pct">2.0%</span>):</span>
+                <span id="dispSkonto2Date" class="font-bold font-mono text-blue-400 text-sm">--.--.----</span>
+              </div>
+              <div id="dispSkonto2Shift" class="text-[11px] text-blue-300/80">Regulärer Werktag</div>
+              <div class="mt-2 pt-2 border-t border-blue-900/50 flex justify-between text-[11px]">
+                <span class="text-slate-400">Zahlbetrag abzüglich Skonto:</span>
+                <strong id="dispSkonto2Payable" class="text-white font-mono font-bold">0,00 €</strong>
+              </div>
+              <div class="flex justify-between text-[11px] mt-1">
+                <span class="text-slate-400">Spätester Überweisungstermin:</span>
+                <strong id="dispSkonto2Transfer" class="text-amber-400 font-mono">--.--.----</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-6 space-y-2.5 no-print">
+            <button onclick="window.print()" class="w-full flex items-center justify-center space-x-2 py-3 px-4 rounded-xl font-semibold text-sm bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-600/30 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              <span>Zahlungsavis drucken / PDF-Export</span>
+            </button>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="exportCSV()" class="flex items-center justify-center space-x-1 py-2 px-3 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>CSV für Buchhaltung</span>
+              </button>
+              <button onclick="exportJSON()" class="flex items-center justify-center space-x-1 py-2 px-3 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                <span>JSON Export</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Insight / Liquidity Box -->
+        <div class="no-print bg-slate-900/60 border border-slate-800 rounded-2xl p-4 text-xs text-slate-400">
+          <h4 class="font-semibold text-slate-200 mb-2 flex items-center space-x-1.5">
+            <span>💡 Betriebswirtschaftlicher Rendite-Tipp</span>
+          </h4>
+          <p class="leading-relaxed text-[11px] mb-2">
+            Ein Skontosatz von 3 % bei Zahlung innerhalb von 14 Tagen statt 30 Tagen entspricht einem <strong>effektiven Jahreszins von fast 70 % p.a.</strong> Selbst wenn hierfür ein Kontokorrentkredit (mit ca. 8–12 % Sollzins) in Anspruch genommen wird, entsteht ein massiver Zinsgewinn für Ihr Unternehmen!
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Print Signatures Section (Visible only when printed) -->
+    <div class="print-only mt-8 pt-6 border-t border-slate-300">
+      <div class="grid grid-cols-2 gap-8 text-xs text-slate-700">
+        <div>
+          <p class="mb-8">Rechnerisch und sachlich geprüft (Kreditorenbuchhaltung):</p>
+          <div class="border-b border-slate-400 pt-8"></div>
+          <p class="mt-1">Datum, Unterschrift Buchhaltung</p>
+        </div>
+        <div>
+          <p class="mb-8">Zahlung unter Skontoabzug freigegeben:</p>
+          <div class="border-b border-slate-400 pt-8"></div>
+          <p class="mt-1">Datum, Unterschrift Geschäftsleitung / CFO</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2B Ratgeber & Law Context Section -->
+    <section id="ratgeber" class="no-print mt-16 pt-12 border-t border-slate-800">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <h2 class="text-2xl font-bold text-white">Rechtsgrundlagen &amp; Fachratgeber zu Zahlungsfristen &amp; Skonto</h2>
+        <p class="text-sm text-slate-400 mt-2">
+          Leitfäden zur rechtssicheren Fristenberechnung nach BGB, ABGB und OR sowie Praxistipps für die Kreditorenbuchhaltung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <a href="/bgb-193-fristenberechnung-samstag-sonntag-feiertag.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-emerald-500/50 rounded-2xl transition group">
+          <div class="text-emerald-400 font-semibold text-xs mb-1">§ 193 BGB Praxis</div>
+          <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mb-2">
+            § 193 BGB: Fristenverschiebung bei Samstagen &amp; Feiertagen
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Wann verschiebt sich die Fälligkeit auf den nächsten Werktag? Samstagsregelung, Bankfeiertage und BGH-Rechtsprechung im Detail.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-emerald-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+
+        <!-- Card 2 -->
+        <a href="/skontofrist-berechnen-ueberweisungstermin-rechtzeitig-zahlen.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-emerald-500/50 rounded-2xl transition group">
+          <div class="text-blue-400 font-semibold text-xs mb-1">Skontofristen &amp; SEPA</div>
+          <h3 class="text-base font-bold text-white group-hover:text-blue-400 transition mb-2">
+            Skontofrist wahren: Welcher Überweisungstag zählt?
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Zählt der Absendetag der Überweisung oder die Wertstellung beim Gläubiger? BGH-Urteile zu Skontozielen und Banklaufzeiten.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-blue-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="/zahlungsziele-geschaeftskunden-b2b-verzug-deutschland-oesterreich-schweiz.html" class="block p-5 bg-slate-900/60 border border-slate-800 hover:border-emerald-500/50 rounded-2xl transition group">
+          <div class="text-amber-400 font-semibold text-xs mb-1">B2B-Zahlungsrecht</div>
+          <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mb-2">
+            Zahlungsziele &amp; Verzug im DACH-Vergleich 2026
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Gesetzliche 30-Tage-Regel (§ 271a BGB), Verzugszinsen, 40-€-Mahnpauschale und Unterschiede zwischen DE, Österreich und der Schweiz.
+          </p>
+          <span class="inline-flex items-center text-xs font-semibold text-amber-400 mt-3">
+            Ratgeber lesen &rarr;
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BGH Smartlaw Disclaimer -->
+    <div class="no-print mt-12 p-4 rounded-xl bg-slate-900/40 border border-slate-800 text-[11px] text-slate-500 leading-relaxed">
+      <p class="font-semibold text-slate-400 mb-1">Rechtlicher Hinweis &amp; Haftungsausschluss (BGH Az. I ZR 113/20 &amp; I ZR 226/20):</p>
+      Dieser Web-Rechner sowie die bereitgestellten Exportdokumente dienen ausschließlich der mathematischen Modellierung, Orientierung und Veranschaulichung gesetzlicher Fristenregeln (§ 193 BGB, § 903 ABGB, Art. 78 OR). Die Nutzung ersetzt keine Rechts- oder Steuerberatung im Sinne des Rechtsdienstleistungsgesetzes (RDG). Bei strittigen Fälligkeiten oder individuellen vertraglichen AGB konsultieren Sie bitte Ihre Rechtsberatung. Sämtliche Berechnungen erfolgen 100 % lokal auf Ihrem Endgerät ohne Speicherung oder Übertragung Ihrer Daten.
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="no-print border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        &copy; 2026 DACH Digitalwerk. Alle Rechte vorbehalten. 100% DSGVO-konforme Client-Side Berechnungs-Tools.
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="/" class="hover:text-slate-300">Tool-Übersicht</a>
+        <a href="https://github.com/DACHDigitalwerk" target="_blank" rel="noopener" class="hover:text-slate-300">GitHub</a>
+        <a href="/bgb-193-fristenberechnung-samstag-sonntag-feiertag.html" class="hover:text-slate-300">§ 193 BGB Ratgeber</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Calculator Logic & Holiday Engine -->
+  <script>
+    // State
+    let currentCountry = 'DE'; // 'DE' | 'AT' | 'CH'
+
+    const STATES_DATA = {
+      DE: [
+        { code: "BW", name: "Baden-Württemberg" },
+        { code: "BY", name: "Bayern" },
+        { code: "BE", name: "Berlin" },
+        { code: "BB", name: "Brandenburg" },
+        { code: "HB", name: "Bremen" },
+        { code: "HH", name: "Hamburg" },
+        { code: "HE", name: "Hessen" },
+        { code: "MV", name: "Mecklenburg-Vorpommern" },
+        { code: "NI", name: "Niedersachsen" },
+        { code: "NW", name: "Nordrhein-Westfalen" },
+        { code: "RP", name: "Rheinland-Pfalz" },
+        { code: "SL", name: "Saarland" },
+        { code: "SN", name: "Sachsen" },
+        { code: "ST", name: "Sachsen-Anhalt" },
+        { code: "SH", name: "Schleswig-Holstein" },
+        { code: "TH", name: "Thüringen" }
+      ],
+      AT: [
+        { code: "B", name: "Burgenland" },
+        { code: "K", name: "Kärnten" },
+        { code: "NÖ", name: "Niederösterreich" },
+        { code: "OÖ", name: "Oberösterreich" },
+        { code: "S", name: "Salzburg" },
+        { code: "ST", name: "Steiermark" },
+        { code: "T", name: "Tirol" },
+        { code: "V", name: "Vorarlberg" },
+        { code: "W", name: "Wien" }
+      ],
+      CH: [
+        { code: "ZH", name: "Zürich" },
+        { code: "BE", name: "Bern" },
+        { code: "LU", name: "Luzern" },
+        { code: "UR", name: "Uri" },
+        { code: "SZ", name: "Schwyz" },
+        { code: "OW", name: "Obwalden" },
+        { code: "NW", name: "Nidwalden" },
+        { code: "GL", name: "Glarus" },
+        { code: "ZG", name: "Zug" },
+        { code: "FR", name: "Freiburg" },
+        { code: "SO", name: "Solothurn" },
+        { code: "BS", name: "Basel-Stadt" },
+        { code: "BL", name: "Basel-Landschaft" },
+        { code: "SH", name: "Schaffhausen" },
+        { code: "AR", name: "Appenzell Ausserrhoden" },
+        { code: "AI", name: "Appenzell Innerrhoden" },
+        { code: "SG", name: "St. Gallen" },
+        { code: "GR", name: "Graubünden" },
+        { code: "AG", name: "Aargau" },
+        { code: "TG", name: "Thurgau" },
+        { code: "TI", name: "Tessin" },
+        { code: "VD", name: "Waadt" },
+        { code: "VS", name: "Wallis" },
+        { code: "NE", name: "Neuenburg" },
+        { code: "GE", name: "Genf" },
+        { code: "JU", name: "Jura" }
+      ]
+    };
+
+    function init() {
+      // Default invoice date: today
+      const today = new Date();
+      document.getElementById('inputDate').value = today.toISOString().split('T')[0];
+      populateStates();
+      updatePrintMeta();
+      calculate();
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['btnRegimeDE', 'btnRegimeAT', 'btnRegimeCH'].forEach(id => {
+        const btn = document.getElementById(id);
+        btn.classList.remove('bg-emerald-600', 'text-white', 'shadow');
+        btn.classList.add('text-slate-400');
+      });
+      const activeBtn = document.getElementById(`btnRegime${c}`);
+      activeBtn.classList.remove('text-slate-400');
+      activeBtn.classList.add('bg-emerald-600', 'text-white', 'shadow');
+
+      const badge = document.getElementById('badgeLaw');
+      if (c === 'DE') badge.textContent = '§ 193 BGB';
+      else if (c === 'AT') badge.textContent = '§ 903 ABGB';
+      else badge.textContent = 'Art. 78 OR';
+
+      populateStates();
+      calculate();
+    }
+
+    function populateStates() {
+      const sel = document.getElementById('selectState');
+      sel.innerHTML = '';
+      const list = STATES_DATA[currentCountry] || STATES_DATA.DE;
+      list.forEach((st, idx) => {
+        const opt = document.createElement('option');
+        opt.value = st.code;
+        opt.textContent = `${st.name} (${st.code})`;
+        if (idx === 0) opt.selected = true;
+        sel.appendChild(opt);
+      });
+    }
+
+    function toggleSkonto2() {
+      const checked = document.getElementById('checkSkonto2').checked;
+      const inputs = document.getElementById('skonto2Inputs');
+      const box = document.getElementById('boxSkonto2');
+      if (checked) {
+        inputs.classList.remove('opacity-50', 'pointer-events-none');
+        box.classList.remove('hidden');
+      } else {
+        inputs.classList.add('opacity-50', 'pointer-events-none');
+        box.classList.add('hidden');
+      }
+      calculate();
+    }
+
+    function updatePrintMeta() {
+      document.getElementById('printCreditor').textContent = document.getElementById('inputCreditor').value || 'Lieferant';
+      document.getElementById('printInvNumber').textContent = document.getElementById('inputInvNum').value || '-';
+      document.getElementById('printInvoiceDate').textContent = formatDateDE(new Date(document.getElementById('inputDate').value));
+      document.getElementById('printGrossAmount').textContent = formatCurrency(parseFloat(document.getElementById('inputAmount').value) || 0);
+    }
+
+    // --- Astronomical Easter & Holiday Calculation ---
+    function getEasterSunday(year) {
+      const a = year % 19;
+      const b = Math.floor(year / 100);
+      const c = year % 100;
+      const d = Math.floor(b / 4);
+      const e = b % 4;
+      const f = Math.floor((b + 8) / 25);
+      const g = Math.floor((b - f + 1) / 3);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const i = Math.floor(c / 4);
+      const k = c % 4;
+      const l = (32 + 2 * e + 2 * i - h - k) % 7;
+      const m = Math.floor((a + 11 * h + 22 * l) / 451);
+      const month = Math.floor((h + l - 7 * m + 114) / 31);
+      const day = ((h + l - 7 * m + 114) % 31) + 1;
+      return new Date(Date.UTC(year, month - 1, day));
+    }
+
+    function addDays(date, days) {
+      const d = new Date(date);
+      d.setUTCDate(d.getUTCDate() + days);
+      return d;
+    }
+
+    function dateKey(date) {
+      return date.toISOString().split('T')[0];
+    }
+
+    function getHolidaysForYear(year, country, state) {
+      const holidays = {};
+      const easter = getEasterSunday(year);
+
+      function add(d, name) {
+        holidays[dateKey(d)] = name;
+      }
+
+      // Universal across DE, AT, CH
+      add(new Date(Date.UTC(year, 0, 1)), "Neujahr");
+      add(new Date(Date.UTC(year, 11, 25)), "1. Weihnachtstag");
+      add(new Date(Date.UTC(year, 11, 26)), "2. Weihnachtstag / Stephanstag");
+
+      if (country === 'DE') {
+        add(addDays(easter, -2), "Karfreitag");
+        add(addDays(easter, 1), "Ostermontag");
+        add(new Date(Date.UTC(year, 4, 1)), "Tag der Arbeit");
+        add(addDays(easter, 39), "Christi Himmelfahrt");
+        add(addDays(easter, 50), "Pfingstmontag");
+        add(new Date(Date.UTC(year, 9, 3)), "Tag der Deutschen Einheit");
+
+        if (["BW", "BY", "ST"].includes(state)) add(new Date(Date.UTC(year, 0, 6)), "Heilige Drei Könige");
+        if (["BE", "MV"].includes(state)) add(new Date(Date.UTC(year, 2, 8)), "Frauentag");
+        if (["BW", "BY", "HE", "NW", "RP", "SL"].includes(state)) add(addDays(easter, 60), "Fronleichnam");
+        if (["SL", "BY"].includes(state)) add(new Date(Date.UTC(year, 7, 15)), "Mariä Himmelfahrt");
+        if (["TH"].includes(state)) add(new Date(Date.UTC(year, 8, 20)), "Weltkindertag");
+        if (["BB", "HB", "HH", "MV", "NI", "SN", "ST", "SH", "TH"].includes(state)) add(new Date(Date.UTC(year, 9, 31)), "Reformationstag");
+        if (["BW", "BY", "NW", "RP", "SL"].includes(state)) add(new Date(Date.UTC(year, 10, 1)), "Allerheiligen");
+      } else if (country === 'AT') {
+        add(new Date(Date.UTC(year, 0, 6)), "Heilige Drei Könige");
+        add(addDays(easter, 1), "Ostermontag");
+        add(new Date(Date.UTC(year, 4, 1)), "Staatsfeiertag");
+        add(addDays(easter, 39), "Christi Himmelfahrt");
+        add(addDays(easter, 50), "Pfingstmontag");
+        add(addDays(easter, 60), "Fronleichnam");
+        add(new Date(Date.UTC(year, 7, 15)), "Mariä Himmelfahrt");
+        add(new Date(Date.UTC(year, 9, 26)), "Nationalfeiertag");
+        add(new Date(Date.UTC(year, 10, 1)), "Allerheiligen");
+        add(new Date(Date.UTC(year, 11, 8)), "Mariä Empfängnis");
+      } else if (country === 'CH') {
+        add(new Date(Date.UTC(year, 7, 1)), "Bundesfeiertag");
+        add(addDays(easter, 39), "Auffahrt");
+        if (state !== 'VS') {
+          add(addDays(easter, -2), "Karfreitag");
+          add(addDays(easter, 1), "Ostermontag");
+          add(addDays(easter, 50), "Pfingstmontag");
+        }
+        if (["ZH", "BS", "BL", "SH", "TG", "TI", "JU", "NE", "SO"].includes(state)) add(new Date(Date.UTC(year, 4, 1)), "Tag der Arbeit");
+        if (["LU", "UR", "SZ", "OW", "NW", "ZG", "FR", "SO", "AI", "TI", "VS", "JU"].includes(state)) add(addDays(easter, 60), "Fronleichnam");
+        if (["LU", "UR", "SZ", "OW", "NW", "GL", "ZG", "FR", "SO", "AI", "SG", "TI", "VS", "JU"].includes(state)) add(new Date(Date.UTC(year, 10, 1)), "Allerheiligen");
+      }
+
+      return holidays;
+    }
+
+    function isBankWorkingDay(d) {
+      const dayOfWeek = d.getUTCDay();
+      if (dayOfWeek === 0 || dayOfWeek === 6) return false; // Saturday / Sunday
+
+      const year = d.getUTCFullYear();
+      const easter = getEasterSunday(year);
+      const target2 = [
+        dateKey(new Date(Date.UTC(year, 0, 1))),
+        dateKey(addDays(easter, -2)),
+        dateKey(addDays(easter, 1)),
+        dateKey(new Date(Date.UTC(year, 4, 1))),
+        dateKey(new Date(Date.UTC(year, 11, 25))),
+        dateKey(new Date(Date.UTC(year, 11, 26)))
+      ];
+
+      return !target2.includes(dateKey(d));
+    }
+
+    function calculateDeadlineDetail(startDate, days, country, state) {
+      const nominalDate = addDays(startDate, days);
+      let curr = new Date(nominalDate);
+      let shifted = false;
+      let reasons = [];
+
+      while (true) {
+        const year = curr.getUTCFullYear();
+        const holidays = getHolidaysForYear(year, country, state);
+        const k = dateKey(curr);
+        const dayOfWeek = curr.getUTCDay();
+        const holName = holidays[k];
+
+        if (dayOfWeek === 6) { // Samstag
+          shifted = true;
+          reasons.push(`${formatDateDE(curr)}: Samstag`);
+          curr = addDays(curr, 1);
+        } else if (dayOfWeek === 0) { // Sonntag
+          shifted = true;
+          reasons.push(`${formatDateDE(curr)}: Sonntag`);
+          curr = addDays(curr, 1);
+        } else if (holName) {
+          shifted = true;
+          reasons.push(`${formatDateDE(curr)}: Feiertag (${holName})`);
+          curr = addDays(curr, 1);
+        } else {
+          break;
+        }
+      }
+
+      const finalDate = curr;
+      const shiftDays = Math.round((finalDate - nominalDate) / (1000 * 60 * 60 * 24));
+
+      // Latest bank transfer date
+      let tDate = new Date(finalDate);
+      while (!isBankWorkingDay(tDate)) {
+        tDate = addDays(tDate, -1);
+      }
+
+      return {
+        nominalDate,
+        finalDate,
+        shifted,
+        shiftDays,
+        shiftReasons: reasons,
+        latestBankTransfer: tDate
+      };
+    }
+
+    // Formatters
+    function formatDateDE(d) {
+      if (!d || isNaN(d.getTime())) return "--.--.----";
+      const day = String(d.getUTCDate()).padStart(2, '0');
+      const mon = String(d.getUTCMonth() + 1).padStart(2, '0');
+      const yr = d.getUTCFullYear();
+      return `${day}.${mon}.${yr}`;
+    }
+
+    function getWeekdayName(d) {
+      const days = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+      return days[d.getUTCDay()];
+    }
+
+    function formatCurrency(val) {
+      return val.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
+    }
+
+    // --- Main Calculation Core ---
+    function calculate() {
+      const rawDate = document.getElementById('inputDate').value;
+      if (!rawDate) return;
+      const parts = rawDate.split('-');
+      const invDate = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2])));
+      const amount = parseFloat(document.getElementById('inputAmount').value) || 0;
+      const state = document.getElementById('selectState').value;
+      const netDays = parseInt(document.getElementById('inputNetDays').value) || 30;
+
+      const sk1Days = parseInt(document.getElementById('inputSkonto1Days').value) || 14;
+      const sk1Pct = parseFloat(document.getElementById('inputSkonto1Pct').value) || 3.0;
+
+      const hasSk2 = document.getElementById('checkSkonto2').checked;
+      const sk2Days = parseInt(document.getElementById('inputSkonto2Days').value) || 7;
+      const sk2Pct = parseFloat(document.getElementById('inputSkonto2Pct').value) || 2.0;
+
+      // Net calculation
+      const netRes = calculateDeadlineDetail(invDate, netDays, currentCountry, state);
+
+      // Skonto 1 calculation
+      const sk1Res = calculateDeadlineDetail(invDate, sk1Days, currentCountry, state);
+      const sk1Discount = Math.round(amount * (sk1Pct / 100.0) * 100) / 100;
+      const sk1Payable = Math.round((amount - sk1Discount) * 100) / 100;
+      const sk1Gained = Math.max(1, netDays - sk1Days);
+      const sk1EffInterest = (sk1Pct / (100.0 - sk1Pct)) * (360.0 / sk1Gained) * 100.0;
+
+      // Update Net UI
+      document.getElementById('dispNetDate').textContent = `${formatDateDE(netRes.finalDate)} (${getWeekdayName(netRes.finalDate)})`;
+      if (netRes.shifted) {
+        document.getElementById('dispNetShift').innerHTML = `<span class="text-amber-400 font-semibold">⚠️ +${netRes.shiftDays} Tag(e) gem. Gesetz:</span> ${netRes.shiftReasons[0]}`;
+      } else {
+        document.getElementById('dispNetShift').textContent = "Regulärer Werktag (keine Verschiebung erforderlich)";
+      }
+      document.getElementById('dispNetTransfer').textContent = `${formatDateDE(netRes.latestBankTransfer)} (${getWeekdayName(netRes.latestBankTransfer)})`;
+
+      // Update Skonto 1 UI
+      document.getElementById('dispSkonto1Pct').textContent = `${sk1Pct.toFixed(1)}%`;
+      document.getElementById('dispSkonto1Date').textContent = `${formatDateDE(sk1Res.finalDate)} (${getWeekdayName(sk1Res.finalDate)})`;
+      if (sk1Res.shifted) {
+        document.getElementById('dispSkonto1Shift').innerHTML = `<span class="text-emerald-400 font-semibold">⚡ +${sk1Res.shiftDays} Tag(e) Verlängerung:</span> ${sk1Res.shiftReasons[0]}`;
+      } else {
+        document.getElementById('dispSkonto1Shift').textContent = "Regulärer Werktag (keine Verschiebung erforderlich)";
+      }
+      document.getElementById('dispSkonto1Payable').textContent = formatCurrency(sk1Payable);
+      document.getElementById('dispSkonto1Transfer').textContent = `${formatDateDE(sk1Res.latestBankTransfer)} (${getWeekdayName(sk1Res.latestBankTransfer)})`;
+
+      let maxSavings = sk1Discount;
+      let maxEffInterest = sk1EffInterest;
+
+      // Update Skonto 2 if active
+      if (hasSk2) {
+        const sk2Res = calculateDeadlineDetail(invDate, sk2Days, currentCountry, state);
+        const sk2Discount = Math.round(amount * (sk2Pct / 100.0) * 100) / 100;
+        const sk2Payable = Math.round((amount - sk2Discount) * 100) / 100;
+        const sk2Gained = Math.max(1, netDays - sk2Days);
+        const sk2EffInterest = (sk2Pct / (100.0 - sk2Pct)) * (360.0 / sk2Gained) * 100.0;
+
+        document.getElementById('dispSkonto2Pct').textContent = `${sk2Pct.toFixed(1)}%`;
+        document.getElementById('dispSkonto2Date').textContent = `${formatDateDE(sk2Res.finalDate)} (${getWeekdayName(sk2Res.finalDate)})`;
+        if (sk2Res.shifted) {
+          document.getElementById('dispSkonto2Shift').innerHTML = `<span class="text-blue-400 font-semibold">⚡ +${sk2Res.shiftDays} Tag(e) Verlängerung:</span> ${sk2Res.shiftReasons[0]}`;
+        } else {
+          document.getElementById('dispSkonto2Shift').textContent = "Regulärer Werktag (keine Verschiebung erforderlich)";
+        }
+        document.getElementById('dispSkonto2Payable').textContent = formatCurrency(sk2Payable);
+        document.getElementById('dispSkonto2Transfer').textContent = `${formatDateDE(sk2Res.latestBankTransfer)} (${getWeekdayName(sk2Res.latestBankTransfer)})`;
+
+        if (sk2Discount > maxSavings) maxSavings = sk2Discount;
+      }
+
+      // Financial highlights
+      document.getElementById('dispMaxSavings').textContent = formatCurrency(maxSavings);
+      document.getElementById('dispEffInterest').textContent = `Effektiver Jahreszins: ${maxEffInterest.toFixed(2)} % p.a.`;
+
+      // Timeline Rendering
+      renderTimeline(invDate, sk1Res, netRes);
+    }
+
+    function renderTimeline(invDate, sk1Res, netRes) {
+      const container = document.getElementById('timelineContainer');
+      container.innerHTML = `
+        <div class="flex items-start space-x-3 text-xs">
+          <div class="w-8 h-8 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center font-bold font-mono">0</div>
+          <div>
+            <div class="font-bold text-white">Rechnungsdatum: ${formatDateDE(invDate)} (${getWeekdayName(invDate)})</div>
+            <div class="text-slate-400 text-[11px]">Beginn der Zahlungsfristen</div>
+          </div>
+        </div>
+
+        <div class="border-l-2 border-dashed border-slate-800 ml-4 pl-7 py-2">
+          <div class="flex items-start space-x-3 text-xs">
+            <div class="w-8 h-8 rounded-full ${sk1Res.shifted ? 'bg-emerald-600/30 text-emerald-400 border border-emerald-500' : 'bg-emerald-950 text-emerald-400'} flex items-center justify-center font-bold font-mono">1</div>
+            <div>
+              <div class="font-bold text-emerald-300">Skontoziel 1 Stichtag: ${formatDateDE(sk1Res.finalDate)} (${getWeekdayName(sk1Res.finalDate)})</div>
+              <div class="text-slate-400 text-[11px]">
+                Kalendarisch: ${formatDateDE(sk1Res.nominalDate)} &bull; ${sk1Res.shifted ? `<strong class="text-emerald-400">+${sk1Res.shiftDays} Tage verlängert</strong>` : 'Keine Verschiebung'}
+              </div>
+              <div class="text-[11px] text-amber-400 mt-0.5">Spätester Überweisungstermin: ${formatDateDE(sk1Res.latestBankTransfer)} vor 14:00 Uhr</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-l-2 border-dashed border-slate-800 ml-4 pl-7 py-2">
+          <div class="flex items-start space-x-3 text-xs">
+            <div class="w-8 h-8 rounded-full ${netRes.shifted ? 'bg-amber-600/30 text-amber-400 border border-amber-500' : 'bg-slate-800 text-slate-300'} flex items-center justify-center font-bold font-mono">2</div>
+            <div>
+              <div class="font-bold text-slate-200">Netto-Zahlungsziel: ${formatDateDE(netRes.finalDate)} (${getWeekdayName(netRes.finalDate)})</div>
+              <div class="text-slate-400 text-[11px]">
+                Kalendarisch: ${formatDateDE(netRes.nominalDate)} &bull; ${netRes.shifted ? `<strong class="text-amber-400">+${netRes.shiftDays} Tage verlängert</strong>` : 'Keine Verschiebung'}
+              </div>
+              <div class="text-[11px] text-amber-400 mt-0.5">Spätester Überweisungstermin: ${formatDateDE(netRes.latestBankTransfer)} vor 14:00 Uhr</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- Export Utilities ---
+    function exportJSON() {
+      const amount = parseFloat(document.getElementById('inputAmount').value) || 0;
+      const rawDate = document.getElementById('inputDate').value;
+      const state = document.getElementById('selectState').value;
+      const netDays = parseInt(document.getElementById('inputNetDays').value) || 30;
+      const sk1Days = parseInt(document.getElementById('inputSkonto1Days').value) || 14;
+      const sk1Pct = parseFloat(document.getElementById('inputSkonto1Pct').value) || 3.0;
+
+      const data = {
+        tool: "DACH Skontofrist- & Arbeitstage-Rechner 2026",
+        invoice: {
+          number: document.getElementById('inputInvNum').value,
+          creditor: document.getElementById('inputCreditor').value,
+          date: rawDate,
+          grossAmount: amount,
+          country: currentCountry,
+          state: state
+        },
+        deadlines: {
+          netDeadline: document.getElementById('dispNetDate').textContent,
+          netLatestBankTransfer: document.getElementById('dispNetTransfer').textContent,
+          skonto1Deadline: document.getElementById('dispSkonto1Date').textContent,
+          skonto1PayableAmount: document.getElementById('dispSkonto1Payable').textContent,
+          skonto1LatestBankTransfer: document.getElementById('dispSkonto1Transfer').textContent,
+          maxSavings: document.getElementById('dispMaxSavings').textContent,
+          effectiveInterest: document.getElementById('dispEffInterest').textContent
+        }
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `skonto-analyse-${rawDate}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportCSV() {
+      let csv = "Position;Rechnungsdatum;Betrag_Brutto;Stichtag_Rechtswirksam;Spaehester_Ueberweisungstermin;Zahlbetrag;Ersparnis\n";
+      csv += `Nettoziel;${document.getElementById('inputDate').value};${document.getElementById('inputAmount').value};"${document.getElementById('dispNetDate').textContent}";"${document.getElementById('dispNetTransfer').textContent}";${document.getElementById('inputAmount').value};0.00\n`;
+      csv += `Skonto_1;${document.getElementById('inputDate').value};${document.getElementById('inputAmount').value};"${document.getElementById('dispSkonto1Date').textContent}";"${document.getElementById('dispSkonto1Transfer').textContent}";"${document.getElementById('dispSkonto1Payable').textContent}";"${document.getElementById('dispMaxSavings').textContent}"\n`;
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `skontofrist-berechnung-${document.getElementById('inputDate').value}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

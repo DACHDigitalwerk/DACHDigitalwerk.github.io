@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kündigungsfrist berechnen: Tabelle DE § 622 BGB & CH Art. 335c OR (2026) | DACH Digitalwerk</title>
+  <meta name="description" content="Gesetzliche Kündigungsfristen für Arbeitnehmer und Arbeitgeber im DACH-Raum berechnen: § 622 BGB Fristentabelle (0 bis 20 Jahre), Schweizer OR 335c, Probezeit, Zugang & Fristende." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/kuendigungsfrist-arbeitnehmer-berechnen-dach.html" />
+  <meta property="og:title" content="Kündigungsfrist berechnen: Tabelle DE § 622 BGB & CH Art. 335c OR (2026)" />
+  <meta property="og:description" content="Komplette Fristentabelle nach Beschäftigungsjahren für Deutschland, die Schweiz & Österreich. Inkl. Fristen-Rechner & Zugangsregeln." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/kuendigungsfrist-arbeitnehmer-berechnen-dach.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org HowTo & FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Gesetzliche Kündigungsfrist exakt berechnen",
+    "description": "Schritt-für-Schritt-Anleitung zur Bestimmung des frühestmöglichen Beendigungszeitpunkts für Arbeitnehmer und Arbeitgeber im DACH-Raum.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Beschäftigungsdauer ermitteln",
+        "text": "Prüfen Sie, wie viele volle Jahre Sie im Unternehmen tätig waren. Unterbrechungen ohne Arbeitsverhältnis zählen in der Regel nicht mit."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Kündigende Partei feststellen",
+        "text": "Für die Eigenkündigung des Arbeitnehmers gilt nach § 622 Abs. 1 BGB oft nur die 4-Wochen-Grundfrist, es sei denn, im Vertrag wurde eine Gleichstellung vereinbart."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Fristende und Zugangstag berechnen",
+        "text": "Die Frist beginnt erst mit dem physischen Zugang des Original-Kündigungsschreibens. Endtermine sind meist der 15. oder das Monatsende."
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Gilt die verlängerte Kündigungsfrist nach § 622 Abs. 2 BGB auch für den Arbeitnehmer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gesetzlich gilt die Verlängerung nach Beschäftigungsjahren nur für Kündigungen durch den Arbeitgeber. Im Arbeitsvertrag darf jedoch vereinbart werden, dass für Kündigungen des Arbeitnehmers dieselben Fristen gelten wie für den Arbeitgeber (eine längere Frist für den Arbeitnehmer als für den Arbeitgeber ist hingegen unwirksam)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie lange ist die Kündigungsfrist in der Schweiz nach Art. 335c OR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In der Schweiz beträgt die Frist während der Probezeit 7 Tage. Im 1. Dienstjahr beträgt sie 1 Monat, vom 2. bis zum 9. Dienstjahr 2 Monate und ab dem 10. Dienstjahr 3 Monate, jeweils auf das Monatsende."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Reicht eine Kündigung per E-Mail oder WhatsApp aus?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Deutschland ist eine Kündigung per E-Mail, Fax, SMS oder WhatsApp nach § 623 BGB absolut nichtig! Die Kündigung bedarf zwingend der strengen Schriftform mit handschriftlicher Original-Unterschrift auf Papier."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">DSGVO & revDSG (Keine Datenspeicherung)</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-indigo-300">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 via-indigo-900 to-indigo-600 text-white flex items-center justify-center font-extrabold tracking-tight">
+          DW
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Arbeitsrecht & Kündigungsfristen</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./abfindung-kuendigung/" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>⚖️ Fristen & Abfindung jetzt live berechnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-indigo-600">Home</a>
+      <span>/</span>
+      <a href="./abfindung-kuendigung/" class="hover:text-indigo-600">Abfindungs- & Fristenrechner</a>
+      <span>/</span>
+      <span class="text-slate-700 font-semibold">Kündigungsfristen Tabelle DACH</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold">
+        <span>⏱️ Arbeitsrecht 2026</span>
+        <span>•</span>
+        <span>Deutschland (§ 622 BGB) & Schweiz (Art. 335c OR)</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        Kündigungsfrist berechnen: Tabelle für Arbeitnehmer & Arbeitgeber im DACH-Raum
+      </h1>
+      <p class="text-lg text-slate-600 leading-relaxed">
+        Zu welchem genauen Datum endet mein Arbeitsverhältnis? Wer eine Kündigung plant oder erhalten hat, muss die Fristen auf den Tag genau kennen. Formfehler beim Fristende oder fehlerhafte Klauseln im Arbeitsvertrag führen regelmäßig zur Unwirksamkeit. Hier finden Sie alle gesetzlichen Tabellen für Deutschland und die Schweiz.
+      </p>
+    </header>
+
+    <!-- CTA BANNER -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-indigo-800/50">
+      <div class="space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">⚡ Live-Fristenrechner</span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-white">Stichtag für Kündigungszugang & Fristende sofort prüfen?</h2>
+        <p class="text-sm text-slate-300 max-w-xl">
+          Geben Sie Ihre Betriebszugehörigkeit in unseren <strong>DACH Fristen-Rechner</strong> ein: Ermittelt automatisch den nächsten rechtswirksamen Austrittstermin und Ihren Abfindungsanspruch.
+        </p>
+      </div>
+      <a href="./abfindung-kuendigung/" class="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3.5 rounded-2xl shadow-lg transition">
+        Kündigungsfrist berechnen →
+      </a>
+    </section>
+
+    <!-- TABELLE DEUTSCHLAND § 622 BGB -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-extrabold text-slate-900">1. Kündigungsfristen Deutschland (§ 622 BGB)</h2>
+        <span class="text-xs font-mono bg-slate-100 text-slate-700 px-2.5 py-1 rounded-lg">§ 622 BGB</span>
+      </div>
+      <p class="text-sm text-slate-600">
+        Die Grundkündigungsfrist beträgt nach § 622 Abs. 1 BGB <strong>4 Wochen zum 15. oder zum Ende eines Kalendermonats</strong>. Bei einer Kündigung <em>durch den Arbeitgeber</em> verlängert sich die Frist nach der Betriebszugehörigkeit:
+      </p>
+
+      <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-3.5 sm:px-6">Betriebszugehörigkeit</th>
+              <th class="p-3.5 sm:px-6">Kündigung durch Arbeitgeber</th>
+              <th class="p-3.5 sm:px-6">Kündigung durch Arbeitnehmer</th>
+              <th class="p-3.5 sm:px-6">Kündigungstermin</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">In der Probezeit (max. 6 Monate)</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">2 Wochen</td>
+              <td class="p-3.5 sm:px-6">2 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zu jedem beliebigen Tag</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">0 bis unter 2 Jahre</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum 15. oder Monatsende</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">2 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">1 Monat</td>
+              <td class="p-3.5 sm:px-6">4 Wochen (falls keine Klausel)</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">5 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">2 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">8 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">3 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">10 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">4 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">12 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">5 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50/50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">15 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">6 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="p-3.5 sm:px-6 font-bold text-slate-900">20 Jahre</td>
+              <td class="p-3.5 sm:px-6 text-indigo-700 font-semibold">7 Monate</td>
+              <td class="p-3.5 sm:px-6">4 Wochen</td>
+              <td class="p-3.5 sm:px-6">Zum Ende eines Kalendermonats</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SCHWEIZER RECHT ART. 335C OR -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-extrabold text-slate-900">2. Kündigungsfristen Schweiz (Art. 335c OR)</h2>
+        <span class="text-xs font-mono bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-lg">Art. 335c OR</span>
+      </div>
+      <p class="text-sm text-slate-600">
+        Im Schweizer Arbeitsrecht gelten nach Ablauf der Probezeit gesetzlich dieselben Fristen für Arbeitgeber und Arbeitnehmer:
+      </p>
+
+      <div class="grid sm:grid-cols-3 gap-4 text-xs">
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1">
+          <div class="font-bold text-slate-900 text-sm">1. Dienstjahr</div>
+          <div class="text-emerald-700 font-black text-lg">1 Monat</div>
+          <p class="text-slate-500">Jeweils auf das Ende eines Kalendermonats.</p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1">
+          <div class="font-bold text-slate-900 text-sm">2. bis 9. Dienstjahr</div>
+          <div class="text-emerald-700 font-black text-lg">2 Monate</div>
+          <p class="text-slate-500">Jeweils auf das Ende eines Kalendermonats.</p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 space-y-1">
+          <div class="font-bold text-slate-900 text-sm">Ab 10. Dienstjahr</div>
+          <div class="text-emerald-700 font-black text-lg">3 Monate</div>
+          <p class="text-slate-500">Jeweils auf das Ende eines Kalendermonats.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZUGANG UND BEWEISLAST -->
+    <section class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <h2 class="text-2xl font-bold text-slate-900">Zugangsregeln: Wann beginnt die Frist wirklich zu laufen?</h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        Viele glauben fälschlicherweise, das Datum des Briefkopfs oder der Poststempel sei maßgeblich. Das ist falsch! <strong>Entscheidend ist ausschließlich der Zugang beim Empfänger (§ 130 BGB):</strong>
+      </p>
+
+      <div class="space-y-3 text-xs text-slate-700">
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold">1. Einwurf in den Briefkasten:</strong>
+          <span>Gilt an dem Werktag als zugegangen, an dem nach gewöhnlicher Verkehrsanschauung mit der Leerung zu rechnen ist (in der Regel vormittags bis ca. 12:00 Uhr). Ein Einwurf am Monatsletzten um 20:00 Uhr gilt erst am 1. des Folgemonats als zugegangen – die Frist verschiebt sich um einen ganzen Monat!</span>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold">2. Schriftformerfordernis (§ 623 BGB):</strong>
+          <span>Kündigungen bedürfen zwingend der strengen Schriftform auf Papier mit Original-Unterschrift. Eine Kündigung via WhatsApp, E-Mail, Fax oder Scan ist unwirksam.</span>
+        </div>
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+          <strong class="text-slate-900 block font-bold">3. Sicherer Nachweis:</strong>
+          <span>Die rechtssicherste Zustellung erfolgt durch persönliche Übergabe mit unterzeichneter Empfangsbestätigung oder durch Einwurf-Einschreiben mit Zustellprotokoll.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINK ZUM RECHNER UND ABFINDUNGSSTRATEGIE -->
+    <section class="bg-gradient-to-br from-indigo-950 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-xl space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h3 class="text-xl font-extrabold text-white">Prüfen Sie Fristen & Abfindung jetzt interaktiv</h3>
+          <p class="text-xs text-slate-300 mt-1 max-w-xl">
+            Unser Live-Rechner ermittelt auf Basis Ihres Eintrittsdatums sekundengenau den frühesten Austrittstermin und die optimale Abfindungshöhe.
+          </p>
+        </div>
+        <a href="./abfindung-kuendigung/" class="shrink-0 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-5 py-3 rounded-xl text-xs transition shadow-lg">
+          Zum Fristen- & Abfindungs-Rechner →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="text-sm font-extrabold text-white">DACH Digitalwerk – Ratgeber & Tools</div>
+        <p class="text-slate-500 mt-1">100% DSGVO-konforme Client-Side Browser-Applikationen.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-5 text-slate-300">
+        <a href="./abfindung-kuendigung/" class="hover:text-indigo-400">Abfindungs- & Fristen-Rechner</a>
+        <a href="./arbeitszeugnis/" class="hover:text-indigo-400">Zeugnis-Decoder</a>
+        <a href="./abfindung-berechnen-formel-tabelle.html" class="hover:text-indigo-400">Abfindungs-Tabelle</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

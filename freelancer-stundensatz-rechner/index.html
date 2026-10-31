@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Freelancer-Stundensatz-, Tagessatz- &amp; Auslastungs-Rechner 2026 | Honorar-Kalkulator (DE / AT / CH)</title>
+  <meta name="description" content="Kostenloser 100% Client-Side Stundensatz- &amp; Tagessatz-Rechner 2026 für Selbstständige, Freelancer, IT-Berater &amp; Agenturen in Deutschland (GKV/PKV, KSK), Österreich (SVS GSVG) &amp; Schweiz (AHV/IV/EO, BVG). Mit Auslastungs-Matrix, Projekt-Festpreis-Kalkulator &amp; DIN-A4 Honorarblatt." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/freelancer-stundensatz-rechner/" />
+  <meta property="og:title" content="DACH Freelancer-Stundensatz-, Tagessatz- &amp; Auslastungs-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Berechne deinen wirtschaftlichen Mindest-Stundensatz, Ziel-Tagessatz (8h), fakturierbare Jahresstunden und Festpreis-Puffer für Deutschland, Österreich und die Schweiz." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/freelancer-stundensatz-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Freelancer-Stundensatz-, Tagessatz- & Auslastungs-Rechner 2026",
+    "url": "https://dachdigitalwerk.github.io/freelancer-stundensatz-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Betriebswirtschaftlicher Honorar-, Stundensatz-, Tagessatz- und Auslastungs-Rechner 2026 für Freiberufler, Selbstständige, IT-Consultants und Agenturen im DACH-Raum (DE, AT, CH).",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH Freelancer-Stundensatz-, Tagessatz- &amp; Auslastungs-Rechner 2026 f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Kostenloser 100% Client-Side Stundensatz- &amp; Tagessatz-Rechner 2026 für Selbstständige, Freelancer, IT-Berater &amp; Agenturen in Deutschland (GKV/PKV, KSK), Österreich (SVS GSVG) &amp; Schweiz (AHV/IV/EO, BVG). Mit Auslastungs-Matrix, Projekt-Festpreis-Kalkulator &amp; DIN-A4 Honorarblatt. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          🚀 JUBILÄUMS-TOOL #30 • HONORAR-STANDARDS 2026
+        </span>
+        <span class="text-slate-300 font-medium">Rückwärtskalkulation • Fakturierbare Stunden • DE (GKV/KSK) • AT (SVS GSVG) • CH (AHV/BVG)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 30 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / BGH Az. I ZR 226/20):</strong>
+        Dieser Rechner dient ausschließlich der unverbindlichen betriebswirtschaftlichen und mathematischen Kalkulation von Stundensätzen, Tagessätzen und Kapazitätsauslastungen. Er stellt <strong>keine Steuer-, Rechts- oder Sozialversicherungsberatung</strong> dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>💼 Flaggschiff-Applikation #30</span>
+        <span>•</span>
+        <span>100% lokal im Browser</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH Freelancer-Stundensatz-, Tagessatz- &amp; Auslastungs-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-3xl leading-relaxed">
+        Kalkulieren Sie Ihren wirtschaftlich notwendigen <strong>Mindest-Stundensatz</strong> und <strong>Ziel-Tagessatz (8h)</strong> auf Basis Ihres Wunsch-Nettoeinkommens, Ihrer realen fakturierbaren Arbeitstage (abzüglich Urlaub, Krankheit, Feiertage &amp; Akquisezeit), Ihrer Betriebskosten sowie der länderspezifischen Vorsorge- und Steuerabzüge für <strong>Deutschland, Österreich und die Schweiz</strong>.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Standort, Einkommensziel &amp; Kostenstruktur</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (€)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (€)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (CHF)</button>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="applyPreset('senior_it')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">💻 Senior IT-Consultant / Dev</button>
+          <button type="button" onclick="applyPreset('design_ksk')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🎨 Designer / Texter (KSK)</button>
+          <button type="button" onclick="applyPreset('agency')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🏢 B2B Beratung / Interim Manager</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Gewünschtes Netto-Einkommen p.a. (<span class="curr-label">€</span>)</label>
+            <input type="number" id="targetNet" value="72000" min="10000" step="1000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Betriebliche Fixkosten p.a. (<span class="curr-label">€</span>)</label>
+            <input type="number" id="officeCosts" value="14400" min="0" step="500" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Software, Büro, StB, Haftpflicht, Hardware</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Kranken- &amp; Altersvorsorge p.a. (<span class="curr-label">€</span>)</label>
+            <input type="number" id="socialCosts" value="13200" min="0" step="500" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400" id="socialHint">DE: GKV/PKV + Rürup/ETF oder KSK (~5,2 %)</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Durchschnittlicher ESt-Satz (%)</label>
+            <input type="number" id="taxRate" value="32" min="0" max="55" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Gewinn- &amp; Risiko-Aufschlag (%)</label>
+            <input type="number" id="profitMargin" value="12" min="0" max="50" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Umsatzsteuer / MWST-Satz (%)</label>
+            <input type="number" id="vatRate" value="19" min="0" max="25" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">2. Kapazitäts- &amp; Auslastungs-Matrix (365 Kalendertage)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Urlaubstage / Jahr</label>
+              <input type="number" id="vacationDays" value="30" min="0" max="100" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Feiertage (Werktag)</label>
+              <input type="number" id="holidayDays" value="10" min="0" max="25" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Krankheit &amp; Weiterbildung</label>
+              <input type="number" id="sickDays" value="12" min="0" max="60" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Arbeitsstunden / Tag</label>
+              <input type="number" id="hoursPerDay" value="8" min="1" max="14" step="0.5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Nicht-fakturierbare Zeit (Akquise, Buchhaltung, Admin: <span id="unbillableVal">30</span>%)</label>
+              <input type="range" id="unbillablePct" value="30" min="5" max="65" step="1" oninput="recalc()" class="w-full accent-emerald-500" />
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">3. Projekt- &amp; Festpreis-Simulator</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Geschätzter Projektaufwand (Stunden)</label>
+              <input type="number" id="projHours" value="80" min="1" step="5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Scope- &amp; Änderungs-Risikopuffer (%)</label>
+              <input type="number" id="projRiskPct" value="20" min="0" max="100" step="5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Kalkuliertes Ziel-Honorar (Netto)</span>
+            <span id="badge-country" class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full">🇩🇪 DE Standard</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">Empfohlener Stundensatz</div>
+              <div id="out-hourly-net" class="text-2xl sm:text-3xl font-black text-emerald-400 font-mono mt-1">108,50 €</div>
+              <div id="out-hourly-gross" class="text-[11px] text-slate-400 mt-1">inkl. USt: 129,12 € / Std.</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">Empfohlener Tagessatz (8h)</div>
+              <div id="out-daily-net" class="text-2xl sm:text-3xl font-black text-white font-mono mt-1">868,00 €</div>
+              <div id="out-daily-gross" class="text-[11px] text-slate-400 mt-1">inkl. USt: 1.032,92 € / Tag</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/70 border border-slate-800 rounded-2xl p-4 space-y-2.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Erforderlicher Jahresumsatz (Netto):</span>
+              <span id="out-total-rev" class="font-mono font-bold text-white">159.105 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Notwendiger Monatsumsatz (Netto):</span>
+              <span id="out-monthly-rev" class="font-mono font-semibold text-emerald-300">13.259 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Anwesenheitstage / Fakturierbare Tage:</span>
+              <span id="out-days" class="font-mono font-semibold text-slate-200">209 Tage / 146,3 Tage</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Fakturierbare Stunden pro Jahr:</span>
+              <span id="out-billable-hours" class="font-mono font-bold text-amber-300">1.170 Std.</span>
+            </div>
+            <div class="flex justify-between border-t border-slate-800 pt-2">
+              <span class="text-slate-400">Untergrenze (ohne Gewinnpuffer):</span>
+              <span id="out-min-hourly" class="font-mono text-slate-300">96,88 € / Std.</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Äquivalentes Angestellten-Brutto p.a.:</span>
+              <span id="out-emp-equiv" class="font-mono text-cyan-300">~ 118.400 €</span>
+            </div>
+          </div>
+
+          <div class="bg-indigo-950/50 border border-indigo-500/30 rounded-2xl p-4 space-y-1.5 text-xs">
+            <div class="font-bold text-indigo-300">📦 Festpreis-Angebot (inkl. Risikopuffer)</div>
+            <div class="flex justify-between items-baseline">
+              <span class="text-slate-300">Kalkulierter Festpreis (Netto):</span>
+              <span id="out-proj-net" class="text-lg font-black font-mono text-white">10.416 €</span>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Kalkulierte Gesamtstunden inkl. Puffer:</span>
+              <span id="out-proj-hours" class="font-mono">96,0 Std.</span>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Honorar-Kalkulationsblatt drucken / PDF</span>
+          </button>
+        </div>
+
+        <!-- SEO RATGEBER LINKS -->
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Passende Fachratgeber 2026</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="./freelancer-stundensatz-berechnen-formel-2026.html" class="text-emerald-400 hover:underline font-semibold">→ Freelancer-Stundensatz berechnen: Formel &amp; Rückwärtskalkulation 2026</a></li>
+            <li><a href="./tagessatz-kalkulation-it-berater-agenturen-dach.html" class="text-emerald-400 hover:underline font-semibold">→ Tagessatz-Kalkulation für IT-Berater, Ingenieure &amp; Agenturen (DE/AT/CH)</a></li>
+            <li><a href="./auslastungsgrad-fakturierbare-stunden-selbststaendige.html" class="text-emerald-400 hover:underline font-semibold">→ Auslastungsgrad &amp; fakturierbare Stunden: Warum 65–70 % realistisch sind</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PRINT VIEW (DIN A4) -->
+  <section class="print-only p-6 space-y-4 text-black">
+    <h1 class="text-xl font-bold border-b pb-2">Betriebswirtschaftliches Honorar- &amp; Stundensatz-Kalkulationsblatt 2026</h1>
+    <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/freelancer-stundensatz-rechner/) — Unverbindliche Modellrechnung ohne Steuer-/Rechtsberatung.</p>
+    <div id="print-summary" class="text-sm space-y-2 font-mono"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-4">
+      <div>© 2026 DACH Digitalwerk • 100% Client-Side Web-Tools</div>
+      <div class="flex gap-4">
+        <a href="../" class="hover:text-white">Startseite (Alle 30 Tools)</a>
+        <a href="../agb/" class="hover:text-white">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white">Haftungsausschluss</a>
+        <a href="https://github.com/DACHDigitalwerk/freelancer-stundensatz-honorar-rechner-dach" class="hover:text-emerald-400">GitHub Open-Source Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = (c === 'CH') ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+      if (c === 'DE') {
+        document.getElementById('vatRate').value = 19;
+        document.getElementById('taxRate').value = 32;
+        document.getElementById('socialCosts').value = 13200;
+        document.getElementById('socialHint').textContent = 'DE: Freiwillige GKV/PKV + Altersvorsorge oder KSK (~5,2 %)';
+        document.getElementById('badge-country').textContent = '🇩🇪 DE Standard';
+      } else if (c === 'AT') {
+        document.getElementById('vatRate').value = 20;
+        document.getElementById('taxRate').value = 34;
+        document.getElementById('socialCosts').value = 15800;
+        document.getElementById('socialHint').textContent = 'AT: SVS GSVG (PV 18,5 % + KV 6,8 % + SV 1,53 % = ~26,83 %)';
+        document.getElementById('badge-country').textContent = '🇦🇹 AT SVS-Standard';
+      } else {
+        document.getElementById('vatRate').value = 8.1;
+        document.getElementById('taxRate').value = 22;
+        document.getElementById('socialCosts').value = 16500;
+        document.getElementById('socialHint').textContent = 'CH: AHV/IV/EO (~10,0 %) + Säule 3a (bis 36.288 CHF) / BVG';
+        document.getElementById('badge-country').textContent = '🇨🇭 CH Standard';
+      }
+      recalc();
+    }
+
+    function applyPreset(p) {
+      if (p === 'senior_it') {
+        document.getElementById('targetNet').value = currentCountry === 'CH' ? 115000 : 84000;
+        document.getElementById('officeCosts').value = currentCountry === 'CH' ? 18000 : 14400;
+        document.getElementById('unbillablePct').value = 25;
+        document.getElementById('profitMargin').value = 15;
+      } else if (p === 'design_ksk') {
+        document.getElementById('targetNet').value = 54000;
+        document.getElementById('officeCosts').value = 9600;
+        document.getElementById('socialCosts').value = 6200;
+        document.getElementById('unbillablePct').value = 35;
+        document.getElementById('profitMargin').value = 10;
+      } else if (p === 'agency') {
+        document.getElementById('targetNet').value = currentCountry === 'CH' ? 140000 : 105000;
+        document.getElementById('officeCosts').value = 24000;
+        document.getElementById('unbillablePct').value = 30;
+        document.getElementById('profitMargin').value = 18;
+      }
+      recalc();
+    }
+
+    function fmt(val, decimals = 2) {
+      const curr = (currentCountry === 'CH') ? 'CHF' : '€';
+      return val.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' ' + curr;
+    }
+
+    function recalc() {
+      const net = Math.max(0, parseFloat(document.getElementById('targetNet').value) || 0);
+      const office = Math.max(0, parseFloat(document.getElementById('officeCosts').value) || 0);
+      const social = Math.max(0, parseFloat(document.getElementById('socialCosts').value) || 0);
+      const taxPct = Math.min(80, Math.max(0, parseFloat(document.getElementById('taxRate').value) || 0)) / 100;
+      const marginPct = Math.max(0, parseFloat(document.getElementById('profitMargin').value) || 0) / 100;
+      const vatPct = Math.max(0, parseFloat(document.getElementById('vatRate').value) || 0) / 100;
+
+      const vac = Math.max(0, parseFloat(document.getElementById('vacationDays').value) || 0);
+      const hol = Math.max(0, parseFloat(document.getElementById('holidayDays').value) || 0);
+      const sick = Math.max(0, parseFloat(document.getElementById('sickDays').value) || 0);
+      const hDay = Math.max(1, parseFloat(document.getElementById('hoursPerDay').value) || 8);
+      const unbillPct = Math.min(90, Math.max(0, parseFloat(document.getElementById('unbillablePct').value) || 0));
+      document.getElementById('unbillableVal').textContent = unbillPct;
+
+      const workDays = Math.max(1, 365 - 104 - vac - hol - sick);
+      const billableDays = Math.max(1, workDays * (1 - unbillPct / 100));
+      const billableHours = Math.max(1, billableDays * hDay);
+
+      const preTaxProfitNeeded = net / Math.max(0.1, (1 - taxPct));
+      const baseRevenueNeeded = preTaxProfitNeeded + social + office;
+      const targetRevenue = baseRevenueNeeded * (1 + marginPct);
+
+      const minHourly = baseRevenueNeeded / billableHours;
+      const hourlyNet = targetRevenue / billableHours;
+      const hourlyGross = hourlyNet * (1 + vatPct);
+      const dailyNet = hourlyNet * hDay;
+      const dailyGross = dailyNet * (1 + vatPct);
+
+      const projH = Math.max(1, parseFloat(document.getElementById('projHours').value) || 0);
+      const projRisk = Math.max(0, parseFloat(document.getElementById('projRiskPct').value) || 0) / 100;
+      const totalProjHours = projH * (1 + projRisk);
+      const projNet = totalProjHours * hourlyNet;
+
+      const empEquiv = net / 0.61;
+
+      document.getElementById('out-hourly-net').textContent = fmt(hourlyNet, 2);
+      document.getElementById('out-hourly-gross').textContent = 'inkl. USt/MWST: ' + fmt(hourlyGross, 2) + ' / Std.';
+      document.getElementById('out-daily-net').textContent = fmt(dailyNet, 2);
+      document.getElementById('out-daily-gross').textContent = 'inkl. USt/MWST: ' + fmt(dailyGross, 2) + ' / Tag';
+      document.getElementById('out-total-rev').textContent = fmt(targetRevenue, 0);
+      document.getElementById('out-monthly-rev').textContent = fmt(targetRevenue / 12, 0);
+      document.getElementById('out-days').textContent = workDays.toFixed(0) + ' Tage / ' + billableDays.toFixed(1) + ' Tage';
+      document.getElementById('out-billable-hours').textContent = billableHours.toFixed(0) + ' Std.';
+      document.getElementById('out-min-hourly').textContent = fmt(minHourly, 2) + ' / Std.';
+      document.getElementById('out-emp-equiv').textContent = '~ ' + fmt(empEquiv, 0);
+      document.getElementById('out-proj-net').textContent = fmt(projNet, 0);
+      document.getElementById('out-proj-hours').textContent = totalProjHours.toFixed(1) + ' Std.';
+
+      document.getElementById('print-summary').innerHTML =
+        '<div>Ziel-Nettoeinkommen: ' + fmt(net, 0) + ' | Betriebskosten: ' + fmt(office, 0) + ' | Vorsorge: ' + fmt(social, 0) + '</div>' +
+        '<div>Fakturierbare Tage: ' + billableDays.toFixed(1) + ' Tage (' + billableHours.toFixed(0) + ' Std./Jahr)</div>' +
+        '<div><strong>Empfohlener Stundensatz (Netto): ' + fmt(hourlyNet, 2) + ' | Tagessatz (8h Netto): ' + fmt(dailyNet, 2) + '</strong></div>' +
+        '<div>Erforderlicher Jahresumsatz (Netto): ' + fmt(targetRevenue, 0) + '</div>';
+    }
+    recalc();
+  </script>
+</body>
+</html>

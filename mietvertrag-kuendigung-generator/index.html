@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Wohnungs-Kündigungs-, Nachmieter- & Übergabeprotokoll-Generator 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Rechtssicher Mietvertrag kündigen, Nachmieter stellen & Wohnungsübergabeprotokoll erstellen für Deutschland (§ 573c BGB), Schweiz (Art. 266l / 264 OR) und Österreich (§ 29 MRG). 100% Client-Side DSGVO-konform." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // Konfigurierbare Gumroad URL
+    window.DIGITALWERK_GUMROAD_URL = window.DIGITALWERK_GUMROAD_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .a4-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto 24px auto;
+      padding: 20mm 20mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      position: relative;
+    }
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-sheet-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 0 20mm 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "DACH Wohnungs-Kündigungs-, Nachmieter- & Übergabeprotokoll-Generator 2026 | DACH Digitalwerk", "description": "Rechtssicher Mietvertrag kündigen, Nachmieter stellen & Wohnungsübergabeprotokoll erstellen für Deutschland (§ 573c BGB), Schweiz (Art. 266l / 264 OR) und Österreich (§ 29 MRG). 100% Client-Side DSGVO-konform.", "url": "https://dach-digitalwerk.netlify.app/mietvertrag-kuendigung-generator/", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "inLanguage": ["de-DE", "de-AT", "de-CH"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH Wohnungs-Kündigungs-, Nachmieter- & Übergabeprotokoll-Generator 2026 f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Rechtssicher Mietvertrag kündigen, Nachmieter stellen & Wohnungsübergabeprotokoll erstellen für Deutschland (§ 573c BGB), Schweiz (Art. 266l / 264 OR) und Österreich (§ 29 MRG). 100% Client-Side DSGVO-konform. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Ihre Miet- & Personendaten werden ausschließlich lokal in Ihrem Browser verarbeitet (keine Server-Speicherung, DSGVO & revDSG konform).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsraum:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 573c BGB)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (Art. 266l / 264 OR)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§ 29 MRG)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-sky-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          🔑
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Wohnungs-Kündigungs- & Übergabe-Suite 2026</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">Fristen- & Stichtags-Rechner • Nachmieter-Befreiungsprüfung • 3-in-1 DIN-A4 Dokumente</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../nebenkosten-check/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🏢</span>
+          <span>Nebenkosten-Check</span>
+        </a>
+        <a href="../arbeitszeugnis/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🔍</span>
+          <span>Arbeitszeugnis-Radar</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Vollversion (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & DEMO SELECTOR -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold mb-3">
+          <span>⚡ DACH Mietrecht 2026</span>
+          <span>•</span>
+          <span id="hero-badge-law">§ 573c BGB (DE) • Art. 266l / 264 OR (CH) • § 29 MRG (AT)</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          Wohnungskündigung, Nachmieter & <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-sky-300 to-emerald-300">Übergabeprotokoll rechtssicher erstellen</span>
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Bis zu <strong>24 % aller Mietkündigungen sind wegen Formfehlern unwirksam</strong> (E-Mail/Fax-Kündigung, fehlende Ehepartner-Unterschrift bei Familienwohnungen oder verpasste 3-Werktage-Karenzfrist). Berechnen Sie Ihre Fristen auf den Tag genau, sichern Sie die Kautionsfreigabe und erstellen Sie das vollständige 3-in-1 Paket:
+        </p>
+      </div>
+
+      <!-- 3 INTERACTIVE DEMO BUTTONS -->
+      <div class="mt-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+          <span>🎯 Praxis-Fälle mit 1 Klick laden:</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <button onclick="loadSampleCase('de_ordentlich')" id="demo-btn-de" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-amber-500/40 hover:border-amber-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇩🇪</span>
+            <div>
+              <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Deutschland • § 573c BGB</div>
+              <div class="text-sm font-bold text-white group-hover:text-amber-200 transition">3. Werktag & Karenztag-Rechner</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">1.450 € Warmmiete, 3 Monate Kündigungsfrist, Widerspruch nach § 545 BGB & Kautionsfrist.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleCase('ch_ausserterminlich')" id="demo-btn-ch" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇨🇭</span>
+            <div>
+              <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Schweiz • Art. 264 / 266l OR</div>
+              <div class="text-sm font-bold text-white group-hover:text-emerald-200 transition">Ausserterminlich mit Nachmieter</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">CHF 2'400 Miete, Familienwohnung (beide Unterschriften!), 3 geprüfte Nachmieter-Dossiers.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleCase('at_mrg_befristet')" id="demo-btn-at" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-sky-500/40 hover:border-sky-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-sky-500/20 border border-sky-500/30 text-sky-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🇦🇹</span>
+            <div>
+              <div class="text-xs font-bold text-sky-300 uppercase tracking-wider">Österreich • § 29 Abs. 2 MRG</div>
+              <div class="text-sm font-bold text-white group-hover:text-sky-200 transition">Befristeter Mietvertrag (1-Jahres-Sperre)</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">980 € Miete, Kündigung nach 12 Monaten zum Ablauf des 16. Monats & § 16b MRG Kautionsfreigabe.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB NAVIGATION -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 no-print">
+    <div class="flex border-b border-slate-200 bg-white rounded-t-2xl px-2 pt-2 gap-2 shadow-sm overflow-x-auto">
+      <button onclick="switchTab('fristen')" id="tab-btn-fristen" class="px-5 py-3 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition">
+        <span>⏱️</span>
+        <span>1. Kündigungsfrist- & Formfehler-Prüfer</span>
+        <span id="badge-date-preview" class="ml-1 px-2 py-0.5 text-[10px] rounded-full bg-indigo-100 text-indigo-800 font-extrabold hidden">Berechnet</span>
+      </button>
+
+      <button onclick="switchTab('uebergabe')" id="tab-btn-uebergabe" class="px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>📋</span>
+        <span>2. Wohnungsübergabeprotokoll & Zähler</span>
+        <span id="badge-meter-count" class="ml-1 px-2 py-0.5 text-[10px] rounded-full bg-slate-100 text-slate-700 font-extrabold">6 Zähler</span>
+      </button>
+
+      <button onclick="switchTab('progenerator')" id="tab-btn-progenerator" class="px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition">
+        <span>📄</span>
+        <span>3. PRO 3-in-1 DIN-A4 Dokumente</span>
+        <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-black uppercase">PRO</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pb-16 no-print">
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: FRISTEN- & FORMFIEHLER-PRÜFER -->
+    <!-- =================================================================== -->
+    <div id="tab-content-fristen" class="pt-6 space-y-6">
+      
+      <!-- BASISDATEN CARD -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span>📅 Mietvertrags-Eckdaten & Fristen-Berechnung</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Berechnet den genauen spätesten Zugangstag beim Vermieter sowie das rechtsgültige Mietende nach BGB / OR / MRG.</p>
+          </div>
+          <button onclick="resetFristenForm()" class="text-xs text-slate-500 hover:text-rose-600 font-medium px-2 py-1 rounded hover:bg-rose-50 transition">
+            Eingaben zurücksetzen
+          </button>
+        </div>
+
+        <!-- FORM GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mietvertrags-Beginn:</label>
+            <input type="date" id="lease-start-date" value="2023-01-01" onchange="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Geplantes Absende- / Übergabedatum:</label>
+            <input type="date" id="notice-delivery-date" onchange="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Vertragsart & Befristung:</label>
+            <select id="lease-type" onchange="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-medium">
+              <option value="unbefristet">Unbefristeter Standard-Mietvertrag</option>
+              <option value="befristet_kuendigungsausschluss">Befristet / Kündigungsverzicht (DE/CH)</option>
+              <option value="at_befristet_mrg">Befristeter Mietvertrag gem. § 29 MRG (AT)</option>
+              <option value="staffelmiete">Staffelmietvertrag</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Kündigungsart:</label>
+            <select id="notice-type" onchange="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-medium">
+              <option value="ordentlich">Ordentliche Kündigung (gesetzliche Frist)</option>
+              <option value="nachmieter_ausserterminlich">Ausserterminliche Rückgabe mit Nachmieter</option>
+              <option value="sonderkuendigung">Sonderkündigung (z.B. Mieterhöhung / Sanierung)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Monatliche Nettokaltmiete (<span class="currency-label">€</span>):</label>
+            <input type="number" id="rent-net" value="1150" min="0" step="10" oninput="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-medium">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Monatliche Warmmiete / Bruttozins (<span class="currency-label">€</span>):</label>
+            <input type="number" id="rent-warm" value="1450" min="0" step="10" oninput="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-bold text-slate-900">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Hinterlegte Kaution / Mietzinsdepot (<span class="currency-label">€</span>):</label>
+            <input type="number" id="deposit-amount" value="3450" min="0" step="50" oninput="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 font-medium">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Anzahl Hauptmieter im Vertrag:</label>
+            <select id="tenants-count" onchange="runFristenCheck()" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+              <option value="1">1 Hauptmieter (Alleinmieter)</option>
+              <option value="2" selected>2 Hauptmieter (z.B. Paar / WG)</option>
+              <option value="3">3 Hauptmieter</option>
+              <option value="4">4+ Hauptmieter</option>
+            </select>
+          </div>
+
+          <!-- SCHWEIZ SPEZIFISCH: FAMILIENWOHNUNG -->
+          <div id="col-family-home" class="sm:col-span-2 bg-indigo-50/70 border border-indigo-200 rounded-xl p-3">
+            <label class="flex items-start gap-2.5 cursor-pointer">
+              <input type="checkbox" id="is-family-home" onchange="runFristenCheck()" class="w-4 h-4 mt-0.5 rounded text-indigo-600 focus:ring-indigo-500">
+              <div>
+                <span class="font-bold text-indigo-950 text-xs">Wohnung dient als Familienwohnung (Ehegatten / eingetragene Partner)</span>
+                <p class="text-[11px] text-indigo-800/80 mt-0.5 leading-normal">
+                  In der Schweiz zwingend nach <strong>Art. 266l Abs. 1 OR</strong>: Die Kündigung ist absolut NICHTIG, wenn nicht BEIDE Partner eigenhändig unterschreiben – selbst wenn nur einer im Mietvertrag steht!
+                </p>
+              </div>
+            </label>
+          </div>
+
+          <!-- NACHMIETER BEREIT -->
+          <div id="col-subtenant-ready" class="sm:col-span-2 bg-emerald-50/70 border border-emerald-200 rounded-xl p-3">
+            <label class="flex items-start gap-2.5 cursor-pointer">
+              <input type="checkbox" id="has-subtenant" onchange="runFristenCheck()" class="w-4 h-4 mt-0.5 rounded text-emerald-600 focus:ring-emerald-500">
+              <div>
+                <span class="font-bold text-emerald-950 text-xs">Zumutbare(r) Nachmieter / Ersatzmieter vorhanden</span>
+                <p class="text-[11px] text-emerald-800/80 mt-0.5 leading-normal">
+                  Befreit vorzeitig aus der Mietzinspflicht gemäss <strong>Art. 264 OR</strong> (CH) bzw. berechtigtem Härtefall nach <strong>§ 242 BGB</strong> (DE).
+                </p>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ERGEBNIS-DASHBOARD (FRISTEN, STICHTAG & ERSPARNIS) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- CARD 1: SPÄTESTER ZUGANG -->
+        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-5 shadow-lg border border-slate-800 relative overflow-hidden">
+          <div class="flex items-center justify-between text-xs text-indigo-300 font-semibold mb-2">
+            <span>STICHTAG ZUSTELLUNG</span>
+            <span class="text-xs bg-indigo-500/20 px-2 py-0.5 rounded-full border border-indigo-400/30" id="card-deadline-rule">3. Werktag (§ 573c BGB)</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="res-latest-delivery">
+            --.--.----
+          </div>
+          <div class="text-xs text-slate-300 mt-2 leading-relaxed" id="res-latest-delivery-sub">
+            Spätester Tag des Einwurfs / Zugangs beim Vermieter, damit die Frist im aktuellen Monat noch anläuft.
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-800/80 text-[11px] text-amber-300 flex items-center gap-1.5 font-medium" id="res-post-warning">
+            <span>⚠️</span>
+            <span>Postlaufzeit: Mind. 2–3 Tage vor Stichtag per Einschreiben absenden!</span>
+          </div>
+        </div>
+
+        <!-- CARD 2: RECHTSWIRKSAMES MIETENDE -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between text-xs text-slate-500 font-semibold mb-2">
+            <span>WIRKSAMES VERTRAGSENDE</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Auszugstermin</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" id="res-effective-end">
+            --.--.----
+          </div>
+          <div class="text-xs text-slate-500 mt-2 leading-relaxed" id="res-effective-end-sub">
+            Ordentliche Beendigung zum Monatsletzten (bzw. ortsüblichen Kündigungstermin).
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-[11px] text-slate-600 flex items-center justify-between">
+            <span>Kündigungsfrist:</span>
+            <span class="font-bold text-slate-900" id="res-notice-months">3 Monate</span>
+          </div>
+        </div>
+
+        <!-- CARD 3: POTENZIELLE ERSPARNIS -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between text-xs text-slate-500 font-semibold mb-2">
+            <span>FINANZIELLE ERSPARNIS</span>
+            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold">Mietzins gesichert</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-600 tracking-tight" id="res-financial-savings">
+            0 <span class="currency-label">€</span>
+          </div>
+          <div class="text-xs text-slate-500 mt-2 leading-relaxed" id="res-savings-sub">
+            Ersparnis durch fristgerechten Zugang vs. 1 Folgemonat Verzögerung.
+          </div>
+          <div class="mt-3 pt-3 border-t border-slate-100 text-[11px] text-slate-600 flex items-center justify-between">
+            <span>Kaution-Rückforderung:</span>
+            <span class="font-bold text-slate-900" id="res-deposit-preview">3.450 €</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- FORMFIEHLER-RADAR & RECHTSHINWEISE (ROTE FLAGGEN) -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-4">
+        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <span>🚨 Rechtlicher Formfehler- & Schutz-Radar</span>
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="legal-warning-container">
+          <!-- Dynamisch befüllte Warnkarten -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: WOHNUNGSÜBERGABEPROTOKOLL & ZÄHLERSTANDS-KONFIGURATOR -->
+    <!-- =================================================================== -->
+    <div id="tab-content-uebergabe" class="pt-6 space-y-6 hidden">
+      
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <span>📋 Wohnungsübergabeprotokoll & Zustandserfassung</span>
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Erfassen Sie alle Zählerstände, Schlüsselanzahlen und den Raumzustand. Das Protokoll schützt vor unberechtigten Kautionsabzügen.</p>
+          </div>
+          <div class="text-xs bg-indigo-50 text-indigo-700 px-3 py-1.5 rounded-lg font-semibold border border-indigo-200/60">
+            Rechtswirkung: Beweisurkunde nach § 416 ZPO / Art. 267a OR
+          </div>
+        </div>
+
+        <!-- PROTOKOLL-ECKDATEN -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Datum der Wohnungsabnahme:</label>
+            <input type="date" id="handover-date" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Uhrzeit der Abnahme:</label>
+            <input type="time" id="handover-time" value="10:00" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Art der Übergabe:</label>
+            <select id="handover-type" class="w-full rounded-xl border border-slate-300 p-2.5 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+              <option value="auszug" selected>Auszug des Mieters (Rückgabe an Vermieter)</option>
+              <option value="nachmieter">Direktübergabe an Nachmieter</option>
+              <option value="einzug">Einzug des Mieters</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 1. ZÄHLERSTÄNDE -->
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span>⚡ 1. Zählerstände bei Übergabe (Ablesung am Stichtag)</span>
+            </h3>
+            <span class="text-[11px] text-slate-500">Foto-Dokumentation zusätzlich empfohlen</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+            <!-- STROM HT -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Strom Hochtarif (HT)</span>
+                <span class="text-[10px] bg-slate-200 px-2 py-0.5 rounded font-mono">kWh</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählernummer:</label>
+                  <input type="text" id="meter-elec-ht-num" value="1EMH00938472" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-mono">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählerstand:</label>
+                  <input type="number" id="meter-elec-ht-val" value="48210.5" step="0.1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+
+            <!-- STROM NT -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Strom Niedertarif (NT)</span>
+                <span class="text-[10px] bg-slate-200 px-2 py-0.5 rounded font-mono">kWh</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählernummer:</label>
+                  <input type="text" id="meter-elec-nt-num" value="1EMH00938472" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-mono">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählerstand:</label>
+                  <input type="number" id="meter-elec-nt-val" value="12450.0" step="0.1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+
+            <!-- GAS / FERNWÄRME -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Gas / Fernwärme</span>
+                <span class="text-[10px] bg-slate-200 px-2 py-0.5 rounded font-mono">m³ / MWh</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählernummer:</label>
+                  <input type="text" id="meter-gas-num" value="GAS-774021" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-mono">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählerstand:</label>
+                  <input type="number" id="meter-gas-val" value="3892.4" step="0.1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+
+            <!-- KALTWASSER -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Kaltwasser</span>
+                <span class="text-[10px] bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-mono">m³</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählernummer:</label>
+                  <input type="text" id="meter-water-cold-num" value="W-KW-44182" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-mono">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählerstand:</label>
+                  <input type="number" id="meter-water-cold-val" value="312.8" step="0.1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+
+            <!-- WARMWASSER -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Warmwasser</span>
+                <span class="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-mono">m³</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählernummer:</label>
+                  <input type="text" id="meter-water-warm-num" value="W-WW-99201" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-mono">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Zählerstand:</label>
+                  <input type="number" id="meter-water-warm-val" value="142.3" step="0.1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+
+            <!-- HEIZKOSTENVERTEILER -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 space-y-2">
+              <div class="font-bold text-slate-800 flex items-center justify-between">
+                <span>Heizkostenverteiler (gesamt)</span>
+                <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-mono">Einheiten</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Ablese-Geräte:</label>
+                  <input type="text" id="meter-heating-units-note" value="5 elektronische HKV" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs">
+                </div>
+                <div>
+                  <label class="text-[10px] text-slate-500 block">Gesamtstand:</label>
+                  <input type="number" id="meter-heating-units-val" value="1845" step="1" class="w-full rounded-lg border border-slate-300 p-1.5 text-xs font-bold font-mono">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SCHLÜSSEL-RÜCKGABE -->
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span>🗝️ 2. Schlüssel-Rückgabe (Vollständigkeitsprüfung)</span>
+            </h3>
+            <span class="text-[11px] text-slate-500">Fehlende Schlüssel können Schließanlagen-Austausch auslösen!</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+              <thead class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+                <tr>
+                  <th class="p-2.5">Schlüsselart</th>
+                  <th class="p-2.5 w-24">Erhalten</th>
+                  <th class="p-2.5 w-24">Rückgabe</th>
+                  <th class="p-2.5 w-32">Status</th>
+                  <th class="p-2.5">Notiz / Schlüsselnummer</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 bg-white" id="key-table-body">
+                <tr>
+                  <td class="p-2.5 font-medium">Haustür / Hauseingang</td>
+                  <td class="p-2.5"><input type="number" id="key-rec-house" value="3" min="0" class="w-16 p-1 border rounded text-center"></td>
+                  <td class="p-2.5"><input type="number" id="key-ret-house" value="3" min="0" class="w-16 p-1 border rounded text-center font-bold text-emerald-700"></td>
+                  <td class="p-2.5 text-emerald-700 font-bold">✓ Vollständig</td>
+                  <td class="p-2.5"><input type="text" id="key-note-house" value="Sicherheitsschlüssel System DOM" class="w-full p-1 border rounded text-xs"></td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-medium">Wohnungstür</td>
+                  <td class="p-2.5"><input type="number" id="key-rec-flat" value="3" min="0" class="w-16 p-1 border rounded text-center"></td>
+                  <td class="p-2.5"><input type="number" id="key-ret-flat" value="3" min="0" class="w-16 p-1 border rounded text-center font-bold text-emerald-700"></td>
+                  <td class="p-2.5 text-emerald-700 font-bold">✓ Vollständig</td>
+                  <td class="p-2.5"><input type="text" id="key-note-flat" value="Gleichschließend" class="w-full p-1 border rounded text-xs"></td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-medium">Briefkasten</td>
+                  <td class="p-2.5"><input type="number" id="key-rec-mail" value="2" min="0" class="w-16 p-1 border rounded text-center"></td>
+                  <td class="p-2.5"><input type="number" id="key-ret-mail" value="2" min="0" class="w-16 p-1 border rounded text-center font-bold text-emerald-700"></td>
+                  <td class="p-2.5 text-emerald-700 font-bold">✓ Vollständig</td>
+                  <td class="p-2.5"><input type="text" id="key-note-mail" value="Nummer B-14" class="w-full p-1 border rounded text-xs"></td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-medium">Keller / Dachboden</td>
+                  <td class="p-2.5"><input type="number" id="key-rec-cellar" value="2" min="0" class="w-16 p-1 border rounded text-center"></td>
+                  <td class="p-2.5"><input type="number" id="key-ret-cellar" value="2" min="0" class="w-16 p-1 border rounded text-center font-bold text-emerald-700"></td>
+                  <td class="p-2.5 text-emerald-700 font-bold">✓ Vollständig</td>
+                  <td class="p-2.5"><input type="text" id="key-note-cellar" value="Vorhängeschloss Keller Nr. 4" class="w-full p-1 border rounded text-xs"></td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-medium">Tiefgarage / Handsender / Tor</td>
+                  <td class="p-2.5"><input type="number" id="key-rec-garage" value="1" min="0" class="w-16 p-1 border rounded text-center"></td>
+                  <td class="p-2.5"><input type="number" id="key-ret-garage" value="1" min="0" class="w-16 p-1 border rounded text-center font-bold text-emerald-700"></td>
+                  <td class="p-2.5 text-emerald-700 font-bold">✓ Vollständig</td>
+                  <td class="p-2.5"><input type="text" id="key-note-garage" value="Funksender Tiefgarage inkl. Batterie" class="w-full p-1 border rounded text-xs"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. RAUM-ZUSTANDS-CHECKLISTE -->
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span>🏠 3. Raum-Zustands-Check (Schönheitsreparaturen vs. vertragsgemäße Abnutzung)</span>
+            </h3>
+            <span class="text-[11px] text-slate-500">BGH: Normale Gebrauchsspuren sind mit der Miete abgegolten!</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+            <!-- CHECK 1: WÄNDE & DECKEN -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>1. Wände & Decken</span>
+                <select id="state-walls" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Einwandfrei (weiß/neutral, Bohrlöcher fachgerecht verschlossen)</option>
+                  <option value="leichte_abnutzung">Normale Abnutzung (kein Mangel)</option>
+                  <option value="mangel_streichen">Mangel: Anstrich erforderlich / farbig hinterlassen</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Unwirksam sind starre Renovierungsklauseln ("alle 3 Jahre zwingend streichen" – BGH VIII ZR 361/03).</p>
+            </div>
+
+            <!-- CHECK 2: FUSSBÖDEN -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>2. Böden (Parkett, Laminat, Fliesen)</span>
+                <select id="state-floors" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Einwandfrei, gründlich gereinigt</option>
+                  <option value="leichte_abnutzung">Normale Gebrauchsspuren (Möbelabdrücke, leichte Laufspuren)</option>
+                  <option value="mangel_boden">Übermäßige Beschädigung (tiefe Kerben, Brandfleck)</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Normale Laufspuren oder Ausbleichen durch Sonnenlicht sind vertragsgemäße Abnutzung.</p>
+            </div>
+
+            <!-- CHECK 3: FENSTER & TÜREN -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>3. Fenster, Rollläden & Innentüren</span>
+                <select id="state-doors" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Voll funktionsfähig, Dichtungen intakt, Scheiben heil</option>
+                  <option value="leichte_abnutzung">Gebrauchsspuren an Türklinken / Rahmen</option>
+                  <option value="mangel_fenster">Defekt: Glasriss / Rollladengurt gerissen</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Fensterdichtungen und Glasflächen wurden kontrolliert.</p>
+            </div>
+
+            <!-- CHECK 4: SANITÄR & BAD -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>4. Bad, WC & Sanitäranlagen</span>
+                <select id="state-sanitary" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Entkalkt, sauber, Abflüsse frei, Armaturen dicht</option>
+                  <option value="leichte_abnutzung">Geringe Kalkränder (altersgemäß)</option>
+                  <option value="mangel_bad">Mangel: Verstopfter Abfluss / beschädigte Keramik</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Silikonfugen sind Vermietersache, sofern nicht vorsätzlich beschädigt.</p>
+            </div>
+
+            <!-- CHECK 5: KÜCHE & ELEKTROGERÄTE -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>5. Einbauküche & Elektrogeräte</span>
+                <select id="state-kitchen" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Herd, Backofen & Kühlschrank gereinigt & funktionstüchtig</option>
+                  <option value="leichte_abnutzung">Normale Abnutzung Herdplatten / Backblech</option>
+                  <option value="mangel_kueche">Mangel: Gerät defekt / Fettfilter nicht getauscht</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Kühlschrank abgetaut und gereinigt, Backofen fettfrei.</p>
+            </div>
+
+            <!-- CHECK 6: KELLER, BALKON & NEBENRÄUME -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+              <div class="flex items-center justify-between font-bold text-slate-900">
+                <span>6. Balkon, Keller & Nebenräume</span>
+                <select id="state-balcony" class="p-1 border rounded text-xs bg-white">
+                  <option value="einwandfrei" selected>Besenrein geräumt, keine Sperrmüllreste</option>
+                  <option value="leichte_abnutzung">Leichte Verschmutzung Balkonboden</option>
+                  <option value="mangel_keller">Mangel: Nicht geräumt / Restmüll verblieben</option>
+                </select>
+              </div>
+              <p class="text-[11px] text-slate-500">Vereinbart ist grundsätzlich die besenreine Rückgabe (BGH VIII ZR 124/05).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. KAUTIONS-FREIGABE-KLAUSEL -->
+        <div class="space-y-3 pt-4 border-t border-slate-100">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span>💰 4. Rechtssichere Kautions-Freigabe-Klausel</span>
+            </h3>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full">Kautionsschutz</span>
+          </div>
+
+          <div class="bg-amber-50/70 border border-amber-200 rounded-xl p-4 text-xs space-y-3">
+            <div>
+              <label class="block font-bold text-amber-950 mb-1">Vereinbarte Regelung zur Mietkaution:</label>
+              <select id="deposit-clause-type" class="w-full rounded-lg border border-amber-300 p-2 text-xs bg-white font-medium">
+                <option value="full_release" selected>Vollständige Freigabe: Keine Mängel vorhanden – Kaution wird unverzüglich in voller Höhe erstattet.</option>
+                <option value="utility_reserve">Freigabe mit Sicherheitsabzug: Kaution wird bis auf max. 300 € / CHF (für ausstehende Nebenkostenabrechnung) freigegeben.</option>
+                <option value="remedy_deadline">Frist zur Nachbesserung: Mieter behebt benannte Mängel bis zum festgelegten Stichtag.</option>
+              </select>
+            </div>
+            <p class="text-[11px] text-amber-900 leading-relaxed">
+              <strong>Rechtsfolge nach BGH & Schweizer Bundesgericht:</strong> Ein vorbehaltlos unterzeichnetes Übergabeprotokoll hat die Wirkung eines <em>negativen Schuldanerkenntnisses</em>. Der Vermieter kann später keine Schadenersatzansprüche wegen sichtbarer Mängel mehr nachschieben!
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: PRO-GENERATOR & DIN-A4 DOKUMENTE -->
+    <!-- =================================================================== -->
+    <div id="tab-content-progenerator" class="pt-6 space-y-6 hidden">
+      
+      <!-- PRO STATUS & ACTION BAR -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-amber-500/20">
+            📄
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-base font-bold text-slate-900">3-in-1 Komplettpaket im DIN-A4 Drucklayout</span>
+              <span id="doc-pro-pill" class="bg-amber-100 text-amber-800 text-[10px] font-black uppercase px-2 py-0.5 rounded-full">Basis-Vorschau</span>
+            </div>
+            <p class="text-xs text-slate-500">1. Kündigungsschreiben • 2. Nachmieter-Befreiungsbogen • 3. Übergabeprotokoll</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button onclick="window.print()" id="btn-print-doc" class="bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 shadow-md">
+            <span>🖨️</span>
+            <span>Als PDF drucken / speichern</span>
+          </button>
+          <button id="btn-doc-unlock" onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+            <span>🔓</span>
+            <span class="price-label-btn">Vollversion freischalten (4,90 €)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PERSONALIZE FORM (EXPANDABLE) -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 space-y-4 text-xs">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h3 class="font-bold text-slate-900 flex items-center gap-2 text-sm">
+            <span>✍️ Parteien & Adressdaten für DIN-A4 Dokumente anpassen</span>
+          </h3>
+          <span class="text-[11px] text-slate-500">Werden automatisch in Briefkopf & Protokoll eingesetzt</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mieter Vor- & Nachname(n):</label>
+            <input type="text" id="doc-tenant-names" value="Maximilian & Sarah Mustermann" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mieter Anschrift (Mietobjekt):</label>
+            <input type="text" id="doc-tenant-address" value="Sonnenallee 42, 2. OG rechts, 10115 Berlin" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Vermieter / Hausverwaltung:</label>
+            <input type="text" id="doc-landlord-name" value="Immobilienverwaltung Haus & Grund GmbH" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Vermieter Anschrift:</label>
+            <input type="text" id="doc-landlord-address" value="Kurfürstendamm 180, 10707 Berlin" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Mietvertrags-Nummer / Whg-Nr.:</label>
+            <input type="text" id="doc-lease-id" value="MV-2023-B42" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">IBAN für Kautionsrückzahlung:</label>
+            <input type="text" id="doc-deposit-iban" value="DE44 1005 0000 1234 5678 90" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600 font-mono">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Kontoinhaber Kautionskonto:</label>
+            <input type="text" id="doc-deposit-holder" value="Maximilian Mustermann" oninput="renderDocuments()" class="w-full rounded-xl border border-slate-300 p-2 focus:border-indigo-600">
+          </div>
+        </div>
+      </div>
+
+      <!-- DIN-A4 PREVIEW CONTAINER -->
+      <div class="a4-sheet-wrapper bg-slate-200/60 p-4 sm:p-8 rounded-2xl border border-slate-300 flex flex-col items-center">
+        
+        <!-- DOKUMENT 1: KÜNDIGUNGSSCHREIBEN -->
+        <div class="a4-sheet text-slate-900 page-break shadow-xl" id="sheet-notice">
+          <!-- Absender & Empfänger -->
+          <div class="flex justify-between items-start mb-10 text-[9.5pt]">
+            <div>
+              <div class="font-bold" id="p1-tenant-names">Maximilian & Sarah Mustermann</div>
+              <div id="p1-tenant-address">Sonnenallee 42, 2. OG rechts, 10115 Berlin</div>
+              <div id="p1-tenant-contact" class="text-slate-500">Telefon: 0151 / 1234567 • E-Mail: m.mustermann@example.de</div>
+            </div>
+            <div class="text-right text-[9pt] text-slate-500">
+              <div id="p1-date-place">Berlin, den 24. Oktober 2026</div>
+              <div class="font-bold text-indigo-900 uppercase tracking-wider mt-1 text-[8pt]">VORAB PER EINSCHREIBEN / EINWURF</div>
+            </div>
+          </div>
+
+          <!-- Empfängeranschrift -->
+          <div class="mb-10 text-[9.5pt] w-72">
+            <div class="text-[8pt] text-slate-400 border-b border-slate-300 pb-1 mb-1">
+              <span id="p1-small-sender">Mustermann • Sonnenallee 42 • 10115 Berlin</span>
+            </div>
+            <div class="font-bold" id="p1-landlord-name">Immobilienverwaltung Haus & Grund GmbH</div>
+            <div id="p1-landlord-address">Kurfürstendamm 180<br>10707 Berlin</div>
+          </div>
+
+          <!-- Betreffzeile -->
+          <div class="mb-6">
+            <h1 class="text-base font-bold text-slate-900 leading-snug" id="p1-subject">
+              Kündigung des Mietvertrages Nr. MV-2023-B42 für die Wohnung Sonnenallee 42, 10115 Berlin
+            </h1>
+            <div class="text-[8.5pt] text-slate-600 mt-1" id="p1-law-citation">
+              Rechtsgrundlage: § 573c Abs. 1 BGB (Ordentliche Kündigung durch den Mieter)
+            </div>
+          </div>
+
+          <!-- Briefinhalt -->
+          <div class="space-y-4 text-[9.5pt] leading-relaxed text-justify" id="p1-letter-content">
+            <p>Sehr geehrte Damen und Herren,</p>
+            <p>
+              hiermit kündige(n) ich / wir den Mietvertrag über die oben genannte Wohnung (inkl. aller Nebenräume, Keller und eventuell gemieteter Stellplätze) unter Einhaltung der gesetzlichen Kündigungsfrist ordentlich zum:
+            </p>
+
+            <div class="p-3.5 bg-slate-50 border-l-4 border-indigo-600 font-bold text-slate-900 text-center text-[10.5pt]" id="p1-highlight-date">
+              31. Januar 2027
+            </div>
+
+            <p id="p1-alt-date-clause">
+              Hilfsweise kündige(n) ich / wir zum nächstmöglichen gesetzlichen bzw. vertraglichen Termin.
+            </p>
+
+            <!-- WICHTIGE RECHTSKLAUSELN -->
+            <div class="space-y-3 pt-2">
+              <div id="p1-sec-545">
+                <strong>Widerspruch gegen Fortsetzung (§ 545 BGB):</strong><br>
+                Einer stillschweigenden Verlängerung oder Fortsetzung des Mietverhältnisses über den Beendigungszeitpunkt hinaus wird bereits heute gemäss § 545 BGB vorsorglich ausdrücklich widersprochen.
+              </div>
+
+              <div>
+                <strong>Wohnungsabnahme & Schlüsselübergabe:</strong><br>
+                Zur Durchführung der gemeinsamen Wohnungsbegehung und Erstellung des Übergabeprotokolls schlage(n) ich / wir einen Termin am letzten Mietvertragsmonat vor. Bitte stimmen Sie rechtzeitig einen verbindlichen Übergabetermin mit uns ab.
+              </div>
+
+              <div>
+                <strong>Abrechnung & Rückzahlung der Mietkaution:</strong><br>
+                Die vertraglich hinterlegte Mietkaution in Höhe von <span class="font-bold" id="p1-deposit-val">3.450 €</span> bitten wir nach ordnungsgemäßer Rückgabe der Mietsache auf folgendes Bankkonto zu überweisen:
+                <br>
+                <span class="font-mono text-[9pt] font-semibold" id="p1-bank-details">IBAN: DE44 1005 0000 1234 5678 90 (Empfänger: Maximilian Mustermann)</span>
+              </div>
+            </div>
+
+            <p class="pt-2">
+              Bitte bestätigen Sie mir / uns den Erhalt dieses Schreibens sowie das Beendigungsdatum schriftlich innerhalb der nächsten 14 Tage.
+            </p>
+
+            <p class="pt-4">Mit freundlichen Grüßen</p>
+
+            <!-- Unterschriftenzeilen -->
+            <div class="pt-10 grid grid-cols-2 gap-8 text-[9pt]" id="p1-signatures">
+              <div class="border-t border-slate-400 pt-2 text-center">
+                <span class="font-bold">Maximilian Mustermann</span><br>
+                <span class="text-[8pt] text-slate-500">Eigenhändige Unterschrift Hauptmieter 1</span>
+              </div>
+              <div class="border-t border-slate-400 pt-2 text-center">
+                <span class="font-bold">Sarah Mustermann</span><br>
+                <span class="text-[8pt] text-slate-500">Eigenhändige Unterschrift Hauptmieter 2</span>
+              </div>
+            </div>
+
+            <div class="text-[7.5pt] text-slate-400 mt-6 pt-3 border-t border-slate-200 flex justify-between">
+              <span>DACH Digitalwerk • Rechtssichere Mietkündigung 2026</span>
+              <span>Seite 1 von 3</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOKUMENT 2: NACHMIETER-VORSCHLAGSBOGEN -->
+        <div class="a4-sheet text-slate-900 page-break shadow-xl relative" id="sheet-subtenant">
+          <!-- PRO BLUR OVERLAY FALLS NICHT FREIGESCHALTET -->
+          <div id="subtenant-pro-lock" class="absolute inset-0 bg-white/80 backdrop-blur-[3px] z-10 flex flex-col items-center justify-center p-8 text-center rounded">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center text-2xl shadow-lg mb-3">
+              🔒
+            </div>
+            <h4 class="text-lg font-bold text-slate-900">Nachmieter-Meldebogen & Haftungsbefreiung</h4>
+            <p class="text-xs text-slate-600 max-w-md mt-1 mb-4 leading-relaxed">
+              Vollständiger Bogen nach Art. 264 OR (CH) bzw. § 242 BGB (DE) zur vorzeitigen Entlassung aus dem Mietvertrag bei Nennung zumutbarer Ersatzmieter.
+            </p>
+            <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-lg transition">
+              <span class="price-label-btn">Für 4,90 € freischalten</span>
+            </button>
+          </div>
+
+          <div class="flex justify-between items-start mb-8 text-[9.5pt]">
+            <div>
+              <div class="font-bold">Anlage zur Kündigung / Vorzeitigen Rückgabe</div>
+              <div class="text-slate-500 text-[8.5pt]">Objekt: <span id="p2-address">Sonnenallee 42, 10115 Berlin</span></div>
+            </div>
+            <div class="text-right text-[8.5pt] text-slate-500">
+              Dokument 2 von 3
+            </div>
+          </div>
+
+          <h2 class="text-base font-bold text-slate-900 border-b border-slate-300 pb-2 mb-4" id="p2-title">
+            Vorschlag zumutbarer Ersatzmieter zur vorzeitigen Vertragsentlassung
+          </h2>
+          <p class="text-[9pt] text-slate-600 mb-4 leading-relaxed" id="p2-law-desc">
+            Gemäss Art. 264 OR (Schweiz) bzw. § 540 / § 242 BGB (Deutschland) wird der bisherige Mieter von seinen Pflichten gegenüber dem Vermieter befreit, wenn er einen zumutbaren, zahlungsfähigen Ersatzmieter vorschlägt, der bereit ist, den Mietvertrag zu den bisherigen Konditionen zu übernehmen.
+          </p>
+
+          <!-- TABELLE DER ERSATZMIETER -->
+          <div class="border border-slate-200 rounded-lg overflow-hidden text-[8.5pt] mb-6">
+            <table class="w-full text-left">
+              <thead class="bg-slate-100 border-b border-slate-200 font-bold">
+                <tr>
+                  <th class="p-2 w-8">#</th>
+                  <th class="p-2">Name & Anschrift des Ersatzmieters</th>
+                  <th class="p-2 w-32">Beruf / Nettoeinkommen</th>
+                  <th class="p-2 w-28">Übernahme per</th>
+                  <th class="p-2 w-24">Bonitätsnachweis</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="p-2 font-bold text-slate-400">1</td>
+                  <td class="p-2">
+                    <span class="font-semibold">Lukas Weber & Julia Graf</span><br>
+                    <span class="text-slate-500 text-[8pt]">Kantstraße 12, 10623 Berlin</span>
+                  </td>
+                  <td class="p-2">Softwareentwickler & Ärztin<br><span class="font-bold text-emerald-700">4.800 € / mtl.</span></td>
+                  <td class="p-2 font-medium">01.12.2026</td>
+                  <td class="p-2 text-emerald-700 font-semibold">✓ SCHUFA positiv</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-bold text-slate-400">2</td>
+                  <td class="p-2">
+                    <span class="font-semibold">Markus Meier</span><br>
+                    <span class="text-slate-500 text-[8pt]">Friedrichstraße 95, 10117 Berlin</span>
+                  </td>
+                  <td class="p-2">Projektleiter IT<br><span class="font-bold text-emerald-700">3.650 € / mtl.</span></td>
+                  <td class="p-2 font-medium">01.12.2026</td>
+                  <td class="p-2 text-emerald-700 font-semibold">✓ Auszug sauber</td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-bold text-slate-400">3</td>
+                  <td class="p-2">
+                    <span class="font-semibold">Dr. Elena Bergmann</span><br>
+                    <span class="text-slate-500 text-[8pt]">Kastanienallee 3, 10435 Berlin</span>
+                  </td>
+                  <td class="p-2">Unternehmensberaterin<br><span class="font-bold text-emerald-700">5.200 € / mtl.</span></td>
+                  <td class="p-2 font-medium">15.12.2026</td>
+                  <td class="p-2 text-emerald-700 font-semibold">✓ Nachweise beiliegend</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="space-y-3 text-[9pt] leading-relaxed text-justify">
+            <p>
+              Die Bewerbungsdossiers (Selbstauskunft, Einkommensnachweise der letzten 3 Monate sowie einwandfreie Bonitäts- bzw. Betreibungsauskünfte) liegen diesem Schreiben bei bzw. wurden Ihnen bereits elektronisch übermittelt.
+            </p>
+            <p>
+              Gemäß gängiger Rechtsprechung beträgt die angemessene Prüffrist für den Vermieter <strong>10 bis maximal 20 Tage</strong>. Lehnt der Vermieter einen zumutbaren Nachmieter grundlos ab oder verzögert die Prüfung, wird der bisherige Mieter ab dem Tag der möglichen Übernahme vollständig von der Mietzahlung befreit.
+            </p>
+          </div>
+
+          <div class="pt-8 grid grid-cols-2 gap-8 text-[9pt]">
+            <div class="border-t border-slate-400 pt-2 text-center">
+              <span>Ort, Datum: Berlin, den 24.10.2026</span>
+            </div>
+            <div class="border-t border-slate-400 pt-2 text-center">
+              <span class="font-bold">Unterschrift Mieter / Mieterschaft</span>
+            </div>
+          </div>
+
+          <div class="text-[7.5pt] text-slate-400 mt-12 pt-3 border-t border-slate-200 flex justify-between">
+            <span>DACH Digitalwerk • Nachmieter-Meldebogen</span>
+            <span>Seite 2 von 3</span>
+          </div>
+        </div>
+
+        <!-- DOKUMENT 3: WOHNUNGSÜBERGABEPROTOKOLL -->
+        <div class="a4-sheet text-slate-900 shadow-xl relative" id="sheet-handover">
+          <!-- PRO BLUR OVERLAY FALLS NICHT FREIGESCHALTET -->
+          <div id="handover-pro-lock" class="absolute inset-0 bg-white/80 backdrop-blur-[3px] z-10 flex flex-col items-center justify-center p-8 text-center rounded">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center text-2xl shadow-lg mb-3">
+              🔒
+            </div>
+            <h4 class="text-lg font-bold text-slate-900">Vollständiges Wohnungsübergabeprotokoll</h4>
+            <p class="text-xs text-slate-600 max-w-md mt-1 mb-4 leading-relaxed">
+              Inklusive aller Zählerstände, Schlüsselrückgabe-Tabelle, Raum-Zustands-Dokumentation und verbindlicher Kautions-Freigabe-Klausel.
+            </p>
+            <button onclick="openCheckoutModal()" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow-lg transition">
+              <span class="price-label-btn">Für 4,90 € freischalten</span>
+            </button>
+          </div>
+
+          <div class="flex justify-between items-start mb-6 text-[9pt]">
+            <div>
+              <div class="text-base font-extrabold text-slate-900">Wohnungs- & Übergabeprotokoll</div>
+              <div class="text-slate-500 text-[8pt]">Rechtssichere Beweisurkunde bei Wohnungsrückgabe</div>
+            </div>
+            <div class="text-right text-[8pt] text-slate-500">
+              Dokument 3 von 3
+            </div>
+          </div>
+
+          <!-- KOPFDATEN DES PROTOKOLLS -->
+          <div class="bg-slate-50 border border-slate-200 rounded p-3 text-[8.5pt] mb-4 grid grid-cols-2 gap-2">
+            <div>
+              <strong>Mietobjekt:</strong> <span id="p3-address">Sonnenallee 42, 10115 Berlin</span><br>
+              <strong>Mieter:</strong> <span id="p3-tenants">Maximilian & Sarah Mustermann</span>
+            </div>
+            <div>
+              <strong>Datum / Uhrzeit:</strong> <span id="p3-datetime">24.10.2026, 10:00 Uhr</span><br>
+              <strong>Vermieter / Verwalter:</strong> <span id="p3-landlord">Haus & Grund GmbH</span>
+            </div>
+          </div>
+
+          <!-- 1. ZÄHLERSTÄNDE TABELLE -->
+          <div class="mb-4">
+            <div class="font-bold text-[9pt] text-slate-900 mb-1">1. Abgelesene Zählerstände am Übergabetag:</div>
+            <div class="border border-slate-200 rounded overflow-hidden text-[8pt]">
+              <table class="w-full text-left">
+                <thead class="bg-slate-100 border-b border-slate-200">
+                  <tr>
+                    <th class="p-1.5">Zählerart</th>
+                    <th class="p-1.5">Zählernummer</th>
+                    <th class="p-1.5">Zählerstand</th>
+                    <th class="p-1.5">Einheit</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100" id="p3-meters-table">
+                  <tr><td class="p-1.5">Strom HT</td><td class="p-1.5 font-mono" id="p3-m-el-ht-num">1EMH00938472</td><td class="p-1.5 font-bold" id="p3-m-el-ht-val">48210.5</td><td class="p-1.5">kWh</td></tr>
+                  <tr><td class="p-1.5">Strom NT</td><td class="p-1.5 font-mono" id="p3-m-el-nt-num">1EMH00938472</td><td class="p-1.5 font-bold" id="p3-m-el-nt-val">12450.0</td><td class="p-1.5">kWh</td></tr>
+                  <tr><td class="p-1.5">Gas / Wärme</td><td class="p-1.5 font-mono" id="p3-m-gas-num">GAS-774021</td><td class="p-1.5 font-bold" id="p3-m-gas-val">3892.4</td><td class="p-1.5">m³</td></tr>
+                  <tr><td class="p-1.5">Kaltwasser</td><td class="p-1.5 font-mono" id="p3-m-cold-num">W-KW-44182</td><td class="p-1.5 font-bold" id="p3-m-cold-val">312.8</td><td class="p-1.5">m³</td></tr>
+                  <tr><td class="p-1.5">Warmwasser</td><td class="p-1.5 font-mono" id="p3-m-warm-num">W-WW-99201</td><td class="p-1.5 font-bold" id="p3-m-warm-val">142.3</td><td class="p-1.5">m³</td></tr>
+                  <tr><td class="p-1.5">Heizkostenverteiler</td><td class="p-1.5" id="p3-m-heat-note">5 HKV</td><td class="p-1.5 font-bold" id="p3-m-heat-val">1845</td><td class="p-1.5">Einheiten</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 2. SCHLÜSSEL TABELLE -->
+          <div class="mb-4">
+            <div class="font-bold text-[9pt] text-slate-900 mb-1">2. Übergebene Schlüssel:</div>
+            <div class="border border-slate-200 rounded overflow-hidden text-[8pt]">
+              <table class="w-full text-left">
+                <thead class="bg-slate-100 border-b border-slate-200">
+                  <tr>
+                    <th class="p-1.5">Schlüssel</th>
+                    <th class="p-1.5 text-center">Erhalten</th>
+                    <th class="p-1.5 text-center">Zurückgegeben</th>
+                    <th class="p-1.5">Bemerkung</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100" id="p3-keys-table">
+                  <tr><td class="p-1.5">Hausschlüssel</td><td class="p-1.5 text-center">3</td><td class="p-1.5 text-center font-bold text-emerald-700">3</td><td class="p-1.5 text-slate-500">Vollständig</td></tr>
+                  <tr><td class="p-1.5">Wohnungsschlüssel</td><td class="p-1.5 text-center">3</td><td class="p-1.5 text-center font-bold text-emerald-700">3</td><td class="p-1.5 text-slate-500">Vollständig</td></tr>
+                  <tr><td class="p-1.5">Briefkastenschlüssel</td><td class="p-1.5 text-center">2</td><td class="p-1.5 text-center font-bold text-emerald-700">2</td><td class="p-1.5 text-slate-500">Vollständig</td></tr>
+                  <tr><td class="p-1.5">Keller / Garage</td><td class="p-1.5 text-center">3</td><td class="p-1.5 text-center font-bold text-emerald-700">3</td><td class="p-1.5 text-slate-500">Inkl. Handsender</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3. KAUTIONS-KLAUSEL & SCHADENSVERZICHT -->
+          <div class="border border-slate-300 rounded p-3 text-[8.5pt] mb-6 bg-slate-50 space-y-2">
+            <div class="font-bold text-slate-900">3. Zustandsergebnis & Freigabeerklärung zur Mietkaution:</div>
+            <p class="leading-relaxed text-justify" id="p3-deposit-clause-text">
+              Die Mieträume wurden in einem ordnungsgemäßen, besenreinen und vertragsgemäßen Zustand übergeben. Vorhandene normale Abnutzungen sind mit der Miete abgegolten. Der Vermieter bestätigt hiermit, dass keine offenen Schadenersatzansprüche bestehen. Die Mietkaution in Höhe von <strong>3.450 €</strong> wird hiermit unverzüglich zur Rückzahlung an den Mieter freigegeben.
+            </p>
+          </div>
+
+          <!-- UNTERSCHRIFTEN -->
+          <div class="pt-6 grid grid-cols-2 gap-8 text-[8.5pt]">
+            <div class="border-t border-slate-400 pt-2 text-center">
+              <span class="font-bold">Unterschrift Mieter / Mieterin</span><br>
+              <span class="text-[7.5pt] text-slate-500">Bestätigung der ordnungsgemäßen Rückgabe</span>
+            </div>
+            <div class="border-t border-slate-400 pt-2 text-center">
+              <span class="font-bold">Unterschrift Vermieter / Vertretung</span><br>
+              <span class="text-[7.5pt] text-slate-500">Empfangnahme & Kautionsfreigabe</span>
+            </div>
+          </div>
+
+          <div class="text-[7.5pt] text-slate-400 mt-10 pt-3 border-t border-slate-200 flex justify-between">
+            <span>DACH Digitalwerk • Wohnungsübergabeprotokoll</span>
+            <span>Seite 3 von 3</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PRO CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-6 relative animate-in fade-in zoom-in-95 duration-200">
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 hover:bg-slate-200 transition font-bold text-lg">
+        ✕
+      </button>
+
+      <div class="text-center space-y-2">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 text-white flex items-center justify-center text-2xl mx-auto shadow-lg shadow-amber-500/30">
+          🔑
+        </div>
+        <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          PRO-Vollversion freischalten
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-600">
+          Erhalten Sie das rechtssichere 3-in-1 Komplettpaket im DIN-A4 Drucklayout ohne Einschränkungen.
+        </p>
+      </div>
+
+      <!-- INCLUDED FEATURES -->
+      <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/80 space-y-2 text-xs">
+        <div class="flex items-center gap-2 font-bold text-slate-900">
+          <span class="text-emerald-600">✓</span>
+          <span>1. Vollständiges Kündigungsschreiben inkl. § 545 BGB Widerspruch</span>
+        </div>
+        <div class="flex items-center gap-2 font-bold text-slate-900">
+          <span class="text-emerald-600">✓</span>
+          <span>2. Nachmieter-Meldebogen mit Ersatzmieter-Dossiers (Art. 264 OR)</span>
+        </div>
+        <div class="flex items-center gap-2 font-bold text-slate-900">
+          <span class="text-emerald-600">✓</span>
+          <span>3. Unterschriftsreifes Wohnungsübergabeprotokoll mit Zählern & Kaution</span>
+        </div>
+        <div class="flex items-center gap-2 text-slate-600 pt-1 border-t border-slate-200">
+          <span class="text-indigo-600">🔒</span>
+          <span>Einmalig 4,90 € / CHF • Kein Abo • 100% lokal im Browser</span>
+        </div>
+      </div>
+
+      <!-- GUMROAD BUTTON -->
+      <a id="gumroad-checkout-btn" href="https://dachdigital.gumroad.com/l/gthgwc" target="_blank" rel="noopener" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white py-3.5 px-4 rounded-2xl font-extrabold text-sm text-center shadow-lg shadow-amber-500/25 transition flex items-center justify-center gap-2">
+        <span>Jetzt für 4,90 € / CHF auf Gumroad kaufen</span>
+        <span>→</span>
+      </a>
+
+      <!-- VOUCHER CODE FORM -->
+      <div class="pt-3 border-t border-slate-100">
+        <label class="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+          Bereits gekauft oder Lizenzcode vorhanden?
+        </label>
+        <div class="flex gap-2">
+          <input type="text" id="voucher-input" placeholder="z.B. DW-PRO-2026 oder MIETE-2026" class="flex-1 rounded-xl border border-slate-300 p-2.5 text-xs font-mono uppercase focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600">
+          <button onclick="redeemVoucher()" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition">
+            Aktivieren
+          </button>
+        </div>
+        <p id="voucher-error" class="text-[11px] text-rose-600 font-semibold mt-1 hidden"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-white font-bold text-sm">
+            <span class="w-6 h-6 rounded bg-indigo-600 flex items-center justify-center text-xs">DW</span>
+            <span>DACH Digitalwerk</span>
+          </div>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            Unabhängige Self-Serve Web-Tools & Generatoren für Mieter, Vermieter, Angestellte und KMU im DACH-Raum (Deutschland, Österreich, Schweiz).
+          </p>
+        </div>
+
+        <div>
+          <div class="text-white font-bold text-xs uppercase tracking-wider mb-2.5">Mietrecht & Wohnen</div>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="../nebenkosten-check/" class="hover:text-indigo-400">Nebenkostenabrechnung prüfen</a></li>
+            <li><a href="../mietminderungstabelle-schimmel-heizung-laerm.html" class="hover:text-indigo-400">Mietminderungstabelle 2026</a></li>
+            <li><a href="../nebenkostenabrechnung-pruefen-checkliste.html" class="hover:text-indigo-400">Nebenkosten-Checkliste</a></li>
+            <li><a href="../widerspruch-nebenkostenabrechnung-muster.html" class="hover:text-indigo-400">Widerspruch Nebenkosten Muster</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="text-white font-bold text-xs uppercase tracking-wider mb-2.5">Arbeitsrecht & Finanzen</div>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="../arbeitszeugnis/" class="hover:text-indigo-400">Arbeitszeugnis-Decoder</a></li>
+            <li><a href="../abfindung-kuendigung/" class="hover:text-indigo-400">Abfindungsrechner</a></li>
+            <li><a href="../qr-suite/" class="hover:text-indigo-400">Swiss QR-Rechnung & XRechnung</a></li>
+            <li><a href="../impressum-datenschutz-generator/" class="hover:text-indigo-400">DSGVO & revDSG Impressum</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="text-white font-bold text-xs uppercase tracking-wider mb-2.5">Rechtskonformität & Schutz</div>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            100% Client-Side Javascript. Keine Übertragung oder Speicherung personenbezogener Daten auf externen Servern. Berechnungen nach BGB (DE), OR (CH) und MRG (AT).
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-slate-900 flex flex-wrap items-center justify-between gap-4 text-[11px]">
+        <span>© 2026 DACH Digitalwerk. Alle Rechte vorbehalten.</span>
+        <div class="flex items-center gap-4">
+          <a href="../abmahnfaehiges-impressum-pruefen-checkliste.html" class="hover:text-white">Impressum-Leitfaden</a>
+          <a href="../datenschutzerklaerung-generator-dsgvo-kostenlos.html" class="hover:text-white">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT APP LOGIC -->
+  <script>
+    // App State
+    let currentJurisdiction = 'DE'; // 'DE', 'CH', 'AT'
+    let isProUnlocked = false;
+
+    // Feiertage für Werktagsberechnung DE
+    function isGermanHoliday(d) {
+      const year = d.getFullYear();
+      const month = d.getMonth(); // 0-indexed
+      const day = d.getDate();
+
+      // Feste Feiertage
+      if (month === 0 && day === 1) return true; // Neujahr
+      if (month === 4 && day === 1) return true; // Tag der Arbeit (1. Mai)
+      if (month === 9 && day === 3) return true; // Tag der Deutschen Einheit (3. Okt)
+      if (month === 11 && (day === 25 || day === 26)) return true; // Weihnachten
+
+      // Osterformel (Gauß)
+      const a = year % 19;
+      const b = Math.floor(year / 100);
+      const c = year % 100;
+      const dVal = Math.floor(b / 4);
+      const e = b % 4;
+      const f = Math.floor((b + 8) / 25);
+      const g = Math.floor((b - f + 1) / 3);
+      const h = (19 * a + b - dVal - g + 15) % 30;
+      const i = Math.floor(c / 4);
+      const k = c % 4;
+      const l = (32 + 2 * e + 2 * i - h - k) % 7;
+      const m = Math.floor((a + 11 * h + 22 * l) / 451);
+      const easterMonth = Math.floor((h + l - 7 * m + 114) / 31) - 1;
+      const easterDay = ((h + l - 7 * m + 114) % 31) + 1;
+
+      const easterDate = new Date(year, easterMonth, easterDay);
+      const karfreitag = new Date(easterDate.getTime() - 2 * 24 * 3600 * 1000);
+      const ostermontag = new Date(easterDate.getTime() + 1 * 24 * 3600 * 1000);
+      const himmelfahrt = new Date(easterDate.getTime() + 39 * 24 * 3600 * 1000);
+      const pfingstmontag = new Date(easterDate.getTime() + 50 * 24 * 3600 * 1000);
+
+      const checkTime = new Date(year, month, day).getTime();
+      if (checkTime === karfreitag.getTime() ||
+          checkTime === ostermontag.getTime() ||
+          checkTime === himmelfahrt.getTime() ||
+          checkTime === pfingstmontag.getTime()) {
+        return true;
+      }
+      return false;
+    }
+
+    // 3. Werktag nach BGH VIII ZR 206/04 & VIII ZR 144/09
+    function calculateGermanThirdWorkingDay(year, month) {
+      // Samstag ist Werktag bei der Zählung. Aber fällt der 3. Werktag auf einen Samstag/Sonntag/Feiertag, verlängert sich die Frist auf den nächsten Werktag!
+      let workingDaysCount = 0;
+      let curDay = 1;
+      let thirdDayDate = null;
+
+      while (workingDaysCount < 3) {
+        let cur = new Date(year, month, curDay);
+        let dayOfWeek = cur.getDay(); // 0 = Sonntag, 6 = Samstag
+        let isHol = isGermanHoliday(cur);
+
+        // Werktag = Montag bis Samstag, kein Feiertag
+        if (dayOfWeek !== 0 && !isHol) {
+          workingDaysCount++;
+          if (workingDaysCount === 3) {
+            thirdDayDate = cur;
+            break;
+          }
+        }
+        curDay++;
+      }
+
+      // Prüfen ob der 3. Werktag ein Samstag oder Feiertag ist -> BGH VIII ZR 206/04 / § 193 BGB: Verschiebung auf nächsten Werktag
+      if (thirdDayDate) {
+        if (thirdDayDate.getDay() === 6) { // Samstag
+          // Verschiebung auf Montag
+          thirdDayDate = new Date(thirdDayDate.getTime() + 2 * 24 * 3600 * 1000);
+          while (thirdDayDate.getDay() === 0 || isGermanHoliday(thirdDayDate)) {
+            thirdDayDate = new Date(thirdDayDate.getTime() + 24 * 3600 * 1000);
+          }
+        }
+      }
+      return thirdDayDate;
+    }
+
+    // Initialisierung beim Laden
+    document.addEventListener('DOMContentLoaded', () => {
+      // Standard-Datum = heute
+      const today = new Date();
+      const todayStr = today.toISOString().split('T')[0];
+      const deliveryInput = document.getElementById('notice-delivery-date');
+      if (deliveryInput) deliveryInput.value = todayStr;
+
+      const handoverInput = document.getElementById('handover-date');
+      if (handoverInput) handoverInput.value = todayStr;
+
+      // Gespeicherter Pro-Status aus localStorage
+      if (localStorage.getItem('dw_pro_unlocked') === 'true') {
+        unlockPro(false);
+      }
+
+      // Event-Listener für Live-Synchronisation des Übergabeprotokolls
+      const uebergabeContainer = document.getElementById('tab-content-uebergabe');
+      if (uebergabeContainer) {
+        uebergabeContainer.addEventListener('input', () => renderDocuments());
+        uebergabeContainer.addEventListener('change', () => renderDocuments());
+      }
+
+      runFristenCheck();
+      renderDocuments();
+    });
+
+    // Umschalten der Rechtsräume
+    function setJurisdiction(country) {
+      currentJurisdiction = country;
+
+      // Button-Styles updaten
+      ['DE', 'CH', 'AT'].forEach(c => {
+        const btn = document.getElementById(`jur-btn-${c}`);
+        if (c === country) {
+          btn.className = "px-2.5 py-1 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition";
+        }
+      });
+
+      // Währung anpassen
+      const currLabels = document.querySelectorAll('.currency-label');
+      currLabels.forEach(el => el.textContent = (country === 'CH' ? 'CHF' : '€'));
+
+      const priceLabels = document.querySelectorAll('.price-label-btn');
+      priceLabels.forEach(el => el.textContent = (country === 'CH' ? 'Pro-Vollversion (4.90 CHF)' : 'Pro-Vollversion (4,90 €)'));
+
+      // Spezifische Badges & Gesetzestexte
+      const badgeLaw = document.getElementById('hero-badge-law');
+      if (country === 'DE') {
+        badgeLaw.textContent = '§ 573c BGB (3 Monate zum Monatsende • Zugang 3. Werktag)';
+        document.getElementById('col-family-home').classList.add('hidden');
+      } else if (country === 'CH') {
+        badgeLaw.textContent = 'Art. 266l OR (Familienwohnung) • Art. 264 OR (Nachmieterstellung)';
+        document.getElementById('col-family-home').classList.remove('hidden');
+      } else if (country === 'AT') {
+        badgeLaw.textContent = '§ 29 Abs. 2 MRG (Befristet: 1 Jahr Mindestdauer + 3 Monate) • § 16b MRG';
+        document.getElementById('col-family-home').classList.add('hidden');
+      }
+
+      runFristenCheck();
+      renderDocuments();
+    }
+
+    // Tabs umschalten
+    function switchTab(tabKey) {
+      const tabs = ['fristen', 'uebergabe', 'progenerator'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tabKey) {
+          btn.className = "px-5 py-3 font-bold text-sm border-b-2 border-indigo-600 text-indigo-600 flex items-center gap-2 whitespace-nowrap transition";
+          content.classList.remove('hidden');
+        } else {
+          btn.className = "px-5 py-3 font-bold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-900 flex items-center gap-2 whitespace-nowrap transition";
+          content.classList.add('hidden');
+        }
+      });
+      if (tabKey === 'progenerator') {
+        renderDocuments();
+      }
+    }
+
+    // Berechnung Fristen & Stichtage
+    function runFristenCheck() {
+      const leaseStartDate = new Date(document.getElementById('lease-start-date').value || '2023-01-01');
+      const deliveryInput = document.getElementById('notice-delivery-date').value;
+      const deliveryDate = deliveryInput ? new Date(deliveryInput) : new Date();
+      const leaseType = document.getElementById('lease-type').value;
+      const noticeType = document.getElementById('notice-type').value;
+      const warmRent = parseFloat(document.getElementById('rent-warm').value) || 0;
+      const deposit = parseFloat(document.getElementById('deposit-amount').value) || 0;
+      const isFamilyHome = document.getElementById('is-family-home').checked;
+      const hasSubtenant = document.getElementById('has-subtenant').checked;
+      const tenantsCount = parseInt(document.getElementById('tenants-count').value) || 1;
+
+      const curr = currentJurisdiction === 'CH' ? 'CHF' : '€';
+
+      let effectiveEnd = null;
+      let latestDelivery = null;
+      let savings = 0;
+      let deadlineRuleText = "";
+      let latestDeliverySub = "";
+      let noticeMonths = 3;
+
+      const year = deliveryDate.getFullYear();
+      const month = deliveryDate.getMonth();
+
+      // BERECHNUNG DEUTSCHLAND (§ 573c BGB)
+      if (currentJurisdiction === 'DE') {
+        deadlineRuleText = "3. Werktag (§ 573c BGB)";
+        const thirdWorkingDay = calculateGermanThirdWorkingDay(year, month);
+        latestDelivery = thirdWorkingDay;
+
+        // Liegt Zustelldatum VOR oder AM 3. Werktag?
+        const isBeforeOrOnThird = deliveryDate <= thirdWorkingDay;
+        
+        let targetMonthIndex;
+        if (noticeType === 'nachmieter_ausserterminlich' && hasSubtenant) {
+          // Nachmieterstellung DE: Befreiung in ca. 4-6 Wochen zum Monatsletzten
+          targetMonthIndex = month + 1;
+          effectiveEnd = new Date(year, targetMonthIndex + 1, 0);
+          savings = warmRent * 2;
+          latestDeliverySub = "Durch Stellung eines zumutbaren Nachmieters (§ 242 BGB) verkürzt sich die Mietzahlung um 2 Monatsmieten.";
+        } else if (isBeforeOrOnThird) {
+          // Gilt zum Ablauf des übernächsten Monats (insgesamt 3 Monate inkl. aktuellem)
+          targetMonthIndex = month + 2;
+          effectiveEnd = new Date(year, targetMonthIndex + 1, 0);
+          savings = warmRent;
+          latestDeliverySub = `Kündigung geht bis zum ${formatDate(thirdWorkingDay)} zu: Der laufende Monat zählt voll mit!`;
+        } else {
+          // Verpasst! Laufender Monat zählt NICHT mehr mit
+          targetMonthIndex = month + 3;
+          effectiveEnd = new Date(year, targetMonthIndex + 1, 0);
+          savings = 0;
+          latestDeliverySub = `3. Werktag (${formatDate(thirdWorkingDay)}) überschritten: Frist beginnt erst zum 1. des Folgemonats!`;
+        }
+      }
+
+      // BERECHNUNG SCHWEIZ (Art. 266a–266o OR & Art. 264 OR)
+      else if (currentJurisdiction === 'CH') {
+        deadlineRuleText = "Empfangstheorie (Art. 266a OR)";
+        // Der Brief muss am letzten Tag des Vormonats beim Vermieter eintreffen!
+        const lastDayOfMonth = new Date(year, month + 1, 0);
+        latestDelivery = lastDayOfMonth;
+
+        if (noticeType === 'nachmieter_ausserterminlich' && hasSubtenant) {
+          // Ausserterminlich: Nachmieter übernimmt nach ca. 20 Tagen Prüffrist
+          effectiveEnd = new Date(deliveryDate.getTime() + 30 * 24 * 3600 * 1000);
+          effectiveEnd = new Date(effectiveEnd.getFullYear(), effectiveEnd.getMonth() + 1, 0);
+          savings = warmRent * 3;
+          latestDeliverySub = "Art. 264 OR: Sofortige Befreiung aus dem Mietvertrag durch 1 zumutbaren Nachmieter!";
+        } else {
+          // Ordentliche Kündigung: Mindestens 3 Monate auf Monatsende (oder ortsüblichen Termin)
+          effectiveEnd = new Date(year, month + 4, 0);
+          savings = warmRent;
+          latestDeliverySub = "Die Kündigung muss zwingend VOR Beginn der 3-monatigen Frist beim Vermieter eingegangen sein (Poststempel reicht NICHT).";
+        }
+      }
+
+      // BERECHNUNG ÖSTERREICH (§ 29 Abs. 2 MRG & § 33 MRG)
+      else if (currentJurisdiction === 'AT') {
+        deadlineRuleText = "§ 29 Abs. 2 MRG / § 33 MRG";
+        const lastDayOfMonth = new Date(year, month + 1, 0);
+        latestDelivery = lastDayOfMonth;
+
+        if (leaseType === 'at_befristet_mrg') {
+          // 1-Jahres-Sperrfrist: Kündigung frühestens nach 12 Monaten, zum Monatsletzten unter 3 Monaten Frist
+          const min12Months = new Date(leaseStartDate.getFullYear(), leaseStartDate.getMonth() + 12, 1);
+          if (deliveryDate < min12Months) {
+            // Noch in der 12-Monats-Sperre
+            effectiveEnd = new Date(leaseStartDate.getFullYear(), leaseStartDate.getMonth() + 16, 0);
+            latestDeliverySub = "§ 29 Abs. 2 MRG: Gesetzliche 1-Jahres-Mindestdauer noch nicht erreicht. Frühester Auszug nach 16 Monaten!";
+          } else {
+            effectiveEnd = new Date(year, month + 4, 0);
+            latestDeliverySub = "1-Jahres-Sperrfrist erfüllt: 3 Monate Frist zum Monatsletzten.";
+          }
+          savings = warmRent;
+        } else {
+          effectiveEnd = new Date(year, month + 4, 0);
+          savings = warmRent;
+          latestDeliverySub = "Ordentliche Kündigung unter Einhaltung von 3 Monaten zum Monatsende.";
+        }
+      }
+
+      // UI Aktualisierungen
+      document.getElementById('card-deadline-rule').textContent = deadlineRuleText;
+      document.getElementById('res-latest-delivery').textContent = latestDelivery ? formatDate(latestDelivery) : '--';
+      document.getElementById('res-latest-delivery-sub').textContent = latestDeliverySub;
+
+      document.getElementById('res-effective-end').textContent = effectiveEnd ? formatDate(effectiveEnd) : '--';
+      document.getElementById('res-effective-end-sub').textContent = `Rechtswirksame Beendigung und Wohnungsrückgabe per ${formatDate(effectiveEnd)}.`;
+
+      document.getElementById('res-financial-savings').textContent = `${formatNumber(savings)} ${curr}`;
+      document.getElementById('res-savings-sub').textContent = savings > 0 
+        ? `Bis zu ${formatNumber(savings)} ${curr} Mietkosten gespart durch rechtzeitigen Zugang / Nachmieterstellung!` 
+        : `Keine Ersparnis (Frist verzögert sich um 1 Monat).`;
+
+      document.getElementById('res-deposit-preview').textContent = `${formatNumber(deposit)} ${curr}`;
+
+      // FORMFEHLER-RADAR & WARNUNGEN
+      renderLegalWarnings(effectiveEnd, isFamilyHome, tenantsCount, hasSubtenant, leaseType, noticeType);
+    }
+
+    // Warnungen anzeigen
+    function renderLegalWarnings(effectiveEnd, isFamilyHome, tenantsCount, hasSubtenant, leaseType, noticeType) {
+      const container = document.getElementById('legal-warning-container');
+      container.innerHTML = '';
+
+      const warnings = [];
+
+      // Warnung 1: Schriftform (strikte Unterschrift DE / CH / AT)
+      warnings.push({
+        type: 'danger',
+        icon: '✍️',
+        title: currentJurisdiction === 'DE' ? 'Schriftformgebot § 568 BGB (E-Mail/Fax ist NICHTIG)' : 'Eigenhändige Original-Unterschrift zwingend',
+        desc: currentJurisdiction === 'DE' 
+          ? 'Eine Mietkündigung per E-Mail, Scan, WhatsApp, SMS oder Fax ist nach § 126 BGB absolut formunwirksam! Es ist zwingend das ausgedruckte Original mit eigenhändiger Unterschrift aller Hauptmieter erforderlich.'
+          : 'Die Kündigung bedarf der Schriftform mit Original-Unterschrift. Eine elektronische Übermittlung per Mail oder PDF reicht im Streitfall vor der Schlichtungsbehörde / Gericht nicht aus.'
+      });
+
+      // Warnung 2: Alle Hauptmieter müssen unterschreiben
+      if (tenantsCount > 1) {
+        warnings.push({
+          type: 'danger',
+          icon: '👥',
+          title: `Alle ${tenantsCount} Hauptmieter müssen unterschreiben`,
+          desc: 'Stehen mehrere Personen als Mieter im Mietvertrag (z.B. Ehepaare, Paare oder Wohngemeinschaften), ist die Kündigung nur wirksam, wenn ALLE Vertragspartner die Kündigung eigenhändig unterzeichnen.'
+        });
+      }
+
+      // Warnung 3: Schweiz Familienwohnung Art. 266l OR
+      if (currentJurisdiction === 'CH') {
+        warnings.push({
+          type: isFamilyHome ? 'danger' : 'info',
+          icon: '💍',
+          title: 'Art. 266l Abs. 1 OR: Familienwohnung (Zwangsunterschrift beider Partner)',
+          desc: isFamilyHome
+            ? 'ACHTUNG: Dient die Wohnung als Familienwohnung, MÜSSEN zwingend BEIDE Ehegatten unterschreiben – selbst wenn nur einer den Vertrag unterzeichnet hat! Eine Kündigung ohne Zweitunterschrift ist unheilbar NICHTIG!'
+            : 'Falls Sie verheiratet sind oder in eingetragener Partnerschaft leben, müssen beide Partner unterschreiben (Art. 266l OR).'
+        });
+
+        warnings.push({
+          type: 'warning',
+          icon: '📮',
+          title: 'Empfangstheorie: Poststempel reicht in der Schweiz NICHT!',
+          desc: 'Entscheidend ist der Tag, an dem die Kündigung beim Vermieter im Briefkasten liegt (bzw. auf der Post abholbereit ist). Liegt der letzte Monatstag auf einem Sonntag, muss das Schreiben am Freitag davor da sein!'
+        });
+      }
+
+      // Warnung 4: Deutschland § 545 BGB Fortsetzungsverbot
+      if (currentJurisdiction === 'DE') {
+        warnings.push({
+          type: 'success',
+          icon: '🛡️',
+          title: '§ 545 BGB Fortsetzungs-Widerspruch integriert',
+          desc: 'Wird der Kündigung nicht vorsorglich widersprochen und zieht der Mieter nicht taggenau aus, kann sich das Mietverhältnis stillschweigend auf unbestimmte Zeit verlängern. Unser Generator schließt dies automatisch aus.'
+        });
+      }
+
+      // Warnung 5: Nachmieter Art. 264 OR / Härtefall
+      if (hasSubtenant || noticeType === 'nachmieter_ausserterminlich') {
+        warnings.push({
+          type: 'success',
+          icon: '🤝',
+          title: currentJurisdiction === 'CH' ? 'Art. 264 OR Nachmieter-Befreiung aktiv' : 'Nachmieterstellung bei Härtefall',
+          desc: currentJurisdiction === 'CH'
+            ? 'Sie müssen mindestens 1 zumutbaren, zahlungsfähigen Ersatzmieter stellen, der bereit ist, den Vertrag unverändert zu übernehmen. Der Vermieter hat max. 10–20 Tage Prüffrist.'
+            : 'Haben Sie einen Kündigungsverzicht unterschrieben, kann bei berechtigtem Interesse (z.B. Jobwechsel, Nachwuchs) ein Nachmieter gestellt werden (§ 242 BGB Treu und Glauben).'
+        });
+      }
+
+      // Warnung 6: Kautionsrückzahlung
+      warnings.push({
+        type: 'info',
+        icon: '🏦',
+        title: currentJurisdiction === 'DE' ? 'Kautionsprüffrist § 551 BGB (3–6 Monate)' : (currentJurisdiction === 'CH' ? 'Mietzinsdepot Freigabe Art. 257e OR' : 'Kaution § 16b MRG (unverzüglich)'),
+        desc: currentJurisdiction === 'DE'
+          ? 'Der Vermieter darf die Kaution 3 bis maximal 6 Monate prüfen. Für eine noch ausstehende Nebenkostenabrechnung darf nur ein angemessener Teilbetrag (z.B. 200–400 €) einbehalten werden.'
+          : (currentJurisdiction === 'CH' 
+             ? 'Wird kein Rechtsverfahren eröffnet, muss die Bank das Mietzinsdepot nach spätestens 1 Jahr ohne Zustimmung des Vermieters freigeben.'
+             : 'In Österreich ist die Kaution unverzüglich nach ordnungsgemäßer Rückstellung des Mietgegenstands samt Zinsen rückzuerstatten.')
+      });
+
+      // Render cards
+      warnings.forEach(w => {
+        const borderCls = w.type === 'danger' ? 'border-rose-200 bg-rose-50/70 text-rose-950' : (w.type === 'warning' ? 'border-amber-200 bg-amber-50/70 text-amber-950' : (w.type === 'success' ? 'border-emerald-200 bg-emerald-50/70 text-emerald-950' : 'border-indigo-200 bg-indigo-50/70 text-indigo-950'));
+        const iconBg = w.type === 'danger' ? 'bg-rose-100' : (w.type === 'warning' ? 'bg-amber-100' : (w.type === 'success' ? 'bg-emerald-100' : 'bg-indigo-100'));
+
+        const card = document.createElement('div');
+        card.className = `p-3.5 rounded-xl border ${borderCls} flex items-start gap-3 text-xs`;
+        card.innerHTML = `
+          <span class="w-7 h-7 rounded-lg ${iconBg} flex items-center justify-center shrink-0 mt-0.5 text-sm">${w.icon}</span>
+          <div>
+            <div class="font-bold">${w.title}</div>
+            <div class="mt-1 leading-relaxed opacity-90 text-[11px]">${w.desc}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // DIN-A4 Dokumente rendern & Daten einsetzen
+    function renderDocuments() {
+      const tenantNames = document.getElementById('doc-tenant-names').value || 'Maximilian & Sarah Mustermann';
+      const tenantAddr = document.getElementById('doc-tenant-address').value || 'Sonnenallee 42, 10115 Berlin';
+      const landlordName = document.getElementById('doc-landlord-name').value || 'Haus & Grund GmbH';
+      const landlordAddr = document.getElementById('doc-landlord-address').value || 'Kurfürstendamm 180, 10707 Berlin';
+      const leaseId = document.getElementById('doc-lease-id').value || 'MV-2023-B42';
+      const depositIban = document.getElementById('doc-deposit-iban').value || 'DE44 1005 0000 1234 5678 90';
+      const depositHolder = document.getElementById('doc-deposit-holder').value || 'Maximilian Mustermann';
+
+      const effectiveEndStr = document.getElementById('res-effective-end').textContent || '31.01.2027';
+      const depositVal = document.getElementById('res-deposit-preview').textContent || '3.450 €';
+
+      const handoverDate = document.getElementById('handover-date').value || new Date().toISOString().split('T')[0];
+      const handoverTime = document.getElementById('handover-time').value || '10:00';
+
+      // 1. Kündigungsschreiben aktualisieren
+      document.getElementById('p1-tenant-names').textContent = tenantNames;
+      document.getElementById('p1-tenant-address').textContent = tenantAddr;
+      document.getElementById('p1-small-sender').textContent = `${tenantNames.split('&')[0].trim()} • ${tenantAddr.split(',')[0]}`;
+      document.getElementById('p1-landlord-name').textContent = landlordName;
+      document.getElementById('p1-landlord-address').innerHTML = landlordAddr.replace(/,/g, '<br>');
+      document.getElementById('p1-subject').textContent = `Kündigung des Mietvertrages Nr. ${leaseId} für das Objekt ${tenantAddr}`;
+      document.getElementById('p1-highlight-date').textContent = effectiveEndStr;
+      document.getElementById('p1-deposit-val').textContent = depositVal;
+      document.getElementById('p1-bank-details').textContent = `IBAN: ${depositIban} (Kontoinhaber: ${depositHolder})`;
+
+      // Unterschriftenzeilen generieren
+      const sigContainer = document.getElementById('p1-signatures');
+      const namesList = tenantNames.split(/&|,| und /).map(s => s.trim()).filter(Boolean);
+      sigContainer.innerHTML = '';
+      namesList.forEach((n, idx) => {
+        const sigDiv = document.createElement('div');
+        sigDiv.className = "border-t border-slate-400 pt-2 text-center";
+        sigDiv.innerHTML = `
+          <span class="font-bold">${n}</span><br>
+          <span class="text-[8pt] text-slate-500">Eigenhändige Unterschrift Hauptmieter ${idx + 1}</span>
+        `;
+        sigContainer.appendChild(sigDiv);
+      });
+
+      // Dokument 2: Nachmieter Bogen
+      document.getElementById('p2-address').textContent = tenantAddr;
+      if (currentJurisdiction === 'CH') {
+        document.getElementById('p2-title').textContent = "Vorschlag zumutbarer Ersatzmieter gemäss Art. 264 OR (Ausserterminliche Rückgabe)";
+        document.getElementById('p2-law-desc').textContent = "Gemäss Art. 264 OR wird die Mieterschaft vorzeitig aus der Haftung entlassen, wenn mindestens 1 zahlungsfähiger, zumutbarer Ersatzmieter vorgeschlagen wird, der bereit ist, den Vertrag unverändert zu übernehmen.";
+      } else {
+        document.getElementById('p2-title').textContent = "Vorschlag zumutbarer Nachmieter zur vorzeitigen Vertragsentlassung (§ 242 BGB)";
+        document.getElementById('p2-law-desc').textContent = "Aufgrund berechtigter Interessen (beruflicher Wechsel / Härtefall) wird hiermit die Entlassung aus dem Mietvertrag gegen Stellung geeigneter Nachmieter beantragt.";
+      }
+
+      // Dokument 3: Übergabeprotokoll
+      document.getElementById('p3-address').textContent = tenantAddr;
+      document.getElementById('p3-tenants').textContent = tenantNames;
+      document.getElementById('p3-landlord').textContent = landlordName;
+      document.getElementById('p3-datetime').textContent = `${formatDate(new Date(handoverDate))}, ${handoverTime} Uhr`;
+
+      // Zählerwerte in Dokument 3 spiegeln
+      document.getElementById('p3-m-el-ht-num').textContent = document.getElementById('meter-elec-ht-num').value;
+      document.getElementById('p3-m-el-ht-val').textContent = document.getElementById('meter-elec-ht-val').value;
+      document.getElementById('p3-m-el-nt-num').textContent = document.getElementById('meter-elec-nt-num').value;
+      document.getElementById('p3-m-el-nt-val').textContent = document.getElementById('meter-elec-nt-val').value;
+      document.getElementById('p3-m-gas-num').textContent = document.getElementById('meter-gas-num').value;
+      document.getElementById('p3-m-gas-val').textContent = document.getElementById('meter-gas-val').value;
+      document.getElementById('p3-m-cold-num').textContent = document.getElementById('meter-water-cold-num').value;
+      document.getElementById('p3-m-cold-val').textContent = document.getElementById('meter-water-cold-val').value;
+      document.getElementById('p3-m-warm-num').textContent = document.getElementById('meter-water-warm-num').value;
+      document.getElementById('p3-m-warm-val').textContent = document.getElementById('meter-water-warm-val').value;
+      document.getElementById('p3-m-heat-note').textContent = document.getElementById('meter-heating-units-note').value;
+      document.getElementById('p3-m-heat-val').textContent = document.getElementById('meter-heating-units-val').value;
+
+      // Kautionsklausel Dokument 3
+      const clauseType = document.getElementById('deposit-clause-type').value;
+      const clauseElem = document.getElementById('p3-deposit-clause-text');
+      if (clauseType === 'full_release') {
+        clauseElem.innerHTML = `Die Mieträume wurden in einem ordnungsgemäßen, besenreinen und vertragsgemäßen Zustand übergeben. Vorhandene normale Abnutzungen sind mit der Miete abgegolten. Der Vermieter bestätigt hiermit, dass keine offenen Schadenersatzansprüche bestehen. Die Mietkaution in Höhe von <strong>${depositVal}</strong> wird hiermit unverzüglich und in voller Höhe zur Rückzahlung an den Mieter freigegeben.`;
+      } else if (clauseType === 'utility_reserve') {
+        clauseElem.innerHTML = `Die Mieträume wurden ordnungsgemäß abgenommen. Wegen noch nicht abgerechneter Betriebskosten für das laufende Abrechnungsjahr behält der Vermieter einen Sicherheitsbetrag von höchstens <strong>300 € / CHF</strong> ein. Der verbleibende Kautionsbetrag wird unverzüglich auf das angegebene Konto des Mieters überwiesen.`;
+      } else {
+        clauseElem.innerHTML = `Zur Beseitigung der im Protokoll festgehaltenen Beanstandungen räumt der Vermieter dem Mieter eine Nachfrist bis zum vereinbarten Stichtag ein. Nach fristgerechter Behebung erfolgt die endgültige Kautionsfreigabe.`;
+      }
+    }
+
+    // 1-Klick-Praxisbeispiele
+    function loadSampleCase(caseKey) {
+      if (caseKey === 'de_ordentlich') {
+        setJurisdiction('DE');
+        document.getElementById('lease-start-date').value = '2023-01-01';
+        document.getElementById('notice-delivery-date').value = '2026-11-02';
+        document.getElementById('lease-type').value = 'unbefristet';
+        document.getElementById('notice-type').value = 'ordentlich';
+        document.getElementById('rent-net').value = '1150';
+        document.getElementById('rent-warm').value = '1450';
+        document.getElementById('deposit-amount').value = '3450';
+        document.getElementById('tenants-count').value = '2';
+        document.getElementById('doc-tenant-names').value = 'Maximilian & Sarah Mustermann';
+        document.getElementById('doc-tenant-address').value = 'Sonnenallee 42, 10115 Berlin';
+        document.getElementById('doc-landlord-name').value = 'Immobilienverwaltung Haus & Grund GmbH';
+        document.getElementById('doc-landlord-address').value = 'Kurfürstendamm 180, 10707 Berlin';
+      } else if (caseKey === 'ch_ausserterminlich') {
+        setJurisdiction('CH');
+        document.getElementById('lease-start-date').value = '2022-04-01';
+        document.getElementById('notice-delivery-date').value = '2026-10-25';
+        document.getElementById('lease-type').value = 'unbefristet';
+        document.getElementById('notice-type').value = 'nachmieter_ausserterminlich';
+        document.getElementById('has-subtenant').checked = true;
+        document.getElementById('is-family-home').checked = true;
+        document.getElementById('rent-net').value = '2100';
+        document.getElementById('rent-warm').value = '2400';
+        document.getElementById('deposit-amount').value = '6300';
+        document.getElementById('tenants-count').value = '2';
+        document.getElementById('doc-tenant-names').value = 'Reto & Melanie Brunner';
+        document.getElementById('doc-tenant-address').value = 'Seestrasse 145, 8002 Zürich';
+        document.getElementById('doc-landlord-name').value = 'Zürcher Liegenschafts-Verwaltung AG';
+        document.getElementById('doc-landlord-address').value = 'Bahnhofstrasse 20, 8001 Zürich';
+      } else if (caseKey === 'at_mrg_befristet') {
+        setJurisdiction('AT');
+        document.getElementById('lease-start-date').value = '2025-06-01';
+        document.getElementById('notice-delivery-date').value = '2026-10-20';
+        document.getElementById('lease-type').value = 'at_befristet_mrg';
+        document.getElementById('notice-type').value = 'ordentlich';
+        document.getElementById('rent-net').value = '790';
+        document.getElementById('rent-warm').value = '980';
+        document.getElementById('deposit-amount').value = '2940';
+        document.getElementById('tenants-count').value = '1';
+        document.getElementById('doc-tenant-names').value = 'Florian Hofer';
+        document.getElementById('doc-tenant-address').value = 'Mariahilfer Straße 88, 1070 Wien';
+        document.getElementById('doc-landlord-name').value = 'Wiener Wohnbau Treuhand OG';
+        document.getElementById('doc-landlord-address').value = 'Kärntner Ring 12, 1010 Wien';
+      }
+
+      runFristenCheck();
+      renderDocuments();
+    }
+
+    // Zurücksetzen
+    function resetFristenForm() {
+      document.getElementById('lease-start-date').value = '2023-01-01';
+      document.getElementById('notice-delivery-date').value = new Date().toISOString().split('T')[0];
+      document.getElementById('lease-type').value = 'unbefristet';
+      document.getElementById('notice-type').value = 'ordentlich';
+      document.getElementById('rent-net').value = '1150';
+      document.getElementById('rent-warm').value = '1450';
+      document.getElementById('deposit-amount').value = '3450';
+      document.getElementById('is-family-home').checked = false;
+      document.getElementById('has-subtenant').checked = false;
+      document.getElementById('tenants-count').value = '2';
+      runFristenCheck();
+      renderDocuments();
+    }
+
+    // Pro Unlock Logik
+    function openCheckoutModal() {
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+      document.getElementById('voucher-error').classList.add('hidden');
+    }
+
+    function redeemVoucher() {
+      const input = document.getElementById('voucher-input').value.trim().toUpperCase();
+      const validCodes = ['DW-PRO-2026', 'MIETE-2026', 'PRO2026', 'GUMROAD'];
+      if (validCodes.includes(input)) {
+        unlockPro(true);
+        closeCheckoutModal();
+      } else {
+        const err = document.getElementById('voucher-error');
+        err.textContent = 'Ungültiger Freischaltcode. Bitte prüfen oder auf Gumroad erwerben.';
+        err.classList.remove('hidden');
+      }
+    }
+
+    function unlockPro(save) {
+      isProUnlocked = true;
+      if (save) localStorage.setItem('dw_pro_unlocked', 'true');
+
+      // Badges
+      const proPill = document.getElementById('pro-status-pill');
+      if (proPill) {
+        proPill.className = "bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full";
+        proPill.textContent = "✓ Pro freigeschaltet";
+      }
+
+      const docPill = document.getElementById('doc-pro-pill');
+      if (docPill) {
+        docPill.className = "bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase px-2 py-0.5 rounded-full";
+        docPill.textContent = "✓ Vollversion Aktiv";
+      }
+
+      const unlockBtn = document.getElementById('header-unlock-btn');
+      if (unlockBtn) {
+        unlockBtn.className = "bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition flex items-center gap-1.5";
+        unlockBtn.innerHTML = `<span>✓</span><span>Pro Aktiv</span>`;
+        unlockBtn.onclick = null;
+      }
+
+      const docUnlockBtn = document.getElementById('btn-doc-unlock');
+      if (docUnlockBtn) docUnlockBtn.classList.add('hidden');
+
+      // Overlays entfernen
+      const subLock = document.getElementById('subtenant-pro-lock');
+      if (subLock) subLock.classList.add('hidden');
+
+      const handLock = document.getElementById('handover-pro-lock');
+      if (handLock) handLock.classList.add('hidden');
+    }
+
+    // Hilfsfunktionen Formatierung
+    function formatDate(d) {
+      if (!d) return '--.--.----';
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}.${month}.${year}`;
+    }
+
+    function formatNumber(num) {
+      return Number(num).toLocaleString('de-DE', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    }
+  </script>
+</body>
+</html>

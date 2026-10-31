@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Arbeitszeugnis-Decoder & Korrekturschreiben-Generator | DACH Digitalwerk</title>
+  <meta name="description" content="Entschlüsseln Sie versteckte HR-Geheimcodes in Ihrem Arbeitszeugnis (DE/AT/CH) sofort im Browser. Inkl. Gesamtnote, Red-Flag-Radar, Note-1-Gegenvorschlägen & DIN-A4 Korrekturbrief." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    // =========================================================================
+    // KONFIGURIERBARER PAYPAL SELF-SERVE CHECKOUT LINK
+    // Kann jederzeit über window.DIGITALWERK_PAYPAL_URL oder URL-Parameter
+    // ?paypal=... überschrieben werden.
+    // =========================================================================
+    window.DIGITALWERK_PAYPAL_URL = window.DIGITALWERK_PAYPAL_URL || "https://dachdigital.gumroad.com/l/gthgwc";
+
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .hl-badge {
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border-radius: 0.35rem;
+      padding: 0.08rem 0.3rem;
+      font-weight: 600;
+    }
+    .hl-badge:hover {
+      filter: brightness(0.93);
+      box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.25);
+    }
+    .a4-letter-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      background: #ffffff;
+      color: #0f172a;
+      margin: 0 auto;
+      padding: 20mm 22mm;
+      box-sizing: border-box;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.55;
+    }
+    @media screen and (max-width: 900px) {
+      .a4-letter-wrapper {
+        overflow-x: auto;
+        padding-bottom: 1rem;
+      }
+    }
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 15mm 18mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only-container {
+        display: block !important;
+      }
+      .a4-letter-sheet {
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "DACH Arbeitszeugnis-Decoder & Korrekturschreiben-Generator | DACH Digitalwerk", "description": "Entschlüsseln Sie versteckte HR-Geheimcodes in Ihrem Arbeitszeugnis (DE/AT/CH) sofort im Browser. Inkl. Gesamtnote, Red-Flag-Radar, Note-1-Gegenvorschlägen & DIN-A4 Korrekturbrief.", "url": "https://dach-digitalwerk.netlify.app/arbeitszeugnis/", "applicationCategory": "BusinessApplication", "operatingSystem": "All", "inLanguage": ["de-DE", "de-AT", "de-CH"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH Arbeitszeugnis-Decoder & Korrekturschreiben-Generator f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Entschlüsseln Sie versteckte HR-Geheimcodes in Ihrem Arbeitszeugnis (DE/AT/CH) sofort im Browser. Inkl. Gesamtnote, Red-Flag-Radar, Note-1-Gegenvorschlägen & DIN-A4 Korrekturbrief. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP TRUST & PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4">
+        <a href="../" class="inline-flex items-center gap-1.5 text-white font-semibold hover:text-indigo-400 transition">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span>🔒 100% Client-Side Datenschutz:</span>
+          <span class="text-slate-300">Ihr Zeugnistext wird ausschließlich lokal in Ihrem Browser analysiert (keine Server-Speicherung).</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-slate-400">Rechtsraum:</span>
+        <div class="inline-flex rounded-lg bg-slate-900 border border-slate-800 p-0.5">
+          <button onclick="setJurisdiction('DE')" id="jur-btn-DE" class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition">🇩🇪 DE (§ 109 GewO)</button>
+          <button onclick="setJurisdiction('CH')" id="jur-btn-CH" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇨🇭 CH (Art. 330a OR)</button>
+          <button onclick="setJurisdiction('AT')" id="jur-btn-AT" class="px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition">🇦🇹 AT (§ 39 AngG)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="../" class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-indigo-600/20">
+          🔍
+        </a>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg text-slate-900 tracking-tight">Arbeitszeugnis-Radar & Geheimcode-Decoder</span>
+            <span id="pro-status-pill" class="bg-slate-100 text-slate-700 border border-slate-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Basis-Version</span>
+          </div>
+          <p class="text-xs text-slate-500 hidden sm:block">85+ HR-Geheimcodes (DE/AT/CH) • Red-Flag-Scanner • Note-1-Gegenvorschläge & DIN-A4 Korrekturbrief</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <a href="../qr-suite/" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>🧾</span>
+          <span>E-Rechnung & Swiss QR</span>
+        </a>
+        <a href="../rechner/" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+          <span>☀️</span>
+          <span>Solar- & Handwerker-Rechner</span>
+        </a>
+        <button id="header-unlock-btn" onclick="openCheckoutModal()" class="bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-md shadow-indigo-600/20 transition flex items-center gap-1.5">
+          <span>🔓</span>
+          <span class="price-label-btn">Pro-Vollversion (4,90 €)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & DEMO SELECTOR -->
+  <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 text-white pt-8 pb-10 border-b border-slate-800 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold mb-3">
+          <span>⚡ Sofort-Analyse ohne Registrierung</span>
+          <span>•</span>
+          <span>Über 85 echte HR-Formulierungen & Geheimcodes</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight leading-tight">
+          Was steht <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-indigo-300">wirklich</span> in Ihrem Arbeitszeugnis?
+        </h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2.5 leading-relaxed">
+          Ein einziges fehlendes Wort wie <em>„stets“</em>, <em>„weiterhin“</em> oder eine vertauschte Reihenfolge bei <em>„Kollegen und Vorgesetzten“</em> kann Ihre Note von <strong>Sehr gut (1)</strong> auf <strong>Ausreichend (4)</strong> abstufen. Kopieren Sie Ihr Zeugnis unten ein oder testen Sie eines unserer 3 Praxis-Beispiele:
+        </p>
+      </div>
+
+      <!-- 3 INTERACTIVE DEMO BUTTONS -->
+      <div class="mt-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5 flex items-center gap-2">
+          <span>🎯 Schnellstart: Beispiel-Zeugnis mit 1 Klick laden</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <button onclick="loadSampleZeugnis('trap3')" id="demo-btn-trap3" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-amber-500/40 hover:border-amber-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/30 text-amber-300 flex items-center justify-center text-lg shrink-0 mt-0.5">⚠️</span>
+            <div>
+              <div class="text-xs font-bold text-amber-300 uppercase tracking-wider">Beispiel 1 • Häufigster Praxis-Fall</div>
+              <div class="text-sm font-bold text-white group-hover:text-amber-200 transition">Typisches Note-3-Zeugnis mit versteckten Fallen</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Klingt auf den ersten Blick positiv, enthält aber 6 subtile Abwertungen & Reihenfolge-Fehler.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleZeugnis('top1')" id="demo-btn-top1" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🏆</span>
+            <div>
+              <div class="text-xs font-bold text-emerald-300 uppercase tracking-wider">Beispiel 2 • Referenz-Qualität</div>
+              <div class="text-sm font-bold text-white group-hover:text-emerald-200 transition">Sehr gutes Führungszeugnis (Note 1,2)</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Durchgängige Superlative („stets zu unserer vollsten Zufriedenheit“) + perfekte Dankes- & Bedauernsformel.</div>
+            </div>
+          </button>
+
+          <button onclick="loadSampleZeugnis('toxic5')" id="demo-btn-toxic5" class="group text-left p-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-800 border border-rose-500/40 hover:border-rose-400 transition flex items-start gap-3 shadow-lg">
+            <span class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-500/30 text-rose-300 flex items-center justify-center text-lg shrink-0 mt-0.5">🚨</span>
+            <div>
+              <div class="text-xs font-bold text-rose-300 uppercase tracking-wider">Beispiel 3 • Alarmstufe Rot</div>
+              <div class="text-sm font-bold text-white group-hover:text-rose-200 transition">Kritisches Zeugnis ohne Bedauernsformel</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Massive HR-Geheimcodes („gesellig“, „Einfühlungsvermögen“, „war bemüht“) & fehlendes Bedauern.</div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 no-print">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT COLUMN (5 COLS): TEXT INPUT & INTERACTIVE HIGHLIGHT SCANNER -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/60">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span>📝 1. Zeugnistext eingeben oder einfügen</span>
+              </h2>
+              <p class="text-[11px] text-slate-500 mt-0.5">Vollständiger Text oder einzelne Absätze (DE / AT / CH Rechtschreibung)</p>
+            </div>
+            <button onclick="clearZeugnisInput()" class="text-xs text-slate-500 hover:text-rose-600 font-semibold px-2.5 py-1 rounded-lg hover:bg-rose-50 transition">
+              Text leeren
+            </button>
+          </div>
+
+          <div class="p-4 sm:p-5 space-y-4">
+            <textarea
+              id="zeugnis-input"
+              rows="13"
+              oninput="analyzeZeugnis()"
+              placeholder="Fügen Sie hier den Text Ihres Arbeitszeugnisses oder Zwischenzeugnisses ein (z.B. 'Herr/Frau ... erledigte alle Aufgaben zu unserer vollen Zufriedenheit...')"
+              class="w-full rounded-xl border border-slate-300 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 p-3.5 text-xs sm:text-sm text-slate-800 leading-relaxed focus:outline-none resize-y font-sans"
+            ></textarea>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+              <span id="input-stats-label">0 Wörter • 0 Sätze</span>
+              <button onclick="analyzeZeugnis(true)" class="bg-slate-900 hover:bg-indigo-600 text-white font-bold px-4 py-2.5 rounded-xl shadow-sm transition flex items-center gap-1.5 text-xs">
+                <span>🔍 Zeugnis jetzt auf Geheimcodes prüfen</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ANNOTATED TEXT RADAR (FARBLICHE MARKIERUNG IM ORIGINALTEXT) -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 sm:p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2 bg-slate-50/60">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">🎯 Farblicher Text-Radar (Klickbare Fundstellen)</h3>
+              <p class="text-[11px] text-slate-500">Klicken Sie auf eine markierte Stelle im Text, um die Entschlüsselung rechts zu öffnen.</p>
+            </div>
+            <div class="flex items-center gap-1.5 text-[10px] font-bold">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">Note 1–2</span>
+              <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">Note 3</span>
+              <span class="px-2 py-0.5 rounded bg-rose-100 text-rose-800 border border-rose-300">Note 4–5 / Red Flag</span>
+            </div>
+          </div>
+          <div id="annotated-text-view" class="p-4 sm:p-5 text-xs sm:text-sm leading-relaxed text-slate-700 whitespace-pre-wrap max-h-[460px] overflow-y-auto">
+            Bitte geben Sie oben einen Zeugnistext ein oder wählen Sie eines der 3 Beispiele.
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN (7 COLS): INSTANT KPI DASHBOARD, DECODED ITEMS, PRO UNLOCK & LETTER GENERATOR -->
+      <div class="lg:col-span-7 space-y-6" id="results-column">
+
+        <!-- 1. SOFORT KOSTENLOS SICHTBAR: GESAMTNOTE & KPI DASHBOARD -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="bg-slate-900 text-white p-5 sm:p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <span class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                Live-Auswertung (Kostenlose Sofort-Diagnose)
+              </span>
+              <span class="text-xs text-slate-400" id="dict-count-badge">Wörterbuch: 88 aktive HR-Codes</span>
+            </div>
+
+            <!-- 4 KPI BOXES -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <!-- Gesamtnote -->
+              <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-3.5">
+                <div class="text-[11px] text-slate-400 font-medium">Berechnete Gesamtnote</div>
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span id="kpi-grade-num" class="text-2xl sm:text-3xl font-extrabold text-white">–</span>
+                  <span id="kpi-grade-word" class="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-700 text-slate-300">Warte auf Text</span>
+                </div>
+                <div id="kpi-grade-sub" class="text-[10px] text-slate-400 mt-1.5">Skala 1,0 (Sehr gut) bis 5,0</div>
+              </div>
+
+              <!-- Erkannte Sätze -->
+              <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-3.5">
+                <div class="text-[11px] text-slate-400 font-medium">Analysierter Umfang</div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-white mt-1" id="kpi-sentences-count">0</div>
+                <div class="text-[10px] text-slate-400 mt-1.5" id="kpi-matches-count">0 erkannte HR-Formulierungen</div>
+              </div>
+
+              <!-- Red Flags / Geheimcodes -->
+              <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-3.5" id="kpi-redflag-box">
+                <div class="text-[11px] text-slate-400 font-medium">Red Flags & Warnungen</div>
+                <div class="flex items-baseline gap-2 mt-1">
+                  <span id="kpi-redflags-count" class="text-2xl sm:text-3xl font-extrabold text-rose-400">0</span>
+                  <span id="kpi-redflags-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300">Kritisch</span>
+                </div>
+                <div class="text-[10px] text-slate-400 mt-1.5" id="kpi-redflags-sub">Note 3,5–5,0 oder Geheimcode</div>
+              </div>
+
+              <!-- Struktur & Schlussformel -->
+              <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-3.5">
+                <div class="text-[11px] text-slate-400 font-medium">Schlussformel & Aufbau</div>
+                <div class="text-sm font-extrabold text-white mt-1.5 leading-snug" id="kpi-closing-status">–</div>
+                <div class="text-[10px] text-slate-400 mt-1.5" id="kpi-closing-sub">Dank, Bedauern & Zukunft</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-SCORES & META CHECKS BAR -->
+          <div class="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+            <div class="bg-white p-3 rounded-xl border border-slate-200/80 flex items-center justify-between">
+              <span class="text-slate-500 font-medium">📈 Leistungsbeurteilung:</span>
+              <span id="sub-score-leistung" class="font-bold text-slate-900">–</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200/80 flex items-center justify-between">
+              <span class="text-slate-500 font-medium">🤝 Sozialverhalten & Hierarchie:</span>
+              <span id="sub-score-sozial" class="font-bold text-slate-900">–</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200/80 flex items-center justify-between">
+              <span class="text-slate-500 font-medium">🏁 Schlussformel (Dank/Bedauern):</span>
+              <span id="sub-score-schluss" class="font-bold text-slate-900">–</span>
+            </div>
+          </div>
+
+          <!-- EXECUTIVE SUMMARY ALERT -->
+          <div class="p-4 sm:p-5" id="executive-summary-box">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- 2. DETAILLIERTE ENTSCHLÜSSELUNG (2 KOSTENLOS SICHTBAR + SELF-SERVE PRO UNLOCK) -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 sm:p-5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2 bg-slate-50/70">
+            <div>
+              <h2 class="text-base font-extrabold text-slate-900">
+                🔬 Satz-für-Satz Geheimcode-Entschlüsselung & Note-1-Gegenvorschläge
+              </h2>
+              <p class="text-xs text-slate-500 mt-0.5" id="decoded-subtitle">
+                Die ersten 2 erkannten Formulierungen sind sofort kostenlos sichtbar.
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="filterFindings('all')" id="flt-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition">Alle zeigen</button>
+              <button onclick="filterFindings('critical')" id="flt-critical" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition">Nur Warnungen / Note 3–5</button>
+            </div>
+          </div>
+
+          <!-- LIST OF FREE + PRO FINDINGS -->
+          <div class="p-4 sm:p-5 space-y-4" id="findings-list-container">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- SELF-SERVE PRO PAYWALL / UNLOCK BANNER (SHOWN WHEN NOT UNLOCKED & >2 FINDINGS OR LETTER LOCKED) -->
+          <div id="pro-paywall-card" class="m-4 sm:m-5 p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white border border-indigo-500/40 shadow-xl relative overflow-hidden">
+            <div class="relative z-10">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/40 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+                  🔓 Self-Serve Sofort-Freischaltung (Kein Abo • Kein Account)
+                </span>
+                <span class="text-xs font-mono text-indigo-200 bg-indigo-900/60 px-2.5 py-1 rounded-lg border border-indigo-700/60">
+                  Einmalig <strong class="price-label-inline">4,90 € / CHF</strong>
+                </span>
+              </div>
+
+              <h3 class="text-lg sm:text-xl font-extrabold text-white leading-snug" id="paywall-headline">
+                Alle <span id="paywall-hidden-count">6</span> weiteren Geheimcodes, sämtliche Note-1-Gegenvorschläge & Ihr fertiges DIN-A4 Korrekturschreiben freischalten
+              </h3>
+
+              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                Akzeptieren Sie kein Zeugnis, das Ihre Karriere heimlich bremst! Mit dem <strong>Self-Serve Pro-Pass</strong> erhalten Sie sofort im Browser ohne Wartezeit:
+              </p>
+
+              <div class="grid sm:grid-cols-2 gap-2.5 my-4 text-xs">
+                <div class="flex items-start gap-2 bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+                  <span class="text-emerald-400 font-bold text-sm">✓</span>
+                  <div>
+                    <div class="font-bold text-white">Alle Red Flags & Codes entschlüsselt</div>
+                    <div class="text-slate-400 text-[11px]">Komplette Liste aller gefundenen Warnsignale inkl. Schlussformel- & Reihenfolge-Prüfung.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+                  <span class="text-emerald-400 font-bold text-sm">✓</span>
+                  <div>
+                    <div class="font-bold text-white">Konkrete Note-1-Gegenvorschläge</div>
+                    <div class="text-slate-400 text-[11px]">Für jeden kritischen Satz erhalten Sie die exakte Sehr-Gut-Formulierung zum 1:1-Austausch.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+                  <span class="text-emerald-400 font-bold text-sm">✓</span>
+                  <div>
+                    <div class="font-bold text-white">Fertiger DIN-A4 Korrekturbrief (PDF/Word)</div>
+                    <div class="text-slate-400 text-[11px]">Juristisch fundiertes Anschreiben an HR/Arbeitgeber (§ 109 GewO / Art. 330a OR) auf Knopfdruck.</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2 bg-slate-800/70 p-3 rounded-xl border border-slate-700">
+                  <span class="text-emerald-400 font-bold text-sm">✓</span>
+                  <div>
+                    <div class="font-bold text-white">1-Klick Note-1-Wunschzeugnis Generator</div>
+                    <div class="text-slate-400 text-[11px]">Erzeugt automatisch die komplett bereinigte Note-1-Version Ihres gesamten Zeugnisses.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                <button onclick="openCheckoutModal()" class="flex-1 bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl shadow-lg shadow-amber-500/20 transition flex items-center justify-center gap-2 text-sm">
+                  <span>💳 Jetzt via PayPal freischalten (<span class="price-label-inline">4,90 € / CHF</span>)</span>
+                  <span>→</span>
+                </button>
+                <button onclick="instantUnlockAfterPayment('direct-button')" class="px-4 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold transition whitespace-nowrap">
+                  ✓ Bereits bezahlt? Sofort freischalten
+                </button>
+              </div>
+              <div class="text-[11px] text-slate-400 mt-2.5 flex flex-wrap items-center justify-between gap-2">
+                <span>🔒 100% Selbstbedienung im Browser – sofortige Freischaltung nach Klick ohne E-Mail-Wartezeit.</span>
+                <span>Beliebig viele Zeugnisse prüfbar.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. PRO FEATURE: 1-KLICK OPTIMIERTES NOTE-1-WUNSCHZEUGNIS & KORREKTURSCHREIBEN-GENERATOR -->
+        <div id="pro-letter-section" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 sm:p-5 border-b border-slate-200 bg-gradient-to-r from-slate-900 to-indigo-950 text-white flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-400/30" id="letter-lock-badge">PRO-GENERATOR</span>
+                <h2 class="text-base sm:text-lg font-extrabold">📄 Korrekturschreiben- & Gegenvorschlags-Generator (DIN A4)</h2>
+              </div>
+              <p class="text-xs text-slate-300 mt-0.5">
+                Erstellt Ihr rechtssicheres Anschreiben an den Arbeitgeber inkl. tabellarischer Satz-Korrektur & fertigem Note-1-Zeugnisentwurf.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+              <button onclick="handleProAction('print')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow transition flex items-center gap-1.5">
+                <span>🖨️ DIN-A4 PDF drucken / speichern</span>
+              </button>
+              <button onclick="handleProAction('download')" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+                <span>⬇ Als .TXT / Word laden</span>
+              </button>
+              <button onclick="handleProAction('copy')" id="btn-copy-letter" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center gap-1.5">
+                <span>📋 Brief kopieren</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PERSONALIZATION INPUTS FOR THE CORRECTION LETTER -->
+          <div class="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Ihr Vor- und Nachname (Absender)</label>
+                <input type="text" id="let-sender-name" oninput="renderCorrectionLetter()" value="Max Mustermann" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Ihre Anschrift & Ort</label>
+                <input type="text" id="let-sender-addr" oninput="renderCorrectionLetter()" value="Musterstraße 12, 80331 München" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Arbeitgeber / Personalabteilung</label>
+                <input type="text" id="let-emp-name" oninput="renderCorrectionLetter()" value="MusterTech GmbH – Personalabteilung" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Datum des erhaltenen Zeugnisses</label>
+                <input type="text" id="let-cert-date" oninput="renderCorrectionLetter()" value="30.09.2026" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Frist für korrigiertes Zeugnis</label>
+                <input type="text" id="let-deadline" oninput="renderCorrectionLetter()" value="14 Tagen" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold text-slate-700 mb-1">Tonfall des Schreibens</label>
+                <select id="let-tone" onchange="renderCorrectionLetter()" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white focus:outline-none focus:border-indigo-600 font-semibold">
+                  <option value="polite">🤝 Kooperativ & verbindlich (Empfohlen)</option>
+                  <option value="legal">⚖️ Bestimmt & juristisch (Wohlwollensgebot)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- LETTER PREVIEW (BLURRED UNTIL PRO UNLOCKED) -->
+          <div class="relative p-4 sm:p-6 bg-slate-100">
+            <!-- Blur Overlay when locked -->
+            <div id="letter-locked-overlay" class="absolute inset-0 z-20 backdrop-blur-md bg-slate-900/55 flex flex-col items-center justify-center p-6 text-center">
+              <div class="max-w-md bg-white text-slate-900 p-6 rounded-3xl shadow-2xl border border-slate-200 space-y-4">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-2xl mx-auto font-bold">📄</div>
+                <h3 class="text-lg font-extrabold text-slate-900">
+                  Ihr maßgeschneidertes DIN-A4 Korrekturschreiben ist bereit!
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Wir haben aus Ihrer Analyse bereits alle kritischen Formulierungen, die passenden <strong>Note-1-Gegenvorschläge</strong> sowie die fehlende Schlussformel in ein druckfertiges Anschreiben an Ihren Arbeitgeber eingesetzt.
+                </p>
+                <button onclick="openCheckoutModal()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-3 px-5 rounded-xl shadow-lg shadow-indigo-600/25 transition text-xs sm:text-sm">
+                  🔓 Jetzt für <span class="price-label-inline">4,90 € / CHF</span> sofort freischalten & drucken
+                </button>
+                <button onclick="instantUnlockAfterPayment('overlay')" class="text-[11px] text-slate-500 hover:text-indigo-600 underline font-semibold block mx-auto">
+                  Bereits via PayPal bezahlt? Hier klicken zum direkten Öffnen
+                </button>
+              </div>
+            </div>
+
+            <!-- Live A4 Sheet Container -->
+            <div class="a4-letter-wrapper">
+              <div id="screen-letter-sheet" class="a4-letter-sheet">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- PRINT-ONLY CONTAINER (FOR CLEAN DIN A4 PDF EXPORT) -->
+  <div id="print-letter-container" class="print-only-container hidden"></div>
+
+  <!-- SELF-SERVE PAYPAL CHECKOUT & INSTANT UNLOCK MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300">⚡ 100% Self-Serve • Sofort-Zugang</span>
+          <h3 class="text-lg font-extrabold mt-0.5">Pro-Vollversion & DIN-A4 Korrekturbrief</h3>
+        </div>
+        <button onclick="closeCheckoutModal()" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800">✕</button>
+      </div>
+
+      <div class="p-5 sm:p-6 space-y-5 text-sm">
+        <div class="flex items-center justify-between bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <div>
+            <div class="font-bold text-slate-900">DACH Arbeitszeugnis-Decoder Pro-Pass</div>
+            <div class="text-xs text-slate-500">Alle Geheimcodes + Note-1-Gegenvorschläge + DIN-A4 Korrekturbrief</div>
+          </div>
+          <div class="text-right">
+            <div class="text-xl font-extrabold text-indigo-600 price-label-inline">4,90 €</div>
+            <div class="text-[10px] text-slate-400">Einmalzahlung (kein Abo)</div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="text-xs font-bold text-slate-700 uppercase tracking-wider">In 2 Sekunden freischalten (ohne Account):</div>
+
+          <!-- Step 1: Open PayPal -->
+          <a
+            id="modal-paypal-link"
+            href="https://www.paypal.com/paypalme/dachdigitalwerk/4.90EUR"
+            target="_blank"
+            rel="noopener"
+            onclick="markPaypalClicked()"
+            class="w-full bg-[#0070ba] hover:bg-[#005ea6] text-white font-extrabold py-3.5 px-5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm"
+          >
+            <span>💳 Schritt 1: Jetzt 4,90 € / CHF per PayPal senden</span>
+            <span>↗</span>
+          </a>
+
+          <!-- Step 2: Instant Self-Serve Unlock Button -->
+          <div id="modal-step2-box" class="p-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 space-y-2.5">
+            <div class="text-xs text-emerald-900 font-semibold flex items-center gap-1.5">
+              <span>🔓</span>
+              <span>Schritt 2: Sofort-Freischaltung im Browser aktivieren</span>
+            </div>
+            <p class="text-[11px] text-emerald-800 leading-relaxed">
+              Da unser Tool zu 100% anonym und ohne Server-Datenbank in Ihrem Browser läuft, klicken Sie direkt nach dem PayPal-Checkout hier, um alle Ergebnisse und Ihren DIN-A4 Korrekturbrief sofort freizuschalten:
+            </p>
+            <button
+              onclick="instantUnlockAfterPayment('modal')"
+              class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3 px-4 rounded-xl shadow transition text-xs sm:text-sm flex items-center justify-center gap-2"
+            >
+              <span>✓ Zahlung durchgeführt – Pro-Vollversion jetzt sofort öffnen</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="text-[11px] text-slate-400 text-center pt-1 border-t border-slate-100">
+          100% DSGVO-konform • Ihre Freischaltung bleibt in diesem Browser gespeichert.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs no-print mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">DACH Digitalwerk</span> • Arbeitszeugnis-Radar & Geheimcode-Decoder (DE / AT / CH)
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="../" class="hover:text-white transition">Alle Self-Serve Tools</a>
+        <a href="../qr-suite/" class="hover:text-white transition">E-Rechnung & Swiss QR</a>
+        <a href="../rechner/" class="hover:text-white transition">Solar- & Handwerker-Rechner</a>
+        <button onclick="resetProStatus()" class="text-slate-600 hover:text-slate-400 transition" title="Setzt den Pro-Status zu Testzwecken zurück">Demo-Status zurücksetzen</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================== -->
+  <!-- CLIENT-SIDE ANALYSE-ENGINE (88+ ECHTE DE/CH/AT HR-GEHEIMCODES)        -->
+  <!-- ===================================================================== -->
+  <script>
+    let currentJurisdiction = 'DE'; // 'DE' | 'CH' | 'AT'
+    let isProUnlocked = false;
+    let currentFilter = 'all'; // 'all' | 'critical'
+    let lastAnalysisResult = null;
+
+    // Normalisiert Text für zuverlässiges Matching in DE, AT und CH (ß -> ss, Kleinschreibung, Mehrfach-Leerzeichen)
+    function normalizeText(str) {
+      return String(str || '')
+        .toLowerCase()
+        .replace(/ß/g, 'ss')
+        .replace(/[„“”"»«]/g, '"')
+        .replace(/\s+/g, ' ');
+    }
+
+    // =========================================================================
+    // UMFANGREICHES HR-GEHEIMCODE & FORMULIERUNGS-WÖRTERBUCH (88 ECHTE CODES)
+    // Sortiert nach Spezifität, damit präzisere Phrasen ("stets zu unserer
+    // vollsten Zufriedenheit") vor kürzeren Teilphrasen ("zu unserer vollen
+    // Zufriedenheit") erkannt werden.
+    // =========================================================================
+    const HR_DICTIONARY = [
+      // --- 1. GESAMTURTEIL & ZUFRIEDENHEITSSKALA (NOTE 1 BIS 5) ---
+      {
+        id: 'zuf-1a',
+        category: 'Gesamturteil',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['stets zu unserer vollsten zufriedenheit', 'jederzeit zu unserer vollsten zufriedenheit', 'immer zu unserer vollsten zufriedenheit'],
+        meaning: 'Note 1 (Sehr gut): Klassische Höchstnote bei der Leistungsbeurteilung (Kombination aus Zeit-Superlativ „stets/jederzeit“ und Qualitäts-Superlativ „vollsten“).',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'zuf-1b',
+        category: 'Gesamturteil',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['in jeder hinsicht und in allerbester weise', 'stets zu unserer grossten zufriedenheit', 'ausserordentlich zufrieden', 'in jeder beziehung vorbildlich'],
+        meaning: 'Note 1 (Sehr gut): Eindeutige Spitzenbewertung für herausragende Gesamtleistungen.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'zuf-2a',
+        category: 'Gesamturteil',
+        grade: 2.0,
+        isRedFlag: false,
+        patterns: ['stets zu unserer vollen zufriedenheit', 'jederzeit zu unserer vollen zufriedenheit', 'zu unserer vollsten zufriedenheit'],
+        meaning: 'Note 2 (Gut): Solide überdurchschnittliche Bewertung. Achtung: Fehlt entweder das Wort „stets“ oder die Steigerung „vollsten“, ist es keine Note 1, sondern eine Note 2.',
+        counterProposal: '„Er/Sie erledigte alle ihm/ihr übertragenen Aufgaben stets zu unserer vollsten Zufriedenheit.“'
+      },
+      {
+        id: 'zuf-3a',
+        category: 'Gesamturteil',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['zu unserer vollen zufriedenheit', 'stets zu unserer zufriedenheit', 'jederzeit zu unserer zufriedenheit'],
+        meaning: 'Note 3 (Befriedigend): Klingt für Laien wie ein Lob („volle Zufriedenheit“), ist im HR-Code ohne das Wort „stets“ aber nur Durchschnitt (Note 3)!',
+        counterProposal: '„Er/Sie hat die ihm/ihr übertragenen Aufgaben stets zu unserer vollsten Zufriedenheit erledigt.“'
+      },
+      {
+        id: 'zuf-4a',
+        category: 'Gesamturteil',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['zu unserer zufriedenheit', 'im grossen und ganzen zu unserer zufriedenheit', 'zufriedenstellend', 'im wesentlichen zu unserer zufriedenheit'],
+        meaning: 'Note 4 (Ausreichend / Warnsignal!): Ohne Verstärker („stets“ und „vollsten/vollen“) bedeutet „zu unserer Zufriedenheit“ im Zeugniscode: Gerade noch ausreichend, erhebliche Mängel!',
+        counterProposal: '„Er/Sie führte alle Aufgaben jederzeit zu unserer vollsten Zufriedenheit aus.“'
+      },
+      {
+        id: 'zuf-5a',
+        category: 'Gesamturteil (Geheimcode)',
+        grade: 5.0,
+        isRedFlag: true,
+        patterns: ['war bemuht', 'hat sich bemuht', 'bemuhte sich', 'war stets bemuht', 'zeigte das bemuhen'],
+        meaning: 'Note 5 (Mangelhaft / K.O.-Code!): Der bekannteste Negativ-Code im Arbeitsrecht: Wer „bemüht war“, hat trotz gutem Willen keinerlei brauchbare Ergebnisse geliefert.',
+        counterProposal: '„Er/Sie bewältigte alle Aufgaben stets mit höchster Effizienz, exzellenter Qualität und zu unserer vollsten Zufriedenheit.“'
+      },
+
+      // --- 2. VERSTECKTE WARNSIGNALE / RED FLAGS (DIE GEFÄHRLICHSTEN GEHEIMCODES) ---
+      {
+        id: 'rf-gesellig',
+        category: '🚨 HR-Geheimcode (Verbotenes Signal)',
+        grade: 5.0,
+        isRedFlag: true,
+        patterns: ['gesellig', 'geselligkeit', 'trug zur verbesserung des betriebsklimas bei', 'erheiterte das betriebsklima', 'beliebter partyloewe'],
+        meaning: 'MASSIVE RED FLAG (Note 5): „Geselligkeit“ oder „trug zur Verbesserung des Betriebsklimas bei“ ist der klassische HR-Geheimcode für Alkoholprobleme am Arbeitsplatz oder exzessives Plaudern statt Arbeiten!',
+        counterProposal: '„Durch seine/ihre kooperative, verlässliche und teamorientierte Art war er/sie bei Vorgesetzten, Kolleginnen und Kollegen sowie Kunden gleichermaßen äußerst geschätzt.“'
+      },
+      {
+        id: 'rf-einfuehlung',
+        category: '🚨 HR-Geheimcode (Verbotenes Signal)',
+        grade: 5.0,
+        isRedFlag: true,
+        patterns: ['einfuehlungsvermoegen', 'einfuhlungsvermogen', 'einfuhlsam gegenuber mitarbeitern', 'grosses einfuhlungsvermogen', 'suchte den engen kontakt'],
+        meaning: 'MASSIVE RED FLAG (Note 5): „Einfühlungsvermögen“ (insbesondere außerhalb von Pflegeberufen) ist der bekannte Geheimcode für distanzloses Verhalten oder sexuelle Belästigung am Arbeitsplatz!',
+        counterProposal: '„Sein/Ihr Verhalten gegenüber Vorgesetzten, Mitarbeitenden und Geschäftspartnern war jederzeit vorbildlich, professionell und von hoher Wertschätzung geprägt.“'
+      },
+      {
+        id: 'rf-puenktlich',
+        category: '🚨 Leerstellen-Code (Selbstverständlichkeit)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['war stets punktlich', 'kam stets punktlich', 'durch seine punktlichkeit', 'durch ihre punktlichkeit', 'stets ehrlich und punktlich', 'immer punktlich'],
+        meaning: 'WARNUNG (Note 4–5): „Betonung von Selbstverständlichkeiten“! Pünktlichkeit und Ehrlichkeit werden nur dann erwähnt, wenn es über die fachliche Arbeitsleistung absolut nichts Positives zu berichten gibt.',
+        counterProposal: 'Ersatzlos streichen und ersetzen durch: „Er/Sie zeichnete sich durch außerordentliche Zuverlässigkeit, hohes Verantwortungsbewusstsein und exzellente Arbeitsergebnisse aus.“'
+      },
+      {
+        id: 'rf-belange',
+        category: '🚨 HR-Geheimcode (Konflikt-Signal)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['belange der belegschaft', 'interessen der kollegen', 'engagierte sich fur die arbeitnehmerinteressen', 'setzte sich fur die belange der mitarbeiter'],
+        meaning: 'WARNUNG (Note 4–5): Signalisiert künftigen Arbeitgebern einen „Querulanten“ oder Rädelsführer, der gegen die Geschäftsleitung opponiert hat.',
+        counterProposal: '„Er/Sie brachte sich stets konstruktiv, lösungsorientiert und gewinnbringend in die Weiterentwicklung der Unternehmensprozesse ein.“'
+      },
+      {
+        id: 'rf-diskussion',
+        category: '🚨 HR-Geheimcode (Kritikunfähigkeit)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['diskussionsfreudig', 'vertrat seine meinung', 'vertrat ihre meinung', 'wusste sich durchzusetzen', 'eigenwillige ideen', 'kritisch und hinterfragend'],
+        meaning: 'WARNUNG (Note 4–5): Bedeutet im Personaler-Code: Rechthaberisch, streitsüchtig, beratungsresistent und unfähig, Anweisungen von Vorgesetzten zu akzeptieren.',
+        counterProposal: '„Er/Sie überzeugte durch fundierte Fachargumente, hohe Lösungskompetenz und eine jederzeit konstruktive Abstimmung im Team.“'
+      },
+      {
+        id: 'rf-moeglichkeiten',
+        category: '🚨 HR-Geheimcode (Unfähigkeit)',
+        grade: 5.0,
+        isRedFlag: true,
+        patterns: ['im rahmen seiner moglichkeiten', 'im rahmen ihrer moglichkeiten', 'nach besten kraften', 'seinen fahigkeiten entsprechend', 'ihren fahigkeiten entsprechend'],
+        meaning: 'NOTE 5 (Mangelhaft): „Im Rahmen seiner/ihrer Möglichkeiten“ oder „nach besten Kräften“ heißt im Klartext: Die Person war fachlich völlig überfordert und leistete Ungenügendes.',
+        counterProposal: '„Er/Sie setzte sein/ihr umfassendes Fachwissen jederzeit äußerst erfolgreich und gewinnbringend in der Praxis ein.“'
+      },
+      {
+        id: 'rf-gelegenheit',
+        category: '🚨 HR-Geheimcode (Arbeitsverweigerung)',
+        grade: 5.0,
+        isRedFlag: true,
+        patterns: ['hatte gelegenheit', 'wurde beauftragt', 'ihm wurden die aufgaben ubertragen', 'zeigte verstandnis fur seine arbeit', 'zeigte verstandnis fur ihre arbeit'],
+        meaning: 'NOTE 5 (Ungenügend): „Hatte Gelegenheit...“ oder „zeigte Verständnis für seine Arbeit“ bedeutet: Die Aufgaben wurden zwar zugewiesen, aber nicht oder völlig unbrauchbar erledigt!',
+        counterProposal: '„Er/Sie verantwortete sämtliche Projekte eigenständig und führte diese stets mit herausragendem Erfolg zum Abschluss.“'
+      },
+      {
+        id: 'rf-kennenlernen',
+        category: '🚨 HR-Geheimcode (Enttäuschung)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['lernten ihn als', 'lernten sie als', 'wir lernten ihn kennen', 'wir lernten sie kennen'],
+        meaning: 'WARNUNG (Note 4–5): „Wir lernten ihn/sie als ... kennen“ ist ein bekannter Code für: Anfangs dachten wir das, aber später stellte sich genau das Gegenteil heraus!',
+        counterProposal: '„Er/Sie war jederzeit ein äußerst geschätzter, zuverlässiger und integrer Leistungsträger unseres Unternehmens.“'
+      },
+      {
+        id: 'rf-vorschriften',
+        category: '🚨 HR-Geheimcode (Regelverstoß)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['kannte die vorschriften', 'war mit den richtlinien vertraut', 'wurde in die vorschriften eingewiesen'],
+        meaning: 'WARNUNG (Note 4–5): Wer die Vorschriften nur „kannte“, hat sie in der Praxis missachtet oder dagegen verstoßen.',
+        counterProposal: '„Er/Sie handelte stets im höchsten Maße verantwortungsbewusst, qualitätsorientiert und absolut zuverlässig.“'
+      },
+      {
+        id: 'rf-fleiss-ohne-erfolg',
+        category: '🚨 HR-Geheimcode (Ineffizienz)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['mit grossem fleiss', 'mit ausserster genauigkeit', 'arbeitete sehr grundlich', 'erledigte aufgaben mit grossem eifer'],
+        meaning: 'WARNUNG (Note 4): Wird großer Fleiß oder äußerste Genauigkeit ohne gleichzeitig gelobtes Arbeitsergebnis betont, heißt das: Extrem langsam, pedantisch oder trotz Fleiß erfolglos.',
+        counterProposal: '„Er/Sie arbeitete stets äußerst präzise, effizient und zielstrebig und erzielte dabei durchweg exzellente Arbeitsergebnisse.“'
+      },
+      {
+        id: 'rf-delegieren',
+        category: '🚨 HR-Geheimcode (Faulheit)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['wusste geschickt zu delegieren', 'verstand es aufgaben zu delegieren', 'delegierte gerne'],
+        meaning: 'WARNUNG (Note 4–5): „Wusste geschickt zu delegieren“ bedeutet: Wälzte die eigene Arbeit systematisch auf Kolleginnen und Kollegen ab.',
+        counterProposal: '„Er/Sie koordinierte Projekte äußerst umsichtig und ging seinem/ihrem Team jederzeit mit höchstem persönlichen Einsatz voran.“'
+      },
+      {
+        id: 'rf-theorie',
+        category: '🚨 HR-Geheimcode (Praxisferne)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['verfugte uber theoretisches fachwissen', 'setzte theoretische kenntnisse', 'gutes theoretisches wissen'],
+        meaning: 'WARNUNG (Note 4): Die Einschränkung auf „theoretisches“ Wissen signalisiert, dass die praktische Umsetzung im Arbeitsalltag mangelhaft war.',
+        counterProposal: '„Er/Sie verfügt über ein hervorragendes, jederzeit abrufbares Fachwissen, das er/sie stets äußerst erfolgreich in der Praxis anwandte.“'
+      },
+
+      // --- 3. SOZIALVERHALTEN & HIERARCHIE-REIHENFOLGE (SEHR WICHTIG!) ---
+      {
+        id: 'soz-reihenfolge-fehler',
+        category: '🚨 Hierarchie-Fehler (Sozialverhalten)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: [
+          'gegenuber kollegen und vorgesetzten',
+          'gegenuber mitarbeitern und vorgesetzten',
+          'bei kollegen und vorgesetzten',
+          'bei kunden, kollegen und vorgesetzten',
+          'gegenuber kollegen, kunden und vorgesetzten',
+          'im umgang mit kollegen und vorgesetzten'
+        ],
+        meaning: 'REIHENFOLGE-FALLE (Note 3,5–4,5): Im Arbeitszeugnis MÜSSEN „Vorgesetzte“ zwingend an erster Stelle vor Kollegen und Kunden genannt werden! Stehen Kollegen vor den Vorgesetzten, ist das der Code für Autoritätsprobleme und Konflikte mit dem Chef.',
+        counterProposal: '„Sein/Ihr Verhalten gegenüber Vorgesetzten, Kolleginnen und Kollegen sowie Kundinnen und Kunden war stets einwandfrei und vorbildlich.“'
+      },
+      {
+        id: 'soz-1a',
+        category: 'Sozialverhalten',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: [
+          'gegenuber vorgesetzten, mitarbeitern und kunden stets vorbildlich',
+          'gegenuber vorgesetzten, kollegen und kunden stets einwandfrei',
+          'gegenuber vorgesetzten, kolleginnen und kollegen sowie kunden stets vorbildlich',
+          'verhalten gegenuber vorgesetzten, kollegen und geschaftspartnern war jederzeit vorbildlich'
+        ],
+        meaning: 'Note 1 (Sehr gut): Korrekte Hierarchie-Reihenfolge (Vorgesetzte -> Kollegen -> Kunden) kombiniert mit „stets/jederzeit vorbildlich/einwandfrei“.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'soz-2a',
+        category: 'Sozialverhalten',
+        grade: 2.0,
+        isRedFlag: false,
+        patterns: ['verhalten gegenuber vorgesetzten und kollegen war stets einwandfrei', 'stets einwandfrei', 'jederzeit einwandfrei'],
+        meaning: 'Note 1–2 (Sehr gut bis Gut): „Stets einwandfrei“ ist eine sehr gute Bewertung des Sozialverhaltens (sofern Vorgesetzte zuerst genannt werden).',
+        counterProposal: '„Sein/Ihr Verhalten gegenüber Vorgesetzten, Mitarbeitenden und Kunden war jederzeit vorbildlich.“'
+      },
+      {
+        id: 'soz-3a',
+        category: 'Sozialverhalten',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['war einwandfrei', 'war tadellos', 'gab keinen anlass zu beanstandungen', 'ohne jeden tadel'],
+        meaning: 'Note 3–4 (Abwertung!): Fehlt das Wort „stets“ vor „einwandfrei/tadellos“ oder heißt es „gab keinen Anlass zu Beanstandungen“, bedeutet das: Es gab durchaus Reibereien oder man ging sich aus dem Weg.',
+        counterProposal: '„Sein/Ihr Verhalten gegenüber Vorgesetzten, Kolleginnen und Kollegen sowie Kunden war stets vorbildlich.“'
+      },
+
+      // --- 4. ARBEITSBEFÄHIGUNG, FACHWISSEN & WEITERBILDUNG ---
+      {
+        id: 'fach-1a',
+        category: 'Fachwissen & Befähigung',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['umfassendes und hervorragendes fachwissen', 'ausserordentlich fundiertes fachwissen', 'stets auf dem neuesten stand', 'exzellentes fachwissen'],
+        meaning: 'Note 1 (Sehr gut): Höchstes Lob für fachliche Qualifikation und Expertise.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'fach-2a',
+        category: 'Fachwissen & Befähigung',
+        grade: 2.0,
+        isRedFlag: false,
+        patterns: ['fundiertes fachwissen', 'umfassendes fachwissen', 'gute fachkenntnisse', 'solides und aktuelles fachwissen'],
+        meaning: 'Note 2 (Gut): Gute, überdurchschnittliche Fachkompetenz.',
+        counterProposal: '„Er/Sie verfügt über ein äußerst umfassendes, hervorragendes und jederzeit aktuelles Fachwissen.“'
+      },
+      {
+        id: 'fach-3a',
+        category: 'Fachwissen & Befähigung',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['solides fachwissen', 'erforderliche fachkenntnisse', 'berufserfahrung ermoglichte', 'den anforderungen entsprechendes fachwissen'],
+        meaning: 'Note 3 (Befriedigend): „Solides“ oder „den Anforderungen entsprechendes“ Fachwissen bedeutet lediglich Standard-Grundwissen ohne besondere Tiefe.',
+        counterProposal: '„Er/Sie verfügt über ein umfassendes, hervorragend fundiertes Fachwissen, das er/sie stets sicher und erfolgreich in die Praxis umsetzte.“'
+      },
+      {
+        id: 'fach-4a',
+        category: 'Fachwissen & Befähigung',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['nahm an weiterbildungen teil', 'besuchte mehrere schulungen', 'gelegenheit zur weiterbildung'],
+        meaning: 'Note 4 (Warnung): Wenn nur erwähnt wird, dass jemand an Schulungen „teilnahm“ (ohne Erwähnung des Erfolgs und der praktischen Umsetzung), heißt das: Hat teilgenommen, aber nichts gelernt!',
+        counterProposal: '„Er/Sie erweiterte sein/ihr Fachwissen jederzeit mit großem Erfolg in Weiterbildungen und setzte die neuen Erkenntnisse sofort gewinnbringend im Unternehmen ein.“'
+      },
+
+      // --- 5. ARBEITSWEISE, ENGAGEMENT & BELASTBARKEIT ---
+      {
+        id: 'arb-1a',
+        category: 'Arbeitsweise & Initiative',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['hochstem masse eigenverantwortlich', 'ausserordentlicher einsatzbereitschaft', 'stets hochmotiviert', 'ausgesprochen zielstrebig', 'stets ausserordentlich zuverlassig'],
+        meaning: 'Note 1 (Sehr gut): Dokumentiert exzellente Eigeninitiative, Motivation und Zuverlässigkeit.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'arb-2a',
+        category: 'Arbeitsweise & Initiative',
+        grade: 2.0,
+        isRedFlag: false,
+        patterns: ['stets selbststandig', 'mit grossem engagement', 'hoher einsatzbereitschaft', 'stets zuverlassig und gewissenhaft'],
+        meaning: 'Note 2 (Gut): Gute, engagierte und verlässliche Arbeitsweise.',
+        counterProposal: '„Er/Sie arbeitete stets in höchstem Maße eigenverantwortlich, äußerst zielstrebig und mit herausragender Einsatzbereitschaft.“'
+      },
+      {
+        id: 'arb-3a',
+        category: 'Arbeitsweise & Initiative',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['arbeitete gewissenhaft', 'arbeitete sorgfaltig', 'zeigte einsatzbereitschaft', 'erledigte seine aufgaben zuverlassig', 'erledigte ihre aufgaben zuverlassig'],
+        meaning: 'Note 3 (Befriedigend): Ohne Verstärker wie „stets“, „jederzeit“ oder „außerordentlich“ ist „arbeitete gewissenhaft/zuverlässig“ nur eine mittelmäßige Note 3.',
+        counterProposal: '„Er/Sie erledigte sämtliche Aufgaben jederzeit äußerst gewissenhaft, systematisch und mit höchster Zuverlässigkeit.“'
+      },
+      {
+        id: 'arb-4a',
+        category: 'Arbeitsweise & Initiative',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['ihm ubertragenen arbeiten', 'ihr ubertragenen arbeiten', 'nach anweisung', 'erwartungen entsprochen', 'anforderungen entsprochen'],
+        meaning: 'Note 4 (Ausreichend): Betont das Zeugnis, dass nur „die übertragenen Arbeiten“ oder „nach Anweisung“ erledigt wurden, fehlt jegliche Eigeninitiative (Dienst nach Vorschrift).',
+        counterProposal: '„Er/Sie übernahm stets aus eigener Initiative zusätzliche Verantwortung und führte alle Projekte selbstständig zum Erfolg.“'
+      },
+
+      // --- 6. ARBEITSQUALITÄT & ERGEBNISSE ---
+      {
+        id: 'qual-1a',
+        category: 'Arbeitsqualität & Erfolg',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['herausragende arbeitsergebnisse', 'weit uber unseren erwartungen', 'stets von hochster qualitat', 'aussergewohnliche erfolge', 'stets optimale losungen'],
+        meaning: 'Note 1 (Sehr gut): Bestätigt erstklassige Arbeitsqualität und messbare Erfolge.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'qual-2a',
+        category: 'Arbeitsqualität & Erfolg',
+        grade: 2.0,
+        isRedFlag: false,
+        patterns: ['stets gute arbeitsergebnisse', 'ubertraf unsere erwartungen', 'stets uberdurchschnittliche qualitat', 'gute und brauchbare losungen'],
+        meaning: 'Note 2 (Gut): Überdurchschnittliche Ergebnisqualität.',
+        counterProposal: '„Seine/Ihre Arbeitsergebnisse waren, auch bei wechselnden Anforderungen und unter höchstem Zeitdruck, stets von exzellenter Qualität.“'
+      },
+      {
+        id: 'qual-3a',
+        category: 'Arbeitsqualität & Erfolg',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['erfullte unsere erwartungen', 'entsprach unseren erwartungen', 'solide arbeitsergebnisse', 'gute arbeitsergebnisse', 'erfullte das pflichtenheft'],
+        meaning: 'Note 3 (Befriedigend): „Erfüllte unsere Erwartungen“ oder „gute Arbeitsergebnisse“ (ohne „stets“) steht im Zeugniscode für reinen Durchschnitt (Note 3).',
+        counterProposal: '„Seine/Ihre Arbeitsergebnisse übertrafen unsere hohen Erwartungen jederzeit deutlich und waren stets von herausragender Qualität.“'
+      },
+      {
+        id: 'qual-4a',
+        category: 'Arbeitsqualität & Erfolg',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['im wesentlichen erfullt', 'gab keinen anlass zur klage', 'entsprach den Mindestanforderungen', 'ausreichende qualitat'],
+        meaning: 'Note 4 (Ausreichend): Klare Abwertung der Arbeitsqualität auf das absolute Minimum.',
+        counterProposal: '„Er/Sie lieferte jederzeit qualitativ wie quantitativ herausragende Ergebnisse.“'
+      },
+
+      // --- 7. FÜHRUNGSLEISTUNG (FÜR TEAMLEITER / MANAGER) ---
+      {
+        id: 'lead-1a',
+        category: 'Führungskompetenz',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['ausserordentliche fuhrungskompetenz', 'motivierte sein team stets zu hochstleistungen', 'motivierte ihr team stets zu hochstleistungen', 'vorbildliche fuhrungskraft'],
+        meaning: 'Note 1 (Sehr gut): Exzellente Beurteilung als Führungskraft.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'lead-4a',
+        category: 'Führungskompetenz (Warnung)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['zeitgemasser fuhrungsstil', 'pflegte einen kollegialen fuhrungsstil', 'stand seinen mitarbeitern jederzeit nahe', 'ohne strenge hand'],
+        meaning: 'Note 4 (Führungsschwäche!): „Kollegialer Führungsstil“ oder „ohne strenge Hand“ ohne Nennung von Team-Erfolgen bedeutet: Konnte sich als Vorgesetzter nicht durchsetzen, antiautoritär und führungsschwach.',
+        counterProposal: '„Er/Sie überzeugte als hochkompetente Führungskraft, die ihr Team stets zielgerichtet motivierte, förderte und zu herausragenden Leistungen führte.“'
+      },
+
+      // --- 8. TRENNUNGSGRUND & SCHLUSSFORMEL-CODES ---
+      {
+        id: 'end-1a',
+        category: 'Trennungsgrund & Schlussformel',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['auf eigenen wunsch', 'aus eigenem antrieb', 'bedauern sein ausscheiden ausserordentlich', 'bedauern ihr ausscheiden ausserordentlich', 'bedauern sein ausscheiden sehr', 'bedauern ihr ausscheiden sehr'],
+        meaning: 'Note 1 (Sehr gut): Kündigung auf eigenen Wunsch des Arbeitnehmers + ausdrückliches Bedauern des Arbeitgebers ist das stärkste Qualitätssignal im gesamten Zeugnis.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'end-weiterhin-1',
+        category: 'Zukunftswünsche',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['weiterhin viel erfolg', 'weiterhin alles gute und viel erfolg'],
+        meaning: 'Note 1 (Sehr gut): Das Schlüsselwort „weiterhin“ vor „viel Erfolg“ bestätigt unmissverständlich, dass Sie auch bisher im Unternehmen großen Erfolg hatten!',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'end-einvernehmen',
+        category: 'Trennungsgrund (Warnsignal)',
+        grade: 3.5,
+        isRedFlag: true,
+        patterns: ['im gegenseitigen einvernehmen', 'im beiderseitigen einvernehmen', 'einvernehmlich getrennt'],
+        meaning: 'WARNUNG (Note 3–4): „Im gegenseitigen/beiderseitigen Einvernehmen“ signalisiert Personalern sofort einen Aufhebungsvertrag – meist auf Initiative des Arbeitgebers zur Vermeidung einer Kündigung.',
+        counterProposal: '„Herr/Frau [Name] verlässt unser Unternehmen auf eigenen Wunsch, um sich einer neuen beruflichen Herausforderung zu stellen.“'
+      },
+      {
+        id: 'end-stichtag-kalt',
+        category: 'Trennungsgrund (Kündigungs-Signal)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['das arbeitsverhaltnis endet am', 'schied am', 'verlasst unser unternehmen zum'],
+        meaning: 'WARNUNG (Note 4–5): Wird das Austrittsdatum kalt und ohne „auf eigenen Wunsch“ genannt (oder mitten im Monat!), erkennt jeder Personaler eine arbeitgeberseitige Kündigung.',
+        counterProposal: '„Herr/Frau [Name] verlässt unser Unternehmen zum [Datum] auf eigenen Wunsch.“'
+      },
+      {
+        id: 'end-gesundheit',
+        category: '🚨 Schlussformel-Falle (Krankheit)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['insbesondere gesundheit', 'vor allem gesundheit', 'beste gesundheit'],
+        meaning: 'WARNUNG (Note 4–5): Wird in der Schlussformel ausdrücklich „Gesundheit“ gewünscht („wünschen alles Gute, insbesondere Gesundheit“), ist das ein versteckter Hinweis auf hohe Fehlzeiten oder chronische Krankheit!',
+        counterProposal: '„Für seinen/ihren weiteren Berufs- und Lebensweg wünschen wir ihm/ihr alles Gute und weiterhin viel Erfolg.“'
+      },
+      {
+        id: 'end-zukunft-viel-erfolg-ohne-weiterhin',
+        category: '🚨 Schlussformel-Falle („weiterhin“ fehlt!)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['wunschen ihm fur die zukunft viel erfolg', 'wunschen ihr fur die zukunft viel erfolg', 'wunschen fur die zukunft alles gute und viel erfolg', 'alles gute und viel erfolg'],
+        excludeIfContains: ['weiterhin'],
+        meaning: 'KLASSISCHE HR-FALLE (Note 4): Wer Ihnen „für die Zukunft viel Erfolg“ OHNE das Wort „weiterhin“ wünscht, sagt im Geheimcode: „Bei uns hatte er/sie leider keinen Erfolg – vielleicht klappt es ja beim nächsten Arbeitgeber!“',
+        counterProposal: '„Für seinen/ihren weiteren Berufs- und Lebensweg wünschen wir ihm/ihr alles Gute und weiterhin viel Erfolg.“ (Wort „weiterhin“ zwingend ergänzen!)'
+      },
+
+      // --- 9. WEITERE KLASSISCHE DE/AT/CH GEHEIMCODES (BELASTBARKEIT, AUFFASSUNGSGABE, INTEGRITÄT) ---
+      {
+        id: 'bel-1a',
+        category: 'Belastbarkeit & Stresstoleranz',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['auch unter hochster belastung', 'auch bei extremem arbeitsanfall', 'in Situationen mit hochstem zeitdruck stets ruhig'],
+        meaning: 'Note 1 (Sehr gut): Bestätigt maximale Stressresistenz und Souveränität in Spitzenzeiten.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'bel-3a',
+        category: 'Belastbarkeit (Durchschnitt)',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['dem ublichen arbeitsanfall gewachsen', 'den normalen anforderungen gewachsen', 'behielt im allgemeinen die ubersicht'],
+        meaning: 'Note 3–4 (Abwertung!): Wer nur dem „üblichen Arbeitsanfall“ gewachsen war, bricht unter Zeitdruck oder in Stressphasen sofort ein.',
+        counterProposal: '„Auch bei höchstem Arbeitsanfall und unter engsten Terminvorgaben agierte er/sie jederzeit souverän, überlegt und äußerst zielorientiert.“'
+      },
+      {
+        id: 'auf-1a',
+        category: 'Auffassungsgabe & Denkvermögen',
+        grade: 1.0,
+        isRedFlag: false,
+        patterns: ['ausserordentlich schnelle auffassungsgabe', 'uberblickte komplexe zusammenhange sofort', 'exzellentes analytisches denkvermogen'],
+        meaning: 'Note 1 (Sehr gut): Höchstnote für schnelle Einarbeitung und analytische Schärfe.',
+        counterProposal: 'Bereits optimal formuliert (Note 1,0).'
+      },
+      {
+        id: 'auf-4a',
+        category: '🚨 HR-Geheimcode (Schwerfälligkeit)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['arbeitete sich schrittweise ein', 'stellte viele fragen', 'benotigte einarbeitungszeit', 'fand sich nach einiger zeit zurecht'],
+        meaning: 'WARNUNG (Note 4): Bedeutet im HR-Klartext: Langsame Auffassungsgabe, unselbstständig und schwer von Begriff.',
+        counterProposal: '„Dank seiner/ihrer außerordentlich schnellen Auffassungsgabe arbeitete er/sie sich in kürzester Zeit selbstständig in komplexe Themengebiete ein.“'
+      },
+      {
+        id: 'rf-tolerant',
+        category: '🚨 HR-Geheimcode (Vorgesetzten-Verachtung)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['galt als tolerant', 'zeigte sich gegenuber vorgesetzten tolerant', 'korrekter umgang mit vorgesetzten'],
+        meaning: 'WARNUNG (Note 4–5): „Tolerant gegenüber Vorgesetzten“ oder bloß „korrekt“ heißt: Hielt den Chef für inkompetent und ließ ihn das spüren!',
+        counterProposal: '„Sein/Ihr Verhalten gegenüber Vorgesetzten, Mitarbeitenden und Kunden war jederzeit vorbildlich und von hoher Wertschätzung geprägt.“'
+      },
+      {
+        id: 'rf-selbstbewusst',
+        category: '🚨 HR-Geheimcode (Arroganz)',
+        grade: 4.5,
+        isRedFlag: true,
+        patterns: ['trat sehr selbstbewusst auf', 'hatte ein gesundes selbstvertrauen', 'von seinen fahigkeiten uberzeugt', 'von ihren fahigkeiten uberzeugt'],
+        meaning: 'WARNUNG (Note 4–5): „Gesundes Selbstvertrauen“ oder „sehr selbstbewusstes Auftreten“ steht im Zeugniscode für Arroganz, Selbstüberschätzung und mangelnde Teamfähigkeit.',
+        counterProposal: '„Durch sein/ihr sicheres, verbindliches und jederzeit gewinnendes Auftreten repräsentierte er/sie unser Unternehmen stets hervorragend.“'
+      },
+      {
+        id: 'rf-umgaenglich',
+        category: '🚨 HR-Geheimcode (Unbeliebtheit)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['galt als umganglicher kollege', 'war ein umganglicher mitarbeiter', 'bemühte sich um ein gutes verhaltnis'],
+        meaning: 'WARNUNG (Note 4): „Galt als umgänglich“ ist ein bekannter Code für eine schwierige, streitlustige Person, der man im Team lieber aus dem Weg ging.',
+        counterProposal: '„Er/Sie war aufgrund seiner/ihrer hilfsbereiten, kooperativen und aufgeschlossenen Art ein jederzeit äußerst geschätztes Teammitglied.“'
+      },
+      {
+        id: 'ch-spez-1',
+        category: '🇨🇭 Schweizer Zeugnis-Standard (Note 1–2)',
+        grade: 1.5,
+        isRedFlag: false,
+        patterns: ['stets zu unserer besten zufriedenheit', 'erfullte unsere erwartungen in jeder hinsicht und beste weise', 'im besten einvernehmen'],
+        meaning: 'Schweizer HR-Code (Note 1–2): In der Schweiz (Art. 330a OR) ist „stets zu unserer besten/vollsten Zufriedenheit“ der Goldstandard für sehr gute Leistungen.',
+        counterProposal: 'Bereits sehr gut formuliert (für reine Note 1,0: „stets zu unserer vollsten Zufriedenheit“).'
+      },
+      {
+        id: 'ch-spez-3',
+        category: '🇨🇭 Schweizer Zeugnis-Code (Note 3)',
+        grade: 3.0,
+        isRedFlag: true,
+        patterns: ['zu unserer besten zufriedenheit', 'erfullte die anforderungen der stelle', 'verrichten seine arbeit ordentlich'],
+        meaning: 'Schweizer HR-Code (Note 3): Ohne das Zeitwort „stets“ oder „jederzeit“ entspricht „zu unserer besten Zufriedenheit“ oder „erfüllte die Anforderungen“ nur einer durchschnittlichen Note 3.',
+        counterProposal: '„Er/Sie erfüllte sämtliche Anforderungen jederzeit in allerbester Weise und stets zu unserer vollsten Zufriedenheit.“'
+      },
+      {
+        id: 'rf-kreativ',
+        category: '🚨 HR-Geheimcode (Chaos / Regelbruch)',
+        grade: 4.0,
+        isRedFlag: true,
+        patterns: ['suchte nach unkonventionellen losungen', 'entwickelte eigene vorstellungen', 'brachte kreative ansatze ein'],
+        meaning: 'WARNUNG (Note 4): Außerhalb von Design-/Kreativberufen bedeutet „unkonventionelle Lösungen“ oder „eigene Vorstellungen“: Hielt sich nicht an Prozesse und sorgte für Chaos.',
+        counterProposal: '„Er/Sie entwickelte stets durchdachte, innovative und unmittelbar zielführende Lösungen für komplexe Aufgabenstellungen.“'
+      }
+    ];
+
+    // =========================================================================
+    // 3 PRAXIS-BEISPIEL-ZEUGNISSE (DEMO BUTTONS)
+    // =========================================================================
+    const SAMPLE_CERTIFICATES = {
+      trap3: `ARBEITSZEUGNIS
+
+Herr Max Mustermann, geboren am 14.05.1991, war vom 01.04.2022 bis zum 30.09.2026 als Senior Projektmanager in unserem Unternehmen tätig.
+
+Herr Mustermann verfügt über ein solides Fachwissen in seinem Aufgabenbereich und nahm an mehreren internen Weiterbildungen teil. Er war stets pünktlich und erledigte die ihm übertragenen Arbeiten mit großem Fleiß und äußerster Genauigkeit.
+
+Bei der Bearbeitung von Kundenprojekten zeigte er Einsatzbereitschaft und erfüllte unsere Erwartungen. Auch in schwierigen Projektphasen war er stets bemüht, zeitnahe Lösungen zu finden.
+
+Zusammenfassend erledigte Herr Mustermann seine Aufgaben zu unserer vollen Zufriedenheit.
+
+Sein Verhalten gegenüber Kollegen und Vorgesetzten war einwandfrei. Durch seine gesellige Art trug er zur Verbesserung des Betriebsklimas bei.
+
+Das Arbeitsverhältnis endet im gegenseitigen Einvernehmen zum 30.09.2026. Wir danken Herrn Mustermann für die Zusammenarbeit und wünschen ihm für die Zukunft alles Gute und viel Erfolg.`,
+
+      top1: `QUALIFIZIERTES ARBEITSZEUGNIS
+
+Frau Julia Schweizer, geboren am 22.08.1988, war vom 01.01.2021 bis zum 30.09.2026 als Head of Digital Operations in unserem Unternehmen tätig.
+
+Frau Schweizer verfügt über ein umfassendes und hervorragendes Fachwissen, das stets auf dem neuesten Stand war. Sie arbeitete in höchstem Maße eigenverantwortlich, ausgesprochen zielstrebig und mit außerordentlicher Einsatzbereitschaft.
+
+Ihre Arbeitsergebnisse lagen weit über unseren Erwartungen und waren stets von höchster Qualität. Als außerordentliche Führungskompetenz motivierte sie ihr Team stets zu Höchstleistungen.
+
+Frau Schweizer hat alle ihr übertragenen Aufgaben stets zu unserer vollsten Zufriedenheit erledigt.
+
+Ihr Verhalten gegenüber Vorgesetzten, Mitarbeitern und Kunden war stets vorbildlich.
+
+Frau Schweizer verlässt unser Unternehmen auf eigenen Wunsch. Wir bedauern ihr Ausscheiden außerordentlich, danken ihr für die stets herausragenden Leistungen und wünschen ihr für den weiteren Berufs- und Lebensweg alles Gute und weiterhin viel Erfolg.`,
+
+      toxic5: `ARBEITSZEUGNIS
+
+Herr Lukas Berger, geboren am 03.11.1993, war vom 15.02.2024 bis zum 18.09.2026 als Kundenberater in unserem Betrieb beschäftigt.
+
+Herr Berger hatte Gelegenheit, alle anfallenden Aufgaben der Kundenbetreuung kennenzulernen. Er zeigte Verständnis für seine Arbeit und erledigte seine Aufgaben im Rahmen seiner Möglichkeiten. Zudem kannte er die Vorschriften unseres Hauses und kam stets pünktlich an seinen Arbeitsplatz.
+
+In Teammeetings erwies er sich als diskussionsfreudig und vertrat seine Meinung. Gegenüber Mitarbeiterinnen zeigte er großes Einfühlungsvermögen und setzte sich für die Belange der Belegschaft ein.
+
+Im Großen und Ganzen erledigte Herr Berger die Aufgaben zu unserer Zufriedenheit. Sein Verhalten gegenüber Kollegen und Vorgesetzten gab keinen Anlass zu Beanstandungen.
+
+Herr Berger verlässt unser Unternehmen zum 18.09.2026. Für die Zukunft wünschen wir ihm alles Gute, insbesondere Gesundheit und viel Erfolg.`
+    };
+
+    // =========================================================================
+    // KERN-ANALYSE-ALGORITHMUS (SATZ-FÜR-SATZ + STRUKTUR- & SCHLUSSFORMEL-CHECK)
+    // =========================================================================
+    function splitIntoSentences(text) {
+      const cleaned = String(text || '').trim();
+      if (!cleaned) return [];
+      // Split by line breaks or sentence punctuation while preserving readable chunks
+      const lines = cleaned.split(/\n+/).map(l => l.trim()).filter(Boolean);
+      const sentences = [];
+      lines.forEach(line => {
+        if (line.length < 45 && !line.includes('.')) {
+          sentences.push(line);
+        } else {
+          const parts = line.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [line];
+          parts.forEach(p => {
+            const s = p.trim();
+            if (s.length > 2) sentences.push(s);
+          });
+        }
+      });
+      return sentences;
+    }
+
+    function analyzeZeugnis(scrollToResults = false) {
+      const rawText = document.getElementById('zeugnis-input').value;
+      const words = rawText.trim() ? rawText.trim().split(/\s+/).length : 0;
+      const sentences = splitIntoSentences(rawText);
+
+      document.getElementById('input-stats-label').textContent = `${words} Wörter • ${sentences.length} Sätze`;
+
+      if (!rawText.trim()) {
+        document.getElementById('annotated-text-view').textContent = 'Bitte geben Sie oben einen Zeugnistext ein oder wählen Sie eines der 3 Beispiele.';
+        return;
+      }
+
+      const findings = [];
+      const matchedDictIds = new Set();
+
+      // 1. Scan each sentence against HR_DICTIONARY
+      sentences.forEach((sentence, sIdx) => {
+        const normSent = normalizeText(sentence);
+
+        HR_DICTIONARY.forEach(entry => {
+          if (matchedDictIds.has(entry.id + '_' + sIdx)) return;
+
+          // Check exclusion rule (e.g. "viel erfolg" without "weiterhin")
+          if (entry.excludeIfContains && entry.excludeIfContains.some(ex => normSent.includes(ex))) {
+            return;
+          }
+
+          for (const pat of entry.patterns) {
+            if (normSent.includes(pat)) {
+              matchedDictIds.add(entry.id + '_' + sIdx);
+              findings.push({
+                id: `f_${findings.length + 1}`,
+                dictId: entry.id,
+                sentenceIndex: sIdx,
+                originalSentence: sentence,
+                matchedPattern: pat,
+                category: entry.category,
+                grade: entry.grade,
+                isRedFlag: entry.isRedFlag,
+                meaning: entry.meaning,
+                counterProposal: entry.counterProposal
+              });
+              break;
+            }
+          }
+        });
+      });
+
+      // 2. Structural & Closing Formula Meta-Checks (Dank, Bedauern, Zukunftswünsche)
+      const fullNorm = normalizeText(rawText);
+      const hasBedauern = fullNorm.includes('bedauern') || fullNorm.includes('ungern');
+      const hasDank = fullNorm.includes('danken') || fullNorm.includes('dank ');
+      const hasWeiterhinErfolg = fullNorm.includes('weiterhin viel erfolg') || fullNorm.includes('weiterhin alles gute');
+
+      if (sentences.length >= 4 && !hasBedauern) {
+        findings.push({
+          id: `f_meta_bedauern`,
+          dictId: 'meta-no-regret',
+          sentenceIndex: sentences.length - 1,
+          originalSentence: sentences[sentences.length - 1] || 'Schlussabsatz des Zeugnisses',
+          matchedPattern: 'Fehlende Bedauernsformel am Zeugnisende',
+          category: '🚨 Struktur-Warnung (Schlussformel)',
+          grade: 4.0,
+          isRedFlag: true,
+          meaning: 'FEHLENDES BEDAUERN (Note 3,5–4,5): Im gesamten Zeugnis fehlt der Satz, dass der Arbeitgeber Ihr Ausscheiden bedauert („Wir bedauern sein/ihr Ausscheiden außerordentlich“). Ohne Bedauern entwertet die Schlussformel selbst ein zuvor gutes Zeugnis massiv!',
+          counterProposal: 'Ergänzung im Schlussabsatz: „Wir bedauern sein/ihr Ausscheiden außerordentlich, danken für die stets hervorragenden Leistungen und wünschen für die Zukunft alles Gute und weiterhin viel Erfolg.“'
+        });
+      }
+
+      if (sentences.length >= 4 && !hasDank) {
+        findings.push({
+          id: `f_meta_dank`,
+          dictId: 'meta-no-thanks',
+          sentenceIndex: sentences.length - 1,
+          originalSentence: sentences[sentences.length - 1] || 'Schlussabsatz des Zeugnisses',
+          matchedPattern: 'Fehlende Dankesformel am Zeugnisende',
+          category: '🚨 Struktur-Warnung (Schlussformel)',
+          grade: 4.5,
+          isRedFlag: true,
+          meaning: 'FEHLENDER DANK (Note 4–5): Im Schlussabsatz fehlt jeglicher Dank für Ihre geleistete Arbeit („Wir danken für die stets sehr gute Zusammenarbeit“). Das ist ein deutliches Negativsignal an künftige Personaler.',
+          counterProposal: 'Ergänzung im Schlussabsatz: „Wir danken Herrn/Frau [Name] für die stets exzellente und sehr erfolgreiche Zusammenarbeit.“'
+        });
+      }
+
+      // 3. Calculate Overall Grade & Sub-Grades
+      let avgGrade = 2.5;
+      if (findings.length > 0) {
+        const sum = findings.reduce((acc, f) => acc + f.grade, 0);
+        avgGrade = sum / findings.length;
+      }
+
+      const leistungFindings = findings.filter(f => f.category.includes('Gesamturteil') || f.category.includes('Arbeits') || f.category.includes('Fachwissen') || f.category.includes('Führung'));
+      const sozialFindings = findings.filter(f => f.category.includes('Sozialverhalten') || f.category.includes('Hierarchie'));
+      const redFlags = findings.filter(f => f.isRedFlag || f.grade >= 3.0);
+
+      const leistungGrade = leistungFindings.length ? (leistungFindings.reduce((a, b) => a + b.grade, 0) / leistungFindings.length) : avgGrade;
+      const sozialGrade = sozialFindings.length ? (sozialFindings.reduce((a, b) => a + b.grade, 0) / sozialFindings.length) : avgGrade;
+
+      let schlussText = 'Vollständig (Note 1)';
+      if (!hasBedauern && !hasDank) schlussText = '⚠️ Dank & Bedauern fehlen!';
+      else if (!hasBedauern) schlussText = '⚠️ Bedauern fehlt!';
+      else if (!hasWeiterhinErfolg) schlussText = '⚠️ „weiterhin“ fehlt!';
+
+      lastAnalysisResult = {
+        rawText,
+        sentences,
+        findings,
+        redFlags,
+        avgGrade: Number(avgGrade.toFixed(1)),
+        leistungGrade: Number(leistungGrade.toFixed(1)),
+        sozialGrade: Number(sozialGrade.toFixed(1)),
+        hasBedauern,
+        hasDank,
+        hasWeiterhinErfolg,
+        schlussText
+      };
+
+      renderAnalysisUI();
+      renderAnnotatedText();
+      renderCorrectionLetter();
+
+      if (scrollToResults) {
+        document.getElementById('results-column').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function gradeToWord(grade) {
+      if (grade <= 1.4) return { word: 'Sehr gut', color: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30', textCol: 'text-emerald-400' };
+      if (grade <= 2.4) return { word: 'Gut', color: 'bg-teal-500/20 text-teal-300 border border-teal-500/30', textCol: 'text-teal-400' };
+      if (grade <= 3.4) return { word: 'Befriedigend', color: 'bg-amber-500/20 text-amber-300 border border-amber-500/30', textCol: 'text-amber-400' };
+      if (grade <= 4.4) return { word: 'Ausreichend', color: 'bg-orange-500/20 text-orange-300 border border-orange-500/30', textCol: 'text-orange-400' };
+      return { word: 'Mangelhaft', color: 'bg-rose-500/20 text-rose-300 border border-rose-500/30', textCol: 'text-rose-400' };
+    }
+
+    function renderAnnotatedText() {
+      const container = document.getElementById('annotated-text-view');
+      if (!lastAnalysisResult) return;
+
+      const { sentences, findings } = lastAnalysisResult;
+      const htmlParts = sentences.map((sent, idx) => {
+        const sentFindings = findings.filter(f => f.sentenceIndex === idx && !f.id.startsWith('f_meta_'));
+        if (sentFindings.length === 0) {
+          return `<span>${escapeHtml(sent)}</span>`;
+        }
+        // Pick worst grade in this sentence for highlight color
+        const worst = sentFindings.reduce((prev, curr) => (curr.grade > prev.grade ? curr : prev), sentFindings[0]);
+        let cls = 'bg-emerald-100 text-emerald-950 border-b-2 border-emerald-500';
+        if (worst.grade >= 3.5 || worst.isRedFlag) {
+          cls = 'bg-rose-100 text-rose-950 border-b-2 border-rose-500';
+        } else if (worst.grade >= 2.6) {
+          cls = 'bg-amber-100 text-amber-950 border-b-2 border-amber-500';
+        }
+        return `<span onclick="scrollToFinding('${worst.id}')" class="hl-badge ${cls}" title="Klicken für Details (${worst.category} – Note ${worst.grade.toFixed(1).replace('.', ',')})">${escapeHtml(sent)}</span>`;
+      });
+
+      container.innerHTML = htmlParts.join(' ');
+    }
+
+    function scrollToFinding(findingId) {
+      const el = document.getElementById(findingId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-indigo-500');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-indigo-500'), 1800);
+      } else if (!isProUnlocked) {
+        document.getElementById('pro-paywall-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function renderAnalysisUI() {
+      if (!lastAnalysisResult) return;
+      const r = lastAnalysisResult;
+      const gInfo = gradeToWord(r.avgGrade);
+
+      const gradeNumEl = document.getElementById('kpi-grade-num');
+      gradeNumEl.textContent = r.avgGrade.toFixed(1).replace('.', ',');
+      gradeNumEl.className = `text-2xl sm:text-3xl font-extrabold ${gInfo.textCol}`;
+
+      const gradeWordEl = document.getElementById('kpi-grade-word');
+      gradeWordEl.textContent = gInfo.word;
+      gradeWordEl.className = `text-xs font-bold px-2.5 py-0.5 rounded-full ${gInfo.color}`;
+
+      document.getElementById('kpi-sentences-count').textContent = `${r.sentences.length} Sätze`;
+      document.getElementById('kpi-matches-count').textContent = `${r.findings.length} erkannte Formulierungen`;
+
+      const rfCountEl = document.getElementById('kpi-redflags-count');
+      rfCountEl.textContent = r.redFlags.length;
+      const rfBadgeEl = document.getElementById('kpi-redflags-badge');
+      if (r.redFlags.length === 0) {
+        rfCountEl.className = 'text-2xl sm:text-3xl font-extrabold text-emerald-400';
+        rfBadgeEl.textContent = '0 Fallen';
+        rfBadgeEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300';
+      } else {
+        rfCountEl.className = 'text-2xl sm:text-3xl font-extrabold text-rose-400';
+        rfBadgeEl.textContent = r.redFlags.length === 1 ? '1 Warnsignal' : `${r.redFlags.length} Warnsignale`;
+        rfBadgeEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300';
+      }
+
+      document.getElementById('kpi-closing-status').textContent = r.schlussText;
+      document.getElementById('sub-score-leistung').textContent = `Note ${r.leistungGrade.toFixed(1).replace('.', ',')}`;
+      document.getElementById('sub-score-sozial').textContent = `Note ${r.sozialGrade.toFixed(1).replace('.', ',')}`;
+      document.getElementById('sub-score-schluss').textContent = r.schlussText;
+
+      // Executive Summary Box
+      const execBox = document.getElementById('executive-summary-box');
+      if (r.redFlags.length > 0) {
+        execBox.innerHTML = `
+          <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3.5">
+            <span class="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center font-extrabold text-base shrink-0 mt-0.5">!</span>
+            <div class="text-xs sm:text-sm text-rose-950 leading-relaxed">
+              <strong class="font-extrabold">Handlungsbedarf erkannt (${r.redFlags.length} kritische Stellen / Geheimcodes):</strong>
+              Dieses Zeugnis entspricht einer Gesamtnote von <strong>${r.avgGrade.toFixed(1).replace('.', ',')} (${gInfo.word})</strong> und enthält Formulierungen, die von Personalabteilungen als Warnsignal gewertet werden. Sie haben gesetzlichen Anspruch auf ein wohlwollendes, wahrheitsgemäßes Zeugnis ohne versteckte Geheimcodes!
+            </div>
+          </div>
+        `;
+      } else {
+        execBox.innerHTML = `
+          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-start gap-3.5">
+            <span class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-extrabold text-base shrink-0 mt-0.5">✓</span>
+            <div class="text-xs sm:text-sm text-emerald-950 leading-relaxed">
+              <strong class="font-extrabold">Exzellentes Zeugnis (${r.avgGrade.toFixed(1).replace('.', ',')} – ${gInfo.word}):</strong>
+              In diesem Zeugnis wurden keine versteckten Abwertungen oder HR-Fallen gefunden. Sowohl die Leistungs- als auch die Verhaltensbeurteilung und Schlussformel sind durchgängig wohlwollend formuliert.
+            </div>
+          </div>
+        `;
+      }
+
+      renderFindingsCards();
+    }
+
+    function filterFindings(mode) {
+      currentFilter = mode;
+      document.getElementById('flt-all').className = mode === 'all'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-900 text-white transition'
+        : 'px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition';
+      document.getElementById('flt-critical').className = mode === 'critical'
+        ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-600 text-white transition'
+        : 'px-2.5 py-1 rounded-lg text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition';
+      renderFindingsCards();
+    }
+
+    function renderFindingsCards() {
+      if (!lastAnalysisResult) return;
+      const listEl = document.getElementById('findings-list-container');
+      const allFindings = currentFilter === 'critical'
+        ? lastAnalysisResult.findings.filter(f => f.isRedFlag || f.grade >= 3.0)
+        : lastAnalysisResult.findings;
+
+      if (allFindings.length === 0) {
+        listEl.innerHTML = `<div class="p-6 text-center text-xs text-slate-500">Keine Einträge für diesen Filter gefunden.</div>`;
+        return;
+      }
+
+      // FREEMIUM RULE: First 2 findings are 100% visible for free!
+      // Findings #3..N are unlocked when isProUnlocked === true.
+      const visibleCardsHtml = allFindings.map((f, idx) => {
+        const isFreeItem = idx < 2;
+        const isVisible = isFreeItem || isProUnlocked;
+
+        let badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+        if (f.grade >= 3.5 || f.isRedFlag) badgeClass = 'bg-rose-100 text-rose-800 border-rose-200';
+        else if (f.grade >= 2.6) badgeClass = 'bg-amber-100 text-amber-800 border-amber-200';
+
+        if (isVisible) {
+          return `
+            <div id="${f.id}" class="p-4 rounded-2xl border ${f.isRedFlag ? 'border-rose-200 bg-rose-50/30' : 'border-slate-200 bg-white'} shadow-sm space-y-2.5 transition">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-900 text-white">#${idx + 1}</span>
+                  <span class="text-xs font-bold text-slate-800">${escapeHtml(f.category)}</span>
+                  ${isFreeItem && !isProUnlocked ? `<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">Kostenlose Vorschau ${idx + 1}/2</span>` : ''}
+                </div>
+                <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full border ${badgeClass}">
+                  Note ${f.grade.toFixed(1).replace('.', ',')} ${f.isRedFlag ? '• ⚠️ Geheimcode / Abwertung' : '• Positiv'}
+                </span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 italic">
+                „${escapeHtml(f.originalSentence)}“
+              </div>
+
+              <div class="text-xs text-slate-800 leading-relaxed">
+                <strong class="text-slate-900">🔍 HR-Klartext-Bedeutung:</strong> ${escapeHtml(f.meaning)}
+              </div>
+
+              <div class="p-3 rounded-xl ${f.grade <= 1.5 ? 'bg-emerald-50/70 border border-emerald-200' : 'bg-indigo-50/80 border border-indigo-200'} text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <span class="font-extrabold text-indigo-950 block mb-0.5">✨ Empfohlener Note-1-Gegenvorschlag:</span>
+                  <span class="text-indigo-900 font-medium">${escapeHtml(f.counterProposal)}</span>
+                </div>
+                ${f.grade > 1.5 ? `
+                  <button onclick="copyText('${escapeJsString(f.counterProposal)}', this)" class="shrink-0 px-2.5 py-1.5 rounded-lg bg-white hover:bg-indigo-600 hover:text-white text-indigo-700 border border-indigo-200 text-[11px] font-bold transition">
+                    📋 Satz kopieren
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        } else {
+          // Locked Pro Preview Card
+          return `
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/80 relative overflow-hidden">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-slate-400 text-white">#${idx + 1}</span>
+                  <span class="text-xs font-bold text-slate-700">${escapeHtml(f.category)}</span>
+                </div>
+                <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full border ${badgeClass}">
+                  Note ${f.grade.toFixed(1).replace('.', ',')} ${f.isRedFlag ? '• ⚠️ Kritischer Code erkannt' : ''}
+                </span>
+              </div>
+              <div class="text-xs text-slate-600 italic mb-2">
+                „${escapeHtml(f.originalSentence.slice(0, 68))}...“
+              </div>
+              <div class="select-none blur-[4px] text-xs text-slate-500">
+                HR-Klartext-Bedeutung und rechtssicherer Note-1-Formulierungsvorschlag für diesen Satz werden nach der Pro-Freischaltung angezeigt.
+              </div>
+              <div class="mt-2 pt-2 border-t border-slate-200/80 flex items-center justify-between text-[11px]">
+                <span class="text-rose-600 font-bold">🔒 Detail-Entschlüsselung & Note-1-Korrektursatz im Pro-Pass enthalten</span>
+                <button onclick="openCheckoutModal()" class="text-indigo-600 hover:underline font-bold">Jetzt freischalten →</button>
+              </div>
+            </div>
+          `;
+        }
+      }).join('');
+
+      listEl.innerHTML = visibleCardsHtml;
+
+      // Update Paywall Card visibility and counts
+      const hiddenCount = Math.max(0, lastAnalysisResult.findings.length - 2);
+      const paywallCard = document.getElementById('pro-paywall-card');
+      const letterOverlay = document.getElementById('letter-locked-overlay');
+      const statusPill = document.getElementById('pro-status-pill');
+      const headerBtn = document.getElementById('header-unlock-btn');
+
+      if (isProUnlocked) {
+        paywallCard.classList.add('hidden');
+        letterOverlay.classList.add('hidden');
+        statusPill.textContent = '✓ PRO-VOLLVERSION AKTIV';
+        statusPill.className = 'bg-emerald-100 text-emerald-800 border border-emerald-300 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full';
+        headerBtn.innerHTML = '<span>✓ Pro freigeschaltet</span>';
+        headerBtn.className = 'bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-sm flex items-center gap-1.5';
+        document.getElementById('decoded-subtitle').textContent = `Alle ${lastAnalysisResult.findings.length} erkannten Formulierungen & Note-1-Gegenvorschläge sind vollständig freigeschaltet.`;
+      } else {
+        paywallCard.classList.remove('hidden');
+        letterOverlay.classList.remove('hidden');
+        document.getElementById('paywall-hidden-count').textContent = hiddenCount > 0 ? `${hiddenCount} weiteren` : 'sämtliche';
+      }
+    }
+
+    // =========================================================================
+    // RECHTSSICHERER DIN-A4 KORREKTURBRIEF & GEGENVORSCHLAGS-GENERATOR
+    // =========================================================================
+    function renderCorrectionLetter() {
+      if (!lastAnalysisResult) return;
+
+      const senderName = document.getElementById('let-sender-name').value.trim() || 'Max Mustermann';
+      const senderAddr = document.getElementById('let-sender-addr').value.trim() || 'Musterstraße 12, 80331 München';
+      const empName = document.getElementById('let-emp-name').value.trim() || 'MusterTech GmbH – Personalabteilung';
+      const certDate = document.getElementById('let-cert-date').value.trim() || '30.09.2026';
+      const deadline = document.getElementById('let-deadline').value.trim() || '14 Tagen';
+      const tone = document.getElementById('let-tone').value;
+
+      const todayStr = new Date().toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+      const lawReference = {
+        DE: '§ 109 der Gewerbeordnung (GewO) sowie der ständigen Rechtsprechung des Bundesarbeitsgerichts (Grundsatz des wohlwollenden und wahrheitsgemäßen Zeugnisses ohne versteckte Geheimcodes)',
+        CH: 'Art. 330a des Schweizerischen Obligationenrechts (OR) sowie der bundesgerichtlichen Rechtsprechung (Pflicht zur wohlwollenden, klaren und unzweideutigen Formulierung ohne codierte Negativhinweise)',
+        AT: '§ 39 des Angestelltengesetzes (AngG) sowie dem gesetzlichen Erschwerungsverbot (Verbot nachteiliger oder doppeldeutiger Geheimcodes, die das berufliche Fortkommen behindern)'
+      }[currentJurisdiction];
+
+      const criticalItems = lastAnalysisResult.findings.filter(f => f.grade > 1.5 || f.isRedFlag);
+
+      // Build Improved Note-1 Full Draft Text
+      let improvedDraft = lastAnalysisResult.rawText;
+      criticalItems.forEach(item => {
+        if (!item.id.startsWith('f_meta_') && item.originalSentence && item.counterProposal && !item.counterProposal.startsWith('Bereits optimal')) {
+          const cleanProposal = item.counterProposal
+            .replace(/^„|“$/g, '')
+            .replace(/^Ersatzlos streichen und ersetzen durch:\s*„?/i, '')
+            .replace(/“\s*\(.*\)$/, '');
+          improvedDraft = improvedDraft.replace(item.originalSentence, cleanProposal);
+        }
+      });
+
+      const introParagraph = tone === 'polite'
+        ? `vielen Dank für die Ausstellung und Übersendung meines qualifizierten Arbeitszeugnisses vom ${escapeHtml(certDate)}. Ich habe das Dokument aufmerksam durchgesehen. Da mir unsere erfolgreiche Zusammenarbeit sehr wichtig war, möchte ich Sie höflich um die Anpassung einiger Formulierungen bitten, die nach heutiger Personalpraxis missverständlich wirken oder unabsichtlich von einer guten bis sehr guten Gesamtbewertung abweichen.`
+        : `hiermit nehme ich Bezug auf das mir ausgestellte Arbeitszeugnis vom ${escapeHtml(certDate)}. Nach eingehender arbeitsrechtlicher Prüfung enthält das Zeugnis mehrere Formulierungen sowie strukturelle Auslassungen, die gemäß ${lawReference} unzulässig bzw. abwertend codiert sind und mein weiteres berufliches Fortkommen unbillig erschweren.`;
+
+      const tableRowsHtml = criticalItems.length > 0
+        ? criticalItems.map((item, idx) => `
+          <tr class="border-b border-slate-200 align-top">
+            <td class="py-2 pr-2 font-mono text-[9pt] text-slate-500">${idx + 1}.</td>
+            <td class="py-2 pr-3 text-[9.5pt] text-rose-900">
+              <div class="font-semibold">${escapeHtml(item.category)} (Note ${item.grade.toFixed(1).replace('.', ',')})</div>
+              <div class="italic text-slate-600 mt-0.5">„${escapeHtml(item.originalSentence)}“</div>
+            </td>
+            <td class="py-2 text-[9.5pt] text-emerald-950 font-medium">
+              ${escapeHtml(item.counterProposal)}
+            </td>
+          </tr>
+        `).join('')
+        : `<tr><td colspan="3" class="py-3 text-slate-500">Alle Formulierungen entsprechen bereits einer sehr guten Bewertung (Note 1).</td></tr>`;
+
+      const letterHtml = `
+        <div class="space-y-5">
+          <!-- Letterhead -->
+          <div class="flex justify-between items-start border-b border-slate-300 pb-4 text-[9.5pt]">
+            <div>
+              <div class="font-bold text-slate-900 text-[11pt]">${escapeHtml(senderName)}</div>
+              <div class="text-slate-600">${escapeHtml(senderAddr)}</div>
+            </div>
+            <div class="text-right text-slate-600">
+              <div>Datum: <strong>${todayStr}</strong></div>
+              <div class="text-[8.5pt] text-slate-500 mt-0.5">Rechtsgrundlage: ${currentJurisdiction === 'CH' ? 'Art. 330a OR (CH)' : currentJurisdiction === 'AT' ? '§ 39 AngG (AT)' : '§ 109 GewO (DE)'}</div>
+            </div>
+          </div>
+
+          <!-- Recipient -->
+          <div class="text-[10pt] pt-1">
+            <div class="text-[8pt] uppercase tracking-wider text-slate-400 mb-0.5">Empfänger</div>
+            <div class="font-bold text-slate-900">${escapeHtml(empName)}</div>
+          </div>
+
+          <!-- Subject -->
+          <div class="font-bold text-[11pt] text-slate-900 pt-2">
+            Bitte um Berichtigung / wohlwollende Anpassung meines Arbeitszeugnisses vom ${escapeHtml(certDate)}
+          </div>
+
+          <!-- Salutation & Body -->
+          <div class="space-y-3 text-[10pt] text-slate-800">
+            <p>Sehr geehrte Damen und Herren,</p>
+            <p>${introParagraph}</p>
+            <p>
+              Im Einzelnen bitte ich um die Übernahme der folgenden konkreten Formulierungsvorschläge, damit das Zeugnis meine tatsächlichen Leistungen und mein Verhalten widerspruchsfrei wiedergibt:
+            </p>
+          </div>
+
+          <!-- Counter-Proposal Table -->
+          <div class="my-3">
+            <table class="w-full border-collapse text-left">
+              <thead>
+                <tr class="border-b-2 border-slate-800 text-[9pt] uppercase tracking-wider text-slate-700">
+                  <th class="py-1.5 pr-2 w-8">Nr.</th>
+                  <th class="py-1.5 pr-3 w-[45%]">Bisherige Formulierung / Beanstandung</th>
+                  <th class="py-1.5 w-[50%]">Gewünschte Neuformulierung (Gegenvorschlag)</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableRowsHtml}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Closing & Deadline -->
+          <div class="space-y-3 text-[10pt] text-slate-800 pt-2">
+            <p>
+              Zur Arbeitserleichterung habe ich Ihnen im unteren Abschnitt bereits den fertig abgestimmten Textentwurf beigefügt. Ich bitte Sie höflich, mir das entsprechend korrigierte Arbeitszeugnis (auf offiziellem Geschäftspapier, ungeknickt und unter Beibehaltung des ursprünglichen Ausstellungsdatums vom ${escapeHtml(certDate)}) innerhalb von <strong>${escapeHtml(deadline)}</strong> zukommen zu lassen.
+            </p>
+            <p>Für Ihre Unterstützung und Mühe bedanke ich mich herzlich im Voraus.</p>
+            <p class="pt-2">Mit freundlichen Grüßen</p>
+            <div class="pt-6 font-bold text-slate-900 border-t border-slate-300 inline-block min-w-[220px]">
+              ${escapeHtml(senderName)}
+            </div>
+          </div>
+
+          <!-- Appendix: Complete Optimized Draft -->
+          <div class="mt-6 pt-4 border-t-2 border-dashed border-slate-300">
+            <div class="text-[9pt] font-bold uppercase tracking-wider text-indigo-700 mb-2">
+              Anlage: Bereinigter & optimierter Zeugnis-Gegenvorschlag (Vorlage für HR)
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-[9.5pt] text-slate-800 whitespace-pre-wrap leading-relaxed">${escapeHtml(improvedDraft)}</div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('screen-letter-sheet').innerHTML = letterHtml;
+      document.getElementById('print-letter-container').innerHTML = `<div class="a4-letter-sheet">${letterHtml}</div>`;
+    }
+
+    function getPlainTextLetter() {
+      if (!lastAnalysisResult) return '';
+      const senderName = document.getElementById('let-sender-name').value.trim() || 'Max Mustermann';
+      const senderAddr = document.getElementById('let-sender-addr').value.trim() || 'Musterstraße 12, 80331 München';
+      const empName = document.getElementById('let-emp-name').value.trim() || 'MusterTech GmbH – Personalabteilung';
+      const certDate = document.getElementById('let-cert-date').value.trim() || '30.09.2026';
+      const deadline = document.getElementById('let-deadline').value.trim() || '14 Tagen';
+      const criticalItems = lastAnalysisResult.findings.filter(f => f.grade > 1.5 || f.isRedFlag);
+
+      let lines = [
+        `${senderName} | ${senderAddr}`,
+        `An: ${empName}`,
+        `Datum: ${new Date().toLocaleDateString('de-DE')}`,
+        ``,
+        `BETREFF: Bitte um Berichtigung / Anpassung meines Arbeitszeugnisses vom ${certDate}`,
+        ``,
+        `Sehr geehrte Damen und Herren,`,
+        ``,
+        `vielen Dank für die Ausstellung meines Arbeitszeugnisses vom ${certDate}. Nach eingehender Prüfung bitte ich Sie höflich um die Anpassung folgender Formulierungen, damit das Zeugnis meine Leistungen wohlwollend und frei von missverständlichen HR-Codes wiedergibt:`,
+        ``
+      ];
+
+      criticalItems.forEach((item, idx) => {
+        lines.push(`${idx + 1}. [${item.category} - Note ${item.grade.toFixed(1).replace('.', ',')}]`);
+        lines.push(`   Bisher: "${item.originalSentence}"`);
+        lines.push(`   Gegenvorschlag: ${item.counterProposal}`);
+        lines.push(``);
+      });
+
+      lines.push(`Ich bitte Sie, mir das korrigierte Arbeitszeugnis unter Beibehaltung des ursprünglichen Ausstellungsdatums (${certDate}) innerhalb von ${deadline} zukommen zu lassen.`);
+      lines.push(``);
+      lines.push(`Mit freundlichen Grüßen`);
+      lines.push(`${senderName}`);
+      return lines.join('\n');
+    }
+
+    // =========================================================================
+    // SELF-SERVE PRO CHECKOUT & INSTANT UNLOCK MECHANISM
+    // =========================================================================
+    function getConfiguredPaypalUrl() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('paypal')) return params.get('paypal');
+      if (window.DIGITALWERK_PAYPAL_URL) return window.DIGITALWERK_PAYPAL_URL;
+      return 'https://dachdigital.gumroad.com/l/gthgwc';
+    }
+
+    function openCheckoutModal() {
+      if (isProUnlocked) {
+        document.getElementById('pro-letter-section').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      const ppLink = document.getElementById('modal-paypal-link');
+      ppLink.href = getConfiguredPaypalUrl();
+      document.getElementById('checkout-modal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkout-modal').classList.add('hidden');
+    }
+
+    function markPaypalClicked() {
+      const box = document.getElementById('modal-step2-box');
+      box.classList.add('ring-4', 'ring-emerald-400/50');
+    }
+
+    function instantUnlockAfterPayment(source) {
+      isProUnlocked = true;
+      try {
+        localStorage.setItem('digitalwerk_arbeitszeugnis_pro', '1');
+      } catch (e) {}
+      closeCheckoutModal();
+      renderAnalysisUI();
+      renderCorrectionLetter();
+      if (source === 'overlay') {
+        document.getElementById('pro-letter-section').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function resetProStatus() {
+      isProUnlocked = false;
+      try {
+        localStorage.removeItem('digitalwerk_arbeitszeugnis_pro');
+      } catch (e) {}
+      renderAnalysisUI();
+    }
+
+    function handleProAction(actionType) {
+      if (!isProUnlocked) {
+        openCheckoutModal();
+        return;
+      }
+      if (actionType === 'print') {
+        window.print();
+      } else if (actionType === 'download') {
+        const text = getPlainTextLetter();
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Korrekturschreiben_Arbeitszeugnis_Gegenvorschlag.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else if (actionType === 'copy') {
+        const text = getPlainTextLetter();
+        copyText(text, document.getElementById('btn-copy-letter'));
+      }
+    }
+
+    function setJurisdiction(jur) {
+      currentJurisdiction = jur;
+      ['DE', 'CH', 'AT'].forEach(code => {
+        const btn = document.getElementById('jur-btn-' + code);
+        if (code === jur) {
+          btn.className = 'px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-600 text-white transition';
+        } else {
+          btn.className = 'px-2 py-0.5 rounded-md text-[11px] font-semibold text-slate-400 hover:text-white transition';
+        }
+      });
+
+      const priceStr = jur === 'CH' ? 'CHF 4.90' : '4,90 €';
+      document.querySelectorAll('.price-label-inline').forEach(el => el.textContent = priceStr);
+      document.querySelectorAll('.price-label-btn').forEach(el => el.textContent = `Pro-Vollversion (${priceStr})`);
+
+      if (jur === 'CH') {
+        document.getElementById('let-sender-addr').value = 'Bahnhofstrasse 40, 8001 Zürich';
+        document.getElementById('let-emp-name').value = 'Helvetia Tech AG – Human Resources';
+      } else if (jur === 'AT') {
+        document.getElementById('let-sender-addr').value = 'Mariahilfer Straße 88, 1070 Wien';
+        document.getElementById('let-emp-name').value = 'AlpenDigital GmbH – Personalabteilung';
+      } else {
+        document.getElementById('let-sender-addr').value = 'Musterstraße 12, 80331 München';
+        document.getElementById('let-emp-name').value = 'MusterTech GmbH – Personalabteilung';
+      }
+      renderCorrectionLetter();
+    }
+
+    function loadSampleZeugnis(key) {
+      const sample = SAMPLE_CERTIFICATES[key];
+      if (!sample) return;
+      document.getElementById('zeugnis-input').value = sample;
+      analyzeZeugnis(false);
+    }
+
+    function clearZeugnisInput() {
+      document.getElementById('zeugnis-input').value = '';
+      analyzeZeugnis(false);
+    }
+
+    function copyText(text, btnEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        if (btnEl) {
+          const orig = btnEl.innerHTML;
+          btnEl.innerHTML = '✓ Kopiert!';
+          setTimeout(() => { btnEl.innerHTML = orig; }, 1800);
+        }
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function escapeJsString(str) {
+      return String(str ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n');
+    }
+
+    // Initialize on Page Load
+    window.addEventListener('DOMContentLoaded', () => {
+      const totalPatterns = HR_DICTIONARY.reduce((acc, item) => acc + item.patterns.length, 0) + 4;
+      document.getElementById('dict-count-badge').textContent = `Wörterbuch: ${totalPatterns} aktive HR-Codes & Regeln`;
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('pro') === '1' || params.get('unlock') === '1' || params.get('paid') === '1') {
+        isProUnlocked = true;
+        try { localStorage.setItem('digitalwerk_arbeitszeugnis_pro', '1'); } catch (e) {}
+      } else {
+        try {
+          if (localStorage.getItem('digitalwerk_arbeitszeugnis_pro') === '1') {
+            isProUnlocked = true;
+          }
+        } catch (e) {}
+      }
+
+      // Load Default Sample 1 ("Typisches Note-3-Zeugnis mit versteckten Fallen") immediately so the visitor sees instant magic!
+      loadSampleZeugnis('trap3');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Immobilien-AfA-, 5-%-Degressiv-Abschreibungs- (§ 7 Abs. 5a EStG), Mietrendite- &amp; Cashflow-Rechner 2026 | DE, AT &amp; CH</title>
+  <meta name="description" content="Kostenloser 100% Client-Side Immobilien-AfA-, 5-%-Degressiv-Abschreibungs- (§ 7 Abs. 5a EStG + § 7b Sonder-AfA), Kaufpreisaufteilungs- und Mietrendite-Rechner 2026 für Deutschland, Österreich (4,5 % / 3,0 % / 1,5 % AfA) und die Schweiz (Art. 32 DBG) inkl. Eigenkapitalrendite und DIN-A4 Immobilien-Dossier." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/immobilien-afa-rendite-rechner/" />
+  <meta property="og:title" content="DACH Immobilien-AfA-, 5-%-Degressiv-Abschreibungs- &amp; Mietrendite-Rechner 2026" />
+  <meta property="og:description" content="Berechnen Sie Kaufpreisaufteilung (Gebäudeanteil), 5 % degressive AfA (§ 7 Abs. 5a EStG) inkl. Wechseljahr auf 3 % linear, § 7b Sonder-AfA, Brutto-/Nettomietrendite und Nachsteuer-Cashflow." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/immobilien-afa-rendite-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DACH Immobilien-AfA-, 5-%-Degressiv-Abschreibungs- (§ 7 Abs. 5a EStG), Mietrendite- & Cashflow-Rechner 2026",
+      "url": "https://dachdigitalwerk.github.io/immobilien-afa-rendite-rechner/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "description": "Interaktiver Immobilien-Steuer-, Gebäude-AfA- (§ 7 Abs. 5a EStG 5 % degressiv, § 7b EStG 5 % Sonder-AfA, AT 4,5 % beschleunigte AfA, CH Art. 32 DBG), Kaufpreisaufteilungs- und Mietrendite-Rechner für DE, AT & CH.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DACH Digitalwerk",
+        "url": "https://dachdigitalwerk.github.io/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert die 5 % degressive Gebäude-AfA nach § 7 Abs. 5a EStG und wann lohnt sich der Wechsel zur linearen AfA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Durch das Wachstumschancengesetz können Wohngebäude in Deutschland nach § 7 Abs. 5a EStG mit 5,0 % vom jeweiligen Restbuchwert degressiv abgeschrieben werden. Da der degressive Abschreibungsbetrag von Jahr zu Jahr sinkt, erlaubt das Gesetz jederzeit den Wechsel zur linearen 3,0-%-AfA (§ 7 Abs. 4 Satz 1 Nr. 2a EStG). Mathematisch ist der optimale Wechselzeitpunkt erreicht, sobald 3,0 % der ursprünglichen Anschaffungskosten höher sind als 5,0 % des Restbuchwerts (in der Regel ab dem 11. bis 14. Jahr)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie werden Kaufpreis und Kaufnebenkosten zwischen Grund und Boden sowie Gebäude aufgeteilt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da Grund und Boden keinem Werteverzehr unterliegt, darf steuerlich nur der auf das Gebäude entfallende Anteil der Gesamtanschaffungskosten (Kaufpreis zuzüglich Erwerbsnebenkosten wie Grunderwerbsteuer, Notar, Grundbuch und Makler) über die Gebäude-AfA abgeschrieben werden: AfA-Bemessungsgrundlage = (Kaufpreis + Kaufnebenkosten) × Gebäudeanteil (%)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie hoch ist die beschleunigte Gebäude-AfA in Österreich (§ 8 Abs. 1a / § 16 Abs. 1 Z 8 EStG)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Österreich beträgt der gesetzliche Normalabschreibungssatz bei Wohngebäuden 1,5 % pro Jahr. Im Rahmen der beschleunigten Gebäude-AfA darf im 1. Jahr maximal das Dreifache (4,5 %) und im 2. Jahr maximal das Zweifache (3,0 %) ohne Nachweis einer kürzeren Nutzungsdauer angesetzt werden; ab dem 3. Jahr gilt der reguläre Satz von 1,5 %."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          🏢 FLAGGSCHIFF-TOOL #37 • IMMOBILIEN-AFA (5 % DEGRESSIV § 7 ABS. 5A ESTG) &amp; MIETRENDITE 2026
+        </span>
+        <span class="text-slate-300 font-medium">Kaufpreisaufteilung • 5 % Degressiv + § 7b Sonder-AfA (DE) • 4,5 % / 3,0 % AfA (AT) • Art. 32 DBG (CH) • Nachsteuer-Cashflow</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 37 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS (BGH SMARTLAW) -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / § 34c / § 34i GewO / § 32 KWG / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Rein finanzmathematisches Berechnungsmodell für Immobilien-Abschreibungen, Kaufpreisaufteilung und Mietrendite. Dieses Tool stellt <strong>keine Steuer-, Rechts-, Immobilien-, Anlage- oder Immobiliardarlehensberatung</strong> dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>🏢 Flaggschiff-Applikation #37</span>
+        <span>•</span>
+        <span>100% lokal im Browser (Immobilien-, Steuer- &amp; Cashflow-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH Immobilien-AfA-, 5-%-Degressiv-Abschreibungs- (§ 7 Abs. 5a EStG), Mietrendite- &amp; Cashflow-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Berechnen Sie Ihre Kapitalanlage- oder Gewerbeimmobilie präzise vor und nach Steuern: Ermitteln Sie die <strong>abzugsfähige Gebäude-AfA-Bemessungsgrundlage (Kaufpreisaufteilung Grund &amp; Boden vs. Gebäude inkl. Kaufnebenkosten)</strong>, vergleichen Sie die <strong>5,0 % degressive Gebäude-AfA (§ 7 Abs. 5a EStG inkl. Wechseljahr auf 3 % linear)</strong> sowie die <strong>§ 7b EStG Sonder-AfA (bis 10 % im 1. Jahr)</strong> mit der österreichischen <strong>beschleunigten AfA (4,5 % / 3,0 % / 1,5 %)</strong> und dem Schweizer <strong>Liegenschaftsunterhalt (Art. 32 DBG)</strong> – inklusive Brutto-/Nettomietrendite, Eigenkapitalrendite und monatlichem Nachsteuer-Cashflow.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Steuer-Rechtsraum &amp; Immobilien-Preset</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (§ 7 Abs. 5a / § 7b EStG)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (4,5% / 3,0% / 1,5% AfA)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (Art. 32 DBG Unterhalt)</button>
+          </div>
+        </div>
+
+        <!-- 5 Presets -->
+        <div class="space-y-1.5">
+          <div class="text-xs font-semibold text-slate-400">Immobilien-Preset wählen:</div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="applyPreset('neubau_deg')" class="text-xs bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🏗️ Neubau 5 % Degressiv (§ 7 Abs. 5a EStG • 450k €)</button>
+            <button type="button" onclick="applyPreset('qng_7b')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🌱 EH40/QNG Neubau + § 7b Sonder-AfA (10 % Jahr 1)</button>
+            <button type="button" onclick="applyPreset('bestand')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🏢 Bestands-ETW (2,0 % Linear • 320k €)</button>
+            <button type="button" onclick="applyPreset('mfh')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🏘️ Mehrfamilienhaus Zinshaus (1,25 Mio. €)</button>
+            <button type="button" onclick="applyPreset('altbau')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🏛️ Altbau vor 1925 (2,5 % Linear • 580k €)</button>
+          </div>
+        </div>
+
+        <!-- Section 2: Kaufpreis, Nebenkosten & Kaufpreisaufteilung -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">2. Kaufpreis, Kaufnebenkosten &amp; Kaufpreisaufteilung (Gebäudeanteil)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kaufpreis Immobilie (<span class="curr-label">€</span>)</label>
+              <input type="number" id="purchasePrice" value="450000" min="20000" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kaufnebenkosten (%)</label>
+              <input type="number" id="closingCostPct" value="8.5" min="0" max="20" step="0.5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">GrESt, Notar, Grundbuch, Makler</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Gebäudeanteil am Kaufpreis (%)</label>
+              <input type="number" id="buildingSharePct" value="78" min="20" max="95" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Rest (22 %) = nicht abnutzbarer Boden</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Wohn-/Nutzfläche (m²)</label>
+              <input type="number" id="livingAreaSqm" value="95" min="15" step="5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Für § 7b EStG Deckel (4.000 €/m²)</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">AfA-Modus (DE / AT / CH)</label>
+              <select id="afaMode" onchange="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white text-xs font-semibold">
+                <option value="degressiv_5" selected>5,0 % Degressiv (§ 7 Abs. 5a) + Wechsel 3 %</option>
+                <option value="degressiv_7b">5,0 % Degressiv + 5,0 % § 7b Sonder-AfA (QNG)</option>
+                <option value="linear_3">3,0 % Linear Neubau ab 2023 (§ 7 Abs. 4)</option>
+                <option value="linear_2">2,0 % Linear Bestand (Baujahr 1925–2022)</option>
+                <option value="linear_25">2,5 % Linear Altbau (Baujahr vor 1925)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Persönlicher Grenzsteuersatz (%)</label>
+              <input type="number" id="marginalTaxRate" value="42" min="15" max="55" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">ESt inkl. Soli / KÖSt / Grenzsteuer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Mieteinnahmen, Bewirtschaftung & Finanzierung -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">3. Mieteinnahmen, Bewirtschaftungskosten &amp; Bankfinanzierung</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Nettokaltmiete pro Monat (<span class="curr-label">€</span>)</label>
+              <input type="number" id="monthlyColdRent" value="1650" min="100" step="50" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Nicht umlagefähige Kosten/Mon. (<span class="curr-label">€</span>)</label>
+              <input type="number" id="monthlyNonRecoverable" value="190" min="0" step="10" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Verwaltung, Instandhaltung, Leerstand</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Eingesetztes Eigenkapital (<span class="curr-label">€</span>)</label>
+              <input type="number" id="equityInvested" value="88250" min="1000" step="5000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Darlehenszins p.a. (%)</label>
+              <input type="number" id="loanInterestPct" value="3.65" min="0.5" max="10" step="0.05" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Anfängliche Tilgung p.a. (%)</label>
+              <input type="number" id="loanRepaymentPct" value="2.0" min="0.5" max="10" step="0.25" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Main AfA & Tax Cashflow Card -->
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Gebäude-AfA &amp; Steuer-Hebel (1. Jahr)</span>
+            <span id="out-country-badge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">DE • § 7 Abs. 5a EStG</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <div class="text-xs text-slate-400">Gebäude-AfA im 1. Jahr:</div>
+              <div id="out-afa-yr1" class="text-2xl sm:text-3xl font-black text-white font-mono mt-0.5">19.042 €</div>
+              <div id="out-afa-rate-label" class="text-xs text-emerald-300 font-semibold mt-1">Effektiv 5,00 % v. Gebäude</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400">AfA-Steuervorteil (1. Jahr):</div>
+              <div id="out-afa-tax-shield" class="text-xl font-extrabold text-emerald-400 font-mono mt-0.5">+ 7.998 €</div>
+              <div id="out-switch-year" class="text-[11px] text-slate-300 mt-1">Wechsel auf 3 % linear: Jahr 14</div>
+            </div>
+          </div>
+
+          <!-- Breakdown Table -->
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-xs">
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Gesamterwerbskosten (inkl. NK):</span>
+              <span id="out-total-cost" class="font-mono font-bold text-white">488.250 €</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-emerald-300 font-semibold">AfA-Bemessungsgrundlage (Gebäude):</span>
+              <span id="out-afa-base" class="font-mono font-extrabold text-emerald-400">380.835 € (78 %)</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Kumulierte AfA in den ersten 10 Jahren:</span>
+              <span id="out-afa-10yr" class="font-mono font-bold text-white">152.815 € (40,1 %)</span>
+            </div>
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2">
+              <span class="text-slate-300">Steuerliches Ergebnis (V+V im 1. Jahr):</span>
+              <span id="out-taxable-vv" class="font-mono font-bold text-amber-300">−16.122 € (Steuererstattung!)</span>
+            </div>
+            <div class="flex justify-between items-center bg-emerald-950/70 border border-emerald-500/40 rounded-xl px-3.5 py-2.5">
+              <span class="font-bold text-white">Monatlicher Cashflow nach Steuern:</span>
+              <span id="out-monthly-cf-after-tax" class="font-mono font-extrabold text-sm text-emerald-300">+ 164 € / Monat</span>
+            </div>
+          </div>
+
+          <!-- Rendite-Kennzahlen -->
+          <div class="grid grid-cols-3 gap-2 text-center text-xs pt-1">
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">Bruttomietrendite</div>
+              <div id="out-gross-yield" class="font-mono font-bold text-white text-sm mt-0.5">4,40 %</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">Nettomietrendite</div>
+              <div id="out-net-yield" class="font-mono font-bold text-emerald-400 text-sm mt-0.5">3,59 %</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">EK-Rendite (n. St.)</div>
+              <div id="out-roe-after-tax" class="font-mono font-bold text-amber-300 text-sm mt-0.5">11,29 %</div>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Immobilien-AfA- &amp; Rendite-Dossier drucken / PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & FACHWISSEN SECTION -->
+    <section class="bg-slate-800/60 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">
+        Steuer- &amp; Immobilienwissen 2026: 5 % degressive AfA (§ 7 Abs. 5a EStG), Kaufpreisaufteilung &amp; Mietrendite
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">1. 5 % degressive AfA (§ 7 Abs. 5a EStG)</h3>
+          <p>
+            Mit dem Wachstumschancengesetz wurde die <strong>5,0 % degressive Gebäudeabschreibung</strong> eingeführt. In Kombination mit der <strong>§ 7b EStG Sonder-AfA (5 % für 4 Jahre bei EH40/QNG)</strong> lassen sich im 1. Jahr bis zu 10 % und in den ersten 4 Jahren über 36 % der Gebäudeherstellungskosten steuerlich abschreiben.
+          </p>
+          <a href="./degressive-afa-immobilien-5-prozent-7-abs-5a-estg-rechner-2026.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ 5 % degressive AfA &amp; Wechseljahr berechnen</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">2. Brutto-, Netto- &amp; Eigenkapitalrendite</h3>
+          <p>
+            Während die Bruttomietrendite (`Jahreskaltmiete / Kaufpreis`) nur eine erste Faustformel ist, berücksichtigt die <strong>Eigenkapitalrendite nach Steuern</strong> auch den Tilgungsaufbau, den Fremdkapitalhebel (Leverage-Effekt) und die Einkommensteuererstattung aus der Gebäude-AfA.
+          </p>
+          <a href="./mietrendite-berechnen-brutto-netto-eigenkapitalrendite-cashflow-formel.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Mietrendite &amp; EK-Rendite Formel</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">3. Kaufpreisaufteilung (Grund &amp; Boden)</h3>
+          <p>
+            Je höher der vertraglich vereinbarte und wirtschaftlich plausible <strong>Gebäudeanteil am Gesamtkaufpreis</strong> ausfällt, desto höher ist die jährliche AfA-Steuerersparnis. Auch die anteiligen Kaufnebenkosten (Grunderwerbsteuer, Notar, Makler) erhöhen die AfA-Bemessungsgrundlage.
+          </p>
+          <a href="./kaufpreisaufteilung-grund-und-boden-gebaeudeanteil-afa-berechnen.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Kaufpreisaufteilung &amp; AfA-Basis optimieren</a>
+        </div>
+      </div>
+
+      <!-- Cross-Linking -->
+      <div class="border-t border-slate-700 pt-5">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Passende Finanz-, Kredit- &amp; AfA-Werkzeuge im DACH Digitalwerk:</div>
+        <div class="flex flex-wrap gap-2.5 text-xs">
+          <a href="../kredit-annuitaeten-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-semibold transition">🏢 Annuitätendarlehen- &amp; Tilgungsplan-Rechner (#29)</a>
+          <a href="../afa-abschreibungs-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">📉 Bewegliche Wirtschaftsgüter AfA-Rechner (#17)</a>
+          <a href="../erbschaftssteuer-schenkungssteuer-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">🏛️ Immobilien-Erbschafts- &amp; Schenkungssteuer (#20)</a>
+          <a href="../nebenkosten-check/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">🏠 Betriebskosten- &amp; Nebenkosten-Prüfer (#5)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-6 px-4 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk • 100% Client-Side • Keine Steuer-, Rechts- oder Immobilienberatung (§ 2 RDG / § 5 StBerG / § 34c GewO)</div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="../" class="hover:text-white">Alle 37 Tools</a>
+        <a href="../haftungsausschluss/" class="hover:text-amber-400">Haftungsausschluss</a>
+        <a href="../agb/" class="hover:text-indigo-400">AGB</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRINT-ONLY DIN-A4 DOSSIER -->
+  <section class="print-only p-4 space-y-4 text-black">
+    <div class="border-b-2 border-black pb-3 flex justify-between items-start">
+      <div>
+        <h1 class="text-lg font-extrabold uppercase">DIN-A4 Immobilien-AfA-, Kaufpreisaufteilungs- &amp; Mietrendite-Dossier 2026</h1>
+        <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/immobilien-afa-rendite-rechner/)</p>
+      </div>
+      <div id="print-date" class="text-xs font-mono"></div>
+    </div>
+    <div id="print-summary" class="space-y-3 text-xs"></div>
+    <div class="border-t border-gray-400 pt-3 text-[10px] text-gray-600">
+      <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH Smartlaw-Urteil):</strong> Unverbindliche finanzmathematische Modellrechnung ohne Steuer- oder Anlageberatung.
+    </div>
+  </section>
+
+  <script>
+    let currentCountry = 'DE';
+
+    const PRESETS = {
+      neubau_deg: { price: 450000, nk: 8.5, bShare: 78, sqm: 95,  mode: 'degressiv_5',  tax: 42, rent: 1650, nonRec: 190, eq: 88250,  int: 3.65, rep: 2.0 },
+      qng_7b:     { price: 480000, nk: 7.5, bShare: 80, sqm: 90,  mode: 'degressiv_7b', tax: 42, rent: 1780, nonRec: 170, eq: 96000,  int: 3.50, rep: 2.0 },
+      bestand:    { price: 320000, nk: 9.5, bShare: 75, sqm: 78,  mode: 'linear_2',     tax: 42, rent: 1280, nonRec: 210, eq: 65000,  int: 3.80, rep: 2.0 },
+      mfh:        { price: 1250000,nk: 8.5, bShare: 76, sqm: 420, mode: 'degressiv_5',  tax: 44, rent: 5400, nonRec: 620, eq: 256250, int: 3.70, rep: 2.0 },
+      altbau:     { price: 580000, nk: 9.0, bShare: 72, sqm: 140, mode: 'linear_25',    tax: 42, rent: 2250, nonRec: 290, eq: 122200, int: 3.75, rep: 2.0 }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = c === 'CH' ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+      recalc();
+    }
+
+    function applyPreset(key) {
+      const p = PRESETS[key];
+      if (!p) return;
+      document.getElementById('purchasePrice').value = p.price;
+      document.getElementById('closingCostPct').value = p.nk;
+      document.getElementById('buildingSharePct').value = p.bShare;
+      document.getElementById('livingAreaSqm').value = p.sqm;
+      document.getElementById('afaMode').value = p.mode;
+      document.getElementById('marginalTaxRate').value = p.tax;
+      document.getElementById('monthlyColdRent').value = p.rent;
+      document.getElementById('monthlyNonRecoverable').value = p.nonRec;
+      document.getElementById('equityInvested').value = p.eq;
+      document.getElementById('loanInterestPct').value = p.int;
+      document.getElementById('loanRepaymentPct').value = p.rep;
+      recalc();
+    }
+
+    function fmtCurr(val, curr) {
+      return Math.round(val).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const price = Math.max(1000, parseFloat(document.getElementById('purchasePrice').value) || 0);
+      const nkPct = Math.max(0, parseFloat(document.getElementById('closingCostPct').value) || 0);
+      const bSharePct = Math.min(95, Math.max(10, parseFloat(document.getElementById('buildingSharePct').value) || 0));
+      const sqm = Math.max(10, parseFloat(document.getElementById('livingAreaSqm').value) || 0);
+      const mode = document.getElementById('afaMode').value;
+      const taxPct = Math.min(60, Math.max(0, parseFloat(document.getElementById('marginalTaxRate').value) || 0));
+
+      const coldRentMo = Math.max(0, parseFloat(document.getElementById('monthlyColdRent').value) || 0);
+      const nonRecMo = Math.max(0, parseFloat(document.getElementById('monthlyNonRecoverable').value) || 0);
+      const eq = Math.max(1, parseFloat(document.getElementById('equityInvested').value) || 0);
+      const intPct = Math.max(0, parseFloat(document.getElementById('loanInterestPct').value) || 0);
+      const repPct = Math.max(0, parseFloat(document.getElementById('loanRepaymentPct').value) || 0);
+
+      const closingCosts = price * (nkPct / 100.0);
+      const totalAcquisitionCost = price + closingCosts;
+      const afaBase = totalAcquisitionCost * (bSharePct / 100.0);
+      const loanAmount = Math.max(0, totalAcquisitionCost - eq);
+
+      let afaYear1 = 0;
+      let afa10YrSum = 0;
+      let switchYear = 0;
+      let rateLabel = '';
+
+      if (currentCountry === 'AT') {
+        // AT § 8 Abs. 1a / § 16 Abs. 1 Z 8 EStG: 4.5% Yr1, 3.0% Yr2, 1.5% Yr3+
+        afaYear1 = afaBase * 0.045;
+        afa10YrSum = afaBase * (0.045 + 0.030 + 8 * 0.015);
+        rateLabel = 'AT Beschleunigte AfA: 4,5 % (J.1) / 3,0 % (J.2)';
+        switchYear = 3;
+      } else if (currentCountry === 'CH') {
+        // CH Art. 32 DBG Pauschalabzug (20% of gross rent)
+        afaYear1 = (coldRentMo * 12.0) * 0.20;
+        afa10YrSum = afaYear1 * 10.0;
+        rateLabel = 'CH Art. 32 DBG Unterhaltspauschale (20 % Miete)';
+      } else {
+        // DE modes
+        if (mode === 'degressiv_5' || mode === 'degressiv_7b') {
+          const sonder7bBase = mode === 'degressiv_7b' ? Math.min(afaBase, sqm * 4000.0) : 0.0;
+          let rest = afaBase;
+          const linFloor = afaBase * 0.03;
+          for (let y = 1; y <= 35; y++) {
+            const degAmt = rest * 0.05;
+            const sonderAmt = (mode === 'degressiv_7b' && y <= 4) ? (sonder7bBase * 0.05) : 0.0;
+            if (switchYear === 0 && y > 4 && linFloor >= degAmt) {
+              switchYear = y;
+            }
+            const yrAmt = (switchYear > 0 && y >= switchYear) ? linFloor : (degAmt + sonderAmt);
+            if (y === 1) afaYear1 = yrAmt;
+            if (y <= 10) afa10YrSum += yrAmt;
+            rest = Math.max(0, rest - yrAmt);
+          }
+          rateLabel = mode === 'degressiv_7b'
+            ? `5,0 % Degressiv + 5,0 % § 7b (${(afaYear1 / afaBase * 100).toFixed(1)} %)`
+            : '5,0 % Degressiv (§ 7 Abs. 5a EStG)';
+        } else {
+          const linRate = mode === 'linear_3' ? 0.03 : (mode === 'linear_25' ? 0.025 : 0.02);
+          afaYear1 = afaBase * linRate;
+          afa10YrSum = afaYear1 * 10.0;
+          rateLabel = `${(linRate * 100).toFixed(1).replace('.', ',')} % Lineare Gebäude-AfA`;
+        }
+      }
+
+      const annualColdRent = coldRentMo * 12.0;
+      const annualNonRec = nonRecMo * 12.0;
+      const annualInterest = loanAmount * (intPct / 100.0);
+      const annualRepayment = loanAmount * (repPct / 100.0);
+
+      const netOperatingIncome = annualColdRent - annualNonRec;
+      const preTaxCashflow = netOperatingIncome - annualInterest - annualRepayment;
+
+      const taxableVV = netOperatingIncome - annualInterest - afaYear1;
+      const taxEffect = -taxableVV * (taxPct / 100.0); // positive = tax refund, negative = tax payment
+      const afaTaxShield = afaYear1 * (taxPct / 100.0);
+
+      const afterTaxCashflowAnnual = preTaxCashflow + taxEffect;
+      const afterTaxCashflowMonthly = afterTaxCashflowAnnual / 12.0;
+
+      const grossYieldPct = (annualColdRent / price) * 100.0;
+      const netYieldPct = (netOperatingIncome / totalAcquisitionCost) * 100.0;
+      const totalEquityGainYr1 = afterTaxCashflowAnnual + annualRepayment;
+      const roeAfterTaxPct = (totalEquityGainYr1 / eq) * 100.0;
+
+      const badgeMap = {
+        DE: 'DE • § 7 Abs. 5a / § 7b EStG',
+        AT: 'AT • § 8 Abs. 1a / § 16 EStG',
+        CH: 'CH • Art. 32 / Art. 33 DBG'
+      };
+      document.getElementById('out-country-badge').textContent = badgeMap[currentCountry];
+      document.getElementById('out-afa-yr1').textContent = fmtCurr(afaYear1, curr);
+      document.getElementById('out-afa-rate-label').textContent = rateLabel;
+      document.getElementById('out-afa-tax-shield').textContent = '+ ' + fmtCurr(afaTaxShield, curr);
+      document.getElementById('out-switch-year').textContent = switchYear > 0
+        ? (currentCountry === 'AT' ? 'Ab Jahr 3: regulär 1,5 % AfA' : `Optimaler Wechsel auf 3 % linear: Jahr ${switchYear}`)
+        : 'Konstante lineare Abschreibung';
+
+      document.getElementById('out-total-cost').textContent = fmtCurr(totalAcquisitionCost, curr);
+      document.getElementById('out-afa-base').textContent = `${fmtCurr(afaBase, curr)} (${bSharePct} %)`;
+      document.getElementById('out-afa-10yr').textContent = `${fmtCurr(afa10YrSum, curr)} (${(afa10YrSum / afaBase * 100).toFixed(1).replace('.', ',')} %)`;
+      document.getElementById('out-taxable-vv').textContent = `${fmtCurr(taxableVV, curr)} (${taxEffect >= 0 ? '+' + fmtCurr(taxEffect, curr) + ' Erstattung' : fmtCurr(taxEffect, curr) + ' Steuer'})`;
+      document.getElementById('out-monthly-cf-after-tax').textContent = `${afterTaxCashflowMonthly >= 0 ? '+' : ''}${Math.round(afterTaxCashflowMonthly).toLocaleString('de-DE')} ${curr} / Monat`;
+
+      document.getElementById('out-gross-yield').textContent = grossYieldPct.toFixed(2).replace('.', ',') + ' %';
+      document.getElementById('out-net-yield').textContent = netYieldPct.toFixed(2).replace('.', ',') + ' %';
+      document.getElementById('out-roe-after-tax').textContent = roeAfterTaxPct.toFixed(2).replace('.', ',') + ' %';
+
+      document.getElementById('print-date').textContent = 'Datum: ' + new Date().toLocaleDateString('de-DE') + ' | Rechtsraum: ' + currentCountry;
+      document.getElementById('print-summary').innerHTML = `
+        <table class="w-full border-collapse border border-gray-400 text-left">
+          <tr class="bg-gray-100"><th class="border border-gray-400 p-1.5">Kennzahl / Position</th><th class="border border-gray-400 p-1.5">Betrag / Quote</th><th class="border border-gray-400 p-1.5">Steuerliche &amp; Finanzielle Wirkung</th></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Gesamterwerbskosten &amp; AfA-Basis</td><td class="border border-gray-400 p-1.5 font-bold">${fmtCurr(totalAcquisitionCost, curr)}</td><td class="border border-gray-400 p-1.5">Gebäude-AfA-Basis (${bSharePct} %): ${fmtCurr(afaBase, curr)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Gebäude-AfA im 1. Jahr</td><td class="border border-gray-400 p-1.5 font-bold">${fmtCurr(afaYear1, curr)}</td><td class="border border-gray-400 p-1.5">${rateLabel} | AfA-Steuerersparnis: +${fmtCurr(afaTaxShield, curr)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Kumulierte AfA (10 Jahre)</td><td class="border border-gray-400 p-1.5">${fmtCurr(afa10YrSum, curr)}</td><td class="border border-gray-400 p-1.5">${(afa10YrSum / afaBase * 100).toFixed(1)} % des Gebäudewerts abgeschrieben</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Mietrendite (Brutto / Netto)</td><td class="border border-gray-400 p-1.5">${grossYieldPct.toFixed(2)} % / ${netYieldPct.toFixed(2)} %</td><td class="border border-gray-400 p-1.5">EK-Rendite nach Steuern (inkl. Tilgung): ${roeAfterTaxPct.toFixed(2)} % p.a.</td></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Monatlicher Cashflow nach Steuern</td><td class="border border-gray-400 p-1.5 font-bold">${Math.round(afterTaxCashflowMonthly)} ${curr} / Monat</td><td class="border border-gray-400 p-1.5">Steuerliches V+V-Ergebnis: ${fmtCurr(taxableVV, curr)} p.a.</td></tr>
+        </table>
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

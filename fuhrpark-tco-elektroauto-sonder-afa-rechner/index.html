@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Gewerbe-Fuhrpark TCO-, E-Auto-Sonder-AfA (§ 7c EStG 75 %)- &amp; Flottenkosten-Rechner 2026 | BEV vs. Plug-in-Hybrid vs. Diesel für DE, AT &amp; CH</title>
+  <meta name="description" content="Interaktiver Gewerbe-Fuhrpark TCO- &amp; Elektroauto-Sonderabschreibungs-Rechner 2026: § 7c EStG (75 % Sonder-AfA im 1. Jahr), 0,25-%-Dienstwagenregel bis 100.000 € Bruttolistenpreis (DE), 0 % Sachbezug &amp; Vorsteuerabzug (AT) sowie 0,9 % Privatanteil (CH). Vollkostenvergleich BEV vs. Diesel." />
+  <meta name="keywords" content="Fuhrpark TCO Rechner 2026, § 7c EStG Sonderabschreibung Elektroauto 75 Prozent, Dienstwagen 100000 Euro Grenze 0,25 Prozent, Elektroauto vs Diesel Gesamtkosten Rechner Gewerbe, Österreich Elektroauto Vorsteuerabzug Sachbezug 0, Flottenkosten pro km berechnen" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/fuhrpark-tco-elektroauto-sonder-afa-rechner/" />
+  <meta property="og:title" content="DACH Gewerbe-Fuhrpark TCO-, E-Auto-Sonder-AfA (§ 7c EStG 75 %)- &amp; Flotten-Rechner 2026" />
+  <meta property="og:description" content="Vollkosten- &amp; Steuervergleich (BEV vs. Diesel) inkl. 75 % Sonder-AfA (§ 7c EStG), 100.000-€-Grenze (0,25 %), AT Vorsteuerabzug &amp; CH Flotten-TCO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/fuhrpark-tco-elektroauto-sonder-afa-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Gewerbe-Fuhrpark TCO-, E-Auto-Sonder-AfA (§ 7c EStG 75 %)- & Flottenkosten-Rechner 2026",
+    "description": "Gewerblicher Fuhrpark-TCO- und Steuervorteils-Simulator 2026 (BEV vs. Verbrenner) für Deutschland (§ 7c EStG 75 % Sonder-AfA, 0,25 % bis 100.000 €), Österreich (0 % Sachbezug) und die Schweiz.",
+    "url": "https://dachdigitalwerk.github.io/fuhrpark-tco-elektroauto-sonder-afa-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie funktioniert die 75-%-Sonderabschreibung für betriebliche Elektrofahrzeuge nach § 7c EStG 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für neu angeschaffte rein elektrisch betriebene Fahrzeuge im Betriebsvermögen erlaubt § 7c EStG eine arithmetisch-degressive Sonderabschreibung über 6 Jahre mit Staffelsätzen von 75 % im Anschaffungsjahr, 10 % im 2. Jahr, je 5 % im 3. und 4. Jahr, 3 % im 5. Jahr und 2 % im 6. Jahr (gegenüber 16,67 % p.a. bei linearer 6-Jahres-AfA). Dadurch entsteht bereits im 1. Jahr ein massiver Liquiditäts- und Steuerstundungsvorteil."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Bis zu welchem Bruttolistenpreis gilt 2026 die 0,25-%-Dienstwagenbesteuerung für Elektroautos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die Grenze für die 0,25-%-Versteuerung des geldwerten Vorteils (§ 6 Abs. 1 Nr. 4 Satz 2 Nr. 3 EStG) liegt bei einem Bruttolistenpreis von bis zu 100.000 €. Liegt der Bruttolistenpreis eines Elektrofahrzeugs über 100.000 €, kommt der halbierte Satz von 0,50 % (statt 1,00 % beim Verbrenner) zur Anwendung. In Österreich gilt für reine E-Autos weiterhin 0,0 % Sachbezug."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser Fuhrpark-TCO- und AfA-Rechner eine Steuer- oder Rechtsberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #44 • Rechtsstand 2026 (DE § 7c EStG 75 % AfA &amp; 100k BLP / AT 0 % Sachbezug / CH Flotte)</span>
+      </div>
+      <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+        🖨️ DIN-A4 Fuhrpark-TCO-Dossier drucken
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 § 7c EStG (75 % Sonder-AfA im 1. Jahr) &amp; 0,25 % bis 100.000 € BLP
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          🇦🇹 0,0 % Sachbezug &amp; Vorsteuerabzug E-PKW
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          🇨🇭 0,9 % Privatanteil &amp; 40 % degressive AfA
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH Gewerbe-Fuhrpark TCO-, E-Auto-Sonder-AfA (§ 7c EStG 75 %)- &amp; Flotten-Rechner 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Vergleichen Sie die <strong>Total Cost of Ownership (TCO nach Unternehmenssteuern + Dienstwagen-Sachbezug)</strong> eines vollelektrischen Firmenwagens (BEV) mit einem vergleichbaren Diesel/Verbrenner — für Einzel-Geschäftsführerfahrzeuge und ganze Unternehmensflotten (<em>N</em> Fahrzeuge). Inklusive <strong>75-%-Erstjahres-Abschreibung (§ 7c EStG)</strong> und <strong>100.000-€-Bruttolistenpreis-Prüfung (0,25 % vs. 0,50 % vs. 1,00 %)</strong>.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Rechtsraum:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 Deutschland (§ 7c EStG / 0,25 %)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 Österreich (0 % Sachbezug)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 Schweiz (0,9 % / Monat)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">Fuhrpark-Presets:</span>
+          <button onclick="loadPreset('exec_sedan')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">🚘 GF-Limousine 88.000 € (unter 100k Grenze)</button>
+          <button onclick="loadPreset('sales_fleet')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🚐 Außendienst-Flotte (10 Fzg. × 54.000 €)</button>
+          <button onclick="loadPreset('lux_suv')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">⚡ Luxus-SUV 118.000 € (&gt; 100k → 0,50 %)</button>
+          <button onclick="loadPreset('at_firma')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🇦🇹 Wien GmbH-PKW (64.000 € Brutto)</button>
+          <button onclick="loadPreset('ch_flotte')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">🇨🇭 Zürich AG Flotte (5 Fzg. × 72.000 CHF)</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Inputs -->
+      <div class="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Fahrzeug-, Energie- &amp; Flotten-Parameter</span>
+          <span id="badge-curr" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label for="in-blp" class="block text-xs font-semibold text-slate-300 mb-1">Bruttolistenpreis (BLP)</label>
+            <input id="in-blp" type="number" value="78000" min="15000" step="2000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-fleet-n" class="block text-xs font-semibold text-slate-300 mb-1">Anzahl Fahrzeuge</label>
+            <input id="in-fleet-n" type="number" value="1" min="1" max="500" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-hold-yrs" class="block text-xs font-semibold text-slate-300 mb-1">Haltedauer (Jahre)</label>
+            <input id="in-hold-yrs" type="number" value="4" min="1" max="8" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-km-yr" class="block text-xs font-semibold text-slate-300 mb-1">Fahrleistung km / Jahr</label>
+            <input id="in-km-yr" type="number" value="25000" min="5000" step="2500" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-res-pct" class="block text-xs font-semibold text-slate-300 mb-1">Restwert nach Haltedauer (%)</label>
+            <input id="in-res-pct" type="number" value="42.0" min="0" max="85" step="2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3">2. Energieverbrauch &amp; Steuersätze</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-kwh-100" class="block text-xs font-semibold text-slate-300 mb-1">BEV Verbrauch (kWh/100km)</label>
+              <input id="in-kwh-100" type="number" value="18.5" min="10" max="35" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-price-kwh" class="block text-xs font-semibold text-slate-300 mb-1">Strompreis netto (/kWh)</label>
+              <input id="in-price-kwh" type="number" value="0.32" min="0.10" max="1.00" step="0.02" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-3">
+            <div>
+              <label for="in-diesel-100" class="block text-xs font-semibold text-slate-300 mb-1">Diesel Verbrauch (L/100km)</label>
+              <input id="in-diesel-100" type="number" value="6.8" min="3" max="18" step="0.2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-price-diesel" class="block text-xs font-semibold text-slate-300 mb-1">Dieselpreis netto (/Liter)</label>
+              <input id="in-price-diesel" type="number" value="1.48" min="0.80" max="3.00" step="0.02" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-3">
+            <div>
+              <label for="in-corp-tax" class="block text-xs font-semibold text-slate-300 mb-1">Unternehmenssteuersatz (%)</label>
+              <input id="in-corp-tax" type="number" value="30.0" min="10" max="50" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-emp-tax" class="block text-xs font-semibold text-slate-300 mb-1">ESt-Grenzsteuersatz Fahrer (%)</label>
+              <input id="in-emp-tax" type="number" value="42.0" min="15" max="55" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Results -->
+      <div class="lg:col-span-7 space-y-6">
+        <div id="box-bev-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex items-center justify-between">
+            <span id="out-bev-title" class="text-xs font-extrabold text-emerald-300">🟢 0,25-%-Privileg (BLP ≤ 100.000 €) + 75 % Sonder-AfA (§ 7c EStG) aktiv</span>
+            <span id="out-yr1-afa-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-200">1. Jahr AfA-Boost: +11.473 € Liquidität</span>
+          </div>
+          <p id="out-bev-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Im 1. Jahr können 75 % der Netto-Anschaffungskosten sofort abgeschrieben werden (§ 7c EStG statt 16,67 % linear). Zudem spart der Fahrer 75 % der Dienstwagensteuer gegenüber einem Verbrenner!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Gesamter TCO-Vorteil (BEV vs. Diesel)</span>
+            <div id="out-total-saving" class="text-2xl font-extrabold text-emerald-400 mt-1">+19.840 €</div>
+            <p id="out-saving-per-yr" class="text-[11px] text-slate-300 mt-1">Ersparnis pro Jahr: +4.960 €</p>
+          </div>
+          <div class="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">1. Jahr Sonder-AfA (§ 7c EStG 75 %)</span>
+            <div id="out-yr1-deduction" class="text-2xl font-extrabold text-indigo-300 mt-1">49.160 €</div>
+            <p id="out-yr1-tax-cash" class="text-[11px] text-slate-400 mt-1">Steuerersparnis Jahr 1: 14.748 €</p>
+          </div>
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Netto-TCO pro km (BEV vs. Diesel)</span>
+            <div id="out-km-cost" class="text-2xl font-extrabold text-white mt-1">0,38 € vs. 0,58 €</div>
+            <p id="out-bik-saving" class="text-[11px] text-emerald-300 mt-1">Sachbezug-Ersparnis Fahrer: +2.948 €/J.</p>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Table -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-4">
+            Fuhrpark-Vollkosten- &amp; Steuervergleich über die gesamte Haltedauer (Flotte gesamt)
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">Kosten- &amp; Steuerposition (Gesamte Flotte &amp; Laufzeit)</th>
+                  <th class="py-2 px-3 text-right">Verbrenner / Diesel</th>
+                  <th class="py-2 pl-3 text-right text-emerald-300">Elektrofahrzeug (BEV)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">1. Netto-Anschaffungskosten (nach Vorsteuerabzug)</td>
+                  <td id="tbl-net-cap-ice" class="py-2.5 px-3 text-right font-mono">65.546 €</td>
+                  <td id="tbl-net-cap-bev" class="py-2.5 pl-3 text-right font-mono text-indigo-200">65.546 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">2. Abschreibung im 1. Jahr (Linear 16,67 % vs. § 7c EStG 75 %)</td>
+                  <td id="tbl-afa1-ice" class="py-2.5 px-3 text-right font-mono">10.924 €</td>
+                  <td id="tbl-afa1-bev" class="py-2.5 pl-3 text-right font-mono text-emerald-300 font-semibold">49.160 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">3. Wertverlust über Haltedauer + Wartung/Versicherung/Kfz-Steuer</td>
+                  <td id="tbl-op-ice" class="py-2.5 px-3 text-right font-mono text-rose-300">44.837 €</td>
+                  <td id="tbl-op-bev" class="py-2.5 pl-3 text-right font-mono text-emerald-300">41.237 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">4. Energiekosten netto (Diesel vs. Ladestrom über Laufzeit)</td>
+                  <td id="tbl-energy-ice" class="py-2.5 px-3 text-right font-mono text-rose-300">10.064 €</td>
+                  <td id="tbl-energy-bev" class="py-2.5 pl-3 text-right font-mono text-emerald-300">5.920 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">5. Netto-Unternehmenskosten nach Ertragsteuerabzug</td>
+                  <td id="tbl-corp-net-ice" class="py-2.5 px-3 text-right font-mono">38.431 €</td>
+                  <td id="tbl-corp-net-bev" class="py-2.5 pl-3 text-right font-mono text-indigo-200">33.010 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">6. Dienstwagen-Steuerbelastung Fahrer (1,0 % vs. 0,25 % / 0,0 % AT)</td>
+                  <td id="tbl-bik-ice" class="py-2.5 px-3 text-right font-mono text-rose-300">15.725 €</td>
+                  <td id="tbl-bik-bev" class="py-2.5 pl-3 text-right font-mono text-emerald-300">3.931 €</td>
+                </tr>
+                <tr class="bg-indigo-950/40 font-extrabold text-white">
+                  <td class="py-3 pr-3">7. Gesamt-TCO (Unternehmen netto + Fahrer-Steuer)</td>
+                  <td id="tbl-tot-ice" class="py-3 px-3 text-right font-mono">54.156 €</td>
+                  <td id="tbl-tot-bev" class="py-3 pl-3 text-right font-mono text-emerald-400">36.941 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: § 7c EStG Elektro-Sonderabschreibung (75 %), 100.000-€-Dienstwagengrenze (0,25 %) &amp; DACH-Fuhrpark-TCO
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        Mit der <strong>75-%-Sonderabschreibung im Anschaffungsjahr nach § 7c EStG</strong> (gefolgt von 10 %, 5 %, 5 %, 3 % und 2 %) sowie der Anhebung der Bruttolistenpreisgrenze für die <strong>0,25-%-Dienstwagenbesteuerung auf 100.000 €</strong> (§ 6 Abs. 1 Nr. 4 EStG) bieten vollelektrische Firmenwagen (BEV) im Jahr 2026 einen doppelten Steuerhebel für GmbHs, Freiberufler und Personengesellschaften.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="sonderabschreibung-elektroauto-7c-estg-75-prozent-tabelle-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • § 7c EStG Tabelle</div>
+          <div class="text-sm font-bold text-white">75 % Sonderabschreibung für E-Autos 2026: Staffeltabelle &amp; Liquiditätsvorteil</div>
+        </a>
+        <a href="dienstwagen-elektroauto-100000-euro-grenze-0-25-prozent-tco-vergleich.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-emerald-300 mb-1">Vertiefung 2 • 100.000-€-Grenze</div>
+          <div class="text-sm font-bold text-white">Dienstwagen 2026: 0,25 % bis 100.000 € BLP vs. 0,50 % &amp; Verbrenner-TCO</div>
+        </a>
+        <a href="elektroauto-vorsteuerabzug-oesterreich-sachbezug-schweiz-flotte-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • AT &amp; CH Fuhrpark</div>
+          <div class="text-sm font-bold text-white">Österreich (0 % Sachbezug &amp; Vorsteuerabzug) vs. Schweiz (0,9 % Privatanteil)</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Dieser DACH Gewerbe-Fuhrpark TCO- und § 7c EStG Sonder-AfA-Rechner ist ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug. Er erbringt keine individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG. 100 % Client-Side (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+
+    function fmtC(val, curr) {
+      const sign = val < 0 ? '-' : '';
+      return sign + Math.round(Math.abs(val)).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        btn.className = (k === c)
+          ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400'
+          : 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+      });
+      document.getElementById('badge-curr').textContent = (c === 'CH') ? 'CHF' : 'EUR (€)';
+      if (c === 'DE') {
+        document.getElementById('in-corp-tax').value = 30.0;
+        document.getElementById('in-emp-tax').value = 42.0;
+      } else if (c === 'AT') {
+        document.getElementById('in-corp-tax').value = 23.0;
+        document.getElementById('in-emp-tax').value = 48.0;
+      } else if (c === 'CH') {
+        document.getElementById('in-corp-tax').value = 14.0;
+        document.getElementById('in-emp-tax').value = 32.0;
+      }
+      recalc();
+    }
+
+    function loadPreset(p) {
+      if (p === 'exec_sedan') {
+        setCountry('DE');
+        document.getElementById('in-blp').value = 88000;
+        document.getElementById('in-fleet-n').value = 1;
+        document.getElementById('in-hold-yrs').value = 4;
+        document.getElementById('in-km-yr').value = 25000;
+      } else if (p === 'sales_fleet') {
+        setCountry('DE');
+        document.getElementById('in-blp').value = 54000;
+        document.getElementById('in-fleet-n').value = 10;
+        document.getElementById('in-hold-yrs').value = 4;
+        document.getElementById('in-km-yr').value = 35000;
+      } else if (p === 'lux_suv') {
+        setCountry('DE');
+        document.getElementById('in-blp').value = 118000;
+        document.getElementById('in-fleet-n').value = 1;
+        document.getElementById('in-hold-yrs').value = 4;
+        document.getElementById('in-km-yr').value = 25000;
+      } else if (p === 'at_firma') {
+        setCountry('AT');
+        document.getElementById('in-blp').value = 64000;
+        document.getElementById('in-fleet-n').value = 1;
+        document.getElementById('in-hold-yrs').value = 5;
+        document.getElementById('in-km-yr').value = 25000;
+      } else if (p === 'ch_flotte') {
+        setCountry('CH');
+        document.getElementById('in-blp').value = 72000;
+        document.getElementById('in-fleet-n').value = 5;
+        document.getElementById('in-hold-yrs').value = 4;
+        document.getElementById('in-km-yr').value = 25000;
+      }
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const blp = Math.max(10000, parseFloat(document.getElementById('in-blp').value) || 60000);
+      const fleetN = Math.max(1, parseInt(document.getElementById('in-fleet-n').value) || 1);
+      const holdYrs = Math.max(1, Math.min(10, parseInt(document.getElementById('in-hold-yrs').value) || 4));
+      const kmYr = Math.max(1000, parseFloat(document.getElementById('in-km-yr').value) || 25000);
+      const resPct = Math.min(90, Math.max(0, parseFloat(document.getElementById('in-res-pct').value) || 40));
+      const kwh100 = Math.max(5, parseFloat(document.getElementById('in-kwh-100').value) || 18);
+      const priceKwh = Math.max(0.05, parseFloat(document.getElementById('in-price-kwh').value) || 0.32);
+      const diesel100 = Math.max(2, parseFloat(document.getElementById('in-diesel-100').value) || 6.8);
+      const priceDiesel = Math.max(0.5, parseFloat(document.getElementById('in-price-diesel').value) || 1.48);
+      const corpTaxPct = Math.max(0, parseFloat(document.getElementById('in-corp-tax').value) || 30);
+      const empTaxPct = Math.max(0, parseFloat(document.getElementById('in-emp-tax').value) || 42);
+
+      const vatRate = currentCountry === 'DE' ? 0.19 : (currentCountry === 'AT' ? 0.20 : 0.081);
+      let netCapBev = (blp / (1.0 + vatRate)) * fleetN;
+      let netCapIce = (blp / (1.0 + vatRate)) * fleetN;
+      if (currentCountry === 'AT') {
+        // In AT, ICE passenger cars generally have no VAT deduction, BEV has VAT deduction up to 40k/80k cap
+        netCapIce = blp * fleetN;
+        if (blp <= 40000) {
+          netCapBev = (blp / 1.20) * fleetN;
+        } else if (blp <= 80000) {
+          netCapBev = (blp - 6666.67) * fleetN;
+        } else {
+          netCapBev = blp * fleetN;
+        }
+      }
+
+      // Year 1 AfA comparison
+      const afa1Ice = netCapIce / 6.0;
+      const afa1Bev = (currentCountry === 'DE') ? (netCapBev * 0.75) : (currentCountry === 'AT' ? netCapBev * 0.30 : netCapBev * 0.40);
+      const yr1TaxCashBev = afa1Bev * (corpTaxPct / 100.0);
+      const yr1TaxBoost = (afa1Bev - afa1Ice) * (corpTaxPct / 100.0);
+
+      // Total depreciation & maintenance over holding period
+      const depBev = netCapBev * (1.0 - resPct / 100.0);
+      const depIce = netCapIce * (1.0 - resPct / 100.0);
+      const maintBev = 950 * holdYrs * fleetN;
+      const maintIce = 1850 * holdYrs * fleetN; // incl. Kfz-Steuer & oil/service
+      const opBev = depBev + maintBev;
+      const opIce = depIce + maintIce;
+
+      // Energy cost over holding period
+      const totalKm = kmYr * holdYrs * fleetN;
+      const energyBev = (totalKm / 100.0) * kwh100 * priceKwh;
+      const energyIce = (totalKm / 100.0) * diesel100 * priceDiesel;
+
+      const corpNetBev = (opBev + energyBev) * (1.0 - corpTaxPct / 100.0);
+      const corpNetIce = (opIce + energyIce) * (1.0 - corpTaxPct / 100.0);
+
+      // Benefit in kind (Sachbezug) driver tax over holding period
+      let bikMonthlyBev = 0.0;
+      let bikMonthlyIce = 0.0;
+      if (currentCountry === 'DE') {
+        bikMonthlyBev = blp * ((blp <= 100000) ? 0.0025 : 0.005);
+        bikMonthlyIce = blp * 0.01;
+      } else if (currentCountry === 'AT') {
+        bikMonthlyBev = 0.0;
+        bikMonthlyIce = Math.min(blp * 0.02, 960.0); // § 4 SachbezugswerteVO Deckelung 960 €/Monat
+      } else {
+        const chExclVat = blp / 1.081; // Kaufpreis exkl. 8,1 % MWST
+        const chMonthlyBik = Math.max(150.0, chExclVat * 0.009); // 0,9 %/Monat, mind. 150 CHF
+        bikMonthlyBev = chMonthlyBik;
+        bikMonthlyIce = chMonthlyBik;
+      }
+
+      const bikTaxBev = (bikMonthlyBev * 12 * holdYrs * fleetN) * (empTaxPct / 100.0);
+      const bikTaxIce = (bikMonthlyIce * 12 * holdYrs * fleetN) * (empTaxPct / 100.0);
+
+      const totTcoBev = corpNetBev + bikTaxBev;
+      const totTcoIce = corpNetIce + bikTaxIce;
+      const totalSaving = totTcoIce - totTcoBev;
+
+      const kmCostBev = totTcoBev / totalKm;
+      const kmCostIce = totTcoIce / totalKm;
+
+      const box = document.getElementById('box-bev-status');
+      const titleEl = document.getElementById('out-bev-title');
+      const badgeEl = document.getElementById('out-yr1-afa-badge');
+      const descEl = document.getElementById('out-bev-desc');
+
+      badgeEl.textContent = `1. Jahr AfA-Boost: +${fmtC(yr1TaxBoost, curr)} Liquidität`;
+
+      if (currentCountry === 'DE' && blp <= 100000) {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 0,25-%-Privileg (BLP ≤ 100.000 €) + 75 % Sonder-AfA (§ 7c EStG) aktiv';
+        descEl.textContent = `Bruttolistenpreis (${fmtC(blp, curr)}) liegt innerhalb der 100.000-€-Grenze: Nur 0,25 % geldwerter Vorteil pro Monat und 75 % Erstjahres-AfA nach § 7c EStG!`;
+      } else if (currentCountry === 'DE') {
+        box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-amber-300';
+        titleEl.textContent = '🟡 BLP über 100.000 €: 0,50-%-Dienstwagensatz + 75 % Sonder-AfA (§ 7c EStG)';
+        descEl.textContent = `Oberhalb von 100.000 € Bruttolistenpreis gilt der 0,50-%-Satz (immer noch 50 % Ersparnis gegenüber 1,00 % beim Verbrenner) sowie die volle 75-%-Sonderabschreibung nach § 7c EStG.`;
+      } else if (currentCountry === 'AT') {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Österreich: 0,0 % Sachbezug für E-Autos + Vorsteuerabzug';
+        descEl.textContent = 'Für reine Elektrofahrzeuge fällt in Österreich 0,00 € privater Sachbezug an (gegenüber bis zu 960 €/Monat Bemessungsgrundlage beim Verbrenner).';
+      } else {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Schweiz: 40 % degressive Sofort-AfA & niedrigere Betriebskosten';
+        descEl.textContent = 'Deutlicher TCO-Vorteil durch geringere Energie- und Wartungskosten über die gesamte Laufzeit.';
+      }
+
+      document.getElementById('out-total-saving').textContent = (totalSaving >= 0 ? '+' : '') + fmtC(totalSaving, curr);
+      document.getElementById('out-saving-per-yr').textContent = `Ersparnis pro Jahr: +${fmtC(totalSaving / holdYrs, curr)}`;
+      document.getElementById('out-yr1-deduction').textContent = fmtC(afa1Bev, curr);
+      document.getElementById('out-yr1-tax-cash').textContent = `Steuerersparnis Jahr 1: ${fmtC(yr1TaxCashBev, curr)}`;
+      document.getElementById('out-km-cost').textContent = `${kmCostBev.toFixed(2).replace('.', ',')} vs. ${kmCostIce.toFixed(2).replace('.', ',')} ${curr}`;
+      document.getElementById('out-bik-saving').textContent = `Sachbezug-Ersparnis Fahrer: +${fmtC((bikTaxIce - bikTaxBev) / holdYrs, curr)}/J.`;
+
+      document.getElementById('tbl-net-cap-ice').textContent = fmtC(netCapIce, curr);
+      document.getElementById('tbl-net-cap-bev').textContent = fmtC(netCapBev, curr);
+      document.getElementById('tbl-afa1-ice').textContent = fmtC(afa1Ice, curr);
+      document.getElementById('tbl-afa1-bev').textContent = fmtC(afa1Bev, curr);
+      document.getElementById('tbl-op-ice').textContent = fmtC(opIce, curr);
+      document.getElementById('tbl-op-bev').textContent = fmtC(opBev, curr);
+      document.getElementById('tbl-energy-ice').textContent = fmtC(energyIce, curr);
+      document.getElementById('tbl-energy-bev').textContent = fmtC(energyBev, curr);
+      document.getElementById('tbl-corp-net-ice').textContent = fmtC(corpNetIce, curr);
+      document.getElementById('tbl-corp-net-bev').textContent = fmtC(corpNetBev, curr);
+      document.getElementById('tbl-bik-ice').textContent = fmtC(bikTaxIce, curr);
+      document.getElementById('tbl-bik-bev').textContent = fmtC(bikTaxBev, curr);
+      document.getElementById('tbl-tot-ice').textContent = fmtC(totTcoIce, curr);
+      document.getElementById('tbl-tot-bev').textContent = fmtC(totTcoBev, curr);
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

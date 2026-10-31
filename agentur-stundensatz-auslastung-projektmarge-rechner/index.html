@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Agentur-, Consulting- &amp; IT-Dienstleister Stundensatz-, Auslastungs- (Billable Utilization) &amp; Projektmarge-Rechner 2026 | DB I/II/III, KSK 5,0 % &amp; Scope-Creep-Puffer (DE/AT/CH)</title>
+  <meta name="description" content="Interaktiver Agentur- &amp; Consulting-Stundensatz-, Billable-Utilization-, Overhead- &amp; Projektmarge-Rechner 2026 für DE, AT &amp; CH: Vollkosten- &amp; Ziel-Stundensatz, 5,0 % KSK-Abgabe (KSVG), Projekt-Deckungsbeitrag DB I/II/III, Festpreis-Scope-Creep-Simulation &amp; CSV/JSON-Export." />
+  <meta name="keywords" content="Agentur Stundensatz Rechner 2026, Consulting Tagessatz kalkulieren, Billable Utilization Auslastung berechnen, Projektmarge DB1 DB2 DB3 Agentur, Künstlersozialkasse KSK 5 Prozent Rechner 2026, IT Dienstleister Overhead pro Kopf, Festpreis Scope Creep Risikopuffer" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/agentur-stundensatz-auslastung-projektmarge-rechner/" />
+  <meta property="og:title" content="DACH Agentur-, Consulting- &amp; IT-Stundensatz-, Auslastungs- &amp; Projektmarge-Rechner 2026" />
+  <meta property="og:description" content="Vollkosten- &amp; Ziel-Stundensatz nach fakturierbarer Auslastung, 5,0 % KSK-Abgabe (DE), Projekt-DB I/II/III, Scope-Creep-Puffer &amp; Tagessatz-Vergleich DE/AT/CH." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/agentur-stundensatz-auslastung-projektmarge-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Agentur-, Consulting- & IT-Dienstleister Stundensatz-, Auslastungs- & Projektmarge-Rechner 2026",
+    "description": "Vollkosten-Stundensatz-, Billable-Utilization-, Künstlersozialkassen- (5,0 % KSK) und Projekt-Deckungsbeitragsrechner (DB I, DB II, DB III) für Agenturen, Unternehmensberatungen und IT-Systemhäuser in Deutschland, Österreich und der Schweiz.",
+    "url": "https://dachdigitalwerk.github.io/agentur-stundensatz-auslastung-projektmarge-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechnet man den Vollkosten- und Ziel-Stundensatz einer Agentur oder IT-Beratung 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zuerst werden die Arbeitgeber-Gesamtpersonalkosten (Jahresbruttogehalt × Lohnnebenkostenfaktor, z. B. ca. 1,215 in DE, 1,305 in AT, 1,155 in CH) plus der anteilige Agentur-Overhead pro Kopf ermittelt. Diese Gesamtkosten teilt man durch die real fakturierbaren Jahresstunden (Netto-Arbeitstage × Tagesstunden × fakturierbare Auslastung in %). Für den Ziel-Stundensatz dividiert man den Vollkosten-Stundensatz durch (1 − Ziel-EBIT-Marge)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann fällt in Deutschland die Künstlersozialabgabe (KSK 5,0 % in 2026) auf externe Freelancer an?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Beauftragt eine Agentur oder ein Unternehmen selbstständige Kreative (z. B. Webdesign, Grafik, UI/UX, Copywriting, Foto, Video) nicht nur gelegentlich, fällt nach §§ 24, 25 KSVG auf das gezahlte Netto-Honorar die Künstlersozialabgabe von 5,0 % (Stand 2026) an. Diese 5,0 % sind nicht als Vorsteuer abziehbar und müssen als direkte Fremdleistungskosten vor dem Deckungsbeitrag I einkalkuliert werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser Agentur-Stundensatz- und KSK-Rechner eine Rechts- oder Steuerberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – Az. I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #45 • Agentur-, Consulting- &amp; IT-Stundensatz, Utilization &amp; DB I–III 2026</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="exportCSV()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700 transition">
+          📊 CSV-Export
+        </button>
+        <button onclick="exportJSON()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-300 border border-slate-700 transition">
+          🗂️ JSON-Export
+        </button>
+        <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+          🖨️ DIN-A4 Kalkulations-Dossier drucken
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 LNK ~1,215 &amp; 5,0 % KSK (KSVG) • 🇦🇹 LNK ~1,305 • 🇨🇭 LNK ~1,155
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          ⏱️ Billable Utilization &amp; Overhead-Umlage
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          📐 Projekt-DB I / DB II / DB III &amp; Scope-Creep-Festpreispuffer
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH Agentur-, Consulting- &amp; IT-Dienstleister Stundensatz-, Auslastungs- &amp; Projektmarge-Rechner 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Kalkulieren Sie Ihren exakten <strong>Vollkosten- &amp; Ziel-Stundensatz</strong> aus Jahresbruttogehalt, Arbeitgeber-Lohnnebenkostenfaktor, Overhead pro Kopf und realer <strong>fakturierbarer Auslastung (Billable Utilization)</strong>. Inklusive <strong>5,0 % Künstlersozialabgabe (KSK nach KSVG in DE)</strong> auf kreative Freelancer, mehrstufiger <strong>Projekt-Deckungsbeitragsrechnung (DB I, DB II, DB III)</strong>, <strong>Festpreis-Scope-Creep-Simulation</strong> und DACH-Tagessatz-Vergleich.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Standort:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 DE (LNK 1,215 • KSK 5,0 %)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 AT (LNK 1,305 • DB/DZ/KommSt)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 CH (CHF • LNK 1,155)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">Praxis-Presets:</span>
+          <button onclick="loadPreset('it_consulting_de')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">💻 IT-Consulting Senior (82k € / 72 %)</button>
+          <button onclick="loadPreset('creative_agency_ksk')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-rose-200 border border-slate-700 transition">🎨 Kreativagentur DE + KSK 5 % (58k € / 65 %)</button>
+          <button onclick="loadPreset('perf_marketing')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">📈 Performance-Agentur (64k € / 75 %)</button>
+          <button onclick="loadPreset('at_consulting')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">🇦🇹 Beratung Wien (74k € / LNK 1,305)</button>
+          <button onclick="loadPreset('ch_digital')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-sky-200 border border-slate-700 transition">🇨🇭 Digitalagentur Zürich (118k CHF)</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Inputs -->
+      <div class="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Personal-, Overhead- &amp; Auslastungs-Basis</span>
+          <span id="badge-curr" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-salary" class="block text-xs font-semibold text-slate-300 mb-1">Jahresbruttogehalt (inkl. Boni)</label>
+            <input id="in-salary" type="number" value="72000" min="10000" step="1000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-emp-factor" class="block text-xs font-semibold text-slate-300 mb-1">AG-Lohnnebenkostenfaktor</label>
+            <input id="in-emp-factor" type="number" value="1.215" min="1.0" max="1.6" step="0.005" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-overhead" class="block text-xs font-semibold text-slate-300 mb-1">Overhead pro Kopf / Jahr (Miete, SaaS, PM, GF)</label>
+            <input id="in-overhead" type="number" value="24000" min="0" step="1000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-target-ebit" class="block text-xs font-semibold text-slate-300 mb-1">Ziel-EBIT-Marge (% vom Umsatz)</label>
+            <input id="in-target-ebit" type="number" value="20.0" min="0" max="60" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label for="in-workdays" class="block text-xs font-semibold text-slate-300 mb-1">Netto-Arbeitstage/J.</label>
+            <input id="in-workdays" type="number" value="218" min="100" max="260" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-daily-hrs" class="block text-xs font-semibold text-slate-300 mb-1">Tagesstunden (h)</label>
+            <input id="in-daily-hrs" type="number" value="8.0" min="4" max="12" step="0.2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-util-pct" class="block text-xs font-semibold text-slate-300 mb-1">Billable Auslast. (%)</label>
+            <input id="in-util-pct" type="number" value="70.0" min="20" max="98" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300">2. Projekt-Kalkulation, KSK (5,0 %) &amp; Festpreis-Scope-Creep</h3>
+
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="in-proj-hrs" class="block text-xs font-semibold text-slate-300 mb-1">Geplante Stunden</label>
+              <input id="in-proj-hrs" type="number" value="180" min="1" step="10" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-offered-rate" class="block text-xs font-semibold text-slate-300 mb-1">Kunden-Stundensatz</label>
+              <input id="in-offered-rate" type="number" value="125" min="20" step="5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-scope-creep" class="block text-xs font-semibold text-slate-300 mb-1">Scope-Creep (+%)</label>
+              <input id="in-scope-creep" type="number" value="15.0" min="0" max="150" step="5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label for="in-freelancer" class="block text-xs font-semibold text-slate-300 mb-1">Externe Freelancer netto</label>
+              <input id="in-freelancer" type="number" value="6000" min="0" step="500" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-software-pass" class="block text-xs font-semibold text-slate-300 mb-1">Lizenzen / Media / Fremdkosten</label>
+              <input id="in-software-pass" type="number" value="1200" min="0" step="200" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5">
+            <div>
+              <label for="in-ksk-active" class="text-xs font-bold text-slate-200 cursor-pointer">Künstlersozialkasse DE (5,0 % KSK-Abgabe nach KSVG)</label>
+              <p class="text-[11px] text-slate-400">Auf kreative Freelancer-Honorare (Design, UI/UX, Text, Foto/Video) in DE</p>
+            </div>
+            <input id="in-ksk-active" type="checkbox" checked onchange="recalc()" class="w-4 h-4 accent-indigo-500 rounded cursor-pointer" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Results -->
+      <div class="lg:col-span-7 space-y-6">
+        <div id="box-margin-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span id="out-status-title" class="text-xs font-extrabold text-emerald-300">🟢 Profitables Projekt nach Overhead &amp; Scope-Creep</span>
+            <span id="out-status-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200">DB III-Marge: 18,4 % • EHR: 108,70 €/h</span>
+          </div>
+          <p id="out-status-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Ihr angebotener Stundensatz deckt Vollkosten, KSK-Abgabe und den simulierten Scope-Creep-Mehraufwand vollständig ab.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Vollkosten-Stundensatz</span>
+            <div id="out-breakeven-rate" class="text-2xl font-extrabold text-white mt-1">91,34 €/h</div>
+            <p id="out-billable-hrs" class="text-[11px] text-indigo-300 mt-1">1.221 fakturierbare Std./Jahr</p>
+          </div>
+          <div class="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">Ziel-Stundensatz / Tagessatz</span>
+            <div id="out-target-rate" class="text-2xl font-extrabold text-indigo-300 mt-1">114,18 €/h</div>
+            <p id="out-target-dayrate" class="text-[11px] text-slate-300 mt-1">Ziel-Tagessatz: 913 € / Tag</p>
+          </div>
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Projekt-EBIT (DB III real)</span>
+            <div id="out-proj-db3" class="text-2xl font-extrabold text-emerald-400 mt-1">+3.840 €</div>
+            <p id="out-rec-fixed-price" class="text-[11px] text-slate-300 mt-1">Empf. Festpreis inkl. Puffer: 32.890 €</p>
+          </div>
+        </div>
+
+        <!-- Project DB I / DB II / DB III Breakdown -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-4">
+            Mehrstufige Projekt-Deckungsbeitragsrechnung (DB I, DB II, DB III) bei Festpreis vs. Scope-Creep
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">Deckungsbeitrags-Stufe</th>
+                  <th class="py-2 px-3 text-right">Plan (0 % Creep)</th>
+                  <th class="py-2 pl-3 text-right text-amber-300">Real (inkl. Scope-Creep)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">1. Netto-Projektvolumen (internes Honorar + Weiterberechnung Fremdkosten)</td>
+                  <td id="tbl-rev-plan" class="py-2.5 px-3 text-right font-mono">29.700 €</td>
+                  <td id="tbl-rev-real" class="py-2.5 pl-3 text-right font-mono text-amber-200">29.700 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">2. Externe Freelancer + Lizenzen + KSK-Abgabe (<span id="lbl-ksk-pct">5,0 %</span>)</td>
+                  <td id="tbl-ext-plan" class="py-2.5 px-3 text-right font-mono text-rose-300">-7.500 €</td>
+                  <td id="tbl-ext-real" class="py-2.5 pl-3 text-right font-mono text-rose-300">-7.500 €</td>
+                </tr>
+                <tr class="font-semibold text-white">
+                  <td class="py-2.5 pr-3">3. Deckungsbeitrag I (Agentur-Honorarrohertrag / Gross Profit / AGI)</td>
+                  <td id="tbl-db1-plan" class="py-2.5 px-3 text-right font-mono text-emerald-300">+22.200 €</td>
+                  <td id="tbl-db1-real" class="py-2.5 pl-3 text-right font-mono text-emerald-300">+22.200 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">4. Direkte Personalkosten (AG-Vollkosten für <span id="lbl-hrs-plan">180</span>h vs. <span id="lbl-hrs-real">207</span>h)</td>
+                  <td id="tbl-labor-plan" class="py-2.5 px-3 text-right font-mono text-rose-300">-12.898 €</td>
+                  <td id="tbl-labor-real" class="py-2.5 pl-3 text-right font-mono text-rose-400">-14.833 €</td>
+                </tr>
+                <tr class="font-semibold text-white bg-slate-800/30">
+                  <td class="py-2.5 pr-3">5. Deckungsbeitrag II (Projektmarge vor Agentur-Overhead)</td>
+                  <td id="tbl-db2-plan" class="py-2.5 px-3 text-right font-mono text-emerald-300">+9.302 €</td>
+                  <td id="tbl-db2-real" class="py-2.5 pl-3 text-right font-mono text-amber-200">+7.367 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">6. Anteiliger Agentur-Overhead (Büro, PM, Vertrieb, Backoffice, Tools)</td>
+                  <td id="tbl-oh-plan" class="py-2.5 px-3 text-right font-mono text-rose-300">-3.539 €</td>
+                  <td id="tbl-oh-real" class="py-2.5 pl-3 text-right font-mono text-rose-400">-4.069 €</td>
+                </tr>
+                <tr class="bg-indigo-950/50 font-extrabold text-white">
+                  <td class="py-3 pr-3">7. Deckungsbeitrag III (Reales Projekt-EBIT &amp; EBIT-Marge auf AGI)</td>
+                  <td id="tbl-db3-plan" class="py-3 px-3 text-right font-mono text-emerald-400">+5.763 €</td>
+                  <td id="tbl-db3-real" class="py-3 pl-3 text-right font-mono text-indigo-200">+3.298 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- DACH Day-Rate Benchmark Comparison DE / AT / CH -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-3">
+            DACH-Standortvergleich 2026: Erforderlicher Tagessatz bei gleicher Gehalts- &amp; Auslastungszahl (DE vs. AT vs. CH)
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+              <div class="font-bold text-indigo-300">🇩🇪 Deutschland (LNK ~1,215)</div>
+              <div id="cmp-de-day" class="text-lg font-extrabold text-white mt-1">913 € / Tag</div>
+              <div id="cmp-de-hr" class="text-[11px] text-slate-400">Vollkosten: 91,34 €/h • + 5,0 % KSK</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+              <div class="font-bold text-emerald-300">🇦🇹 Österreich (LNK ~1,305)</div>
+              <div id="cmp-at-day" class="text-lg font-extrabold text-white mt-1">966 € / Tag</div>
+              <div id="cmp-at-hr" class="text-[11px] text-slate-400">Vollkosten: 96,65 €/h • inkl. DB/DZ/KommSt</div>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+              <div class="font-bold text-amber-300">🇨🇭 Schweiz (LNK ~1,155)</div>
+              <div id="cmp-ch-day" class="text-lg font-extrabold text-white mt-1">878 CHF / Tag</div>
+              <div id="cmp-ch-hr" class="text-[11px] text-slate-400">Vollkosten: 87,80 CHF/h • 8,1 % MWST</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: Agentur-Stundensatzformel, Billable Utilization, KSK-Abgabe (5,0 %) &amp; Festpreis-Risikopuffer
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        Der häufigste Kalkulationsfehler in Agenturen, Beratungen und Softwarehäusern ist die Division des Jahresgehalts durch 2.080 Kalender-Arbeitsstunden. Nach Abzug von Urlaub, Feiertagen, Krankheit und Weiterbildung verbleiben im DACH-Raum meist nur <strong>210 bis 222 Netto-Arbeitstage</strong>, von denen realistisch nur <strong>65 % bis 75 % fakturierbar (Billable Utilization)</strong> sind. Zusätzlich schmälern nicht weiterberechnete Scope-Creep-Stunden sowie die <strong>5,0 % Künstlersozialabgabe (§ 24 KSVG)</strong> auf externe Kreative in Deutschland unmittelbar den Projekt-Deckungsbeitrag.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="agentur-stundensatz-kalkulieren-auslastung-overhead-formel-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • Stundensatz-Formel</div>
+          <div class="text-sm font-bold text-white">Agentur- &amp; Consulting-Stundensatz 2026: Auslastung &amp; Overhead-Umlage</div>
+        </a>
+        <a href="kuenstlersozialkasse-ksk-abgabe-2026-agentur-freelancer-rechner.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-rose-300 mb-1">Vertiefung 2 • KSK 5,0 % (KSVG)</div>
+          <div class="text-sm font-bold text-white">Künstlersozialabgabe 2026 (5,0 %): Wann Agenturen auf Freelancer zahlen</div>
+        </a>
+        <a href="projektmarge-deckungsbeitrag-db1-db2-db3-scope-creep-festpreis-agentur.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • Projekt-Controlling</div>
+          <div class="text-sm font-bold text-white">Projektmarge DB I, DB II, DB III &amp; Scope-Creep-Puffer bei Festpreisen</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – Az. I ZR 226/20 – Smartlaw):</strong> Dieser DACH Agentur-, Consulting- und IT-Stundensatz- sowie Projektmarge-Rechner ist ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug. Er erbringt keine individuelle Rechts-, Sozialversicherungs- (KSVG) oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG. 100 % Client-Side (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    let lastSnapshot = {};
+
+    function fmtM(val, curr, dec = 0) {
+      const sign = val < 0 ? '-' : '';
+      return sign + Math.abs(val).toLocaleString('de-DE', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + ' ' + curr;
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        btn.className = (k === c)
+          ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400'
+          : 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+      });
+      if (c === 'DE') {
+        document.getElementById('in-emp-factor').value = 1.215;
+        document.getElementById('in-ksk-active').checked = true;
+        document.getElementById('badge-curr').textContent = 'EUR (€)';
+      } else if (c === 'AT') {
+        document.getElementById('in-emp-factor').value = 1.305;
+        document.getElementById('in-ksk-active').checked = false;
+        document.getElementById('badge-curr').textContent = 'EUR (€)';
+      } else if (c === 'CH') {
+        document.getElementById('in-emp-factor').value = 1.155;
+        document.getElementById('in-ksk-active').checked = false;
+        document.getElementById('badge-curr').textContent = 'CHF';
+      }
+      recalc();
+    }
+
+    function loadPreset(p) {
+      if (p === 'it_consulting_de') {
+        setCountry('DE');
+        document.getElementById('in-salary').value = 82000;
+        document.getElementById('in-overhead').value = 24000;
+        document.getElementById('in-target-ebit').value = 22.0;
+        document.getElementById('in-workdays').value = 220;
+        document.getElementById('in-daily-hrs').value = 8.0;
+        document.getElementById('in-util-pct').value = 72.0;
+        document.getElementById('in-proj-hrs').value = 240;
+        document.getElementById('in-offered-rate').value = 138;
+        document.getElementById('in-scope-creep').value = 15.0;
+        document.getElementById('in-freelancer').value = 8000;
+        document.getElementById('in-software-pass').value = 1500;
+        document.getElementById('in-ksk-active').checked = false;
+      } else if (p === 'creative_agency_ksk') {
+        setCountry('DE');
+        document.getElementById('in-salary').value = 58000;
+        document.getElementById('in-overhead').value = 21000;
+        document.getElementById('in-target-ebit').value = 20.0;
+        document.getElementById('in-workdays').value = 218;
+        document.getElementById('in-daily-hrs').value = 8.0;
+        document.getElementById('in-util-pct').value = 65.0;
+        document.getElementById('in-proj-hrs').value = 160;
+        document.getElementById('in-offered-rate').value = 115;
+        document.getElementById('in-scope-creep').value = 20.0;
+        document.getElementById('in-freelancer').value = 12000;
+        document.getElementById('in-software-pass').value = 900;
+        document.getElementById('in-ksk-active').checked = true;
+      } else if (p === 'perf_marketing') {
+        setCountry('DE');
+        document.getElementById('in-salary').value = 64000;
+        document.getElementById('in-overhead').value = 19500;
+        document.getElementById('in-target-ebit').value = 25.0;
+        document.getElementById('in-workdays').value = 220;
+        document.getElementById('in-daily-hrs').value = 8.0;
+        document.getElementById('in-util-pct').value = 75.0;
+        document.getElementById('in-proj-hrs').value = 120;
+        document.getElementById('in-offered-rate').value = 120;
+        document.getElementById('in-scope-creep').value = 10.0;
+        document.getElementById('in-freelancer').value = 3500;
+        document.getElementById('in-software-pass').value = 800;
+        document.getElementById('in-ksk-active').checked = true;
+      } else if (p === 'at_consulting') {
+        setCountry('AT');
+        document.getElementById('in-salary').value = 74000;
+        document.getElementById('in-overhead').value = 23000;
+        document.getElementById('in-target-ebit').value = 20.0;
+        document.getElementById('in-workdays').value = 215;
+        document.getElementById('in-daily-hrs').value = 8.0;
+        document.getElementById('in-util-pct').value = 70.0;
+        document.getElementById('in-proj-hrs').value = 200;
+        document.getElementById('in-offered-rate').value = 135;
+        document.getElementById('in-scope-creep').value = 12.0;
+        document.getElementById('in-freelancer').value = 5000;
+        document.getElementById('in-software-pass').value = 1000;
+      } else if (p === 'ch_digital') {
+        setCountry('CH');
+        document.getElementById('in-salary').value = 118000;
+        document.getElementById('in-overhead').value = 32000;
+        document.getElementById('in-target-ebit').value = 22.0;
+        document.getElementById('in-workdays').value = 222;
+        document.getElementById('in-daily-hrs').value = 8.4;
+        document.getElementById('in-util-pct').value = 74.0;
+        document.getElementById('in-proj-hrs').value = 180;
+        document.getElementById('in-offered-rate').value = 185;
+        document.getElementById('in-scope-creep').value = 10.0;
+        document.getElementById('in-freelancer').value = 9000;
+        document.getElementById('in-software-pass').value = 1500;
+      }
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const salary = Math.max(1000, parseFloat(document.getElementById('in-salary').value) || 0);
+      const empFactor = Math.max(1.0, parseFloat(document.getElementById('in-emp-factor').value) || 1.215);
+      const overhead = Math.max(0, parseFloat(document.getElementById('in-overhead').value) || 0);
+      const targetEbitPct = Math.min(80, Math.max(0, parseFloat(document.getElementById('in-target-ebit').value) || 0));
+      const workdays = Math.max(50, parseFloat(document.getElementById('in-workdays').value) || 218);
+      const dailyHrs = Math.max(1, parseFloat(document.getElementById('in-daily-hrs').value) || 8);
+      const utilPct = Math.min(99, Math.max(10, parseFloat(document.getElementById('in-util-pct').value) || 70));
+
+      const projHrs = Math.max(1, parseFloat(document.getElementById('in-proj-hrs').value) || 100);
+      const offeredRate = Math.max(1, parseFloat(document.getElementById('in-offered-rate').value) || 120);
+      const scopeCreepPct = Math.max(0, parseFloat(document.getElementById('in-scope-creep').value) || 0);
+      const freelancer = Math.max(0, parseFloat(document.getElementById('in-freelancer').value) || 0);
+      const softwarePass = Math.max(0, parseFloat(document.getElementById('in-software-pass').value) || 0);
+      const kskActive = document.getElementById('in-ksk-active').checked && currentCountry === 'DE';
+
+      const empTotalCost = salary * empFactor;
+      const fullAnnualCost = empTotalCost + overhead;
+      const totalWorkHrs = workdays * dailyHrs;
+      const billableHrs = totalWorkHrs * (utilPct / 100.0);
+
+      const directLaborRate = empTotalCost / billableHrs;
+      const overheadRate = overhead / billableHrs;
+      const breakEvenRate = fullAnnualCost / billableHrs;
+      const marginDiv = Math.max(0.1, 1.0 - targetEbitPct / 100.0);
+      const targetHourlyRate = breakEvenRate / marginDiv;
+      const targetDayRate = targetHourlyRate * dailyHrs;
+
+      // Project DB calculation (Fixed price agreed on planned hours + pass-through external costs)
+      const kskFee = kskActive ? (freelancer * 0.05) : 0.0;
+      const internalFeeAgreed = projHrs * offeredRate;
+      const totalProjectRevenue = internalFeeAgreed + freelancer + softwarePass;
+      const externalCostsTotal = freelancer + softwarePass + kskFee;
+
+      // DB I (Agency Gross Income / Honorarrohertrag)
+      const db1Plan = totalProjectRevenue - externalCostsTotal;
+      const db1Real = db1Plan;
+
+      // Real hours with scope creep
+      const realHrs = projHrs * (1.0 + scopeCreepPct / 100.0);
+      const laborPlan = projHrs * directLaborRate;
+      const laborReal = realHrs * directLaborRate;
+      const db2Plan = db1Plan - laborPlan;
+      const db2Real = db1Real - laborReal;
+
+      const ohPlan = projHrs * overheadRate;
+      const ohReal = realHrs * overheadRate;
+      const db3Plan = db2Plan - ohPlan;
+      const db3Real = db2Real - ohReal;
+
+      const ehrReal = db1Real / realHrs;
+      const db3MarginPct = db1Real > 0 ? ((db3Real / db1Real) * 100.0) : -100.0;
+      const recommendedFixedPrice = (realHrs * targetHourlyRate) + (externalCostsTotal / marginDiv);
+
+      // DACH Benchmark comparison on identical base numbers
+      const deBE = (salary * 1.215 + overhead) / billableHrs;
+      const atBE = (salary * 1.305 + overhead) / billableHrs;
+      const chBE = (salary * 1.155 + overhead) / billableHrs;
+      const deDay = (deBE / marginDiv) * dailyHrs;
+      const atDay = (atBE / marginDiv) * dailyHrs;
+      const chDay = (chBE / marginDiv) * dailyHrs;
+
+      document.getElementById('out-breakeven-rate').textContent = fmtM(breakEvenRate, curr + '/h', 2);
+      document.getElementById('out-billable-hrs').textContent = `${Math.round(billableHrs).toLocaleString('de-DE')} fakturierbare Std./Jahr (${utilPct.toFixed(0)} %)`;
+      document.getElementById('out-target-rate').textContent = fmtM(targetHourlyRate, curr + '/h', 2);
+      document.getElementById('out-target-dayrate').textContent = `Ziel-Tagessatz (${dailyHrs.toFixed(1).replace('.', ',')}h): ${fmtM(targetDayRate, curr, 0)}`;
+      document.getElementById('out-proj-db3').textContent = (db3Real >= 0 ? '+' : '') + fmtM(db3Real, curr, 0);
+      document.getElementById('out-rec-fixed-price').textContent = `Empf. Festpreis inkl. Puffer: ${fmtM(recommendedFixedPrice, curr, 0)}`;
+
+      document.getElementById('lbl-ksk-pct').textContent = kskActive ? `5,0 % KSK = ${fmtM(kskFee, curr, 0)}` : '0 % KSK';
+      document.getElementById('lbl-hrs-plan').textContent = Math.round(projHrs);
+      document.getElementById('lbl-hrs-real').textContent = Math.round(realHrs);
+
+      document.getElementById('tbl-rev-plan').textContent = fmtM(totalProjectRevenue, curr, 0);
+      document.getElementById('tbl-rev-real').textContent = fmtM(totalProjectRevenue, curr, 0);
+      document.getElementById('tbl-ext-plan').textContent = '-' + fmtM(externalCostsTotal, curr, 0);
+      document.getElementById('tbl-ext-real').textContent = '-' + fmtM(externalCostsTotal, curr, 0);
+      document.getElementById('tbl-db1-plan').textContent = (db1Plan >= 0 ? '+' : '') + fmtM(db1Plan, curr, 0);
+      document.getElementById('tbl-db1-real').textContent = (db1Real >= 0 ? '+' : '') + fmtM(db1Real, curr, 0);
+      document.getElementById('tbl-labor-plan').textContent = '-' + fmtM(laborPlan, curr, 0);
+      document.getElementById('tbl-labor-real').textContent = '-' + fmtM(laborReal, curr, 0);
+      document.getElementById('tbl-db2-plan').textContent = (db2Plan >= 0 ? '+' : '') + fmtM(db2Plan, curr, 0);
+      document.getElementById('tbl-db2-real').textContent = (db2Real >= 0 ? '+' : '') + fmtM(db2Real, curr, 0);
+      document.getElementById('tbl-oh-plan').textContent = '-' + fmtM(ohPlan, curr, 0);
+      document.getElementById('tbl-oh-real').textContent = '-' + fmtM(ohReal, curr, 0);
+      document.getElementById('tbl-db3-plan').textContent = (db3Plan >= 0 ? '+' : '') + fmtM(db3Plan, curr, 0);
+      document.getElementById('tbl-db3-real').textContent = `${db3Real >= 0 ? '+' : ''}${fmtM(db3Real, curr, 0)} (${db3MarginPct.toFixed(1).replace('.', ',')} %)`;
+
+      document.getElementById('cmp-de-day').textContent = fmtM(deDay, '€ / Tag', 0);
+      document.getElementById('cmp-de-hr').textContent = `Vollkosten: ${fmtM(deBE, '€/h', 2)} • + 5,0 % KSK`;
+      document.getElementById('cmp-at-day').textContent = fmtM(atDay, '€ / Tag', 0);
+      document.getElementById('cmp-at-hr').textContent = `Vollkosten: ${fmtM(atBE, '€/h', 2)} • inkl. DB/DZ/KommSt`;
+      document.getElementById('cmp-ch-day').textContent = fmtM(chDay, 'CHF / Tag', 0);
+      document.getElementById('cmp-ch-hr').textContent = `Vollkosten: ${fmtM(chBE, 'CHF/h', 2)} • 8,1 % MWST`;
+
+      const box = document.getElementById('box-margin-status');
+      const titleEl = document.getElementById('out-status-title');
+      const badgeEl = document.getElementById('out-status-badge');
+      const descEl = document.getElementById('out-status-desc');
+
+      badgeEl.textContent = `DB III-Marge (AGI): ${db3MarginPct.toFixed(1).replace('.', ',')} % • Effektiver Stundensatz: ${fmtM(ehrReal, curr + '/h', 2)}`;
+
+      if (db3MarginPct >= targetEbitPct - 0.5) {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Ziel-EBIT-Marge erreicht (trotz Scope-Creep & KSK)';
+        descEl.textContent = `Nach ${scopeCreepPct.toFixed(0)} % Scope-Creep (${Math.round(realHrs)}h statt ${Math.round(projHrs)}h) liegt Ihr realisierter Stundensatz (${fmtM(ehrReal, curr + '/h', 2)}) über dem Ziel-Stundensatz.`;
+      } else if (db3Real > 0) {
+        box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-amber-300';
+        titleEl.textContent = '🟡 Positives Projekt-EBIT, aber Scope-Creep drückt Marge unter Zielwert';
+        descEl.textContent = `Das Projekt schreibt Gewinn (${fmtM(db3Real, curr, 0)}), verfehlt aber durch +${scopeCreepPct.toFixed(0)} % Scope-Creep und Fremdkosten Ihre Ziel-EBIT-Marge von ${targetEbitPct.toFixed(0)} %. Empfohlener Festpreis: ${fmtM(recommendedFixedPrice, curr, 0)}.`;
+      } else {
+        box.className = 'bg-rose-950/60 border border-rose-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-rose-300';
+        titleEl.textContent = '🔴 Negativer Deckungsbeitrag III (Verlustprojekt nach Overhead & Scope-Creep!)';
+        descEl.textContent = `Der reale Stundensatz (${fmtM(ehrReal, curr + '/h', 2)}) fällt unter Ihren Vollkosten-Stundensatz (${fmtM(breakEvenRate, curr + '/h', 2)}). Erhöhen Sie den Festpreis auf mind. ${fmtM(recommendedFixedPrice, curr, 0)} oder vereinbaren Sie Change-Requests.`;
+      }
+
+      lastSnapshot = {
+        country: currentCountry,
+        currency: curr,
+        annual_gross_salary: salary,
+        employer_oncost_factor: empFactor,
+        overhead_per_head: overhead,
+        net_workdays: workdays,
+        daily_hours: dailyHrs,
+        billable_utilization_pct: utilPct,
+        billable_hours_per_year: Number(billableHrs.toFixed(2)),
+        breakeven_hourly_rate: Number(breakEvenRate.toFixed(2)),
+        target_ebit_margin_pct: targetEbitPct,
+        target_hourly_rate: Number(targetHourlyRate.toFixed(2)),
+        target_day_rate: Number(targetDayRate.toFixed(2)),
+        planned_project_hours: projHrs,
+        scope_creep_pct: scopeCreepPct,
+        real_project_hours: Number(realHrs.toFixed(2)),
+        ksk_5pct_fee: Number(kskFee.toFixed(2)),
+        db1_agency_gross_income: Number(db1Real.toFixed(2)),
+        db2_after_direct_labor: Number(db2Real.toFixed(2)),
+        db3_project_ebit_real: Number(db3Real.toFixed(2)),
+        effective_hourly_rate_real: Number(ehrReal.toFixed(2)),
+        recommended_fixed_price_with_buffer: Number(recommendedFixedPrice.toFixed(2))
+      };
+    }
+
+    function downloadBlob(filename, content, mime) {
+      const blob = new Blob([content], { type: mime });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function exportJSON() {
+      recalc();
+      downloadBlob('agentur_stundensatz_projektmarge_2026.json', JSON.stringify(lastSnapshot, null, 2), 'application/json;charset=utf-8');
+    }
+
+    function exportCSV() {
+      recalc();
+      const rows = [['Kennzahl', 'Wert']];
+      Object.entries(lastSnapshot).forEach(([k, v]) => rows.push([k, String(v)]));
+      const csv = rows.map(r => r.map(x => `"${x.replace(/"/g, '""')}"`).join(';')).join('\n');
+      downloadBlob('agentur_stundensatz_projektmarge_2026.csv', '\uFEFF' + csv, 'text/csv;charset=utf-8');
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

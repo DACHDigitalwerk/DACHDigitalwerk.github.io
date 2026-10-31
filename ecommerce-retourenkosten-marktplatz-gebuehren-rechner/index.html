@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH E-Commerce-Retourenkosten-, Zahlungsarten-, Marktplatz-Gebühren- &amp; Stückdeckungsbeitrags-Rechner 2026 | Amazon FBA vs. Zalando/Otto/Galaxus vs. Shopify/Shopware, POAS &amp; Break-Even-ROAS</title>
+  <meta name="description" content="Interaktiver E-Commerce Unit-Economics-, Retourenkosten-, POAS- &amp; Marktplatz-Gebührenrechner 2026 für DE (19 % USt), AT (20 % USt) &amp; CH (8,1 % MWST): Deckungsbeitrag I/II/III, Retouren-Kompensationsmultiplikator, Amazon FBA vs. Zalando/Otto/Galaxus vs. D2C Shop, Break-Even-ROAS &amp; POAS." />
+  <meta name="keywords" content="Retourenkosten Rechner Online Handel 2026, E-Commerce Deckungsbeitrag berechnen, POAS statt ROAS Rechner, Break Even ROAS Formel, Amazon FBA Gebühren Marge Rechner, Zalando Otto Galaxus Marktplatzprovision, Retourenquote Kosten pro Retoure" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/ecommerce-retourenkosten-marktplatz-gebuehren-rechner/" />
+  <meta property="og:title" content="DACH E-Commerce-Retourenkosten-, Marktplatz-Gebühren-, POAS- &amp; Deckungsbeitrags-Rechner 2026" />
+  <meta property="og:description" content="Stückdeckungsbeitrag vor/nach Retouren, Retouren-Kompensationsfaktor, Amazon FBA vs. D2C Shop, Break-Even-ROAS &amp; POAS für DE, AT &amp; CH." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/ecommerce-retourenkosten-marktplatz-gebuehren-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH E-Commerce-Retourenkosten-, Zahlungsarten-, Marktplatz-Gebühren- & Stückdeckungsbeitrags-Rechner 2026",
+    "description": "Unit-Economics-, Retourenkosten-, POAS- und Break-Even-ROAS-Simulator 2026 für Online-Händler in Deutschland, Österreich und der Schweiz.",
+    "url": "https://dachdigitalwerk.github.io/ecommerce-retourenkosten-marktplatz-gebuehren-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechnet man die wahren Kosten einer Retoure im Online-Handel und den Kompensations-Multiplikator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der Gesamtschaden einer einzelnen Retoure setzt sich zusammen aus Pick-&-Pack-Kosten, Hinversand, Rückversand-Label, Retourenprüfung/Aufbereitung, Wertverlust/Abschreibung der Ware (B-Ware/Vernichtung als % des Wareneinsatzes COGS) sowie nicht erstatteten fixen Payment-Transaktionsgebühren. Teilt man diesen Schaden durch den Deckungsbeitrag einer erfolgreich behaltenen Bestellung, erhält man den Kompensations-Multiplikator (wie viele erfolgreiche Bestellungen nötig sind, um 1 Retoure auszugleichen)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was ist der Unterschied zwischen ROAS, Break-Even-ROAS und POAS (Profit on Ad Spend)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Während der klassische ROAS nur den Umsatz durch die Werbekosten teilt (und Retouren, Wareneinsatz, Versand sowie Marktplatzgebühren ignoriert), teilt der POAS (Profit on Ad Spend) den echten Stück-Deckungsbeitrag nach Retouren durch die Werbekosten pro Bestellung (CPA). Ein POAS > 1,00 bedeutet profitables Performance-Marketing nach allen variablen Kosten."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser E-Commerce-Deckungsbeitragsrechner eine Steuer- oder Rechtsberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #43 • Unit Economics, Retourenkosten, Marktplatz-Marge &amp; POAS 2026</span>
+      </div>
+      <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+        🖨️ DIN-A4 Unit-Economics-Dossier drucken
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 19 % USt • 🇦🇹 20 % USt • 🇨🇭 8,1 % MWST
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          📦 Retouren-Schadensformel &amp; Kompensations-Multiplikator
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          📊 POAS (Profit on Ad Spend) &amp; Break-Even-ROAS
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH E-Commerce-Retourenkosten-, Marktplatz-Gebühren-, POAS- &amp; Stückdeckungsbeitrags-Rechner 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Berechnen Sie Ihren wahren <strong>Stückdeckungsbeitrag vor und nach Retouren (DB I, DB II, DB III)</strong> für eigenen Online-Shop (Shopify / Shopware / WooCommerce), <strong>Amazon FBA</strong>, <strong>Zalando ZFS</strong>, <strong>Otto Market</strong> und <strong>Digitec Galaxus (CH)</strong>. Inklusive Payment-Disagio auf Brutto-Umsatz, Wertverlust bei Retouren, <strong>Break-Even-ROAS</strong> und <strong>POAS</strong>.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Land / USt:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 DE (19 % USt)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 AT (20 % USt)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 CH (8,1 % MWST)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">Kanal-Presets:</span>
+          <button onclick="loadPreset('fashion_zalando')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-rose-200 border border-slate-700 transition">👗 Fashion / Zalando (42 % Retoure)</button>
+          <button onclick="loadPreset('amazon_fba')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">📦 Amazon FBA (15 % Provision / 12 % Ret.)</button>
+          <button onclick="loadPreset('d2c_cosmetics')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">💄 D2C Cosmetics Shopify (4 % Retoure)</button>
+          <button onclick="loadPreset('electronics_otto')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">💻 Electronics Otto/AT (14 % Retoure)</button>
+          <button onclick="loadPreset('ch_galaxus')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">🇨🇭 Digitec Galaxus CH (160 CHF AOV)</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Inputs -->
+      <div class="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Warenkorb, COGS &amp; Kanal-Gebühren</span>
+          <span id="badge-curr" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label for="in-aov" class="block text-xs font-semibold text-slate-300 mb-1">Brutto-Warenkorb</label>
+            <input id="in-aov" type="number" value="89.90" min="1" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-vat" class="block text-xs font-semibold text-slate-300 mb-1">USt / MWST (%)</label>
+            <input id="in-vat" type="number" value="19.0" min="0" max="30" step="0.1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-cogs" class="block text-xs font-semibold text-slate-300 mb-1">Wareneinsatz netto</label>
+            <input id="in-cogs" type="number" value="24.50" min="0" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-pickpack" class="block text-xs font-semibold text-slate-300 mb-1">Pick &amp; Pack + Kartonage</label>
+            <input id="in-pickpack" type="number" value="2.10" min="0" step="0.1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-ship-out" class="block text-xs font-semibold text-slate-300 mb-1">Hinversand netto (Händler)</label>
+            <input id="in-ship-out" type="number" value="4.20" min="0" step="0.2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label for="in-pay-pct" class="block text-xs font-semibold text-slate-300 mb-1">Payment Disagio (%)</label>
+            <input id="in-pay-pct" type="number" value="1.8" min="0" max="15" step="0.1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-pay-fix" class="block text-xs font-semibold text-slate-300 mb-1">Payment Fixgebühr</label>
+            <input id="in-pay-fix" type="number" value="0.35" min="0" step="0.05" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-mkt-pct" class="block text-xs font-semibold text-slate-300 mb-1">Marktplatz-Prov. (%)</label>
+            <input id="in-mkt-pct" type="number" value="0.0" min="0" max="40" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3">2. Retouren-Parameter &amp; Performance-Marketing (Ads)</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="in-ret-rate" class="block text-xs font-semibold text-slate-300 mb-1">Retourenquote (%)</label>
+              <input id="in-ret-rate" type="number" value="18.0" min="0" max="95" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-ship-ret" class="block text-xs font-semibold text-slate-300 mb-1">Rückversand + Prüfg.</label>
+              <input id="in-ship-ret" type="number" value="6.80" min="0" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-writeoff-pct" class="block text-xs font-semibold text-slate-300 mb-1">Wertverlust (% COGS)</label>
+              <input id="in-writeoff-pct" type="number" value="15.0" min="0" max="100" step="5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-3">
+            <div>
+              <label for="in-cpa" class="block text-xs font-semibold text-slate-300 mb-1">Ad-Spend pro Bestellung (CPA)</label>
+              <input id="in-cpa" type="number" value="16.50" min="0" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-orders-m" class="block text-xs font-semibold text-slate-300 mb-1">Bestellungen / Monat</label>
+              <input id="in-orders-m" type="number" value="1200" min="1" step="100" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Results -->
+      <div class="lg:col-span-7 space-y-6">
+        <div id="box-poas-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex items-center justify-between">
+            <span id="out-poas-title" class="text-xs font-extrabold text-emerald-300">🟢 Profitables Unit-Economics-Profil (POAS &gt; 1,00x nach Retouren)</span>
+            <span id="out-poas-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-200">POAS: 2,14x • Break-Even-ROAS: 2,12x</span>
+          </div>
+          <p id="out-poas-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Jede Bestellung erwirtschaftet nach Abzug von Retourenkosten, Gebühren und Ad-Spend (CPA) einen positiven Nettogewinn (DB III).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">DB nach Retouren (vor Ads)</span>
+            <div id="out-db-after-ret" class="text-2xl font-extrabold text-white mt-1">+32,14 €</div>
+            <p id="out-db-before-ret" class="text-[11px] text-indigo-300 mt-1">Ohne Retoure: +42,78 € / Bestellung</p>
+          </div>
+          <div class="bg-slate-900/90 border border-rose-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-rose-300">Gesamtschaden je 1 Retoure</span>
+            <div id="out-ret-damage" class="text-2xl font-extrabold text-rose-400 mt-1">-17,13 €</div>
+            <p id="out-comp-factor" class="text-[11px] text-slate-300 mt-1">Kompensation: 0,40 erfolgreiche Best.</p>
+          </div>
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Netto-Gewinn (DB III / Monat)</span>
+            <div id="out-monthly-profit" class="text-2xl font-extrabold text-emerald-400 mt-1">+18.768 €</div>
+            <p id="out-order-profit" class="text-[11px] text-slate-400 mt-1">Pro versendeter Bestellung: +15,64 €</p>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Table -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-4">
+            Stückkalkulation (Unit Economics) pro Bestellung &amp; Monats-Hochrechnung
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">Kalkulationsstufe</th>
+                  <th class="py-2 px-3 text-right">Pro Bestellung</th>
+                  <th class="py-2 pl-3 text-right text-indigo-300">Monats-Volumen</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">1. Brutto-Warenkorb (AOV) → Netto-Umsatz (vor Retouren)</td>
+                  <td id="tbl-net-rev" class="py-2.5 px-3 text-right font-mono">75,55 €</td>
+                  <td id="tbl-net-rev-m" class="py-2.5 pl-3 text-right font-mono text-indigo-200">90.660 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">2. Wareneinsatz (COGS) + Fulfillment (Pick/Pack + Hinversand)</td>
+                  <td id="tbl-cogs-ship" class="py-2.5 px-3 text-right font-mono text-rose-300">-30,80 €</td>
+                  <td id="tbl-cogs-ship-m" class="py-2.5 pl-3 text-right font-mono text-rose-300">-36.960 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">3. Payment-Gebühren + Marktplatz-Provision (bei Behalt)</td>
+                  <td id="tbl-fees" class="py-2.5 px-3 text-right font-mono text-rose-300">-1,97 €</td>
+                  <td id="tbl-fees-m" class="py-2.5 pl-3 text-right font-mono text-rose-300">-2.364 €</td>
+                </tr>
+                <tr class="font-semibold text-white">
+                  <td class="py-2.5 pr-3">4. Deckungsbeitrag einer behaltenen Bestellung (<code>DB<sub>erfolgreich</sub></code>)</td>
+                  <td id="tbl-db-kept" class="py-2.5 px-3 text-right font-mono text-emerald-300">+42,78 €</td>
+                  <td id="tbl-db-kept-pct" class="py-2.5 pl-3 text-right font-mono text-slate-400">Marge: 56,6 %</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">5. Erwarteter Retouren-Verlust pro versendeter Bestellung</td>
+                  <td id="tbl-ret-drag" class="py-2.5 px-3 text-right font-mono text-rose-400">-10,78 €</td>
+                  <td id="tbl-ret-drag-m" class="py-2.5 pl-3 text-right font-mono text-rose-400">-12.936 €</td>
+                </tr>
+                <tr class="bg-slate-800/40 font-bold text-white">
+                  <td class="py-3 pr-3">6. Erwarteter Deckungsbeitrag nach Retouren (= Max. Break-Even-CPA)</td>
+                  <td id="tbl-db-expected" class="py-3 px-3 text-right font-mono text-emerald-400">+32,00 €</td>
+                  <td id="tbl-db-expected-m" class="py-3 pl-3 text-right font-mono text-emerald-300">+38.400 €</td>
+                </tr>
+                <tr class="bg-indigo-950/40 font-extrabold text-white">
+                  <td class="py-3 pr-3">7. Netto-Ergebnis nach Ad-Spend (DB III) • POAS / ROAS</td>
+                  <td id="tbl-db3" class="py-3 px-3 text-right font-mono">+15,50 €</td>
+                  <td id="tbl-db3-m" class="py-3 pl-3 text-right font-mono text-indigo-300">+18.600 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: Retourenkosten-Formel, Amazon FBA vs. D2C-Shop &amp; POAS statt ROAS
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        Bei einer Retoure verliert der Online-Händler nicht nur die entgangene Produktmarge (<code>DB<sub>erfolgreich</sub></code>), sondern trägt zusätzlich den realen Prozess- und Abschreibungsschaden <code>S<sub>Retoure</sub></code> (Hinversand, Pick &amp; Pack, Retourenlabel, Aufbereitung, Wertverlust der Ware und fixe Payment-Fees). Deshalb führt eine Steuerung nach reinem Umsatz-ROAS bei hohen Retourenquoten (z. B. Fashion 35–50 %) regelmäßig in die Verlustzone — maßgeblich ist allein der <strong>POAS (Profit on Ad Spend nach Retouren)</strong>.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="retourenkosten-berechnen-online-handel-formel-deckungsbeitrag-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • Retouren-Formel</div>
+          <div class="text-sm font-bold text-white">Retourenkosten im Online-Handel 2026 berechnen &amp; Kompensationsfaktor</div>
+        </a>
+        <a href="amazon-fba-vs-eigener-onlineshop-gebuehren-marge-rechner-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-emerald-300 mb-1">Vertiefung 2 • Marktplätze vs. D2C</div>
+          <div class="text-sm font-bold text-white">Amazon FBA, Zalando &amp; Galaxus vs. eigener Shopify/Shopware-Shop</div>
+        </a>
+        <a href="poas-statt-roas-berechnen-break-even-roas-formel-ecommerce.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • Performance Marketing</div>
+          <div class="text-sm font-bold text-white">POAS statt ROAS: Break-Even-ROAS &amp; maximalen CPA nach Retouren berechnen</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Dieser DACH E-Commerce-Retourenkosten-, Marktplatz- und POAS-Rechner ist ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug. Er erbringt keine individuelle Rechts- oder Steuerberatung i.S.d. § 2 RDG bzw. § 5 StBerG. 100 % Client-Side (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+
+    function fmtM(val, curr) {
+      const sign = val < 0 ? '-' : '';
+      return sign + Math.abs(val).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' ' + curr;
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        btn.className = (k === c)
+          ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400'
+          : 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+      });
+      if (c === 'DE') {
+        document.getElementById('in-vat').value = 19.0;
+        document.getElementById('badge-curr').textContent = 'EUR (€)';
+      } else if (c === 'AT') {
+        document.getElementById('in-vat').value = 20.0;
+        document.getElementById('badge-curr').textContent = 'EUR (€)';
+      } else if (c === 'CH') {
+        document.getElementById('in-vat').value = 8.1;
+        document.getElementById('badge-curr').textContent = 'CHF';
+      }
+      recalc();
+    }
+
+    function loadPreset(p) {
+      if (p === 'fashion_zalando') {
+        setCountry('DE');
+        document.getElementById('in-aov').value = 119.00;
+        document.getElementById('in-cogs').value = 28.00;
+        document.getElementById('in-pickpack').value = 2.40;
+        document.getElementById('in-ship-out').value = 4.50;
+        document.getElementById('in-pay-pct').value = 1.5;
+        document.getElementById('in-pay-fix').value = 0.30;
+        document.getElementById('in-mkt-pct').value = 12.0;
+        document.getElementById('in-ret-rate').value = 42.0;
+        document.getElementById('in-ship-ret').value = 7.90;
+        document.getElementById('in-writeoff-pct').value = 20.0;
+        document.getElementById('in-cpa').value = 14.00;
+      } else if (p === 'amazon_fba') {
+        setCountry('DE');
+        document.getElementById('in-aov').value = 59.90;
+        document.getElementById('in-cogs').value = 14.50;
+        document.getElementById('in-pickpack').value = 1.20;
+        document.getElementById('in-ship-out').value = 4.80;
+        document.getElementById('in-pay-pct').value = 0.0;
+        document.getElementById('in-pay-fix').value = 0.0;
+        document.getElementById('in-mkt-pct').value = 15.0;
+        document.getElementById('in-ret-rate').value = 12.0;
+        document.getElementById('in-ship-ret').value = 5.20;
+        document.getElementById('in-writeoff-pct').value = 25.0;
+        document.getElementById('in-cpa').value = 9.50;
+      } else if (p === 'd2c_cosmetics') {
+        setCountry('DE');
+        document.getElementById('in-aov').value = 68.00;
+        document.getElementById('in-cogs').value = 11.20;
+        document.getElementById('in-pickpack').value = 1.90;
+        document.getElementById('in-ship-out').value = 3.90;
+        document.getElementById('in-pay-pct').value = 2.1;
+        document.getElementById('in-pay-fix').value = 0.35;
+        document.getElementById('in-mkt-pct').value = 0.0;
+        document.getElementById('in-ret-rate').value = 4.0;
+        document.getElementById('in-ship-ret').value = 5.50;
+        document.getElementById('in-writeoff-pct').value = 80.0;
+        document.getElementById('in-cpa').value = 22.00;
+      } else if (p === 'electronics_otto') {
+        setCountry('AT');
+        document.getElementById('in-aov').value = 249.00;
+        document.getElementById('in-cogs').value = 132.00;
+        document.getElementById('in-pickpack').value = 3.20;
+        document.getElementById('in-ship-out').value = 6.50;
+        document.getElementById('in-pay-pct').value = 1.2;
+        document.getElementById('in-pay-fix').value = 0.25;
+        document.getElementById('in-mkt-pct').value = 8.0;
+        document.getElementById('in-ret-rate').value = 14.0;
+        document.getElementById('in-ship-ret').value = 9.50;
+        document.getElementById('in-writeoff-pct').value = 12.0;
+        document.getElementById('in-cpa').value = 18.00;
+      } else if (p === 'ch_galaxus') {
+        setCountry('CH');
+        document.getElementById('in-aov').value = 160.00;
+        document.getElementById('in-cogs').value = 62.00;
+        document.getElementById('in-pickpack').value = 4.50;
+        document.getElementById('in-ship-out').value = 7.90;
+        document.getElementById('in-pay-pct').value = 1.5;
+        document.getElementById('in-pay-fix').value = 0.30;
+        document.getElementById('in-mkt-pct').value = 10.0;
+        document.getElementById('in-ret-rate').value = 10.0;
+        document.getElementById('in-ship-ret').value = 9.90;
+        document.getElementById('in-writeoff-pct').value = 15.0;
+        document.getElementById('in-cpa').value = 19.00;
+      }
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const aovGross = Math.max(0.01, parseFloat(document.getElementById('in-aov').value) || 0);
+      const vatPct = Math.max(0, parseFloat(document.getElementById('in-vat').value) || 0);
+      const cogs = Math.max(0, parseFloat(document.getElementById('in-cogs').value) || 0);
+      const pickPack = Math.max(0, parseFloat(document.getElementById('in-pickpack').value) || 0);
+      const shipOut = Math.max(0, parseFloat(document.getElementById('in-ship-out').value) || 0);
+      const payPct = Math.max(0, parseFloat(document.getElementById('in-pay-pct').value) || 0);
+      const payFix = Math.max(0, parseFloat(document.getElementById('in-pay-fix').value) || 0);
+      const mktPct = Math.max(0, parseFloat(document.getElementById('in-mkt-pct').value) || 0);
+      const retRatePct = Math.min(99, Math.max(0, parseFloat(document.getElementById('in-ret-rate').value) || 0));
+      const shipRet = Math.max(0, parseFloat(document.getElementById('in-ship-ret').value) || 0);
+      const writeoffPct = Math.min(100, Math.max(0, parseFloat(document.getElementById('in-writeoff-pct').value) || 0));
+      const cpa = Math.max(0, parseFloat(document.getElementById('in-cpa').value) || 0);
+      const ordersM = Math.max(1, parseInt(document.getElementById('in-orders-m').value) || 100);
+
+      const netRev = aovGross / (1.0 + vatPct / 100.0);
+      const payFeeKept = aovGross * (payPct / 100.0) + payFix;
+      const mktFeeKept = aovGross * (mktPct / 100.0);
+      const totalFeesKept = payFeeKept + mktFeeKept;
+
+      // DB of a kept order
+      const dbKept = netRev - cogs - pickPack - shipOut - totalFeesKept;
+
+      // Damage of 1 returned order
+      const writeoffCost = cogs * (writeoffPct / 100.0);
+      const returnDamage = pickPack + shipOut + shipRet + writeoffCost + payFix;
+
+      // Expected DB per dispatched order given return rate r
+      const r = retRatePct / 100.0;
+      const dbAfterReturn = (1.0 - r) * dbKept - r * returnDamage;
+      const retDragPerOrder = dbKept - dbAfterReturn;
+
+      const db3PerOrder = dbAfterReturn - cpa;
+      const monthlyProfit = db3PerOrder * ordersM;
+
+      const compMultiplier = dbKept > 0 ? (returnDamage / dbKept) : 99.9;
+      const poas = cpa > 0 ? (dbAfterReturn / cpa) : 99.9;
+      const breakEvenRoas = dbAfterReturn > 0 ? (netRev / dbAfterReturn) : 99.9;
+
+      const box = document.getElementById('box-poas-status');
+      const titleEl = document.getElementById('out-poas-title');
+      const badgeEl = document.getElementById('out-poas-badge');
+      const descEl = document.getElementById('out-poas-desc');
+
+      badgeEl.textContent = `POAS: ${poas.toFixed(2).replace('.', ',')}x • Break-Even-ROAS: ${breakEvenRoas.toFixed(2).replace('.', ',')}x`;
+
+      if (db3PerOrder > 0) {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Profitables Unit-Economics-Profil (POAS > 1,00x nach Retouren)';
+        descEl.textContent = `Nach ${retRatePct.toFixed(0)} % Retourenquote und ${fmtM(cpa, curr)} CPA verbleiben ${fmtM(db3PerOrder, curr)} Reingewinn pro versendeter Bestellung.`;
+      } else if (dbAfterReturn > 0) {
+        box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-amber-300';
+        titleEl.textContent = '🟡 Negativer DB III nach Ad-Spend (CPA überschreitet Break-Even-CPA!)';
+        descEl.textContent = `Vor Werbung ist die Bestellung profitabel (${fmtM(dbAfterReturn, curr)}), aber Ihr CPA (${fmtM(cpa, curr)}) ist zu hoch. Maximal zulässiger Break-Even-CPA: ${fmtM(dbAfterReturn, curr)}.`;
+      } else {
+        box.className = 'bg-rose-950/60 border border-rose-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-rose-300';
+        titleEl.textContent = '🔴 Negativer Stückdeckungsbeitrag bereits vor Werbekosten!';
+        descEl.textContent = 'Retourenquote und Gebühren zehren die gesamte Handelsmarge bereits vor Marketingausgaben auf.';
+      }
+
+      document.getElementById('out-db-after-ret').textContent = (dbAfterReturn >= 0 ? '+' : '') + fmtM(dbAfterReturn, curr);
+      document.getElementById('out-db-before-ret').textContent = `Ohne Retoure: ${(dbKept >= 0 ? '+' : '') + fmtM(dbKept, curr)}`;
+      document.getElementById('out-ret-damage').textContent = '-' + fmtM(returnDamage, curr);
+      document.getElementById('out-comp-factor').textContent = `Kompensation: ${compMultiplier.toFixed(2).replace('.', ',')} erfolgreiche Best.`;
+      document.getElementById('out-monthly-profit').textContent = (monthlyProfit >= 0 ? '+' : '') + fmtM(monthlyProfit, curr);
+      document.getElementById('out-order-profit').textContent = `Pro versendeter Bestellung: ${(db3PerOrder >= 0 ? '+' : '') + fmtM(db3PerOrder, curr)}`;
+
+      document.getElementById('tbl-net-rev').textContent = fmtM(netRev, curr);
+      document.getElementById('tbl-net-rev-m').textContent = fmtM(netRev * ordersM, curr);
+      document.getElementById('tbl-cogs-ship').textContent = '-' + fmtM(cogs + pickPack + shipOut, curr);
+      document.getElementById('tbl-cogs-ship-m').textContent = '-' + fmtM((cogs + pickPack + shipOut) * ordersM, curr);
+      document.getElementById('tbl-fees').textContent = '-' + fmtM(totalFeesKept, curr);
+      document.getElementById('tbl-fees-m').textContent = '-' + fmtM(totalFeesKept * ordersM, curr);
+      document.getElementById('tbl-db-kept').textContent = (dbKept >= 0 ? '+' : '') + fmtM(dbKept, curr);
+      document.getElementById('tbl-db-kept-pct').textContent = `Marge: ${((dbKept / netRev) * 100).toFixed(1).replace('.', ',')} %`;
+      document.getElementById('tbl-ret-drag').textContent = '-' + fmtM(retDragPerOrder, curr);
+      document.getElementById('tbl-ret-drag-m').textContent = '-' + fmtM(retDragPerOrder * ordersM, curr);
+      document.getElementById('tbl-db-expected').textContent = (dbAfterReturn >= 0 ? '+' : '') + fmtM(dbAfterReturn, curr);
+      document.getElementById('tbl-db-expected-m').textContent = (dbAfterReturn >= 0 ? '+' : '') + fmtM(dbAfterReturn * ordersM, curr);
+      document.getElementById('tbl-db3').textContent = (db3PerOrder >= 0 ? '+' : '') + fmtM(db3PerOrder, curr);
+      document.getElementById('tbl-db3-m').textContent = (monthlyProfit >= 0 ? '+' : '') + fmtM(monthlyProfit, curr);
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Degressive AfA 2026: Wachstumschancengesetz, Formel &amp; Wechselzeitpunkt | DACH Digitalwerk</title>
+  <meta name="description" content="Degressive AfA 2026 nach Wachstumschancengesetz: Höchstsatz 20%, Berechnung, Formel &amp; optimaler Wechselzeitpunkt zu linearer AfA (§ 7 Abs. 2 &amp; 3 EStG)." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/degressive-afa-wachstumschancengesetz-2026-rechner.html" />
+  <meta property="og:title" content="Degressive AfA 2026: Wachstumschancengesetz, Formel &amp; Wechselzeitpunkt" />
+  <meta property="og:description" content="Wie Sie mit der degressiven AfA Steuern sparen: Bis zu 20% Abschreibung, optimaler linearer Wechsel und § 7g Sonder-AfA im Praxis-Check." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/degressive-afa-wachstumschancengesetz-2026-rechner.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Degressive AfA 2026: Wachstumschancengesetz, Formel & optimaler Wechselzeitpunkt",
+    "description": "Steuerlicher Fachleitfaden zur degressiven Abschreibung im deutschen, österreichischen und Schweizer Steuerrecht mit Berechnungsbeispielen und Wechselformel.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist der Höchstsatz der degressiven AfA nach dem Wachstumschancengesetz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemäß § 7 Abs. 2 EStG beträgt der Höchstsatz der degressiven AfA für bewegliche Wirtschaftsgüter des Anlagevermögens das Zweifache des linearen AfA-Satzes, maximal jedoch 20 % pro Jahr. Bei einer Nutzungsdauer von 10 Jahren (linear 10 %) beträgt der Satz somit exakt 20 %."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann ist der optimale Zeitpunkt für den Wechsel von degressiver zu linearer AfA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gemäß § 7 Abs. 3 EStG ist der Wechsel von der degressiven zur linearen AfA jederzeit zulässig. Der wirtschaftlich optimale Wechselzeitpunkt ist genau das Jahr, in dem die lineare Abschreibung (Restbuchwert dividiert durch die verbleibende Restnutzungsdauer) höher ist als der degressive Abschreibungsbetrag."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann die degressive AfA mit der § 7g Sonderabschreibung kombiniert werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja! Für kleine und mittlere Unternehmen (KMU mit einem Vorjahresgewinn bis 200.000 €) kann die Sonderabschreibung nach § 7g Abs. 5 EStG von bis zu 40 % im Anschaffungsjahr kumulativ neben der regulären degressiven oder linearen AfA geltend gemacht werden. Dadurch lassen sich im ersten Jahr bis zu über 50 % der Anschaffungskosten sofort steuermindernd ansetzen."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-indigo-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./" class="text-white font-bold hover:text-indigo-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Steuerstrategie &amp; Investitionsförderung</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="./afa-abschreibungs-rechner/" class="text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1">
+          <span>Direkt zum AfA-Rechner</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <header class="bg-gradient-to-b from-slate-900 to-indigo-950 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 rounded-full text-xs font-semibold uppercase tracking-wider">
+        <span>Wachstumschancengesetz 2026 • § 7 Abs. 2 EStG</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+        Degressive AfA 2026: Wachstumschancengesetz, Formel &amp; optimaler Wechselzeitpunkt
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+        Mit der Reaktivierung der degressiven Abschreibung bietet der Gesetzgeber Unternehmen einen erheblichen Hebel zur Liquiditätsschonung. Erfahren Sie, wie Sie die degressive AfA berechnen, mit der § 7g Sonder-AfA kombinieren und den mathematisch perfekten Wechselzeitpunkt zur linearen AfA bestimmen.
+      </p>
+      <div class="pt-4 flex flex-wrap items-center gap-4 text-xs text-slate-400 border-t border-slate-800">
+        <span>Aktualisiert: Oktober 2026</span>
+        <span>•</span>
+        <span>Rechtsquellen: § 7 Abs. 2 &amp; 3 EStG, § 7 Abs. 1a öst. EStG, Art. 960a OR</span>
+        <span>•</span>
+        <span>Lesezeit: ca. 7 Minuten</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <article class="space-y-10 text-slate-700 leading-relaxed text-sm sm:text-base">
+
+      <!-- KEY PRINCIPLE BOX -->
+      <div class="bg-indigo-50 border-2 border-indigo-500/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-lg">📈</div>
+          <h2 class="text-xl font-bold text-indigo-950 m-0">Die degressive AfA auf den Punkt gebracht</h2>
+        </div>
+        <p class="text-indigo-900 leading-relaxed text-sm">
+          Im Gegensatz zur linearen AfA (gleichbleibende Raten auf die ursprünglichen Anschaffungskosten) wird die degressive AfA <strong>in fallenden Jahresbeträgen vom jeweiligen Restbuchwert</strong> berechnet. Der AfA-Betrag ist in den Anfangsjahren am höchsten und sinkt mit fortschreitender Nutzungsdauer. Das führt zu einer Vorverlagerung von Betriebsausgaben und spart unmittelbar Liquidität durch Steuerstundung.
+        </p>
+      </div>
+
+      <!-- SECTION 1: DIE REGELN NACH WACHSTUMSCHANCENGESETZ -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">1. Die gesetzlichen Vorgaben im Überblick (§ 7 Abs. 2 EStG)</h2>
+        <p>
+          Das Wachstumschancengesetz hat die degressive AfA für bewegliche Wirtschaftsgüter des Anlagevermögens reaktiviert:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+          <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <span class="text-indigo-600 font-bold text-xs uppercase tracking-wider block">Maximaler Satz</span>
+            <div class="text-3xl font-black text-slate-900 font-mono">20 %</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Höchstgrenze: Maximal das <strong>Zweifache des linearen AfA-Satzes</strong>, gedeckelt auf höchstens 20 % pro Jahr.
+            </p>
+          </div>
+
+          <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <span class="text-indigo-600 font-bold text-xs uppercase tracking-wider block">Begünstigte Güter</span>
+            <div class="text-3xl font-black text-slate-900 font-mono">Beweglich</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Gilt nur für bewegliche Wirtschaftsgüter des Anlagevermögens (Maschinen, Pkw, IT, Werkzeuge). Nicht für Gebäude oder immaterielle Wirtschaftsgüter.
+            </p>
+          </div>
+
+          <div class="p-5 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <span class="text-indigo-600 font-bold text-xs uppercase tracking-wider block">Monatsgenau</span>
+            <div class="text-3xl font-black text-slate-900 font-mono">Pro Rata</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Im Anschaffungsjahr gilt die zeitanteilige Monatsaufteilung (§ 7 Abs. 1 Satz 4 EStG) auch für die degressive AfA.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: RECHENBEISPIEL MIT WECHSELZEITPUNKT -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">2. Der mathematisch optimale Wechselzeitpunkt (§ 7 Abs. 3 EStG)</h2>
+        <p>
+          Da die degressive AfA mathematisch nie null erreicht (der Restwert würde asymptotisch gegen null gehen), erlaubt § 7 Abs. 3 EStG den <strong>Wechsel von der degressiven zur linearen AfA</strong>. Nach dem Wechsel wird der Restbuchwert gleichmäßig über die verbleibende Restnutzungsdauer verteilt.
+        </p>
+
+        <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs space-y-2">
+          <div class="text-amber-300 font-bold">Die mathematische Wechsel-Regel:</div>
+          <div>Wechsle zur linearen AfA in genau dem Jahr, in dem gilt:</div>
+          <div class="text-emerald-400 font-bold text-sm">
+            Restbuchwert / Restnutzungsdauer &gt; Restbuchwert × Degressiv-Satz
+          </div>
+          <div class="text-slate-400 text-[11px] pt-1">
+            Das ist äquivalent zu: <strong>1 / Restnutzungsdauer &gt; Degressiv-Satz</strong>.
+          </div>
+        </div>
+
+        <p class="pt-2">
+          <strong>Praxisbeispiel:</strong> Eine Produktionsmaschine für <strong>50.000,00 € netto</strong>, Nutzungsdauer 10 Jahre (linear 10 % = 5.000 €/Jahr). Degressiver Satz: 20 %. Anschaffung im Januar:
+        </p>
+
+        <div class="overflow-x-auto my-4">
+          <table class="w-full text-left text-xs bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden font-mono">
+            <thead class="bg-slate-900 text-white font-sans font-semibold">
+              <tr>
+                <th class="p-3">Jahr</th>
+                <th class="p-3">Buchwert Beginn</th>
+                <th class="p-3">Methode</th>
+                <th class="p-3">Jahres-AfA</th>
+                <th class="p-3">Restbuchwert (31.12.)</th>
+                <th class="p-3 font-sans">Vergleich / Bewertung</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 1</td>
+                <td class="p-3">50.000,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">10.000,00 €</td>
+                <td class="p-3">40.000,00 €</td>
+                <td class="p-3 text-emerald-600 font-sans font-semibold">+5.000 € ggü. Linear!</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 2</td>
+                <td class="p-3">40.000,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">8.000,00 €</td>
+                <td class="p-3">32.000,00 €</td>
+                <td class="p-3 text-emerald-600 font-sans font-semibold">+3.000 € ggü. Linear</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 3</td>
+                <td class="p-3">32.000,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">6.400,00 €</td>
+                <td class="p-3">25.600,00 €</td>
+                <td class="p-3 text-emerald-600 font-sans font-semibold">+1.400 € ggü. Linear</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 4</td>
+                <td class="p-3">25.600,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">5.120,00 €</td>
+                <td class="p-3">20.480,00 €</td>
+                <td class="p-3 text-slate-600 font-sans">+120 € ggü. Linear</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 5</td>
+                <td class="p-3">20.480,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">4.096,00 €</td>
+                <td class="p-3">16.384,00 €</td>
+                <td class="p-3 text-slate-500 font-sans">Linear wäre 20.480/6 = 3.413 €</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 6</td>
+                <td class="p-3">16.384,00 €</td>
+                <td class="p-3 text-indigo-700">Degressiv 20 %</td>
+                <td class="p-3 font-bold text-slate-900">3.276,80 €</td>
+                <td class="p-3">13.107,20 €</td>
+                <td class="p-3 text-slate-500 font-sans">Linear wäre 16.384/5 = 3.276,80 €</td>
+              </tr>
+              <tr class="hover:bg-indigo-100/60 bg-indigo-50/70">
+                <td class="p-3 font-bold text-indigo-900">Jahr 7 ⚡</td>
+                <td class="p-3">13.107,20 €</td>
+                <td class="p-3 font-bold text-indigo-900 font-sans">Wechsel Linear!</td>
+                <td class="p-3 font-bold text-indigo-950">3.276,80 €</td>
+                <td class="p-3">9.830,40 €</td>
+                <td class="p-3 text-indigo-900 font-sans font-bold">Optimaler Wechselzeitpunkt!</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-bold">Jahr 8–10</td>
+                <td class="p-3">--</td>
+                <td class="p-3">Linear</td>
+                <td class="p-3 font-bold">3.276,80 € / J.</td>
+                <td class="p-3">0,00 € (bzw. 1 €)</td>
+                <td class="p-3 text-slate-600 font-sans">Vollständig abgeschrieben</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: SONDER-AFA KOMBINATION -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">3. Hebelwirkung: Kombination mit § 7g EStG Sonderabschreibung</h2>
+        <p>
+          Für kleinere und mittlere Betriebe (Gewinngrenze im Vorjahr bis 200.000 €) eröffnet sich durch die Kombination der degressiven AfA mit der <strong>Sonderabschreibung nach § 7g Abs. 5 EStG</strong> (erhöht auf bis zu 40 %) ein massiver Steuervorteil:
+        </p>
+        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 text-xs sm:text-sm text-amber-950 space-y-2">
+          <div class="font-bold text-base">Berechnungsbeispiel Jahr 1 (50.000 € Maschine):</div>
+          <div class="flex justify-between border-b border-amber-200 py-1">
+            <span>Reguläre degressive AfA (20 %):</span>
+            <span class="font-mono font-bold">10.000,00 €</span>
+          </div>
+          <div class="flex justify-between border-b border-amber-200 py-1">
+            <span>+ 40 % Sonderabschreibung nach § 7g Abs. 5 EStG:</span>
+            <span class="font-mono font-bold">20.000,00 €</span>
+          </div>
+          <div class="flex justify-between font-bold text-emerald-900 py-1.5 text-base">
+            <span>Gesamtabschreibung im Jahr 1:</span>
+            <span class="font-mono">30.000,00 € (60 % der Investition!)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ÖSTERREICH & SCHWEIZ -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">4. Degressive Abschreibung in Österreich &amp; Schweiz</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🇦🇹</span>
+              <h3 class="font-bold text-slate-900 text-sm">Österreich (§ 7 Abs. 1a EStG)</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In Österreich beträgt der Höchstsatz der degressiven AfA <strong>bis zu 30 %</strong>. Der Wechsel von degressiver zu linearer AfA ist gemäß § 7 Abs. 1a Z 4 EStG zulässig. Ausgenommen von der degressiven AfA sind u.a. Pkw (außer emissionsfreie Fahrzeuge wie E-Autos).
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🇨🇭</span>
+              <h3 class="font-bold text-slate-900 text-sm">Schweiz (ESTV &amp; Art. 960a OR)</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Die Eidgenössische Steuerverwaltung (ESTV) publiziert Richtsätze für Abschreibungen: Die degressive Abschreibung vom Buchwert beträgt in der Praxis in der Regel <strong>das Doppelte der linearen Abschreibung</strong> auf den Anschaffungswert (z.B. IT &amp; Fahrzeuge 40 % degressiv).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="space-y-6 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold text-slate-900">Häufig gestellte Fragen (FAQ) zur degressiven AfA</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Darf man auch von linear zu degressiv wechseln?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Nein! Das Steuerrecht erlaubt ausdrücklich nur den Wechsel <strong>von der degressiven zur linearen AfA</strong> (§ 7 Abs. 3 EStG). Ein umgekehrter Wechsel von der linearen zur degressiven AfA ist gesetzlich unzulässig. Die Wahl der degressiven AfA muss daher bereits im Anschaffungsjahr getroffen werden.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Gilt die degressive AfA auch für gebrauchte Wirtschaftsgüter?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Ja, die degressive AfA kann auch für gebrauchte Wirtschaftsgüter in Anspruch genommen werden, sofern diese im Begünstigungszeitraum angeschafft wurden. Der AfA-Satz bemisst sich dann nach der verbleibenden geschätzten Restnutzungsdauer.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8 text-center space-y-4 my-12">
+        <h3 class="text-2xl font-black">Ermitteln Sie jetzt Ihr optimales Wechseljahr</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+          Nutzen Sie unseren kostenlosen AfA-Optimierer 2026 und erstellen Sie Ihren vollständigen Abschreibungsverlauf inklusive PDF-Anlagenspiegel.
+        </p>
+        <a href="./afa-abschreibungs-rechner/" class="inline-flex items-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-2xl text-sm shadow-xl shadow-indigo-600/25 transition">
+          <span>Zum AfA- &amp; Abschreibungs-Rechner</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="./" class="hover:text-white transition">Alle Tools</a>
+          <a href="./afa-tabelle-abschreibung-nutzungsdauer-2026.html" class="hover:text-white transition">AfA-Tabelle</a>
+          <a href="./gwg-grenzen-deutschland-oesterreich-schweiz-vergleich.html" class="hover:text-white transition">GWG-Grenzen</a>
+          <a href="./agb/" class="hover:text-white transition">AGB</a>
+          <a href="./haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition">Haftungsausschluss</a>
+          <a href="./impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 pt-4 border-t border-slate-800">
+        Reines technisches und mathematisches Informationsangebot gemäß § 2 RDG / § 5 StBerG. Keine Rechts- oder Steuerberatung.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendlerpauschale berechnen & Kilometergeld DACH (2026): Staffelung & Rechner | DACH Digitalwerk</title>
+  <meta name="description" content="Pendlerpauschale 2026 berechnen: 0,38 € ab dem 21. km, Höchstbetrag 4.500 €, amtliches Kilometergeld (DE, AT, CH) & Homeoffice-Abgrenzung. Sofort-Rechner." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/pendlerpauschale-berechnen-kilometergeld-dach.html" />
+  <meta property="og:title" content="Pendlerpauschale berechnen & Kilometergeld DACH 2026: Staffelung & Obergrenzen" />
+  <meta property="og:description" content="Entfernungspauschale 2026 nach EStG: 0,30 € bis 20 km und 0,38 € ab 21 km. Amtliches Kilometergeld Österreich & Schweiz im direkten Vergleich." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/pendlerpauschale-berechnen-kilometergeld-dach.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Pendlerpauschale berechnen & Kilometergeld DACH (2026): Staffelung & Rechner",
+    "description": "Umfassender Ratgeber zur Berechnung der Entfernungspauschale 2026 in Deutschland sowie des amtlichen Kilometergeldes in Österreich und der Schweiz.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist die Pendlerpauschale 2026 in Deutschland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Für das Steuerjahr 2026 gilt in Deutschland die zweistufige Entfernungspauschale: Für die ersten 20 Kilometer der einfachen Wegstrecke werden 0,30 Euro je vollem Kilometer angesetzt. Ab dem 21. Kilometer erhöht sich die Pauschale auf 0,38 Euro je vollem Kilometer (§ 9 Abs. 1 Satz 3 Nr. 4 EStG)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt die Pendlerpauschale für die Hin- und Rückfahrt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein, die Pendlerpauschale (Entfernungspauschale) gilt ausdrücklich nur für die einfache Wegstrecke zwischen Wohnung und erster Tätigkeitsstätte. Dies unterscheidet sie grundlegend von der Reisekosten-Kilometerpauschale bei Dienstreisen, bei der die gesamten tatsächlich gefahrenen Kilometer (Hin- und Rückfahrt) mit 0,30 Euro/km vergütet werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kann die Pendlerpauschale neben der Homeoffice-Pauschale geltend gemacht werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein, für denselben Kalendertag schließt die Inanspruchnahme der Pendlerpauschale die Homeoffice-Pauschale grundsätzlich aus. Arbeitnehmer müssen für jeden Tag entscheiden: Entweder lag ein Arbeitstag in der ersten Tätigkeitsstätte vor (Pendlerpauschale) oder ein voller Heimarbeitstag ohne Fahrt zur Arbeitsstätte (Homeoffice-Pauschale von 6,00 Euro/Tag, max. 1.260 Euro/Jahr)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./" class="text-white font-bold hover:text-emerald-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300">Fahrtkosten &amp; Werbungskosten 2026</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./reisekosten-verpflegungsmehraufwand/" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3 py-1 rounded-lg text-xs transition">
+          Zum Pendler- &amp; Reisekostenrechner →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-emerald-600 transition">Startseite</a>
+      <span>›</span>
+      <a href="./reisekosten-verpflegungsmehraufwand/" class="hover:text-emerald-600 transition">Reisekosten- &amp; Spesenrechner</a>
+      <span>›</span>
+      <span class="text-slate-800 font-semibold">Pendlerpauschale berechnen &amp; Kilometergeld DACH</span>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="space-y-4 mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-xs font-bold">
+        <span>🚗</span>
+        <span>Entfernungspauschale, § 9 EStG, Kilometergeld &amp; DACH-Vergleich 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        Pendlerpauschale berechnen &amp; Kilometergeld 2026: Alle Sätze im DACH-Raum
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        Die Fahrtkosten zwischen Wohnort und Arbeitsstätte gehören zu den größten Werbungskostenposten von Arbeitnehmern. In diesem Leitfaden erfahren Sie, wie sich die erhöhte Entfernungspauschale ab dem 21. Kilometer berechnet, welche Obergrenzen für ÖPNV-Nutzer gelten und wie Österreich und die Schweiz Fahrtkosten abgelten.
+      </p>
+    </header>
+
+    <!-- CTA HERO CARD -->
+    <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center sm:text-left">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-blue-400">Interaktiver Sofort-Rechner</span>
+        <h3 class="text-xl sm:text-2xl font-black">Pendlerpauschale 2026 direkt online ermitteln</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
+          Geben Sie einfach Ihre einfache Wegstrecke und Präsenztage ein – unser Rechner ermittelt den täglichen, monatlichen und jährlichen Steuerabzug nach der amtlichen Formel.
+        </p>
+      </div>
+      <a href="./reisekosten-verpflegungsmehraufwand/" class="whitespace-nowrap px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+        <span>Zum Rechner</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- MAIN BODY -->
+    <article class="space-y-10 text-slate-800 text-sm sm:text-base leading-relaxed">
+
+      <!-- SECTION 1 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          1. Die Entfernungspauschale 2026 in Deutschland
+        </h2>
+        <p>
+          Nach <strong>§ 9 Abs. 1 Satz 3 Nr. 4 EStG</strong> können Beschäftigte für jeden vollen Arbeitstag, an dem sie ihre erste Tätigkeitsstätte aufsuchen, folgende Pauschalbeträge ansetzen:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 my-6">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Stufe 1 (km 1 bis 20)</span>
+            <div class="text-3xl font-black text-slate-900">0,30 €</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Für die ersten 20 Kilometer der einfachen Wegstrecke. Beispiel bei 18 km Entfernung: 18 × 0,30 € = 5,40 € pro Arbeitstag.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2 border-l-4 border-l-blue-600">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 block">Stufe 2 (ab dem 21. km)</span>
+            <div class="text-3xl font-black text-blue-600">0,38 €</div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Erhöhter Pauschalsatz zur Entlastung von Fernpendlern. Bei 45 km Entfernung: (20 × 0,30 €) + (25 × 0,38 €) = 6,00 € + 9,50 € = 15,50 € pro Tag.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200 text-xs text-slate-700 space-y-1">
+          <div class="font-bold text-slate-900">Was gilt als „einfache Wegstrecke“?</div>
+          <p>
+            Es zählt grundsätzlich die <strong>kürzeste benutzbare Straßenverbindung</strong> zwischen Wohnung und Tätigkeitsstätte. Eine verkehrsgünstigere, längere Strecke darf nur dann angesetzt werden, wenn sie nachweislich zu einer regelmäßigen Zeiteinsparung führt.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          2. Wichtiger Unterschied: Pendlerpauschale vs. Dienstreise-Kilometergeld
+        </h2>
+        <p>
+          In der Praxis werden diese beiden Pauschalen häufig verwechselt:
+        </p>
+
+        <!-- TABLE COMPARISON -->
+        <div class="overflow-x-auto my-6">
+          <table class="w-full text-left border-collapse border border-slate-300 text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-100 text-slate-900 border-b border-slate-300">
+                <th class="p-3 font-bold border-r border-slate-300">Kriterium</th>
+                <th class="p-3 font-bold border-r border-slate-300">Pendlerpauschale (Wege zur Arbeit)</th>
+                <th class="p-3 font-bold">Dienstreise-Kilometerpauschale</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold border-r border-slate-300">Rechtsgrundlage</td>
+                <td class="p-3 border-r border-slate-300">§ 9 Abs. 1 Nr. 4 EStG</td>
+                <td class="p-3 font-mono">§ 9 Abs. 1 Nr. 4a / BRKG</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold border-r border-slate-300">Berechnete Strecke</td>
+                <td class="p-3 border-r border-slate-300 text-amber-700 font-bold">Nur einfache Wegstrecke</td>
+                <td class="p-3 text-emerald-700 font-bold">Tatsächlich gefahrene Hin- &amp; Rückfahrt</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold border-r border-slate-300">Pauschalsatz Pkw</td>
+                <td class="p-3 border-r border-slate-300">0,30 € (bis 20 km) / 0,38 € (ab 21 km)</td>
+                <td class="p-3 font-mono font-bold">0,30 € je gefahrenem Kilometer</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold border-r border-slate-300">Erstattungsart</td>
+                <td class="p-3 border-r border-slate-300">Werbungskostenabzug (ESt-Erklärung)</td>
+                <td class="p-3 font-semibold text-emerald-800">100% steuerfreie AG-Auszahlung</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          3. Kilometergeld &amp; Fahrkosten in Österreich und der Schweiz
+        </h2>
+        <div class="space-y-4 my-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+              <span>🇦🇹</span>
+              <span>Österreich: Amtliches Kilometergeld &amp; Pendlerpauschale</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In Österreich beträgt das amtliche Kilometergeld für Dienstreisen mit eigenem Pkw <strong>0,42 Euro/km</strong> (Motorrad 0,24 Euro/km, Fahrrad 0,38 Euro/km). Für die täglichen Fahrten zur Arbeit gibt es die „kleine“ und „große“ Pendlerpauschale sowie den <strong>Pendlereuro</strong> (2,00 Euro pro Kilometer einfacher Fahrtstrecke pro Kalenderjahr).
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+              <span>🇨🇭</span>
+              <span>Schweiz: Fahrkostenabzug bei der direkten Bundessteuer</span>
+            </h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In der Schweiz sind die Fahrkosten zwischen Wohn- und Arbeitsort bei der direkten Bundessteuer auf maximal <strong>3.200 CHF pro Jahr</strong> gedeckelt (FABI-Vorlage). Viele Kantone haben eigene Höchstgrenzen eingeführt (z. B. Kanton Zürich 5.000 CHF, Kanton Bern unbeschränkt). Bei Dienstreisen gilt ein empfohlener Satz von <strong>0,70 CHF pro gefahrenem Kilometer</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          4. Homeoffice-Pauschale vs. Pendlerpauschale: Das Doppelabzugs-Verbot
+        </h2>
+        <p>
+          Mit der Entfristung der <strong>Homeoffice-Pauschale (6,00 Euro pro Tag, maximal 1.260 Euro pro Jahr bzw. 210 Tage)</strong> stellt sich die Frage des täglichen Ausschlusses:
+        </p>
+        <p class="text-xs sm:text-sm text-slate-700">
+          Wer morgens von zu Hause arbeitet und mittags ins Büro fährt, darf für diesen Tag <strong>nur die Pendlerpauschale</strong> geltend machen. Ein doppelter Ansatz von Homeoffice-Tagespauschale und Entfernungspauschale am selben Kalendertag ist gesetzlich ausgeschlossen (§ 4 Abs. 5 Satz 1 Nr. 6b EStG).
+        </p>
+      </section>
+
+      <!-- MID ARTICLE TOOL LINK -->
+      <div class="p-6 rounded-3xl bg-slate-100 border border-slate-300 text-center space-y-3">
+        <h3 class="text-lg font-bold text-slate-900">Berechnen Sie Ihren steuerlichen Abzug 2026</h3>
+        <p class="text-xs text-slate-600 max-w-lg mx-auto">
+          Nutzen Sie unser integriertes Tool zur Berechnung der Pendlerpauschale sowie zur Erstellung vollständiger Reisekostenabrechnungen im DACH-Raum.
+        </p>
+        <a href="./reisekosten-verpflegungsmehraufwand/" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs rounded-xl shadow-md transition">
+          <span>Zum DACH Rechner öffnen</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+
+    <!-- INTERNAL LINKING HUB -->
+    <div class="mt-16 pt-10 border-t border-slate-200 space-y-6">
+      <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+        <span>📖</span>
+        <span>Weitere nützliche Finanz- &amp; Spesentools</span>
+      </h3>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <a href="./verpflegungsmehraufwand-2026-tabelle-pauschalen.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-500 transition shadow-sm group">
+          <span class="text-xs font-bold text-blue-600 block mb-1">Spesentabelle 2026</span>
+          <div class="font-bold text-slate-900 group-hover:text-blue-700">Verpflegungsmehraufwand 2026 Tabelle &amp; Pauschalen</div>
+          <p class="text-xs text-slate-500 mt-1">Amtliche BMF-Pauschalen, Mahlzeitenkürzung und Auslandstagegelder.</p>
+        </a>
+        <a href="./reisekostenabrechnung-muster-excel-vorlage-kostenlos.html" class="p-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-500 transition shadow-sm group">
+          <span class="text-xs font-bold text-blue-600 block mb-1">Vorlagen &amp; Checklisten</span>
+          <div class="font-bold text-slate-900 group-hover:text-blue-700">Reisekostenabrechnung Muster &amp; Excel-Vorlage kostenlos</div>
+          <p class="text-xs text-slate-500 mt-1">Pflichtangaben nach BMF, Vorsteueraufteilung (7% vs 19%) und DIN-A4 Druck.</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 mt-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white text-sm">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4 text-xs font-semibold">
+          <a href="./" class="hover:text-white transition">Alle Tools Hub</a>
+          <a href="./agb/" class="hover:text-white transition">AGB</a>
+          <a href="./haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition font-bold">Haftungsausschluss (§ 2 RDG / StBerG)</a>
+          <a href="./impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 leading-relaxed border-t border-slate-800 pt-6">
+        <strong class="text-slate-400">Rechtlicher Hinweis &amp; Distanzierung gemäß § 2 RDG / § 5 StBerG:</strong>
+        Die Berechnung der Entfernungspauschale beruht auf den allgemeinen gesetzlichen Richtlinien des EStG. Es handelt sich um ein rein technisches Hilfsmittel, das keine individuelle steuerliche Beratung darstellt. Für Ihre Steuererklärung wenden Sie sich bitte an eine Steuerberaterin oder einen Lohnsteuerhilfeverein.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

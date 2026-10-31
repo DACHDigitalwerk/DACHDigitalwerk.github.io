@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>13-Wochen-Liquiditätsplanung Muster &amp; Vorlage: IDW S11 Standard für KMU | DACH Digitalwerk</title>
+  <meta name="description" content="13-Wochen-Liquiditätsplanung Vorlage nach IDW S11 &amp; StaRUG § 1: Aufbau, Excel-Muster vs. Online-Tool, rollierende Wochensteuerung und Banken-Reporting für KMU." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/13-wochen-liquiditaetsplanung-muster-vorlage.html" />
+  <meta property="og:title" content="13-Wochen-Liquiditätsplanung Muster &amp; Vorlage für KMU" />
+  <meta property="og:description" content="Der goldene Standard nach IDW S11: Wie eine rollierende 13-Wochen-Liquiditätsplanung aufgebaut ist und wie Sie Zahlungsunfähigkeit sicher abwenden." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/13-wochen-liquiditaetsplanung-muster-vorlage.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "13-Wochen-Liquiditätsplanung Muster & Vorlage: IDW S11 Standard für KMU",
+    "description": "Leitfaden zur rollierenden 13-Wochen-Liquiditätsplanung nach IDW S11 und StaRUG § 1 für Geschäftsführer und Controller.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Warum umfasst die kurzfristige Liquiditätsplanung genau 13 Wochen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "13 Wochen entsprechen exakt einem Quartal (91 Tage). Nach dem Standard IDW S11 des Instituts der Wirtschaftsprüfer und der BGH-Rechtsprechung zu § 17 InsO ist dieser Zeithorizont entscheidend, um zwischen einer bloßen vorübergehenden Zahlungsstockung und einer dauerhaften Zahlungsunfähigkeit zu differenzieren."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was bedeutet 'rollierende' Planung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rollierend bedeutet, dass nach Ablauf jeder Woche die Ist-Zahlen eingetragen und mit den Plandaten abgeglichen werden. Gleichzeitig wird am Ende des Zeithorizonts eine neue 13. Woche angehängt, sodass immer ein vollständiger 13-Wochen-Blick in die Zukunft gewährleistet ist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wann liegt nach IDW S11 eine Liquiditätslücke vor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Eine Liquiditätslücke liegt vor, wenn die fälligen Zahlungspflichten die verfügbaren liquiden Mittel (inklusive freier Kreditlinien) um mehr als 10 Prozent übersteigen und diese Lücke nicht binnen 2 bis 3 Wochen vollständig geschlossen werden kann."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="./" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-sm shadow-md group-hover:scale-105 transition">DW</span>
+        <span class="font-display font-bold text-base text-white tracking-tight group-hover:text-emerald-400 transition">DACH Digitalwerk</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="./liquiditaetsplaner-cashflow-rechner/" class="text-xs font-bold bg-emerald-500 hover:bg-emerald-400 text-slate-950 px-3.5 py-2 rounded-xl transition">
+          Zum Liquiditätsplaner →
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= ARTICLE CONTENT ================= -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    
+    <!-- Breadcrumb -->
+    <nav class="text-xs font-mono text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-emerald-400 transition">Home</a>
+      <span>/</span>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="hover:text-emerald-400 transition">Liquiditätsplaner</a>
+      <span>/</span>
+      <span class="text-slate-300">13-Wochen-Muster &amp; Vorlage</span>
+    </nav>
+
+    <!-- Header Badge -->
+    <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full mb-4">
+      <span>Standard IDW S11 &amp; StaRUG § 1</span>
+    </div>
+
+    <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight mb-6">
+      13-Wochen-Liquiditätsplanung: Muster, Aufbau &amp; Vorlage für KMU
+    </h1>
+
+    <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+      In wirtschaftlich dynamischen Zeiten reicht ein jährlicher Finanzplan nicht aus. Die <strong>rollierende 13-Wochen-Liquiditätsplanung</strong> ist das anerkannte Steuerungsinstrument für Geschäftsführer und Finanzverantwortliche im DACH-Raum. Sie erfüllt die gesetzlichen Anforderungen des <strong>StaRUG § 1</strong>, schützt vor persönlicher Haftung gem. <strong>§ 15b InsO</strong> und bildet das Fundament für jedes professionelle Bankengespräch.
+    </p>
+
+    <!-- Interactive Tool Callout -->
+    <div class="p-6 rounded-2xl bg-slate-950 border border-slate-800 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <div class="text-xs font-mono text-emerald-400 uppercase font-bold mb-1">Kostenloses Browser-Tool</div>
+        <div class="text-base font-bold text-white">13-Wochen-Liquiditätsplan jetzt online erstellen</div>
+        <div class="text-xs text-slate-400">Keine Installation, kein Excel-Formel-Chaos, sofortiger DIN-A4 PDF- &amp; CSV-Export.</div>
+      </div>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="whitespace-nowrap bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl transition">
+        Rechner öffnen →
+      </a>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        1. Warum genau 13 Wochen? Der Standard IDW S11
+      </h2>
+      <p>
+        Ein Zeitraum von 13 Wochen umfasst exakt ein <strong>Kalenderquartal (91 Tage)</strong>. Aus betriebswirtschaftlicher und insolvenzrechtlicher Sicht ist dieser Horizont ideal austariert:
+      </p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Hohe Prognosegenauigkeit:</strong> Auftragsbestand, offene Debitoren und verbindliche Lieferantenrechnungen (Kreditoren) sind für die nächsten 4 bis 8 Wochen bereits konkret bekannt.</li>
+        <li><strong>Rechtliche Relevanz (IDW S11 &amp; § 17 InsO):</strong> Nach ständiger BGH-Rechtsprechung gilt eine Zahlungsstockung nur dann als unbedenklich, wenn sie innerhalb von maximal <strong>drei Wochen</strong> beseitigt werden kann. Eine Liquiditätslücke von mehr als 10 % nach 3 Wochen begründet die gesetzliche Vermutung der Zahlungsunfähigkeit.</li>
+        <li><strong>Bankenstandard:</strong> Kreditinstitute, Factoring-Dienstleister und Warenkreditversicherer fordern im Rahmen von Covenants oder Sanierungsgutachten regelmäßig eine 13-Wochen-Vorschau.</li>
+      </ul>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        2. Der modulare Aufbau eines 13-Wochen-Liquiditätsplans
+      </h2>
+      <p>
+        Eine professionelle Liquiditätsrechnung betrachtet ausschließlich <strong>tatsächliche Zahlungsströme (Cash-In und Cash-Out)</strong>, niemals buchhalterische Erträge oder Aufwendungen. Der Aufbau gliedert sich in fünf Hauptabschnitte:
+      </p>
+
+      <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-950 mb-6">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-slate-900 border-b border-slate-800 text-slate-400 font-mono">
+            <tr>
+              <th class="p-3">Kategorie</th>
+              <th class="p-3">Typische Positionen</th>
+              <th class="p-3">Häufige Planungsfehler</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr>
+              <td class="p-3 font-semibold text-white">1. Anfangsbestand</td>
+              <td class="p-3">Girokonten, Tagesgeld, Kasse, gebundene Treuhandkonten (getrennt ausweisen)</td>
+              <td class="p-3 text-rose-300">Bereits genutzte Kontokorrentlinien fälschlicherweise als Guthaben buchen</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">2. Einzahlungen (+)</td>
+              <td class="p-3">Zahlungseingänge Debitoren (Bruttobeträge!), Barumsätze, Steuerrückerstattungen</td>
+              <td class="p-3 text-rose-300">Zu optimistische Zahlungsziele ohne Verzugszuschlag ansetzen</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">3. Auszahlungen (-)</td>
+              <td class="p-3">Material/Lieferanten, Gehälter, SV-Beiträge (Fälligkeit am drittletzten Bankarbeitstag!), USt, Miete, Zins/Tilgung</td>
+              <td class="p-3 text-rose-300">Quartalsweise Steuer- und Zinsspitzen vergessen (z. B. USt-Vorauszahlung am 10.)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">4. Netto-Cashflow</td>
+              <td class="p-3">Saldo Einzahlungen minus Auszahlungen je Kalenderwoche</td>
+              <td class="p-3 text-rose-300">Wöchentliche Schwankungen durch Monatsmittelwerte glätten</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-white">5. Endbestand &amp; Linie</td>
+              <td class="p-3">Kumulierter Kassenbestand, Auslastung der Kontokorrentlinie, Über-/Unterdeckung</td>
+              <td class="p-3 text-rose-300">Fehlender Sicherheitspuffer für unvorhergesehene Havarien</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="space-y-6 text-sm text-slate-300 leading-relaxed mb-12">
+      <h2 class="text-2xl font-display font-extrabold text-white tracking-tight border-b border-slate-800 pb-3">
+        3. So funktioniert das rollierende Prinzip in der Praxis
+      </h2>
+      <p>
+        Ein 13-Wochen-Plan ist kein statisches Dokument, sondern ein <strong>lebender wöchentlicher Regelkreis</strong>:
+      </p>
+      <ol class="list-decimal pl-5 space-y-2">
+        <li><strong>Wochenabschluss (z. B. jeden Montagvormittag):</strong> Die abgelaufene Woche wird mit den realen Kontoauszügen abgeglichen (Soll-Ist-Vergleich).</li>
+        <li><strong>Ursachenanalyse:</strong> Warum blieben geplante Debitorenzahlungen aus? Gab es ungeplante Auszahlungen?</li>
+        <li><strong>Forecast-Aktualisierung:</strong> Die verbleibenden 12 Wochen werden an die neuen Erkenntnisse angepasst.</li>
+        <li><strong>Anhängen der Woche 13:</strong> Es wird eine neue Woche 13 am Ende des Prognosezeitraums modelliert. So bleibt der Planungshorizont permanent bei vollen drei Monaten.</li>
+      </ol>
+
+      <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 text-xs text-emerald-300">
+        <strong>Tipp für Geschäftsführer:</strong> Dokumentieren Sie den wöchentlichen Soll-Ist-Abgleich schriftlich mit Datum. Sollte es jemals zu Restrukturierungsverhandlungen oder insolvenzrechtlichen Prüfungen kommen, belegt dieses Protokoll lückenlos die Erfüllung der unternehmerischen Sorgfaltspflichten nach <strong>§ 43 GmbHG / § 1 StaRUG</strong>.
+      </div>
+    </section>
+
+    <!-- Bottom Rechner Banner -->
+    <div class="p-8 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-slate-900 to-teal-500/10 border border-emerald-500/30 text-center">
+      <h3 class="text-xl font-display font-bold text-white mb-2">13-Wochen-Liquiditätsplan jetzt direkt im Browser starten</h3>
+      <p class="text-xs text-slate-300 max-w-xl mx-auto mb-6">
+        Nutzen Sie unser kostenloses KMU-Tool: Erfassen Sie Wochentranchen, simulieren Sie Kreditlinien, prüfen Sie Frühwarnkriterien und exportieren Sie druckfertige DIN-A4 Berichte.
+      </p>
+      <a href="./liquiditaetsplaner-cashflow-rechner/" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm px-6 py-3 rounded-xl transition shadow-lg shadow-emerald-500/20">
+        Kostenlosen Planer starten →
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-8 text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk. Rein technischer Informationsleitfaden. Keine Rechts- oder Steuerberatung (§ 2 RDG / § 5 StBerG).</div>
+      <div class="flex gap-4 text-slate-400">
+        <a href="./agb/" class="hover:text-emerald-400 transition">AGB</a>
+        <a href="./haftungsausschluss/" class="hover:text-emerald-400 transition">Haftungsausschluss</a>
+        <a href="./liquiditaetsplaner-cashflow-rechner/" class="hover:text-emerald-400 transition">Liquiditätsplaner</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

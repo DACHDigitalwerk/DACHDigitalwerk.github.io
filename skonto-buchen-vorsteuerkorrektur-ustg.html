@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skonto buchen &amp; Vorsteuerkorrektur (§ 17 UStG): SKR03, SKR04 &amp; Schweiz 2026 | DACH Digitalwerk</title>
+  <meta name="description" content="Skonto richtig buchen 2026: Buchungssätze für Lieferantenskonto &amp; Kundenskonto in SKR03 und SKR04. Vorsteuerkorrektur nach § 17 UStG, § 16 öst. UStG &amp; Art. 41 MWSTG." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/skonto-buchen-vorsteuerkorrektur-ustg.html" />
+  <meta property="og:title" content="Skonto buchen &amp; Vorsteuerkorrektur (§ 17 UStG): SKR03, SKR04 &amp; MWST 2026" />
+  <meta property="og:description" content="Kompakter Buchhaltungs-Guide: Wie Sie erhaltene und gewährte Skonti rechtssicher verbuchen und die Vorsteuer automatisch oder manuell anpassen." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/skonto-buchen-vorsteuerkorrektur-ustg.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Skonto buchen & Vorsteuerkorrektur nach § 17 UStG: SKR03, SKR04 & Schweizer MWSTG",
+    "description": "Detaillierte Anleitung mit Buchungssätzen und Kontennummern für die kaufmännische Buchhaltung von Skontoabzügen im DACH-Raum.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Muss bei Skontoabzug zwingend die Vorsteuer korrigiert werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja, gemäß § 17 Abs. 1 UStG in Deutschland (bzw. § 16 UStG in Österreich und Art. 41 MWSTG in der Schweiz) ändert sich durch den Skontoabzug die Bemessungsgrundlage der Lieferung oder Leistung. Der Leistungsempfänger muss den in Anspruch genommenen Vorsteuerabzug im Voranmeldungszeitraum der Zahlung zwingend um den auf den Skontobetrag entfallenden Steueranteil mindern."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Auf welches Konto bucht man erhaltene Skonti in SKR03 und SKR04?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In SKR03 wird erhaltenes Skonto bei 19 % Vorsteuer standardmäßig auf Konto 3736 ('Erhaltene Skonti 19 % Vorsteuer') gebucht (bei 7 % auf Konto 3731). In SKR04 lautet das Konto 5736 ('Erhaltene Skonti 19 % Vorsteuer'). Bei Automatikkonten in DATEV oder Lexware korrigiert die Software die Vorsteuer automatisch im Hintergrund."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie berechnet sich der Vorsteuer-Korrekturbetrag aus dem Skonto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Da Skonto üblicherweise vom Bruttorechnungsbetrag abgezogen wird, ist der Skontobetrag ebenfalls ein Bruttobetrag. Bei einem regulären Steuersatz von 19 % errechnet sich der Vorsteueranteil mit der Formel: Skonto brutto / 1,19 × 0,19 (oder Skonto brutto × 19 / 119). Bei 20 % (Österreich): Skonto brutto × 20 / 120. Bei 8,1 % (Schweiz): Skonto brutto × 8,1 / 108,1."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-emerald-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./" class="text-white font-bold hover:text-emerald-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-400">Buchhaltungs- &amp; Steuerpraxis 2026</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="./skonto-rechner-effektivzins/" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1">
+          <span>Direkt zum Skonto-Rechner</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE HEADER -->
+  <header class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-14 px-4 sm:px-6 lg:px-8 border-b border-slate-700">
+    <div class="max-w-4xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-semibold uppercase tracking-wider">
+        <span>FIBU &amp; USt-Compliance</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+        Skonto buchen &amp; Vorsteuerkorrektur nach § 17 UStG: SKR03, SKR04 &amp; Schweiz
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+        Ein Skontoabzug mindert die kaufmännische Bemessungsgrundlage einer Rechnung. Steuerrechtlich zieht dies eine zwingende Korrektur der gezogenen Vorsteuer nach sich. Hier erfahren Sie, wie Sie Lieferanten- und Kundenskonti in DATEV, Lexware und modernen ERP-Systemen normkonform verbuchen.
+      </p>
+      <div class="pt-4 flex flex-wrap items-center gap-4 text-xs text-slate-400 border-t border-slate-700/60">
+        <span>Aktualisiert: Oktober 2026</span>
+        <span>•</span>
+        <span>Rechtsquellen: § 17 Abs. 1 UStG, § 16 öst. UStG, Art. 41 MWSTG</span>
+        <span>•</span>
+        <span>Lesezeit: ca. 7 Minuten</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <article class="space-y-10 text-slate-700 leading-relaxed text-sm sm:text-base">
+
+      <!-- KEY PRINCIPLE BOX -->
+      <div class="bg-blue-50 border-2 border-blue-500/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-lg">§</div>
+          <h2 class="text-xl font-bold text-blue-950 m-0">Die steuerliche Grundregel nach § 17 UStG</h2>
+        </div>
+        <p class="text-blue-900 leading-relaxed text-sm">
+          Wird das vereinbarte Entgelt für eine steuerpflichtige Leistung nachträglich gemindert (z. B. durch Skonto, Rabatt oder Bonus), so hat der leistende Unternehmer den dafür geschuldeten Steuerbetrag zu berichtigen. Gleichermaßen hat der Leistungsempfänger den Vorsteuerabzug zu korrigieren. Die Berichtigung ist <strong>für den Besteuerungszeitraum vorzunehmen, in dem die Minderung des Entgelts eingetreten ist</strong> (also bei Zahlung).
+        </p>
+      </div>
+
+      <!-- SECTION 1: LIEFERANTENSKONTO BUCHEN -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">1. Lieferantenskonto verbuchen (Kreditorenbuchhaltung)</h2>
+        <p>
+          Zieht Ihr Unternehmen beim Bezahlen einer Lieferantenrechnung Skonto ab, handelt es sich um ein <strong>erhaltenes Skonto</strong>. Dieses mindert nachträglich Ihre Anschaffungskosten sowie die zuvor in voller Höhe geltend gemachte Vorsteuer.
+        </p>
+
+        <!-- EXAMPLE CASE -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+          <h3 class="font-bold text-slate-900 text-base border-b border-slate-100 pb-2">Praxisbeispiel (Deutschland, 19 % USt):</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-slate-800">
+            <div>
+              <span class="text-slate-500 block">Warenlieferung Netto:</span>
+              <span class="font-bold text-sm">10.000,00 €</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">+ 19 % Vorsteuer:</span>
+              <span class="font-bold text-sm">1.900,00 €</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">Bruttorechnungsbetrag:</span>
+              <span class="font-bold text-sm">11.900,00 €</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block">2 % Skonto brutto:</span>
+              <span class="font-bold text-sm text-emerald-600">-238,00 € (200 € Netto + 38 € VSt)</span>
+            </div>
+            <div class="sm:col-span-2 pt-2 border-t border-slate-100">
+              <span class="text-slate-500 block">Tatsächlicher Banküberweisungsbetrag:</span>
+              <span class="font-bold text-base text-slate-900">11.662,00 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUCHUNGSSÄTZE COMPARISON -->
+        <h3 class="text-lg font-bold text-slate-900 pt-2">Buchungssätze im Vergleich (SKR03 vs. SKR04)</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-4">
+          <!-- SKR03 -->
+          <div class="bg-slate-900 text-slate-200 p-5 rounded-2xl space-y-3 font-mono text-xs">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2 text-white font-sans font-bold">
+              <span>DATEV SKR03</span>
+              <span class="text-[10px] text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded">Prozessgliederung</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block font-sans">1. Rechnungseingang:</span>
+              <span>3400 Wareneingang 19 %: 10.000 €</span><br/>
+              <span>1576 Vorsteuer 19 %: 1.900 €</span><br/>
+              <span class="text-emerald-400">an 1600 Verbindlichkeiten: 11.900 €</span>
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <span class="text-slate-400 block font-sans">2. Zahlung unter Skontoabzug:</span>
+              <span>1600 Verbindlichkeiten: 11.900 €</span><br/>
+              <span class="text-amber-300">an 1200 Bank: 11.662 €</span><br/>
+              <span class="text-emerald-400">an 3736 Erhaltene Skonti 19 %: 200 €</span><br/>
+              <span class="text-rose-400">an 1576 Vorsteuer 19 %: 38 €</span>
+            </div>
+            <p class="font-sans text-[11px] text-slate-400 pt-1">
+              *Hinweis: DATEV-Konto 3736 ist ein Automatikkonto (AM). Bucht man 238 € auf 3736, teilt die Software Vorsteuer und Nettosparnis automatisch auf.
+            </p>
+          </div>
+
+          <!-- SKR04 -->
+          <div class="bg-slate-900 text-slate-200 p-5 rounded-2xl space-y-3 font-mono text-xs">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2 text-white font-sans font-bold">
+              <span>DATEV SKR04</span>
+              <span class="text-[10px] text-blue-400 bg-blue-950 px-2 py-0.5 rounded">Abschlussgliederung</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block font-sans">1. Rechnungseingang:</span>
+              <span>5400 Wareneingang 19 %: 10.000 €</span><br/>
+              <span>1406 Vorsteuer 19 %: 1.900 €</span><br/>
+              <span class="text-emerald-400">an 3300 Verbindlichkeiten: 11.900 €</span>
+            </div>
+            <div class="pt-2 border-t border-slate-800">
+              <span class="text-slate-400 block font-sans">2. Zahlung unter Skontoabzug:</span>
+              <span>3300 Verbindlichkeiten: 11.900 €</span><br/>
+              <span class="text-amber-300">an 1800 Bank: 11.662 €</span><br/>
+              <span class="text-emerald-400">an 5736 Erhaltene Skonti 19 %: 200 €</span><br/>
+              <span class="text-rose-400">an 1406 Vorsteuer 19 %: 38 €</span>
+            </div>
+            <p class="font-sans text-[11px] text-slate-400 pt-1">
+              *Hinweis: Auch Konto 5736 in SKR04 führt bei Nutzung des Automatismus zur automatischen Vorsteuerentlastung im USt-Voranmeldungsformular (Kennziffer 66).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: KUNDENSKONTO BUCHEN -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">2. Kundenskonto verbuchen (Debitorenbuchhaltung)</h2>
+        <p>
+          Gewähren Sie einem Kunden Skonto und dieser überweist fristgerecht den gekürzten Betrag, handelt es sich um ein <strong>gewährtes Skonto</strong> (Erlösschmälerung). Sie müssen Ihre abzuführende Umsatzsteuer entsprechend um den enthaltenen Steuerbetrag nach unten anpassen.
+        </p>
+
+        <div class="overflow-x-auto my-4">
+          <table class="w-full text-left text-xs bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <thead class="bg-slate-900 text-white font-semibold">
+              <tr>
+                <th class="p-3">Sachverhalt</th>
+                <th class="p-3">SKR03 Konto</th>
+                <th class="p-3">SKR04 Konto</th>
+                <th class="p-3">Wirkung in der GuV</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold">Gewährte Skonti 19 % USt</td>
+                <td class="p-3 font-mono font-bold text-blue-600">8736</td>
+                <td class="p-3 font-mono font-bold text-blue-600">6736</td>
+                <td class="p-3 text-slate-600">Erlösschmälerung (Umsatzerlöse sinken)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/50">
+                <td class="p-3 font-semibold">Gewährte Skonti 7 % USt</td>
+                <td class="p-3 font-mono font-bold text-blue-600">8731</td>
+                <td class="p-3 font-mono font-bold text-blue-600">6731</td>
+                <td class="p-3 text-slate-600">Erlösschmälerung (ermäßigter Steuersatz)</td>
+              </tr>
+              <tr class="hover:bg-slate-50">
+                <td class="p-3 font-semibold">Erhaltene Skonti 19 % USt</td>
+                <td class="p-3 font-mono font-bold text-emerald-600">3736</td>
+                <td class="p-3 font-mono font-bold text-emerald-600">5736</td>
+                <td class="p-3 text-slate-600">Aufwandsminderung (Wareneinsatz sinkt)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 bg-slate-50/50">
+                <td class="p-3 font-semibold">Erhaltene Skonti 7 % USt</td>
+                <td class="p-3 font-mono font-bold text-emerald-600">3731</td>
+                <td class="p-3 font-mono font-bold text-emerald-600">5731</td>
+                <td class="p-3 text-slate-600">Aufwandsminderung (Wareneinsatz sinkt)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: BESONDERHEITEN ÖSTERREICH & SCHWEIZ -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900">3. Besonderheiten in Österreich (UStG § 16) und Schweiz (MWSTG Art. 41)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-4">
+          
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🇦🇹</span>
+              <h3 class="font-bold text-slate-900 text-sm">Österreich (KMU-Kontenrahmen)</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              In Österreich regelt <strong>§ 16 UStG 1994</strong> die Berichtigung der Steuergrundlage. Im Einheitskontenrahmen buchen österreichische Unternehmen erhaltene Skonti typischerweise auf Konto <strong>5880 (Lieferantenskonti 20 %)</strong> bzw. 5881 (10 %). Gewährte Skonti werden auf Konto <strong>4400 (Kundenskonti 20 %)</strong> verbucht.
+            </p>
+            <div class="p-3 bg-slate-50 rounded-xl text-[11px] font-mono text-slate-700">
+              Vorsteuerformel (20 %):<br/>
+              VSt-Korrektur = Skontobetrag × (20 / 120)
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xl">🇨🇭</span>
+              <h3 class="font-bold text-slate-900 text-sm">Schweiz (MWSTG Art. 41)</h3>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Gemäß <strong>Art. 41 MWSTG</strong> (Schweizerisches Mehrwertsteuergesetz) sind nachträgliche Preisminderungen wie Skonti in der Abrechnungsperiode zu berücksichtigen, in welcher sie in den Geschäftsbüchern verbucht werden.
+            </p>
+            <div class="p-3 bg-slate-50 rounded-xl text-[11px] font-mono text-slate-700">
+              Normalsatz 2026: 8,1 % MWST<br/>
+              MWST-Korrektur = Skontobetrag × (8,1 / 108,1)<br/>
+              Reduzierter Satz: 2,6 % MWST
+            </div>
+            <p class="text-[11px] text-slate-500">
+              *Hinweis für Saldosteuersatz-Anwender: Bei der Abrechnung nach der Saldosteuersatzmethode erfolgt keine separate Vorsteuerkorrektur, da der Bruttoumsatz nach Skontoabzug mit dem bewilligten Saldosteuersatz versteuert wird.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="space-y-6 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold text-slate-900">Häufige Fragen (FAQ) zur Skonto-Buchung</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Muss der Lieferant eine Rechnungskorrektur oder Gutschrift ausstellen?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Nein! Wenn auf der Originalrechnung die Skontobedingungen (z. B. "2 % Skonto bei Zahlung bis 15.11.") klar ausgewiesen sind, ist <strong>keine separate Gutschrift oder berichtigte Rechnung erforderlich</strong>. Der Zahlungsbeleg (Kontoauszug mit Abzug) zusammen mit der Eingangsrechnung gilt für das Finanzamt als vollständiger Nachweis der Entgeltminderung.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Was passiert, wenn der Kunde unberechtigt Skonto abzieht?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Zieht ein Kunde Skonto ab, obwohl die Zahlungsfrist verstrichen war oder kein Skonto vereinbart wurde, bleibt der Restbetrag als offene Forderung bestehen. Der leistende Unternehmer kann den Differenzbetrag anmahnen. Eine Berichtigung der Umsatzsteuer nach § 17 UStG darf erst dann erfolgen, wenn der Unternehmer auf die Nachforderung definitiv verzichtet (z. B. durch Ausbuchung aus Kulanz).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8 text-center space-y-4 my-12">
+        <h3 class="text-2xl font-black">Vorsteuerkorrektur sekundenschnell berechnen</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+          Nutzen Sie unseren kostenlosen Skonto-Rechner für Deutschland (19 % / 7 %), Österreich (20 % / 10 %) und die Schweiz (8,1 % / 2,6 %).
+        </p>
+        <a href="./skonto-rechner-effektivzins/" class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black rounded-2xl text-sm shadow-xl shadow-emerald-500/25 transition">
+          <span>Zum Skonto- &amp; Steuer-Rechner</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- &amp; standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="./" class="hover:text-white transition">Alle Tools</a>
+          <a href="./skonto-berechnen-formel-effektivzins.html" class="hover:text-white transition">Skonto-Formel</a>
+          <a href="./lieferantenkredit-kontokorrentkredit-vergleich.html" class="hover:text-white transition">Kreditvergleich</a>
+          <a href="./agb/" class="hover:text-white transition">AGB</a>
+          <a href="./haftungsausschluss/" class="text-amber-400 hover:text-amber-300 transition">Haftungsausschluss</a>
+          <a href="./impressum-datenschutz-generator/" class="hover:text-white transition">Impressum &amp; Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 pt-4 border-t border-slate-800">
+        Reines technisches und finanzmathematisches Informationsangebot gemäß § 2 RDG / § 5 StBerG. Keine Rechts- oder Steuerberatung.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

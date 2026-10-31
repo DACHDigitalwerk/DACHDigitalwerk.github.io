@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH Zinseszins-, Entnahmeplan- (Kapitalverzehr vs. Ewige Rente), 4-%-Trinity-Regel- &amp; Rentenlücken-Rechner 2026 | Rürup/Basisrente (§ 10 EStG 30.826 €), ETF-Depot (§ 20 InvStG) &amp; CH Säule 3a</title>
+  <meta name="description" content="Interaktiver DACH Entnahmeplan-, Zinseszins- &amp; Rentenlücken-Simulator 2026: Kapitalverzehr vs. Ewige Rente, 4-%-Trinity-Regel (FIRE), ETF-Depot (30 % Teilfreistellung § 20 InvStG) vs. Rürup/Basisrente (§ 10 EStG 30.826 € / 61.652 €), AT KESt (27,5 %) &amp; CH Säule 3a (7.258 / 36.288 CHF)." />
+  <meta name="keywords" content="Entnahmeplan Rechner 2026, Kapitalverzehr Ewige Rente Formel, Rentenlücke berechnen DACH, 4 Prozent Regel Trinity Studie Rechner, Rürup Höchstbetrag 2026 30826 Euro vs ETF, Säule 3a 2026 7258 CHF 36288 CHF, Zinseszins Inflation Kaufkraft Rechner" />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/zinseszins-entnahmeplan-rentenluecke-rechner/" />
+  <meta property="og:title" content="DACH Zinseszins-, Entnahmeplan- &amp; Rentenlücken-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Anspar- &amp; Entnahmephase (Kapitalverzehr vs. Ewige Rente), 4-%-Trinity-Regel, ETF-Teilfreistellung (§ 20 InvStG), Rürup (§ 10 EStG 30.826 €) &amp; CH Säule 3a." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/zinseszins-entnahmeplan-rentenluecke-rechner/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH Zinseszins-, Entnahmeplan-, 4-%-Trinity-Regel- & Rentenlücken-Rechner 2026",
+    "description": "Finanzmathematischer Anspar- und Entnahmeplan-Simulator (Kapitalverzehr vs. Ewige Rente) mit Steuervergleich für DE (§ 20 InvStG ETF vs. § 10 EStG Rürup 30.826 €), AT (27,5 % KESt) und CH (Säule 3a 7.258 / 36.288 CHF).",
+    "url": "https://dachdigitalwerk.github.io/zinseszins-entnahmeplan-rentenluecke-rechner/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "inLanguage": ["de-DE", "de-AT", "de-CH"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechnet man die monatliche Rente bei Kapitalverzehr im Vergleich zur ewigen Rente?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei einer ewigen Rente bleibt der reale Kapitalstock erhalten, sodass monatlich nur der reale Zinsüberschuss E_ewig = K * (i_Entnahme - p_Inflation) / 12 entnommen wird. Beim Kapitalverzehr über N Monate mit Monatszinsfaktor q = 1 + r_eff/12 berechnet sich die Annuitäten-Entnahme exakt nach E_Verzehr = K * (q^N * (q - 1)) / (q^N - 1), bis das Kapital nach Ablauf der geplanten Rentendauer vollständig aufgebraucht ist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hoch ist der Rürup-Höchstbetrag 2026 (§ 10 EStG) und wie wird ein Aktien-ETF-Depot (§ 20 InvStG) in der Entnahmephase besteuert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Im Jahr 2026 sind Beiträge zur Basisrente (Rürup) nach § 10 Abs. 1 Nr. 2b EStG zu 100 % als Sonderausgaben abziehbar – bis zum Höchstbetrag von 30.826 € für Ledige bzw. 61.652 € für zusammenveranlagte Ehepaare. Im freien Aktien-ETF-Depot gilt nach § 20 Abs. 1 Satz 1 InvStG eine 30-%-Teilfreistellung, sodass nur 70 % des veräußerten Gewinnanteils mit 26,375 % Abgeltungsteuer inkl. Soli (effektiv 18,4625 % nur auf den Kursgewinnanteil) besteuert werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Stellt dieser Entnahmeplan- und Ruhestandsrechner eine Anlage-, Versicherungs- oder Steuerberatung dar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Kalkulationswerkzeug gem. BGH, Urteil v. 09.09.2021 – I ZR 226/20 (Smartlaw) ohne individuelle Rechts-, Steuer-, Anlage- oder Versicherungsberatung i.S.d. § 2 RDG, § 5 StBerG oder § 34d/f GewO."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #0f172a !important; }
+      .print-card { border: 1px solid #cbd5e1 !important; background: #f8fafc !important; color: #0f172a !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased">
+
+  <header class="border-b border-slate-800/80 bg-slate-900/70 backdrop-blur sticky top-0 z-30 no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 transition">
+          ← DACH CFO &amp; Tax Hub (Alle Tools)
+        </a>
+        <span class="text-xs text-slate-400 hidden sm:inline">Tool #40 • Rechtsstand 2026 (DE § 10 EStG &amp; § 20 InvStG / AT KESt / CH Säule 3a)</span>
+      </div>
+      <button onclick="window.print()" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white transition">
+        🖨️ DIN-A4 Ruhestands- &amp; Entnahme-Dossier drucken
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-slate-900 via-indigo-950/50 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+          🇩🇪 § 10 EStG Rürup (30.826 € / 61.652 €) &amp; § 20 InvStG (30 % TFS)
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+          🇦🇹 27,5 % KESt-Depot &amp; Pensionslücke
+        </span>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          🇨🇭 Säule 3a 2026 (7.258 / 36.288 CHF) &amp; Art. 16 Abs. 3 DBG
+        </span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold tracking-tight text-white mb-3">
+        DACH Zinseszins-, Entnahmeplan- (Kapitalverzehr vs. Ewige Rente) &amp; Rentenlücken-Rechner 2026
+      </h1>
+      <p class="text-sm md:text-base text-slate-300 max-w-4xl leading-relaxed">
+        Berechnen Sie Ihre <strong>Ansparphase (inkl. Sparraten-Dynamik &amp; Inflation)</strong> sowie Ihre <strong>Entnahmephase im Ruhestand</strong>: Vergleichen Sie <strong>Kapitalverzehr über <em>T</em> Jahre</strong>, <strong>Ewige Rente (Kapitalerhalt)</strong> und die <strong>4-%-Trinity-Regel (Safe Withdrawal Rate)</strong> inklusive Steuerabzug im ETF-Depot (§ 20 InvStG Teilfreistellung), Rürup-/Basisrente (§ 10 EStG) und Schweizer Säule 3a.
+      </p>
+
+      <div class="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-800/80 no-print">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400 mr-1">Rechtsraum:</span>
+          <button id="btn-country-DE" onclick="setCountry('DE')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400">🇩🇪 Deutschland (ETF / Rürup)</button>
+          <button id="btn-country-AT" onclick="setCountry('AT')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇦🇹 Österreich (27,5 % KESt)</button>
+          <button id="btn-country-CH" onclick="setCountry('CH')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">🇨🇭 Schweiz (Säule 3a / Freies Depot)</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold text-slate-400">Praxis-Szenarien:</span>
+          <button onclick="loadPreset('gmbh_gf')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">👔 GmbH-GF Ruhestandsdepot (250k + 2.500 €/M)</button>
+          <button onclick="loadPreset('fire_4pct')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🔥 FIRE / 4-%-Trinity-Regel (35 J. Rente)</button>
+          <button onclick="loadPreset('ruerup_max')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-indigo-200 border border-slate-700 transition">🏛️ Freiberufler Rürup-Max (2.568 €/M)</button>
+          <button onclick="loadPreset('at_pension')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-emerald-200 border border-slate-700 transition">🇦🇹 Wien Privatdepot (100k + 1.200 €/M)</button>
+          <button onclick="loadPreset('ch_3a')" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-indigo-900/60 text-amber-200 border border-slate-700 transition">🇨🇭 Zürich Säule 3a + ETF (300k CHF)</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Left Inputs -->
+      <div class="lg:col-span-5 space-y-5 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 print-card">
+        <h2 class="text-lg font-bold text-white flex items-center justify-between border-b border-slate-800 pb-3">
+          <span>1. Ansparphase &amp; Rentenlücke</span>
+          <span id="badge-curr" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">EUR (€)</span>
+        </h2>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-start-cap" class="block text-xs font-semibold text-slate-300 mb-1">Startkapital heute (<code>K<sub>0</sub></code>)</label>
+            <input id="in-start-cap" type="number" value="120000" min="0" step="5000" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-monthly-save" class="block text-xs font-semibold text-slate-300 mb-1">Monatl. Sparrate (<code>r</code>)</label>
+            <input id="in-monthly-save" type="number" value="1500" min="0" step="100" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label for="in-save-years" class="block text-xs font-semibold text-slate-300 mb-1">Ansparjahre</label>
+            <input id="in-save-years" type="number" value="20" min="0" max="50" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-acc-return" class="block text-xs font-semibold text-slate-300 mb-1">Rendite Anspar (%)</label>
+            <input id="in-acc-return" type="number" value="7.2" min="0" max="20" step="0.2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-dyn-pct" class="block text-xs font-semibold text-slate-300 mb-1">Dynamik p.a. (%)</label>
+            <input id="in-dyn-pct" type="number" value="2.0" min="0" max="15" step="0.5" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300 mb-3">2. Entnahmephase, Inflation &amp; Steuern</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div>
+              <label for="in-ret-years" class="block text-xs font-semibold text-slate-300 mb-1">Rentendauer (J.)</label>
+              <input id="in-ret-years" type="number" value="25" min="5" max="60" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-ret-return" class="block text-xs font-semibold text-slate-300 mb-1">Rendite Rente (%)</label>
+              <input id="in-ret-return" type="number" value="5.0" min="0" max="15" step="0.2" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+            <div>
+              <label for="in-inflation" class="block text-xs font-semibold text-slate-300 mb-1">Inflation p.a. (%)</label>
+              <input id="in-inflation" type="number" value="2.2" min="0" max="10" step="0.1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="in-target-gap" class="block text-xs font-semibold text-slate-300 mb-1">Gewünschte Netto-Rente / Lücke (heute/Monat)</label>
+            <input id="in-target-gap" type="number" value="3500" min="500" step="250" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+          <div>
+            <label for="in-pers-tax" class="block text-xs font-semibold text-slate-300 mb-1">Grenzsteuersatz heute (%)</label>
+            <input id="in-pers-tax" type="number" value="42.0" min="15" max="55" step="1" oninput="recalc()" class="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white font-semibold text-sm" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Results -->
+      <div class="lg:col-span-7 space-y-6">
+        <div id="box-gap-status" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4">
+          <div class="flex items-center justify-between">
+            <span id="out-gap-title" class="text-xs font-extrabold text-emerald-300">🟢 Rentenlücke vollständig gedeckt (Kapitalverzehr &amp; 4-%-Regel)</span>
+            <span id="out-tax-shield-badge" class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-200">Rürup/3a Steuervorteil: +7.560 €/J.</span>
+          </div>
+          <p id="out-gap-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">
+            Ihr reales Endkapital deckt Ihre inflationsbereinigte Wunsch-Nettorente über die gesamte Ruhestandsdauer.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Endkapital zum Rentenstart</span>
+            <div id="out-cap-nominal" class="text-2xl font-extrabold text-white mt-1">1.384.200 €</div>
+            <p id="out-cap-real" class="text-[11px] text-indigo-300 mt-1">Kaufkraft heute: 895.400 €</p>
+          </div>
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-300">Monatl. Netto-Rente (Kapitalverzehr)</span>
+            <div id="out-rent-consume-net" class="text-2xl font-extrabold text-emerald-400 mt-1">6.840 € / Monat</div>
+            <p id="out-rent-consume-real" class="text-[11px] text-slate-400 mt-1">Real (Kaufkraft heute): 4.425 € / Monat</p>
+          </div>
+          <div class="bg-slate-900/90 border border-indigo-500/40 rounded-2xl p-4 print-card">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300">Ewige Netto-Rente (Kapitalerhalt)</span>
+            <div id="out-rent-perp-net" class="text-2xl font-extrabold text-indigo-300 mt-1">4.120 € / Monat</div>
+            <p id="out-rent-4pct" class="text-[11px] text-slate-400 mt-1">4-%-Trinity-Regel: 4.614 € / Monat</p>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 print-card">
+          <h3 class="text-sm font-bold text-white mb-4">
+            Entnahmeplan- &amp; Vorsorgeschichten-Vergleich 2026
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400">
+                  <th class="py-2 pr-3">Kennzahl / Entnahme-Strategie</th>
+                  <th class="py-2 px-3 text-right">Nominal zum Rentenstart</th>
+                  <th class="py-2 pl-3 text-right text-indigo-300">Kaufkraft heute (Real)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/70">
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">1. Eingezahltes Eigenkapital (Startkapital + kumulierte Sparraten)</td>
+                  <td id="tbl-invested" class="py-2.5 px-3 text-right font-mono">557.350 €</td>
+                  <td id="tbl-gain-share" class="py-2.5 pl-3 text-right font-mono text-emerald-300">Gewinnanteil: 59,7 %</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 font-semibold text-white">2. Depotwert zum Rentenbeginn (vor Entnahme)</td>
+                  <td id="tbl-cap-nom" class="py-2.5 px-3 text-right font-mono font-semibold">1.384.200 €</td>
+                  <td id="tbl-cap-real" class="py-2.5 pl-3 text-right font-mono font-semibold text-indigo-200">895.400 €</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">3. Monatliche Brutto-Rente mit Kapitalverzehr</td>
+                  <td id="tbl-cons-gross" class="py-2.5 px-3 text-right font-mono">8.095 € / M.</td>
+                  <td id="tbl-cons-gross-real" class="py-2.5 pl-3 text-right font-mono text-slate-300">5.236 € / M.</td>
+                </tr>
+                <tr class="bg-slate-800/40 font-bold text-white">
+                  <td class="py-3 pr-3">4. Monatliche Netto-Rente mit Kapitalverzehr (nach ETF-Steuer)</td>
+                  <td id="tbl-cons-net" class="py-3 px-3 text-right font-mono text-emerald-400">7.203 € / M.</td>
+                  <td id="tbl-cons-net-real" class="py-3 pl-3 text-right font-mono text-emerald-300">4.659 € / M.</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">5. Ewige monatliche Netto-Rente (100 % realer Kapitalerhalt)</td>
+                  <td id="tbl-perp-net" class="py-2.5 px-3 text-right font-mono">2.874 € / M.</td>
+                  <td id="tbl-perp-net-real" class="py-2.5 pl-3 text-right font-mono text-indigo-300">1.859 € / M.</td>
+                </tr>
+                <tr>
+                  <td class="py-2.5 pr-3 text-slate-300">6. Safe Withdrawal Rate (4,0-%-Trinity-Regel netto/Monat)</td>
+                  <td id="tbl-swr-net" class="py-2.5 px-3 text-right font-mono">4.105 € / M.</td>
+                  <td id="tbl-swr-net-real" class="py-2.5 pl-3 text-right font-mono text-indigo-200">2.655 € / M.</td>
+                </tr>
+                <tr class="bg-indigo-950/40 font-bold text-white">
+                  <td class="py-3 pr-3">7. Benötigtes Zielkapital für Ihre Wunsch-Rentenlücke</td>
+                  <td id="tbl-req-nom" class="py-3 px-3 text-right font-mono">1.040.000 €</td>
+                  <td id="tbl-req-real" class="py-3 pl-3 text-right font-mono text-indigo-300">672.750 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & Fachratgeber Section -->
+    <section class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-4">
+      <h2 class="text-xl font-bold text-white">
+        Fachratgeber 2026: Kapitalverzehr vs. Ewige Rente, 4-%-Trinity-Regel &amp; Rürup (§ 10 EStG 30.826 €) vs. ETF (§ 20 InvStG)
+      </h2>
+      <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+        In der Entnahmephase eines Aktien-ETF-Depots wird bei jedem Verkauf nur der <strong>anteilige Kursgewinn</strong> besteuert — und dank <strong>30 % Teilfreistellung nach § 20 Abs. 1 InvStG</strong> beträgt die effektive Abgeltungsteuer auf den Gewinnanteil nur <strong>18,4625 %</strong> (inkl. Soli). Demgegenüber ermöglicht die <strong>Rürup-/Basisrente (§ 10 Abs. 1 Nr. 2b EStG)</strong> im Jahr 2026 einen 100-%-Sonderausgabenabzug bis zu <strong>30.826 € (Ledige) bzw. 61.652 € (Zusammenveranlagte)</strong>, unterliegt im Ruhestand jedoch der nachgelagerten Einkommensteuer (§ 22 Nr. 1 EStG).
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 no-print">
+        <a href="entnahmeplan-rechner-kapitalverzehr-ewige-rente-formel-2026.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-indigo-300 mb-1">Vertiefung 1 • Finanzmathematik</div>
+          <div class="text-sm font-bold text-white">Entnahmeplan-Formel 2026: Kapitalverzehr vs. Ewige Rente berechnen</div>
+        </a>
+        <a href="ruerup-basisrente-hoechstbetrag-2026-30826-euro-vs-etf-depot-rechner.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-emerald-300 mb-1">Vertiefung 2 • § 10 EStG vs. § 20 InvStG</div>
+          <div class="text-sm font-bold text-white">Rürup Höchstbetrag 2026 (30.826 €) vs. freies Aktien-ETF-Depot</div>
+        </a>
+        <a href="rentenluecke-berechnen-4-prozent-regel-inflation-schweiz-saeule-3a.html" class="block p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-indigo-500/60 transition">
+          <div class="text-xs font-bold text-amber-300 mb-1">Vertiefung 3 • FIRE &amp; Säule 3a</div>
+          <div class="text-sm font-bold text-white">Rentenlücke, 4-%-Trinity-Regel &amp; Schweizer Säule 3a (7.258 / 36.288 CHF)</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-4 py-8 mt-8 border-t border-slate-800/80 text-xs text-slate-400">
+    <div class="flex flex-col md:flex-row justify-between gap-4">
+      <p class="leading-relaxed max-w-4xl">
+        <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / § 34d/f GewO / BGH, Urteil v. 09.09.2021 – I ZR 226/20 – Smartlaw):</strong> Dieser Zinseszins-, Entnahmeplan- und Rentenlücken-Rechner ist ein automatisiertes, regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug. Er erbringt keine individuelle Rechts-, Steuer-, Anlage- oder Versicherungsberatung. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Data-Storage).
+      </p>
+      <div class="flex items-center gap-4 shrink-0">
+        <a href="../index.html" class="hover:text-white underline">Alle DACH-Tools</a>
+        <a href="../agb/" class="hover:text-white underline">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white underline">Haftungsausschluss &amp; Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+
+    function fmtCurr(val, curr) {
+      const sign = val < 0 ? '-' : '';
+      return sign + Math.round(Math.abs(val)).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const btn = document.getElementById('btn-country-' + k);
+        btn.className = (k === c)
+          ? 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-indigo-600 text-white border border-indigo-400'
+          : 'px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700';
+      });
+      document.getElementById('badge-curr').textContent = (c === 'CH') ? 'CHF' : 'EUR (€)';
+      recalc();
+    }
+
+    function loadPreset(p) {
+      if (p === 'gmbh_gf') {
+        setCountry('DE');
+        document.getElementById('in-start-cap').value = 250000;
+        document.getElementById('in-monthly-save').value = 2500;
+        document.getElementById('in-save-years').value = 18;
+        document.getElementById('in-acc-return').value = 7.5;
+        document.getElementById('in-dyn-pct').value = 2.0;
+        document.getElementById('in-ret-years').value = 25;
+        document.getElementById('in-ret-return').value = 5.2;
+        document.getElementById('in-inflation').value = 2.2;
+        document.getElementById('in-target-gap').value = 5000;
+        document.getElementById('in-pers-tax').value = 44.3;
+      } else if (p === 'fire_4pct') {
+        setCountry('DE');
+        document.getElementById('in-start-cap').value = 180000;
+        document.getElementById('in-monthly-save').value = 2200;
+        document.getElementById('in-save-years').value = 15;
+        document.getElementById('in-acc-return').value = 8.0;
+        document.getElementById('in-dyn-pct').value = 2.5;
+        document.getElementById('in-ret-years').value = 35;
+        document.getElementById('in-ret-return').value = 6.0;
+        document.getElementById('in-inflation').value = 2.0;
+        document.getElementById('in-target-gap').value = 3200;
+        document.getElementById('in-pers-tax').value = 42.0;
+      } else if (p === 'ruerup_max') {
+        setCountry('DE');
+        document.getElementById('in-start-cap').value = 50000;
+        document.getElementById('in-monthly-save').value = 2568;
+        document.getElementById('in-save-years').value = 20;
+        document.getElementById('in-acc-return').value = 7.0;
+        document.getElementById('in-dyn-pct').value = 1.5;
+        document.getElementById('in-ret-years').value = 25;
+        document.getElementById('in-ret-return').value = 4.8;
+        document.getElementById('in-inflation').value = 2.0;
+        document.getElementById('in-target-gap').value = 3800;
+        document.getElementById('in-pers-tax').value = 44.3;
+      } else if (p === 'at_pension') {
+        setCountry('AT');
+        document.getElementById('in-start-cap').value = 100000;
+        document.getElementById('in-monthly-save').value = 1200;
+        document.getElementById('in-save-years').value = 22;
+        document.getElementById('in-acc-return').value = 7.0;
+        document.getElementById('in-dyn-pct').value = 2.0;
+        document.getElementById('in-ret-years').value = 25;
+        document.getElementById('in-ret-return').value = 5.0;
+        document.getElementById('in-inflation').value = 2.3;
+        document.getElementById('in-target-gap').value = 2800;
+        document.getElementById('in-pers-tax').value = 48.0;
+      } else if (p === 'ch_3a') {
+        setCountry('CH');
+        document.getElementById('in-start-cap').value = 300000;
+        document.getElementById('in-monthly-save').value = 3024;
+        document.getElementById('in-save-years').value = 20;
+        document.getElementById('in-acc-return').value = 6.8;
+        document.getElementById('in-dyn-pct').value = 1.5;
+        document.getElementById('in-ret-years').value = 25;
+        document.getElementById('in-ret-return').value = 4.5;
+        document.getElementById('in-inflation').value = 1.5;
+        document.getElementById('in-target-gap').value = 5500;
+        document.getElementById('in-pers-tax').value = 32.0;
+      }
+      recalc();
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const k0 = Math.max(0, parseFloat(document.getElementById('in-start-cap').value) || 0);
+      const r0 = Math.max(0, parseFloat(document.getElementById('in-monthly-save').value) || 0);
+      const saveYears = Math.max(0, Math.min(60, parseInt(document.getElementById('in-save-years').value) || 0));
+      const accReturnPct = Math.max(0, parseFloat(document.getElementById('in-acc-return').value) || 0);
+      const dynPct = Math.max(0, parseFloat(document.getElementById('in-dyn-pct').value) || 0);
+      const retYears = Math.max(1, Math.min(60, parseInt(document.getElementById('in-ret-years').value) || 25));
+      const retReturnPct = Math.max(0, parseFloat(document.getElementById('in-ret-return').value) || 0);
+      const infPct = Math.max(0, parseFloat(document.getElementById('in-inflation').value) || 0);
+      const targetGapReal = Math.max(0, parseFloat(document.getElementById('in-target-gap').value) || 0);
+      const persTaxPct = Math.max(0, parseFloat(document.getElementById('in-pers-tax').value) || 0);
+
+      // Accumulation phase month by month with annual dynamic increase
+      const mRateAcc = (accReturnPct / 100.0) / 12.0;
+      let cap = k0;
+      let invested = k0;
+      let currentMonthly = r0;
+      for (let y = 0; y < saveYears; y++) {
+        if (y > 0) currentMonthly *= (1.0 + dynPct / 100.0);
+        for (let m = 0; m < 12; m++) {
+          cap = cap * (1.0 + mRateAcc) + currentMonthly;
+          invested += currentMonthly;
+        }
+      }
+
+      const infFactor = Math.pow(1.0 + infPct / 100.0, saveYears);
+      const capReal = cap / infFactor;
+      const gainShare = cap > 0 ? Math.max(0, (cap - invested) / cap) : 0;
+
+      // Effective tax rate on ETF withdrawal gain portion
+      let effCapGainsTaxRate = 0.184625; // DE: 26.375% * 0.7 (30% Teilfreistellung § 20 InvStG)
+      let annualTaxShield = 0;
+      if (currentCountry === 'DE') {
+        effCapGainsTaxRate = 0.26375 * 0.70;
+        const annualContrib = Math.min(30826, r0 * 12);
+        annualTaxShield = annualContrib * (persTaxPct / 100.0);
+        document.getElementById('out-tax-shield-badge').textContent = `§ 10 EStG Rürup-Steuervorteil: +${fmtCurr(annualTaxShield, curr)}/J.`;
+      } else if (currentCountry === 'AT') {
+        effCapGainsTaxRate = 0.275; // 27.5% KESt
+        annualTaxShield = 0;
+        document.getElementById('out-tax-shield-badge').textContent = `AT KESt (27,5 % nur auf Gewinnanteil: ${(gainShare * 27.5).toFixed(1).replace('.', ',')} % eff.)`;
+      } else {
+        effCapGainsTaxRate = 0.0; // CH Art. 16 Abs. 3 DBG private capital gains tax-free
+        const annualContrib3a = Math.min(36288, r0 * 12);
+        annualTaxShield = annualContrib3a * (persTaxPct / 100.0);
+        document.getElementById('out-tax-shield-badge').textContent = `Säule 3a Steuerersparnis: +${fmtCurr(annualTaxShield, curr)}/J.`;
+      }
+
+      const effectiveWithdrawalTaxFraction = gainShare * effCapGainsTaxRate;
+
+      // Withdrawal 1: Capital consumption over retYears (N = retYears * 12)
+      const nMonths = retYears * 12;
+      const q = 1.0 + (retReturnPct / 100.0) / 12.0;
+      let grossMonthlyConsume = 0;
+      if (Math.abs(q - 1.0) < 1e-7) {
+        grossMonthlyConsume = cap / nMonths;
+      } else {
+        const qN = Math.pow(q, nMonths);
+        grossMonthlyConsume = cap * (qN * (q - 1.0)) / (qN - 1.0);
+      }
+      const netMonthlyConsume = grossMonthlyConsume * (1.0 - effectiveWithdrawalTaxFraction);
+      const netMonthlyConsumeReal = netMonthlyConsume / infFactor;
+
+      // Withdrawal 2: Perpetual annuity preserving real purchasing power (r_real = max(0, retReturn - inflation))
+      const realYieldPct = Math.max(0, retReturnPct - infPct);
+      const grossMonthlyPerp = cap * (realYieldPct / 100.0) / 12.0;
+      const netMonthlyPerp = grossMonthlyPerp * (1.0 - effectiveWithdrawalTaxFraction);
+      const netMonthlyPerpReal = netMonthlyPerp / infFactor;
+
+      // Withdrawal 3: 4.0% Trinity Safe Withdrawal Rate
+      const grossMonthly4Pct = (cap * 0.04) / 12.0;
+      const netMonthly4Pct = grossMonthly4Pct * (1.0 - effectiveWithdrawalTaxFraction);
+      const netMonthly4PctReal = netMonthly4Pct / infFactor;
+
+      // Required capital at retirement to cover targetGapReal (with capital consumption)
+      const targetGapNominalAtRetStart = targetGapReal * infFactor;
+      const grossNeededMonthly = targetGapNominalAtRetStart / Math.max(0.1, 1.0 - effectiveWithdrawalTaxFraction);
+      let reqCapNominal = 0;
+      if (Math.abs(q - 1.0) < 1e-7) {
+        reqCapNominal = grossNeededMonthly * nMonths;
+      } else {
+        const qN = Math.pow(q, nMonths);
+        reqCapNominal = grossNeededMonthly * (qN - 1.0) / (qN * (q - 1.0));
+      }
+      const reqCapReal = reqCapNominal / infFactor;
+
+      // Banner status
+      const box = document.getElementById('box-gap-status');
+      const titleEl = document.getElementById('out-gap-title');
+      const descEl = document.getElementById('out-gap-desc');
+      if (netMonthlyConsumeReal >= targetGapReal) {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300';
+        titleEl.textContent = '🟢 Rentenlücke zu 100 % gedeckt (Puffer: +' + fmtCurr(netMonthlyConsumeReal - targetGapReal, curr) + '/Monat real)';
+        descEl.textContent = `Ihre reale Netto-Entnahme (${fmtCurr(netMonthlyConsumeReal, curr)}/Monat in heutiger Kaufkraft) übertrifft Ihre Ziel-Rentenlücke (${fmtCurr(targetGapReal, curr)}/Monat) über ${retYears} Ruhestandsjahre.`;
+      } else {
+        box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4';
+        titleEl.className = 'text-xs font-extrabold text-amber-300';
+        titleEl.textContent = '🟡 Unterdeckung der Wunsch-Rentenlücke (-' + fmtCurr(targetGapReal - netMonthlyConsumeReal, curr) + '/Monat real)';
+        descEl.textContent = `Für ${fmtCurr(targetGapReal, curr)}/Monat reale Kaufkraft über ${retYears} Jahre benötigen Sie zum Rentenstart nominal ${fmtCurr(reqCapNominal, curr)} (real ${fmtCurr(reqCapReal, curr)}).`;
+      }
+
+      document.getElementById('out-cap-nominal').textContent = fmtCurr(cap, curr);
+      document.getElementById('out-cap-real').textContent = 'Kaufkraft heute: ' + fmtCurr(capReal, curr);
+      document.getElementById('out-rent-consume-net').textContent = fmtCurr(netMonthlyConsume, curr) + ' / M.';
+      document.getElementById('out-rent-consume-real').textContent = 'Real (heute): ' + fmtCurr(netMonthlyConsumeReal, curr) + ' / M.';
+      document.getElementById('out-rent-perp-net').textContent = fmtCurr(netMonthlyPerp, curr) + ' / M.';
+      document.getElementById('out-rent-4pct').textContent = '4-%-Trinity-Regel: ' + fmtCurr(netMonthly4Pct, curr) + ' / M.';
+
+      document.getElementById('tbl-invested').textContent = fmtCurr(invested, curr);
+      document.getElementById('tbl-gain-share').textContent = `Gewinnanteil: ${(gainShare * 100).toFixed(1).replace('.', ',')} %`;
+      document.getElementById('tbl-cap-nom').textContent = fmtCurr(cap, curr);
+      document.getElementById('tbl-cap-real').textContent = fmtCurr(capReal, curr);
+      document.getElementById('tbl-cons-gross').textContent = fmtCurr(grossMonthlyConsume, curr) + ' / M.';
+      document.getElementById('tbl-cons-gross-real').textContent = fmtCurr(grossMonthlyConsume / infFactor, curr) + ' / M.';
+      document.getElementById('tbl-cons-net').textContent = fmtCurr(netMonthlyConsume, curr) + ' / M.';
+      document.getElementById('tbl-cons-net-real').textContent = fmtCurr(netMonthlyConsumeReal, curr) + ' / M.';
+      document.getElementById('tbl-perp-net').textContent = fmtCurr(netMonthlyPerp, curr) + ' / M.';
+      document.getElementById('tbl-perp-net-real').textContent = fmtCurr(netMonthlyPerpReal, curr) + ' / M.';
+      document.getElementById('tbl-swr-net').textContent = fmtCurr(netMonthly4Pct, curr) + ' / M.';
+      document.getElementById('tbl-swr-net-real').textContent = fmtCurr(netMonthly4PctReal, curr) + ' / M.';
+      document.getElementById('tbl-req-nom').textContent = fmtCurr(reqCapNominal, curr);
+      document.getElementById('tbl-req-real').textContent = fmtCurr(reqCapReal, curr);
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

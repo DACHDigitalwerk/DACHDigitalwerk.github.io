@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH KMU-Unternehmenswert-, EBIT-Multiple- &amp; Vereinfachtes Ertragswertverfahren-Rechner 2026 | §§ 199–203 BewG, KFS/BW 1 &amp; CH-Praktikermethode</title>
+  <meta name="description" content="Kostenloser 100% Client-Side KMU-Unternehmenswert-Rechner 2026 für Deutschland (§§ 199–203 BewG mit Kapitalisierungsfaktor 13,75), Österreich (KFS/BW 1 Ertragswert &amp; 23 % KÖSt) und die Schweiz (ESTV Kreisschreiben Nr. 28 Praktikermethode 2×EW+1×SW) sowie M&amp;A Branchen-EBIT-Multiples (Cash-/Debt-Free Equity Value) und GmbH-Anteilswert." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/unternehmenswert-ebit-multiple-rechner/" />
+  <meta property="og:title" content="DACH KMU-Unternehmenswert-, EBIT-Multiple- &amp; Ertragswert-Rechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Berechnen Sie Ihren KMU-Unternehmenswert parallel nach M&amp;A Branchen-EBIT-Multiple (Equity Value), deutschem BewG (Faktor 13,75), österreichischem KFS/BW 1 und Schweizer Praktikermethode (KS 28)." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/unternehmenswert-ebit-multiple-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DACH KMU-Unternehmenswert-, EBIT-Multiple- & Vereinfachtes Ertragswertverfahren-Rechner 2026",
+      "url": "https://dachdigitalwerk.github.io/unternehmenswert-ebit-multiple-rechner/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "description": "Interaktiver 3-Methoden-Unternehmensbewertungsrechner für KMU in Deutschland (§§ 199–203 BewG Faktor 13,75), Österreich (KFS/BW 1) und der Schweiz (ESTV KS 28 Praktikermethode) inklusive M&A Branchen-EBIT-Multiple (Enterprise Value zu Equity Value) und GmbH/AG-Anteilswert.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DACH Digitalwerk",
+        "url": "https://dachdigitalwerk.github.io/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie berechnet man den KMU-Unternehmenswert nach der EBIT-Multiple-Methode (Equity Value)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zunächst wird das nachhaltige, um Einmaleffekte und einen marktüblichen Geschäftsführer-/Unternehmerlohn bereinigte EBIT mit einem branchenüblichen Multiplikator (bei KMU meist 3,5x bis 8,5x) multipliziert, um den Enterprise Value (Gesamtunternehmenswert schuldenfrei) zu erhalten. Anschließend werden liquide Mittel (Cash) addiert und verzinsliche Finanzverbindlichkeiten (Bankdarlehen, Gesellschafterdarlehen) abgezogen, um den Equity Value (Kaufpreis für 100 % der GmbH-/AG-Anteile) zu bestimmen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert das vereinfachte Ertragswertverfahren nach §§ 199–203 BewG in Deutschland?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beim vereinfachten Ertragswertverfahren für Zwecke der Erbschaft- und Schenkungsteuer wird aus dem bereinigten Durchschnittsertrag der letzten drei Wirtschaftsjahre nach Abzug eines angemessenen Unternehmerlohns (§ 202 Abs. 1 Satz 2 Nr. 2d BewG) und einer pauschalen Ertragsteuer von 30 % (§ 202 Abs. 3 BewG) der nachhaltige Jahresertrag ermittelt. Dieser wird mit dem gesetzlich fixierten Kapitalisierungsfaktor von 13,75 (§ 203 Abs. 1 BewG) multipliziert. Als Mindestwert gilt stets der Substanzwert (§ 200 Abs. 3 BewG)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lautet die Formel der Schweizer Praktikermethode (ESTV Kreisschreiben Nr. 28)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nach dem Kreisschreiben Nr. 28 der Eidgenössischen Steuerverwaltung (ESTV) wird der Unternehmenswert nicht kotierter Kapitalgesellschaften (AG/GmbH) durch doppelte Gewichtung des Ertragswerts (EW) und einfache Gewichtung des Substanzwerts (SW) berechnet: Unternehmenswert = (2 × Ertragswert + 1 × Substanzwert) / 3."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          🏛️ FLAGGSCHIFF-TOOL #34 • KMU-UNTERNEHMENSWERT &amp; M&amp;A 2026
+        </span>
+        <span class="text-slate-300 font-medium">EBIT-Multiple (Equity Value) • DE §§ 199–203 BewG (Faktor 13,75) • AT KFS/BW 1 • CH Praktikermethode (KS 28)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 34 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS (BGH SMARTLAW) -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / § 43 WPO / § 15 WpIG / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Rein finanzmathematisches und betriebswirtschaftliches Orientierungsmodell zur unverbindlichen Werteinschätzung. Dieses Tool stellt <strong>kein Wirtschaftsprüfungsgutachten nach IDW S1 oder KFS/BW 1 sowie keine Rechts-, Steuer-, M&amp;A- oder Anlageberatung</strong> dar. Für steuerliche Bewertungen (Erbschaft-/Schenkungsteuer), Gesellschaftsverträge oder Unternehmenskäufe ziehen Sie bitte einen Wirtschaftsprüfer oder Steuerberater hinzu. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>🏛️ Flaggschiff-Applikation #34</span>
+        <span>•</span>
+        <span>100% lokal im Browser (M&amp;A-, CFO- &amp; Nachfolge-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH KMU-Unternehmenswert-, EBIT-Multiple- &amp; Vereinfachtes Ertragswertverfahren-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Vergleichen Sie den Wert Ihres Unternehmens in Echtzeit nach allen drei maßgeblichen Bewertungsstandards im DACH-Raum: Dem <strong>marktüblichen M&amp;A Branchen-EBIT-Multiple (Enterprise Value zu Equity Value / Kaufpreis 100 %)</strong>, dem <strong>deutschen vereinfachten Ertragswertverfahren nach §§ 199–203 BewG (gesetzlicher Kapitalisierungsfaktor 13,75)</strong> sowie dem <strong>österreichischen KFS/BW 1 Ertragswert (23 % KÖSt)</strong> und der <strong>Schweizer Praktikermethode nach ESTV Kreisschreiben Nr. 28</strong>.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Rechtsraum &amp; Branchen-Multiple-Preset</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (BewG 13,75x)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (KFS/BW 1)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (KS 28 Praktiker)</button>
+          </div>
+        </div>
+
+        <!-- 5 Industry Presets -->
+        <div class="space-y-1.5">
+          <div class="text-xs font-semibold text-slate-400">Branchen-Preset wählen (setzt typischen KMU-EBIT-Multiplikator &amp; Kapitalisierungszins):</div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="applySector('saas')" id="sec-saas" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">💻 SaaS / IT / Software (6,0x–8,5x • Ø 7,2x)</button>
+            <button type="button" onclick="applySector('industrie')" id="sec-industrie" class="text-xs bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">⚙️ Maschinenbau / Industrie (5,0x–6,8x • Ø 5,8x)</button>
+            <button type="button" onclick="applySector('handwerk')" id="sec-handwerk" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🛠️ Handwerk / SHK / Elektro (3,8x–5,2x • Ø 4,5x)</button>
+            <button type="button" onclick="applySector('handel')" id="sec-handel" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">📦 Großhandel / E-Commerce (4,2x–5,8x • Ø 4,9x)</button>
+            <button type="button" onclick="applySector('agentur')" id="sec-agentur" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🤝 Dienstleistung / Agentur (3,5x–5,0x • Ø 4,2x)</button>
+          </div>
+        </div>
+
+        <!-- Section 2: Earnings & Owner Salary -->
+        <div class="grid sm:grid-cols-3 gap-4 pt-1">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Jahresumsatz (<span class="curr-label">€</span>)</label>
+            <input type="number" id="annualRevenue" value="3500000" min="50000" step="50000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Zur Berechnung der EBIT-Marge</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Bereinigtes EBIT vor GF-Lohn (<span class="curr-label">€</span>)</label>
+            <input type="number" id="rawEbit" value="620000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Ø 3-Jahres-Ertrag vor Zinsen &amp; Steuern</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Kalk. Unternehmerlohn (<span class="curr-label">€</span>)</label>
+            <input type="number" id="ownerSalary" value="140000" min="0" step="5000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">§ 202 BewG (0 falls GF-Gehalt schon gebucht)</span>
+          </div>
+        </div>
+
+        <!-- Section 3: Balance Sheet & Multiples -->
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">2. Netto-Finanzposition (Cash &amp; Debt), Substanzwert &amp; Multiples</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Liquide Mittel / Cash (<span class="curr-label">€</span>)</label>
+              <input type="number" id="cashAssets" value="380000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">+ Nicht betriebsnotw. Vermögen</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Finanzschulden / Bankkredite (<span class="curr-label">€</span>)</label>
+              <input type="number" id="financialDebt" value="210000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Verzinsliches Fremdkapital (Abzug)</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Substanzwert / Eigenkapital (<span class="curr-label">€</span>)</label>
+              <input type="number" id="substanzwert" value="950000" min="0" step="25000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">§ 200 Abs. 3 BewG Mindestwert / CH SW</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4 pt-2">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Branchen-EBIT-Multiple (<span id="multVal">5,8</span>x)</label>
+              <input type="range" id="ebitMultiple" value="5.8" min="2.5" max="12.0" step="0.1" oninput="recalc()" class="w-full accent-emerald-500" />
+              <span class="text-[11px] text-slate-400" id="sectorRangeHint">Maschinenbau/Industrie: typ. 5,0x–6,8x</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kapitalisierungszins WACC / KS 28 (<span id="waccVal">9,5</span> %)</label>
+              <input type="range" id="capRatePct" value="9.5" min="5.0" max="16.0" step="0.25" oninput="recalc()" class="w-full accent-emerald-500" />
+              <span class="text-[11px] text-slate-400">Für AT KFS/BW 1 &amp; CH Praktikermethode</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Beteiligungsquote GmbH / AG (%)</label>
+              <input type="number" id="shareQuotaPct" value="100.0" min="0.1" max="100" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">z. B. 25,1 % Sperrminorität, 50 % oder 100 %</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Country Legal Breakdown Box -->
+        <div id="country-info-box" class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 text-xs text-slate-300 space-y-1">
+          <div class="font-bold text-emerald-400" id="country-info-title">🇩🇪 Gesetzlicher Bewertungsstandard Deutschland (§§ 199–203 BewG):</div>
+          <p id="country-info-text" class="leading-relaxed text-slate-400">
+            Für Zwecke der Erbschaft- und Schenkungsteuer gilt das <strong>vereinfachte Ertragswertverfahren (§§ 199–203 BewG)</strong>: Vom nachhaltigen Jahresertrag nach Abzug des kalkulatorischen Unternehmerlohns wird pauschal <strong>30 % Ertragsteuer (§ 202 Abs. 3 BewG)</strong> abgezogen und das Ergebnis mit dem gesetzlich fixierten <strong>Kapitalisierungsfaktor 13,75 (§ 203 Abs. 1 BewG)</strong> multipliziert. Der Substanzwert bildet die gesetzliche Wertuntergrenze (§ 200 Abs. 3 BewG).
+          </p>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">3-Methoden-Bewertungsvergleich 2026</span>
+            <span id="badge-country" class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full">🇩🇪 DE BewG 13,75x</span>
+          </div>
+
+          <!-- Top 2 Cards: Market Equity Value vs Statutory / DACH Value -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">1. M&amp;A Equity Value (100%)</div>
+              <div id="out-equity-100" class="text-xl sm:text-2xl font-black text-emerald-400 font-mono mt-1">2.954.000 €</div>
+              <div id="out-ev-sub" class="text-[11px] text-slate-400 mt-1">Enterprise Value: 2.784.000 €</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4">
+              <div class="text-xs text-slate-400">2. BewG-Wert (Faktor 13,75)</div>
+              <div id="out-bewg-100" class="text-xl sm:text-2xl font-black text-amber-300 font-mono mt-1">4.790.000 €</div>
+              <div id="out-bewg-sub" class="text-[11px] text-slate-400 mt-1">Nachh. Ertrag: 336.000 € × 13,75</div>
+            </div>
+          </div>
+
+          <!-- 3rd Card: CH Praktikermethode & AT KFS/BW 1 -->
+          <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <div class="text-xs text-slate-400">3. 🇨🇭 Schweizer Praktikermethode (KS 28) / 🇦🇹 KFS/BW 1</div>
+              <div id="out-ch-100" class="text-xl font-black text-cyan-300 font-mono mt-0.5">2.752.105 €</div>
+              <div id="out-ch-sub" class="text-[11px] text-slate-400">(2 × Ertragswert + 1 × Substanzwert) ÷ 3</div>
+            </div>
+            <div class="text-right">
+              <div class="text-[11px] text-slate-400">🇦🇹 AT KFS/BW 1 (23% KÖSt)</div>
+              <div id="out-at-100" class="text-sm font-bold text-white font-mono">4.060.526 €</div>
+            </div>
+          </div>
+
+          <!-- Detailed Breakdown -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-2 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Nachhaltiges EBIT (nach Unternehmerlohn):</span>
+              <span id="out-adj-ebit" class="font-mono font-semibold text-white">480.000 € (13,7 % Marge)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">× Branchen-Multiplikator (<span id="out-mult-label">5,8x</span>) = Enterprise Value:</span>
+              <span id="out-ev-detail" class="font-mono text-emerald-300">2.784.000 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">+ Net Cash / (Net Debt) Bereinigung:</span>
+              <span id="out-net-cash" class="font-mono text-cyan-300">+170.000 €</span>
+            </div>
+            <div class="flex justify-between border-t border-slate-800 pt-1.5 font-semibold">
+              <span class="text-slate-300">🇩🇪 BewG Nachsteuer-Ertrag (−30 % ESt/KSt):</span>
+              <span id="out-bewg-net" class="font-mono text-amber-300">336.000 € p.a.</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">🇨🇭 KS 28 Reiner Ertragswert (EW) / Substanzwert (SW):</span>
+              <span id="out-ch-ew-sw" class="font-mono text-slate-300">EW: 3.653.158 € | SW: 950.000 €</span>
+            </div>
+          </div>
+
+          <!-- Share Quota Calculator Box -->
+          <div class="bg-indigo-950/50 border border-indigo-500/30 rounded-2xl p-4 space-y-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-indigo-300">📊 Ihr GmbH-/AG-Anteilswert (<span id="out-quota-label">100,0 %</span>)</span>
+              <span class="text-[11px] text-indigo-300 font-mono">Exakte Quotenberechnung</span>
+            </div>
+            <div id="out-quota-summary" class="text-slate-200 leading-relaxed">
+              Marktwert (Equity Value): <strong>2.954.000 €</strong> • DE BewG-Wert: <strong>4.790.000 €</strong> • CH Praktikerwert: <strong>2.752.105 €</strong>.
+            </div>
+            <div class="flex flex-wrap gap-3 pt-1 text-[11px]">
+              <a href="../erbschaftssteuer-schenkungssteuer-rechner/" class="text-emerald-400 hover:underline font-bold">→ Tool #20: Erbschafts- &amp; Schenkungssteuer-Rechner</a>
+              <a href="../kredit-annuitaeten-rechner/" class="text-cyan-400 hover:underline font-bold">→ Tool #29: M&amp;A Kaufpreisfinanzierung berechnen</a>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Unternehmenswert- &amp; Nachfolge-Dossier drucken / PDF</span>
+          </button>
+        </div>
+
+        <!-- SEO RATGEBER LINKS & CFO CROSS-LINKING -->
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Vertiefende M&amp;A- &amp; Unternehmensnachfolge-Ratgeber 2026</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="./unternehmenswert-berechnen-kmu-formel-ebit-multiple-2026.html" class="text-emerald-400 hover:underline font-semibold">→ Unternehmenswert berechnen KMU 2026: EBIT-Multiple-Formel, Cash-Free/Debt-Free &amp; Branchenfaktoren</a></li>
+            <li><a href="./vereinfachtes-ertragswertverfahren-bewg-kapitalisierungsfaktor-13-75.html" class="text-emerald-400 hover:underline font-semibold">→ Vereinfachtes Ertragswertverfahren (§§ 199–203 BewG): Warum der Faktor 13,75 bei der Nachfolge zur Steuerfalle wird</a></li>
+            <li><a href="./praktikermethode-schweiz-unternehmensbewertung-steuerwert-formel.html" class="text-emerald-400 hover:underline font-semibold">→ Praktikermethode Schweiz (ESTV Kreisschreiben Nr. 28): Formel (2×EW + 1×SW)/3 &amp; Steuerwert einfach erklärt</a></li>
+          </ul>
+          <div class="border-t border-slate-700 pt-3 flex flex-wrap gap-2 text-[11px]">
+            <a href="../arbeitgeber-gesamtkosten-rechner/" class="bg-slate-900 px-2.5 py-1 rounded text-slate-300 hover:text-emerald-400">👥 #33 AG-Gesamtkosten</a>
+            <a href="../leasing-kreditkauf-rechner/" class="bg-slate-900 px-2.5 py-1 rounded text-slate-300 hover:text-emerald-400">🚜 #32 Leasing vs. Kredit</a>
+            <a href="../factoring-working-capital-rechner/" class="bg-slate-900 px-2.5 py-1 rounded text-slate-300 hover:text-emerald-400">🏦 #31 Factoring &amp; DSO</a>
+            <a href="../liquiditaetsplaner-cashflow-rechner/" class="bg-slate-900 px-2.5 py-1 rounded text-slate-300 hover:text-emerald-400">📈 #21 Liquiditätsplaner</a>
+            <a href="../geschaeftsfuehrer-tantieme-vga-rechner/" class="bg-slate-900 px-2.5 py-1 rounded text-slate-300 hover:text-emerald-400">💼 #21 GF-Tantieme &amp; vGA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PRINT VIEW (DIN A4) -->
+  <section class="print-only p-6 space-y-4 text-black">
+    <h1 class="text-xl font-bold border-b pb-2">DIN-A4 KMU-Unternehmenswert- &amp; Nachfolge-Dossier 2026 (DE / AT / CH)</h1>
+    <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/unternehmenswert-ebit-multiple-rechner/) — Rein mathematische Orientierungsrechnung gem. § 2 RDG / § 5 StBerG / § 43 WPO (kein IDW S1- oder KFS/BW 1-Prüfungsgutachten).</p>
+    <div id="print-summary" class="text-sm space-y-2 font-mono"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-4">
+      <div>© 2026 DACH Digitalwerk • 100% Client-Side Web-Tools</div>
+      <div class="flex flex-wrap gap-4">
+        <a href="../" class="hover:text-white">Startseite (Alle 34 Tools)</a>
+        <a href="../erbschaftssteuer-schenkungssteuer-rechner/" class="hover:text-emerald-400">Erbschaftssteuer (#20)</a>
+        <a href="../agb/" class="hover:text-white">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white">Haftungsausschluss</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+        <a href="https://github.com/DACHDigitalwerk/unternehmenswert-ebit-multiple-rechner-dach" class="hover:text-emerald-400">GitHub Open-Source Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    let currentSector = 'industrie';
+
+    const SECTORS = {
+      saas: { mult: 7.2, wacc: 10.5, hint: 'SaaS / IT / Software: typ. 6,0x–8,5x EBIT' },
+      industrie: { mult: 5.8, wacc: 9.5, hint: 'Maschinenbau / Industrie: typ. 5,0x–6,8x EBIT' },
+      handwerk: { mult: 4.5, wacc: 10.0, hint: 'Handwerk / SHK / Elektro: typ. 3,8x–5,2x EBIT' },
+      handel: { mult: 4.9, wacc: 9.5, hint: 'Großhandel / E-Commerce: typ. 4,2x–5,8x EBIT' },
+      agentur: { mult: 4.2, wacc: 11.0, hint: 'Dienstleistung / Agentur: typ. 3,5x–5,0x EBIT' }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = (c === 'CH') ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+
+      if (c === 'DE') {
+        document.getElementById('badge-country').textContent = '🇩🇪 DE BewG 13,75x';
+        document.getElementById('country-info-title').textContent = '🇩🇪 Gesetzlicher Bewertungsstandard Deutschland (§§ 199–203 BewG):';
+        document.getElementById('country-info-text').innerHTML = 'Für Zwecke der Erbschaft- und Schenkungsteuer gilt das <strong>vereinfachte Ertragswertverfahren (§§ 199–203 BewG)</strong>: Vom nachhaltigen Jahresertrag nach Abzug des kalkulatorischen Unternehmerlohns wird pauschal <strong>30 % Ertragsteuer (§ 202 Abs. 3 BewG)</strong> abgezogen und das Ergebnis mit dem gesetzlich fixierten <strong>Kapitalisierungsfaktor 13,75 (§ 203 Abs. 1 BewG)</strong> multipliziert. Der Substanzwert bildet die gesetzliche Wertuntergrenze (§ 200 Abs. 3 BewG).';
+      } else if (c === 'AT') {
+        document.getElementById('badge-country').textContent = '🇦🇹 AT KFS/BW 1';
+        document.getElementById('country-info-title').textContent = '🇦🇹 Österreichischer Fachstandard KFS/BW 1 (Kammer der Steuerberater & Wirtschaftsprüfer):';
+        document.getElementById('country-info-text').innerHTML = 'In Österreich erfolgt die objektive Unternehmensbewertung nach dem <strong>Fachgutachten KFS/BW 1</strong>: Der nachhaltige Zukunftserfolg nach Abzug des Unternehmerlohns und der <strong>23 % Körperschaftsteuer (KÖSt 2026)</strong> wird als ewige Rente mit dem risikoadäquaten Kapitalisierungszinssatz (WACC) diskontiert und um das nicht betriebsnotwendige Vermögen (Net Cash) ergänzt.';
+      } else {
+        document.getElementById('badge-country').textContent = '🇨🇭 CH Praktiker KS 28';
+        document.getElementById('country-info-title').textContent = '🇨🇭 Schweizer Praktikermethode nach ESTV Kreisschreiben Nr. 28:';
+        document.getElementById('country-info-text').innerHTML = 'Nach der Wegleitung der Eidgenössischen Steuerverwaltung (<strong>ESTV Kreisschreiben Nr. 28</strong>) wird der Steuer- und Verkehrswert nicht kotierter KMU durch <strong>doppelte Gewichtung des Ertragswerts (2 × EW)</strong> und <strong>einfache Gewichtung des Substanzwerts (1 × SW)</strong> geteilt durch 3 ermittelt: <code>UW = (2 × EW + SW) / 3</code>.';
+      }
+      recalc();
+    }
+
+    function applySector(sec) {
+      currentSector = sec;
+      const cfg = SECTORS[sec];
+      document.getElementById('ebitMultiple').value = cfg.mult;
+      document.getElementById('capRatePct').value = cfg.wacc;
+      document.getElementById('sectorRangeHint').textContent = cfg.hint;
+      ['saas', 'industrie', 'handwerk', 'handel', 'agentur'].forEach(k => {
+        const el = document.getElementById('sec-' + k);
+        el.className = (k === sec)
+          ? 'text-xs bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition'
+          : 'text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition';
+      });
+      recalc();
+    }
+
+    function fmt(val, decimals = 0) {
+      const curr = (currentCountry === 'CH') ? 'CHF' : '€';
+      return val.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' ' + curr;
+    }
+
+    function recalc() {
+      const rev = Math.max(1, parseFloat(document.getElementById('annualRevenue').value) || 0);
+      const rawEbit = Math.max(0, parseFloat(document.getElementById('rawEbit').value) || 0);
+      const ownerSal = Math.max(0, parseFloat(document.getElementById('ownerSalary').value) || 0);
+      const cash = Math.max(0, parseFloat(document.getElementById('cashAssets').value) || 0);
+      const debt = Math.max(0, parseFloat(document.getElementById('financialDebt').value) || 0);
+      const substanz = Math.max(0, parseFloat(document.getElementById('substanzwert').value) || 0);
+
+      const mult = Math.max(1, parseFloat(document.getElementById('ebitMultiple').value) || 5.8);
+      const waccPct = Math.max(1, parseFloat(document.getElementById('capRatePct').value) || 9.5);
+      const quotaPct = Math.min(100, Math.max(0.1, parseFloat(document.getElementById('shareQuotaPct').value) || 100));
+
+      document.getElementById('multVal').textContent = mult.toFixed(1).replace('.', ',');
+      document.getElementById('waccVal').textContent = waccPct.toFixed(2).replace('.', ',');
+      document.getElementById('out-mult-label').textContent = mult.toFixed(1).replace('.', ',') + 'x';
+      document.getElementById('out-quota-label').textContent = quotaPct.toFixed(1).replace('.', ',') + ' %';
+
+      const adjEbit = Math.max(0, rawEbit - ownerSal);
+      const ebitMargin = rev > 0 ? (adjEbit / rev * 100) : 0;
+      const netCash = cash - debt;
+
+      // 1. M&A EBIT-Multiple (Enterprise Value -> Equity Value)
+      const enterpriseValue = adjEbit * mult;
+      const equityValue = Math.max(0, enterpriseValue + netCash);
+
+      // 2. DE Vereinfachtes Ertragswertverfahren (§§ 199-203 BewG, Faktor 13,75, 30% Pauschalsteuer, Mindestwert Substanzwert)
+      const bewgNetEarnings = adjEbit * 0.70;
+      const bewgErtragswert = (bewgNetEarnings * 13.75) + Math.max(0, netCash);
+      const bewgFinal = Math.max(substanz, bewgErtragswert);
+
+      // 3. AT KFS/BW 1 (23% KÖSt, WACC Kapitalisierung) & CH Praktikermethode (KS 28: (2*EW + SW)/3)
+      const waccRatio = waccPct / 100.0;
+      const atNetEarnings = adjEbit * (1.0 - 0.23);
+      const atKfsValue = (atNetEarnings / waccRatio) + netCash;
+
+      const chNetEarnings = adjEbit * (1.0 - 0.16); // Ø 16% CH Gewinnsteuer nach Steuern
+      const chErtragswert = chNetEarnings / waccRatio;
+      const chPraktikerValue = ((2.0 * chErtragswert) + substanz) / 3.0;
+
+      // Update UI
+      document.getElementById('out-equity-100').textContent = fmt(equityValue, 0);
+      document.getElementById('out-ev-sub').textContent = 'Enterprise Value: ' + fmt(enterpriseValue, 0);
+
+      document.getElementById('out-bewg-100').textContent = fmt(bewgFinal, 0);
+      document.getElementById('out-bewg-sub').textContent = (bewgFinal === substanz && substanz > bewgErtragswert)
+        ? 'Mindestwert = Substanzwert (§ 200 Abs. 3 BewG)'
+        : 'Nachh. Ertrag: ' + fmt(bewgNetEarnings, 0) + ' × 13,75';
+
+      document.getElementById('out-ch-100').textContent = fmt(chPraktikerValue, 0);
+      document.getElementById('out-at-100').textContent = fmt(atKfsValue, 0);
+
+      document.getElementById('out-adj-ebit').textContent = fmt(adjEbit, 0) + ' (' + ebitMargin.toFixed(1).replace('.', ',') + ' % Marge)';
+      document.getElementById('out-ev-detail').textContent = fmt(enterpriseValue, 0);
+      document.getElementById('out-net-cash').textContent = (netCash >= 0 ? '+' : '') + fmt(netCash, 0);
+      document.getElementById('out-bewg-net').textContent = fmt(bewgNetEarnings, 0) + ' p.a.';
+      document.getElementById('out-ch-ew-sw').textContent = 'EW: ' + fmt(chErtragswert, 0) + ' | SW: ' + fmt(substanz, 0);
+
+      const qFactor = quotaPct / 100.0;
+      document.getElementById('out-quota-summary').innerHTML =
+        'Für <strong>' + quotaPct.toFixed(1).replace('.', ',') + ' % Geschäftsanteile</strong> beträgt der M&amp;A-Marktwert (Equity Value) <strong>' + fmt(equityValue * qFactor, 0) + '</strong>, der deutsche Steuerwert nach BewG <strong>' + fmt(bewgFinal * qFactor, 0) + '</strong> und der Schweizer Praktikerwert <strong>' + fmt(chPraktikerValue * qFactor, 0) + '</strong>.';
+
+      document.getElementById('print-summary').innerHTML =
+        '<div><strong>1. Ausgangsdaten (' + currentCountry + '):</strong> Jahresumsatz: ' + fmt(rev, 0) + ' | Bereinigtes EBIT vor GF-Lohn: ' + fmt(rawEbit, 0) + ' | Kalk. Unternehmerlohn: ' + fmt(ownerSal, 0) + ' → <strong>Nachhaltiges EBIT: ' + fmt(adjEbit, 0) + '</strong></div>' +
+        '<div><strong>2. M&amp;A Branchen-EBIT-Multiple (' + mult.toFixed(1).replace('.', ',') + 'x):</strong> Enterprise Value: ' + fmt(enterpriseValue, 0) + ' + Net Cash (' + fmt(netCash, 0) + ') = <strong>Equity Value (100%): ' + fmt(equityValue, 0) + '</strong></div>' +
+        '<div><strong>3. DE Vereinfachtes Ertragswertverfahren (§§ 199–203 BewG):</strong> Nachsteuer-Ertrag (70%): ' + fmt(bewgNetEarnings, 0) + ' × Faktor 13,75 = <strong>BewG-Unternehmenswert: ' + fmt(bewgFinal, 0) + '</strong></div>' +
+        '<div><strong>4. CH Praktikermethode (ESTV KS 28) &amp; AT KFS/BW 1:</strong> CH Praktikerwert ((2×EW+SW)/3): <strong>' + fmt(chPraktikerValue, 0) + '</strong> | AT KFS/BW 1 (23% KÖSt): <strong>' + fmt(atKfsValue, 0) + '</strong></div>' +
+        '<div class="pt-2 border-t"><strong>5. Anteilswert (' + quotaPct.toFixed(1).replace('.', ',') + ' % Beteiligung):</strong> Equity Value: <strong>' + fmt(equityValue * qFactor, 0) + '</strong> | BewG-Wert: <strong>' + fmt(bewgFinal * qFactor, 0) + '</strong> | CH-Praktikerwert: <strong>' + fmt(chPraktikerValue * qFactor, 0) + '</strong></div>';
+    }
+    recalc();
+  </script>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH BWA-Kennzahlen-, Cash-Conversion-Cycle (DIO/DSO/DPO) &amp; Kralicek-Quicktest-Rechner 2026 | Banken-Rating &amp; StaRUG</title>
+  <meta name="description" content="Kostenloser 100% Client-Side BWA-Kennzahlen-, Working-Capital- (DIO/DSO/DPO Cash-Conversion-Cycle) und Kralicek-Quicktest-Rechner 2026 für KMU in Deutschland (§ 1 StaRUG), Österreich (§ 22 URG: 8 % EK / 15 J.) und der Schweiz (Art. 725 OR) inklusive Basel-III/IV Banken-Rating-Indikation und DIN-A4 CFO-Analyseblatt." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/bwa-kennzahlen-working-capital-analyse/" />
+  <meta property="og:title" content="DACH BWA-Kennzahlen-, Cash-Conversion-Cycle &amp; Kralicek-Quicktest-Rechner 2026" />
+  <meta property="og:description" content="Berechnen Sie Ihre Kralicek-Quicktest-Bonitätsnote (1,0–5,0), Basel-III/IV Banken-Rating-Indikation, StaRUG/URG/OR-Frühwarnampel und Ihren Cash-Conversion-Cycle (DIO + DSO - DPO) inkl. Liquiditätsfreisetzung." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/bwa-kennzahlen-working-capital-analyse/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DACH BWA-Kennzahlen-, Cash-Conversion-Cycle (DIO/DSO/DPO) & Kralicek-Quicktest-Rechner 2026",
+      "url": "https://dachdigitalwerk.github.io/bwa-kennzahlen-working-capital-analyse/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "description": "Interaktiver BWA-, Bilanzkennzahlen-, Working-Capital- (DIO/DSO/DPO) und Kralicek-Quicktest-Rechner (Note 1,0–5,0) für den Mittelstand in Deutschland (§ 1 StaRUG), Österreich (§ 22 URG) und der Schweiz (Art. 725 OR).",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DACH Digitalwerk",
+        "url": "https://dachdigitalwerk.github.io/"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert der Kralicek-Quicktest zur Insolvenzprognose und Banken-Rating-Einschätzung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Kralicek-Quicktest bewertet Unternehmen anhand von vier zentralen Kennzahlen auf einer Schulnotenskala von 1,0 (Sehr gut) bis 5,0 (Insolvenzgefahr): 1. Eigenkapitalquote (>30% = Note 1), 2. Schuldentilgungsdauer in Jahren (<3 Jahre = Note 1), 3. Gesamtkapitalrentabilität (>15% = Note 1) und 4. Cashflow-Leistungsrate (>10% = Note 1). Aus den beiden ersten Kennzahlen ergibt sich die Finanzielle Stabilität, aus den beiden letzten die Ertragskraft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie berechnet man den Cash Conversion Cycle (CCC) aus DIO, DSO und DPO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Cash Conversion Cycle (Geldumschlagsdauer in Tagen) berechnet sich nach der Formel CCC = DIO + DSO - DPO. Dabei ist DIO (Days Inventory Outstanding) die durchschnittliche Lagerdauer der Vorräte, DSO (Days Sales Outstanding) die durchschnittliche Forderungslaufzeit gegenüber Kunden und DPO (Days Payable Outstanding) das durchschnittliche Zahlungsziel gegenüber Lieferanten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche gesetzlichen Krisenfrühwarnwerte gelten nach § 1 StaRUG (DE), § 22 URG (AT) und Art. 725 OR (CH)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nach § 1 StaRUG (Deutschland) müssen Geschäftsleiter fortlaufend über bestandsgefährdende Entwicklungen und die 13-/24-monatige Liquidität wachen. In Österreich normiert § 22 Abs. 1 URG zwei konkrete gesetzliche Kennzahlen: Einen Reorganisationsbedarf vermutet das Gesetz bei einer Eigenmittelquote unter 8 % und einer fiktiven Schuldentilgungsdauer von mehr als 15 Jahren. In der Schweiz verpflichtet Art. 725 OR den Verwaltungsrat zur Liquiditätsüberwachung sowie zum Handeln bei Kapitalverlust (Art. 725a OR) oder Überschuldung (Art. 725b OR)."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          📊 FLAGGSCHIFF-TOOL #35 • BWA-KENNZAHLEN, KRALICEK-QUICKTEST &amp; WORKING CAPITAL 2026
+        </span>
+        <span class="text-slate-300 font-medium">Kralicek Note 1,0–5,0 • Basel-III/IV Rating • DIO/DSO/DPO Cash-Conversion-Cycle • DE § 1 StaRUG / AT § 22 URG / CH Art. 725 OR</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 35 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS (BGH SMARTLAW) -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / § 32 KWG / § 43 WPO / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Rein finanzmathematisches und betriebswirtschaftliches Analyse-Werkzeug zur unverbindlichen Auswertung von BWA- und Bilanzkennzahlen. Dieses Tool stellt <strong>keine Insolvenz-, Sanierungs-, Rechts-, Steuer- oder Kreditberatung sowie kein offizielles Banken- oder Agentur-Rating</strong> dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>📊 Flaggschiff-Applikation #35</span>
+        <span>•</span>
+        <span>100% lokal im Browser (CFO-, Banken-Rating- &amp; Controlling-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH BWA-Kennzahlen-, Cash-Conversion-Cycle (DIO/DSO/DPO) &amp; Kralicek-Quicktest-Rechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Prüfen Sie Ihre <strong>BWA- und Bilanzkennzahlen</strong> so, wie Kreditabteilungen und Wirtschaftsprüfer Ihr Unternehmen sehen: Berechnen Sie in Echtzeit Ihre <strong>Kralicek-Quicktest-Note (1,0 bis 5,0)</strong>, die indikative <strong>Basel-III/IV Banken-Rating-Stufe</strong>, die gesetzliche <strong>Krisenfrühwarnung nach § 1 StaRUG (DE), § 22 URG (AT: 8 % EK / 15 J.) &amp; Art. 725 OR (CH)</strong> sowie Ihren <strong>Cash Conversion Cycle (DIO + DSO − DPO)</strong> inklusive Working-Capital-Freisetzungs-Simulator.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Rechtsraum &amp; Branchen-Benchmark</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (§ 1 StaRUG / InsO)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (§ 22 URG 8%/15J)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (Art. 725 OR)</button>
+          </div>
+        </div>
+
+        <!-- 5 Presets -->
+        <div class="space-y-1.5">
+          <div class="text-xs font-semibold text-slate-400">BWA-/Bilanz-Preset laden:</div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="applyPreset('industrie')" class="text-xs bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">⚙️ Solider Mittelstand / Industrie (4,2 Mio. Umsatz)</button>
+            <button type="button" onclick="applyPreset('saas')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">💻 IT-Systemhaus / SaaS (2,5 Mio. Umsatz)</button>
+            <button type="button" onclick="applyPreset('handel')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">📦 Großhandel / E-Commerce (6,0 Mio. Umsatz)</button>
+            <button type="button" onclick="applyPreset('handwerk')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🛠️ Bau / SHK-Handwerk (1,8 Mio. Umsatz)</button>
+            <button type="button" onclick="applyPreset('turnaround')" class="text-xs bg-rose-500/20 border border-rose-500/40 text-rose-300 px-3 py-1.5 rounded-lg font-semibold transition">🚨 Restrukturierungs-Fall (StaRUG / URG-Check)</button>
+          </div>
+        </div>
+
+        <!-- Section 2: BWA / GuV Kennzahlen -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">2. BWA- &amp; Ertragskennzahlen (Jahreswerte)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Jahresumsatz / Leistung (<span class="curr-label">€</span>)</label>
+              <input type="number" id="annualRevenue" value="4200000" min="50000" step="50000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Material-/Wareneinsatz (<span class="curr-label">€</span>)</label>
+              <input type="number" id="cogs" value="1850000" min="0" step="25000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Personalkosten gesamt (<span class="curr-label">€</span>)</label>
+              <input type="number" id="personnelCost" value="1150000" min="0" step="25000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Betriebsergebnis / EBIT (<span class="curr-label">€</span>)</label>
+              <input type="number" id="ebit" value="420000" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Abschreibungen / AfA (<span class="curr-label">€</span>)</label>
+              <input type="number" id="depreciation" value="140000" min="0" step="5000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Fremdkapitalzinsen p.a. (<span class="curr-label">€</span>)</label>
+              <input type="number" id="interestExpense" value="65000" min="0" step="2500" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Bilanzstruktur (Kralicek Quicktest) -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">3. Bilanzstruktur (Kralicek-Quicktest &amp; Banken-Rating)</h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Bilanzsumme gesamt (<span class="curr-label">€</span>)</label>
+              <input type="number" id="totalAssets" value="2800000" min="10000" step="50000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Bilanzielles Eigenkapital (<span class="curr-label">€</span>)</label>
+              <input type="number" id="equity" value="920000" step="25000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Liquide Mittel / Bankguthaben (<span class="curr-label">€</span>)</label>
+              <input type="number" id="cash" value="310000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Operativer Cashflow p.a. (<span class="curr-label">€</span>)</label>
+              <input type="number" id="operatingCashflow" value="440000" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Nach Steuern (Praktikerformel: JÜ + AfA ± Rückstellungen)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Working Capital & CCC (DIO / DSO / DPO) -->
+        <div class="border-t border-slate-700/80 pt-4 space-y-4">
+          <h3 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">4. Working Capital &amp; Cash Conversion Cycle (DIO / DSO / DPO)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Vorräte / Lager (<span class="curr-label">€</span>)</label>
+              <input type="number" id="inventory" value="380000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Bestimmt DIO (Lagerdauer)</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Forderungen LuL (<span class="curr-label">€</span>)</label>
+              <input type="number" id="receivables" value="540000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Bestimmt DSO (Debitorenziel)</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Ø Verbindlichkeiten LuL (<span class="curr-label">€</span>)</label>
+              <input type="number" id="payables" value="230000" min="0" step="10000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Bestimmt DPO (Kreditorenziel)</span>
+            </div>
+          </div>
+
+          <!-- Working Capital Optimization Simulator -->
+          <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 space-y-3">
+            <div class="text-xs font-bold text-indigo-300">💡 Working-Capital-Freisetzungs-Simulator (Ziel-Optimierung):</div>
+            <div class="grid sm:grid-cols-4 gap-3">
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">DSO senken um (Tage)</label>
+                <input type="number" id="targetDsoRed" value="12" min="0" max="90" step="1" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">DIO senken um (Tage)</label>
+                <input type="number" id="targetDioRed" value="10" min="0" max="90" step="1" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">DPO erhöhen um (Tage)</label>
+                <input type="number" id="targetDpoInc" value="8" min="0" max="60" step="1" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] text-slate-400 mb-1">Kontokorrentzins (%)</label>
+                <input type="number" id="overdraftRate" value="8.5" min="1" max="18" step="0.5" oninput="recalc()" class="w-full bg-slate-800 border border-slate-600 rounded-lg px-2.5 py-1.5 text-white font-mono text-xs" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <!-- Main Kralicek & Rating Card -->
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Kralicek-Quicktest &amp; Banken-Rating</span>
+            <span id="out-country-badge" class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">DE • § 1 StaRUG</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 items-center">
+            <div>
+              <div class="text-xs text-slate-400">Kralicek-Gesamtnote (1,0–5,0):</div>
+              <div id="out-kralicek-score" class="text-3xl sm:text-4xl font-black text-white font-mono mt-0.5">1,75</div>
+              <div id="out-kralicek-label" class="text-xs text-emerald-300 font-semibold mt-1">Gut (Hohe Bonität)</div>
+            </div>
+            <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400">Indikatives Banken-Rating:</div>
+              <div id="out-rating-badge" class="text-lg font-extrabold text-emerald-400 font-mono mt-0.5">Investment Grade (A–BBB)</div>
+              <div id="out-stab-ertrag" class="text-[11px] text-slate-400 mt-1">Stabilität: 1,5 • Ertrag: 2,0</div>
+            </div>
+          </div>
+
+          <!-- 4 Kralicek KPIs Table -->
+          <div class="space-y-2 pt-2 border-t border-slate-800 text-xs">
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2.5">
+              <div>
+                <div class="font-bold text-white">1. Eigenkapitalquote (EK / Bilanz)</div>
+                <div class="text-[11px] text-slate-400">Ziel Note 1: &gt; 30 % | Note 2: &gt; 20 % | AT § 22 URG: ≥ 8 %</div>
+              </div>
+              <div class="text-right">
+                <div id="out-eq-ratio" class="font-mono font-extrabold text-sm text-emerald-400">32,9 %</div>
+                <div id="out-eq-grade" class="text-[10px] font-bold text-slate-300">Note 1,0</div>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2.5">
+              <div>
+                <div class="font-bold text-white">2. Schuldentilgungsdauer (Netto-FK / CF)</div>
+                <div class="text-[11px] text-slate-400">Ziel Note 1: &lt; 3,0 J. | Note 2: &lt; 5,0 J. | AT § 22 URG: ≤ 15 J.</div>
+              </div>
+              <div class="text-right">
+                <div id="out-debt-years" class="font-mono font-extrabold text-sm text-emerald-400">3,57 J.</div>
+                <div id="out-debt-grade" class="text-[10px] font-bold text-slate-300">Note 2,0</div>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2.5">
+              <div>
+                <div class="font-bold text-white">3. Gesamtkapitalrentabilität (ROI / RoA)</div>
+                <div class="text-[11px] text-slate-400">(EBIT + FK-Zinsen) / Bilanzsumme • Ziel Note 1: &gt; 15 %</div>
+              </div>
+              <div class="text-right">
+                <div id="out-roa" class="font-mono font-extrabold text-sm text-emerald-400">17,3 %</div>
+                <div id="out-roa-grade" class="text-[10px] font-bold text-slate-300">Note 1,0</div>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-900/80 border border-slate-800 rounded-xl px-3.5 py-2.5">
+              <div>
+                <div class="font-bold text-white">4. Cashflow-Leistungsrate (CF / Umsatz)</div>
+                <div class="text-[11px] text-slate-400">Operativer Cashflow / Leistung • Ziel Note 1: &gt; 10 %</div>
+              </div>
+              <div class="text-right">
+                <div id="out-cf-margin" class="font-mono font-extrabold text-sm text-emerald-400">10,5 %</div>
+                <div id="out-cf-grade" class="text-[10px] font-bold text-slate-300">Note 1,0</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- StaRUG / URG / Art. 725 OR Traffic Light -->
+          <div id="out-starug-box" class="bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4 space-y-1">
+            <div class="text-xs font-extrabold text-emerald-300 flex items-center justify-between">
+              <span id="out-starug-title">🟢 Gesetzliche Krisenfrühwarnung (§ 1 StaRUG / § 22 URG / Art. 725 OR)</span>
+              <span id="out-icr-badge" class="font-mono text-[11px]">Zinsdeckung: 6,5x</span>
+            </div>
+            <p id="out-starug-text" class="text-[11px] text-slate-200 leading-relaxed">
+              Keine bestandsgefährdenden Indikatoren erkennbar. Eigenkapitalquote (32,9 %) und Schuldentilgungsdauer (3,6 Jahre) liegen deutlich im grünen Korridor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Working Capital & CCC Result Box -->
+        <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-white">Cash Conversion Cycle (DIO + DSO − DPO) &amp; BWA-Quoten</h3>
+            <span id="out-ccc-days" class="px-2.5 py-0.5 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-mono text-xs font-extrabold">CCC: 76,5 Tage</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2.5 text-center text-xs">
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">DIO (Lagerdauer)</div>
+              <div id="out-dio" class="font-mono font-bold text-white text-sm mt-0.5">75,0 T.</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">+ DSO (Debitoren)</div>
+              <div id="out-dso" class="font-mono font-bold text-amber-300 text-sm mt-0.5">46,9 T.</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-700 rounded-xl p-2.5">
+              <div class="text-[10px] text-slate-400">− DPO (Kreditoren)</div>
+              <div id="out-dpo" class="font-mono font-bold text-emerald-400 text-sm mt-0.5">45,4 T.</div>
+            </div>
+          </div>
+
+          <div class="bg-indigo-950/50 border border-indigo-500/40 rounded-2xl p-3.5 space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-300">Gebundenes Net Working Capital (NWC):</span>
+              <span id="out-nwc" class="font-mono font-bold text-white">690.000 € (16,4 % v. Umsatz)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-emerald-300 font-semibold">Sofort freisetzbare Liquidität (Simulator):</span>
+              <span id="out-cash-unlock" class="font-mono font-extrabold text-emerald-400">+ 229.315 €</span>
+            </div>
+            <div class="flex justify-between text-[11px] text-slate-400">
+              <span>Gesparte Kontokorrentzinsen p.a.:</span>
+              <span id="out-interest-saved" class="font-mono text-emerald-300">+ 19.492 € / Jahr</span>
+            </div>
+          </div>
+
+          <!-- BWA Quoten Mini Bar -->
+          <div class="grid grid-cols-3 gap-2 pt-1 text-[11px] text-slate-300">
+            <div class="bg-slate-900/70 rounded-lg px-2.5 py-1.5">
+              <span class="text-slate-400 block">Rohertragsquote:</span>
+              <span id="out-gross-margin" class="font-mono font-bold text-white">56,0 %</span>
+            </div>
+            <div class="bg-slate-900/70 rounded-lg px-2.5 py-1.5">
+              <span class="text-slate-400 block">Personalquote:</span>
+              <span id="out-pers-ratio" class="font-mono font-bold text-white">27,4 %</span>
+            </div>
+            <div class="bg-slate-900/70 rounded-lg px-2.5 py-1.5">
+              <span class="text-slate-400 block">EBITDA-Marge:</span>
+              <span id="out-ebitda-margin" class="font-mono font-bold text-emerald-400">13,3 %</span>
+            </div>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Banken-Rating- &amp; BWA-Analyseblatt drucken / PDF</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & FACHWISSEN SECTION -->
+    <section class="bg-slate-800/60 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">
+        Fachratgeber 2026: Kralicek-Quicktest, Cash Conversion Cycle (DIO/DSO/DPO) &amp; Banken-Rating
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6 text-xs sm:text-sm text-slate-300 leading-relaxed">
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">1. Kralicek-Quicktest (Note 1,0–5,0)</h3>
+          <p>
+            Der von Prof. Dr. Peter Kralicek entwickelte Quicktest prüft anhand von vier unbestechlichen Bilanz- und GuV-Relationen die <strong>Finanzielle Stabilität</strong> (Eigenkapitalquote &amp; Schuldentilgungsdauer) sowie die <strong>Ertragskraft</strong> (Gesamtkapitalrentabilität &amp; Cashflow-Leistungsrate). Werte ab Note 3,5 gelten im Banken-Credit-Risk als akutes Warnsignal.
+          </p>
+          <a href="./kralicek-quicktest-berechnen-formel-insolvenzprognose-kmu.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ Kralicek-Quicktest Formel &amp; Notenskala</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">2. Cash Conversion Cycle (CCC)</h3>
+          <p>
+            Viele KMU wachsen sich trotz voller Auftragsbücher in den Liquiditätsengpass, weil das Geld in Vorräten (<strong>DIO</strong>) und Kundenforderungen (<strong>DSO</strong>) gebunden bleibt, während Lieferanten (<strong>DPO</strong>) schnell bezahlt werden. Jede Verkürzung des CCC um 10 Tage setzt im Mittelstand zehntausende Euro Eigenliquidität frei.
+          </p>
+          <a href="./cash-conversion-cycle-berechnen-dio-dso-dpo-formel-beispiel.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ DIO, DSO &amp; DPO berechnen mit Beispiel</a>
+        </div>
+        <div class="bg-slate-900/70 border border-slate-700/80 rounded-2xl p-5 space-y-2">
+          <h3 class="font-bold text-emerald-400 text-base">3. BWA lesen &amp; Banken-Rating 2026</h3>
+          <p>
+            Vor jedem Kreditgespräch nach <strong>Basel III/IV</strong> prüfen Firmenkundenbetreuer die DATEV-BWA auf Rohertragsquote, Personalintensität, EBITDA-Marge und Zinsdeckungsgrad. Zudem haften Geschäftsführer nach <strong>§ 1 StaRUG (DE)</strong>, <strong>§ 22 URG (AT)</strong> und <strong>Art. 725 OR (CH)</strong> für ein dokumentiertes Krisenfrühwarnsystem.
+          </p>
+          <a href="./bwa-lesen-verstehen-kennzahlen-banken-rating-mittelstand-2026.html" class="inline-block text-emerald-400 font-bold hover:underline pt-1">→ BWA-Kennzahlen &amp; Banken-Rating-Leitfaden</a>
+        </div>
+      </div>
+
+      <!-- CFO Cross-Linking -->
+      <div class="border-t border-slate-700 pt-5">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Passende CFO- &amp; Finanz-Werkzeuge im DACH Digitalwerk:</div>
+        <div class="flex flex-wrap gap-2.5 text-xs">
+          <a href="../unternehmenswert-ebit-multiple-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-semibold transition">🏛️ KMU-Unternehmenswert &amp; EBIT-Multiple (#34)</a>
+          <a href="../factoring-working-capital-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">🏦 B2B Factoring &amp; Skonto-Hebel (#31)</a>
+          <a href="../liquiditaetsplaner-cashflow-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">📈 13-Wochen-Liquiditätsplaner StaRUG (#21)</a>
+          <a href="../kredit-annuitaeten-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">🏢 Firmenkredit- &amp; Tilgungsplan-Rechner (#29)</a>
+          <a href="../arbeitgeber-gesamtkosten-rechner/" class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition">👥 Arbeitgeber-Gesamtkosten &amp; Personalbudget (#33)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-6 px-4 text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>&copy; 2026 DACH Digitalwerk • 100% Client-Side • Keine Rechts-, Steuer-, Sanierungs- oder Kreditberatung (§ 2 RDG / § 5 StBerG / § 32 KWG)</div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="../" class="hover:text-white">Alle 35 Tools</a>
+        <a href="../haftungsausschluss/" class="hover:text-amber-400">Haftungsausschluss</a>
+        <a href="../agb/" class="hover:text-indigo-400">AGB</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRINT-ONLY DIN-A4 DOSSIER -->
+  <section class="print-only p-4 space-y-4 text-black">
+    <div class="border-b-2 border-black pb-3 flex justify-between items-start">
+      <div>
+        <h1 class="text-lg font-extrabold uppercase">DIN-A4 BWA-Kennzahlen-, Kralicek-Quicktest- &amp; Working-Capital-Dossier 2026</h1>
+        <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/bwa-kennzahlen-working-capital-analyse/)</p>
+      </div>
+      <div id="print-date" class="text-xs font-mono"></div>
+    </div>
+    <div id="print-summary" class="space-y-3 text-xs"></div>
+    <div class="border-t border-gray-400 pt-3 text-[10px] text-gray-600">
+      <strong>Rechtlicher Hinweis (§ 2 RDG / § 5 StBerG / § 32 KWG / BGH Smartlaw-Urteil):</strong> Unverbindliche finanzmathematische Modellrechnung zu Informations- und Controllingzwecken. Kein Banken-Rating und keine Insolvenz- oder Steuerberatung.
+    </div>
+  </section>
+
+  <script>
+    let currentCountry = 'DE';
+
+    const PRESETS = {
+      industrie: { rev: 4200000, cogs: 1850000, pers: 1150000, ebit: 420000, dep: 140000, int: 65000, assets: 2800000, eq: 920000, cash: 310000, cf: 440000, inv: 380000, rec: 540000, pay: 230000 },
+      saas:      { rev: 2500000, cogs: 420000,  pers: 1180000, ebit: 460000, dep: 60000,  int: 18000, assets: 1450000, eq: 640000, cash: 420000, cf: 410000, inv: 25000,  rec: 310000, pay: 95000  },
+      handel:    { rev: 6000000, cogs: 4100000, pers: 780000,  ebit: 310000, dep: 85000,  int: 75000, assets: 3100000, eq: 760000, cash: 210000, cf: 310000, inv: 820000, rec: 680000, pay: 490000 },
+      handwerk:  { rev: 1800000, cogs: 690000,  pers: 640000,  ebit: 175000, dep: 55000,  int: 28000, assets: 1050000, eq: 295000, cash: 135000, cf: 185000, inv: 115000, rec: 245000, pay: 110000 },
+      turnaround:{ rev: 3100000, cogs: 1720000, pers: 980000,  ebit: 45000,  dep: 95000,  int: 92000, assets: 2400000, eq: 145000, cash: 65000,  cf: 85000,  inv: 440000, rec: 520000, pay: 190000 }
+    };
+
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        if (k === c) {
+          b.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950';
+        } else {
+          b.className = 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+        }
+      });
+      const curr = c === 'CH' ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+      recalc();
+    }
+
+    function applyPreset(key) {
+      const p = PRESETS[key];
+      if (!p) return;
+      document.getElementById('annualRevenue').value = p.rev;
+      document.getElementById('cogs').value = p.cogs;
+      document.getElementById('personnelCost').value = p.pers;
+      document.getElementById('ebit').value = p.ebit;
+      document.getElementById('depreciation').value = p.dep;
+      document.getElementById('interestExpense').value = p.int;
+      document.getElementById('totalAssets').value = p.assets;
+      document.getElementById('equity').value = p.eq;
+      document.getElementById('cash').value = p.cash;
+      document.getElementById('operatingCashflow').value = p.cf;
+      document.getElementById('inventory').value = p.inv;
+      document.getElementById('receivables').value = p.rec;
+      document.getElementById('payables').value = p.pay;
+      recalc();
+    }
+
+    function fmtCurr(val, curr) {
+      return Math.round(val).toLocaleString('de-DE') + ' ' + curr;
+    }
+
+    function gradeEquityRatio(eqPct) {
+      if (eqPct > 30) return 1.0;
+      if (eqPct > 20) return 2.0;
+      if (eqPct > 10) return 3.0;
+      if (eqPct >= 0) return 4.0;
+      return 5.0;
+    }
+
+    function gradeDebtRedemptionYears(years, cf) {
+      if (cf <= 0 && years > 0) return 5.0;
+      if (years < 3.0) return 1.0;
+      if (years < 5.0) return 2.0;
+      if (years < 12.0) return 3.0;
+      if (years <= 30.0) return 4.0;
+      return 5.0;
+    }
+
+    function gradeRoA(roaPct) {
+      if (roaPct > 15.0) return 1.0;
+      if (roaPct > 12.0) return 2.0;
+      if (roaPct > 8.0) return 3.0;
+      if (roaPct >= 0.0) return 4.0;
+      return 5.0;
+    }
+
+    function gradeCashflowMargin(cfPct) {
+      if (cfPct > 10.0) return 1.0;
+      if (cfPct > 8.0) return 2.0;
+      if (cfPct > 5.0) return 3.0;
+      if (cfPct >= 0.0) return 4.0;
+      return 5.0;
+    }
+
+    function recalc() {
+      const curr = currentCountry === 'CH' ? 'CHF' : '€';
+      const rev = Math.max(1, parseFloat(document.getElementById('annualRevenue').value) || 0);
+      const cogs = Math.max(0, parseFloat(document.getElementById('cogs').value) || 0);
+      const pers = Math.max(0, parseFloat(document.getElementById('personnelCost').value) || 0);
+      const ebit = parseFloat(document.getElementById('ebit').value) || 0;
+      const dep = Math.max(0, parseFloat(document.getElementById('depreciation').value) || 0);
+      const interest = Math.max(0, parseFloat(document.getElementById('interestExpense').value) || 0);
+      const assets = Math.max(1, parseFloat(document.getElementById('totalAssets').value) || 0);
+      const equity = parseFloat(document.getElementById('equity').value) || 0;
+      const cash = Math.max(0, parseFloat(document.getElementById('cash').value) || 0);
+      const cf = parseFloat(document.getElementById('operatingCashflow').value) || 0;
+      const inv = Math.max(0, parseFloat(document.getElementById('inventory').value) || 0);
+      const rec = Math.max(0, parseFloat(document.getElementById('receivables').value) || 0);
+      const pay = Math.max(0, parseFloat(document.getElementById('payables').value) || 0);
+
+      const dsoRed = Math.max(0, parseFloat(document.getElementById('targetDsoRed').value) || 0);
+      const dioRed = Math.max(0, parseFloat(document.getElementById('targetDioRed').value) || 0);
+      const dpoInc = Math.max(0, parseFloat(document.getElementById('targetDpoInc').value) || 0);
+      const overdraftRate = Math.max(0, parseFloat(document.getElementById('overdraftRate').value) || 0);
+
+      // 1. Kralicek KPIs
+      const eqRatioPct = (equity / assets) * 100.0;
+      const totalLiabilities = Math.max(0, assets - equity);
+      const netDebtTotal = Math.max(0, totalLiabilities - cash);
+      const debtYears = cf > 0 ? (netDebtTotal / cf) : (netDebtTotal > 0 ? 99.9 : 0.0);
+      const roaPct = ((ebit + interest) / assets) * 100.0;
+      const cfMarginPct = (cf / rev) * 100.0;
+
+      const g1 = gradeEquityRatio(eqRatioPct);
+      const g2 = gradeDebtRedemptionYears(debtYears, cf);
+      const g3 = gradeRoA(roaPct);
+      const g4 = gradeCashflowMargin(cfMarginPct);
+
+      const stabilityScore = (g1 + g2) / 2.0;
+      const profitabilityScore = (g3 + g4) / 2.0;
+      const kralicekTotal = (g1 + g2 + g3 + g4) / 4.0;
+
+      let ratingLabel = 'Investment Grade (AAA–BBB)';
+      let kralicekText = 'Sehr gut bis Gut (Starkes Banken-Rating)';
+      if (kralicekTotal <= 1.5) {
+        ratingLabel = 'Top-Bonität (AAA–AA)';
+        kralicekText = 'Exzellente Bonität & Ertragskraft';
+      } else if (kralicekTotal <= 2.5) {
+        ratingLabel = 'Investment Grade (A–BBB)';
+        kralicekText = 'Gute Mittelstands-Bonität';
+      } else if (kralicekTotal <= 3.25) {
+        ratingLabel = 'Sub-Investment (BB)';
+        kralicekText = 'Befriedigend (Erhöhte Zinsmarge)';
+      } else if (kralicekTotal <= 4.0) {
+        ratingLabel = 'Watchlist / Intensiv (B)';
+        kralicekText = 'Angespannt (Sanierungsbedarf prüfen)';
+      } else {
+        ratingLabel = 'Workout / Ausfallrisiko (CCC–D)';
+        kralicekText = 'Akute Insolvenzgefahr!';
+      }
+
+      // 2. BWA Margins & Interest Coverage
+      const grossProfit = rev - cogs;
+      const grossMarginPct = (grossProfit / rev) * 100.0;
+      const persRatioPct = (pers / rev) * 100.0;
+      const ebitda = ebit + dep;
+      const ebitdaMarginPct = (ebitda / rev) * 100.0;
+      const icr = interest > 0 ? (ebit / interest) : 99.9;
+
+      // 3. Working Capital & CCC
+      const effectiveCogs = cogs > 0 ? cogs : rev * 0.5;
+      const dio = cogs > 0 ? (inv / effectiveCogs) * 365.0 : 0.0;
+      const dso = (rec / rev) * 365.0;
+      const dpo = cogs > 0 ? (pay / effectiveCogs) * 365.0 : 0.0;
+      const ccc = dio + dso - dpo;
+      const nwc = inv + rec - pay;
+      const nwcPct = (nwc / rev) * 100.0;
+
+      const unlockedRec = (dsoRed / 365.0) * rev;
+      const unlockedInv = cogs > 0 ? (dioRed / 365.0) * cogs : 0.0;
+      const unlockedPay = cogs > 0 ? (dpoInc / 365.0) * cogs : 0.0;
+      const totalUnlockedCash = unlockedRec + unlockedInv + unlockedPay;
+      const annualInterestSaved = totalUnlockedCash * (overdraftRate / 100.0);
+
+      // 4. Statutory Crisis Early Warning (DE § 1 StaRUG / AT § 22 URG / CH Art. 725 OR)
+      const badgeMap = {
+        DE: 'DE • § 1 StaRUG & InsO',
+        AT: 'AT • § 22 URG (8% EK / 15 J.)',
+        CH: 'CH • Art. 725 / 725a / 725b OR'
+      };
+      document.getElementById('out-country-badge').textContent = badgeMap[currentCountry];
+
+      const urgTriggered = (eqRatioPct < 8.0 && debtYears > 15.0);
+      const overindebted = (equity < 0);
+      const starugWarning = (kralicekTotal >= 3.5 || icr < 1.5 || urgTriggered || overindebted);
+
+      const box = document.getElementById('out-starug-box');
+      const titleEl = document.getElementById('out-starug-title');
+      const textEl = document.getElementById('out-starug-text');
+
+      if (overindebted || kralicekTotal >= 4.0 || urgTriggered) {
+        box.className = 'bg-rose-950/70 border border-rose-500/50 rounded-2xl p-4 space-y-1';
+        titleEl.className = 'text-xs font-extrabold text-rose-300 flex items-center justify-between';
+        titleEl.textContent = '🔴 Kritische Frühwarnstufe (§ 1 StaRUG / § 22 URG / Art. 725 OR)';
+        if (currentCountry === 'AT' && urgTriggered) {
+          textEl.textContent = `Gesetzliche Reorganisationsvermutung gem. § 22 Abs. 1 URG ausgelöst: Eigenmittelquote (${eqRatioPct.toFixed(1)} % < 8 %) UND fiktive Schuldentilgungsdauer (${debtYears.toFixed(1)} J. > 15 J.)!`;
+        } else if (currentCountry === 'CH') {
+          textEl.textContent = `Handlungspflicht nach Art. 725 / 725a / 725b OR prüfen: Schwache Eigenkapitalbasis (${eqRatioPct.toFixed(1)} %) bzw. kritische Schuldentilgungsdauer (${debtYears.toFixed(1)} J.).`;
+        } else {
+          textEl.textContent = `Akutes Krisensignal nach § 1 StaRUG: Kralicek-Note (${kralicekTotal.toFixed(2).replace('.', ',')}) bzw. Zinsdeckung (${icr.toFixed(1)}x) erfordert sofortige 13-/24-Wochen-Liquiditätsplanung!`;
+        }
+      } else if (starugWarning || kralicekTotal > 2.75) {
+        box.className = 'bg-amber-950/60 border border-amber-500/40 rounded-2xl p-4 space-y-1';
+        titleEl.className = 'text-xs font-extrabold text-amber-300 flex items-center justify-between';
+        titleEl.textContent = '🟡 Gelbe Frühwarnstufe (Monitoring nach § 1 StaRUG / § 22 URG)';
+        textEl.textContent = `Erhöhte Aufmerksamkeit geboten: Optimieren Sie Working Capital (+${fmtCurr(totalUnlockedCash, curr)} Potenzial) und stärken Sie Eigenkapitalquote (${eqRatioPct.toFixed(1)} %) für bessere Bankkonditionen.`;
+      } else {
+        box.className = 'bg-emerald-950/60 border border-emerald-500/40 rounded-2xl p-4 space-y-1';
+        titleEl.className = 'text-xs font-extrabold text-emerald-300 flex items-center justify-between';
+        titleEl.textContent = '🟢 Grüne Frühwarnampel (§ 1 StaRUG / § 22 URG / Art. 725 OR)';
+        textEl.textContent = `Keine bestandsgefährdenden Indikatoren: Eigenkapitalquote (${eqRatioPct.toFixed(1)} %) ≥ 8 % und Schuldentilgungsdauer (${debtYears.toFixed(1)} J.) ≤ 15 J. erfüllen alle gesetzlichen Richtwerte.`;
+      }
+
+      // Render UI
+      document.getElementById('out-kralicek-score').textContent = kralicekTotal.toFixed(2).replace('.', ',');
+      document.getElementById('out-kralicek-label').textContent = kralicekText;
+      document.getElementById('out-rating-badge').textContent = ratingLabel;
+      document.getElementById('out-stab-ertrag').textContent = `Stabilität: ${stabilityScore.toFixed(1).replace('.', ',')} • Ertrag: ${profitabilityScore.toFixed(1).replace('.', ',')}`;
+
+      document.getElementById('out-eq-ratio').textContent = eqRatioPct.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('out-eq-grade').textContent = 'Note ' + g1.toFixed(1).replace('.', ',');
+      document.getElementById('out-debt-years').textContent = (debtYears >= 99 ? '> 50' : debtYears.toFixed(2).replace('.', ',')) + ' J.';
+      document.getElementById('out-debt-grade').textContent = 'Note ' + g2.toFixed(1).replace('.', ',');
+      document.getElementById('out-roa').textContent = roaPct.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('out-roa-grade').textContent = 'Note ' + g3.toFixed(1).replace('.', ',');
+      document.getElementById('out-cf-margin').textContent = cfMarginPct.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('out-cf-grade').textContent = 'Note ' + g4.toFixed(1).replace('.', ',');
+      document.getElementById('out-icr-badge').textContent = 'Zinsdeckung: ' + (icr >= 99 ? '>50x' : icr.toFixed(1).replace('.', ',') + 'x');
+
+      document.getElementById('out-ccc-days').textContent = 'CCC: ' + ccc.toFixed(1).replace('.', ',') + ' Tage';
+      document.getElementById('out-dio').textContent = dio.toFixed(1).replace('.', ',') + ' T.';
+      document.getElementById('out-dso').textContent = dso.toFixed(1).replace('.', ',') + ' T.';
+      document.getElementById('out-dpo').textContent = dpo.toFixed(1).replace('.', ',') + ' T.';
+      document.getElementById('out-nwc').textContent = `${fmtCurr(nwc, curr)} (${nwcPct.toFixed(1).replace('.', ',')} % v. Umsatz)`;
+      document.getElementById('out-cash-unlock').textContent = '+ ' + fmtCurr(totalUnlockedCash, curr);
+      document.getElementById('out-interest-saved').textContent = '+ ' + fmtCurr(annualInterestSaved, curr) + ' / Jahr';
+
+      document.getElementById('out-gross-margin').textContent = grossMarginPct.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('out-pers-ratio').textContent = persRatioPct.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('out-ebitda-margin').textContent = ebitdaMarginPct.toFixed(1).replace('.', ',') + ' %';
+
+      // Print sheet
+      document.getElementById('print-date').textContent = 'Datum: ' + new Date().toLocaleDateString('de-DE') + ' | Rechtsraum: ' + currentCountry;
+      document.getElementById('print-summary').innerHTML = `
+        <table class="w-full border-collapse border border-gray-400 text-left">
+          <tr class="bg-gray-100"><th class="border border-gray-400 p-1.5">Kennzahl / Modul</th><th class="border border-gray-400 p-1.5">Ist-Wert</th><th class="border border-gray-400 p-1.5">Kralicek-Note / Bewertung</th></tr>
+          <tr><td class="border border-gray-400 p-1.5 font-bold">Kralicek-Quicktest Gesamtnote (1,0–5,0)</td><td class="border border-gray-400 p-1.5 font-bold">${kralicekTotal.toFixed(2).replace('.', ',')}</td><td class="border border-gray-400 p-1.5 font-bold">${ratingLabel} (${kralicekText})</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">1. Eigenkapitalquote (EK / Bilanzsumme)</td><td class="border border-gray-400 p-1.5">${eqRatioPct.toFixed(1).replace('.', ',')} %</td><td class="border border-gray-400 p-1.5">Note ${g1.toFixed(1)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">2. Schuldentilgungsdauer ((FK − Cash) / CF)</td><td class="border border-gray-400 p-1.5">${debtYears.toFixed(2).replace('.', ',')} Jahre</td><td class="border border-gray-400 p-1.5">Note ${g2.toFixed(1)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">3. Gesamtkapitalrentabilität (ROI / RoA)</td><td class="border border-gray-400 p-1.5">${roaPct.toFixed(1).replace('.', ',')} %</td><td class="border border-gray-400 p-1.5">Note ${g3.toFixed(1)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">4. Cashflow-Leistungsrate (CF / Umsatz)</td><td class="border border-gray-400 p-1.5">${cfMarginPct.toFixed(1).replace('.', ',')} %</td><td class="border border-gray-400 p-1.5">Note ${g4.toFixed(1)}</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Cash Conversion Cycle (DIO + DSO − DPO)</td><td class="border border-gray-400 p-1.5">${ccc.toFixed(1).replace('.', ',')} Tage</td><td class="border border-gray-400 p-1.5">DIO ${dio.toFixed(1)} T. | DSO ${dso.toFixed(1)} T. | DPO ${dpo.toFixed(1)} T.</td></tr>
+          <tr><td class="border border-gray-400 p-1.5">Net Working Capital &amp; Freisetzungspotenzial</td><td class="border border-gray-400 p-1.5">${fmtCurr(nwc, curr)}</td><td class="border border-gray-400 p-1.5">Freisetzung: +${fmtCurr(totalUnlockedCash, curr)} (Zinsvorteil: +${fmtCurr(annualInterestSaved, curr)} p.a.)</td></tr>
+        </table>
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', recalc);
+  </script>
+</body>
+</html>

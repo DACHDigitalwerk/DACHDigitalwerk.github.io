@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DACH B2B Leasing- vs. Kreditkauf- &amp; Eigenkapital-Vergleichsrechner 2026 | Barwert-, Steuer- &amp; Liquiditäts-Optimierer (DE / AT / CH)</title>
+  <meta name="description" content="Kostenloser 100% Client-Side B2B Leasing- vs. Kreditkauf- &amp; Barkauf-Rechner 2026 für Maschinen, IT &amp; Fuhrpark in Deutschland (BMF-Leasingerlass, § 8 Nr. 1d GewStG), Österreich (EStR, KÖSt 23 %) &amp; Schweiz (OR, Gewinnsteuer). Mit Kapitalwert/Barwert (NPV), Steuervorteils-Analyse &amp; DIN-A4 CFO-Entscheidungsblatt." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/leasing-kreditkauf-rechner/" />
+  <meta property="og:title" content="DACH B2B Leasing- vs. Kreditkauf- &amp; Eigenkapital-Vergleichsrechner 2026 (DE / AT / CH)" />
+  <meta property="og:description" content="Vergleichen Sie Gewerbeleasing, Bankkreditkauf (inkl. AfA &amp; Zinsabzug) und Barkauf nach Steuern und Barwert (NPV) für Deutschland, Österreich und die Schweiz." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/leasing-kreditkauf-rechner/" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body { background: white !important; color: black !important; font-size: 11px !important; }
+      .no-print { display: none !important; }
+      .print-only { display: block !important; }
+      @page { size: A4 portrait; margin: 10mm; }
+    }
+    .print-only { display: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH B2B Leasing- vs. Kreditkauf- & Eigenkapital-Vergleichsrechner 2026",
+    "url": "https://dachdigitalwerk.github.io/leasing-kreditkauf-rechner/",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Finanzmathematischer Investitions-, Barwert- (NPV) und Steuervergleichsrechner zwischen B2B-Gewerbeleasing (Voll-/Teilamortisation), Bankkreditkauf (Annuitätendarlehen + AfA) und Eigenkapital-Barkauf im DACH-Raum (DE, AT, CH).",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie funktioniert DACH B2B Leasing- vs. Kreditkauf- &amp; Eigenkapital-Vergleichsrechner 2026 f?r Deutschland, ?sterreich und die Schweiz?", "acceptedAnswer": {"@type": "Answer", "text": "Kostenloser 100% Client-Side B2B Leasing- vs. Kreditkauf- &amp; Barkauf-Rechner 2026 für Maschinen, IT &amp; Fuhrpark in Deutschland (BMF-Leasingerlass, § 8 Nr. 1d GewStG), Österreich (EStR, KÖSt 23 %) &amp; Schweiz (OR, Gewinnsteuer). Mit Kapitalwert/Barwert (NPV), Steuervorteils-Analyse &amp; DIN-A4 CFO-Entscheidungsblatt. Alle Berechnungen erfolgen zu 100 % lokal im Browser (Zero-Server-Storage / DSGVO- & revDSG-konform) nach aktuellem Rechtsstand 2026 f?r DE, AT und CH."}}, {"@type": "Question", "name": "Stellt das Ergebnis eine Rechts- oder Steuerberatung dar?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Es handelt sich um ein regelbasiertes mathematisch-schematisches Informations- und Kalkulationswerkzeug gem. BGH-Urteil v. 09.09.2021 ? I ZR 226/20 (Smartlaw) ohne individuelle Rechts- oder Steuerberatung i.S.d. ? 2 RDG bzw. ? 5 StBerG."}}]}
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col">
+
+  <!-- TOP BANNER -->
+  <div class="no-print bg-slate-950 border-b border-slate-800 text-[11px] py-2 px-4 text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-[10px]">
+          🚜 FLAGGSCHIFF-TOOL #32 • INVESTITIONS- &amp; LEASING-VERGLEICH 2026
+        </span>
+        <span class="text-slate-300 font-medium">Leasing vs. Kreditkauf vs. Barkauf • Barwert (NPV) • DE (BMF 40–90 % &amp; § 8 GewStG) • AT (KÖSt 23 %) • CH (OR)</span>
+      </div>
+      <div class="flex items-center gap-2 text-slate-400 font-mono text-[10px]">
+        <a href="../" class="hover:text-emerald-400 transition">← Alle 32 DACH-Tools</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECHTLICHER HAFTUNGSAUSSCHLUSS -->
+  <aside class="no-print bg-amber-950/40 border-b border-amber-500/30 text-amber-100 text-xs py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex items-start sm:items-center gap-2.5">
+      <span class="text-amber-400 font-black text-sm shrink-0">⚠️</span>
+      <p class="leading-relaxed text-[11px] sm:text-xs text-amber-200/90">
+        <strong>Wichtiger Hinweis (§ 2 RDG / § 5 StBerG / BGH Az. I ZR 226/20 – Smartlaw-Urteil):</strong>
+        Dieser Rechner dient ausschließlich der unverbindlichen finanzmathematischen und betriebswirtschaftlichen Investitions-, Barwert- und Steuer-Modellberechnung. Er stellt <strong>keine Steuer-, Rechts-, Bilanzierungs- oder Finanzierungsberatung</strong> dar. Es gelten unsere <a href="../agb/" class="underline hover:text-white">AGB</a> und unser <a href="../haftungsausschluss/" class="underline hover:text-white">Haftungsausschluss</a>.
+      </p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="no-print max-w-7xl mx-auto w-full px-4 sm:px-6 py-8 flex-1 space-y-10">
+    <!-- HERO -->
+    <div class="space-y-3">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold">
+        <span>🚜 Flaggschiff-Applikation #32</span>
+        <span>•</span>
+        <span>100% lokal im Browser (Zero-Cloud CFO-Standard)</span>
+      </div>
+      <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+        DACH B2B Leasing- vs. Kreditkauf- &amp; Eigenkapital-Vergleichsrechner 2026
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base max-w-4xl leading-relaxed">
+        Vergleichen Sie <strong>Gewerbeleasing (Voll- oder Teilamortisation)</strong>, <strong>Bankkreditkauf (Annuitätendarlehen + AfA)</strong> und <strong>Barkauf (Eigenkapital inkl. Opportunitätskosten)</strong> für Maschinen, Produktionsanlagen, IT-Infrastruktur und Nutzfahrzeuge/Fuhrpark: Inklusive <strong>BMF-Leasingerlass-Prüfung (40–90 %-Regel)</strong>, gewerbesteuerlicher Hinzurechnung nach <strong>§ 8 Nr. 1d GewStG</strong>, Nachsteuer-Cashflow und <strong>Kapitalwert / Barwert (NPV)</strong>.
+      </p>
+    </div>
+
+    <!-- CALCULATOR GRID -->
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+      <!-- INPUTS -->
+      <div class="lg:col-span-7 bg-slate-800/80 border border-slate-700 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-700 pb-4">
+          <h2 class="text-lg font-bold text-white">1. Rechtsraum, Investitionsobjekt &amp; Nutzungsdauer</h2>
+          <div class="flex gap-2">
+            <button type="button" onclick="setCountry('DE')" id="btn-DE" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950">🇩🇪 DE (€)</button>
+            <button type="button" onclick="setCountry('AT')" id="btn-AT" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇦🇹 AT (€)</button>
+            <button type="button" onclick="setCountry('CH')" id="btn-CH" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200">🇨🇭 CH (CHF)</button>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="applyPreset('maschine')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">⚙️ CNC-Maschine / Produktionsanlage (120.000 • 48 M)</button>
+          <button type="button" onclick="applyPreset('fuhrpark')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🚐 E-Transporter / Firmen-Fuhrpark (65.000 • 36 M)</button>
+          <button type="button" onclick="applyPreset('it')" class="text-xs bg-slate-700/80 hover:bg-slate-600 text-emerald-300 px-3 py-1.5 rounded-lg font-semibold transition">🖥️ Server-Cluster / Medizintechnik (45.000 • 36 M)</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Anschaffungswert Netto (<span class="curr-label">€</span>)</label>
+            <input type="number" id="assetValue" value="120000" min="1000" step="1000" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Netto-Listen-/Kaufpreis ohne USt/MWST</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Leasing- &amp; Kredit-Laufzeit (Monate)</label>
+            <input type="number" id="durationMonths" value="48" min="12" max="120" step="6" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Grundmietzeit (z. B. 36, 48 oder 60 Monate)</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Betriebsgewöhnliche AfA-Dauer (Jahre)</label>
+            <input type="number" id="afaYears" value="6" min="1" max="25" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Lt. amtlicher AfA-Tabelle (für 40–90 %-Regel &amp; Kauf-AfA)</span>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Markt-Restwert nach Laufzeit (%)</label>
+            <input type="number" id="residualValuePct" value="20" min="0" max="70" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm" />
+            <span class="text-[11px] text-slate-400">Kalkulierter Restwert / Übernahmepreis (Teilamortisation)</span>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">2. Konditionen: Gewerbeleasing vs. Bankkredit</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Leasing-Sonderzahlung (%)</label>
+              <input type="number" id="leasingDownPct" value="10" min="0" max="40" step="1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Einmalige Mietsonderzahlung zu Beginn</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Monatl. Leasingfaktor (%)</label>
+              <input type="number" id="leasingFactorPct" value="1.85" min="0.5" max="5.0" step="0.05" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400" id="lbl-monthly-lease">Rate: 2.220 € / Monat</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kredit-Zinssatz Bank p.a. (%)</label>
+              <input type="number" id="loanInterestPct" value="5.40" min="0.5" max="15.0" step="0.1" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Investitionskredit / Annuitätendarlehen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-5 space-y-4">
+          <h3 class="text-base font-bold text-white">3. Ertragsteuersatz, GewSt-Hinzurechnung &amp; WACC (Barwert)</h3>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Unternehmens-Steuersatz (%)</label>
+              <input type="number" id="taxRatePct" value="30.0" min="0" max="55" step="0.5" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400" id="taxHint">DE: KSt + Soli + GewSt (~30 %)</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Kalkulationszins / WACC p.a. (%)</label>
+              <input type="number" id="discountRatePct" value="6.50" min="0.5" max="20.0" step="0.25" oninput="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white font-mono text-sm" />
+              <span class="text-[11px] text-slate-400">Für Barwert (NPV) &amp; EK-Opportunität</span>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">§ 8 Nr. 1d GewStG Freibetrag?</label>
+              <select id="gewstAddback" onchange="recalc()" class="w-full bg-slate-900 border border-slate-600 rounded-xl px-3 py-2 text-white text-xs">
+                <option value="within">Unter 200.000 € Freibetrag (0 % Hinzurechnung)</option>
+                <option value="above">Über 200.000 € Freibetrag (20 % × 25 % Hinzurechnung)</option>
+              </select>
+              <span class="text-[11px] text-slate-400">DE: Gewerbesteuer-Hinzurechnung für Leasing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BMF Leasing-Erlass Check Box -->
+        <div id="bmf-check-box" class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 text-xs text-slate-300 space-y-1">
+          <div class="font-bold text-emerald-400" id="bmf-title">✓ Bilanzielle Zurechnung (BMF-Leasingerlass 40 % – 90 %-Regel):</div>
+          <p id="bmf-text" class="leading-relaxed text-slate-400">
+            Die Grundmietzeit (48 Monate) beträgt <strong>66,7 %</strong> der betriebsgewöhnlichen Nutzungsdauer (72 Monate) und liegt damit exakt im steuerlichen Korridor von <strong>40 % bis 90 %</strong>. Das Leasinggut wird dem Leasinggeber zugerechnet (Bilanzneutralität beim Leasingnehmer, 100 % sofortiger Betriebsausgabenabzug der Leasingraten).
+          </p>
+        </div>
+      </div>
+
+      <!-- RESULTS -->
+      <div class="lg:col-span-5 space-y-6">
+        <div class="bg-gradient-to-br from-emerald-950 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-6 sm:p-7 space-y-5 shadow-2xl">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">3-Wege Barwert- &amp; Nachsteuer-Ergebnis</span>
+            <span id="badge-country" class="text-xs font-mono bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full">🇩🇪 DE Standard</span>
+          </div>
+
+          <div class="bg-slate-900/90 border border-emerald-500/40 rounded-2xl p-4 space-y-1">
+            <div class="text-xs text-slate-400">Wirtschaftlich günstigste Finanzierungsform (nach Barwert NPV):</div>
+            <div id="out-winner-title" class="text-xl sm:text-2xl font-black text-emerald-400 mt-1">🏆 Gewerbeleasing (inkl. Kaufoption)</div>
+            <div id="out-winner-sub" class="text-xs text-slate-300">Barwert-Vorteil: +3.420 € gegenüber Bankkreditkauf</div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3 text-xs">
+            <div class="grid grid-cols-4 font-bold text-slate-400 border-b border-slate-800 pb-2 text-[11px]">
+              <div>Kennzahl</div>
+              <div class="text-right text-emerald-300">1. Leasing</div>
+              <div class="text-right text-cyan-300">2. Kreditkauf</div>
+              <div class="text-right text-amber-300">3. Barkauf</div>
+            </div>
+
+            <div class="grid grid-cols-4 items-center">
+              <span class="text-slate-400">Monatsrate:</span>
+              <span id="tbl-rate-lease" class="text-right font-mono text-white">2.220 €</span>
+              <span id="tbl-rate-loan" class="text-right font-mono text-white">2.785 €</span>
+              <span class="text-right font-mono text-slate-500">0 € (Sofort)</span>
+            </div>
+
+            <div class="grid grid-cols-4 items-center">
+              <span class="text-slate-400">Gesamtausgaben (Brutto-Cash):</span>
+              <span id="tbl-gross-lease" class="text-right font-mono text-slate-200">142.560 €</span>
+              <span id="tbl-gross-loan" class="text-right font-mono text-slate-200">133.680 €</span>
+              <span id="tbl-gross-cash" class="text-right font-mono text-slate-200">120.000 €</span>
+            </div>
+
+            <div class="grid grid-cols-4 items-center">
+              <span class="text-slate-400">Steuerersparnis (Zeitraum):</span>
+              <span id="tbl-tax-lease" class="text-right font-mono text-emerald-400">-35.568 €</span>
+              <span id="tbl-tax-loan" class="text-right font-mono text-emerald-400">-28.104 €</span>
+              <span id="tbl-tax-cash" class="text-right font-mono text-emerald-400">-24.000 €</span>
+            </div>
+
+            <div class="grid grid-cols-4 items-center">
+              <span class="text-slate-400">Netto-Belastung n. Steuern:</span>
+              <span id="tbl-net-lease" class="text-right font-mono font-semibold text-white">106.992 €</span>
+              <span id="tbl-net-loan" class="text-right font-mono font-semibold text-white">105.576 €</span>
+              <span id="tbl-net-cash" class="text-right font-mono font-semibold text-white">96.000 €</span>
+            </div>
+
+            <div class="grid grid-cols-4 items-center border-t border-slate-700 pt-2 font-bold">
+              <span class="text-emerald-300">Barwert (NPV) n. Steuern:</span>
+              <span id="tbl-npv-lease" class="text-right font-mono text-emerald-400">93.410 €</span>
+              <span id="tbl-npv-loan" class="text-right font-mono text-cyan-300">96.830 €</span>
+              <span id="tbl-npv-cash" class="text-right font-mono text-amber-300">98.750 €</span>
+            </div>
+          </div>
+
+          <div class="bg-indigo-950/50 border border-indigo-500/30 rounded-2xl p-4 space-y-1.5 text-xs">
+            <div class="font-bold text-indigo-300">💡 Warum der Barwert (NPV) überlegen ist</div>
+            <p class="text-[11px] text-slate-300 leading-relaxed">
+              Beim Barkauf binden Sie sofort 100 % Ihres Eigenkapitals in Tag 1 und verzichten auf die Rendite im Kerngeschäft (WACC). Beim Leasing fließen die Ausgaben erst über 36–60 Monate verteilt ab und mindern sofort monatlich die Steuerlast.
+            </p>
+          </div>
+
+          <button type="button" onclick="window.print()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3.5 px-5 rounded-2xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+            <span>🖨️ DIN-A4 Investitions- &amp; Leasing-Vergleichsblatt drucken / PDF</span>
+          </button>
+        </div>
+
+        <!-- SEO RATGEBER LINKS -->
+        <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 space-y-3">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Passende B2B-Fachratgeber 2026</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="../leasing-oder-kreditkauf-maschinen-fuhrpark-rechner-2026.html" class="text-emerald-400 hover:underline font-semibold">→ Leasing oder Kreditkauf 2026? Der große Barwert-Vergleich für Maschinen &amp; Fuhrpark</a></li>
+            <li><a href="../gewerbeleasing-steuervorteil-betriebsausgaben-afa-vergleich.html" class="text-emerald-400 hover:underline font-semibold">→ Gewerbeleasing Steuervorteil: Betriebsausgabenabzug, AfA &amp; § 8 Nr. 1d GewStG</a></li>
+            <li><a href="../restwertleasing-vollamortisation-teilamortisation-berechnen.html" class="text-emerald-400 hover:underline font-semibold">→ Vollamortisation vs. Teilamortisation (Restwertleasing): BMF 40–90 %-Regel einfach erklärt</a></li>
+          </ul>
+        </div>
+
+        <!-- THEMATISCHES CROSS-LINKING WIDGET (CFO & KMU SUITE) -->
+        <div class="bg-slate-900/90 border border-slate-700/80 rounded-2xl p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Komplementäre DACH-Finanz- &amp; KMU-Rechner</h3>
+            <a href="../" class="text-[11px] text-slate-400 hover:text-white transition">Alle Tools →</a>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-2 text-xs">
+            <a href="../kredit-annuitaeten-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>🏢 Firmenkredit &amp; PAngV-Plan</span><span>→</span>
+            </a>
+            <a href="../factoring-working-capital-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>🏦 Factoring &amp; Working Capital</span><span>→</span>
+            </a>
+            <a href="../afa-abschreibungs-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>📉 AfA-Abschreibungs-Rechner</span><span>→</span>
+            </a>
+            <a href="../firmenwagen-1-prozent-fahrtenbuch-rechner/" class="p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500/50 text-slate-200 font-semibold transition flex items-center justify-between">
+              <span>🚗 Firmenwagen 1%-Rechner</span><span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- PRINT VIEW (DIN A4) -->
+  <section class="print-only p-6 space-y-4 text-black">
+    <h1 class="text-xl font-bold border-b pb-2">DIN-A4 Investitions-, Leasing- &amp; Kreditkauf-Vergleichsblatt 2026 (CFO / Steuerberater-Vorlage)</h1>
+    <p class="text-xs">Erstellt mit DACH Digitalwerk (https://dachdigitalwerk.github.io/leasing-kreditkauf-rechner/) — Unverbindliche finanzmathematische Modellrechnung gem. § 2 RDG / § 5 StBerG.</p>
+    <div id="print-summary" class="text-sm space-y-2 font-mono"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="no-print bg-slate-950 border-t border-slate-800 py-8 px-4 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between gap-4">
+      <div>© 2026 DACH Digitalwerk • 100% Client-Side Web-Tools</div>
+      <div class="flex gap-4">
+        <a href="../" class="hover:text-white">Startseite (Alle Tools)</a>
+        <a href="../agb/" class="hover:text-white">AGB</a>
+        <a href="../haftungsausschluss/" class="hover:text-white">Haftungsausschluss</a>
+        <a href="../impressum-datenschutz-generator/" class="hover:text-white">Impressum &amp; Datenschutz</a>
+        <a href="https://github.com/DACHDigitalwerk/leasing-kreditkauf-investitions-rechner-dach" class="hover:text-emerald-400">GitHub Open-Source Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentCountry = 'DE';
+    function setCountry(c) {
+      currentCountry = c;
+      ['DE', 'AT', 'CH'].forEach(k => {
+        const b = document.getElementById('btn-' + k);
+        b.className = (k === c)
+          ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950'
+          : 'px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-700 text-slate-200';
+      });
+      const curr = (c === 'CH') ? 'CHF' : '€';
+      document.querySelectorAll('.curr-label').forEach(el => el.textContent = curr);
+
+      if (c === 'DE') {
+        document.getElementById('taxRatePct').value = 30.0;
+        document.getElementById('loanInterestPct').value = 5.40;
+        document.getElementById('taxHint').textContent = 'DE: KSt + Soli + GewSt (~29–32 %)';
+        document.getElementById('badge-country').textContent = '🇩🇪 DE BMF-Standard';
+      } else if (c === 'AT') {
+        document.getElementById('taxRatePct').value = 23.0;
+        document.getElementById('loanInterestPct').value = 5.50;
+        document.getElementById('taxHint').textContent = 'AT: Körperschaftsteuer (KÖSt 23 % seit 2024)';
+        document.getElementById('badge-country').textContent = '🇦🇹 AT EStR / KÖSt';
+      } else {
+        document.getElementById('taxRatePct').value = 15.0;
+        document.getElementById('loanInterestPct').value = 3.80;
+        document.getElementById('taxHint').textContent = 'CH: Kantonale + direkte Bundes-Gewinnsteuer (~12–19 %)';
+        document.getElementById('badge-country').textContent = '🇨🇭 CH OR Standard';
+      }
+      recalc();
+    }
+
+    function applyPreset(p) {
+      if (p === 'maschine') {
+        document.getElementById('assetValue').value = 120000;
+        document.getElementById('durationMonths').value = 48;
+        document.getElementById('afaYears').value = 6;
+        document.getElementById('leasingDownPct').value = 10;
+        document.getElementById('leasingFactorPct').value = 1.85;
+        document.getElementById('residualValuePct').value = 20;
+      } else if (p === 'fuhrpark') {
+        document.getElementById('assetValue').value = 65000;
+        document.getElementById('durationMonths').value = 36;
+        document.getElementById('afaYears').value = 6;
+        document.getElementById('leasingDownPct').value = 0;
+        document.getElementById('leasingFactorPct').value = 2.15;
+        document.getElementById('residualValuePct').value = 30;
+      } else if (p === 'it') {
+        document.getElementById('assetValue').value = 45000;
+        document.getElementById('durationMonths').value = 36;
+        document.getElementById('afaYears').value = 3;
+        document.getElementById('leasingDownPct').value = 0;
+        document.getElementById('leasingFactorPct').value = 2.65;
+        document.getElementById('residualValuePct').value = 10;
+      }
+      recalc();
+    }
+
+    function fmt(val, decimals = 0) {
+      const curr = (currentCountry === 'CH') ? 'CHF' : '€';
+      return val.toLocaleString('de-DE', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) + ' ' + curr;
+    }
+
+    function recalc() {
+      const asset = Math.max(1000, parseFloat(document.getElementById('assetValue').value) || 0);
+      const months = Math.max(12, parseFloat(document.getElementById('durationMonths').value) || 48);
+      const years = months / 12;
+      const afaYears = Math.max(1, parseFloat(document.getElementById('afaYears').value) || 6);
+      const residualPct = Math.max(0, parseFloat(document.getElementById('residualValuePct').value) || 0) / 100;
+
+      const downPct = Math.max(0, parseFloat(document.getElementById('leasingDownPct').value) || 0) / 100;
+      const factorPct = Math.max(0.1, parseFloat(document.getElementById('leasingFactorPct').value) || 1.85) / 100;
+      const loanRatePct = Math.max(0.1, parseFloat(document.getElementById('loanInterestPct').value) || 5.4) / 100;
+
+      const taxRate = Math.min(60, Math.max(0, parseFloat(document.getElementById('taxRatePct').value) || 30)) / 100;
+      const wacc = Math.max(0.5, parseFloat(document.getElementById('discountRatePct').value) || 6.5) / 100;
+      const gewstMode = document.getElementById('gewstAddback').value;
+
+      // Monthly discount rate for NPV
+      const rMonth = wacc / 12;
+
+      // 1. LEASING CALCULATION (inkl. Übernahme zum Restwert am Laufzeitende für fairen Eigentumsvergleich)
+      const leaseDownPayment = asset * downPct;
+      const monthlyLease = asset * factorPct;
+      const residualBuyout = asset * residualPct;
+      document.getElementById('lbl-monthly-lease').textContent = 'Rate: ' + fmt(monthlyLease, 0) + ' / Monat';
+
+      // Effective tax shield factor on leasing payments (considering optional DE § 8 Nr. 1d GewStG add-back: 20% * 25% = 5% non-deductible for GewSt ~15% => ~0.75% tax reduction)
+      const leaseTaxRate = (currentCountry === 'DE' && gewstMode === 'above') ? Math.max(0, taxRate - 0.0075) : taxRate;
+
+      const totalLeasePayments = leaseDownPayment + (monthlyLease * months);
+      const grossLeaseTotal = totalLeasePayments + residualBuyout;
+      // Tax shield on lease payments + remaining AfA on buyout
+      const taxShieldLease = totalLeasePayments * leaseTaxRate + (residualBuyout * taxRate * 0.5);
+      const netLeaseTotal = grossLeaseTotal - taxShieldLease;
+
+      // NPV of Leasing
+      let npvLease = leaseDownPayment * (1 - leaseTaxRate);
+      for (let m = 1; m <= months; m++) {
+        npvLease += (monthlyLease * (1 - leaseTaxRate)) / Math.pow(1 + rMonth, m);
+      }
+      npvLease += (residualBuyout * (1 - taxRate * 0.5)) / Math.pow(1 + rMonth, months);
+
+      // 2. BANK LOAN PURCHASE (Annuitätendarlehen über Laufzeit + lineare AfA)
+      const rLoanMonth = loanRatePct / 12;
+      const monthlyLoan = asset * (rLoanMonth * Math.pow(1 + rLoanMonth, months)) / (Math.pow(1 + rLoanMonth, months) - 1);
+      const grossLoanTotal = monthlyLoan * months;
+      const totalLoanInterest = grossLoanTotal - asset;
+
+      // Depreciation during period (bounded by asset value)
+      const afaPerMonth = asset / (afaYears * 12);
+      const totalAfaInPeriod = Math.min(asset, afaPerMonth * months);
+      const remainingBookValue = Math.max(0, asset - totalAfaInPeriod);
+      // Tax shield from AfA + interest deduction (+ discounted remaining book value shield)
+      const taxShieldLoan = (totalAfaInPeriod + totalLoanInterest) * taxRate + (remainingBookValue * taxRate * 0.7);
+      const netLoanTotal = grossLoanTotal - taxShieldLoan;
+
+      let npvLoan = 0;
+      let balance = asset;
+      for (let m = 1; m <= months; m++) {
+        const interestM = balance * rLoanMonth;
+        const principalM = monthlyLoan - interestM;
+        balance = Math.max(0, balance - principalM);
+        const afaM = (m <= afaYears * 12) ? afaPerMonth : 0;
+        const taxSaveM = (interestM + afaM) * taxRate;
+        npvLoan += (monthlyLoan - taxSaveM) / Math.pow(1 + rMonth, m);
+      }
+      npvLoan -= (remainingBookValue * taxRate * 0.7) / Math.pow(1 + rMonth, months);
+
+      // 3. CASH PURCHASE (Eigenkapital Sofortkauf in t=0)
+      const grossCashTotal = asset;
+      const taxShieldCash = totalAfaInPeriod * taxRate + (remainingBookValue * taxRate * 0.7);
+      const netCashTotal = grossCashTotal - taxShieldCash;
+
+      let npvCash = asset;
+      for (let m = 1; m <= months; m++) {
+        const afaM = (m <= afaYears * 12) ? afaPerMonth : 0;
+        const taxSaveM = afaM * taxRate;
+        npvCash -= taxSaveM / Math.pow(1 + rMonth, m);
+      }
+      npvCash -= (remainingBookValue * taxRate * 0.7) / Math.pow(1 + rMonth, months);
+
+      // BMF 40-90% Rule Check
+      const afaMonths = afaYears * 12;
+      const ratioPct = (months / afaMonths) * 100;
+      const bmfOk = ratioPct >= 40 && ratioPct <= 90;
+      if (bmfOk) {
+        document.getElementById('bmf-title').className = 'font-bold text-emerald-400';
+        document.getElementById('bmf-title').textContent = '✓ Bilanzielle Zurechnung (BMF-Leasingerlass 40 % – 90 %-Regel erfüllt):';
+        document.getElementById('bmf-text').innerHTML = 'Die Grundmietzeit (' + months + ' Monate) beträgt <strong>' + ratioPct.toFixed(1).replace('.', ',') + ' %</strong> der betriebsgewöhnlichen Nutzungsdauer (' + afaMonths + ' Monate) und liegt im Korridor von <strong>40 % bis 90 %</strong>. Bilanzneutralität &amp; voller Betriebsausgabenabzug sind gewährleistet.';
+      } else {
+        document.getElementById('bmf-title').className = 'font-bold text-amber-400';
+        document.getElementById('bmf-title').textContent = '⚠️ Achtung BMF-Leasingerlass (Außerhalb des 40 % – 90 %-Korridors):';
+        document.getElementById('bmf-text').innerHTML = 'Die Grundmietzeit (' + months + ' Monate) entspricht <strong>' + ratioPct.toFixed(1).replace('.', ',') + ' %</strong> der AfA-Nutzungsdauer (' + afaMonths + ' Monate). Außerhalb von 40–90 % droht eine bilanzielle Zurechnung zum Leasingnehmer (Aktivierungspflicht wie beim Kreditkauf).';
+      }
+
+      // Winner determination by lowest NPV cost
+      const options = [
+        { name: 'Gewerbeleasing (inkl. Kaufoption)', npv: npvLease },
+        { name: 'Bankkreditkauf (Annuität + AfA)', npv: npvLoan },
+        { name: 'Eigenkapital-Barkauf', npv: npvCash }
+      ].sort((a, b) => a.npv - b.npv);
+
+      const best = options[0];
+      const second = options[1];
+      const diff = second.npv - best.npv;
+
+      document.getElementById('out-winner-title').textContent = '🏆 ' + best.name;
+      document.getElementById('out-winner-sub').textContent = 'Barwert-Kostenvorteil (NPV): ' + fmt(diff, 0) + ' günstiger als ' + second.name;
+
+      document.getElementById('tbl-rate-lease').textContent = fmt(monthlyLease, 0);
+      document.getElementById('tbl-rate-loan').textContent = fmt(monthlyLoan, 0);
+
+      document.getElementById('tbl-gross-lease').textContent = fmt(grossLeaseTotal, 0);
+      document.getElementById('tbl-gross-loan').textContent = fmt(grossLoanTotal, 0);
+      document.getElementById('tbl-gross-cash').textContent = fmt(grossCashTotal, 0);
+
+      document.getElementById('tbl-tax-lease').textContent = '-' + fmt(taxShieldLease, 0);
+      document.getElementById('tbl-tax-loan').textContent = '-' + fmt(taxShieldLoan, 0);
+      document.getElementById('tbl-tax-cash').textContent = '-' + fmt(taxShieldCash, 0);
+
+      document.getElementById('tbl-net-lease').textContent = fmt(netLeaseTotal, 0);
+      document.getElementById('tbl-net-loan').textContent = fmt(netLoanTotal, 0);
+      document.getElementById('tbl-net-cash').textContent = fmt(netCashTotal, 0);
+
+      document.getElementById('tbl-npv-lease').textContent = fmt(npvLease, 0);
+      document.getElementById('tbl-npv-loan').textContent = fmt(npvLoan, 0);
+      document.getElementById('tbl-npv-cash').textContent = fmt(npvCash, 0);
+
+      document.getElementById('print-summary').innerHTML =
+        '<div><strong>1. Investitionsparameter (' + currentCountry + '):</strong> Objekt: ' + fmt(asset, 0) + ' | Laufzeit: ' + months + ' Monate | AfA: ' + afaYears + ' Jahre | Steuersatz: ' + (taxRate * 100).toFixed(1) + ' % | WACC: ' + (wacc * 100).toFixed(2) + ' %</div>' +
+        '<div><strong>2. BMF 40–90 %-Prüfung:</strong> Grundmietzeit = ' + ratioPct.toFixed(1) + ' % der AfA-Dauer (' + (bmfOk ? 'Konform / Bilanzneutral' : 'Prüfung erforderlich') + ')</div>' +
+        '<div><strong>3. Gewerbeleasing:</strong> Monatsrate: ' + fmt(monthlyLease, 0) + ' | Netto n. Steuern: ' + fmt(netLeaseTotal, 0) + ' | <strong>Barwert (NPV): ' + fmt(npvLease, 0) + '</strong></div>' +
+        '<div><strong>4. Bankkreditkauf:</strong> Monatsrate: ' + fmt(monthlyLoan, 0) + ' | Netto n. Steuern: ' + fmt(netLoanTotal, 0) + ' | <strong>Barwert (NPV): ' + fmt(npvLoan, 0) + '</strong></div>' +
+        '<div><strong>5. Eigenkapital-Barkauf:</strong> Netto n. Steuern: ' + fmt(netCashTotal, 0) + ' | <strong>Barwert (NPV): ' + fmt(npvCash, 0) + '</strong></div>' +
+        '<div class="pt-2 border-t"><strong>Empfehlung nach Kapitalwertmethode: ' + best.name + ' (Barwert-Vorteil: ' + fmt(diff, 0) + ')</strong></div>';
+    }
+    recalc();
+  </script>
+</body>
+</html>

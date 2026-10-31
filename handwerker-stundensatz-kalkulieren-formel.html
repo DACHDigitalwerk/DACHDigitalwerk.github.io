@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handwerker Stundensatz kalkulieren 2026: Formel, Lohnnebenkosten & Produktivstunden (DE/CH/AT) | DACH Digitalwerk</title>
+  <meta name="description" content="Handwerker-Stundensatz richtig kalkulieren 2026: Formel für Meister & Geselle, Lohnzusatzkosten (SOKA/BUAK/SUVA), Gemeinkostenzuschlag, Produktivstunden & § 35a EStG Handwerkerbonus." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/handwerker-stundensatz-kalkulieren-formel.html" />
+  <meta property="og:title" content="Handwerker Stundensatz kalkulieren 2026: Formel, Lohnnebenkosten & Produktivstunden (DE/CH/AT)" />
+  <meta property="og:description" content="Betriebswirtschaftliche Formel für kostendeckende Verrechnungssätze im Handwerk. Inklusive Vergleichstabelle DE, CH & AT sowie Online-Kalkulator." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/handwerker-stundensatz-kalkulieren-formel.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Handwerker Stundensatz kalkulieren 2026: Formel, Lohnnebenkosten & Produktivstunden (DE/CH/AT)",
+    "description": "Leitfaden zur betriebswirtschaftlichen Kalkulation von Stundenverrechnungssätzen im Handwerk nach VOB, SIA 118 und ÖNORM B 2110.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dachdigitalwerk.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Handwerker-Kalkulator",
+        "item": "https://dachdigitalwerk.github.io/handwerker-stundensatz-aufmass/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Stundensatz-Formel & Ratgeber",
+        "item": "https://dachdigitalwerk.github.io/handwerker-stundensatz-kalkulieren-formel.html"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wie berechnet man den Handwerker-Stundensatz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Der kostendeckende Handwerker-Stundenverrechnungssatz berechnet sich nach der Formel: Fertigungslohn je produktive Stunde (Basislohn + gesetzliche/tarifliche Lohnnebenkosten umgelegt auf produktive Stunden) + Betriebsgemeinkosten je Stunde (BGK) + Wagnis & Gewinn (W&G). Hinzu kommt die gesetzliche Mehrwertsteuer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie viele produktive Stunden hat ein Handwerker pro Jahr?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Von den rund 2.080 bezahlten Jahresstunden verbleiben nach Abzug von 30 Tagen Urlaub, ca. 11 Feiertagen, ca. 14 Krankheitstagen und 15 % bis 20 % unproduktiver Rüst-, Werkstatt- und Fahrzeit durchschnittlich nur ca. 1.250 bis 1.450 tatsächlich verrechenbare Baustellenstunden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hoch sind die Lohnzusatzkosten im Bau- und Handwerksgewerbe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Deutschland betragen die Lohnzusatzkosten (Sozialversicherung, BG Bau, SOKA-BAU Urlaubskasse, Umlagen U1/U2) typischerweise 78 % bis 88 % des Bruttolohns. In Österreich liegen sie inklusive BUAK bei ca. 85 % bis 105 %. In der Schweiz betragen die Abgaben (AHV, SUVA, BVG, FAR) rund 38 % bis 48 %."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie hilft der Handwerkerbonus (§ 35a EStG) bei der Kundengewinnung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Private Endkunden können in Deutschland nach § 35a Abs. 3 EStG 20 % der reinen Arbeits-, Fahrt- und Maschinenkosten (bis zu 6.000 € Lohnkosten, entspricht maximal 1.200 € direkter Steuerermäßigung pro Jahr) von ihrer Einkommensteuerschuld abziehen. Dadurch reduziert sich der effektive Stundensatz für den Privatkunden spürbar."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-amber-600 selection:text-white">
+
+  <!-- TOP PRIVACY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1.5 font-semibold text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          100% Client-Side im Browser
+        </span>
+        <span class="hidden sm:inline text-slate-600">•</span>
+        <span class="text-slate-300">Betriebswirtschaftliche Baurechts-Standards 2026</span>
+      </div>
+      <div class="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+        <a href="./" class="hover:text-amber-400">← Zurück zum Digitalwerk Hub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between gap-4">
+      <a href="./" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-white flex items-center justify-center font-extrabold tracking-tight">
+          🛠️
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-slate-900 block leading-tight">DACH Digitalwerk</span>
+          <span class="text-xs text-slate-500">Handwerker & Bauwirtschaft 2026</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./handwerker-stundensatz-aufmass/" class="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-amber-600/20 transition flex items-center gap-1.5">
+          <span>⏱️ Stundensatz jetzt online berechnen</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-10">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 flex items-center gap-2">
+      <a href="./" class="hover:text-amber-600">Home</a>
+      <span>/</span>
+      <a href="./handwerker-stundensatz-aufmass/" class="hover:text-amber-600">Handwerker-Kalkulator</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">Stundensatz kalkulieren Formel</span>
+    </nav>
+
+    <!-- ARTICLE HEADER -->
+    <header class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">
+        <span>Kalkulations-Leitfaden 2026 • Deutschland, Schweiz & Österreich</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight leading-tight">
+        Handwerker-Stundensatz kalkulieren 2026: Die betriebswirtschaftliche Formel, Lohnnebenkosten & Produktivstunden
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        Warum ein Bruttolohn von 23,50 € zu einem Verrechnungssatz von mindestens 78,50 € netto führen muss – und wie Handwerksbetriebe gefährliche Unterdeckungen durch unproduktive Rüstzeiten, SOKA-BAU, BUAK und SUVA vermeiden.
+      </p>
+    </header>
+
+    <!-- INTERACTIVE CTA HERO BANNER -->
+    <div class="p-6 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950 text-white shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-6 border border-slate-800">
+      <div class="space-y-2">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Kostenloses Online-Tool</span>
+        <h3 class="text-xl font-extrabold">Echten Verrechnungssatz in 60 Sekunden ermitteln</h3>
+        <p class="text-xs text-slate-300 leading-relaxed max-w-md">
+          Nutzen Sie unseren kostenlosen DACH Handwerker-Kalkulator mit integrierten Tariftabellen, automatischer Jahresarbeitszeit-Kalkulation und DIN-A4 Nachtragsangebot-Generator.
+        </p>
+      </div>
+      <a href="./handwerker-stundensatz-aufmass/" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 text-white font-extrabold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-lg shadow-amber-600/30 transition shrink-0">
+        <span>Zum Stundensatz-Rechner</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- CONTENT SECTION 1: DAS GRUNDPROBLEM DER UNTERDECKUNG -->
+    <section class="space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+        1. Die Milchmädchenrechnung im Handwerk: Warum der Stundenlohn täuscht
+      </h2>
+      <p>
+        Ein verbreiteter Irrtum vieler Endkunden und unerfahrener Gründer lautet: <em>„Wenn der Geselle 23,00 € pro Stunde verdient, ist ein Stundensatz von 50,00 € doch schon ein Riesengewinn!“</em> In der betriebswirtschaftlichen Realität führt ein Stundensatz von 50,00 € bei SHK-, Elektro-, Maler- oder Bauhandwerkern in Deutschland direkt in die Insolvenz.
+      </p>
+      <p>
+        Der Grund: Der Handwerker kann nur jene Stunden abrechnen, die er <strong>tatsächlich produktiv auf der Baustelle beim Kunden verbringt</strong>. Von den rund 2.080 Stunden, für die ein Mitarbeiter jährlich bezahlt wird, verbleiben nach Urlaub, Feiertagen, Krankheit, Schulung sowie Werkstatt- und Rüstzeiten durchschnittlich nur <strong>1.250 bis 1.450 Produktivstunden</strong>.
+      </p>
+    </section>
+
+    <!-- CONTENT SECTION 2: DIE 5-STUFIGE KALKULATIONSFORMEL -->
+    <section class="space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+        2. Die 5-stufige Formel des Handwerker-Stundensatzes
+      </h2>
+      <p>
+        Die betriebswirtschaftlich anerkannte Zuschlagskalkulation im Handwerk setzt sich aus fünf aufeinander aufbauenden Komponenten zusammen:
+      </p>
+
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 font-mono text-xs sm:text-sm">
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+          <span class="font-bold text-slate-800">1. Mittellohn (Grundstundenlohn)</span>
+          <span class="text-slate-600">z.B. 23,50 € / CHF 42.00</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+          <span class="font-bold text-slate-800">+ 2. Lohnzusatzkosten (Sozialabgaben, BG, Kassen)</span>
+          <span class="text-slate-600">+ 75% bis 95% (DE/AT) bzw. 38% bis 48% (CH)</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+          <span class="font-bold text-slate-800">+ 3. Umlegung unproduktiver Zeiten auf Produktivstunden</span>
+          <span class="text-slate-600">Urlaub, Krankheit, Feiertage, Rüstzeiten</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+          <span class="font-bold text-slate-800">+ 4. Betriebsgemeinkosten (BGK / AGK) je Stunde</span>
+          <span class="text-slate-600">Fuhrpark, Miete, Werkzeug, Software, Meister</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100 font-bold text-amber-700">
+          <span>= Selbstkostenpreis je Verrechnungsstunde</span>
+          <span>ca. 70,00 € bis 100,00 € / CHF 100.- bis 130.-</span>
+        </div>
+        <div class="flex justify-between items-center py-1.5 border-b border-slate-100">
+          <span class="font-bold text-slate-800">+ 5. Wagnis & Gewinn (W&G)</span>
+          <span class="text-slate-600">+ 6% bis 12%</span>
+        </div>
+        <div class="flex justify-between items-center py-2 font-extrabold text-slate-950 text-sm sm:text-base bg-amber-50 px-3 rounded-lg border border-amber-200">
+          <span>= Kostendeckender Netto-Stundenverrechnungssatz</span>
+          <span>ab 78,50 € netto / CHF 112.- netto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION 3: LÄNDERVERGLEICH DE / CH / AT -->
+    <section class="space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+        3. Lohnzusatzkosten im DACH-Vergleich: SOKA, BUAK & SUVA
+      </h2>
+      <p>
+        Je nach Rechtsraum greifen unterschiedliche gesetzliche und tarifliche Sicherungssysteme, die direkt in den Lohnzusatzkostensatz einfließen:
+      </p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <thead class="bg-slate-100 text-slate-800 font-bold border-b border-slate-200">
+            <tr>
+              <th class="p-3">Kriterium</th>
+              <th class="p-3">🇩🇪 Deutschland</th>
+              <th class="p-3">🇨🇭 Schweiz</th>
+              <th class="p-3">🇦🇹 Österreich</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-3 font-semibold text-slate-900">Bau-Sozialkassen</td>
+              <td class="p-3">SOKA-BAU (Urlaubskasse & Zusatzversorgung Bau)</td>
+              <td class="p-3">FAR (Frühpensionierung) & Parifonds Bau</td>
+              <td class="p-3">BUAK (Urlaubs- & Abfertigungskasse)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-900">Unfallversicherung</td>
+              <td class="p-3">BG BAU (Gefahrtarif ca. 4–7 %)</td>
+              <td class="p-3">SUVA (BU & NBU)</td>
+              <td class="p-3">AUVA</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-900">Lohnzusatzkosten-Quote</td>
+              <td class="p-3 font-mono font-bold text-amber-700">78 % – 88 %</td>
+              <td class="p-3 font-mono font-bold text-amber-700">38 % – 48 %</td>
+              <td class="p-3 font-mono font-bold text-amber-700">85 % – 105 %</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-900">Typischer Netto-Satz 2026</td>
+              <td class="p-3 font-mono">75,00 € – 92,00 € / h</td>
+              <td class="p-3 font-mono">CHF 105.– bis 140.– / h</td>
+              <td class="p-3 font-mono">80,00 € – 98,00 € / h</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-slate-900">MwSt.-Satz Normalsatz</td>
+              <td class="p-3">19 %</td>
+              <td class="p-3">8,1 %</td>
+              <td class="p-3">20 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION 4: STEUERLICHER HEBEL § 35a EStG -->
+    <section class="space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base">
+      <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+        4. Der § 35a EStG Hebel: Wie Sie Kunden Ihren Stundensatz sympathisch erklären
+      </h2>
+      <p>
+        Viele Kunden zucken bei einem Brutto-Stundensatz von 90 € oder 100 € zunächst zusammen. Ein professioneller Handwerker nutzt hier das deutsche Einkommensteuergesetz als Verkaufsargument:
+      </p>
+      <div class="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-950 space-y-2">
+        <h3 class="font-bold text-emerald-900 text-base">Der Handwerkerbonus nach § 35a Abs. 3 EStG:</h3>
+        <p class="text-xs sm:text-sm leading-relaxed">
+          Private Auftraggeber können <strong>20 % der reinen Arbeits-, Fahrt- und Maschinenkosten</strong> (maximal 6.000 € Lohnanteil = bis zu <strong>1.200 € direkte Steuerermäßigung pro Jahr</strong>) unmittelbar von ihrer persönlichen Steuerschuld abziehen!
+        </p>
+        <p class="text-xs sm:text-sm font-semibold text-emerald-900">
+          Rechenbeispiel für den Kunden: Ein Stundensatz von 80,00 € netto (95,20 € brutto) kostet den Kunden nach Abzug der Steuererstattung von 20 % effektiv nur noch <strong>76,16 € brutto</strong>!
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section class="space-y-6 pt-6 border-t border-slate-200">
+      <h2 class="text-2xl font-bold text-slate-900 tracking-tight">
+        Häufig gestellte Fragen (FAQ)
+      </h2>
+
+      <div class="space-y-4 text-xs sm:text-sm">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">Was gehört alles in die Betriebsgemeinkosten (BGK)?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            In die Betriebsgemeinkosten fließen alle Kosten ein, die nicht direkt einer Baustelle zugeordnet werden können: Miete für Werkstatt und Büro, Fuhrparkkosten (Leasing, Benzin, Wartung), Werkzeugabschreibung, Hard- und Software (CAD, ERP, Zeiterfassung), Versicherungen (Betriebshaftpflicht), Buchhaltung, Steuerberater sowie die Gehälter des nicht auf der Baustelle tätigen Personals (Bürokraft, Meister/Inhaber).
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">Warum dürfen Materialkosten nicht nach Einkaufspreis weitergegeben werden?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Für die Beschaffung, Prüfung, Lagerung, Zwischenfinanzierung und Gewährleistung des verbauten Materials muss ein Materialgemeinkostenzuschlag (MGK) von in der Regel 10 % bis 25 % auf den Netto-Einkaufspreis aufgeschlagen werden. Andernfalls trägt der Handwerksbetrieb das Gewährleistungsrisiko ohne Kostendeckung.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">Wie rechne ich Regiestunden rechtssicher ab?</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Regiestunden (Stundenlohnarbeiten) müssen vor Ausführung vereinbart werden. Nach § 15 VOB/B bzw. Art. 47 & 50 SIA 118 müssen die geleisteten Arbeitsstunden in täglichen oder wöchentlichen Regieberichten (Regierapporten) detailliert mit Tätigkeitsbeschreibung und Mitarbeiterqualifikation erfasst und vom Bauherrn oder Architekten unverzüglich gegengezeichnet werden.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+    <div class="bg-gradient-to-r from-amber-600 to-orange-600 rounded-3xl p-8 text-white shadow-xl text-center space-y-4">
+      <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Kalkulieren Sie Ihren Betrieb jetzt auf Gewinn</h2>
+      <p class="text-amber-100 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed">
+        Nutzen Sie unseren kostenlosen Handwerker-Kalkulator 2026 für Deutschland, die Schweiz und Österreich. Inklusive VOB/C-Aufmaß-Rechner und DIN-A4 Nachtragsangebot-Generator.
+      </p>
+      <div class="pt-2">
+        <a href="./handwerker-stundensatz-aufmass/" class="inline-flex items-center gap-2 bg-slate-950 hover:bg-slate-900 text-white font-extrabold px-6 py-3.5 rounded-xl text-sm shadow-lg transition">
+          <span>Jetzt Stundensatz & Aufmaß kalkulieren</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-xs mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="font-bold text-white">DACH Digitalwerk</span> • Handwerker & Bau-Ratgeber 2026
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="./" class="hover:text-white transition">Alle Tools</a>
+        <a href="./handwerker-stundensatz-aufmass/" class="hover:text-white transition">Handwerker-Kalkulator</a>
+        <a href="./rechner/" class="hover:text-white transition">Solar-Rechner</a>
+        <a href="./qr-suite/" class="hover:text-white transition">E-Rechnung</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

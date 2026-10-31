@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SEPA Sammelüberweisung pain.001 XML im Browser generieren 2026 (pain.001.001.03) | DACH Digitalwerk</title>
+  <meta name="description" content="SEPA Sammelüberweisung pain.001 XML-Dateien kostenlos im Browser aus Excel & CSV erstellen. Für Gehälter, Lieferanten & Gutschriften. 100% lokal ohne Server-Upload." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/sepa-ueberweisung-pain-001-sammelauftrag.html" />
+  <meta property="og:title" content="SEPA Sammelüberweisung pain.001 XML im Browser generieren 2026" />
+  <meta property="og:description" content="Erstellen Sie bankkonforme Sammelüberweisungen nach ISO 20022 pain.001.001.03 direkt im Browser. Inkl. CSV-Import, IBAN-Check & Begleitzettel." />
+  <meta property="og:url" content="https://dachdigitalwerk.github.io/sepa-ueberweisung-pain-001-sammelauftrag.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="de_DE" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SEPA Sammelüberweisung pain.001 XML im Browser generieren 2026",
+    "description": "Praxisleitfaden zur Erzeugung von SEPA Credit Transfer Sammelüberweisungen im Format pain.001.001.03 für Unternehmen, Vereine und Kanzleien.",
+    "author": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DACH Digitalwerk",
+      "url": "https://dachdigitalwerk.github.io/"
+    },
+    "datePublished": "2026-10-23",
+    "dateModified": "2026-10-23"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Was ist das Format pain.001 bei einer SEPA-Überweisung?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "pain.001 steht für 'Customer Credit Transfer Initiation'. Es ist der standardisierte ISO 20022 XML-Datensatz, mit dem Unternehmen, Kanzleien und Behörden Sammelüberweisungen an Banken übermitteln. Die am weitesten verbreitete Version im DACH-Raum ist pain.001.001.03 (sowie pain.001.003.03)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Worin liegt der Vorteil einer Sammelüberweisung per XML gegenüber Einzelüberweisungen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei einer XML-Sammelüberweisung müssen hunderte Gehälter, Rechnungen oder Auszahlungen nur einmalig mit einer einzigen TAN freigegeben werden. Zudem fallen bei den meisten Banken für Sammelbuchungen deutlich geringere Buchungsposten-Gebühren an als für Einzelbuchungen."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Werden meine vertraulichen Gehaltsdaten beim Konvertieren auf einen Server übertragen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein! Bei unserem DACH SEPA XML Generator erfolgt die gesamte Umwandlung zu 100 % lokal im Arbeitsspeicher Ihres Browsers (Client-Side). Es existiert kein Server-Upload. Ihre Mitarbeiterdaten, Gehälter und Kontonummern verlassen niemals Ihren Computer."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <a href="./" class="text-white font-bold hover:text-blue-400 transition flex items-center gap-1.5">
+          <span>←</span>
+          <span>DACH Digitalwerk Hub</span>
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-slate-300">ISO 20022 Banking & FinTech Ratgeber</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./sepa-xml-generator/" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-3 py-1 rounded-lg text-xs transition">
+          Zum SEPA XML Generator →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE CONTAINER -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- BREADCRUMBS -->
+    <nav class="text-xs text-slate-500 mb-6 flex items-center gap-2">
+      <a href="./" class="hover:text-blue-600 transition">Startseite</a>
+      <span>›</span>
+      <a href="./sepa-xml-generator/" class="hover:text-blue-600 transition">SEPA XML Generator</a>
+      <span>›</span>
+      <span class="text-slate-800 font-semibold">pain.001 Sammelüberweisung</span>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="space-y-4 mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-800 text-xs font-bold">
+        <span>💸</span>
+        <span>Löhne, Gehälter, Lieferanten & Sammelaufträge 2026</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        SEPA Sammelüberweisung pain.001 XML im Browser generieren (2026)
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+        Ob monatlicher Gehaltslauf, Lieferantenabrechnung oder Gutschriften an Kunden: Wer regelmäßig viele Überweisungen gleichzeitig tätigen muss, spart mit einer <strong>pain.001.001.03 XML-Datei</strong> Stunden mühsamer Tipparbeit. Hier erfahren Sie, wie Sie beliebige CSV- oder Excel-Listen in Sekundenschnelle in ein bankkonformes Sammelüberweisungs-Paket verwandeln.
+      </p>
+    </header>
+
+    <!-- CTA HERO CARD -->
+    <div class="bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl mb-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center sm:text-left">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-300">100% DSGVO & Datenschutz</span>
+        <h3 class="text-xl sm:text-2xl font-black">pain.001 Überweisungs-XML jetzt erzeugen</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
+          Tabelle einfügen oder CSV hochladen. Keine Installation, keine Cloud-Übertragung. Sofort einsatzbereit für Sparkasse, Volksbank, Commerzbank & Raiffeisen.
+        </p>
+      </div>
+      <a href="./sepa-xml-generator/" class="whitespace-nowrap px-6 py-3.5 bg-blue-500 hover:bg-blue-400 text-white font-extrabold text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+        <span>Kostenlos starten</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <!-- MAIN BODY -->
+    <article class="space-y-10 text-slate-800 text-sm sm:text-base leading-relaxed">
+
+      <!-- SECTION 1 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          1. Was ist pain.001 und wofür wird es eingesetzt?
+        </h2>
+        <p>
+          Während das Format <code>pain.008</code> für Lastschrifteinzüge (Geldeingang) genutzt wird, dient das Schema <strong>pain.001</strong> der Überweisungsauslösung (Ausgangszahlungen). Das Akronym steht für <em>„Customer Credit Transfer Initiation“</em>.
+        </p>
+        <p>
+          Typische Anwendungsbereiche im kaufmännischen Alltag:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li><strong>Gehalts- und Lohnläufe:</strong> Monatliche Auszahlung der Nettolöhne an alle Mitarbeiter mit einer einzigen Sammelfreigabe.</li>
+          <li><strong>Lieferanten-Zahlungen:</strong> Sammelbegleichung von Eingangsrechnungen zur Skonto-Optimierung.</li>
+          <li><strong>Rückerstattungen & Spesen:</strong> Reisekostenabrechnungen, Kundengutschriften oder Kautionen.</li>
+          <li><strong>Ausschüttungen & Dividenden:</strong> Gewinnausschüttungen an Gesellschafter oder Vereinssubventionen.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          2. Wichtige XML-Knoten einer pain.001 Datei
+        </h2>
+        <p>
+          Im Vergleich zur Lastschrift benötigt eine pain.001 Datei keine Gläubiger-Identifikationsnummer (Creditor ID) und keine Mandatsreferenzen, da das Geld aktiv vom eigenen Konto überwiesen wird:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4 pt-2">
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">&lt;Dbtr&gt; &amp; &lt;DbtrAcct&gt;</h4>
+            <p class="text-xs text-slate-600">
+              Der Schuldner (Auftraggeber), von dessen Konto das Geld abgebucht wird. Hier steht der Firmenname sowie Ihre eigene IBAN/BIC.
+            </p>
+          </div>
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">&lt;ReqdExctnDt&gt;</h4>
+            <p class="text-xs text-slate-600">
+              Das gewünschte Ausführungsdatum. Bei tagesaktueller Ausführung wird das heutige Datum oder der nächste Bankarbeitstag eingetragen.
+            </p>
+          </div>
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">&lt;Cdtr&gt; &amp; &lt;CdtrAcct&gt;</h4>
+            <p class="text-xs text-slate-600">
+              Der Kreditor (Empfänger der Zahlung) mit Name und Ziel-IBAN.
+            </p>
+          </div>
+          <div class="bg-slate-100 p-4 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-900 text-sm mb-1">&lt;EndToEndId&gt;</h4>
+            <p class="text-xs text-slate-600">
+              Eine eindeutige Transaktionskennung, die von Bank zu Bank unverändert durchgeleitet wird (z. B. <code>LOHN-2026-10-001</code>).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          3. Sammelbuchung vs. Einzelbuchung auf dem Kontoauszug
+        </h2>
+        <p>
+          Ein entscheidender Vorteil von pain.001 Sammelüberweisungen ist die Möglichkeit, dem Kreditinstitut mitzuteilen, wie der Auftrag auf dem Kontoauszug verbucht werden soll:
+        </p>
+        <div class="p-4 bg-white rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="font-bold text-slate-900 text-sm">Der Batch-Booking Schalter (&lt;BtchBookg&gt;)</div>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Wird das Tag <code>&lt;BtchBookg&gt;true&lt;/BtchBookg&gt;</code> gesetzt, erscheint auf Ihrem Geschäftskonto nur eine <strong>einzige Sammelbuchungszeile</strong> (z. B. <em>„Sammelüberweisung Gehälter 10/2026: -45.200,00 EUR“</em>). Das schützt die Privatsphäre der Mitarbeiter gegenüber Personen mit Leserecht auf den Kontoauszug und spart Buchungsgebühren. Die Einzelheiten werden über den gedruckten Datenträger-Begleitschein revisionssicher dokumentiert.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-slate-900 border-b border-slate-200 pb-2">
+          4. Anleitung: So erstellen Sie Ihre Überweisungs-XML
+        </h2>
+        <ol class="list-decimal pl-5 space-y-3">
+          <li><strong>Tabelle vorbereiten:</strong> Spalten für <em>Empfängername, IBAN, Betrag und Verwendungszweck</em> anlegen.</li>
+          <li><strong>Generator öffnen:</strong> Im DACH Digitalwerk Generator den Modus <em>„📤 SEPA-Sammelüberweisung (pain.001)“</em> aktivieren.</li>
+          <li><strong>Eigene Bankdaten eingeben:</strong> Tragen Sie das ausführende Firmenkonto ein.</li>
+          <li><strong>CSV importieren:</strong> Die Liste hochladen oder Beispieldaten laden. Das System prüft alle IBANs auf Rechenfehler.</li>
+          <li><strong>XML exportieren & freigeben:</strong> Laden Sie die <code>.xml</code>-Datei herunter, laden Sie sie in Ihrem Online-Banking hoch und bestätigen Sie die Gesamtsumme per TAN.</li>
+        </ol>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="space-y-6 pt-6 border-t border-slate-200">
+        <h2 class="text-2xl font-bold text-slate-900">Häufige Fragen zu pain.001</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Kann ich mit pain.001 auch in die Schweiz oder nach Großbritannien überweisen?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Ja, solange das Zielkonto eine SEPA-fähige IBAN besitzt (z. B. Schweizer CH-IBANs für EUR-Konten). Für Auslandsüberweisungen in Fremdwährungen (CHF, GBP, USD) greift im Schweizer Zahlungsverkehr das spezifische Format pain.001.001.03.ch.02 nach SIX-Standard.
+            </p>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">Kostet die Nutzung des Generators etwas?</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Kleine Batches und Tests mit bis zu 5 Posten sind vollständig kostenlos. Für größere Gehalts- und Rechnungsbatches bieten wir eine Lifetime-Pro-Freischaltung für einmalig 4,90 € an – ohne Abo, ohne Cloud-Zwang.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA -->
+      <div class="bg-slate-900 text-white rounded-3xl p-8 text-center space-y-4 my-12">
+        <h3 class="text-2xl font-black">Jetzt Sammelüberweisung pain.001 erstellen</h3>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+          Sparen Sie manuelle Einzelüberweisungen im Online-Banking. 100% Client-Side im Browser.
+        </p>
+        <a href="./sepa-xml-generator/" class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-extrabold rounded-2xl text-sm shadow-xl shadow-blue-500/25 transition">
+          <span>Zum SEPA XML Generator</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-10 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <div class="flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <span class="font-extrabold text-white">DACH Digitalwerk</span>
+          <span class="text-slate-500 ml-2">Norm- & standardkonforme B2B Web-Werkzeuge</span>
+        </div>
+        <div class="flex gap-4">
+          <a href="./" class="hover:text-white transition">Alle Tools</a>
+          <a href="./impressum-datenschutz-generator/" class="hover:text-white transition">Impressum & Datenschutz</a>
+        </div>
+      </div>
+      <div class="text-[11px] text-slate-500 pt-4 border-t border-slate-800">
+        Reines technisches Informations- und Berechnungsangebot. Keine Rechts-, Steuer- oder Finanzberatung.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
