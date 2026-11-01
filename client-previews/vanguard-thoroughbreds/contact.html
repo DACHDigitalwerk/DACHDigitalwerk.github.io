@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Enquire to Join | Vanguard Thoroughbred Syndicate</title>
+  <meta name="description" content="Register your interest to join our thoroughbred racing syndicate. Leave your name, email, and phone number for a direct private consultation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-logo" aria-label="Vanguard Racing Syndicate Home">
+        <span class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 19L9 5L14 14L19 5L21 19H4Z"/>
+          </svg>
+        </span>
+        <span>Vanguard Racing</span>
+      </a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle Menu">Menu</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About &amp; Horses</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html" class="btn btn-primary" style="padding: 11px 22px;">Enquire to Join</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Private Membership Enquiry</span>
+        <h1>Enquire to Join the Syndicate.</h1>
+        <p class="lead">
+          Complete the brief form below and your enquiry will route directly to our inbox. We respond personally within one business day.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">What Happens Next</span>
+          <h2 style="font-family:var(--font-serif); font-size:2.1rem; line-height:1.2; margin-bottom:16px;">
+            A Direct, No-Pressure Conversation.
+          </h2>
+          <p style="color:var(--text-muted);">
+            Whether you are exploring your very first thoroughbred share or expanding an existing racing portfolio, we keep the onboarding process clear and personal.
+          </p>
+          <ul class="contact-points">
+            <li>
+              <strong>1. Receive the Syndicate Dossier</strong>
+              Full pedigree notes, veterinary summaries, and transparent share &amp; monthly upkeep figures.
+            </li>
+            <li>
+              <strong>2. Private Call or Stable Introduction</strong>
+              Speak directly with the syndicate founder to discuss upcoming race targets and ownership structure.
+            </li>
+            <li>
+              <strong>3. Secure Your Share</strong>
+              Simple digital onboarding with immediate access to partner briefings and race-day privileges.
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-card">
+          <!--
+            DIRECT-TO-INBOX EMAIL ROUTING:
+            Replace 'syndicate@yourdomain.com' in action="https://formsubmit.co/syndicate@yourdomain.com"
+            with your real email address to receive form submissions directly in your inbox (zero backend required!).
+          -->
+          <form id="enquiryForm" action="https://formsubmit.co/syndicate@yourdomain.com" method="POST">
+            <input type="hidden" name="_subject" value="New Thoroughbred Syndicate Membership Enquiry">
+            <input type="hidden" name="_captcha" value="false">
+
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="name" class="form-control" placeholder="e.g. James Harrington" required>
+            </div>
+
+            <div class="form-group">
+              <label for="emailAddr">Email Address *</label>
+              <input type="email" id="emailAddr" name="email" class="form-control" placeholder="james@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNum">Phone Number *</label>
+              <input type="tel" id="phoneNum" name="phone" class="form-control" placeholder="+44 7700 900000 / +61 400 000 000" required>
+            </div>
+
+            <div class="form-group">
+              <label for="horseSelect">Interest / Upcoming Horse (Optional)</label>
+              <select id="horseSelect" name="interest" class="form-control">
+                <option value="General Syndicate Membership">General Syndicate Membership</option>
+                <option value="Sovereign Stride (2YO Colt)">Sovereign Stride (2YO Bay Colt)</option>
+                <option value="Aurelia Rose (2YO Filly)">Aurelia Rose (2YO Chestnut Filly)</option>
+                <option value="Upcoming Sale Priority List">Upcoming Sale Priority List</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Questions or Notes (Optional)</label>
+              <textarea id="notes" name="message" rows="3" class="form-control" placeholder="Let us know your preferred time for a quick call..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%; padding:16px;">
+              Submit Syndicate Enquiry &rarr;
+            </button>
+
+            <div id="demoSuccess" class="form-success" role="status">
+              <strong>Thank you — your syndicate enquiry has been recorded.</strong><br>
+              (Live Preview Mode: Once connected to your email address in 1 line of HTML, this routes straight to your inbox!)
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Vanguard Thoroughbred Syndicate</div>
+          <p style="margin-top:6px;">Modern Thoroughbred Co-Ownership &amp; Bloodstock Management.</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">Our Story &amp; Horses</a>
+          <a href="contact.html">Enquire to Join</a>
+        </nav>
+      </div>
+      <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <span>&copy; 2026 Vanguard Thoroughbred Syndicate. All rights reserved.</span>
+        <span>Private Syndicate Membership by Enquiry.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const horseParam = params.get('horse');
+    if (horseParam) {
+      const sel = document.getElementById('horseSelect');
+      for (const opt of sel.options) {
+        if (opt.value.toLowerCase().includes(horseParam.toLowerCase())) {
+          sel.value = opt.value;
+          break;
+        }
+      }
+    }
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      if (this.action.includes('yourdomain.com')) {
+        e.preventDefault();
+        document.getElementById('demoSuccess').style.display = 'block';
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>
