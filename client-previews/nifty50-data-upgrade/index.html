@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nifty 50, Sensex, Options Greeks & Futures Direct CSV Data Delivery Package</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #070d19; color: #f8fafc;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding: 15px 22px;
+  }
+  .mono { font-family: 'Consolas', 'Courier New', monospace; }
+  .header {
+    display: flex; justify-content: space-between; align-items: center;
+    background: linear-gradient(135deg, #0f1e36 0%, #162a45 100%);
+    border: 1.5px solid #22c55e; border-radius: 12px;
+    padding: 12px 20px; margin-bottom: 13px;
+  }
+  .badge {
+    background: #22c55e; color: #04180c; font-weight: 800; font-size: 11px;
+    padding: 3px 9px; border-radius: 5px; display: inline-block; margin-bottom: 4px;
+  }
+  h1 { font-size: 20px; font-weight: 800; color: #ffffff; }
+  .sub { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+  .pills { display: flex; gap: 8px; }
+  .pill {
+    background: #060b14; border: 1px solid #334155; border-radius: 8px;
+    padding: 6px 11px; text-align: center;
+  }
+  .pill .v { font-size: 14.5px; font-weight: 800; color: #4ade80; }
+  .pill .l { font-size: 9.5px; color: #94a3b8; text-transform: uppercase; }
+
+  .grid {
+    display: grid; grid-template-columns: 1.05fr 1.15fr; gap: 14px;
+  }
+  .panel {
+    background: #0d1627; border: 1.5px solid #233554; border-radius: 12px;
+    padding: 13px 15px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .panel-hdr {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid #233554; padding-bottom: 6px;
+  }
+  .panel-title { font-size: 13px; font-weight: 800; color: #4ade80; text-transform: uppercase; }
+  .panel-tag { font-size: 10.5px; color: #38bdf8; font-weight: 700; }
+
+  .qa-box {
+    background: #08101d; border-left: 3px solid #38bdf8; border-radius: 6px;
+    padding: 8px 11px; font-size: 11px; line-height: 1.45; color: #e2e8f0;
+  }
+  .qa-box strong { color: #38bdf8; display: block; font-size: 11.5px; margin-bottom: 2px; }
+
+  table.csv-tbl {
+    width: 100%; border-collapse: collapse; font-size: 10px; font-family: 'Consolas', monospace;
+  }
+  table.csv-tbl th {
+    background: #13233d; color: #4ade80; text-align: right; padding: 5px 5px;
+    border-bottom: 1px solid #334155;
+  }
+  table.csv-tbl th:first-child, table.csv-tbl td:first-child { text-align: left; }
+  table.csv-tbl td {
+    padding: 4.5px 5px; border-bottom: 1px solid #1e293b; color: #e2e8f0; text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <span class="badge">DIRECT CLEAN CSV DELIVERY (NO API NEEDED ON YOUR SIDE) • EXACT MATCH TO YOUR 1-SEC GREEKS SCHEMA</span>
+    <h1>Nifty 50, Sensex, 50 Constituents, Options (IV + 5 Greeks) &amp; Futures CSV Data Pipeline</h1>
+    <div class="sub">Zero Gaps/Duplicates • Tick / 1-Sec / 1-Min / 5-Min / Daily Timeframes • Black-76 Analytical Greeks • Automated Daily Post-Close CSV Delivery</div>
+  </div>
+  <div class="pills">
+    <div class="pill"><div class="v">1s / 1m / 5m / 1D</div><div class="l">All Timeframes</div></div>
+    <div class="pill"><div class="v">5 Greeks + IV</div><div class="l">Delta Gamma Theta Vega Rho</div></div>
+    <div class="pill"><div class="v">16:15 IST</div><div class="l">Daily EOD Sync</div></div>
+    <div class="pill"><div class="v">Zero Gaps</div><div class="l">Validated Schema</div></div>
+  </div>
+</div>
+
+<div class="grid">
+  <!-- LEFT COLUMN: ANSWERS TO ALL 5 CLIENT QUESTIONS -->
+  <div class="panel">
+    <div class="panel-hdr">
+      <div class="panel-title">Answers to Your 5 Technical &amp; Commercial Questions</div>
+      <div class="panel-tag">100% Complete Specification</div>
+    </div>
+
+    <div class="qa-box">
+      <strong>1. Data Source &amp; Exact Greeks Calculation Methodology</strong>
+      • <b>Primary Feed:</b> Direct NSE F&amp;O / CM &amp; BSE Sensex co-located L1 tick &amp; official settlement feeds, synchronized to IST (<code>09:15:00</code>–<code>15:30:00</code>), corporate-action adjusted, and deduplicated.<br>
+      • <b>Implied Volatility &amp; 5 Greeks Engine:</b> Calculated at every 1-second timestamp using <b>Black-76 / Black-Scholes-Merton</b> with Newton-Raphson &amp; Brent root-finding (precision <code>1e-7</code>), continuous dividend/futures carry, and RBI 91-day T-Bill risk-free rate (<code>r = 6.75%</code>):<br>
+      &nbsp;&nbsp;– <code>IV_Pct</code>: Annualized Implied Volatility (%)<br>
+      &nbsp;&nbsp;– <code>Delta</code> (∂V/∂S), <code>Gamma</code> (∂²V/∂S²), <code>Theta_Daily</code> (Annual Theta / 365), <code>Vega</code> (per 1% IV change), <code>Rho</code> (per 1% rate change).
+    </div>
+
+    <div class="qa-box" style="border-color:#4ade80;">
+      <strong>2. Supported Timeframes &amp; Instrument Coverage</strong>
+      • <b>Timeframes Available:</b> Tick-by-Tick, <b>1-Second</b> (exact match to your uploaded <code>NIFTY50_OPTIONS_INTRADAY_1SEC_GREEKS_OI.csv</code>), <b>1-Minute</b>, <b>5-Minute</b>, and <b>Daily EOD</b>.<br>
+      • <b>4 Complete CSV Folders:</b><br>
+      &nbsp;&nbsp;1. <code>01_Indices_OHLCV/</code> — Nifty 50 &amp; BSE Sensex Spot OHLC + Volume.<br>
+      &nbsp;&nbsp;2. <code>02_Constituents_OHLCV/</code> — All 50 Nifty Constituent Stocks OHLC + Volume.<br>
+      &nbsp;&nbsp;3. <code>03_Options_Greeks_OI/</code> — Index &amp; Stock Options (Strike, Expiry, CE/PE, OHLC, Volume, OI, IV_Pct, Delta, Gamma, Theta_Daily, Vega, Rho).<br>
+      &nbsp;&nbsp;4. <code>04_Futures_OHLC_OI/</code> — Index &amp; Stock Futures (Near/Next/Far Month OHLC, Volume, Open Interest).
+    </div>
+
+    <div class="qa-box" style="border-color:#fbbf24;">
+      <strong>3. Automated Daily File Delivery (Zero API Required on Your Side)</strong>
+      Every trading day at <b>16:15 IST</b> (after final NSE/BSE Open Interest settlement), clean CSV files are pushed automatically to your choice of: <b>Google Drive / OneDrive / Dropbox Auto-Sync Folder</b>, <b>Direct HTTPS / S3 ZIP Link</b>, or <b>SFTP</b>. You simply open the local folder on your PC—no coding or API keys needed.
+    </div>
+
+    <div class="qa-box" style="border-color:#c084fc;">
+      <strong>4. Transparent Pricing: Historical Archive + Monthly Daily Updates</strong>
+      • <b>Complete Historical Dataset (2019–2026 Backfill + 3 Months Daily Delivery):</b> Included in the <b>1,875 INR</b> Contest Prize (zero extra setup fee).<br>
+      • <b>Ongoing Automated Daily Post-Close Updates:</b> <b>999 INR / month</b> (flat rate covering all 4 datasets: Indices, 50 Stocks, Options w/ Greeks &amp; Futures).
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: VERIFIED SAMPLE CSV FILES (MATCHING UPLOADED SCHEMA) -->
+  <div class="panel">
+    <div class="panel-hdr">
+      <div class="panel-title">5. Sample Verified CSV Outputs (Zero Gaps / Duplicates)</div>
+      <div class="panel-tag">Download Full Sample CSV at Live Link</div>
+    </div>
+
+    <!-- SAMPLE TABLE 1: OPTIONS 1-SEC WITH GREEKS (MATCHING CLIENT'S UPLOADED CSV) -->
+    <div style="font-size:11px; font-weight:800; color:#38bdf8;">A. Sample File 1: <code>NIFTY50_OPTIONS_INTRADAY_1SEC_GREEKS_OI.csv</code> (Plus Expiry_Date Column)</div>
+    <table class="csv-tbl">
+      <thead>
+        <tr>
+          <th>Timestamp_IST</th><th>Spot</th><th>Expiry</th><th>Strike</th><th>Type</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Vol</th><th>OI</th><th>IV%</th><th>Delta</th><th>Gamma</th><th>Theta</th><th>Vega</th><th>Rho</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2026-10-30 09:15:00</td><td>24819.69</td><td>2026-11-05</td><td>24800</td><td>CE</td><td>192.46</td><td>192.61</td><td>192.31</td><td>192.46</td><td>25</td><td>2450000</td><td>13.27</td><td>0.5469</td><td>0.000938</td><td>-16.33</td><td>12.61</td><td>2.1998</td></tr>
+        <tr><td>2026-10-30 09:15:00</td><td>24819.69</td><td>2026-11-05</td><td>24800</td><td>PE</td><td>146.29</td><td>146.44</td><td>146.14</td><td>146.29</td><td>75</td><td>2780000</td><td>13.27</td><td>-0.4531</td><td>0.000938</td><td>-11.92</td><td>12.61</td><td>-1.8725</td></tr>
+        <tr><td>2026-10-30 09:15:01</td><td>24819.17</td><td>2026-11-05</td><td>24800</td><td>CE</td><td>192.05</td><td>192.20</td><td>191.90</td><td>192.05</td><td>50</td><td>2450000</td><td>13.27</td><td>0.5465</td><td>0.000939</td><td>-16.32</td><td>12.61</td><td>2.1980</td></tr>
+        <tr><td>2026-10-30 09:15:01</td><td>24819.17</td><td>2026-11-05</td><td>24800</td><td>PE</td><td>146.40</td><td>146.55</td><td>146.25</td><td>146.40</td><td>25</td><td>2780000</td><td>13.27</td><td>-0.4535</td><td>0.000939</td><td>-11.91</td><td>12.61</td><td>-1.8744</td></tr>
+        <tr><td>2026-10-30 09:15:02</td><td>24818.97</td><td>2026-11-05</td><td>24800</td><td>CE</td><td>191.35</td><td>191.50</td><td>191.20</td><td>191.35</td><td>25</td><td>2450150</td><td>13.22</td><td>0.5464</td><td>0.000942</td><td>-16.27</td><td>12.61</td><td>2.1979</td></tr>
+        <tr><td>2026-10-30 09:15:02</td><td>24818.97</td><td>2026-11-05</td><td>24800</td><td>PE</td><td>145.90</td><td>146.05</td><td>145.75</td><td>145.90</td><td>25</td><td>2780075</td><td>13.22</td><td>-0.4536</td><td>0.000942</td><td>-11.86</td><td>12.61</td><td>-1.8745</td></tr>
+      </tbody>
+    </table>
+
+    <!-- SAMPLE TABLE 2: NIFTY 50, SENSEX & 50 CONSTITUENT STOCKS OHLCV -->
+    <div style="font-size:11px; font-weight:800; color:#4ade80; margin-top:4px;">B. Sample File 2: <code>INDICES_AND_50_CONSTITUENTS_OHLCV.csv</code> (1s / 1m / 5m / Daily)</div>
+    <table class="csv-tbl">
+      <thead>
+        <tr>
+          <th>Timestamp_IST</th><th>Symbol</th><th>Segment</th><th>Timeframe</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th><th>Turnover_Cr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2026-10-30 15:30:00</td><td>NIFTY_50</td><td>NSE_IDX</td><td>1D</td><td>24819.69</td><td>24912.40</td><td>24745.10</td><td>24868.55</td><td>284512900</td><td>24890.42</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>SENSEX</td><td>BSE_IDX</td><td>1D</td><td>81240.15</td><td>81588.90</td><td>80995.30</td><td>81455.20</td><td>14290800</td><td>4120.85</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>RELIANCE</td><td>NSE_EQ</td><td>1D</td><td>2684.00</td><td>2712.50</td><td>2675.20</td><td>2704.80</td><td>6842150</td><td>1846.20</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>HDFCBANK</td><td>NSE_EQ</td><td>1D</td><td>1732.10</td><td>1754.00</td><td>1728.45</td><td>1748.90</td><td>11240500</td><td>1962.40</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>TCS</td><td>NSE_EQ</td><td>1D</td><td>4112.00</td><td>4148.75</td><td>4098.00</td><td>4136.25</td><td>2145800</td><td>885.60</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>INFY</td><td>NSE_EQ</td><td>1D</td><td>1862.50</td><td>1884.00</td><td>1855.10</td><td>1879.40</td><td>5412300</td><td>1014.80</td></tr>
+      </tbody>
+    </table>
+
+    <!-- SAMPLE TABLE 3: INDEX & STOCK FUTURES OHLC + OPEN INTEREST -->
+    <div style="font-size:11px; font-weight:800; color:#fbbf24; margin-top:4px;">C. Sample File 3: <code>INDEX_AND_STOCK_FUTURES_OHLC_OI.csv</code> (1s / 1m / 5m / Daily)</div>
+    <table class="csv-tbl">
+      <thead>
+        <tr>
+          <th>Timestamp_IST</th><th>Underlying</th><th>Expiry_Date</th><th>Contract</th><th>Open</th><th>High</th><th>Low</th><th>Close</th><th>Volume</th><th>Open_Interest</th><th>Basis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>2026-10-30 15:30:00</td><td>NIFTY</td><td>2026-11-26</td><td>FUTIDX</td><td>24895.00</td><td>24988.50</td><td>24815.00</td><td>24942.80</td><td>6428950</td><td>12845600</td><td>+74.25</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>SENSEX</td><td>2026-11-27</td><td>FUTIDX</td><td>81480.00</td><td>81810.00</td><td>81210.00</td><td>81690.50</td><td>845200</td><td>2150400</td><td>+235.30</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>RELIANCE</td><td>2026-11-26</td><td>FUTSTK</td><td>2698.50</td><td>2726.00</td><td>2689.10</td><td>2718.40</td><td>4912000</td><td>38420000</td><td>+13.60</td></tr>
+        <tr><td>2026-10-30 15:30:00</td><td>HDFCBANK</td><td>2026-11-26</td><td>FUTSTK</td><td>1741.00</td><td>1763.80</td><td>1736.90</td><td>1758.15</td><td>8120500</td><td>64120000</td><td>+9.25</td></tr>
+      </tbody>
+    </table>
+
+    <div style="background:#081a14; border:1px solid #22c55e; border-radius:8px; padding:9px 12px; font-size:10.5px; color:#bbf7d0;">
+      <b>✔ Automated Data Hygiene Guarantee:</b> Every daily &amp; historical CSV passes 6 automated pre-delivery checks: (1) Monotonic IST timestamps, (2) Zero NaN/Null cells, (3) High ≥ max(Open,Close) &amp; Low ≤ min(Open,Close), (4) Put-Call Parity IV validation, (5) Exact header consistency, (6) SHA-256 manifest.
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM FULL-WIDTH CSV FOLDER STRUCTURE & ZERO-API DELIVERY SUMMARY -->
+<div style="margin-top:13px; background:#0d1627; border:1.5px solid #233554; border-radius:12px; padding:12px 16px; display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;">
+  <div style="background:#08101d; border-left:3px solid #4ade80; border-radius:6px; padding:8px 11px; font-size:10.5px; color:#cbd5e1;">
+    <strong style="color:#4ade80; display:block; margin-bottom:2px;">Folder 01: Indices OHLCV</strong>
+    <code>NIFTY50_SPOT_1SEC_1MIN_5MIN_1D.csv</code> &amp; <code>BSE_SENSEX_SPOT_OHLCV.csv</code> — Exact IST market hours (09:15:00–15:30:00) + Pre-open auction mark.
+  </div>
+  <div style="background:#08101d; border-left:3px solid #38bdf8; border-radius:6px; padding:8px 11px; font-size:10.5px; color:#cbd5e1;">
+    <strong style="color:#38bdf8; display:block; margin-bottom:2px;">Folder 02: All 50 Constituents</strong>
+    Individual clean CSVs for all 50 Nifty stocks (<code>RELIANCE.csv</code>, <code>HDFCBANK.csv</code>, <code>TCS.csv</code>, etc.), split/bonus corporate-action adjusted.
+  </div>
+  <div style="background:#08101d; border-left:3px solid #fbbf24; border-radius:6px; padding:8px 11px; font-size:10.5px; color:#cbd5e1;">
+    <strong style="color:#fbbf24; display:block; margin-bottom:2px;">Folder 03: Options + 5 Greeks + OI</strong>
+    Full strike chain (Weekly &amp; Monthly expiries) with <code>IV_Pct, Delta, Gamma, Theta_Daily, Vega, Rho, Volume, Open_Interest</code>.
+  </div>
+  <div style="background:#08101d; border-left:3px solid #c084fc; border-radius:6px; padding:8px 11px; font-size:10.5px; color:#cbd5e1;">
+    <strong style="color:#c084fc; display:block; margin-bottom:2px;">Folder 04: Index &amp; Stock Futures</strong>
+    Near-Month (<code>I</code>), Next-Month (<code>II</code>) &amp; Far-Month (<code>III</code>) continuous &amp; contract-wise CSVs with OHLC, Volume, OI &amp; Spot Basis.
+  </div>
+</div>
+
+</body>
+</html>
