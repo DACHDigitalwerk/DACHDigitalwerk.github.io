@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChronoCity — Mobile-First Interactive Documentary UX Prototype</title>
+<style>
+  :root {
+    --bg: #0c0f14;
+    --surface: #151a23;
+    --surface-2: #1e2532;
+    --border: #2c3548;
+    --text: #f3f5f8;
+    --muted: #9ba5b7;
+    --accent: #f59e0b;
+    --accent-soft: rgba(245, 158, 11, 0.16);
+    --emerald: #10b981;
+  }
+  body.wireframe {
+    --bg: #f4f4f6;
+    --surface: #ffffff;
+    --surface-2: #eef0f4;
+    --border: #111827;
+    --text: #111827;
+    --muted: #4b5563;
+    --accent: #111827;
+    --accent-soft: rgba(17, 24, 39, 0.08);
+    --emerald: #111827;
+    font-family: 'Courier New', monospace !important;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 16px 40px;
+  }
+  /* Top Studio Header */
+  .studio-bar {
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 20px;
+  }
+  .studio-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .badge {
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  body.wireframe .badge { color: #fff; }
+  .controls-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .btn-toggle {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1.5px solid var(--border);
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .btn-toggle.active, .btn-toggle:hover {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+  body.wireframe .btn-toggle.active { color: #fff; }
+
+  /* Main Workspace: Left UX Architecture Notes + Center Interactive Mobile Device + Right State Inspector */
+  .workspace {
+    width: 100%;
+    max-width: 1240px;
+    display: grid;
+    grid-template-columns: 340px 410px 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+  @media (max-width: 1100px) {
+    .workspace { grid-template-columns: 1fr; justify-items: center; }
+  }
+
+  .ux-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+  }
+  .ux-card h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-item {
+    background: var(--surface-2);
+    border: 1.5px solid var(--border);
+    border-radius: 11px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: 0.15s;
+  }
+  .step-item.active {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .step-item-hdr {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+  .step-item p {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+
+  /* MOBILE PHONE FRAME (390 x 790) */
+  .phone-frame {
+    width: 396px;
+    height: 800px;
+    background: var(--bg);
+    border: 6px solid #283142;
+    border-radius: 42px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  }
+  body.wireframe .phone-frame {
+    border: 3px solid #111827;
+    box-shadow: none;
+  }
+  .phone-status {
+    height: 30px;
+    padding: 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    font-weight: 700;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  /* App Top Bar: City Selector + Saved Queue Counter */
+  .app-topbar {
+    padding: 10px 14px;
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .city-select {
+    display: flex;
+    gap: 5px;
+  }
+  .city-pill {
+    padding: 5px 10px;
+    border-radius: 99px;
+    font-size: 11.5px;
+    font-weight: 700;
+    background: var(--surface-2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .city-pill.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+  }
+  body.wireframe .city-pill.active { color: #fff; }
+  .queue-btn {
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 5px 9px;
+    border-radius: 8px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  /* VIDEO STAGE (Expands in Watch Mode, shrinks to Sticky Top Dock in Read Mode!) */
+  .video-stage {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    background: #07090d;
+    border-bottom: 2px solid var(--border);
+    transition: height 0.28s cubic-bezier(0.2, 0.9, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  body.wireframe .video-stage { background: #e5e7eb; }
+  .phone-frame.reading-mode .video-stage {
+    height: 158px;
+  }
+
+  /* Simulated Documentary Visual Artwork */
+  .video-art {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 35%, rgba(245,158,11,0.22), rgba(7,9,13,0.95));
+  }
+  body.wireframe .video-art {
+    background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 12px, #e5e7eb 12px, #e5e7eb 24px);
+  }
+  .era-tag {
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 99px;
+    background: rgba(0,0,0,0.65);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  body.wireframe .era-tag { background: #fff; color: #000; }
+  .scene-headline {
+    font-size: 17px;
+    font-weight: 800;
+    max-width: 310px;
+    line-height: 1.25;
+  }
+  .phone-frame.reading-mode .scene-headline { font-size: 13.5px; }
+  .scene-sub {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .phone-frame.reading-mode .scene-sub { display: none; }
+
+  /* Floating Live Moment Chip inside Video */
+  .moment-chip-bar {
+    position: relative;
+    z-index: 3;
+    margin: auto 10px 8px;
+    background: rgba(21, 26, 35, 0.94);
+    border: 1.5px solid var(--accent);
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+  }
+  body.wireframe .moment-chip-bar { background: #ffffff; }
+  .phone-frame.reading-mode .moment-chip-bar { display: none; }
+  .chip-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .chip-kicker {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  .chip-title {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .chip-actions {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0;
+  }
+  .chip-btn {
+    padding: 6px 9px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    border: 1px solid var(--border);
+    background: var(--accent);
+    color: #000;
+    cursor: pointer;
+  }
+  body.wireframe .chip-btn { color: #fff; }
+  .chip-btn.secondary {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+
+  /* Prominent RESUME BAR shown only when Paused in Reading Mode */
+  .resume-banner {
+    display: none;
+    position: relative;
+    z-index: 4;
+    margin: auto 12px 8px;
+    background: var(--accent);
+    color: #000;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  body.wireframe .resume-banner { color: #fff; }
+  .phone-frame.reading-mode .resume-banner {
+    display: flex;
+  }
+
+  /* Timeline Scrubber with Interactive Historical Era Nodes */
+  .timeline-wrap {
+    position: relative;
+    z-index: 3;
+    background: rgba(12, 15, 20, 0.9);
+    padding: 8px 12px 10px;
+    border-top: 1px solid var(--border);
+  }
+  body.wireframe .timeline-wrap { background: #fff; }
+  .scrubber-track {
+    position: relative;
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: 99px;
+    margin: 6px 0 8px;
+    cursor: pointer;
+  }
+  .scrubber-fill {
+    height: 100%;
+    width: 38%;
+    background: var(--accent);
+    border-radius: 99px;
+  }
+  .era-node {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2.5px solid var(--accent);
+    cursor: pointer;
+  }
+  .era-node.active {
+    background: var(--accent);
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+  .time-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  /* LOWER STAGE: Switches between Watch-Mode Synced Transcript & Read-Mode Deep-Dive Drawer */
+  .lower-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: var(--surface);
+    padding: 14px;
+  }
+  .mode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .depth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .depth-tab {
+    padding: 7px 6px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 800;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .depth-tab.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .fact-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 9px 10px;
+  }
+  .fact-lbl {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .fact-val {
+    font-size: 12.5px;
+    font-weight: 800;
+    margin-top: 2px;
+  }
+  .story-body {
+    font-size: 12.8px;
+    line-height: 1.55;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 12px;
+    margin-bottom: 12px;
+  }
+  .entity-link {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .chapter-pill-row {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .chapter-chip {
+    white-space: nowrap;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .chapter-chip.active {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<div class="studio-bar">
+  <div class="studio-title">
+    <span class="badge">Contest #2800294 Live UX Prototype</span>
+    <span>ChronoCity — Mobile-First Interactive Documentary Experience</span>
+  </div>
+  <div class="controls-group">
+    <button class="btn-toggle active" id="btnWatchMode" onclick="setAppState('watch')">1. Watch State (Playing)</button>
+    <button class="btn-toggle" id="btnReadMode" onclick="setAppState('read')">2. Pause &amp; Deep-Dive Drawer</button>
+    <button class="btn-toggle" id="btnQueueMode" onclick="setAppState('queue')">3. Saved Reading Queue</button>
+    <button class="btn-toggle" id="btnWireframe" onclick="toggleWireframe()">Toggle Wireframe / Hi-Fi</button>
+  </div>
+</div>
+
+<div class="workspace">
+  <!-- LEFT COLUMN: 4 CORE UX INTERACTION INNOVATIONS -->
+  <div class="ux-card">
+    <h2>4 Core UX Interaction Patterns</h2>
+    <div class="step-list">
+      <div class="step-item active" id="cardStep1" onclick="setAppState('watch')">
+        <div class="step-item-hdr"><span>01 · Non-Intrusive Moment Chip</span><span>01:42</span></div>
+        <p>As the documentary plays, a synchronized bottom chip surfaces the active empire/event. Viewers can either <strong>Tap to Pause &amp; Read</strong> immediately or tap <strong>+ Save</strong> to read after the film.</p>
+      </div>
+      <div class="step-item" id="cardStep2" onclick="setAppState('read')">
+        <div class="step-item-hdr"><span>02 · Docked Pip + 3-Depth Drawer</span><span>Auto-Pause</span></div>
+        <p>Pausing or tapping a topic shrinks the video into a <strong>Sticky Top Mini-Player</strong> with a 1-tap <em>"Resume at 01:42"</em> bar while a 3-layer card (<em>30s Summary / Empire Map / Archival Essay</em>) opens below.</p>
+      </div>
+      <div class="step-item" id="cardStep3" onclick="selectEra(2); setAppState('read')">
+        <div class="step-item-hdr"><span>03 · Era Timeline Nodes &amp; Entities</span><span>Scrubber</span></div>
+        <p>Milestone nodes on the timeline and underlined entities in the live transcript let curious viewers jump directly into any dynasty or monument card without losing their playback anchor.</p>
+      </div>
+      <div class="step-item" id="cardStep4" onclick="setAppState('queue')">
+        <div class="step-item-hdr"><span>04 · End-of-Film Reading Stack</span><span>Bookmarks</span></div>
+        <p>Viewers who prefer uninterrupted cinema tap <strong>+ Save</strong> during playback; saved cards stack neatly in the <em>Saved Queue</em> with exact video timestamp jump-backs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CENTER COLUMN: INTERACTIVE MOBILE SIMULATOR -->
+  <div class="phone-frame" id="phoneFrame">
+    <div class="phone-status">
+      <span>9:41</span>
+      <span>ChronoCity Mobile UX</span>
+      <span>5G · 100%</span>
+    </div>
+
+    <div class="app-topbar">
+      <div class="city-select">
+        <button class="city-pill active" id="cityNashik" onclick="selectCity('nashik')">Nashik</button>
+        <button class="city-pill" id="cityRome" onclick="selectCity('rome')">Rome</button>
+        <button class="city-pill" id="cityKyoto" onclick="selectCity('kyoto')">Kyoto</button>
+      </div>
+      <button class="queue-btn" onclick="setAppState('queue')" id="queueCounterBtn">Saved (2)</button>
+    </div>
+
+    <!-- VIDEO PLAYER / STICKY MINI-PLAYER -->
+    <div class="video-stage">
+      <div class="video-art">
+        <span class="era-tag" id="eraBadge">ERA II · 100 BC – 200 AD · SATAVAHANA EMPIRE</span>
+        <div class="scene-headline" id="sceneTitle">Carving the 24 Buddhist Caves of Pandavleni (Trirashmi)</div>
+        <div class="scene-sub" id="sceneSub">Documentary Chapter 2 of 4 · Narrated Audio Active</div>
+      </div>
+
+      <!-- Shown during Watch State -->
+      <div class="moment-chip-bar" onclick="setAppState('read')">
+        <div class="chip-left">
+          <span class="chip-kicker" id="chipKicker">LIVE TOPIC AT 01:42 · TAP TO PAUSE &amp; READ</span>
+          <span class="chip-title" id="chipTitle">How Indo-Roman Trade Funded the Pandavleni Caves</span>
+        </div>
+        <div class="chip-actions">
+          <button class="chip-btn" onclick="event.stopPropagation(); setAppState('read')">Pause &amp; Read</button>
+          <button class="chip-btn secondary" onclick="event.stopPropagation(); saveCurrentTopic()">+ Save</button>
+        </div>
+      </div>
+
+      <!-- Shown during Paused / Reading Drawer State -->
+      <div class="resume-banner" onclick="setAppState('watch')">
+        <span>⏸ DOCUMENTARY PAUSED AT <span id="pausedTimeLbl">01:42</span></span>
+        <span>▶ RESUME WATCHING</span>
+      </div>
+
+      <!-- Timeline Scrubber with 4 Era Nodes -->
+      <div class="timeline-wrap">
+        <div class="scrubber-track">
+          <div class="scrubber-fill" id="scrubberFill" style="width: 38%;"></div>
+          <div class="era-node" style="left: 12%;" onclick="selectEra(0)" title="Era I"></div>
+          <div class="era-node active" style="left: 38%;" onclick="selectEra(1)" title="Era II"></div>
+          <div class="era-node" style="left: 66%;" onclick="selectEra(2)" title="Era III"></div>
+          <div class="era-node" style="left: 88%;" onclick="selectEra(3)" title="Era IV"></div>
+        </div>
+        <div class="time-row">
+          <span id="timecodeText">01:42 / 04:30</span>
+          <span id="playerStatusPill">● Playing Documentary</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOWER INTERACTIVE AREA -->
+    <div class="lower-stage" id="lowerStage">
+      <!-- Dynamic content injected by JS -->
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: UX DESIGN RATIONALE & WIREFRAME NOTES FOR CONTEST HOLDER -->
+  <div class="ux-card">
+    <h2>Why This Solves the Viewer Dilemma</h2>
+    <div class="story-body" style="margin-bottom:14px;">
+      <strong>The Core UX Problem:</strong><br>
+      In traditional video pages, reading long articles forces the user to scroll away from the video or lose their timestamp. In traditional text pages, embedded videos feel disconnected from historical context.
+    </div>
+    <div class="story-body" style="margin-bottom:14px;">
+      <strong>Our Single-Spine Mobile Solution:</strong><br>
+      1. <strong>Zero-Friction Transition:</strong> One tap on the floating <em>Moment Chip</em> pauses playback and docks the video into a compact <strong>158px sticky header</strong>.<br><br>
+      2. <strong>3 Scannable Reading Depths:</strong> Casual viewers read the <em>30-Sec Quick Card</em> and tap <strong>▶ Resume Watching</strong> in 15 seconds; history buffs switch to <em>Dynasty Map</em> or <em>Archival Deep-Dive</em>.<br><br>
+      3. <strong>Dual Pacing (Read Now vs. Save for Later):</strong> Adding a 1-tap <code>+ Save</code> button respects both lean-back watchers and lean-forward readers.
+    </div>
+    <div class="fact-grid">
+      <div class="fact-box">
+        <div class="fact-lbl">Thumb Zone</div>
+        <div class="fact-val">Bottom 65% Reachable</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-lbl">Resume Latency</div>
+        <div class="fact-val">1-Tap Instant</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-lbl">Reading Depths</div>
+        <div class="fact-val">30s · 2m · 5m</div>
+      </div>
+      <div class="fact-box">
+        <div class="fact-lbl">Layout Mode</div>
+        <div class="fact-val">Mobile-First 390px</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const CITIES = {
+  nashik: {
+    name: "Nashik",
+    eras: [
+      {
+        time: "00:34", pct: "12%",
+        badge: "ERA I · 300 BC · ANCIENT GODAVARI SETTLEMENT",
+        title: "Sacred Banks of the Godavari & Early Janapada Trade Routes",
+        chip: "Archaeology of Ancient Govardhana & Panchavati",
+        ruler: "Early Mauryan / Local Chiefs",
+        period: "300 BC – 100 BC",
+        monument: "Ramkund & Ancient Ghats",
+        trade: "Dakshinapatha Caravan Route",
+        summary: "Positioned at a strategic volcanic plateau pass in the Western Ghats, Nashik emerged as a vital crossroads linking central Indian kingdoms with Arabian Sea ports like Sopara and Bharuch.",
+        mapInfo: "Caravan routes converged across the Thal Ghat pass, turning early Nashik into both a sacred pilgrimage ford on the Godavari and a customs toll hub.",
+        deep: "Excavations around Nashik reveal Northern Black Polished Ware and punch-marked silver coins, proving that centuries before rock-cut caves were commissioned, merchants and ascetics shared the same riverbanks."
+      },
+      {
+        time: "01:42", pct: "38%",
+        badge: "ERA II · 100 BC – 200 AD · SATAVAHANA EMPIRE",
+        title: "Carving the 24 Buddhist Caves of Pandavleni (Trirashmi)",
+        chip: "How Indo-Roman Trade Funded the Pandavleni Caves",
+        ruler: "Gautamiputra Satakarni",
+        period: "1st Century BC – 2nd Century AD",
+        monument: "Cave 3 (Gautamiputra Vihara) & Cave 18 Chaitya",
+        trade: "Roman Gold Denarii & Silk/Spice Guilds",
+        summary: "Inscriptions carved directly into the basalt walls of Pandavleni record donations from Satavahana queens, merchants, and artisan guilds—funded by booming maritime trade with the Roman Empire.",
+        mapInfo: "Cave 3's Brahmi inscription by Queen Gautami Balasri maps the Satavahana realm from Malwa to the Krishna River, securing the Western Deccan passes.",
+        deep: "Unlike royal-only monuments, Trirashmi's 24 caves feature water cisterns, monastic cells, and a resonant apsidal prayer hall (Cave 18) financed collectively by weavers, oil-millers, and Yavana (Indo-Greek) donors."
+      },
+      {
+        time: "02:58", pct: "66%",
+        badge: "ERA III · 11th – 17th CENTURY · YADAVA & MUGHAL ERA",
+        title: "Hemadpanthi Temple Architecture & The Gulshanabad Mint",
+        chip: "Inside the Basalt Geometry of Gondeshwar & Old Nashik",
+        ruler: "Seuna (Yadava) Dynasty & Deccan Sultanates",
+        period: "1050 AD – 1680 AD",
+        monument: " Dry-Masonry Basalt Sanctuaries & River Fortifications",
+        trade: "Silver Coinage & Deccan Textile Trade",
+        summary: "Under the Yadavas of Devagiri, mortarless interlocking black-basalt temples flourished across the Nashik region, later evolving into fortified river wadas during the Sultanate and Mughal eras.",
+        mapInfo: "Renamed Gulshanabad ('City of Rose Gardens') in the 17th century, the city operated a regional imperial mint issuing silver rupees.",
+        deep: "Master masons used tenon-and-mortise stone joints without lime mortar, allowing temple towers to withstand centuries of monsoon cycles while preserving intricate sculptural friezes."
+      },
+      {
+        time: "03:56", pct: "88%",
+        badge: "ERA IV · 1750 – 1818 · MARATHA PESHWA RENAISSANCE",
+        title: "Sarkarwada, Kalaram Temple & The Peshwa River Ghats",
+        chip: "How the Peshwas Rebuilt Nashik's Stone Ghats & Wadas",
+        ruler: "Maratha Confederacy (Peshwa & Odhekar Nobles)",
+        period: "1750 AD – 1818 AD",
+        monument: "Kalaram Mandir (1792) & Sarkarwada Teak Palace",
+        trade: "Pilgrimage Economy & Handloom Paithani/Silk",
+        summary: "In the 18th century, Maratha nobles commissioned monumental black-stone ghats along the Godavari, timber-carved wadas, and the 70-foot Kalaram Temple built from 2,000 tons of Ramshej basalt.",
+        mapInfo: "Over 14 stepped ghats with integrated stone water-channels transformed the riverbank into a civic and ritual amphitheater.",
+        deep: "Sardar Rangrao Odhekar financed the Kalaram complex over 12 years using basalt quarried from Ramshej Hill, creating an architectural synthesis of Maratha arches and classic Nagara spires."
+      }
+    ]
+  },
+  rome: {
+    name: "Rome",
+    eras: [
+      {
+        time: "00:45", pct: "12%",
+        badge: "ERA I · 509 – 27 BC · THE ROMAN REPUBLIC",
+        title: "From Forum Boarium Marshes to the Via Appia Engineering",
+        chip: "How Cloaca Maxima & Via Appia Built Republican Rome",
+        ruler: "Roman Senate & Consuls",
+        period: "509 BC – 27 BC",
+        monument: "Via Appia & Temple of Saturn",
+        trade: "Mediterranean Grain & Pozzolana Concrete",
+        summary: "By draining the marsh between the Palatine and Capitoline hills via the Cloaca Maxima, Rome created its civic Forum and pioneered volcanic ash concrete that hardened underwater.",
+        mapInfo: "Consular roads radiated from the Milliarium Aureum, linking Italian municipalities directly to the Senate floor.",
+        deep: "Republican engineers combined tuff stone with pozzolana mortar, enabling self-supporting arches that carried fresh spring water across miles of valleys."
+      },
+      {
+        time: "01:42", pct: "38%",
+        badge: "ERA II · 27 BC – 180 AD · PAX ROMANA & IMPERIAL ZENITH",
+        title: "The Pantheon Dome & Trajan's Multi-Level Market Forum",
+        chip: "Inside Hadrian's Unreinforced Concrete Pantheon Dome",
+        ruler: "Augustus, Trajan & Hadrian",
+        period: "27 BC – 180 AD",
+        monument: "The Pantheon (126 AD) & 11 Imperial Aqueducts",
+        trade: "1 Million Citizens · Red Sea & Silk Road Imports",
+        summary: "To span 43.3 meters without steel, Hadrian's architects graded the Pantheon dome's aggregate from heavy travertine at the base to feather-light volcanic pumice around the 9-meter oculus.",
+        mapInfo: "Eleven aqueducts delivered over 1,000,000 cubic meters of fresh mountain water daily to public baths, fountains, and insulae.",
+        deep: "Coffers recessed into the dome interior reduced dead weight by 20% while visually guiding the viewer's eye toward the open sky oculus."
+      },
+      {
+        time: "02:58", pct: "66%",
+        badge: "ERA III · 270 – 476 AD · AURELIAN WALLS & LATE ANTIQUITY",
+        title: "Fortifying the Eternal City: The 19-Kilometer Aurelian Circuit",
+        chip: "How Emperor Aurelian Enclosed the Seven Hills in 5 Years",
+        ruler: "Aurelian, Diocletian & Constantine",
+        period: "270 AD – 476 AD",
+        monument: "Aurelian Walls & Baths of Diocletian",
+        trade: "Imperial Brick Stamps & Fortified Gates",
+        summary: "Facing frontier pressures in 271 AD, Aurelian constructed a 19 km brick-faced concrete circuit with 383 towers, incorporating existing aqueducts and amphitheaters directly into the defense line.",
+        mapInfo: "Sixteen main gates controlled customs duties and military traffic entering the capital.",
+        deep: "Built largely by Rome's civilian guild associations (collegia), the walls stood 8 meters high and were later doubled in height under Honorius."
+      },
+      {
+        time: "03:56", pct: "88%",
+        badge: "ERA IV · 1500 – 1667 · RENAISSANCE & BAROQUE URBANISM",
+        title: "Sixtus V's Obelisk Boulevards & Bernini's Travertine Plazas",
+        chip: "How Reconnected Ancient Aqueducts Powered Baroque Fountains",
+        ruler: "Renaissance & Baroque Papacy",
+        period: "1500 AD – 1667 AD",
+        monument: "Acqua Felice, Trevi & St. Peter's Colonnade",
+        trade: "Tivoli Travertine Quarries & Pilgrimage Jubilee",
+        summary: "By restoring ancient Roman aqueducts like the Aqua Virgo, Renaissance engineers brought water back to the hilltop neighborhoods and powered the monumental fountains of Baroque Rome.",
+        mapInfo: "Straight axial avenues linked major basilicas, marked visually at each intersection by re-erected ancient obelisks.",
+        deep: "Bernini and Borromini treated public squares as theatrical stages where sound, flowing water, and curved travertine colonnades guided pedestrian movement."
+      }
+    ]
+  },
+  kyoto: {
+    name: "Kyoto",
+    eras: [
+      {
+        time: "00:40", pct: "12%",
+        badge: "ERA I · 794 – 1185 · HEIAN-KYO IMPERIAL GRID",
+        title: "Designing the Symmetrical Capital of Peace and Tranquility",
+        chip: "Why Emperor Kanmu Laid Out Kyoto on a 5.2 km Grid",
+        ruler: "Emperor Kanmu & Fujiwara Court",
+        period: "794 AD – 1185 AD",
+        monument: "Daidairi Imperial Palace & To-ji Pagoda",
+        trade: "Kamo River Canals & Nishijin Silk Weavers",
+        summary: "Founded in 794 AD nestled within three protective mountain ranges, Heian-kyo followed a north-south grid bisected by the 84-meter-wide Suzaku-oji avenue.",
+        mapInfo: "Two guardian temples—To-ji and Sai-ji—flanked the southern Rajomon gate, while spring-fed canals cooled aristocratic shinden-zukuri gardens.",
+        deep: "Court literature, including Murasaki Shikibu's Tale of Genji (c. 1008), flourished inside timber pavilions linked by covered wooden corridors."
+      },
+      {
+        time: "01:42", pct: "38%",
+        badge: "ERA II · 1336 – 1573 · MUROMACHI ZEN & GOLDEN PAVILIONS",
+        title: "Kinkaku-ji, Dry Landscape Rock Gardens & Machiya Townhouses",
+        chip: "How Zen Aesthetics Shaped Ryoan-ji & Kitayama Culture",
+        ruler: "Ashikaga Shogunate",
+        period: "1336 AD – 1573 AD",
+        monument: "Kinkaku-ji (1397), Ginkaku-ji & Ryoan-ji",
+        trade: "Tea Ceremony Ceramics, Noh Theater & Guild Merchants",
+        summary: "During the Muromachi period, gold-leaf shogunal villas gave way to wabi-sabi minimalism: raked gravel karesansui rock gardens, timber tea rooms, and narrow merchant machiya townhouses.",
+        mapInfo: "Merchant councils (machi-shu) self-governed neighborhood blocks, organizing the Gion Matsuri float festival.",
+        deep: "At Ryoan-ji, fifteen stones are arranged in raked white gravel so that from any vantage point on the wooden veranda, at least one stone remains hidden."
+      },
+      {
+        time: "02:58", pct: "66%",
+        badge: "ERA III · 1580 – 1867 · MOMOYAMA & EDO CASTLE CRAFTS",
+        title: "Nijo Castle's Nightingale Floors & Takase River Boats",
+        chip: "Inside the Chirping Security Floors of Nijo-jo Palace",
+        ruler: "Toyotomi Hideyoshi & Tokugawa Shogunate",
+        period: "1580 AD – 1867 AD",
+        monument: "Nijo Castle (1603) & Kiyomizu-dera Stage",
+        trade: "Takasegawa Flat-Bottom Canal Barges",
+        summary: "To protect the Shogun's Kyoto residence, carpenters engineered 'uguisubari' (nightingale floors) whose iron clamps rub against nails beneath cypress planks, mimicking bird calls at every footstep.",
+        mapInfo: "In 1611, merchant Suminokura Ryoi excavated the shallow Takase Canal, bringing rice, charcoal, and timber right into downtown Kyoto.",
+        deep: "Kano-school painters covered sliding fusuma screens in gold leaf so candlelit audience chambers glowed even on overcast winter afternoons."
+      },
+      {
+        time: "03:56", pct: "88%",
+        badge: "ERA IV · 1868 – 1912 · MEIJI LAKE BIWA CANAL REVIVAL",
+        title: "The Lake Biwa Brick Aqueduct & Japan's First Hydro-Electric Tram",
+        chip: "How a 21-Year-Old Engineer Revitalized Modern Kyoto",
+        ruler: "Meiji Municipal Renewal (Tanabe Sakuro)",
+        period: "1868 AD – 1912 AD",
+        monument: "Suirokaku Red-Brick Aqueduct & Keage Incline",
+        trade: "Hydroelectricity, Textile Dyeing & Electric Streetcars",
+        summary: "After the imperial court moved to Tokyo in 1869, Kyoto bored a 20 km canal through the mountains from Lake Biwa—powering Japan's first commercial hydroelectric plant and electric streetcar in 1895.",
+        mapInfo: "The Keage Incline carried wooden boats on wheeled rail cradles across a 36-meter elevation drop.",
+        deep: "At Nanzen-ji temple, Roman-style red-brick arches (Suirokaku) were blended seamlessly into the mossy cedar forest, symbolizing Kyoto's synthesis of heritage and engineering."
+      }
+    ]
+  }
+};
+
+let currentCity = 'nashik';
+let currentEraIdx = 1;
+let currentState = 'watch'; // 'watch' | 'read' | 'queue'
+let currentDepth = 'summary'; // 'summary' | 'map' | 'deep'
+let savedItems = [
+  { city: 'Nashik', time: '00:34', title: 'Archaeology of Ancient Govardhana & Panchavati', eraIdx: 0 },
+  { city: 'Nashik', time: '01:42', title: 'How Indo-Roman Trade Funded the Pandavleni Caves', eraIdx: 1 }
+];
+
+function selectCity(cityKey) {
+  currentCity = cityKey;
+  ['nashik','rome','kyoto'].forEach(k => {
+    document.getElementById('city' + k.charAt(0).toUpperCase() + k.slice(1)).classList.toggle('active', k === cityKey);
+  });
+  selectEra(1);
+}
+
+function selectEra(idx) {
+  currentEraIdx = idx;
+  const era = CITIES[currentCity].eras[idx];
+  document.getElementById('eraBadge').textContent = era.badge;
+  document.getElementById('sceneTitle').textContent = era.title;
+  document.getElementById('chipKicker').textContent = `LIVE TOPIC AT ${era.time} · TAP TO PAUSE & READ`;
+  document.getElementById('chipTitle').textContent = era.chip;
+  document.getElementById('pausedTimeLbl').textContent = era.time;
+  document.getElementById('timecodeText').textContent = `${era.time} / 04:30`;
+  document.getElementById('scrubberFill').style.width = era.pct;
+  const nodes = document.querySelectorAll('.era-node');
+  nodes.forEach((n, i) => n.classList.toggle('active', i === idx));
+  renderLowerStage();
+}
+
+function setAppState(st) {
+  currentState = st;
+  const pf = document.getElementById('phoneFrame');
+  pf.classList.toggle('reading-mode', st === 'read' || st === 'queue');
+  document.getElementById('btnWatchMode').classList.toggle('active', st === 'watch');
+  document.getElementById('btnReadMode').classList.toggle('active', st === 'read');
+  document.getElementById('btnQueueMode').classList.toggle('active', st === 'queue');
+  document.getElementById('cardStep1').classList.toggle('active', st === 'watch');
+  document.getElementById('cardStep2').classList.toggle('active', st === 'read');
+  document.getElementById('cardStep4').classList.toggle('active', st === 'queue');
+  document.getElementById('playerStatusPill').textContent = st === 'watch' ? '● Playing Documentary' : '⏸ Paused for Exploration';
+  renderLowerStage();
+}
+
+function setDepth(d) {
+  currentDepth = d;
+  renderLowerStage();
+}
+
+function saveCurrentTopic() {
+  const era = CITIES[currentCity].eras[currentEraIdx];
+  if (!savedItems.some(x => x.title === era.chip)) {
+    savedItems.push({ city: CITIES[currentCity].name, time: era.time, title: era.chip, eraIdx: currentEraIdx });
+  }
+  document.getElementById('queueCounterBtn').textContent = `Saved (${savedItems.length})`;
+  setAppState('queue');
+}
+
+function toggleWireframe() {
+  document.body.classList.toggle('wireframe');
+  document.getElementById('btnWireframe').classList.toggle('active', document.body.classList.contains('wireframe'));
+}
+
+function renderLowerStage() {
+  const el = document.getElementById('lowerStage');
+  const cityObj = CITIES[currentCity];
+  const era = cityObj.eras[currentEraIdx];
+
+  if (currentState === 'watch') {
+    const chipsHtml = cityObj.eras.map((e, i) =>
+      `<button class="chapter-chip ${i === currentEraIdx ? 'active' : ''}" onclick="selectEra(${i})">${e.time} · Era ${i+1}</button>`
+    ).join('');
+    el.innerHTML = `
+      <div class="mode-header">
+        <span style="font-size:12px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;">Live Synced Chapters &amp; Transcript</span>
+        <span style="font-size:11px;color:var(--muted);">Tap any highlighted term to pause &amp; inspect</span>
+      </div>
+      <div class="chapter-pill-row">${chipsHtml}</div>
+      <div class="story-body">
+        <div style="font-size:10.5px;font-weight:800;color:var(--accent);margin-bottom:4px;">[${era.time}] NARRATOR TRANSCRIPT</div>
+        "Here in <strong>${cityObj.name}</strong> during <strong>${era.period}</strong>, rulers of the <span class="entity-link" onclick="setAppState('read')">${era.ruler}</span> transformed the landscape through <span class="entity-link" onclick="setAppState('read')">${era.monument}</span>, financed by <span class="entity-link" onclick="setAppState('read')">${era.trade}</span>..."
+      </div>
+      <div class="fact-grid">
+        <div class="fact-box" onclick="setAppState('read')" style="cursor:pointer;">
+          <div class="fact-lbl">Active Dynasty (Tap)</div>
+          <div class="fact-val">${era.ruler}</div>
+        </div>
+        <div class="fact-box" onclick="setAppState('read')" style="cursor:pointer;">
+          <div class="fact-lbl">Key Monument (Tap)</div>
+          <div class="fact-val">${era.monument}</div>
+        </div>
+      </div>
+    `;
+  } else if (currentState === 'read') {
+    const bodyText = currentDepth === 'summary' ? era.summary : (currentDepth === 'map' ? era.mapInfo : era.deep);
+    el.innerHTML = `
+      <div class="mode-header">
+        <div>
+          <div style="font-size:10px;font-weight:800;color:var(--accent);text-transform:uppercase;">Paused at ${era.time} · Contextual Deep-Dive</div>
+          <div style="font-size:14px;font-weight:800;margin-top:2px;">${era.chip}</div>
+        </div>
+        <button class="chip-btn" onclick="setAppState('watch')">▶ Resume</button>
+      </div>
+      <div class="depth-tabs">
+        <div class="depth-tab ${currentDepth==='summary'?'active':''}" onclick="setDepth('summary')">1. 30s Summary</div>
+        <div class="depth-tab ${currentDepth==='map'?'active':''}" onclick="setDepth('map')">2. Empire &amp; Route</div>
+        <div class="depth-tab ${currentDepth==='deep'?'active':''}" onclick="setDepth('deep')">3. Archival Read</div>
+      </div>
+      <div class="fact-grid">
+        <div class="fact-box">
+          <div class="fact-lbl">Ruler / Polity</div>
+          <div class="fact-val">${era.ruler}</div>
+        </div>
+        <div class="fact-box">
+          <div class="fact-lbl">Historical Period</div>
+          <div class="fact-val">${era.period}</div>
+        </div>
+      </div>
+      <div class="story-body">${bodyText}</div>
+      <div style="display:flex;justify-content:space-between;gap:8px;">
+        <button class="btn-toggle" style="flex:1;" onclick="saveCurrentTopic()">+ Bookmark to Reading Queue</button>
+        <button class="btn-toggle active" style="flex:1;" onclick="setAppState('watch')">▶ Resume Film at ${era.time}</button>
+      </div>
+    `;
+  } else {
+    const listHtml = savedItems.map((item, idx) => `
+      <div class="step-item" onclick="selectEra(${item.eraIdx}); setAppState('read');" style="margin-bottom:8px;">
+        <div class="step-item-hdr"><span>${item.city} · Timestamp ${item.time}</span><span>Open Card →</span></div>
+        <p>${item.title}</p>
+      </div>
+    `).join('');
+    el.innerHTML = `
+      <div class="mode-header">
+        <span style="font-size:12px;font-weight:800;text-transform:uppercase;">Saved Reading Queue (${savedItems.length})</span>
+        <button class="chip-btn" onclick="setAppState('watch')">▶ Resume Film</button>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">Topics bookmarked during playback so you never lose immersion—tap any card to read or jump back to that exact video moment:</p>
+      <div>${listHtml}</div>
+    `;
+  }
+}
+
+renderLowerStage();
+</script>
+</body>
+</html>
