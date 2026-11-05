@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 3600px; height: 1000px; overflow: hidden; background: #000; }
+  svg { width: 3600px; height: 1000px; display: block; }
+</style>
+</head>
+<body>
+<svg viewBox="0 0 3600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- High-Precision Unsharp Mask & Micro-Contrast Filter for Print Clarity -->
+    <filter id="printSharpen">
+      <feConvolveMatrix order="3 3" preserveAlpha="true" kernelMatrix="0 -0.45 0 -0.45 2.8 -0.45 0 -0.45 0"/>
+      <feComponentTransfer>
+        <feFuncR type="gamma" amplitude="1.03" exponent="0.96" offset="0"/>
+        <feFuncG type="gamma" amplitude="1.02" exponent="0.97" offset="0"/>
+        <feFuncB type="gamma" amplitude="1.0" exponent="1.02" offset="0"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <image href="stage_master.jpg" width="3600" height="1000" preserveAspectRatio="none" filter="url(#printSharpen)"/>
+</svg>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nashik Through Time — Watch, Pause, Dig Deeper, Resume (Mobile Documentary UX)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #F4F5F7; color: #111827;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 14px 22px;
+  }
+  .top-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #FFFFFF; border: 1.5px solid #E5E7EB; border-radius: 14px;
+    padding: 11px 20px; margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .tag-orange {
+    background: #FFF7ED; color: #EA580C; border: 1px solid #FDBA74;
+    font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 99px;
+    display: inline-block; margin-bottom: 3px; letter-spacing: 0.4px;
+  }
+  h1 { font-size: 20px; font-weight: 800; color: #111827; letter-spacing: -0.4px; }
+  .sub { font-size: 12px; color: #4B5563; margin-top: 2px; }
+  .flow-pills { display: flex; gap: 8px; align-items: center; }
+  .f-pill {
+    background: #F9FAFB; border: 1.5px solid #E5E7EB; border-radius: 10px;
+    padding: 6px 12px; text-align: center;
+  }
+  .f-pill.active { background: #FFF7ED; border-color: #F97316; }
+  .f-pill .step { font-size: 9.5px; font-weight: 800; color: #EA580C; text-transform: uppercase; }
+  .f-pill .lbl { font-size: 12px; font-weight: 800; color: #111827; }
+
+  .phones-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 0.85fr; gap: 16px;
+    align-items: stretch;
+  }
+
+  /* MOBILE PHONE FRAME (LIGHT MODE MATCHING CLIENT EXAMPLE.PNG) */
+  .phone-wrap {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .state-banner {
+    width: 100%; background: #111827; color: #FFFFFF;
+    border-radius: 10px 10px 0 0; padding: 7px 12px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11.5px; font-weight: 800;
+  }
+  .state-banner span.badge {
+    background: #F97316; color: #FFFFFF; font-size: 10px; padding: 2px 8px; border-radius: 99px;
+  }
+  .phone {
+    width: 100%; background: #FFFFFF;
+    border: 3px solid #1F2937; border-top: none;
+    border-radius: 0 0 24px 24px;
+    padding: 12px 14px 10px 14px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    height: 755px;
+  }
+
+  /* PHONE HEADER: Nashik Dropdown + Search */
+  .p-hdr {
+    display: flex; gap: 8px; align-items: center; margin-bottom: 9px;
+  }
+  .city-select {
+    background: #F3F4F6; border: 1px solid #E5E7EB; border-radius: 99px;
+    padding: 6px 12px; font-size: 13px; font-weight: 800; color: #111827;
+    display: flex; align-items: center; gap: 6px; cursor: pointer;
+  }
+  .search-bar {
+    flex: 1; background: #F3F4F6; border: 1px solid #E5E7EB; border-radius: 99px;
+    padding: 6px 12px; font-size: 12px; color: #6B7280;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* DOCUMENTARY VIDEO PLAYER */
+  .video-box {
+    position: relative; border-radius: 14px; overflow: hidden;
+    background: linear-gradient(180deg, #374151 0%, #1F2937 65%, #111827 100%);
+    color: #FFFFFF; padding: 12px; height: 185px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .video-box.compact {
+    height: 118px;
+  }
+  .vid-top {
+    display: flex; justify-content: space-between; align-items: flex-start; z-index: 2;
+  }
+  .vid-title { font-size: 16px; font-weight: 800; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+  .vid-status {
+    background: rgba(17,24,39,0.82); border: 1px solid rgba(255,255,255,0.2);
+    font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 99px;
+  }
+  /* Live Narration Contextual Pill inside Video */
+  .cue-toast {
+    z-index: 2; background: rgba(255, 255, 255, 0.96); color: #111827;
+    border-left: 4px solid #F97316; border-radius: 10px;
+    padding: 7px 10px; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25); cursor: pointer;
+  }
+  .cue-toast .ct-left { font-size: 10.5px; line-height: 1.25; }
+  .cue-toast .ct-left b { color: #EA580C; display: block; font-size: 11px; }
+  .cue-toast .ct-btn {
+    background: #F97316; color: #FFFFFF; font-size: 10px; font-weight: 800;
+    padding: 5px 9px; border-radius: 7px; white-space: nowrap;
+  }
+
+  /* Scrub Bar with Era Markers */
+  .scrub-wrap { z-index: 2; }
+  .scrub-bar {
+    position: relative; height: 6px; background: rgba(255,255,255,0.28);
+    border-radius: 99px; margin: 6px 0 4px 0;
+  }
+  .scrub-fill {
+    height: 100%; background: #F97316; border-radius: 99px; width: 32%;
+  }
+  .scrub-dot {
+    position: absolute; top: -4px; width: 14px; height: 14px;
+    background: #FFFFFF; border: 3px solid #F97316; border-radius: 50%;
+    left: 31%;
+  }
+  .marker-tick {
+    position: absolute; top: -2px; width: 3px; height: 10px;
+    background: #FDBA74; border-radius: 2px;
+  }
+  .scrub-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10.5px; color: #E5E7EB; font-weight: 600;
+  }
+
+  /* HORIZONTAL ERA RAIL (EXACT MATCH TO CLIENT'S EXAMPLE.PNG) */
+  .era-rail {
+    margin: 9px 0 6px 0; padding: 4px 2px;
+  }
+  .era-track {
+    position: relative; display: flex; justify-content: space-between; align-items: center;
+    padding: 0 8px;
+  }
+  .era-line {
+    position: absolute; top: 8px; left: 18px; right: 18px; height: 2px; background: #D1D5DB; z-index: 1;
+  }
+  .era-node {
+    position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .era-circle {
+    width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF;
+    border: 2.5px solid #9CA3AF;
+  }
+  .era-node.active .era-circle {
+    width: 20px; height: 20px; border: 4px solid #F97316; top: -2px;
+    box-shadow: 0 0 0 3px #FFEDD5;
+  }
+  .era-lbl {
+    font-size: 10px; font-weight: 600; color: #4B5563;
+  }
+  .era-node.active .era-lbl {
+    background: #FFEDD5; color: #9A3412; font-weight: 800;
+    padding: 1px 7px; border-radius: 99px;
+  }
+  .swipe-hint {
+    text-align: center; font-size: 10px; color: #6B7280; margin-top: 3px; font-weight: 600;
+  }
+
+  /* STICKY RESUME ANCHOR BAR (THE CORE UX SOLUTION!) */
+  .resume-bar {
+    background: #FFF7ED; border: 1.5px solid #F97316; border-radius: 11px;
+    padding: 7px 11px; display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 7px;
+  }
+  .resume-bar .rb-text { font-size: 10.5px; color: #9A3412; font-weight: 700; }
+  .resume-bar .rb-btn {
+    background: #F97316; color: #FFFFFF; font-size: 11px; font-weight: 800;
+    padding: 5px 11px; border-radius: 8px; border: none; cursor: pointer;
+  }
+
+  /* DIG DEEPER DRAWER CARD */
+  .drawer {
+    background: #F9FAFB; border: 1.5px solid #E5E7EB; border-radius: 16px;
+    padding: 10px 12px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .handle {
+    width: 38px; height: 4px; background: #D1D5DB; border-radius: 99px; margin: 0 auto 6px auto;
+  }
+  .era-hdr {
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .era-title { font-size: 17px; font-weight: 800; color: #111827; }
+  .era-dates { font-size: 11px; color: #4B5563; font-weight: 600; }
+  .sel-pill {
+    background: #FFEDD5; color: #9A3412; font-size: 10px; font-weight: 800;
+    padding: 3px 8px; border-radius: 8px;
+  }
+
+  .story-split {
+    display: grid; grid-template-columns: 1.35fr 0.9fr; gap: 8px; margin: 7px 0;
+  }
+  .story-txt {
+    font-size: 11px; color: #374151; line-height: 1.42;
+  }
+  .mini-map {
+    background: #E5E7EB; border-radius: 10px; padding: 6px; position: relative;
+    border: 1px solid #D1D5DB; display: flex; flex-direction: column; justify-content: flex-end;
+    min-height: 68px;
+  }
+
+  .chips-row { display: flex; gap: 5px; flex-wrap: wrap; margin: 4px 0; }
+  .e-chip {
+    background: #E5E7EB; color: #1F2937; font-size: 10px; font-weight: 700;
+    padding: 4px 9px; border-radius: 99px;
+  }
+  .e-chip.active {
+    background: #111827; color: #FFFFFF;
+  }
+
+  .acc-list { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+  .acc-item {
+    background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 9px;
+    padding: 6px 10px; font-size: 11px; font-weight: 700; color: #111827;
+  }
+  .acc-hdr { display: flex; justify-content: space-between; align-items: center; }
+  .acc-body {
+    font-size: 10px; font-weight: 500; color: #4B5563; margin-top: 4px;
+    padding-top: 4px; border-top: 1px dashed #E5E7EB; line-height: 1.35;
+  }
+
+  /* BOTTOM TAB BAR (EXACT MATCH TO CLIENT'S EXAMPLE.PNG) */
+  .tab-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px;
+    padding-top: 8px; border-top: 1px solid #E5E7EB; margin-top: 8px;
+  }
+  .tab {
+    text-align: center; font-size: 10px; font-weight: 700; color: #6B7280;
+    padding: 4px 2px; border-radius: 10px;
+  }
+  .tab.active {
+    background: #FFEDD5; color: #9A3412; font-weight: 800;
+  }
+
+  /* RIGHT ARCHITECTURE & UX RATIONALE PANEL */
+  .ux-panel {
+    background: #FFFFFF; border: 1.5px solid #E5E7EB; border-radius: 16px;
+    padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .ux-card {
+    background: #F9FAFB; border-left: 3.5px solid #F97316; border-radius: 8px;
+    padding: 9px 11px; font-size: 11px; color: #374151; line-height: 1.42;
+  }
+  .ux-card strong { color: #111827; display: block; font-size: 11.5px; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div>
+    <span class="tag-orange">WORKING MOBILE PROTOTYPE • BUILT DIRECTLY ON YOUR "NASHIK THROUGH TIME" WIREFRAME</span>
+    <h1>Interactive Documentary Mobile UX — Watch, Pause, Dig Deeper &amp; Seamless Resume</h1>
+    <div class="sub">Interactive Live Prototype: <b>https://dachdigitalwerk.github.io/client-previews/nashik-doc-ux/</b> • Zero Lost Place • Synced Era Rail &amp; Topic Cues</div>
+  </div>
+  <div class="flow-pills">
+    <div class="f-pill"><div class="step">State 1</div><div class="lbl">Watch + Live Cue</div></div>
+    <div style="font-weight:900; color:#9CA3AF;">→</div>
+    <div class="f-pill active"><div class="step">State 2</div><div class="lbl">Auto-Pause &amp; Read</div></div>
+    <div style="font-weight:900; color:#9CA3AF;">→</div>
+    <div class="f-pill"><div class="step">State 3</div><div class="lbl">Deep Evidence + Resume</div></div>
+  </div>
+</div>
+
+<div class="phones-grid">
+
+  <!-- ===================================================================== -->
+  <!-- PHONE 1: STATE 1 — WATCHING DOCUMENTARY + NON-INTRUSIVE TOPIC CUE     -->
+  <!-- ===================================================================== -->
+  <div class="phone-wrap">
+    <div class="state-banner">
+      <span>1. WATCHING — Synced Narration Cue Appears</span>
+      <span class="badge">04:18 • Playing</span>
+    </div>
+    <div class="phone">
+      <div>
+        <div class="p-hdr">
+          <div class="city-select">Nashik <span>▾</span></div>
+          <div class="search-bar">🔍 Search eras, caves, coins...</div>
+        </div>
+
+        <!-- Video Player Playing -->
+        <div class="video-box">
+          <svg style="position:absolute; inset:0; width:100%; height:100%; opacity:0.32;" viewBox="0 0 360 185" preserveAspectRatio="none">
+            <path d="M0,130 Q60,85 130,115 T260,75 L310,45 L360,110 L360,185 L0,185 Z" fill="#9CA3AF"/>
+            <circle cx="285" cy="65" r="24" fill="#FDBA74" opacity="0.5"/>
+          </svg>
+          <div class="vid-top">
+            <div>
+              <div class="vid-title">Nashik Through Time</div>
+              <div style="font-size:10px; color:#D1D5DB;">Ch. 2: Satavahana Trade &amp; Rock-Cut Architecture</div>
+            </div>
+            <span class="vid-status">● PLAYING</span>
+          </div>
+
+          <!-- Non-intrusive Floating Topic Pill synced to narration -->
+          <div class="cue-toast">
+            <div class="ct-left">
+              <b>💡 Mentioned at 04:18 — Pandavleni Caves</b>
+              Gautamiputra Satakarni’s Brahmi inscription...
+            </div>
+            <div class="ct-btn">⏸ Pause &amp; Read</div>
+          </div>
+
+          <div class="scrub-wrap">
+            <div class="scrub-bar">
+              <div class="scrub-fill" style="width:27%;"></div>
+              <div class="marker-tick" style="left:12%;" title="Ancient"></div>
+              <div class="marker-tick" style="left:27%; background:#FFFFFF;" title="Satavahana"></div>
+              <div class="marker-tick" style="left:48%;" title="Medieval"></div>
+              <div class="marker-tick" style="left:66%;" title="Maratha"></div>
+              <div class="marker-tick" style="left:82%;" title="British"></div>
+              <div class="scrub-dot" style="left:26%;"></div>
+            </div>
+            <div class="scrub-meta">
+              <span>⏸ 04:18 / 16:00 • Satavahana Era</span>
+              <span>[CC] &nbsp; ⛶</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Era Timeline Rail (Exact Match to Example.png) -->
+        <div class="era-rail">
+          <div class="era-track">
+            <div class="era-line"></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Ancient</div></div>
+            <div class="era-node active"><div class="era-circle"></div><div class="era-lbl">Satavahana</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Medieval</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Maratha</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">British</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Today</div></div>
+          </div>
+          <div class="swipe-hint">‹ &nbsp; Swipe or tap era to jump &amp; explore &nbsp; ›</div>
+        </div>
+
+        <!-- Preview Drawer (Rest State while Watching) -->
+        <div class="drawer">
+          <div class="handle"></div>
+          <div class="era-hdr">
+            <div>
+              <div class="era-title">Satavahana</div>
+              <div class="era-dates">c. 2nd century BCE – 3rd century CE</div>
+            </div>
+            <span class="sel-pill">Selected era</span>
+          </div>
+
+          <div class="story-split">
+            <div class="story-txt">
+              Nashik (<i>Govardhana</i>) flourished as a strategic Satavahana crossroads linking inland Paithan to the Arabian Sea ports of Sopara and Bharuch.
+            </div>
+            <div class="mini-map">
+              <div style="font-size:14px; text-align:center;">📍</div>
+              <div style="font-size:9.5px; font-weight:800; color:#111827;">Godavari Trade Map</div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:11.5px; font-weight:800; color:#111827; margin-bottom:3px;">Key evidence (Tap to Pause &amp; Dig Deeper)</div>
+            <div class="chips-row">
+              <span class="e-chip">Inscriptions (24)</span>
+              <span class="e-chip">Coins (Lead/Silver)</span>
+              <span class="e-chip">Cave remains</span>
+            </div>
+          </div>
+
+          <div class="acc-list">
+            <div class="acc-item"><div class="acc-hdr"><span>📍 Places (Pandavleni, Govardhana)</span><span>▾</span></div></div>
+            <div class="acc-item"><div class="acc-hdr"><span>👥 People (Gautamiputra Satakarni)</span><span>▾</span></div></div>
+            <div class="acc-item"><div class="acc-hdr"><span>📄 Primary sources (Cave 3 Prasasti)</span><span>▾</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-bar">
+        <div class="tab active">●─○─○<br>Timeline</div>
+        <div class="tab">📍<br>Map</div>
+        <div class="tab">▤<br>Stories</div>
+        <div class="tab">🔖<br>Saved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PHONE 2: STATE 2 — PAUSED TO READ ("DIG DEEPER" DRAWER EXPANDED)      -->
+  <!-- ===================================================================== -->
+  <div class="phone-wrap">
+    <div class="state-banner" style="background:#EA580C;">
+      <span>2. PAUSED &amp; READING — Sticky Return Anchor Active</span>
+      <span class="badge" style="background:#111827;">⏸ Paused @ 04:18</span>
+    </div>
+    <div class="phone">
+      <div>
+        <div class="p-hdr">
+          <div class="city-select">Nashik <span>▾</span></div>
+          <div class="search-bar">🔍 Pandavleni Cave 3 Inscription</div>
+        </div>
+
+        <!-- Mini Docked Video Player (Stays visible as the spine of the page!) -->
+        <div class="video-box compact">
+          <div class="vid-top">
+            <div>
+              <div class="vid-title" style="font-size:14px;">Nashik Through Time</div>
+              <div style="font-size:10px; color:#FDBA74; font-weight:700;">⏸ Auto-Paused while you explore Satavahana</div>
+            </div>
+            <span class="vid-status" style="background:#EA580C; border-color:#FDBA74;">04:18SAVED</span>
+          </div>
+          <div class="scrub-wrap">
+            <div class="scrub-bar">
+              <div class="scrub-fill" style="width:27%;"></div>
+              <div class="scrub-dot" style="left:26%;"></div>
+            </div>
+            <div class="scrub-meta">
+              <span>Paused at 04:18 / 16:00</span>
+              <span>Tap Resume below to continue →</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STICKY ONE-TAP RESUME BAR (Guarantees user never loses their place) -->
+        <div class="resume-bar" style="margin-top:8px;">
+          <div class="rb-text">🔖 Film anchored at <b>04:18</b> (Satavahana)</div>
+          <button class="rb-btn">▶ Resume Film (04:18)</button>
+        </div>
+
+        <!-- Expanded Reading Drawer -->
+        <div class="drawer" style="background:#FFFFFF; border:2px solid #F97316;">
+          <div class="era-hdr">
+            <div>
+              <div class="era-title" style="font-size:15.5px;">Satavahana • Key Evidence</div>
+              <div class="era-dates">c. 2nd century BCE – 3rd century CE • 3 min read</div>
+            </div>
+            <span class="sel-pill">Reading Mode</span>
+          </div>
+
+          <div class="chips-row" style="margin:6px 0;">
+            <span class="e-chip active">✔ Inscriptions</span>
+            <span class="e-chip">Coins</span>
+            <span class="e-chip">Cave remains</span>
+          </div>
+
+          <!-- Highlighted Primary Evidence Card -->
+          <div style="background:#FFF7ED; border:1px solid #FDBA74; border-radius:10px; padding:8px 10px; font-size:10.5px; color:#1F2937; line-height:1.4;">
+            <strong style="color:#9A3412; display:block; margin-bottom:2px;">📜 Cave 3 Queen Gautami Balasri Inscription (130 CE)</strong>
+            Carved in Brahmi script on the veranda wall of Pandavleni Cave 3, this royal land-grant records King <b>Gautamiputra Satakarni’s</b> victory over the Western Kshatrapas (Nahapana) and donates the village of <i>Pisajipadaka</i> to Buddhist monks.
+          </div>
+
+          <div class="acc-list" style="margin-top:6px;">
+            <div class="acc-item" style="border-color:#F97316;">
+              <div class="acc-hdr"><span>📍 Places — Trirashmi Hill (Pandavleni)</span><span>▴</span></div>
+              <div class="acc-body">
+                24 rock-cut Buddhist viharas &amp; chaityas excavated into basalt cliff face overlooking the ancient Govardhana trade highway.
+                <div style="margin-top:4px; color:#EA580C; font-weight:700;">▶ Jump video to Cave 3 walkthrough (04:45)</div>
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-hdr"><span>👥 People — Gautamiputra Satakarni &amp; Nahapana</span><span>▾</span></div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-hdr"><span>📄 Primary sources — Jogalthambi Silver Hoard</span><span>▾</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-bar">
+        <div class="tab active">●─○─○<br>Timeline</div>
+        <div class="tab">📍<br>Map</div>
+        <div class="tab">▤<br>Stories</div>
+        <div class="tab">🔖<br>Saved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PHONE 3: STATE 3 — EXPLORING COINS / MAP & JUMPING OR RESUMING        -->
+  <!-- ===================================================================== -->
+  <div class="phone-wrap">
+    <div class="state-banner">
+      <span>3. CROSS-ERA &amp; ARTIFACT COMPARE + RESUME</span>
+      <span class="badge">Bookmark &amp; Resume</span>
+    </div>
+    <div class="phone">
+      <div>
+        <div class="p-hdr">
+          <div class="city-select">Nashik <span>▾</span></div>
+          <div class="search-bar">🔍 Jogalthambi Coin Hoard</div>
+        </div>
+
+        <!-- Sticky Resume Banner when scrolled deep in article -->
+        <div class="resume-bar">
+          <div class="rb-text">⏸ Documentary paused at <b>04:18</b></div>
+          <button class="rb-btn">▶ Resume from 04:18</button>
+        </div>
+
+        <!-- Era Rail showing where user is reading vs where video is paused -->
+        <div class="era-rail" style="margin-top:2px;">
+          <div class="era-track">
+            <div class="era-line"></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Ancient</div></div>
+            <div class="era-node active"><div class="era-circle"></div><div class="era-lbl">Satavahana</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Medieval</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Maratha</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">British</div></div>
+            <div class="era-node"><div class="era-circle"></div><div class="era-lbl">Today</div></div>
+          </div>
+        </div>
+
+        <div class="drawer" style="background:#FFFFFF;">
+          <div class="era-hdr">
+            <div>
+              <div class="era-title" style="font-size:15.5px;">Jogalthambi Restruck Coins</div>
+              <div class="era-dates">13,250 Silver Karshapanas found near Nashik</div>
+            </div>
+            <span class="sel-pill" style="background:#DBEAFE; color:#1E40AF;">🔖 Saved</span>
+          </div>
+
+          <div class="chips-row" style="margin:5px 0;">
+            <span class="e-chip">Inscriptions</span>
+            <span class="e-chip active">✔ Coins (Overstruck)</span>
+            <span class="e-chip">Cave remains</span>
+          </div>
+
+          <!-- Visual Artifact Comparison inside Drawer -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:7px; margin:4px 0;">
+            <div style="background:#F9FAFB; border:1px solid #E5E7EB; border-radius:9px; padding:8px; text-align:center;">
+              <div style="font-size:18px;">🪙</div>
+              <div style="font-size:10.5px; font-weight:800; color:#111827;">Obverse: Three-Arch Hill</div>
+              <div style="font-size:9.5px; color:#4B5563;">Stamped directly over King Nahapana’s portrait</div>
+            </div>
+            <div style="background:#F9FAFB; border:1px solid #E5E7EB; border-radius:9px; padding:8px; text-align:center;">
+              <div style="font-size:18px;">☸️</div>
+              <div style="font-size:10.5px; font-weight:800; color:#111827;">Reverse: Ujjain Symbol</div>
+              <div style="font-size:9.5px; color:#4B5563;">Four orbs linked by cross; Brahmi legend intact</div>
+            </div>
+          </div>
+
+          <div class="acc-list" style="margin-top:4px;">
+            <div class="acc-item">
+              <div class="acc-hdr"><span>🗺️ Interactive Trade Route Map (Nashik ↔ Sopara)</span><span>▴</span></div>
+              <div class="acc-body">
+                Shows Thal Ghat mountain pass connecting the Godavari basin to Roman maritime trade ships.
+              </div>
+            </div>
+            <div class="acc-item">
+              <div class="acc-hdr"><span>🔖 Save to "Saved" Tab for Post-Film Reading</span><span>✔</span></div>
+              <div class="acc-body">
+                Don’t want to pause right now? Tap <b>🔖 Save</b> on any cue pill to queue articles in your <b>Saved</b> tab and keep watching uninterrupted.
+              </div>
+            </div>
+          </div>
+
+          <!-- Dual Action Footer inside Drawer -->
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:8px;">
+            <div style="background:#FFF7ED; border:1.5px solid #F97316; color:#9A3412; font-size:10.5px; font-weight:800; padding:7px; border-radius:8px; text-align:center;">
+              ▶ Resume at 04:18
+            </div>
+            <div style="background:#111827; color:#FFFFFF; font-size:10.5px; font-weight:800; padding:7px; border-radius:8px; text-align:center;">
+              ⏭ Jump Film to 05:15
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-bar">
+        <div class="tab">●─○─○<br>Timeline</div>
+        <div class="tab">📍<br>Map</div>
+        <div class="tab">▤<br>Stories</div>
+        <div class="tab active">🔖<br>Saved (2)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PANEL 4: UX INTERACTION ARCHITECTURE & WHY IT SOLVES THE BRIEF        -->
+  <!-- ===================================================================== -->
+  <div class="ux-panel">
+    <div>
+      <div style="font-size:13px; font-weight:800; color:#EA580C; text-transform:uppercase; margin-bottom:4px;">UX Interaction Architecture</div>
+      <div style="font-size:16px; font-weight:800; color:#111827; margin-bottom:10px; line-height:1.25;">How We Solved "Watch, Pause, Read &amp; Resume" on Mobile</div>
+
+      <div style="display:flex; flex-direction:column; gap:9px;">
+        <div class="ux-card">
+          <strong>1. The Documentary Stays the Spine</strong>
+          When a user taps an era (<code>Satavahana</code>) or an evidence chip (<code>Inscriptions</code>), the video <b>auto-pauses and docks</b> at the top instead of navigating to a new page. Zero disorientation.
+        </div>
+
+        <div class="ux-card">
+          <strong>2. Synced Narration Cues (Tap-to-Dig-Deeper)</strong>
+          As the documentary narrates an empire, monument, or coin hoard, a soft 4-second toast appears inside the player (<code>💡 Pandavleni Caves • ⏸ Pause &amp; Read</code>). One thumb tap pauses the video and opens that exact card.
+        </div>
+
+        <div class="ux-card">
+          <strong>3. Sticky Return Anchor ("Resume at 04:18")</strong>
+          While reading deep inside <code>Places</code>, <code>People</code>, or <code>Primary sources</code>, a high-contrast <b>▶ Resume Film (04:18)</b> bar stays pinned below the video. Even if the user swipes across eras (<code>Medieval</code> → <code>Maratha</code>), their original <code>04:18</code> video timestamp is preserved!
+        </div>
+
+        <div class="ux-card">
+          <strong>4. "Bookmark for Later" (Zero-Interruption Mode)</strong>
+          If a viewer doesn’t want to pause mid-scene, tapping <code>🔖</code> on any cue saves that historical card to the bottom <b>Saved</b> tab for post-film reading.
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#111827; color:#FFFFFF; border-radius:12px; padding:11px 13px; font-size:10.5px; line-height:1.45;">
+      <strong style="color:#FDBA74; display:block; font-size:11.5px; margin-bottom:3px;">✔ Try the Live Mobile Prototype in Your Browser:</strong>
+      <span style="font-family:monospace; color:#38BDF8; word-break:break-all;">https://dachdigitalwerk.github.io/client-previews/nashik-doc-ux/</span><br>
+      Includes working play/pause timer, clickable era rail (<code>Ancient</code> → <code>Today</code>), expandable evidence cards, and sticky resume anchor.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

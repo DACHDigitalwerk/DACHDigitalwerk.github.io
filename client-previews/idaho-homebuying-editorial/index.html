@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Idaho Homebuyer Atlas — Editorial Data Publication Identity & Chart System</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #F6F4EE; color: #16241D;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding: 14px 22px;
+  }
+  .serif { font-family: 'Georgia', 'Times New Roman', serif; }
+  .mono { font-family: 'Consolas', 'Courier New', monospace; }
+
+  /* EDITORIAL MASTHEAD BANNER ON WARM PAPER */
+  .masthead {
+    background: #FFFFFF; border: 1.5px solid #D8D2C5;
+    border-top: 5px solid #143828; border-radius: 0 0 12px 12px;
+    padding: 11px 20px; margin-bottom: 13px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 3px 10px rgba(20,56,40,0.04);
+  }
+  .issue-meta {
+    font-size: 10.5px; font-weight: 800; color: #C86D3B; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 2px;
+  }
+  .masthead h1 {
+    font-size: 22px; font-weight: 800; color: #143828; letter-spacing: -0.4px;
+  }
+  .masthead .sub {
+    font-size: 12px; color: #4A5550; margin-top: 2px;
+  }
+
+  .grid-3 {
+    display: grid; grid-template-columns: 0.95fr 1.18fr 1.02fr; gap: 14px;
+  }
+  .sheet-card {
+    background: #FFFFFF; border: 1.5px solid #D8D2C5; border-radius: 12px;
+    padding: 13px 15px; display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 3px 10px rgba(20,56,40,0.03);
+  }
+  .sec-hdr {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 2px solid #143828; padding-bottom: 5px; margin-bottom: 9px;
+  }
+  .sec-num {
+    font-size: 11px; font-weight: 800; color: #C86D3B; text-transform: uppercase; letter-spacing: 0.6px;
+  }
+  .sec-title {
+    font-size: 14px; font-weight: 800; color: #143828;
+  }
+
+  /* LOGO LOCKUPS ON WARM PAPER, PINE & WHITE */
+  .lockup-box {
+    border: 1.5px solid #E2DDD2; border-radius: 10px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 14px; margin-bottom: 8px;
+  }
+  .lockup-paper { background: #F6F4EE; }
+  .lockup-pine { background: #143828; color: #FFFFFF; border-color: #143828; }
+
+  /* CHART CARDS ON WARM EDITORIAL CREAM (#FBF9F5) */
+  .chart-card {
+    background: #FBF9F5; border: 1.5px solid #DED8CA; border-radius: 10px;
+    padding: 10px 12px; margin-bottom: 9px;
+  }
+  .chart-kicker {
+    font-size: 9.5px; font-weight: 800; color: #C86D3B; text-transform: uppercase; letter-spacing: 0.7px;
+  }
+  .chart-hed {
+    font-size: 14.5px; font-weight: 800; color: #143828; margin: 2px 0;
+  }
+  .chart-dek {
+    font-size: 10.5px; color: #4A5550; margin-bottom: 6px; line-height: 1.35;
+  }
+  .chart-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 9px; color: #68736D; border-top: 1px solid #E5DFD3; padding-top: 4px; margin-top: 4px;
+  }
+
+  /* EDITORIAL GUIDE & CALLOUT SYSTEM */
+  .article-mock {
+    background: #FBF9F5; border: 1.5px solid #DED8CA; border-radius: 10px;
+    padding: 12px 14px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .takeaway-box {
+    background: #FFFFFF; border-left: 4px solid #C86D3B; border-top: 1px solid #E5DFD3;
+    border-right: 1px solid #E5DFD3; border-bottom: 1px solid #E5DFD3;
+    border-radius: 0 8px 8px 0; padding: 8px 10px; margin: 7px 0;
+  }
+  .swatch-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px;
+  }
+  .sw {
+    border: 1px solid #D8D2C5; border-radius: 7px; overflow: hidden; background: #FFFFFF;
+  }
+  .sw-c { height: 24px; }
+  .sw-t { padding: 4px 6px; font-size: 8.8px; line-height: 1.25; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <div class="issue-meta">EDITORIAL PUBLICATION IDENTITY • DATA JOURNALISM &amp; HOMEBUYER GUIDE SYSTEM</div>
+    <h1 class="serif">Idaho Homebuying Desk — Clear Data for Confident Idaho Homebuyers</h1>
+    <div class="sub">Warm Paper Editorial Aesthetic (<code>#F6F4EE</code>) • Custom Idaho Peak-and-Bar Vector Mark • Standardized Chart Templates &amp; Reader Callouts</div>
+  </div>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <div style="background:#F6F4EE; border:1px solid #D8D2C5; padding:6px 12px; border-radius:8px; text-align:right;">
+      <div style="font-size:9px; font-weight:800; color:#C86D3B; text-transform:uppercase;">Live Style Guide &amp; SVG Kit</div>
+      <div class="mono" style="font-size:10.5px; font-weight:700; color:#143828;">dachdigitalwerk.github.io/client-previews/idaho-homebuying-editorial/</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-3">
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 1: BRANDMARK, WORDMARK, MONOGRAM & COLOR/TYPE SYSTEM           -->
+  <!-- ===================================================================== -->
+  <div class="sheet-card">
+    <div>
+      <div class="sec-hdr">
+        <span class="sec-title serif">1. Masthead Logo &amp; Editorial Identity</span>
+        <span class="sec-num">100% Vector SVG</span>
+      </div>
+
+      <!-- SVG SYMBOL DEFINITION: IDAHO STATE BOUNDARY + SAWTOOTH PEAK + RISING EQUITY BARS + HOME ROOF -->
+      <svg width="0" height="0" style="position:absolute;">
+        <defs>
+          <g id="idaho-mark">
+            <!-- Rounded Editorial Crest Base -->
+            <rect x="4" y="4" width="72" height="72" rx="16" fill="#143828"/>
+            <!-- Subtle Sawtooth Mountain Ridge -->
+            <path d="M 12,50 L 28,26 L 41,40 L 54,20 L 68,50 Z" fill="#1B365D" opacity="0.85"/>
+            <path d="M 28,26 L 34,33 L 28,35 L 22,33 Z" fill="#F6F4EE" opacity="0.9"/>
+            <path d="M 54,20 L 60,29 L 54,31 L 48,29 Z" fill="#F6F4EE" opacity="0.9"/>
+            <!-- 3 Rising Homebuying Data Bars Forming a House Gable Roofline -->
+            <rect x="19" y="46" width="10" height="18" rx="2" fill="#F6F4EE"/>
+            <rect x="35" y="37" width="10" height="27" rx="2" fill="#F6F4EE"/>
+            <rect x="51" y="29" width="10" height="35" rx="2" fill="#C86D3B"/>
+            <!-- Roof Pitch Trend Line over the Bars -->
+            <polyline points="17,44 40,24 63,34" fill="none" stroke="#C86D3B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="24" r="3.2" fill="#F6F4EE" stroke="#C86D3B" stroke-width="2"/>
+          </g>
+        </defs>
+      </svg>
+
+      <!-- Lockup A: Primary Editorial Masthead on Warm Paper (#F6F4EE) -->
+      <div class="lockup-box lockup-paper">
+        <svg width="66" height="66" viewBox="0 0 80 80"><use href="#idaho-mark"/></svg>
+        <div>
+          <div style="font-size:9.5px; font-weight:800; color:#C86D3B; letter-spacing:1.1px; text-transform:uppercase;">IDAHO HOUSING &amp; MARKET INTELLIGENCE</div>
+          <div class="serif" style="font-size:21px; font-weight:800; color:#143828; line-height:1.08;">Idaho Homebuying</div>
+          <div style="font-size:11px; font-weight:700; color:#1B365D; margin-top:2px;">Data &amp; Research Publication</div>
+        </div>
+      </div>
+
+      <!-- Lockup B: Dark Sawtooth Pine Masthead (#143828) -->
+      <div class="lockup-box lockup-pine">
+        <svg width="62" height="62" viewBox="0 0 80 80">
+          <rect x="4" y="4" width="72" height="72" rx="16" fill="#F6F4EE"/>
+          <path d="M 12,50 L 28,26 L 41,40 L 54,20 L 68,50 Z" fill="#143828" opacity="0.22"/>
+          <rect x="19" y="46" width="10" height="18" rx="2" fill="#143828"/>
+          <rect x="35" y="37" width="10" height="27" rx="2" fill="#1B365D"/>
+          <rect x="51" y="29" width="10" height="35" rx="2" fill="#C86D3B"/>
+          <polyline points="17,44 40,24 63,34" fill="none" stroke="#C86D3B" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div style="font-size:9.5px; font-weight:800; color:#E8A57B; letter-spacing:1.1px; text-transform:uppercase;">SUBSTACK • WEB • PRINT REPORT</div>
+          <div class="serif" style="font-size:20px; font-weight:800; color:#F6F4EE; line-height:1.08;">Idaho Homebuying</div>
+          <div style="font-size:11px; font-weight:600; color:#CBD5E1; margin-top:2px;">Clear Data for Confident Buyers</div>
+        </div>
+      </div>
+
+      <!-- Sub-Marks: Chart Watermark, Social Avatar & 1-Color Ink Stamp -->
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:7px; margin-bottom:9px;">
+        <div style="background:#FBF9F5; border:1px solid #DED8CA; border-radius:8px; padding:7px; text-align:center;">
+          <svg width="38" height="38" viewBox="0 0 80 80"><use href="#idaho-mark"/></svg>
+          <div style="font-size:9.5px; font-weight:800; color:#143828; margin-top:2px;">Avatar / Favicon</div>
+          <div style="font-size:8.5px; color:#68736D;">16px – 512px</div>
+        </div>
+        <div style="background:#FBF9F5; border:1px solid #DED8CA; border-radius:8px; padding:7px; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+          <div style="border:1.5px solid #143828; border-radius:5px; padding:4px 8px; font-size:10px; font-weight:800; color:#143828;">
+            📊 SOURCE: IHD
+          </div>
+          <div style="font-size:9.5px; font-weight:800; color:#143828; margin-top:6px;">Chart Badge</div>
+          <div style="font-size:8.5px; color:#68736D;">Footer Stamp</div>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #DED8CA; border-radius:8px; padding:7px; text-align:center;">
+          <svg width="38" height="38" viewBox="0 0 80 80">
+            <rect x="4" y="4" width="72" height="72" rx="16" fill="none" stroke="#000" stroke-width="4"/>
+            <rect x="19" y="46" width="10" height="18" rx="1" fill="#000"/>
+            <rect x="35" y="37" width="10" height="27" rx="1" fill="#000"/>
+            <rect x="51" y="29" width="10" height="35" rx="1" fill="#000"/>
+            <polyline points="17,41 40,22 63,32" fill="none" stroke="#000" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div style="font-size:9.5px; font-weight:800; color:#000; margin-top:2px;">1-Color Print</div>
+          <div style="font-size:8.5px; color:#68736D;">Pure Black Ink</div>
+        </div>
+      </div>
+
+      <!-- Editorial Typography Hierarchy -->
+      <div style="background:#FBF9F5; border:1px solid #DED8CA; border-radius:9px; padding:8px 10px;">
+        <div style="font-size:10px; font-weight:800; color:#C86D3B; text-transform:uppercase; margin-bottom:4px;">Editorial Typography Pairing (Google Fonts)</div>
+        <div class="serif" style="font-size:14px; font-weight:800; color:#143828;">Fraunces / Georgia Bold — Article &amp; Chart Headlines</div>
+        <div style="font-size:11px; color:#33413B; margin-top:2px;"><b>Plus Jakarta Sans</b> — Scannable Body Copy, Axis Labels &amp; Buyer Checklists</div>
+        <div class="mono" style="font-size:10.5px; color:#1B365D; margin-top:2px;"><b>JetBrains Mono</b> — Tabular Prices ($482,500), Rates (6.35%) &amp; FIPS Codes</div>
+      </div>
+    </div>
+
+    <!-- Approved Idaho Palette -->
+    <div>
+      <div style="font-size:10px; font-weight:800; color:#143828; text-transform:uppercase; margin-top:6px;">Idaho Editorial &amp; Data Visualization Palette</div>
+      <div class="swatch-grid">
+        <div class="sw"><div class="sw-c" style="background:#143828;"></div><div class="sw-t"><b>Sawtooth Pine</b><br><span class="mono">#143828</span><br>Primary Series</div></div>
+        <div class="sw"><div class="sw-c" style="background:#1B365D;"></div><div class="sw-t"><b>Boise Slate</b><br><span class="mono">#1B365D</span><br>Comparison</div></div>
+        <div class="sw"><div class="sw-c" style="background:#C86D3B;"></div><div class="sw-t"><b>Syringa Copper</b><br><span class="mono">#C86D3B</span><br>Highlight / Alert</div></div>
+        <div class="sw"><div class="sw-c" style="background:#F6F4EE; border-bottom:1px solid #E2DDD2;"></div><div class="sw-t"><b>Warm Paper</b><br><span class="mono">#F6F4EE</span><br>Editorial Canvas</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 2: FLAGSHIP EDITORIAL DATA VISUALIZATION TEMPLATES             -->
+  <!-- ===================================================================== -->
+  <div class="sheet-card">
+    <div>
+      <div class="sec-hdr">
+        <span class="sec-title serif">2. Standardized Publication Chart Templates</span>
+        <span class="sec-num">Print &amp; Mobile Ready</span>
+      </div>
+
+      <!-- CHART TEMPLATE 1: MULTI-SERIES TIME SERIES WITH CALLOUT ANNOTATION -->
+      <div class="chart-card">
+        <div class="chart-kicker">FIGURE 1 • TREASURE VALLEY AFFORDABILITY TRACKER</div>
+        <div class="chart-hed serif">Ada County Median Home Price vs. Qualifying Household Income</div>
+        <div class="chart-dek">While Boise metro prices stabilized at <b>$518,000</b> in Q3 2026, lower 30-year fixed rates (<b>6.15%</b>) reduced monthly P&amp;I payments by $290/mo from the 2024 peak.</div>
+
+        <svg width="100%" height="185" viewBox="0 0 460 175" style="background:#FFFFFF; border:1px solid #E5DFD3; border-radius:6px; padding:4px;">
+          <!-- Horizontal Warm Gridlines -->
+          <g stroke="#EAE5D9" stroke-width="1">
+            <line x1="42" y1="22" x2="442" y2="22"/>
+            <line x1="42" y1="54" x2="442" y2="54"/>
+            <line x1="42" y1="86" x2="442" y2="86"/>
+            <line x1="42" y1="118" x2="442" y2="118"/>
+            <line x1="42" y1="146" x2="442" y2="146" stroke="#143828" stroke-width="1.4"/>
+          </g>
+          <!-- Y-Axis Labels -->
+          <g font-family="monospace" font-size="9" fill="#5A655E" text-anchor="end">
+            <text x="38" y="25">$600k</text>
+            <text x="38" y="57">$500k</text>
+            <text x="38" y="89">$400k</text>
+            <text x="38" y="121">$300k</text>
+            <text x="38" y="149">$200k</text>
+          </g>
+          <!-- X-Axis Years -->
+          <g font-family="monospace" font-size="9" fill="#143828" font-weight="700" text-anchor="middle">
+            <text x="58" y="162">2019</text>
+            <text x="112" y="162">2020</text>
+            <text x="166" y="162">2021</text>
+            <text x="220" y="162">2022</text>
+            <text x="274" y="162">2023</text>
+            <text x="328" y="162">2024</text>
+            <text x="382" y="162">2025</text>
+            <text x="428" y="162">2026</text>
+          </g>
+
+          <!-- Shaded Affordability Gap Zone -->
+          <polygon points="58,108 112,92 166,52 220,36 274,56 328,50 382,48 428,47 428,96 382,98 328,102 274,108 220,115 166,122 112,126 58,129"
+                   fill="#C86D3B" opacity="0.14"/>
+
+          <!-- Series 1: Ada County (Boise) Median Sale Price (Sawtooth Pine #143828) -->
+          <polyline points="58,108 112,92 166,52 220,36 274,56 328,50 382,48 428,47"
+                    fill="none" stroke="#143828" stroke-width="2.8"/>
+
+          <!-- Series 2: Canyon County (Nampa/Caldwell) Median Price (Boise Slate #1B365D) -->
+          <polyline points="58,129 112,118 166,86 220,72 274,88 328,84 382,82 428,80"
+                    fill="none" stroke="#1B365D" stroke-width="2.4" stroke-dasharray="5,3"/>
+
+          <!-- Highlight Data Points -->
+          <circle cx="220" cy="36" r="4" fill="#C86D3B" stroke="#FFF" stroke-width="1.5"/>
+          <circle cx="428" cy="47" r="4.5" fill="#143828" stroke="#FFF" stroke-width="1.5"/>
+          <circle cx="428" cy="80" r="4" fill="#1B365D" stroke="#FFF" stroke-width="1.5"/>
+
+          <!-- Editorial Callout Annotation Box inside Chart -->
+          <rect x="228" y="12" width="138" height="28" rx="4" fill="#FFF7ED" stroke="#C86D3B" stroke-width="1"/>
+          <text x="234" y="23" font-family="sans-serif" font-size="8.5" font-weight="800" fill="#9A3412">Peak: May 2022 ($562k)</text>
+          <text x="234" y="34" font-family="sans-serif" font-size="8" fill="#4A5550">Pandemic migration surge</text>
+
+          <!-- Direct Line Labels on Right -->
+          <text x="424" y="39" font-family="monospace" font-size="8.5" font-weight="800" fill="#143828" text-anchor="end">Ada: $518k</text>
+          <text x="424" y="73" font-family="monospace" font-size="8.5" font-weight="800" fill="#1B365D" text-anchor="end">Canyon: $412k</text>
+        </svg>
+
+        <div class="chart-foot">
+          <span><b>Source:</b> Intermountain MLS (IMLS) &amp; IHFA Single-Family Closings (Q3 2026)</span>
+          <span class="mono" style="color:#143828; font-weight:800;">IDAHO HOMEBUYING DESK</span>
+        </div>
+      </div>
+
+      <!-- CHART TEMPLATE 2: HORIZONTAL COUNTY COMPARISON BAR TABLE -->
+      <div class="chart-card" style="margin-bottom:0;">
+        <div class="chart-kicker">FIGURE 2 • REGIONAL BUYER COMPARISON</div>
+        <div class="chart-hed serif">Where $450,000 Buys a Move-In Ready 3-Bedroom Home in Idaho</div>
+        <div class="chart-dek">Share of active single-family listings priced at or below <b>$450,000</b> across six major Idaho counties (October 2026):</div>
+
+        <svg width="100%" height="152" viewBox="0 0 460 148" style="background:#FFFFFF; border:1px solid #E5DFD3; border-radius:6px; padding:6px;">
+          <g font-family="sans-serif" font-size="10" font-weight="700" fill="#143828">
+            <text x="8" y="23">Twin Falls County</text>
+            <text x="8" y="46">Bannock (Pocatello)</text>
+            <text x="8" y="69">Canyon (Nampa)</text>
+            <text x="8" y="92">Bonneville (Idaho Falls)</text>
+            <text x="8" y="115">Ada County (Boise)</text>
+            <text x="8" y="138">Kootenai (Coeur d'Alene)</text>
+          </g>
+          <!-- Background Track Bars -->
+          <g fill="#F1EFEA">
+            <rect x="145" y="12" width="255" height="14" rx="3"/>
+            <rect x="145" y="35" width="255" height="14" rx="3"/>
+            <rect x="145" y="58" width="255" height="14" rx="3"/>
+            <rect x="145" y="81" width="255" height="14" rx="3"/>
+            <rect x="145" y="104" width="255" height="14" rx="3"/>
+            <rect x="145" y="127" width="255" height="14" rx="3"/>
+          </g>
+          <!-- Data Fill Bars -->
+          <rect x="145" y="12" width="188" height="14" rx="3" fill="#143828"/>
+          <rect x="145" y="35" width="176" height="14" rx="3" fill="#143828"/>
+          <rect x="145" y="58" width="158" height="14" rx="3" fill="#C86D3B"/>
+          <rect x="145" y="81" width="138" height="14" rx="3" fill="#1B365D"/>
+          <rect x="145" y="104" width="76" height="14" rx="3" fill="#1B365D"/>
+          <rect x="145" y="127" width="52" height="14" rx="3" fill="#68736D"/>
+
+          <!-- Value Labels -->
+          <g font-family="monospace" font-size="9.5" font-weight="800" fill="#143828">
+            <text x="408" y="23">74% ($378k)</text>
+            <text x="408" y="46">69% ($365k)</text>
+            <text x="408" y="69" fill="#C86D3B">62% ($412k)</text>
+            <text x="408" y="92">54% ($429k)</text>
+            <text x="408" y="115">30% ($518k)</text>
+            <text x="408" y="138">20% ($565k)</text>
+          </g>
+        </svg>
+
+        <div class="chart-foot">
+          <span><b>Note:</b> Copper bar highlights best Treasure Valley commuter value (Canyon County).</span>
+          <span class="mono" style="color:#143828; font-weight:800;">CC-BY IDAHO DATA DESK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- COLUMN 3: EDITORIAL ARTICLE LAYOUT, BUYER CHECKLIST & COMPONENT KIT   -->
+  <!-- ===================================================================== -->
+  <div class="sheet-card">
+    <div class="sec-hdr">
+      <span class="sec-title serif">3. Editorial Guide &amp; Reader UI Kit</span>
+      <span class="sec-num">Article + Newsletter</span>
+    </div>
+
+    <div class="article-mock">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #DED8CA; padding-bottom:6px; margin-bottom:8px;">
+          <span style="background:#143828; color:#F6F4EE; font-size:9px; font-weight:800; padding:2px 7px; border-radius:4px; letter-spacing:0.5px;">2026 BUYER FIELD GUIDE</span>
+          <span class="mono" style="font-size:9.5px; color:#68736D;">5 MIN READ • UPDATED MONTHLY</span>
+        </div>
+
+        <h2 class="serif" style="font-size:17.5px; font-weight:800; color:#143828; line-height:1.22; margin-bottom:6px;">
+          How Idaho’s $125,000 Homeowner Tax Exemption Cuts Your Monthly Payment
+        </h2>
+        <p style="font-size:11px; color:#33413B; line-height:1.46; margin-bottom:6px;">
+          Many first-time buyers calculate property taxes using out-of-state rules. In Idaho, primary residences qualify for an automatic <b>50% exemption up to $125,000</b> of assessed value—saving a typical Boise homeowner <b>$1,140 per year</b> ($95/month) from day one.
+        </p>
+
+        <!-- Standardized "Key Buyer Takeaway" Callout Component -->
+        <div class="takeaway-box">
+          <div style="font-size:9.5px; font-weight:800; color:#C86D3B; text-transform:uppercase; letter-spacing:0.5px;">💡 Key Data Takeaway for 2026 Buyers</div>
+          <div style="font-size:10.8px; color:#143828; font-weight:700; margin-top:2px; line-height:1.38;">
+            Filing takes 3 minutes online with your County Assessor after closing. There is no occupancy waiting period—file before December 31 to lock in your full reduction.
+          </div>
+        </div>
+
+        <!-- Standardized "3-Step Buyer Action Checklist" Component -->
+        <div style="background:#FFFFFF; border:1px solid #DED8CA; border-radius:9px; padding:9px 11px; margin-top:8px;">
+          <div style="font-size:10.5px; font-weight:800; color:#143828; margin-bottom:6px; display:flex; justify-content:space-between;">
+            <span>IDAHO CLOSING READINESS CHECKLIST</span>
+            <span class="mono" style="color:#C86D3B;">3 STEPS</span>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:6px; font-size:10.3px; color:#33413B;">
+            <div style="display:flex; gap:7px; align-items:flex-start;">
+              <span style="background:#143828; color:#FFF; font-weight:800; font-size:9px; padding:2px 5px; border-radius:4px;">01</span>
+              <div><b>Compare IHFA First-Loan Rates:</b> Check Idaho Housing &amp; Finance Association’s <i>Idaho Heroes</i> &amp; 0.5% below-market fixed programs.</div>
+            </div>
+            <div style="display:flex; gap:7px; align-items:flex-start;">
+              <span style="background:#1B365D; color:#FFF; font-weight:800; font-size:9px; padding:2px 5px; border-radius:4px;">02</span>
+              <div><b>Verify Subdivision HOA &amp; Irrigation Fees:</b> In Meridian &amp; Kuna, seasonal pressurized irrigation costs $180–$320/yr.</div>
+            </div>
+            <div style="display:flex; gap:7px; align-items:flex-start;">
+              <span style="background:#C86D3B; color:#FFF; font-weight:800; font-size:9px; padding:2px 5px; border-radius:4px;">03</span>
+              <div><b>Submit Homeowner’s Exemption Receipt:</b> Upload your recorded warranty deed to the county portal within 30 days of move-in.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standardized Metric Summary Strip Component -->
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-top:9px;">
+        <div style="background:#143828; color:#F6F4EE; border-radius:8px; padding:7px 8px; text-align:center;">
+          <div style="font-size:8.5px; color:#A7F3D0; text-transform:uppercase; font-weight:700;">Statewide Median</div>
+          <div class="mono" style="font-size:14px; font-weight:800;">$448,900</div>
+          <div style="font-size:8.5px; color:#D1FAE5;">-1.4% YoY</div>
+        </div>
+        <div style="background:#1B365D; color:#F6F4EE; border-radius:8px; padding:7px 8px; text-align:center;">
+          <div style="font-size:8.5px; color:#BAE6FD; text-transform:uppercase; font-weight:700;">Active Inventory</div>
+          <div class="mono" style="font-size:14px; font-weight:800;">3.8 Mos</div>
+          <div style="font-size:8.5px; color:#E0F2FE;">Balanced Market</div>
+        </div>
+        <div style="background:#C86D3B; color:#FFFFFF; border-radius:8px; padding:7px 8px; text-align:center;">
+          <div style="font-size:8.5px; color:#FFEDD5; text-transform:uppercase; font-weight:700;">Avg Days on Mkt</div>
+          <div class="mono" style="font-size:14px; font-weight:800;">44 Days</div>
+          <div style="font-size:8.5px; color:#FFEDD5;">Buyer Leverage</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:8px; font-size:9.8px; color:#4A5550; background:#F6F4EE; border:1px solid #D8D2C5; border-radius:7px; padding:6px 9px;">
+      <b>✔ Complete Handover Package:</b> Vector <code>.AI / .SVG / .EPS</code> Logos + Figma/Canva Chart Templates + CSS/HTML Substack &amp; Web Style Guide.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
