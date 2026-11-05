@@ -3,25 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Stage 1 Walkthrough Video — Arabic RTL, English LTR & WhatsApp Flow</title>
+<title>Stage 1 Complete Delivery — dachdigitalwerk (Entry #31)</title>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#111614;color:#f6f3ec;font-family:system-ui,-apple-system,sans-serif;padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:18px;min-height:100vh}
-  h1{font-size:22px;text-align:center}
-  p{font-size:14px;color:#9eb3aa;text-align:center;max-width:680px;line-height:1.5}
-  .links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-  .btn{background:#1f5a4e;color:#fffdf9;text-decoration:none;padding:10px 18px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid #3c8d7c}
-  video{width:360px;max-width:100%;border-radius:16px;border:2px solid #2c3833;box-shadow:0 16px 40px rgba(0,0,0,0.45);background:#000}
+  body{background:#111614;color:#f6f3ec;font-family:system-ui,-apple-system,sans-serif;padding:32px 20px;line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;display:grid;gap:28px}
+  .hero{background:#181f1c;border:1px solid #2c3833;border-radius:16px;padding:28px;display:grid;gap:16px}
+  .badges{display:flex;gap:10px;flex-wrap:wrap}
+  .badge{background:#1f5a4e;color:#fffdf9;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid #3c8d7c}
+  .badge.gold{background:#2b2314;color:#f3c66f;border-color:#8a6823}
+  h1{font-size:26px;color:#fffdf9}
+  h2{font-size:20px;color:#7cc3b1;border-bottom:1px solid #2a3631;padding-bottom:8px;margin-bottom:12px}
+  .links{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{background:#1f5a4e;color:#fffdf9;text-decoration:none;padding:11px 18px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid #3c8d7c;display:inline-flex;align-items:center;gap:6px}
+  .btn.sec{background:#202925;border-color:#3a4a43}
+  .grid-2{display:grid;grid-template-columns:380px 1fr;gap:24px;align-items:start}
+  @media(max-width:860px){.grid-2{grid-template-columns:1fr}}
+  .card{background:#181f1c;border:1px solid #2c3833;border-radius:16px;padding:24px}
+  video{width:100%;max-width:360px;border-radius:14px;border:2px solid #2c3833;background:#000;display:block;margin:0 auto}
+  pre{background:#0d1110;border:1px solid #25302b;border-radius:10px;padding:16px;overflow-x:auto;font-family:ui-monospace,monospace;font-size:13px;color:#d8e3de;white-space:pre-wrap}
+  img.board{width:100%;border-radius:12px;border:1px solid #2c3833}
 </style>
 </head>
 <body>
-  <h1>Stage 1 Mobile Walkthrough (2m 05s) — Arabic (RTL), English (LTR) &amp; WhatsApp</h1>
-  <p>Demonstrating Checklist A–E on our live Node 20 Docker deployment (360×800 mobile viewport): Arabic RTL restatement → answer with verbatim Sanad [1] → shared link /t/&lt;id&gt; → Task Card → English LTR switch → WhatsApp Cloud API webhook flow.</p>
-  <div class="links">
-    <a class="btn" href="https://qawebkit-dachdigitalwerksorg-8080.ignite.dodil.cloud" target="_blank">Open Live HTTPS PWA App ↗</a>
-    <a class="btn" href="https://qawebkit-dachdigitalwerksorg-8080.ignite.dodil.cloud/health" target="_blank">Check GET /health ↗</a>
-    <a class="btn" href="./walkthrough.webm" download>Download Video (.webm) ⬇</a>
+<div class="wrap">
+  <div class="hero">
+    <div class="badges">
+      <span class="badge gold">Entry #31 — dachdigitalwerk (Stage 1 Finalist)</span>
+      <span class="badge">Contract Tests: 7 / 7 PASS</span>
+      <span class="badge">Checklist A–E: 26 / 26 PASS</span>
+      <span class="badge">Kit Kept Strictly Private</span>
+    </div>
+    <h1>Stage 1 Complete Delivery — Arabic (RTL) &amp; English PWA + WhatsApp Cloud API</h1>
+    <p style="color:#a9bab2">Deployed with Docker (<code>node:20-alpine</code>) over HTTPS. Zero changes to API contract, source display, or quotes. Zero secrets in browser.</p>
+    <div class="links">
+      <a class="btn" href="https://qawebkit-dachdigitalwerksorg-8080.ignite.dodil.cloud" target="_blank">1. Open Live HTTPS PWA App ↗</a>
+      <a class="btn sec" href="https://qawebkit-dachdigitalwerksorg-8080.ignite.dodil.cloud/health" target="_blank">GET /health ({"ok":true,"mode":"demo"}) ↗</a>
+      <a class="btn sec" href="https://qawebkit-dachdigitalwerksorg-8080.ignite.dodil.cloud/webhook/whatsapp?hub.mode=subscribe&hub.verify_token=qa-sanad-verify-2026&hub.challenge=123456789" target="_blank">Test GET /webhook/whatsapp Verify ↗</a>
+      <a class="btn sec" href="./walkthrough.webm" download>Download Phone Video (.webm) ⬇</a>
+      <a class="btn sec" href="./ACCEPTANCE-CHECKLIST.md" target="_blank">Raw ACCEPTANCE-CHECKLIST.md ↗</a>
+      <a class="btn sec" href="./CHANGES.md" target="_blank">Raw CHANGES.md ↗</a>
+    </div>
   </div>
-  <video controls autoplay muted playsinline src="./walkthrough.webm"></video>
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>2. Phone Video (2m 05s — AR, EN &amp; WhatsApp)</h2>
+      <video controls autoplay muted playsinline src="./walkthrough.webm"></video>
+    </div>
+    <div class="card">
+      <h2>3. Filled Acceptance Checklist (A1–E4: 26/26 PASS)</h2>
+      <pre id="chk">Loading checklist...</pre>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>4. CHANGES.md (Small Surgical Fixes &amp; Deployment Notes)</h2>
+    <pre id="chg">Loading CHANGES.md...</pre>
+  </div>
+
+  <div class="card">
+    <h2>5. Visual Overview Board (360×800 Mobile Screens A–E)</h2>
+    <img class="board" src="./board.png" alt="Stage 1 Overview Board">
+  </div>
+</div>
+<script>
+  fetch('./ACCEPTANCE-CHECKLIST.md').then(r=>r.text()).then(t=>{document.getElementById('chk').textContent=t;});
+  fetch('./CHANGES.md').then(r=>r.text()).then(t=>{document.getElementById('chg').textContent=t;});
+</script>
 </body>
 </html>
