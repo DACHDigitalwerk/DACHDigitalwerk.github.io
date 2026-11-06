@@ -1580,4 +1580,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://dachdigitalwerk.github.io/nis2-dora-compliance-generator/</loc>
+    <Priority>0.95</Priority>
+  </url>
 </urlset>
