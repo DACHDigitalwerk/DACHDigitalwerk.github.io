@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIS-2 & DORA Compliance-Check + ? 30 BSIG Incident-Response-Generator | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser interaktiver NIS-2 & DORA Betroffenheits-Check, ? 30 BSIG Reifegrad-Rechner und Generator f?r 24h/72h Incident-Response-Richtlinien & Lieferketten-Sicherheitsnachweise f?r DACH-KMU." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/nis2-dora-compliance-generator/" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #131b33;
+      --border: #263359;
+      --accent: #38bdf8;
+      --accent2: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.9rem;
+    }
+    h1 { font-size: clamp(1.65rem, 3.5vw, 2.4rem); margin-bottom: 0.75rem; }
+    .subtitle { max-width: 780px; margin: 0 auto 1.25rem; color: var(--muted); font-size: 1.02rem; }
+    .container { max-width: 1120px; margin: 2rem auto; padding: 0 1.25rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    h2 { font-size: 1.28rem; margin-bottom: 1rem; color: #fff; }
+    label { display: block; font-size: 0.9rem; font-weight: 600; margin: 0.75rem 0 0.3rem; color: #cbd5e1; }
+    input[type="text"], input[type="email"], select {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #0b1329;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+    .check-group { margin-top: 0.85rem; }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: 8px;
+      background: rgba(15, 23, 42, 0.55);
+      margin-bottom: 0.45rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .check-item input { margin-top: 0.25rem; accent-color: var(--accent2); }
+    .score-box {
+      padding: 1.1rem;
+      border-radius: 10px;
+      background: #0b1329;
+      border: 1px solid var(--border);
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .score-num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.92; }
+    .btn-primary { background: var(--accent); color: #081024; }
+    .btn-success { background: var(--accent2); color: #052014; }
+    .btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+    textarea {
+      width: 100%;
+      min-height: 390px;
+      background: #080d1c;
+      color: #e2e8f0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      margin-top: 0.75rem;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.9rem; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+    .price-card {
+      background: #0d152c;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+    .price-card.featured { border-color: var(--accent2); box-shadow: 0 0 0 1px var(--accent2); }
+    .price-tag { font-size: 1.75rem; font-weight: 800; color: #fff; margin: 0.4rem 0; }
+    ul.features { list-style: none; margin: 0.85rem 0 1.2rem; }
+    ul.features li { margin-bottom: 0.45rem; font-size: 0.9rem; color: #cbd5e1; }
+    ul.features li::before { content: "? "; color: var(--accent2); font-weight: bold; }
+    footer { text-align: center; padding: 2rem 1rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">? 30 & ? 32 BSIG (NIS-2-Umsetzungsgesetz) ? EU DORA ? Lieferketten-Compliance 2026</div>
+    <h1>NIS-2 & DORA Cyber-Compliance-Check + Incident-Response-Generator</h1>
+    <p class="subtitle">
+      Pr?fen Sie in 60 Sekunden Ihre NIS-2- / Lieferketten-Betroffenheit, berechnen Sie Ihren ? 30 BSIG Reifegrad-Score und generieren Sie sofort Ihren audit-f?higen <strong>24h/72h Incident-Response-Plan & B2B-Lieferketten-Sicherheitsnachweis</strong>.
+    </p>
+    <div style="margin-top:1rem;">
+      <a class="btn btn-success" href="nis2-dora-notfallplan-kit-v1.0.zip" download>? Kostenloses NIS-2 Notfallplan-Starter-Kit (.ZIP) herunterladen</a>
+      <a class="btn btn-outline" href="https://dachdigitalwerk.github.io/" style="margin-left:0.5rem;">? Alle DACH Digitalwerk Tools</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>1. Unternehmensdaten & NIS-2 / DORA Einstufung</h2>
+        <label for="company">Unternehmensname / Organisation</label>
+        <input type="text" id="company" value="Muster Industrie & IT GmbH" oninput="generateDoc()" />
+
+        <label for="ciso">Verantwortliche Person (Gesch?ftsf?hrung ? 38 BSIG / IT-Sicherheitsbeauftragter)</label>
+        <input type="text" id="ciso" value="Max Mustermann (Gesch?ftsf?hrer)" oninput="generateDoc()" />
+
+        <label for="email">Notfall-Kontakt-E-Mail (24/7 Incident Desk / Security-Kontakt)</label>
+        <input type="email" id="email" value="security@muster-gmbh.de" oninput="generateDoc()" />
+
+        <label for="sector">Sektor / Rolle in der Lieferkette (? 28 BSIG / DORA)</label>
+        <select id="sector" onchange="generateDoc()">
+          <option value="it_msp">IT-Dienstleister / Managed Service Provider / Cloud- & Software-Anbieter (Anlage 1 / DORA IKT)</option>
+          <option value="manufacturing">Verarbeitendes Gewerbe / Maschinenbau / Fahrzeugbau / Elektrotechnik (Anlage 2)</option>
+          <option value="energy_infra">Energie, Wasser, Transport, Gesundheit oder digitale Infrastruktur (Anlage 1)</option>
+          <option value="supplier">B2B-Zulieferer / Dienstleister f?r NIS-2-regulierte Gro?kunden (? 30 Abs. 2 Nr. 4 BSIG Lieferkette)</option>
+          <option value="finance_dora">Finanzwesen / Versicherung / IKT-Drittdienstleister unter EU DORA</option>
+        </select>
+
+        <label for="size">Unternehmensgr??e (Mitarbeitende & Jahresumsatz)</label>
+        <select id="size" onchange="generateDoc()">
+          <option value="kmu_supply">Unter 50 MA / &lt; 10 Mio. ? Umsatz (indirekt ?ber B2B-Lieferketten-Vertr?ge verpflichtet)</option>
+          <option value="important" selected>Ab 50 MA oder &gt; 10 Mio. ? Umsatz (?Wichtige Einrichtung" gem. ? 28 Abs. 2 BSIG)</option>
+          <option value="essential">Ab 250 MA oder &gt; 50 Mio. ? Umsatz (?Besonders wichtige Einrichtung" gem. ? 28 Abs. 1 BSIG)</option>
+        </select>
+
+        <h2 style="margin-top:1.4rem;">2. ? 30 Abs. 2 BSIG Mindestma?nahmen-Check (10 Punkte)</h2>
+        <div class="check-group" id="measures">
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Risikoanalyse & Konzepte f?r die Sicherheit von Informationssystemen (? 30 Abs. 2 Nr. 1 BSIG)" /> <span><strong>Nr. 1:</strong> Dokumentierte Risikoanalyse & IT-Sicherheitsrichtlinie vorhanden</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Bew?ltigung von Sicherheitsvorf?llen inkl. 24h/72h BSI-Meldeprozess (? 30 Abs. 2 Nr. 2 & ? 32 BSIG)" /> <span><strong>Nr. 2:</strong> 24h-Fr?hwarnung & 72h-Incident-Response-Meldeprozess definiert</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Aufrechterhaltung des Betriebs: 3-2-1-1-0 Immutable Backups & Disaster Recovery (? 30 Abs. 2 Nr. 3 BSIG)" /> <span><strong>Nr. 3:</strong> Unver?nderliche (Immutable/Offline) Backups & Notfallwiederherstellung getestet</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Sicherheit der Lieferkette & Dienstleister-Vertr?ge (? 30 Abs. 2 Nr. 4 BSIG)" /> <span><strong>Nr. 4:</strong> Lieferketten-Sicherheitsanforderungen f?r Sub-Dienstleister geregelt</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Schwachstellenmanagement, zeitnahes Patching & sichere Entwicklung (? 30 Abs. 2 Nr. 5 BSIG)" /> <span><strong>Nr. 5:</strong> Automatisiertes Patch-Management & Schwachstellen-Scanning (CVSS &ge; 9 binnen 72h)</span></label>
+          <label class="check-item"><input type="checkbox" onchange="generateDoc()" data-label="Wirksamkeitsbewertung der Cybersicherheitsma?nahmen & Penetrationstests (? 30 Abs. 2 Nr. 6 BSIG)" /> <span><strong>Nr. 6:</strong> Regelm??ige Wirksamkeitspr?fung / externes Security-Audit durchgef?hrt</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Cyberhygiene-Schulungen & Gesch?ftsleiter-Schulungspflicht (? 30 Abs. 2 Nr. 7 & ? 38 BSIG)" /> <span><strong>Nr. 7:</strong> Gesch?ftsleiter-Haftungsschulung (? 38 BSIG) & Mitarbeiter-Sensibilisierung</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Kryptografie-Konzept: TLS 1.3, HSTS, SPF/DKIM/DMARC & Vollverschl?sselung (? 30 Abs. 2 Nr. 8 BSIG)" /> <span><strong>Nr. 8:</strong> Durchg?ngige Verschl?sselung (TLS 1.3, HSTS, DMARC, Ruhedaten-Verschl?sselung)</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Personalsicherheit, Least-Privilege-Zugriffskontrolle & Offboarding (? 30 Abs. 2 Nr. 9 BSIG)" /> <span><strong>Nr. 9:</strong> Rollenbasierte Zugriffskontrolle (Least Privilege) & strukturiertes Offboarding</span></label>
+          <label class="check-item"><input type="checkbox" checked onchange="generateDoc()" data-label="Multi-Faktor-Authentifizierung (MFA) & abgesicherte Notfallkommunikation (? 30 Abs. 2 Nr. 10 BSIG)" /> <span><strong>Nr. 10:</strong> Verpflichtende Multi-Faktor-Authentifizierung (MFA) f?r alle Zug?nge</span></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>3. Live-Ergebnis & Generierter ? 30 / ? 32 BSIG Nachweis</h2>
+        <div class="score-box">
+          <div>
+            <div style="font-size:0.82rem; color:var(--muted);">Aktueller ? 30 BSIG Reifegrad-Score</div>
+            <div class="score-num" id="scoreDisplay">90% (9 / 10)</div>
+          </div>
+          <div id="statusBadge" style="padding:0.4rem 0.85rem; border-radius:8px; font-weight:700; font-size:0.88rem; background:rgba(16,185,129,0.2); color:#34d399;">
+            Einstufung: Wichtige Einrichtung (? 28 Abs. 2 BSIG)
+          </div>
+        </div>
+
+        <p style="font-size:0.88rem; color:var(--muted);">
+          Dieses Dokument dient als interner <strong>Incident-Response- & Risikomanagement-Plan (?? 30, 32, 38 BSIG)</strong> sowie als <strong>B2B-Sicherheitsnachweis f?r Auftraggeber in der Lieferkette</strong>:
+        </p>
+        <textarea id="outputDoc" readonly></textarea>
+
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="copyDoc()">?? Richtlinie & Nachweis kopieren</button>
+          <button class="btn btn-success" onclick="downloadDoc()">?? Als Markdown (.md) speichern</button>
+          <button class="btn btn-outline" onclick="window.print()">??? Als PDF drucken</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Schl?sselfertige NIS-2 & DORA Umsetzung f?r Ihr Unternehmen</h2>
+      <p style="color:var(--muted); margin-bottom:1rem;">
+        Auftraggeber fordern zunehmend einen belastbaren <strong>Lieferketten-Sicherheitsnachweis (? 30 Abs. 2 Nr. 4 BSIG)</strong> inkl. technischer Pr?fung Ihrer Au?enfl?che (TLS, HTTP-Security-Header, SPF/DKIM/DMARC, Subdomain-Risiken). W?hlen Sie Ihr Paket:
+      </p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Starter: Selbststarter-Vorlagen-Kit</h3>
+          <div class="price-tag">0 ? <span style="font-size:0.9rem; font-weight:400; color:var(--muted);">(Sofort-Download)</span></div>
+          <ul class="features">
+            <li>Interaktiver ? 30 BSIG & DORA Generator</li>
+            <li>24h/72h BSI-Vorfallmelde-Runbook (.md)</li>
+            <li>B2B-Lieferketten-Selbstauskunft (.md)</li>
+            <li>Web- & E-Mail-Hardening-Checkliste</li>
+          </ul>
+          <a class="btn btn-outline" href="nis2-dora-notfallplan-kit-v1.0.zip" download>Kostenloses .ZIP laden</a>
+        </div>
+
+        <div class="price-card featured">
+          <div style="color:var(--accent2); font-size:0.8rem; font-weight:800; text-transform:uppercase;">Beliebtestes KMU-Paket</div>
+          <h3>NIS-2 & Lieferketten-Dokumentationspaket</h3>
+          <div class="price-tag">149 ? <span style="font-size:0.9rem; font-weight:400; color:var(--muted);">zzgl. MwSt. (Festpreis)</span></div>
+          <ul class="features">
+            <li>Individuell ausgearbeitete ? 30 BSIG Sicherheitsrichtlinie</li>
+            <li>24h/72h/30d BSI-Melde- & Krisenstabs-Handbuch</li>
+            <li>Fertige B2B-Lieferketten-Garantieerkl?rung f?r Gro?kunden</li>
+            <li>Gesch?ftsf?hrer-Schulungsnachweis-Vorlage (? 38 BSIG)</li>
+          </ul>
+          <a class="btn btn-success" href="mailto:dach.digitalwerk@gmail.com?subject=Bestellung%20NIS-2%20Dokumentationspaket%20(149%20EUR)&body=Guten%20Tag%2C%0A%0Awir%20interessieren%20uns%20f%C3%BCr%20das%20NIS-2%20%26%20Lieferketten-Dokumentationspaket%20(149%20EUR)%20f%C3%BCr%20unser%20Unternehmen%3A%0A%0AUnternehmen%3A%20%0AWebsite%2FDomain%3A%20%0AAnsprechpartner%3A%20">Jetzt unverbindlich anfordern ?</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Komplett-Audit: Au?enfl?chen- & NIS-2-Pr?fbericht</h3>
+          <div class="price-tag">390 ? <span style="font-size:0.9rem; font-weight:400; color:var(--muted);">zzgl. MwSt. (binnen 48h)</span></div>
+          <ul class="features">
+            <li>Alles aus dem 149-?-Dokumentationspaket</li>
+            <li>Technisches Audit Ihrer Domain, TLS, HTTP-Header & DNS</li>
+            <li>SPF / DKIM / DMARC & E-Mail-Spoofing-Sicherheitspr?fung</li>
+            <li>Audit-Pr?fbericht + BFSG-/DSGVO-Kurzcheck zur Kunden-Vorlage</li>
+          </ul>
+          <a class="btn btn-primary" href="mailto:dach.digitalwerk@gmail.com?subject=Anfrage%20NIS-2%20Komplett-Audit%20(390%20EUR)&body=Guten%20Tag%2C%0A%0Awir%20bitten%20um%20das%20NIS-2%20Komplett-Audit%20inkl.%20Au%C3%9Fenfl%C3%A4chen-Pr%C3%BCfbericht%20(390%20EUR)%20f%C3%BCr%3A%0A%0AUnternehmen%3A%20%0ADomain%3A%20%0AAnsprechpartner%3A%20">48h-Audit beauftragen ?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>? 2026 <strong>DACH Digitalwerk</strong> ? <a href="https://dachdigitalwerk.github.io/">Startseite</a> ? <a href="https://dachdigitalwerk.github.io/bfsg-barrierefreiheit-audit-generator/">BFSG 2026 Generator</a> ? <a href="https://dachdigitalwerk.github.io/ki-kompetenz-art4-nachweis-generator/">EU AI Act Art. 4 Generator</a> ? Kontakt: <a href="mailto:dach.digitalwerk@gmail.com">dach.digitalwerk@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function generateDoc() {
+      const company = document.getElementById('company').value || 'Muster GmbH';
+      const ciso = document.getElementById('ciso').value || 'Gesch?ftsf?hrung';
+      const email = document.getElementById('email').value || 'security@example.com';
+      const sectorSel = document.getElementById('sector');
+      const sectorText = sectorSel.options[sectorSel.selectedIndex].text;
+      const sizeSel = document.getElementById('size');
+      const sizeVal = sizeSel.value;
+      const sizeText = sizeSel.options[sizeSel.selectedIndex].text;
+
+      const checks = Array.from(document.querySelectorAll('#measures input[type="checkbox"]'));
+      const implemented = [];
+      const openItems = [];
+      checks.forEach((cb, idx) => {
+        const label = cb.getAttribute('data-label');
+        if (cb.checked) implemented.push(`- [x] **Ma?nahme ${idx+1} (Umgesetzt):** ${label}`);
+        else openItems.push(`- [ ] **Ma?nahme ${idx+1} (In Umsetzung / Geplant):** ${label}`);
+      });
+
+      const pct = Math.round((implemented.length / checks.length) * 100);
+      document.getElementById('scoreDisplay').textContent = `${pct}% (${implemented.length} / ${checks.length})`;
+
+      const badge = document.getElementById('statusBadge');
+      if (sizeVal === 'essential') {
+        badge.textContent = 'Besonders wichtige Einrichtung (? 28 Abs. 1 BSIG)';
+        badge.style.background = 'rgba(239,68,68,0.2)';
+        badge.style.color = '#f87171';
+      } else if (sizeVal === 'important') {
+        badge.textContent = 'Wichtige Einrichtung (? 28 Abs. 2 BSIG)';
+        badge.style.background = 'rgba(245,158,11,0.2)';
+        badge.style.color = '#fbbf24';
+      } else {
+        badge.textContent = 'Lieferketten-Nachweispflicht (? 30 Abs. 2 Nr. 4 BSIG)';
+        badge.style.background = 'rgba(16,185,129,0.2)';
+        badge.style.color = '#34d399';
+      }
+
+      const today = new Date().toISOString().slice(0, 10);
+      const doc = `# NIS-2 / ? 30 BSIG CYBERSICHERHEITS- & INCIDENT-RESPONSE-RICHTLINIE
+**Organisation:** ${company}
+**Verantwortliche Leitung (? 38 BSIG):** ${ciso}
+**24/7 Security- & Incident-Kontakt:** ${email}
+**Sektor / Lieferketten-Rolle:** ${sectorText}
+**Regulatorische Einstufung:** ${sizeText}
+**Erstellungsdatum:** ${today} | **? 30 BSIG Erf?llungsgrad:** ${pct}% (${implemented.length}/10 Ma?nahmen)
+
+---
+
+## 1. Geltungsbereich & Gesch?ftsleiter-Verantwortung (? 38 BSIG)
+Die Gesch?ftsleitung von **${company}** billigt diese Cybersicherheits- und Risikomanagement-Richtlinie gem?? ? 30 und ? 38 BSIG (NIS-2-Umsetzungsgesetz) sowie Art. 21 der Richtlinie (EU) 2022/2555 und ?berwacht deren kontinuierliche Umsetzung.
+
+## 2. Umgesetzte technische & organisatorische Ma?nahmen (? 30 Abs. 2 Nr. 1?10 BSIG)
+${implemented.join('\n') || '- Keine Ma?nahmen ausgew?hlt'}
+
+${openItems.length ? '### Offene Ma?nahmen (Ma?nahmenplan / Roadmap):\n' + openItems.join('\n') + '\n' : ''}
+## 3. Verbindlicher 24h / 72h Incident-Response- & BSI-Meldeprozess (? 32 BSIG)
+Bei erheblichen Sicherheitsvorf?llen gilt folgender dreistufiger Eskalations- und Meldeablauf:
+1. **Stufe 1 ? Fr?hwarnung binnen 24 Stunden (? 32 Abs. 1 Nr. 1 BSIG):**
+   Unverz?gliche Meldung an das BSI sowie betroffene B2B-Auftraggeber ?ber \`${email}\` mit Angabe, ob der Vorfall mutma?lich auf rechtswidrige/b?swillige Handlungen zur?ckgeht oder grenz?berschreitende Auswirkungen hat.
+2. **Stufe 2 ? Qualifizierte Vorfallmeldung binnen 72 Stunden (? 32 Abs. 1 Nr. 2 BSIG):**
+   Bewertung des Schweregrads, der betroffenen Dienste sowie bekannter Kompromittierungsindikatoren (IoCs).
+3. **Stufe 3 ? Abschlussbericht binnen 30 Tagen (? 32 Abs. 1 Nr. 4 BSIG):**
+   Ursachenanalyse (Root Cause Analysis), getroffene Abhilfema?nahmen und Pr?ventionsschritte.
+
+## 4. B2B-Lieferketten-Sicherheitsbest?tigung (? 30 Abs. 2 Nr. 4 BSIG)
+**${company}** best?tigt gegen?ber seinen B2B-Auftraggebern die Einhaltung der oben aufgef?hrten Sicherheitsma?nahmen zum Schutz der gemeinsamen Lieferkette und informiert Auftraggeber unverz?glich ?ber sicherheitsrelevante Vorf?lle mit Bezug zu bereitgestellten Diensten oder Schnittstellen.
+
+---
+*Generiert mit dem DACH Digitalwerk NIS-2 & DORA Compliance-Generator (https://dachdigitalwerk.github.io/nis2-dora-compliance-generator/)*`;
+
+      document.getElementById('outputDoc').value = doc;
+    }
+
+    function copyDoc() {
+      const el = document.getElementById('outputDoc');
+      el.select();
+      navigator.clipboard.writeText(el.value);
+      alert('NIS-2 Richtlinie & Lieferketten-Nachweis in die Zwischenablage kopiert!');
+    }
+
+    function downloadDoc() {
+      const text = document.getElementById('outputDoc').value;
+      const blob = new Blob([text], { type: 'text/markdown;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'NIS2_BSIG_Incident_Response_und_Lieferketten_Nachweis.md';
+      a.click();
+    }
+
+    generateDoc();
+  </script>
+</body>
+</html>
