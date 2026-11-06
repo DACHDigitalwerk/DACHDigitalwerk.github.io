@@ -1582,6 +1582,6 @@
   </url>
   <url>
     <loc>https://dachdigitalwerk.github.io/nis2-dora-compliance-generator/</loc>
-    <Priority>0.95</Priority>
+    <priority>0.95</priority>
   </url>
 </urlset>
