@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EU AI Act Art. 4 KI-Kompetenz-Nachweis & KI-Richtlinien-Generator (DE/AT/CH) | DACH Digitalwerk</title>
+  <meta name="description" content="Kostenloser Generator f?r Ihre interne KI-Richtlinie (AI Policy), den gesetzlichen KI-Kompetenznachweis nach Artikel 4 EU AI Act (KI-Verordnung) und Transparenzhinweise nach Art. 50 f?r DACH-KMU & Agenturen." />
+  <link rel="canonical" href="https://dachdigitalwerk.github.io/ki-kompetenz-art4-nachweis-generator/" />
+  <style>
+    :root { --bg:#0b1120; --card:#111827; --border:#334155; --text:#f8fafc; --muted:#94a3b8; --accent:#38bdf8; --accent2:#2563eb; --ok:#10b981; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    header { border-bottom:1px solid var(--border); background:#0f172a; padding:16px 24px; }
+    .wrap { max-width:1160px; margin:0 auto; }
+    .hero { background:linear-gradient(135deg,#0f172a,#1e1b4b); border:1px solid var(--border); border-radius:16px; padding:28px; margin:28px 0; }
+    .badge { background:rgba(56,189,248,0.15); color:var(--accent); border:1px solid rgba(56,189,248,0.35); padding:3px 10px; border-radius:999px; font-size:12px; font-weight:600; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:24px; margin-bottom:40px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:24px; }
+    label { display:block; font-size:13px; font-weight:600; color:#cbd5e1; margin:12px 0 6px; }
+    input, select, textarea { width:100%; background:#0f172a; border:1px solid var(--border); color:var(--text); padding:10px 12px; border-radius:8px; font-size:14px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; background:var(--accent2); color:#fff; border:none; padding:10px 16px; border-radius:8px; font-weight:600; font-size:14px; cursor:pointer; text-decoration:none; }
+    .btn-sec { background:#1e293b; border:1px solid var(--border); }
+    pre { background:#090d16; border:1px solid var(--border); border-radius:10px; padding:14px; overflow-x:auto; font-size:12.5px; color:#e2e8f0; max-height:420px; white-space:pre-wrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <a href="/" style="color:#fff;text-decoration:none;font-weight:800;font-size:18px;">? DACH Digitalwerk <span class="badge">EU AI Act Art. 4 &amp; Art. 50 Suite</span></a>
+      <div style="display:flex;gap:10px;">
+        <a href="/bfsg-barrierefreiheit-audit-generator/" class="btn btn-sec">? BFSG 2026 Suite</a>
+        <a href="/" class="btn btn-sec">Alle 45+ B2B-Tools</a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap" id="main-content">
+    <section class="hero">
+      <span class="badge">Geltendes EU-Recht nach Artikel 4 &amp; Artikel 50 KI-Verordnung (EU AI Act)</span>
+      <h1 style="margin:10px 0 12px;font-size:clamp(24px,3vw,36px);">EU AI Act: KI-Richtlinien- &amp; Artikel-4-Kompetenznachweis-Generator f?r KMU &amp; Agenturen</h1>
+      <p style="color:var(--muted);max-width:850px;margin:0;">
+        Gem?? <strong>Artikel 4 der europ?ischen KI-Verordnung (EU AI Act)</strong> sind alle Arbeitgeber und Betreiber verpflichtet, ein ausreichendes Ma? an KI-Kompetenz (AI Literacy) bei Mitarbeitenden und Auftragnehmern sicherzustellen und zu dokumentieren, sobald Tools wie ChatGPT, Claude, Microsoft Copilot oder Midjourney beruflich genutzt werden. Erstellen Sie hier kostenlos Ihre interne <strong>Unternehmens-KI-Richtlinie (AI Policy) + Mitarbeitereinweisung</strong> zum sofortigen Download.
+      </p>
+    </section>
+
+    <div class="grid">
+      <div class="card">
+        <h2 style="margin-top:0;">?? 1. Unternehmensdaten &amp; eingesetzte KI-Systeme</h2>
+        <label for="ai-comp">Unternehmensname</label>
+        <input type="text" id="ai-comp" value="Muster Consulting GmbH" oninput="genPolicy()" />
+
+        <label for="ai-officer">KI-Verantwortliche Person / Gesch?ftsf?hrung</label>
+        <input type="text" id="ai-officer" value="Max Mustermann (Gesch?ftsf?hrung / AI Officer)" oninput="genPolicy()" />
+
+        <label for="ai-tools">Freigegebene KI-Systeme im Unternehmen</label>
+        <input type="text" id="ai-tools" value="ChatGPT Enterprise / Team, Microsoft 365 Copilot, Claude Pro, GitHub Copilot" oninput="genPolicy()" />
+
+        <label for="ai-risk">Risikoeinstufung nach Art. 6 / Art. 50 EU AI Act</label>
+        <select id="ai-risk" onchange="genPolicy()">
+          <option value="low">Minimales / Begrenztes Risiko (Text-, Code-, Analyse- &amp; Chatbot-Assistenz nach Art. 50)</option>
+          <option value="high">Erh?hte Anforderungen (HR-Bewerbervorauswahl, Kreditw?rdigkeit, kritische Infrastruktur)</option>
+        </select>
+
+        <label for="ai-privacy">DSGVO &amp; Geheimhaltungsvorgabe</label>
+        <select id="ai-privacy" onchange="genPolicy()">
+          <option value="strict">Strikt: Keine personenbezogenen Klardaten (Art. 4 DSGVO) oder Gesch?ftsgeheimnisse in ?ffentliche Prompts</option>
+          <option value="avv">AVV-basiert: Nutzung ausschlie?lich ?ber Enterprise-Instanzen mit EU-Hosting &amp; Auftragsverarbeitungsvertrag (Art. 28 DSGVO)</option>
+        </select>
+
+        <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
+          <button type="button" class="btn" onclick="copyPolicy()">?? Richtlinie kopieren</button>
+          <button type="button" class="btn btn-sec" onclick="downloadPolicy()">? Als .MD / .TXT herunterladen</button>
+        </div>
+        <span id="ai-toast" style="font-size:12px;color:var(--ok);display:none;margin-left:8px;">? Kopiert!</span>
+      </div>
+
+      <div class="card">
+        <h2 style="margin-top:0;">?? 2. Generierte KI-Richtlinie &amp; Art.-4-Unterweisungsnachweis</h2>
+        <pre id="policy-out"></pre>
+      </div>
+    </div>
+  </main>
+  <script src="/bfsg-barrierefreiheit-audit-generator/bfsg-a11y-widget.min.js" defer></script>
+  <script>
+    function genPolicy() {
+      var comp = document.getElementById('ai-comp').value.trim() || 'Muster GmbH';
+      var off = document.getElementById('ai-officer').value.trim() || 'Gesch?ftsf?hrung';
+      var tools = document.getElementById('ai-tools').value.trim();
+      var risk = document.getElementById('ai-risk').value;
+      var priv = document.getElementById('ai-privacy').value;
+      var today = new Date().toISOString().slice(0, 10);
+
+      var privText = priv === 'strict'
+        ? 'Es ist strikt untersagt, personenbezogene Klardaten von Kunden, Patienten oder Mitarbeitenden (Namen, E-Mail-Adressen, IBAN, Gesundheitsdaten) sowie vertrauliche Gesch?ftsgeheimnisse in nicht-anonymisierter Form in KI-Eingabemasken einzugeben.'
+        : 'Personenbezogene Daten d?rfen ausschlie?lich in den ausdr?cklich durch die IT-Leitung freigegebenen Enterprise-Instanzen verarbeitet werden, f?r die ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO sowie ein Ausschluss des Modelltrainings besteht.';
+
+      var riskText = risk === 'low'
+        ? 'Die eingesetzten Systeme dienen der Assistenz (begrenztes/minimales Risiko). Es werden keine vollautomatisierten Entscheidungen im Sinne von Art. 22 DSGVO oder Hochrisiko-Klassifizierungen gem?? Anhang III EU AI Act ohne menschliche Endkontrolle durchgef?hrt.'
+        : 'ACHTUNG (Anhang III EU AI Act): F?r KI-gest?tzte Prozesse im Bereich HR/Personal, Bonit?t oder kritischer Infrastruktur gilt die Pflicht zur menschlichen Aufsicht (Human-in-the-Loop nach Art. 14 EU AI Act), Protokollierung und Risikofolgeabsch?tzung.';
+
+      var out = `# INTERNE KI-RICHTLINIE (AI POLICY) & KOMPETENZNACHWEIS NACH ART. 4 EU AI ACT
+Unternehmen: ${comp}
+Verantwortliche Stelle: ${off}
+Stand / Inkrafttreten: ${today}
+
+## ? 1 Zweck und gesetzliche Grundlage (Art. 4 KI-Verordnung)
+Diese Richtlinie regelt den sicheren, rechtskonformen und ethischen Einsatz von Systemen K?nstlicher Intelligenz (KI) innerhalb der ${comp} und dient zugleich als dokumentierter Unterweisungs- und Kompetenznachweis gem?? Artikel 4 der Verordnung (EU) 2024/1689 (EU AI Act).
+
+## ? 2 Freigegebene KI-Systeme (Whitelist)
+F?r die berufliche Nutzung sind ausschlie?lich folgende Systeme und Lizenzen freigegeben:
+- ${tools}
+Die Nutzung nicht gepr?fter Browser-Extensions oder kostenloser Privatkonten ohne deaktiviertes Modelltraining f?r gesch?ftliche Daten ist untersagt (Schatten-KI-Verbot).
+
+## ? 3 Datenschutz (DSGVO) & Schutz von Gesch?ftsgeheimnissen (GeschGehG)
+${privText}
+
+## ? 4 Pflicht zur menschlichen Endkontrolle (Human-in-the-Loop & Halluzinationspr?fung)
+1. KI-Sprach- und Bildmodelle arbeiten probabilistisch und k?nnen sachlich falsche Angaben ("Halluzinationen"), fehlerhaften Programmcode oder urheberrechtlich gesch?tzte Fragmente erzeugen.
+2. Jedes KI-generierte Arbeitsergebnis (Texte, Analysen, Quellcode, Vertr?ge) muss vor Weitergabe an Kunden oder Ver?ffentlichung durch eine fachkundige Person auf Richtigkeit, Vollst?ndigkeit und Urheberrechtskonformit?t gepr?ft werden.
+3. ${riskText}
+
+## ? 5 Transparenzpflichten nach Art. 50 EU AI Act
+- Interagieren externe Nutzer direkt mit einem KI-System (z. B. Kunden-Chatbot oder KI-Telefonassistent), werden sie zu Beginn klar dar?ber informiert.
+- Synthetisch erzeugte oder manipulierte Audio-, Bild- oder Videoinhalte (Deepfakes) werden gem?? Art. 50 Abs. 2 & 4 EU AI Act maschinenlesbar und sichtbar gekennzeichnet.
+
+## ? 6 Best?tigung der Mitarbeiter-Unterweisung (Art. 4 EU AI Act)
+Ich best?tige, diese KI-Richtlinie gelesen und verstanden zu haben und ?ber die Funktionsweise, Risiken (Halluzinationen, Bias, Datenschutz) sowie Pr?fpflichten der eingesetzten KI-Systeme unterwiesen worden zu sein.
+
+Ort, Datum: _______________________    Unterschrift Mitarbeiter/in: _______________________`;
+
+      document.getElementById('policy-out').textContent = out;
+    }
+
+    function copyPolicy() {
+      navigator.clipboard.writeText(document.getElementById('policy-out').textContent).then(function(){
+        var t = document.getElementById('ai-toast');
+        t.style.display = 'inline';
+        setTimeout(function(){ t.style.display = 'none'; }, 2500);
+      });
+    }
+
+    function downloadPolicy() {
+      var blob = new Blob([document.getElementById('policy-out').textContent], { type: 'text/markdown;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'ki-richtlinie-art4-eu-ai-act.md';
+      a.click();
+    }
+
+    genPolicy();
+  </script>
+</body>
+</html>
